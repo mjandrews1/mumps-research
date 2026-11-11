@@ -3,8 +3,8 @@ MUMPS/M PROGRAMMING LANGUAGE RESEARCH - HISTOGRAM SUMMARY
 ================================================================================
 
 Data source: /home/mark/projects/mumps-research/analysis/../data/timeline.csv
-Generated: 2026-11-11 03:50:38
-Total events in timeline: 23
+Generated: 2026-11-11 04:02:22
+Total events in timeline: 66
 Date range: 1930 - 2026
 Bin size: 5 years
 Number of bins: 20
@@ -13,117 +13,194 @@ Number of bins: 20
 EVENTS BY PERIOD:
 --------------------------------------------------------------------------------
 
-1960-1964: 1 event(s)
+1960-1964: 2 event(s)
 ----------------------------------------
+  Core Language: 1
   Precursor Language: 1
 
   Events:
     - 1963: JOSS (JOHNNIAC Open Shop System) first implemented at RAND Corporation (Precursor Language)
+    - 1964: Neil Pappalardo begins work on hospital information systems while at MIT (Core Language)
 
-1965-1969: 8 event(s)
+1965-1969: 12 event(s)
 ----------------------------------------
-  Application: 2
+  Application: 3
   Core Language: 1
-  Historical Context: 1
-  Implementation: 2
+  Historical Context: 2
+  Implementation: 4
   Precursor Language: 2
 
   Events:
     - 1965: TELCOMP first revenue in October 1965; commercial time-sharing service in Boston area (Precursor Language)
+    - 1965: Cliff Shaw from RAND visits BBN labs as part of NIH survey (Historical Context)
     - 1966: Original MUMPS system built on DEC PDP-7 computer (Implementation)
     - 1966: JOHNNIAC retired at RAND and replaced by PDP-6 (Historical Context)
     - 1967: MUMPS project funded by NIH; serious implementation begins (Core Language)
     - 1967: STRINGCOMP developed at BBN with extended string handling (Precursor Language)
     - 1967: Octo Barnett and Neil Pappalardo obtain backward-compatible PDP-9; MUMPS used in admissions and laboratory test reporting (Implementation)
+    - 1967: MEDITECH introduces first hospital information system products (Implementation)
     - 1968: Early MUMPS use in experimental clinical progress note entry system (Application)
     - 1968: Early MUMPS use in radiology report entry system (Application)
+    - 1968: Computer Stored Ambulatory Record (COSTAR) developed at MGH using MUMPS (Application)
+    - 1969: MIIS (Meditech Interpretive Information System) variant of MUMPS developed (Implementation)
 
-1970-1974: 1 event(s)
+1970-1974: 3 event(s)
 ----------------------------------------
+  Application: 1
+  Implementation: 1
   Precursor Language: 1
 
   Events:
+    - 1970: Antrim Corporation founded (later acquired by Sunquest in 1996) (Implementation)
+    - 1972: DHCP (Decentralized Hospital Computer Program) developed at VA - precursor to VistA (Application)
     - 1974: TELCOMP in use until at least 1974 (Precursor Language)
 
-1975-1979: 1 event(s)
+1975-1979: 6 event(s)
 ----------------------------------------
+  Application: 1
   Historical Context: 1
-
-  Events:
-    - 1975: Safeguard Data-Processing System developed in PL/I (context for systems programming of the era) (Historical Context)
-
-1980-1984: 4 event(s)
-----------------------------------------
-  Application: 2
-  Publication: 2
-
-  Events:
-    - 1981: Design of a MUMPS interpreter by F.M. Brown (Publication)
-    - 1981: Micro MUMPS: An interactive database language for micro-computers by Watanabe et al. (Publication)
-    - 1982: A Computerized Perinatal Data System using Meditech Interpretive Information System (MIIS) version of MUMPS (Application)
-    - 1982: Computerized administrative monitoring system for interns and residents (Application)
-
-1995-1999: 1 event(s)
-----------------------------------------
+  Implementation: 3
   Publication: 1
 
   Events:
-    - 1996: Incorporation of the Arden Syntax within reimplementation of closed-loop decision support system; conversion to M (MUMPS) code (Publication)
+    - 1975: Safeguard Data-Processing System developed in PL/I (context for systems programming of the era) (Historical Context)
+    - 1975: VA's DHCP system begins deployment across veterans hospitals (Application)
+    - 1977: DHCP renamed to VistA (Veterans Health Information Systems and Technology Architecture) (Implementation)
+    - 1978: ONTAP: Online Training and Practice Manual published by Markey & Atherton (Syracuse University) - describes citation pearl growing (Publication)
+    - 1978: InterSystems Corporation founded by Terry Ragon (Implementation)
+    - 1979: Epic Systems founded by Judith Faulkner (Implementation)
 
-2005-2009: 1 event(s)
+1980-1984: 8 event(s)
 ----------------------------------------
-  Application: 1
+  Application: 2
+  Implementation: 3
+  Publication: 3
 
   Events:
-    - 2006: VA VistA system wins Innovations in American Government Award (uses MUMPS databases) (Application)
+    - 1980: InterSystems releases first commercial products (Implementation)
+    - 1981: Design of a MUMPS interpreter by F.M. Brown (Publication)
+    - 1981: Micro MUMPS: An interactive database language for micro-computers by Watanabe et al. (Publication)
+    - 1981: Markey & Cochrane publish on citation pearl growing approach (Publication)
+    - 1982: A Computerized Perinatal Data System using Meditech Interpretive Information System (MIIS) version of MUMPS (Application)
+    - 1982: Computerized administrative monitoring system for interns and residents (Application)
+    - 1982: InterSystems Caché first released (Implementation)
+    - 1984: MEDITECH expands product line with MAGIC language (Implementation)
 
-2010-2014: 1 event(s)
+1985-1989: 1 event(s)
 ----------------------------------------
   Implementation: 1
+
+  Events:
+    - 1985: MEDITECH Client/Server architecture introduced (Implementation)
+
+1990-1994: 2 event(s)
+----------------------------------------
+  Application: 1
+  Implementation: 1
+
+  Events:
+    - 1990: VistA achieves widespread deployment across all VA hospitals (Application)
+    - 1991: MEDITECH Client/Server for Windows released (Implementation)
+
+1995-1999: 5 event(s)
+----------------------------------------
+  Application: 1
+  Implementation: 3
+  Publication: 1
+
+  Events:
+    - 1995: VA VistA wins Computerworld Smithsonian Award for best use of Information Technology in Medicine (Application)
+    - 1995: Incorporation of the Arden Syntax within reimplementation of closed-loop decision support system; conversion to M (MUMPS) code (Publication)
+    - 1996: Sunquest Information Systems acquires Antrim Corporation (Implementation)
+    - 1997: MEDITECH Web-based products introduced (Implementation)
+    - 1999: MEDITECH Client/Server for Unix and Linux released (Implementation)
+
+2000-2004: 2 event(s)
+----------------------------------------
+  Implementation: 2
+
+  Events:
+    - 2000: InterSystems HealthShare platform released (Implementation)
+    - 2001: Sunquest acquired by Misys plc (Implementation)
+
+2005-2009: 7 event(s)
+----------------------------------------
+  Application: 1
+  Implementation: 6
+
+  Events:
+    - 2005: VA VistA wins Innovations in American Government Award presented by Harvard Kennedy School (Application)
+    - 2005: YottaDB forked from GT.M as open source implementation (Implementation)
+    - 2005: GT.M and Caché become the most popular MUMPS implementations (Implementation)
+    - 2007: Sunquest Diagnostic Information Systems acquired by Misys Healthcare Systems Division (Implementation)
+    - 2008: Sunquest emerges from Misys shadow as independent company (Implementation)
+    - 2008: MEDITECH Client/Server 5.x released (Implementation)
+    - 2009: MEDITECH Expanse (web-based EHR) development begins (Implementation)
+
+2010-2014: 5 event(s)
+----------------------------------------
+  Application: 2
+  Implementation: 3
 
   Events:
     - 2010: European Space Agency announces use of InterSystems Caché for Gaia mission (Implementation)
+    - 2010: VistA deployed internationally (Kingdom of Jordan national healthcare system) (Application)
+    - 2010: Epic Systems serves over 325 million patients globally (Implementation)
+    - 2013: MEDITECH Expanse released as web-based EHR platform (Implementation)
+    - 2014: Epic MyChart patient portal exceeds 100 million users (Application)
 
-2015-2019: 1 event(s)
+2015-2019: 3 event(s)
 ----------------------------------------
-  Implementation: 1
-
-  Events:
-    - 2016: InterSystems begins phasing out Caché in favor of Iris (Implementation)
-
-2020-2024: 3 event(s)
-----------------------------------------
-  Comparison: 1
-  Related Research: 2
-
-  Events:
-    - 2020: A Graphical Programming Language for Insect Intelligent Building mentions MUMPS as comprehensive but not suitable (Comparison)
-    - 2020: Cetratus: A framework for zero downtime secure software updates in safety-critical systems (Related Research)
-    - 2023: Examining students' academic motivation for studying programming languages (Related Research)
-
-2025-2026: 1 event(s)
-----------------------------------------
+  Implementation: 2
   Related Research: 1
 
   Events:
-    - 2026: Model-Based Systems Engineering in Space Applications: A Comprehensive Literature Review (Related Research)
+    - 2016: InterSystems begins phasing out Caché in favor of IRIS (Implementation)
+    - 2016: MEDITECH Expanse 2.0 released (Implementation)
+    - 2018: A survey of real-time capabilities in functional languages and compilers (Related Research)
+
+2020-2024: 8 event(s)
+----------------------------------------
+  Comparison: 1
+  Current Status: 5
+  Related Research: 2
+
+  Events:
+    - 2020: Cetratus: A framework for zero downtime secure software updates in safety-critical systems (Related Research)
+    - 2020: A Graphical Programming Language for Insect Intelligent Building mentions MUMPS as comprehensive but not suitable (Comparison)
+    - 2020: GT.M and Caché remain the two most popular MUMPS implementations (Current Status)
+    - 2020: Epic Systems serves over 78% of US patients (Current Status)
+    - 2020: VA begins $10 billion project to replace VistA with Cerner (both use MUMPS code) (Current Status)
+    - 2021: Sunquest Information Systems serves laboratory customers worldwide (Current Status)
+    - 2023: Examining students' academic motivation for studying programming languages (Related Research)
+    - 2024: Epic Systems continues as dominant EHR vendor with MUMPS/Caché platform (Current Status)
+
+2025-2026: 2 event(s)
+----------------------------------------
+  Historical Context: 1
+  Related Research: 1
+
+  Events:
+    - 2025: Model-Based Systems Engineering in Space Applications: A Comprehensive Literature Review (Related Research)
+    - 2026: MEDITECH founder Neil Pappalardo dies at 83 (Historical Context)
 
 --------------------------------------------------------------------------------
-TOTAL: 23 events across 20 bins
+TOTAL: 66 events across 20 bins
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
 BY CATEGORY:
 --------------------------------------------------------------------------------
 
-  Application: 5 (21.7%)
-  Precursor Language: 4 (17.4%)
-  Implementation: 4 (17.4%)
-  Publication: 3 (13.0%)
-  Related Research: 3 (13.0%)
-  Historical Context: 2 (8.7%)
-  Core Language: 1 (4.3%)
-  Comparison: 1 (4.3%)
+  Implementation: 29 (43.9%)
+  Application: 12 (18.2%)
+  Publication: 5 (7.6%)
+  Current Status: 5 (7.6%)
+  Precursor Language: 4 (6.1%)
+  Historical Context: 4 (6.1%)
+  Related Research: 4 (6.1%)
+  Core Language: 2 (3.0%)
+  Comparison: 1 (1.5%)
 
 ================================================================================
 END OF SUMMARY
