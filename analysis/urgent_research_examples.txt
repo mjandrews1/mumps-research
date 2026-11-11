@@ -1,0 +1,191 @@
+# URGENT RESEARCH EXAMPLES
+# For Library & Information Science, Healthcare IT, and Software Engineering
+# Date: 2026-11-11
+# Author: Mistral Vibe
+
+---
+
+[SECTION 1: LIBRARY & INFORMATION SCIENCE]
+
+1. AI in Libraries - The Next 5 Years
+   Why urgent: AI is transforming library services NOW
+   - AI-powered cataloging and metadata enhancement
+   - Chatbots for reference services
+   - AI in collection development
+   - Ethical considerations (bias, privacy, transparency)
+   Your advantage: Domain knowledge + research skills
+   Impact: High - Libraries are adopting AI but lack best practices
+
+2. Digital Preservation Crisis
+   Why urgent: Digital content is being lost DAILY
+   - Obsolete formats (floppy disks, early websites)
+   - Lack of preservation infrastructure
+   - Funding cuts
+   Your advantage: Library automation experience with data management
+   Impact: Critical - Digital heritage is disappearing
+
+3. Open Access Sustainability
+   Why urgent: Open access is under threat
+   - Rising APCs (Article Processing Charges)
+   - Predatory journals
+   - Publisher consolidation
+   Your advantage: Research and policy analysis skills
+   Impact: High - Affects scholarly communication globally
+
+4. Library Data Privacy
+   Why urgent: Patron data is at risk
+   - Surveillance capitalism
+   - Poor security in library systems
+   - Lack of privacy policies
+   Your advantage: Understanding of information systems
+   Impact: High - Protects patron rights
+
+5. Modernizing Library Automation Systems
+   Why urgent: Many libraries use LEGACY SYSTEMS
+   - Lack modern features
+   - Security vulnerabilities
+   - Integration difficulties
+   Your advantage: Direct MUMPS experience + library domain knowledge
+   Impact: VERY HIGH - Directly relevant to your expertise
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 2: HEALTHCARE IT / MUMPS]
+
+1. MUMPS Developer Shortage Crisis
+   Why urgent: Average MUMPS developer is 60+ years old
+   - Mass retirements in next 5-10 years
+   - Few new developers entering the field
+   - Critical systems (Epic, VistA, MEDITECH) at risk
+   Your advantage: You're part of this demographic AND understand the problem
+   Impact: CRITICAL - Could affect healthcare for millions
+
+2. MUMPS to Cloud Migration
+   Why urgent: Healthcare is moving to cloud
+   - MUMPS was designed for on-premises
+   - Cloud providers lack MUMPS expertise
+   - Security/compliance concerns (HIPAA)
+   Your advantage: Deep MUMPS knowledge
+   Impact: CRITICAL - Healthcare organizations need guidance NOW
+
+3. MUMPS Security Vulnerabilities
+   Why urgent: Legacy systems are targets
+   - MUMPS databases often lack modern security
+   - Many systems pre-date internet connectivity
+   - Vulnerabilities in global storage mechanism
+   Your advantage: Understanding of MUMPS internals
+   Impact: CRITICAL - Patient data at risk
+
+4. EHR Interoperability
+   Why urgent: Patient data is siloed
+   - Different EHR vendors can't share data
+   - Standards (FHIR, HL7) are underutilized
+   - MUMPS systems need to integrate
+   Your advantage: MUMPS + healthcare domain knowledge
+   Impact: VERY HIGH - Improves patient care
+
+5. Healthcare Data Standards Adoption
+   Why urgent: Standards exist but aren't used
+   - FHIR adoption is slow
+   - Legacy systems resist change
+   - Vendors create proprietary formats
+   Your advantage: Standards research experience
+   Impact: High - Enables data exchange
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 3: SOFTWARE ENGINEERING]
+
+1. AI-Assisted Programming Impact
+   Why urgent: LLMs are changing software development NOW
+   - How do they affect code quality?
+   - What's the impact on productivity?
+   - How do we handle IP/licensing issues?
+   Your advantage: You're already exploring this with Mistral
+   Impact: VERY HIGH - Affects all software development
+
+2. Software Supply Chain Security
+   Why urgent: Attacks are increasing
+   - Log4j vulnerability (2021)
+   - Dependency confusion attacks
+   - Lack of SBOMs (Software Bill of Materials)
+   Your advantage: Understanding of system dependencies
+   Impact: CRITICAL - Affects all software
+
+3. Sustainable Computing
+   Why urgent: Software's carbon footprint is growing
+   - Data centers consume massive energy
+   - Inefficient algorithms waste resources
+   - Green software development practices needed
+   Your advantage: Systems thinking from library automation
+   Impact: High - Environmental importance
+
+4. Ethical AI in Software
+   Why urgent: AI systems have real-world consequences
+   - Bias in algorithms
+   - Lack of transparency
+   - Accountability issues
+   Your advantage: Research and critical thinking skills
+   Impact: High - Social importance
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 4: MOST URGENT FOR YOU]
+
+1. The MUMPS Developer Pipeline Crisis
+   Research focus: How to train the next generation of MUMPS developers
+   Why this fits you:
+   - You understand the problem firsthand
+   - You have 40 years of context
+   - You can identify what's missing in training
+   - Healthcare IT NEEDS this research
+   Deliverables:
+   - Survey of current MUMPS developers
+   - Analysis of training programs
+   - Recommendations for certification/education
+   - Publication in healthcare IT journals
+   Timeline: 12-18 months (shorter than formal methods project)
+
+2. Modernizing MUMPS-Based Library Systems
+   Research focus: Migration strategies for libraries still using MUMPS
+   Why this fits you:
+   - Your library automation experience
+   - Your MUMPS expertise
+   - Real-world impact on libraries
+   - Few people have both skillsets
+   Deliverables:
+   - Case studies of library MUMPS migrations
+   - Best practices guide
+   - Cost-benefit analysis
+   - Publication in library journals
+   Timeline: 18-24 months
+
+3. MUMPS Security Hardening
+   Research focus: Identifying and mitigating MUMPS vulnerabilities
+   Why this fits you:
+   - Healthcare security is critical
+   - Your MUMPS internals knowledge
+   - Immediate, actionable results
+   - Can collaborate with security researchers
+   Deliverables:
+   - Vulnerability assessment methodology
+   - Security best practices
+   - Proof-of-concept fixes
+   - Publication in security conferences
+   Timeline: 12-18 months
+
+---
+
+END OF URGENT RESEARCH EXAMPLES
