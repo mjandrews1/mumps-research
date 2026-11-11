@@ -1,0 +1,463 @@
+# URGENT SOFTWARE ENGINEERING RESEARCH EXAMPLES
+# SORTED BY URGENCY - Deadline Extended to December 2030
+# Bite-Sized Version - Press Enter to Advance
+# Date: 2026-11-11
+# Author: Mistral Vibe
+
+---
+
+[SECTION 1: PROJECT RESTUCTURING]
+
+NEW APPROACH: Urgency-First with Extended Deadline
+
+DEADLINE EXTENDED: From October 4, 2029 to December 31, 2030
+  (+14 months = 50 months total)
+
+REORGANIZATION PRINCIPLE:
+  Urgent milestones FIRST, then original work packages
+
+PHASE 1 (Months 1-18): Urgent Industry Impact
+  - U1: AI-Assisted Programming (Months 3-6)
+  - U2: Developer Shortage Survey (Months 6-9)
+  - U3: Security Audit (Months 9-12)
+  - U4: Cloud Migration (Months 12-15)
+  - U5: Supply Chain Security (Months 15-18)
+
+PHASE 2-5 (Months 18-60): Core Research
+  - Standards conformance, formal verification, metrics
+  - Kotlin implementation, benchmarking, tools
+  - Statistical analysis, publication
+
+BENEFITS:
+1. Addresses immediate industry needs FIRST
+2. Produces 5 publications in first 18 months
+3. Builds skills needed for formal methods work
+4. Provides flexibility - can adjust scope
+5. Extra time reduces pressure on learning curve
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 2: PRIORITY 1 - CRITICAL URGENCY]
+
+PRIORITY LEVEL: CRITICAL (P1)
+TIMEFRAME: Months 3-12
+PUBLICATIONS: 3 deliverables
+
+Two milestones at this level:
+
+A) U2: MUMPS DEVELOPER SHORTAGE SURVEY (Months 6-9)
+   Why CRITICAL:
+   - Average MUMPS developer: 60+ years old
+   - Mass retirements in next 5-10 years
+   - Systems at risk: Epic, VistA, MEDITECH, Partnership HealthPlan
+   - These systems support MILLIONS of patients
+   - Without developers: No maintenance, no security patches, no new features
+   - System failures could affect patient care
+
+   Your advantage: 40 years context + you're part of this demographic
+   Deliverable: White paper "The Looming MUMPS Developer Crisis"
+   Timeline: 3 months
+
+B) U3: MUMPS SECURITY AUDIT (Months 9-12)
+   Why CRITICAL:
+   - Patient data is at risk RIGHT NOW
+   - Healthcare is prime target for attackers
+   - HIPAA violations: $100-$50,000 per record
+   - One breach = millions in fines + reputation damage
+   - MUMPS systems designed before internet era
+
+   Vulnerabilities to address:
+   1. Global storage mechanism (shared memory, no auth)
+   2. Authentication issues (weak policies, hardcoded creds)
+   3. Input validation (no sanitization, injection attacks)
+   4. Data access controls (all-or-nothing, poor auditing)
+   5. Network security (plaintext protocols, MITM attacks)
+
+   Deliverable: Publication "Security Vulnerabilities in MUMPS: Assessment and Mitigation"
+   Timeline: 3 months
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 3: PRIORITY 2 - HIGH URGENCY]
+
+PRIORITY LEVEL: HIGH (P1/P2)
+TIMEFRAME: Months 3-18
+PUBLICATIONS: 3 deliverables
+
+Three milestones at this level:
+
+A) U1: AI-ASSISTED PROGRAMMING (Months 3-6)
+   Why HIGH URGENCY:
+   - AI is transforming software development NOW
+   - You're already using Mistral Medium 3.5
+   - Directly addresses your #1 constraint: limited software engineering experience
+   - Results are immediately publishable
+   - Novel research: LLMs + legacy languages
+
+   Research questions:
+   - How effective is Mistral at analyzing MUMPS code?
+   - Can it identify standards conformance issues?
+   - Can it guide formal verification?
+   - What are the accuracy, precision, recall metrics?
+
+   Deliverable: Paper "Evaluating LLMs for Legacy Code Analysis: A MUMPS Case Study"
+   Timeline: 3 months
+   Success: >80% issue identification, >70% precision/recall
+
+B) U4: CLOUD MIGRATION ANALYSIS (Months 12-15)
+   Why HIGH URGENCY:
+   - Healthcare organizations moving to cloud NOW
+   - MUMPS vendors developing cloud offerings (Epic, InterSystems)
+   - Customers need guidance NOW
+   - Few successful migrations to learn from
+
+   Challenges to address:
+   1. Architecture mismatch (single server vs distributed)
+   2. Performance issues (network latency, shared memory)
+   3. Scalability problems (vertical vs horizontal)
+   4. High availability (single-server vs multi-region)
+   5. Cost considerations (cloud can be more expensive)
+
+   Deliverable: Publication "MUMPS to Cloud: Migration Challenges and Best Practices"
+   Timeline: 3 months
+   Success: 3-5 case studies, performance comparison published
+
+C) U5: SUPPLY CHAIN SECURITY (Months 15-18)
+   Why HIGH URGENCY:
+   - Executive Order 14028 requires SBOMs (Software Bill of Materials)
+   - Affects healthcare systems (VA, DoD, etc.)
+   - Non-compliance = loss of government contracts
+   - Deadlines are approaching
+
+   Current state: NO standardized SBOM generation for MUMPS
+
+   Your research:
+   1. Develop methodology for SBOMs from MUMPS code
+   2. Create prototype tool for automated generation
+   3. Evaluate dependency vulnerabilities
+   4. Publish findings for community compliance
+
+   Deliverable: Publication "SBOM Generation for Legacy Systems: A MUMPS Case Study"
+   Timeline: 3 months
+   Success: Methodology documented, prototype tool created, analysis complete
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 4: EXTENDED TIMELINE SUMMARY]
+
+ORIGINAL SCHEDULE:
+  - Deadline: October 4, 2029 (36 months)
+  - Total effort: ~2,100 hours
+  - Average: ~14.5 hours/week
+
+NEW SCHEDULE:
+  - Deadline: December 31, 2030 (60 months = 5 years)
+  - Total effort: ~2,650-3,125 hours
+  - Average: ~11-13 hours/week
+
+EXTRA TIME ALLOCATION:
+  +14 months provides:
+  - Buffer for learning curve (especially formal methods)
+  - Flexibility for unexpected delays
+  - Time for deeper exploration
+  - More realistic pace for part-time work
+  - Contingency for health or other personal issues
+
+PHASE BREAKDOWN:
+
+Phase 1: Urgent Impact (Months 1-18)
+  Hours: ~900-1,125 (12-15 hrs/week)
+  Focus: U1-U5 + learning basics
+  Output: 5 publications
+
+Phase 2: Transition (Months 18-24)
+  Hours: ~500-600 (10-12 hrs/week)
+  Focus: Standards conformance
+  Output: 1 report
+
+Phase 3: Core Research (Months 25-36)
+  Hours: ~500-600 (10-12 hrs/week)
+  Focus: Formal verification + Kotlin
+  Output: 2 reports
+
+Phase 4: Implementation (Months 37-48)
+  Hours: ~500-600 (10-12 hrs/week)
+  Focus: Benchmarks + tools
+  Output: 2 reports
+
+Phase 5: Publication (Months 49-60)
+  Hours: ~250-300 (10-12 hrs/week)
+  Focus: Statistical analysis + main paper
+  Output: 1 main publication + archive
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 5: CONTINGENCY PLANNING]
+
+What if things don't go as planned?
+
+SCENARIO 1: Formal methods prove too difficult
+  ACTION: Focus on urgent milestones + standards/metrics/implementation
+  OUTCOME: Still deliver 8+ deliverables, 5+ publications
+  INCLUDES: U1-U5, WP1, WP2, WP4, WP5, WP6, WP8, WP9
+
+SCENARIO 2: Time runs short
+  PRIORITY ORDER:
+  P1 (Guaranteed): U1-U5 complete (5 publications)
+  P2 (Likely): WP1, WP2, WP4, WP9 complete (4 deliverables)
+  P3 (Best Effort): WP3, WP5, WP6, WP7, WP8 complete (5 deliverables)
+
+SCENARIO 3: Learning takes longer than expected
+  ACTION: Use extended timeline buffer
+  MITIGATION: Formal methods moved to Phase 3 (Months 25-36)
+  EXTRA TIME: +6 months vs original schedule for WP3
+
+SCENARIO 4: Personal issues (health, family, etc.)
+  ACTION: Adjust workload, focus on urgent work
+  FLEXIBILITY: 14-month buffer allows for reduced hours
+  MINIMUM: Can still complete all urgent milestones
+
+MINIMUM VIABLE PROJECT (if major delays):
+  - U1-U5: 5 publications (GUARANTEED)
+  - WP1, WP2: 2 deliverables (LIKELY)
+  - WP9: 1 main paper (LIKELY)
+  - Total: 8 deliverables, 5+ publications
+  - Impact: Still significant contribution to MUMPS community
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 6: SKILL BUILDING PATH]
+
+The urgency-first approach also builds skills gradually:
+
+PHASE 1 (Months 1-18) - Foundation Skills:
+  U1: AI/ML for code analysis (Mistral)
+  U2: Survey research methods
+  U3: Security analysis
+  U4: Cloud architecture patterns
+  U5: Tool development (SBOM generator)
+  WP1: Development environment, Git, basics
+
+PHASE 2 (Months 18-24) - Standards Work:
+  WP2: ISO 11756 analysis
+  Skills: Standards interpretation, conformance testing
+
+PHASE 3 (Months 25-36) - Formal Methods:
+  WP3: Dafny verification
+  Skills: Formal specification, proof construction
+  Extra time: 6 months buffer for learning curve
+
+PHASE 4 (Months 37-48) - Implementation:
+  WP5: Kotlin implementation
+  WP6: Benchmarking
+  WP8: LSP/formatter development
+  Skills: Language implementation, testing, tool development
+
+PHASE 5 (Months 49-60) - Analysis & Publication:
+  WP7: Statistical analysis
+  WP9: Documentation and writing
+  Skills: Data analysis, technical writing, peer review
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 7: PUBLICATION STRATEGY]
+
+PUBLICATION TIMELINE:
+
+Year 1 (Months 1-12):
+  Month 6: U1 paper - "Evaluating LLMs for Legacy Code Analysis"
+  Month 9: U2 white paper - "The Looming MUMPS Developer Crisis"
+  Month 12: U3 publication - "Security Vulnerabilities in MUMPS"
+  Total: 3 publications
+
+Year 2 (Months 13-24):
+  Month 15: U4 publication - "MUMPS to Cloud: Migration Best Practices"
+  Month 18: U5 publication - "SBOM Generation for Legacy Systems"
+  Month 24: WP2 report - Standards conformance (internal/white paper)
+  Total: 3 publications
+
+Year 3 (Months 25-36):
+  Month 36: WP3 report - Formal verification results
+  Month 36: WP5 report - Kotlin implementation
+  Total: 2 publications
+
+Year 4 (Months 37-48):
+  Month 42: WP4 report - Code metrics analysis
+  Month 48: WP6 report - Benchmarking results
+  Month 48: WP8 tools - LSP/formatter (open source release)
+  Total: 2-3 publications/releases
+
+Year 5 (Months 49-60):
+  Month 54: WP7 report - Statistical analysis
+  Month 60: WP9 manuscript - Main project paper
+  Total: 2 publications
+
+GRAND TOTAL: 12-13 publications + open source tools
+
+PUBLICATION VENUES (suggestions):
+  - U1: Software engineering conferences (ICSE, ESEC/FSE)
+  - U2: Healthcare IT journals (Journal of Medical Systems)
+  - U3: Security conferences (USENIX Security, IEEE S&P)
+  - U4: Cloud computing conferences/journals
+  - U5: Software supply chain security venues
+  - Main: MUMPS-specific or software engineering journals
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 8: IMPACT ASSESSMENT]
+
+EXPECTED IMPACT BY PRIORITY:
+
+PRIORITY 1 (U2, U3) - CRITICAL:
+  - U2: Shape training programs, influence hiring, inform industry strategy
+  - U3: Protect patient data, prevent breaches, improve system security
+  Impact level: Industry-wide, immediate
+
+PRIORITY 2 (U1, U4, U5) - HIGH:
+  - U1: Advance AI in legacy code analysis, novel research area
+  - U4: Guide cloud migration, save organizations time/money
+  - U5: Enable compliance, help community meet federal requirements
+  Impact level: Industry-wide, near-term
+
+CORE RESEARCH (WP2-WP9) - MEDIUM:
+  - WP2: Improve standards conformance across distributions
+  - WP3: Advance formal verification of MUMPS
+  - WP4: Establish code quality metrics
+  - WP5: Provide modern implementation reference
+  - WP6: Enable performance comparison
+  - WP7: Validate statistical approaches
+  - WP8: Improve developer productivity
+  - WP9: Scientific contribution to software engineering
+  Impact level: Community-wide, long-term
+
+OVERALL IMPACT:
+  Short-term (1-2 years): Urgent work addresses immediate crises
+  Medium-term (2-4 years): Core research provides foundation
+  Long-term (4-5+ years): Scientific contributions advance field
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 9: NEXT STEPS]
+
+IMMEDIATE ACTIONS (Month 1):
+
+1. Set up development environment
+   - Install Git, VS Code, development tools
+   - Configure workspace for MUMPS research
+
+2. Begin U1 preparation
+   - Collect MUMPS code samples
+   - Identify known conformance issues
+   - Design benchmark dataset
+
+3. Begin WP1 learning
+   - Start Kotlin fundamentals (JetBrains Academy)
+   - Install and test Mistral Medium 3.5
+   - Begin Dafny tutorials
+
+4. Start documentation
+   - Create project wiki or README
+   - Set up issue tracking
+   - Document all setup steps
+
+MONTH 1 GOALS:
+  - Development environment operational
+  - U1 benchmark dataset v1 complete
+  - Kotlin basics learned
+  - Mistral Medium 3.5 functional
+  - Dafny tutorials started
+
+MONTH 2-3 GOALS:
+  - Complete U1 (AI-Assisted Programming)
+  - Publish U1 paper
+  - Begin U2 preparation
+  - Continue WP1 learning
+
+RECOMMENDED START DATE: November 2026 (or as soon as possible)
+
+---
+
+Press Enter to continue...
+
+---
+
+[SECTION 10: SUMMARY]
+
+PROJECT OVERVIEW:
+  - Title: Evaluating Open Source MUMPS/M Distributions
+  - Deadline: December 31, 2030 (50 months)
+  - Focus: Urgency-first, software engineering topics
+  - Effort: 11-13 hours/week average
+
+PRIORITY 1 (CRITICAL):
+  - U2: Developer Shortage Survey (Months 6-9)
+  - U3: Security Audit (Months 9-12)
+  => Addresses immediate industry crises
+
+PRIORITY 2 (HIGH):
+  - U1: AI-Assisted Programming (Months 3-6)
+  - U4: Cloud Migration (Months 12-15)
+  - U5: Supply Chain Security (Months 15-18)
+  => Addresses urgent industry needs
+
+CORE RESEARCH:
+  - WP2-WP9: Standards, verification, metrics, implementation
+  => Long-term scientific contribution
+
+EXPECTED OUTCOMES:
+  - 12-13 publications
+  - Open source tools (LSP, formatter, SBOM generator)
+  - Industry impact through urgent work
+  - Scientific contribution through formal methods
+  - Personal skill development
+
+FEASIBILITY:
+  - Realistic schedule with buffer
+  - Incremental skill building
+  - Flexible scope
+  - Multiple "minimum viable" outcomes
+
+The urgency-first approach with extended deadline makes this project:
+  - MORE IMPACTFUL (addresses immediate needs)
+  - MORE FEASIBLE (realistic timeline, gradual learning)
+  - MORE FLEXIBLE (can adjust scope)
+  - MORE MOTIVATING (quick wins, visible progress)
+
+---
+
+END OF URGENT RESEARCH EXAMPLES (SORTED)
+
+For complete details, see: research_project_design_urgency_first.md
+Previous version: urgent_research_examples_bitesized.txt
