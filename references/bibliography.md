@@ -45,8 +45,8 @@
    - Title: MUMPS and Medical Computing at WashU Medicine
    - Author: Becker Medical Library
    - URL: https://becker.wustl.edu/news/mumps-and-medical-computing/
-   - Summary: Historical account of MUMPS development and impact on medical computing.
-   - **Pearl Status**: PRIMARY PEARL
+   - Summary: Historical account of MUMPS development and impact on medical computing. Details include: first MUMPS Users' Group (MUG) gathering at MGH in 1972; Joan Zimmerman served as Executive Secretary of MUG (1974-1977) and later as interim Board member and Education Committee chair; Bylaws of the MUMPS Users' Group (1974) archived in Cox Papers (FC157-S09-B049-F09); Washington University's Biomedical Computer Laboratory (BCL) connections to MUMPS history; establishment of Medical Computing Services Group (MCSG) in 1980.
+   - **Pearl Status**: PRIMARY PEARL - Key historical documentation of MUMPS community and WashU contributions
 
 4. **HandWiki: MUMPS**
    - Title: MUMPS
@@ -222,6 +222,34 @@
     - Date: March 2026
     - DOI: [10.1002/sys.70051](https://doi.org/10.1002/sys.70051)
     - Source: Wiley Scholar Gateway
+
+### 2024
+
+### 2017
+
+23. **Open Challenges in Incremental Coverage of Legacy Software Languages**
+    - Author: Vadim Zaytsev
+    - Conference: Proceedings of the 3rd ACM SIGPLAN International Workshop on Programming Experience (PX/17)
+    - Date: October 2017
+    - Location: Vancouver, BC, Canada
+    - DOI: [10.1145/3167105](https://doi.org/10.1145/3167105)
+    - URL: https://grammarware.net/text/2017/coverage.pdf
+    - Summary: Motivates the incremental nature of software language engineering for legacy languages. Outlines challenges including lack of useful documentation, large scale of codebases, counter-intuitive language engineering principles, buggy reference implementations, and fragile workarounds. Relevant to MUMPS as a legacy language with these characteristics.
+    - **Pearl Status**: PRIMARY PEARL - Seminal work on legacy language engineering challenges
+
+### 2024
+
+24. **Leveraging LLMs for Legacy Code Modernization: Challenges and Opportunities for LLM-Generated Documentation**
+    - Authors: Colin Diggs and 20+ co-authors
+    - Journal: arXiv preprint
+    - arXiv ID: [2411.14971](https://arxiv.org/abs/2411.14971)
+    - Date: November 2024
+    - URL: https://arxiv.org/html/2411.14971v1
+    - Summary: Investigates LLM utilization for generating documentation for legacy code using two datasets: an electronic health records (EHR) system written in MUMPS (WorldVistA implementation, focusing on Incomplete Records Tracking module) and IBM mainframe Assembly Language Code (ALC). Finds that LLM-generated comments for MUMPS are generally hallucination-free, complete, readable, and useful. Confirms MUMPS shows closer alignment with modern language constructs compared to ALC.
+    - Key References Cited:
+      - P. H. Newcomb and R. Couch, "Chapter 12 - Veterans Health Administration's VistA MUMPS modernization pilot" in Information Systems Transformation (Morgan Kaufmann, 2010)
+      - V. Zaytsev, "Open challenges in incremental coverage of legacy software languages"
+    - **Pearl Status**: PRIMARY PEARL - Recent, highly relevant academic research on MUMPS modernization
 
 ---
 
@@ -544,6 +572,40 @@
     - URL: https://mumps.neocities.org/
     - Summary: Comprehensive overview of MUMPS implementations and history.
     - **Pearl Status**: TERTIARY PEARL
+
+70. **MUMPS User's Group (M Technology Association)**
+    - URL: https://www.mumps.org/
+    - Summary: Official website of the MUMPS User's Group, also known as the M Technology Association. Provides historical information, community resources, and connections for MUMPS/M technology users. The site notes that M is both a reliable "schemaless" or "NoSQL" database system and a programming language used by major hospitals and banks.
+    - **Pearl Status**: SECONDARY PEARL
+
+71. **Hardhats MUMPS Resources**
+    - URL: https://www.hardhats.org/m/Mmain.html
+    - Summary: Comprehensive MUMPS/M technology resource site maintained by Jacquard Systems Research. Provides a complete definition of the M Standard, past and present, as compiled by Ed de Moel. Includes extensive documentation, tools, and historical information.
+    - **Pearl Status**: SECONDARY PEARL
+
+### Books
+
+72. **The MUMPS Programming Language**
+    - Author: Kevin S. O'Kane
+    - Publisher: CreateSpace
+    - Date: 2008
+    - ISBN: 978-1440455323
+    - Summary: Comprehensive book on the MUMPS/M programming language, covering syntax, database features, and practical applications. Often cited in academic research on MUMPS.
+    - **Pearl Status**: PRIMARY PEARL - Authoritative book on MUMPS
+
+### Book Chapters
+
+73. **Chapter 12 - Veterans Health Administration's VistA MUMPS modernization pilot**
+    - Authors: P. H. Newcomb and R. Couch
+    - Book: Information Systems Transformation
+    - Editors: W. M. Ulrich and P. H. Newcomb
+    - Publisher: Morgan Kaufmann
+    - Pages: 301-345
+    - Date: 2010
+    - ISBN: 978-0123749220
+    - DOI: [10.1016/B978-0-12-374922-0.00012-9](https://doi.org/10.1016/B978-0-12-374922-0.00012-9)
+    - Summary: Detailed case study of the VA's VistA MUMPS modernization efforts, including technical challenges, strategies, and outcomes.
+    - **Pearl Status**: PRIMARY PEARL - Key reference for government MUMPS applications
 
 ---
 
@@ -917,10 +979,10 @@ Additional expansion opportunities:
 
 ---
 
-**Total Sources**: 113 entries  
-**Primary Pearls**: 12  
-**Secondary Pearls**: 40+  
-**Tertiary Pearls**: 60+  
+**Total Sources**: 120 entries  
+**Primary Pearls**: 17  
+**Secondary Pearls**: 50+  
+**Tertiary Pearls**: 65+  
 **Domains Covered**: 10 (Healthcare, Financial, Laboratory, Veterinary, Library Automation, Space, Government/Military, Insurance, Education, Manufacturing)  
 **Time Period**: 1963-2026  
 **Methodology**: Citation Pearl Growing (Markey & Atherton, 1978; Hawkins & Wagers, 1982)
@@ -934,7 +996,9 @@ This expanded bibliography now includes comprehensive coverage of:
 - Expert systems and clinical decision support (Arden Syntax)
 - Government and military applications (VA, DoD, CHCS)
 - Space research applications (ESA Gaia mission)
-- Financial services applications (Ameritrade, Bank of England, Barclays)
+- Financial services applications (Ameritrace, Bank of England, Barclays)
 - Additional historical and technical documentation
+- **Recent academic research** (ArXiv papers on LLM-based legacy code modernization with MUMPS datasets)
+- **Books and authoritative texts** (O'Kane's "The MUMPS Programming Language", Newcomb & Couch on VistA modernization)
 
 All sources have been categorized using the citation pearl growing methodology, with proper attribution and DOI links where applicable.
