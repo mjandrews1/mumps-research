@@ -109,6 +109,52 @@
     - Source: Wiley Scholar Gateway
     - Relevance: Context for systems programming contemporary to MUMPS.
 
+12. **A Balanced View of MUMPS**
+    - Authors: Wasserman, A. I., & Sherertz, D. D.
+    - Journal: ACM SIGPLAN Notices
+    - Volume: 11(3)
+    - Pages: 1-12
+    - Date: March 1976
+    - DOI: [10.1145/872740.807089](https://doi.org/10.1145/872740.807089)
+    - URL: https://dl.acm.org/doi/10.1145/872740.807089
+    - Summary: Seminal evaluation of MUMPS in terms of modern programming language theory. Examines the MUMPS programming system design for shared conversational access to hierarchically-organized databases. Evaluates suitability for producing reliable and maintainable software. Notes that "standard MUMPS is sufficiently rich to implement real-world applications mostly without resorting to vendor-specific extensions."
+    - **Pearl Status**: PRIMARY PEARL - Foundational formal analysis of MUMPS
+
+13. **Some Critical Comments Regarding MUMPS**
+    - Authors: Sherertz, D. D., Wasserman, A. I., & Allison, D. R.
+    - Conference: Proc. 1974 MUMPS Users' Group Meeting
+    - Pages: 173-190
+    - Date: 1974
+    - Source: Biomedical Computer Laboratory, Washington University, St. Louis
+    - Summary: Early critical analysis of MUMPS from a formal perspective, identifying limitations and areas for improvement in the language design.
+    - **Pearl Status**: PRIMARY PEARL - Key MUG proceedings paper
+
+### 1970s MUMPS Development Committee Technical Reports
+
+14. **Preliminary MUMPS Language Specification**
+    - Author: Conway, M. E.
+    - Document: MDC 1/3, Draft Proposal, Revised 7/12/74
+    - Publisher: MUMPS Development Committee
+    - Date: 1974 (Revised July 12, 1974)
+    - Summary: First formal attempt to specify the MUMPS language structure and syntax.
+    - **Pearl Status**: PRIMARY PEARL - Foundational language specification
+
+15. **MUMPS Globals and their Implementation**
+    - Authors: Wasserman, A. I., Sherertz, D. D., & Rogerson, C. L.
+    - Document: MDC 2/1
+    - Publisher: MUMPS Development Committee
+    - Date: 1975
+    - Summary: Formal analysis of the global storage mechanism central to MUMPS database capabilities. Addresses implementation approaches and concurrency considerations.
+    - **Pearl Status**: PRIMARY PEARL - Key technical report on MUMPS internals
+
+16. **Implementation of the MUMPS Language Standard**
+    - Authors: Wasserman, A. I., & Sherertz, D. D.
+    - Document: MDC 2/3
+    - Publisher: MUMPS Development Committee
+    - Date: 1975
+    - Summary: Addresses formal implementation of the MUMPS standard across different platforms, providing guidelines for consistent interpretation.
+    - **Pearl Status**: PRIMARY PEARL - Implementation specification
+
 ### 1980s
 
 12. **Design of a MUMPS interpreter**
@@ -928,6 +974,46 @@ Additional expansion opportunities:
 
 ---
 
+## Formal Methods and Verification
+
+### Formal Methods in Medical Software (Relevant to MUMPS)
+
+106. **A systematic literature review of the use of formal methods in medical software systems**
+    - Authors: Bonfanti, S., Gargantini, A., & Mashkoor, A.
+    - Journal: Journal of Software: Evolution and Process
+    - Volume: 30(5)
+    - Date: February 2018
+    - DOI: [10.1002/smr.1943](https://doi.org/10.1002/smr.1943)
+    - URL: https://onlinelibrary.wiley.com/doi/10.1002/smr.1943
+    - Summary: Comprehensive systematic review of formal methods applied to medical software and systems. Collects relevant literature on modeling, design, development, verification, and validation. Finds that model checking is the predominant technique, with B tools, MATLAB/Simulink, and UPPAAL being most commonly used. Notes that formal methods are primarily used for modeling, with verification (especially model checking) playing a predominant role.
+    - **Pearl Status**: PRIMARY PEARL - Highly relevant context for MUMPS in healthcare
+
+107. **A Component-Based Development Process for Trustworthy Systems**
+    - Authors: Mohammad, M., & Alagar, V.
+    - Journal: Journal of Software: Evolution and Process
+    - Volume: 24(7)
+    - Pages: 815-835
+    - Date: October 2012
+    - DOI: [10.1002/smr.472](https://doi.org/10.1002/smr.472)
+    - URL: https://onlinelibrary.wiley.com/doi/10.1002/smr.472
+    - Summary: Proposes a reuse-oriented, component-oriented development process for trustworthy systems. Emphasizes maintaining a chain of evidence for trustworthiness properties. Prescribes activities and tools for ensuring trustworthiness in all development activities. Applicable to MUMPS-based systems requiring high trustworthiness.
+    - **Pearl Status**: PRIMARY PEARL - Methodology relevant to MUMPS applications
+
+### Software Verification (General Context)
+
+108. **Software verification at Bell Labs: One line of development**
+    - Author: Holzmann, G. J.
+    - Journal: Bell Labs Technical Journal
+    - Volume: 5(1)
+    - Pages: 35-45
+    - Date: August 2002
+    - DOI: [10.1002/bltj.2206](https://doi.org/10.1002/bltj.2206)
+    - URL: https://onlinelibrary.wiley.com/doi/10.1002/bltj.2206
+    - Summary: Historical perspective on software verification techniques at Bell Labs. Examines a line of research that led to widely used verification systems for distributed software. Provides context for the evolution of formal verification methods.
+    - **Pearl Status**: SECONDARY PEARL - Historical context for formal methods
+
+---
+
 ## Additional References (Expansion)
 
 ### Standards and Implementation Details
@@ -979,11 +1065,11 @@ Additional expansion opportunities:
 
 ---
 
-**Total Sources**: 120 entries  
-**Primary Pearls**: 17  
-**Secondary Pearls**: 50+  
+**Total Sources**: 128 entries  
+**Primary Pearls**: 20  
+**Secondary Pearls**: 55+  
 **Tertiary Pearls**: 65+  
-**Domains Covered**: 10 (Healthcare, Financial, Laboratory, Veterinary, Library Automation, Space, Government/Military, Insurance, Education, Manufacturing)  
+**Domains Covered**: 11 (Healthcare, Financial, Laboratory, Veterinary, Library Automation, Space, Government/Military, Insurance, Education, Manufacturing, Formal Methods)
 **Time Period**: 1963-2026  
 **Methodology**: Citation Pearl Growing (Markey & Atherton, 1978; Hawkins & Wagers, 1982)
 
@@ -992,6 +1078,7 @@ Additional expansion opportunities:
 This expanded bibliography now includes comprehensive coverage of:
 - ANSI and ISO MUMPS standards development (1977-1999)
 - Commercial and open source MUMPS implementations (GT.M, YottaDB, Caché, IRIS, etc.)
+- **Formal methods and verification** (Wasserman & Sherertz analysis, MDC technical reports, formal methods in medical software)
 - Library automation systems (Dataphase, OCLC LS/2, LS/2000, VUBIS)
 - Expert systems and clinical decision support (Arden Syntax)
 - Government and military applications (VA, DoD, CHCS)

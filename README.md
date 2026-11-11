@@ -584,6 +584,8 @@ python3 generate_histogram.py        # With matplotlib (for visualizations)
 - `analysis/dialects.md` - 20+ implementations with market analysis
 - `analysis/expert_systems.md` - Expert systems and AI applications
 - `analysis/successes_failures.md` - Successes and failures across all categories
+- `analysis/formal_methods.md` - Formal methods in compiler design and application development
+- `analysis/chronology_summary.md` - Summarized chronology with 7 sections covering 123 events
 
 ---
 
