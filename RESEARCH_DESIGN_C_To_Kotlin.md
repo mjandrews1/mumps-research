@@ -7,7 +7,7 @@
 **Author:** Mark Andrews
 
 **Project Type:** Personal Research Project  
-**Note:** This is a personal intellectual adventure, not conducted for academic credit. The researcher brings 40 years of progressively responsible IT experience to this endeavor, aspiring to scholarly rigor while exploring a matter of personal curiosity.
+**Note:** This is a matter of personal curiosity, intellectual adventure, self-renewal, and service to others. The researcher brings 40 years of progressively responsible IT experience to this endeavor, aspiring to scholarly rigor while not conducting this work for academic credit.
 
 ---
 

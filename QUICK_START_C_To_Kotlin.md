@@ -656,7 +656,7 @@ chmod +x approach_b/verify.sh
 
 ## 📅 Project Timeline at a Glance
 
-This is a **personal research project** - putting 40 years of progressively responsible IT experience to the test. While aspiring to scholarly rigor, this work is not being conducted for academic credit as part of a formal degree program. It is a matter of **personal curiosity and intellectual adventure**.
+This is a **personal research project** - putting 40 years of progressively responsible IT experience to the test. While aspiring to scholarly rigor, this work is not being conducted for academic credit as part of a formal degree program. It is a matter of **personal curiosity, intellectual adventure, self-renewal, and service to others**.
 
 | Phase | Duration | Key Activities |
 |-------|----------|----------------|

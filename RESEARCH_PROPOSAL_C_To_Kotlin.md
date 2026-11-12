@@ -8,7 +8,7 @@
 **Target Completion:** December 31, 2027
 
 **Project Type:** Personal Research Project  
-**Motivation:** Putting 40 years of progressively responsible experience in IT to the test. This is a matter of personal curiosity and intellectual adventure. While aspiring to scholarly rigor, this work is not being conducted for academic credit as part of a formal degree program.
+**Motivation:** Putting 40 years of progressively responsible experience in IT to the test. This is a matter of personal curiosity, intellectual adventure, self-renewal, and service to others. While aspiring to scholarly rigor, this work is not being conducted for academic credit as part of a formal degree program.
 
 ---
 
