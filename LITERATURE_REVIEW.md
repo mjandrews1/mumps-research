@@ -270,3 +270,47 @@ Since Kotlin is an object-oriented language, research on inferring OO models fro
 **Document Status:** Complete - Ready for Git commit and push to mumps-research repository
 **Next Steps:** Review and integrate findings into research design methodology
 **File Location:** LITERATURE_REVIEW.md (committed to mumps-research Git repository)
+
+---
+
+## 9. Additional Monographic Sources
+
+This section contains primary, secondary, and tertiary monographic sources for extended literature review. Sources are categorized by their relevance to the C-to-Kotlin translation research project.
+
+### 9.1 Primary Monographic Sources
+
+**GitHub and Version Control:**
+
+[17] P. Bell and B. Beer, *Introducing GitHub*. O'Reilly Media, 2014.
+
+[18] C. Dawson and B. Straub, *Building Tools with GitHub*. O'Reilly Media, 2014.
+
+[19] A. Ayodele, *GitHub Foundations Certification Guide*. Packt Publishing, 2023.
+
+### 9.2 Secondary Monographic Sources
+
+**Software Engineering Fundamentals:**
+
+[20] S. McConnell, *Code Complete: A Practical Handbook of Software Construction*, 2nd ed. Microsoft Press, 2004.
+
+**Kotlin Language Resources:**
+
+[21] P.-Y. Saumont, *The Joy of Kotlin*. Manning Publications, 2019.
+
+[22] D. Jemerov and S. Isakova, *Kotlin in Action*. Manning Publications, 2017.
+
+### 9.3 Tertiary Monographic Sources
+
+**Software Design Patterns:**
+
+[23] B. A. Forouzan, *Data Structures and Algorithms with Object Oriented Design Patterns in C++*. Cengage Learning, 2010.
+
+[24] M. Fowler, *Analysis Patterns: Reusable Object Models*. Addison-Wesley, 1996.
+
+[25] E. Gamma, R. Helm, R. Johnson, and J. Vlissides, *Design Patterns: Elements of Reusable Object-Oriented Software*. Addison-Wesley, 1994.
+
+[26] A. Shalloway and J. R. Trott, *Design Patterns Explained: A New Perspective on Object Oriented Design*, 2nd ed. Addison-Wesley, 2004.
+
+---
+
+**Note:** Additional monographic sources will be added as they become available. This section serves as a placeholder for expanding the bibliography with books and extended works relevant to the research project.
