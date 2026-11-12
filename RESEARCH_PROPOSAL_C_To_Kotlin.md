@@ -5,7 +5,10 @@
 **Principal Investigator:** Mark Andrews  
 **Affiliation:** Flaming Yack Limited Company (Nebraska LLC)  
 **Date:** November 12, 2026  
-**Target Completion:** December 31, 2030 (Extended from original deadline)
+**Target Completion:** December 31, 2027
+
+**Project Type:** Personal Research Project  
+**Motivation:** Putting 40 years of progressively responsible experience in IT to the test. This is a matter of personal curiosity and intellectual adventure. While aspiring to scholarly rigor, this work is not being conducted for academic credit as part of a formal degree program.
 
 ---
 
@@ -313,7 +316,7 @@ Benefits for practitioners:
 - **Source Code:** Mumps II compiler C source available
 - **Tools:** Clang, Dafny, Kotlin compiler, and development tools accessible
 - **Computing:** Sufficient computing resources for translation and verification
-- **Time:** Extended timeline (4 years) allows for part-time work
+- **Time:** Concentrated 14-month timeline (Nov 2026 - Dec 2027) with intensive effort (~20-25 hours/week)
 
 ### 9.3 Methodological Feasibility
 
@@ -326,17 +329,20 @@ Benefits for practitioners:
 
 ## 10. Timeline Overview
 
+Given the aggressive 14-month timeline for this personal research project, the approach will be iterative and focused, with overlapping phases where possible:
+
 | Phase | Duration | Activities |
 |-------|----------|------------|
-| **Preparation** | Months 1-3 | Tool setup, C code analysis, learning Kotlin/Dafny |
-| **Approach A Translation** | Months 4-12 | Direct translation without verification |
-| **Approach B Translation** | Months 13-24 | Translation with formal verification |
-| **Testing & Validation** | Months 25-30 | Comprehensive testing of both approaches |
-| **Analysis & Comparison** | Months 31-36 | Data analysis, comparison, reporting |
-| **Documentation & Publication** | Months 37-48 | Documentation, papers, presentations |
+| **Preparation** | Months 1-2 (Nov-Dec 2026) | Tool setup, obtain Mumps II source, learn Kotlin basics, begin Dafny familiarization |
+| **Pilot Translation** | Month 3 (Jan 2027) | Select and translate simplest module using both approaches to establish patterns |
+| **Approach A - Core Translation** | Months 4-7 (Feb-May 2027) | Direct translation of remaining modules without formal verification |
+| **Approach B - Verified Translation** | Months 5-10 (Mar-Aug 2027) | Translation with Dafny verification, overlapping with Approach A |
+| **Testing & Validation** | Months 8-11 (May-Aug 2027) | Comprehensive testing of both translations as modules complete |
+| **Comparative Analysis** | Months 11-13 (Aug-Oct 2027) | Data collection, metric comparison, findings documentation |
+| **Final Documentation** | Months 13-14 (Nov-Dec 2027) | Write research report, clean up code, finalize deliverables |
 
-**Total Duration:** 48 months (4 years)  
-**Effort Estimate:** ~11-13 hours/week average
+**Total Duration:** 14 months (November 12, 2026 - December 31, 2027)  
+**Effort Estimate:** ~20-25 hours/week average (intensive but manageable for a personal project)
 
 ---
 
@@ -347,7 +353,7 @@ Benefits for practitioners:
 | Tool incompatibility | Medium | High | Test tools early, have alternatives |
 | Verification complexity | High | High | Start with small modules, build expertise |
 | Translation errors | High | Medium | Comprehensive testing, iterative refinement |
-| Time overrun | Medium | Medium | Extended timeline, modular approach |
+| Time overrun | Medium | Medium | Modular approach, prioritize core functionality |
 | Resource limitations | Low | Medium | Use cloud resources if needed |
 | Source code issues | Medium | Medium | Analyze code quality early, preprocess as needed |
 

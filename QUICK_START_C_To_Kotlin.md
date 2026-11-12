@@ -656,16 +656,20 @@ chmod +x approach_b/verify.sh
 
 ## 📅 Project Timeline at a Glance
 
+This is a **personal research project** - putting 40 years of progressively responsible IT experience to the test. While aspiring to scholarly rigor, this work is not being conducted for academic credit as part of a formal degree program. It is a matter of **personal curiosity and intellectual adventure**.
+
 | Phase | Duration | Key Activities |
 |-------|----------|----------------|
-| **Foundation** | Months 1-3 | Learn Kotlin/Dafny, obtain code, set up environment |
-| **Approach A** | Months 4-15 | Direct translation of all modules |
-| **Approach B** | Months 16-24 | Verified translation with Dafny |
-| **Analysis** | Months 25-30 | Compare results, collect metrics |
-| **Documentation** | Months 31-48 | Write papers, finalize documentation |
+| **Foundation** | Months 1-2 (Nov-Dec 2026) | Obtain Mumps II code, setup environment, learn Kotlin, begin Dafny |
+| **Pilot** | Month 3 (Jan 2027) | Translate simplest module using both approaches |
+| **Approach A** | Months 4-7 (Feb-May 2027) | Direct translation of remaining modules |
+| **Approach B** | Months 5-10 (Mar-Aug 2027) | Verified translation (overlapping with A) |
+| **Testing** | Months 8-11 (Jun-Sep 2027) | Comprehensive testing of both translations |
+| **Analysis** | Months 12-13 (Oct-Nov 2027) | Compare results, collect metrics |
+| **Finalization** | Month 14 (Dec 2027) | Final report, documentation |
 
-**Total:** 48 months (4 years)  
-**Recommended Pace:** 10-15 hours per week
+**Total:** 14 months (November 12, 2026 - December 31, 2027)  
+**Recommended Pace:** 20-25 hours per week (intensive but achievable)
 
 ---
 

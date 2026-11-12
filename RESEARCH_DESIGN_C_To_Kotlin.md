@@ -6,6 +6,9 @@
 **Date:** November 12, 2026  
 **Author:** Mark Andrews
 
+**Project Type:** Personal Research Project  
+**Note:** This is a personal intellectual adventure, not conducted for academic credit. The researcher brings 40 years of progressively responsible IT experience to this endeavor, aspiring to scholarly rigor while exploring a matter of personal curiosity.
+
 ---
 
 ## Table of Contents
@@ -155,7 +158,7 @@ Before translation, the following preprocessing steps will be applied to both ap
 
 ### 3.2 Detailed Methodology
 
-#### Phase A1: Preparation and Analysis (Months 1-2)
+#### Phase A1: Preparation and Analysis (Months 1-2: Nov-Dec 2026)
 
 **Objective:** Understand the codebase and prepare for translation
 
@@ -230,7 +233,7 @@ Before translation, the following preprocessing steps will be applied to both ap
 - Selected tool configuration
 - Initial translation pipeline
 
-#### Phase A3: Translation Execution (Months 3-12)
+#### Phase A3: Translation Execution (Months 3-7: Jan-May 2027)
 
 **Objective:** Translate C code to Kotlin
 
@@ -289,7 +292,7 @@ Before translation, the following preprocessing steps will be applied to both ap
 - Test results
 - Compilation-ready code
 
-#### Phase A4: Testing and Validation (Months 12-15)
+#### Phase A4: Testing and Validation (Months 8-11: Jun-Sep 2027)
 
 **Objective:** Verify functional equivalence
 
@@ -353,7 +356,7 @@ Before translation, the following preprocessing steps will be applied to both ap
 
 ### 4.2 Detailed Methodology
 
-#### Phase B1: Dafny Setup and Learning (Months 1-3)
+#### Phase B1: Dafny Setup and Learning (Months 1-2: overlapping with A1)
 
 **Objective:** Learn Dafny and set up verification environment
 
@@ -387,7 +390,7 @@ Before translation, the following preprocessing steps will be applied to both ap
 - Verification environment setup
 - Simple verification examples
 
-#### Phase B2: Specification Development (Months 3-6)
+#### Phase B2: Specification Development (Months 3-5: Jan-Mar 2027)
 
 **Objective:** Develop formal specifications for the Mumps II compiler
 
@@ -438,7 +441,7 @@ Before translation, the following preprocessing steps will be applied to both ap
 - Dafny specification files
 - Specification verification results
 
-#### Phase B3: Verified Translation (Months 6-18)
+#### Phase B3: Verified Translation (Months 5-10: Mar-Aug 2027)
 
 **Objective:** Translate and verify the Mumps II compiler
 
@@ -486,7 +489,7 @@ Before translation, the following preprocessing steps will be applied to both ap
 - Proof obligations and resolutions
 - Verification statistics
 
-#### Phase B4: Integration and Verification (Months 18-21)
+#### Phase B4: Integration and Verification (Months 10-11: Aug-Sep 2027)
 
 **Objective:** Integrate verified components and verify system properties
 
@@ -519,7 +522,7 @@ Before translation, the following preprocessing steps will be applied to both ap
 - Verification metrics
 - Proof documentation
 
-#### Phase B5: Testing and Validation (Months 21-24)
+#### Phase B5: Testing and Validation (Months 11-13: Sep-Nov 2027)
 
 **Objective:** Validate the verified translation
 
@@ -621,15 +624,15 @@ Both approaches will collect the same metrics for comparison.
 
 ## 6. Detailed Work Packages
 
-### WP1: Preparation and Learning (Months 1-3)
+### WP1: Preparation and Learning (Months 1-2: Nov-Dec 2026)
 
 **Objective:** Prepare for translation and learn necessary technologies
 
 **Tasks:**
 - [ ] Obtain and analyze Mumps II C source code
 - [ ] Set up development environment
-- [ ] Learn Kotlin (refresh/advanced)
-- [ ] Learn Dafny (for Approach B)
+- [ ] Learn Kotlin basics and best practices
+- [ ] Begin Dafny familiarization
 - [ ] Select and configure tools
 - [ ] Create baseline build and test
 - [ ] Document code structure
@@ -640,59 +643,60 @@ Both approaches will collect the same metrics for comparison.
 - Code analysis report
 - Baseline test suite
 
-**Effort:** ~120 hours
+**Effort:** ~80-100 hours
 
-### WP2: Approach A - Direct Translation (Months 4-15)
+### WP2: Approach A - Direct Translation (Months 3-7: Jan-May 2027)
 
-**Objective:** Complete translation without formal verification
+**Objective:** Complete translation without formal verification - focus on functional equivalence
 
 **Tasks:**
 - [ ] Preprocess source code
-- [ ] Translate simple modules
-- [ ] Develop translation patterns
-- [ ] Translate complex modules
-- [ ] Handle edge cases
-- [ ] Refine translation
-- [ ] Test and validate
+- [ ] Translate simple modules ( Month 3)
+- [ ] Develop translation patterns (Month 4)
+- [ ] Translate core modules (Months 5-6)
+- [ ] Handle edge cases (Month 7)
+- [ ] Initial testing
+- [ ] Iterative refinement
 
 **Deliverables:**
-- Approach A translation (Kotlin)
+- Approach A translation (Kotlin) - targeting 80%+ completion
 - Translation log
 - Test results
 - Validation report
 
-**Effort:** ~600 hours
+**Effort:** ~400-450 hours
 
-### WP3: Approach B - Verified Translation (Months 16-24)
+### WP3: Approach B - Verified Translation (Months 5-11: Mar-Sep 2027)
 
-**Objective:** Complete translation with formal verification
+**Objective:** Translate with formal verification - overlapping with Approach A for comparative learning
 
 **Tasks:**
-- [ ] Develop formal specifications
-- [ ] Translate with verification
-- [ ] Prove correctness properties
-- [ ] Integrate verified components
-- [ ] Verify system properties
+- [ ] Develop formal specifications for pilot module (Month 5)
+- [ ] Translate with verification (Months 6-9)
+- [ ] Prove correctness properties (Months 7-10)
+- [ ] Integrate verified components (Month 11)
+- [ ] Verify critical properties
 - [ ] Test and validate
 
 **Deliverables:**
-- Approach B translation (Kotlin + Dafny)
+- Approach B translation (Kotlin + Dafny) - targeting 60%+ completion
 - Formal specifications
 - Verification logs
 - Proof documentation
 - Validation report
 
-**Effort:** ~900 hours (estimated 50% more than Approach A)
+**Effort:** ~500-550 hours (overlapping with WP2)
 
-### WP4: Comparative Analysis (Months 25-30)
+### WP4: Testing, Validation & Analysis (Months 8-13: Jun-Nov 2027)
 
-**Objective:** Compare both approaches and analyze results
+**Objective:** Comprehensive testing and comparative analysis
 
 **Tasks:**
-- [ ] Collect metrics from both approaches
-- [ ] Perform statistical analysis
-- [ ] Identify differences and patterns
-- [ ] Assess quality metrics
+- [ ] Collect metrics from both approaches (Months 8-10)
+- [ ] Comprehensive testing as modules complete (Months 8-11)
+- [ ] Perform statistical analysis (Months 11-12)
+- [ ] Identify differences and patterns (Month 12)
+- [ ] Assess quality metrics (Month 13)
 - [ ] Evaluate effort and cost
 - [ ] Document findings
 
@@ -702,24 +706,26 @@ Both approaches will collect the same metrics for comparison.
 - Findings documentation
 - Recommendations
 
-**Effort:** ~300 hours
+**Effort:** ~200-250 hours
 
-### WP5: Documentation and Publication (Months 31-48)
+### WP5: Final Documentation (Month 14: Dec 2027)
 
-**Objective:** Document results and publish findings
+**Objective:** Finalize project documentation
 
 **Tasks:**
-- [ ] Write research papers
-- [ ] Create presentations
-- [ ] Develop documentation
-- [ ] Prepare code for release
-- [ ] Submit to conferences/journals
-- [ ] Present findings
+- [ ] Write research report
+- [ ] Clean up and organize code
+- [ ] Finalize documentation
+- [ ] Prepare summary of findings
+- [ ] Archive project materials
 
 **Deliverables:**
-- Research papers (2-3)
-- Conference presentations
-- Documentation
+- Research report
+- Complete code repository
+- Project documentation
+- Summary of findings
+
+**Effort:** ~80-100 hours
 - Open source code (if possible)
 
 **Effort:** ~400 hours
@@ -919,59 +925,66 @@ Both approaches will collect the same metrics for comparison.
 
 ### 10.1 Overall Timeline
 
+Given the compressed 14-month schedule for this personal research project, phases will overlap significantly:
+
 ```
-Year 1 (2026-2027):  Preparation, Approach A Translation
-├── Months 1-3:  Preparation and Learning
-├── Months 4-12: Approach A Translation Execution
-└── Months 12-15: Approach A Testing and Validation
+Months 1-2 (Nov-Dec 2026):  Preparation
+├── Obtain Mumps II source code
+├── Set up development environment
+├── Learn Kotlin basics
+└── Begin Dafny familiarization
 
-Year 2 (2027-2028):  Approach B Translation
-├── Months 13-18: Approach B Translation with Verification
-├── Months 18-21: Approach B Integration and Verification
-└── Months 21-24: Approach B Testing and Validation
+Months 3-7 (Jan-May 2027):  Core Translation
+├── Approach A: Direct translation (Months 3-7)
+├── Approach B: Start verification (Months 5-7)
+└── Pilot module completed in both approaches
 
-Year 3 (2028-2029):  Analysis and Documentation
-├── Months 25-30: Comparative Analysis
-└── Months 31-36: Initial Documentation and Publication
+Months 8-11 (Jun-Sep 2027):  Intensive Translation
+├── Approach A: Complete remaining modules
+├── Approach B: Continue verified translation
+└── Testing begins as modules complete
 
-Year 4 (2029-2030):  Finalization
-├── Months 37-45: Additional Analysis and Refinement
-└── Months 46-48: Final Documentation and Publication
+Months 12-13 (Oct-Nov 2027):  Testing & Validation
+├── Comprehensive testing of both translations
+├── Fix identified issues
+└── Collect initial metrics
+
+Month 14 (Dec 2027):  Finalization
+├── Complete comparative analysis
+├── Finalize documentation
+└── Project completion
 ```
 
 ### 10.2 Key Milestones
 
 | Milestone | Target Date | Description |
 |-----------|-------------|-------------|
-| M1 | Month 3 | Preparation complete, tools selected |
-| M2 | Month 12 | Approach A translation complete |
-| M3 | Month 15 | Approach A testing complete |
-| M4 | Month 18 | Approach B specifications complete |
-| M5 | Month 24 | Approach B translation complete |
-| M6 | Month 30 | Comparative analysis complete |
-| M7 | Month 36 | First paper submitted |
-| M8 | Month 48 | Project complete, final report |
+| M1 | End of Month 2 (Dec 31, 2026) | Preparation complete: environment set up, Mumps II source obtained, Kotlin basics learned |
+| M2 | End of Month 3 (Jan 31, 2027) | Pilot module translated using both approaches |
+| M3 | End of Month 7 (May 31, 2027) | Approach A: Core translation complete (80%+) |
+| M4 | End of Month 10 (Aug 31, 2027) | Approach B: Core translation with verification complete (60%+) |
+| M5 | End of Month 11 (Sep 30, 2027) | Both translations functionally complete, testing underway |
+| M6 | End of Month 13 (Nov 30, 2027) | Testing and validation complete, metrics collected |
+| M7 | December 31, 2027 | Project complete: analysis, documentation, final report |
 
 ### 10.3 Detailed Schedule
 
-| Month | Approach A | Approach B | Analysis | Documentation |
-|-------|------------|------------|----------|---------------|
-| 1-3 | Preparation | Learning | | |
-| 4-6 | Simple modules | Spec dev | | |
-| 7-9 | Complex modules | Verified translation | | |
-| 10-12 | Edge cases | Complex modules | | |
-| 13-15 | Testing | Integration | | |
-| 16-18 | | Verification | | |
-| 19-21 | | Testing | | |
-| 22-24 | | | Metrics collection | |
-| 25-27 | | | Statistical analysis | |
-| 28-30 | | | Pattern analysis | Paper outline |
-| 31-33 | | | | Paper writing |
-| 34-36 | | | | Paper submission |
-| 37-39 | | | | Refinement |
-| 40-42 | | | | Additional papers |
-| 43-45 | | | | Final review |
-| 46-48 | | | | Final report |
+| Month | Period | Approach A | Approach B | Analysis | Documentation |
+|-------|--------|------------|------------|----------|---------------|
+| 1 | Nov 12-30, 2026 | Environment setup | Dafny install | | |
+| 2 | Dec 2026 | Kotlin learning | Dafny basics | | |
+| 3 | Jan 2027 | Pilot translation | Pilot specs | | |
+| 4 | Feb 2027 | Simple modules | Pilot verification | | |
+| 5 | Mar 2027 | Core modules | Module 1 verify | | |
+| 6 | Apr 2027 | Core modules | Module 2 verify | | |
+| 7 | May 2027 | Complex modules | Module 3 verify | | |
+| 8 | Jun 2027 | Complex modules | Continue verify | Initial metrics | |
+| 9 | Jul 2027 | Edge cases | Continue verify | Initial metrics | |
+| 10 | Aug 2027 | Testing | Final verify | Comparison | Draft report |
+| 11 | Sep 2027 | Testing | Testing | Full comparison | |
+| 12 | Oct 2027 | Validation | Validation | Analysis | |
+| 13 | Nov 2027 | Final fixes | Final fixes | Final analysis | Final docs |
+| 14 | Dec 2027 | | | | Complete report |
 
 ---
 
@@ -981,10 +994,10 @@ Year 4 (2029-2030):  Finalization
 
 | Role | Required Hours | Notes |
 |------|----------------|-------|
-| Principal Investigator | ~1,800 | Part-time over 4 years |
-| Technical Reviewer | ~100 | External validation |
-| Peer Reviewer | ~50 | Paper review |
-| Total | ~1,950 | |
+| Principal Investigator | ~1,000-1,200 | Part-time over 14 months (~20-25 hours/week) |
+| Technical Reviewer | ~50 | External validation (optional) |
+| Peer Reviewer | ~25 | Informal review |
+| Total | ~1,075-1,275 | |
 
 ### 11.2 Hardware Resources
 
