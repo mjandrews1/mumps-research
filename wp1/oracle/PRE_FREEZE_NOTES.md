@@ -21,10 +21,15 @@ post-freeze protocol deviation: the freeze had not yet occurred.
 2. `case_05_extract_find.mps` revised: indeterminate `*` subscripts are
    unsupported in this dialect (E1 multiple adjacent operators on
    `$Extract(s,*-3,*)`). Replaced with numeric subscripts.
-3. `case_13_user_functions.mps` revised: interpreted programs run
-   top-of-file, so main code must precede labels. Original file began
-   with a label and executed nothing (rc=0, no output).
-4. `build-mumps-fleet.sh` fetch stage fixed: extraction target was one
+3. `case_13_user_functions.mps` revised twice: (a) interpreted programs
+   run top-of-file, so main code must precede labels; (b) `$$name(args)`
+   is an external routine-file call in this dialect (E26 File error),
+   not a local extrinsic function, so the case now covers Do-based
+   subroutines with argument passing only.
+4. `case_10_translate_case.mps` revised: `$ZConvert` is not present in
+   this build ("Z function ZConvert not found"). Case conversion is
+   expressed via `$Translate`.
+5. `build-mumps-fleet.sh` fetch stage fixed: extraction target was one
    directory too deep (`-C "$(dirname $MUMPS_SRC)/.."` should be
    `-C "$(dirname $MUMPS_SRC)/../.."`).
 
@@ -38,6 +43,11 @@ and are intentionally captured by the oracle:
 - **Newline suppression after extrinsic**: `Write $$square(6),!` emits
   `36` but the trailing `!` does not produce a newline after an extrinsic
   function value (observed: `36report: test`).
+- **$$ is an external call**: `$$name(args)` resolves to a call into a
+  routine file (`do name^file(args)`), yielding E26 File error when no
+  such file exists — it is not the ISO-M local extrinsic function.
+- **No $ZConvert**: the case-conversion Z-function is absent from this
+  build; conversion must go through `$Translate`.
 - **No Zmain in interpreted mode**: `zmain` is only required by the
   compiled path (`mumpsc`); interpreted programs start at the top of the
   file. The vendor man page documents this.
