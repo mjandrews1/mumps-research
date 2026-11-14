@@ -1,13 +1,13 @@
 # Pilot (B1) Tracking
 
-Order within batch: complexity_rank ascending. Status: todo / translating / graded-ok / graded-deviation / deferred. Units 1-3 are graded-ok pending batch-close integration against the translator oracle.
+Order within batch: complexity_rank ascending. Status: todo / translating / graded-ok / graded-deviation / deferred. Units 1-4 are graded-ok pending batch-close integration (units 1-3 vs translator oracle, unit 4 vs interpreter oracle).
 
 | # | unit_id | lang | stratum | BASE | DOC | PRO | DAF | BOTH |
 |---|---|---|---|---|---|---|---|---|
 | 1 | compiler-copyright-notice.c::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
 | 2 | compiler-if.c::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
-| 3 | compiler-open.c::<misc> | c | simple | translating | todo | todo | todo | todo |
-| 4 | interp-native-btree.cpp::btree | cpp | simple | todo | todo | todo | todo | todo |
+| 3 | compiler-open.c::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
+| 4 | interp-native-btree.cpp::btree | cpp | simple | translating | todo | todo | todo | todo |
 | 5 | libmpscpp.cpp::EncodeHTML | cpp | simple | todo | todo | todo | todo | todo |
 | 6 | interp-sym.cpp::_find | cpp | simple | todo | todo | todo | todo | todo |
 | 7 | compiler-parse.c::fixstr | c | simple | todo | todo | todo | todo | todo |
