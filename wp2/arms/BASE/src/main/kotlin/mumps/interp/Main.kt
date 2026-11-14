@@ -37,7 +37,7 @@ fun syncClock() { InterpState.DBSem = 1 }
 /** C: unsigned set_alarm(unsigned) — setitimer(ITIMER_REAL); JVM has no POSIX
  *  timers; the sole call site is inside the dead if(0) block. */
 fun setAlarm(@Suppress("UNUSED_PARAMETER") seconds: UInt): UInt =
-    TODO("setitimer not available on JVM (heuristic 46; sole call site is dead code)")
+    TODO("setitimer not available on JVM (heuristic 46; sole call site is dead code)") as Nothing
 
 /** C: #define GlobalClose — closes the global arrays. */
 fun globalClose(svPtr: MsvState) = mglobal(InterpState.CLOSE, "", "", svPtr)
