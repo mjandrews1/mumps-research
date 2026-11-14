@@ -17,7 +17,7 @@ private const val INTS = "; Int: int"
 private const val FLT_DIGITS = ";\nFloat digits: 8"
 private const val CACHE = "; Cache: 65537"
 private const val BLK_SIZ = "; Block: 2048"
-private const val FPBITS = "; FP Bits: 72" // C: HAVE_HARDWARE_MATH undefined — verify via banner probe
+private const val FPBITS = "; FP Bits: N/A" // C: HAVE_HARDWARE_MATH DEFINED in reference build (banner verified 2026-11-14)
 
 /** C: __TIME__ / __DATE__ compile-time macros (heuristic 48). The JVM has no
  *  text macros; the banner is interactive-only (unobservable by the frozen
