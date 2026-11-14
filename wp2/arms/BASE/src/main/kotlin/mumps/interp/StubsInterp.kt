@@ -12,6 +12,10 @@ package mumps.interp
  */
 class MsvState
 
+/** C: unsigned char *zfcn(unsigned char *cmd, unsigned char *out, MSV *svPtr) — $Z function dispatcher; out-buffer -> String return (heuristic 7) */
+fun zfcn(cmd: String, svPtr: MsvState): String =
+    TODO("zfcn not yet translated (not in batch 1)")
+
 /** C: int xindex(const unsigned char *s, const unsigned char *sub, short start) — substring search from position (interp-parse.cpp) */
 fun xindex(s: String, sub: String, start: Short): Int =
     TODO("xindex not yet translated (not in batch 1)")
