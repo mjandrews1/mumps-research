@@ -57,7 +57,7 @@ fun expandGet(v1d: String, iStart: Int): String? {
         val arg2 = scanUntilHash()
         i++
         val arg3: String
-        if (i < v1d.length && v1d[i] == CODED_COMMA.toChar()) {
+        if (i < v1d.length && v1d[i].code == CODED_COMMA.toChar()) {
             i++
             // C verbatim: #S# || #S# — second test duplicates the first
             // (heuristic 58; plainly meant to be "#G#")
