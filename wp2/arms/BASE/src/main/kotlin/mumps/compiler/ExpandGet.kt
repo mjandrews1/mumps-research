@@ -3,7 +3,7 @@ package mumps.compiler
 import mumps.compiler.CompilerState.Out
 
 /** C: #define CodedComma 208 (compiler-parse.c:133; same value in defines.h). */
-private const val CODED_COMMA = ''
+private const val CODED_COMMA: Int = 208
 
 /**
  * Kotlin translation of compiler-parse.c::ExpandGet (Study Subset unit 16,
@@ -57,7 +57,7 @@ fun expandGet(v1d: String, iStart: Int): String? {
         val arg2 = scanUntilHash()
         i++
         val arg3: String
-        if (i < v1d.length && v1d[i].code == CODED_COMMA.toChar()) {
+        if (i < v1d.length && v1d[i].code == CODED_COMMA) {
             i++
             // C verbatim: #S# || #S# — second test duplicates the first
             // (heuristic 58; plainly meant to be "#G#")
