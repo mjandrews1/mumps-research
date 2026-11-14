@@ -31,7 +31,7 @@ object MdhRuntime {
 fun mdhTreeLevelAdd(tree: GtkTreeStore, depth: Int, col1: String, vararg moreCols: String) {
     val b = StringBuilder()
     b.append('\u0000')            // C: tmp[0] left UNINITIALIZED (UB); deterministic placeholder (heuristic 34)
-    b.append("$z~mdh~tree~level")  // C: strcpy(&tmp[1], ...) — built from index 1
+    b.append("\$z~mdh~tree~level")  // C: strcpy(&tmp[1], ...) — built from index 1
     b.append('\u00CE')
     // C: sprintf(tmp1, "%p", tree) — pointer text is not reproducible on the
     // JVM; identity-hash hex used instead (heuristic 33, documented divergence;
