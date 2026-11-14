@@ -15,8 +15,8 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 9 | include/mumpsc/libmpsrdbms.h::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
 | 10 | interp-arith.cpp::mps_acos | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 11 | compiler-parse.c::ExpandNext | c | core | graded-ok | todo | todo | todo | todo |
-| 12 | mumps.cpp::<misc> | cpp | core | translating | todo | todo | todo | todo |
-| 13 | interp-sysfunc.cpp::GlobalName | cpp | core | todo | todo | todo | todo | todo |
+| 12 | mumps.cpp::<misc> | cpp | core | graded-ok | todo | todo | todo | todo |
+| 13 | interp-sysfunc.cpp::GlobalName | cpp | core | translating | todo | todo | todo | todo |
 | 14 | libmpscpp.cpp::global::TermCorrelate | cpp | core | todo | todo | todo | todo | todo |
 | 15 | compiler-parse.c::Extract2 | c | core | todo | todo | todo | todo | todo |
 | 16 | compiler-parse.c::ExpandGet | c | core | todo | todo | todo | todo | todo |
