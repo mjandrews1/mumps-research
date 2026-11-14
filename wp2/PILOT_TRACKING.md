@@ -11,8 +11,8 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 5 | libmpscpp.cpp::EncodeHTML | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 6 | interp-sym.cpp::_find | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 7 | compiler-parse.c::fixstr | c | simple | graded-ok | todo | todo | todo | todo |
-| 8 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | translating | todo | todo | todo | todo |
-| 9 | include/mumpsc/libmpsrdbms.h::<misc> | c | simple | todo | todo | todo | todo | todo |
+| 8 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | graded-ok | todo | todo | todo | todo |
+| 9 | include/mumpsc/libmpsrdbms.h::<misc> | c | simple | translating | todo | todo | todo | todo |
 | 10 | interp-arith.cpp::mps_acos | cpp | simple | todo | todo | todo | todo | todo |
 | 11 | compiler-parse.c::ExpandNext | c | core | todo | todo | todo | todo | todo |
 | 12 | mumps.cpp::<misc> | cpp | core | todo | todo | todo | todo | todo |
