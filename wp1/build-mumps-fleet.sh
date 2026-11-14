@@ -15,7 +15,7 @@
 set -u
 MUMPS_SRC="${MUMPS_SRC:-$HOME/mumps-src/mumps/Mumps-Language-Processors/Mumps-Interpreter-Compiler-Library}"
 TARBALL_URL="https://www.cs.uni.edu/~okane/source/MUMPS-MDH/mumps-14-may-2026.tgz"
-TARBALL_SHA256_PLACEHOLDER="(verify against the site checksum at freeze time)"
+TARBALL_SHA256_PLACEHOLDER="(verified on reference build: 621deb2586f27e741ce6db1a2a86fbddf4e4da40c9c6bb363f84c814f53ffdbe)"
 
 die() { echo "ERROR: $*" >&2; exit 1; }
 
@@ -25,17 +25,21 @@ deps)
   # vendor dependency list (get-software.script) + build essentials
   apt-get update
   apt-get install -y build-essential pkg-config \
-    libgtk-3-dev libgdkmm-3.0-dev libgtkmm-3.0-dev \
+    libgtk-3-dev libgtkmm-3.0-dev \
     libsqlite3-dev libgmp-dev libpcre2-dev flex bison
   bash "$MUMPS_SRC/get-software.script" || echo "WARN: vendor dep script partial-failed; continue if build succeeds"
   ;;
 
 fetch)
-  mkdir -p "$(dirname "$MUMPS_SRC")"
+  # 2026-11-14 fix: extraction target was one directory too deep.
+  # The tar member is mumps/Mumps-Language-Processors/..., which must
+  # land directly under the parent of MUMPS_SRC's mumps/ component.
+  mkdir -p "$(dirname "$MUMPS_SRC")/../.."
   curl -L "$TARBALL_URL" -o /tmp/mumps.tgz
-  # NOTE: record sha256 of the tarball here at freeze time:
+  # Recorded on the reference build (2026-11-14):
+  #   621deb2586f27e741ce6db1a2a86fbddf4e4da40c9c6bb363f84c814f53ffdbe  mumps-14-may-2026.tgz
   sha256sum /tmp/mumps.tgz
-  tar xzf /tmp/mumps.tgz -C "$(dirname "$MUMPS_SRC")/.." \
+  tar xzf /tmp/mumps.tgz -C "$(dirname "$MUMPS_SRC")/../.." \
     mumps/Mumps-Language-Processors/Mumps-Interpreter-Compiler-Library
   ;;
 
@@ -51,7 +55,8 @@ build)
   ;;
 
 check)
-  # Smoke test: interpreter + compiler presence
+  # Smoke test: interpreter + translator presence
+  command -v mumps >/dev/null || die "mumps not on PATH — install the .deb (see 'build' output)"
   command -v mumps2c >/dev/null || die "mumps2c not on PATH — install the .deb (see 'build' output)"
   cat >/tmp/hello_research.mps <<'MPS'
 	; smoke test — mjandrews1/mumps-research WP1
@@ -60,10 +65,13 @@ check)
 	Write 6*7,!
 	Quit
 MPS
-  echo "--- interpreter (mumps2c) ---"
-  mumps2c /tmp/hello_research.mps || die "interpreter smoke test failed"
-  echo "--- compiler wrapper (mumpsc) ---"
-  command -v mumpsc >/dev/null && mumpsc --help 2>&1 | head -5 || echo "WARN: mumpsc not on PATH yet"
+  # interpreter needs a sqlite db in the working directory
+  printf 'y\n' | (cd /tmp && mumps-sql-db-create) >/dev/null 2>&1 \
+    || echo "WARN: mumps-sql-db-create failed; smoke test may fail"
+  echo "--- interpreter (mumps) ---"
+  (cd /tmp && mumps /tmp/hello_research.mps) || die "interpreter smoke test failed"
+  echo "--- translator (mumps2c) ---"
+  mumps2c /tmp/hello_research.mps >/dev/null || die "translator smoke test failed"
   echo "SMOKE TEST PASSED"
   ;;
 
