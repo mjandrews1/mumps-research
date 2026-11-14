@@ -25,10 +25,11 @@ object CRuntime {
     }
 
     /**
-     * C: gcvt(x, ndigits, buf) — glibc semantics: same as %.{ndigits}g but
-     * always includes a decimal point for finite results without one
-     * (e.g. 0 -> "0.", 3 -> "3."). OPEN VERIFICATION FLAG (heuristic 41):
-     * confirm against the reference binary $ZACOS output during integration.
+     * C: gcvt(x, ndigits, buf) — glibc semantics (same as %.{ndigits}g but
+     * always includes a decimal point). NOTE: the REFERENCE build does not
+     * define GCVT (verified 2026-11-14 against /usr/bin/mumps: $zacos(1)
+     * prints "0" with no appended point), so this helper is NOT used by the
+     * reference configuration; kept for completeness.
      */
     fun gcvt(x: Double, ndigits: Int): String {
         var s = String.format("%." + ndigits + "g", x)

@@ -1,6 +1,6 @@
 # Pilot (B1) Tracking
 
-Order within batch: complexity_rank ascending. Status: todo / translating / graded-ok / graded-deviation / deferred. Units 1-5 in progress: translator units 1-3 integrate against the translator oracle; interpreter/library units 4-5 against the interpreter oracle.
+Order within batch: complexity_rank ascending. Status: todo / translating / graded-ok / graded-deviation / deferred. Simple stratum COMPLETE (units 1-10, all builds green; unit 10 gcvt semantics verified against the reference binary). Core stratum in progress. Translator units integrate against the translator oracle; interpreter/library units against the interpreter oracle.
 
 | # | unit_id | lang | stratum | BASE | DOC | PRO | DAF | BOTH |
 |---|---|---|---|---|---|---|---|---|
@@ -13,7 +13,7 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 7 | compiler-parse.c::fixstr | c | simple | graded-ok | todo | todo | todo | todo |
 | 8 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 9 | include/mumpsc/libmpsrdbms.h::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
-| 10 | interp-arith.cpp::mps_acos | cpp | simple | translating | todo | todo | todo | todo |
+| 10 | interp-arith.cpp::mps_acos | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 11 | compiler-parse.c::ExpandNext | c | core | todo | todo | todo | todo | todo |
 | 12 | mumps.cpp::<misc> | cpp | core | todo | todo | todo | todo | todo |
 | 13 | interp-sysfunc.cpp::GlobalName | cpp | core | todo | todo | todo | todo | todo |
