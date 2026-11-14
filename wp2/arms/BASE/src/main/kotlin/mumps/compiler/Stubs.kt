@@ -20,8 +20,13 @@ fun atCopy(atFlg: Int, tmp: StringBuilder): Unit =
 fun parse_(): Short =
     TODO("unit compiler-parse.c parse_() not yet translated")
 
-// (extract2 stub removed — superseded by the real translation in unit 15,
-//  compiler-parse.c::Extract2 -> Extract2.kt with String + offset overloads)
+/** C: char *Extract2(unsigned char *) — overload for callers passing the
+ * mutable pd1 scratch buffer (units 6/7: IfCode, MumpsOpen call it as
+ * Extract2(&pd1[sdlim])). NOT superseded: the real translation (unit 15,
+ * Extract2.kt) works on String. INTEGRATION DECISION: either convert
+ * call sites (pd1.toString()) or give Extract2 a StringBuilder overload. */
+fun extract2(pd1: StringBuilder, from: Int): String =
+    TODO("extract2(StringBuilder) integration point — see Stubs.kt note")
 
 /** C: void epi(short ExecName, long pid) — epilogue emitter (compiler-mumps.c) */
 fun epi(execName: Short, pid: Long): Unit =
