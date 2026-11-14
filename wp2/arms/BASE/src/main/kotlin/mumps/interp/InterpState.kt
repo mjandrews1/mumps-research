@@ -8,8 +8,13 @@ package mumps.interp
 object InterpState {
 
     // C: interp-native-btree.cpp: extern int DBSem (defined in mpstime.cpp)
-    /** deadlock prevention flag (C: int DBSem = 0) */
+    /** deadlock prevention flag (C: int DBSem = 0; defined in BOTH mpstime.cpp
+     *  and mumps.cpp — C tentative definitions merge; the single Kotlin
+     *  property serves both translation units) */
     var DBSem: Int = 0
+
+    /** C: int DBTimePulse (mumps.cpp) */
+    var DBTimePulse: Int = 0
 
     // --- build-configuration flags (C: #ifdef in interp-arith.cpp) ---
     // Reference build (/usr/bin/mumps, glibc/Linux), VERIFIED against the

@@ -10,7 +10,10 @@ package mumps.interp
  * A class (instance state), NOT a singleton: the interpreter may host
  * multiple state vectors. Members are added unit by unit.
  */
-class MsvState
+class MsvState {
+    /** C: svPtr->program — program name from argv (mumps.cpp main) */
+    var program: String = ""
+}
 
 /** C: unsigned char *zfcn(unsigned char *cmd, unsigned char *out, MSV *svPtr) — $Z function dispatcher; out-buffer -> String return (heuristic 7) */
 fun zfcn(cmd: String, svPtr: MsvState): String =

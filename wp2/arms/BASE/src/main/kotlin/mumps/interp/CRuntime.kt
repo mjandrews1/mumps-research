@@ -38,6 +38,9 @@ object CRuntime {
         return s
     }
 
+    /** C: Mltoa(long, unsigned char *) — long to decimal string. */
+    fun mltoa(v: Long): String = v.toString()
+
     fun atoi(s: String): Int {
         val m = Regex("^[+-]?\\d+").find(s.trim()) ?: return 0
         return m.value.toIntOrNull() ?: 0
