@@ -1,0 +1,2 @@
+id,date,arm,unit_id,construct,canonical_form,decision,kotlin_target,rationale,source,reused_from
+(EXAMPLE) 2027-01-15,BASE,compiler-parse.c::fixstr,char-pointer walk over fixed buffer,string_walk(min_length),converted to Kotlin String indices with bounds guard,fixstr(s: String): String,"C walks a char* in place; Kotlin String is immutable, so build with StringBuilder","manual-decision",
