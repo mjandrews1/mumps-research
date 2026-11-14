@@ -15,6 +15,11 @@ class MsvState {
     var program: String = ""
 }
 
+/** C: int floatstring(char *) — is this a float-formatted string?
+ *  Lives in interp-arith.cpp outside batch 1 (not a selected unit). */
+fun floatstring(s: String): Boolean =
+    TODO("floatstring not yet translated (interp-arith.cpp, outside batch 1)")
+
 /** C: char *sym_(int op, unsigned char *, unsigned char *, MSV *) — symbol
  *  table routing (interp-interp.cpp prototype; body outside batch 1) */
 fun sym_(op: Int, name: String, value: String, svPtr: MsvState): String? =
