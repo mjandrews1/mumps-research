@@ -8,6 +8,9 @@
 #   case.log  — the translator's stdout log (normalized)
 #   case.err  — the translator's stderr (normalized)
 #
+# mumps2c writes its output next to the INPUT file, so each case is COPIED
+# into the temp dir and translated there by bare name (observed 2026-11-14).
+#
 # Usage:  ./run_translator_oracle.sh <mumps2c-path> <outdir>
 # The FIRST full run on the reference build is the FREEZE; commit outdir/
 # with freeze_oracle.py's manifest. Every later run must reproduce it
@@ -25,7 +28,8 @@ fails=0
 for f in "$CASES"/*.mps; do
   name="$(basename "$f" .mps)"
   W="$(mktemp -d)"
-  (cd "$W" && "$BIN" "$f") >"$OUT/$name.log" 2>"$OUT/$name.err"
+  cp "$f" "$W/"
+  (cd "$W" && "$BIN" "$name.mps") >"$OUT/$name.log" 2>"$OUT/$name.err"
   rc=$?
   for ext in cpp m; do
     if [ -f "$W/$name.$ext" ]; then
