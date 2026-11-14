@@ -18,8 +18,8 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 12 | mumps.cpp::<misc> | cpp | core | graded-ok | todo | todo | todo | todo |
 | 13 | interp-sysfunc.cpp::GlobalName | cpp | core | graded-ok | todo | todo | todo | todo |
 | 14 | libmpscpp.cpp::global::TermCorrelate | cpp | core | graded-ok | todo | todo | todo | todo |
-| 15 | compiler-parse.c::Extract2 | c | core | translating | todo | todo | todo | todo |
-| 16 | compiler-parse.c::ExpandGet | c | core | todo | todo | todo | todo | todo |
+| 15 | compiler-parse.c::Extract2 | c | core | graded-ok | todo | todo | todo | todo |
+| 16 | compiler-parse.c::ExpandGet | c | core | translating | todo | todo | todo | todo |
 | 17 | interp-bmgsubs.c::gotamatch | c | core | todo | todo | todo | todo | todo |
 | 18 | compiler-abrtx.c::abrtx | c | core | todo | todo | todo | todo | todo |
 | 19 | interp-interp.cpp::<misc> | cpp | core | todo | todo | todo | todo | todo |
