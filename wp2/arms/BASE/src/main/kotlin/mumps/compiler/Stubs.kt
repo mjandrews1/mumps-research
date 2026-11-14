@@ -20,9 +20,16 @@ fun atCopy(atFlg: Int, tmp: StringBuilder): Unit =
 fun parse_(): Short =
     TODO("unit compiler-parse.c parse_() not yet translated")
 
-/** C: char *Extract2(unsigned char *) — called as Extract2(&pd1[sdlim]) */
-fun extract2(pd1: StringBuilder, from: Int): String =
-    TODO("unit compiler-parse.c::Extract2 not yet translated")
+// (extract2 stub removed — superseded by the real translation in unit 15,
+//  compiler-parse.c::Extract2 -> Extract2.kt with String + offset overloads)
+
+/** C: void epi(short ExecName, long pid) — epilogue emitter (compiler-mumps.c) */
+fun epi(execName: Short, pid: Long): Unit =
+    TODO("epi not yet translated (lives in compiler-mumps.c)")
+
+/** C: void EP(int flg, short ExecName, long pid) — subfunction entry router (compiler-mumps.c:1978) */
+fun EP(flg: Int, execName: Short, pid: Long): Unit =
+    TODO("EP not yet translated (lives in compiler-mumps.c)")
 
 /** C: void linepad(int, char *) — count is derivable from the text length */
 fun linepad(text: String, comment: String): Unit =

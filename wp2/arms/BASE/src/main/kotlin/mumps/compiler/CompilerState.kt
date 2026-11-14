@@ -11,6 +11,16 @@ object CompilerState {
 
     // --- output streams (C: extern FILE *Out, *Final) ---
     lateinit var Out: Writer
+    lateinit var Final: Writer
+
+    // --- abrtx / command flags (C: compiler-globals-ext.h) ---
+    var MAIN_flg: Short = 0
+    var FCN_flg: Short = 0
+    var F_flg: Short = 0
+    var ExitCode: Short = 0
+    var ExecName: Short = 0
+    var pid: Long = 0
+    var outputFile: String = ""
 
     // --- scanner / parse state ---
     var xd: String = ""            // source line buffer (scan-only role)
