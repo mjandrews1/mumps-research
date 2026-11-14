@@ -52,7 +52,7 @@ fun ifCode(): Int {
             c.t2 = 1
             val rc = parse_()
             c.ierr = rc
-            if (rc != 0) return CompilerState.PARSE_ERROR // C: goto parse_err
+            if (rc != 0.toShort()) return CompilerState.PARSE_ERROR // C: goto parse_err
 
             Out.write("\tsvPtr->tpx = 0; //Default \$Test indicator\n")
             Out.write("\tif (numcomp2((UNS) " + extract2(c.pd1, c.sdlim.toInt()) + " )) { // Test if true \n")
