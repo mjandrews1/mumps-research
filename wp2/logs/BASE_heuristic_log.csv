@@ -1,0 +1,6 @@
+id,date,arm,unit_id,construct,canonical_form,decision,kotlin_target,rationale,source,reused_from
+1,2026-11-14,BASE,compiler-copyright-notice.c::<misc>,stdio FILE* output parameter,FILE*-param->stream,copyright_notice(Out: FILE*) -> copyrightNotice(out: java.io.Writer),java.io.Writer,stream abstraction is testable via StringWriter; PrintWriter covers the file case,manual-decision,
+2,2026-11-14,BASE,compiler-copyright-notice.c::<misc>,Sysout macro (fprintf(Out,x)),simple-output-macro(x),macro -> local helper fun sysout(s)=out.write(s),local nested function,small local fn preserves call-site shape without preprocessor,manual-decision,
+3,2026-11-14,BASE,compiler-copyright-notice.c::<misc>,time()/ctime() timestamp,ctime-format-string,SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy" + Locale.US) + explicit 
+,java.text.SimpleDateFormat,ctime emits fixed C-locale local-time string with trailing newline; byte-equivalence of emitted header requires same format,manual-decision,
+4,2026-11-14,BASE,compiler-copyright-notice.c::<misc>,snake_case function name,kotlin-naming-convention,copyright_notice -> copyrightNotice,fun copyrightNotice(out: Writer),Kotlin convention; per-arm mapping documented,manual-decision,
