@@ -86,5 +86,5 @@ fun abrtx(): Int {
     File(of.substring(0, of.length - 2) + ".m").delete()
     print(i.toString() + " lines of C++ generated\n")
 
-    return S.ExitCode
+    return S.ExitCode.toInt() // C: short ExitCode widened for the int return
 }
