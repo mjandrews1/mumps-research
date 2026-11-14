@@ -1,0 +1,16 @@
+arm,unit_id
+BASE,libmpscpp.cpp::prnt
+BASE,include/mumpsc/libmpsrdbms.h::<misc>
+BASE,compiler-at-test.c::atTest
+DOC,interp-parse.cpp::patrn
+DOC,libmpscpp.cpp::global::Length
+DOC,include/mumpsc/defines.h::<misc>
+PRO,interp-arith.cpp::mps_asin
+PRO,interp-arith.cpp::Mltoa
+PRO,interp-parse.cpp::BuildGlobal
+DAF,libmpscpp.cpp::Jaccard
+DAF,compiler-abrtx.c::abrtx
+DAF,libmpscpp.cpp::global::Extract
+BOTH,compiler-sys1.c::inout
+BOTH,interp-bifs.cpp::zfcn
+BOTH,libmpscpp.cpp::Jaccard
