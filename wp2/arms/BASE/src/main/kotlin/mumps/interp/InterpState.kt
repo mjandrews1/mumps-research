@@ -11,6 +11,13 @@ object InterpState {
     /** deadlock prevention flag (C: int DBSem = 0) */
     var DBSem: Int = 0
 
+    // --- build-configuration flags (C: #ifdef in interp-arith.cpp) ---
+    // Reference build (/usr/bin/mumps, glibc/Linux): gcvt available, no
+    // BIGFLOAT (long double), no MULTI_PRECISION (MPFR).
+    const val GCVT = true
+    const val BIGFLOAT = false
+    const val MULTI_PRECISION = false
+
     // --- interpreter-side macro constants (C: include/mumpsc/defines.h) ---
     // NOTE macro shadowing (heuristic 12): CLOSE is 4 in defines.h (interpreter
     // scope, used here) and 'c' in compiler-macros.h (compiler scope).
