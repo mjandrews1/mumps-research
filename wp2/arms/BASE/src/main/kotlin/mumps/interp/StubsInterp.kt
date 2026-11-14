@@ -15,6 +15,11 @@ class MsvState {
     var program: String = ""
 }
 
+/** C: char *sym_(int op, unsigned char *, unsigned char *, MSV *) — symbol
+ *  table routing (interp-interp.cpp prototype; body outside batch 1) */
+fun sym_(op: Int, name: String, value: String, svPtr: MsvState): String? =
+    TODO("sym_ not yet translated (prototype from unit 19; body outside batch 1)")
+
 /** C: $SymPut macro — set symbol (interp-sym.cpp region, not in batch 1) */
 fun symPut(name: String, value: String, svPtr: MsvState): Unit =
     TODO("symPut not yet translated")
