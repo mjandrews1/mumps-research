@@ -15,7 +15,7 @@ object CRuntime {
      * impossible to hit through the frozen oracle cases.
      */
     fun atoi(s: String): Int {
-        val m = Regex("^[+-]?\d+").find(s.trim()) ?: return 0
+        val m = Regex("^[+-]?\\d+").find(s.trim()) ?: return 0
         return m.value.toIntOrNull() ?: 0
     }
 }
