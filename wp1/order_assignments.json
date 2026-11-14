@@ -1,0 +1,25 @@
+{
+  "pre_registration": "Latin-square arm order assignments",
+  "committed": "2026-11-14",
+  "committed_before_pilot": true,
+  "revision_rule": "Not revised after the pilot begins. Deviations during execution are logged as data, never repaired here.",
+  "design_reference": "RESEARCH_DESIGN_C_To_Kotlin.md section 12.3",
+  "batch_count": 10,
+  "batch_count_fixed_by": "tools/examples/EXAMPLE_protocol_seed-20261113.json (seed 20261113, 308 function units, strata 102/102/104)",
+  "construction": "Arm k (0-indexed, in the order BASE, DOC, PRO, DAF, BOTH) translates batch B((k+c-1) mod 10)+1 in cycle c (c=1..10): each arm starts at its own batch and proceeds cyclically.",
+  "assignments": {
+    "BASE": ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10"],
+    "DOC":  ["B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10", "B1"],
+    "PRO":  ["B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10", "B1", "B2"],
+    "DAF":  ["B4", "B5", "B6", "B7", "B8", "B9", "B10", "B1", "B2", "B3"],
+    "BOTH": ["B5", "B6", "B7", "B8", "B9", "B10", "B1", "B2", "B3", "B4"]
+  },
+  "fresh_attention_rotation": {
+    "rule": "The arm receiving the researcher's first working session of each cycle rotates in the order BASE, DOC, PRO, DAF, BOTH, repeat.",
+    "cycle_to_first_attention": {
+      "1": "BASE", "2": "DOC", "3": "PRO", "4": "DAF", "5": "BOTH",
+      "6": "BASE", "7": "DOC", "8": "PRO", "9": "DAF", "10": "BOTH"
+    }
+  },
+  "micro_replication": "3 units per arm, per-arm seeded streams; already drawn in tools/examples/EXAMPLE_micro_replication_seed-20261113.csv; translated at the end in the same session order, not now."
+}
