@@ -35,6 +35,7 @@ object CompilerState {
     // --- constants (C: compiler-macros.h) ---
     const val ABRTX = 6
     const val PARSE_ERROR = 1
+    const val ARG_LIST_ERROR = 2
     const val FBMAX = 4000
     /** C: #define IF 'i' — value seen by compiler-if.c (compiler-macros.h). */
     const val IF_TAG = 'i'.code
