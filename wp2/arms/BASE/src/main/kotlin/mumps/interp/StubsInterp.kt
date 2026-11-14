@@ -15,6 +15,22 @@ class MsvState {
     var program: String = ""
 }
 
+/** C: $SymPut macro — set symbol (interp-sym.cpp region, not in batch 1) */
+fun symPut(name: String, value: String, svPtr: MsvState): Unit =
+    TODO("symPut not yet translated")
+
+/** C: int Interpret(const char *, MSV *) — the interpreter core (not in batch 1) */
+fun interpret(cmd: String, svPtr: MsvState): Int =
+    TODO("interpret not yet translated (not in batch 1)")
+
+/** C: int Mglobal(int op, unsigned char *, unsigned char *, MSV *) — global dispatch (not in batch 1) */
+fun mglobal(op: Int, a: String, b: String, svPtr: MsvState): Int =
+    TODO("mglobal not yet translated (not in batch 1)")
+
+/** C: char *cleanLocks(char *) — global array lock service (not in batch 1) */
+fun cleanLocks(pid: String): String =
+    TODO("cleanLocks not yet translated (not in batch 1)")
+
 /** C: unsigned char *zfcn(unsigned char *cmd, unsigned char *out, MSV *svPtr) — $Z function dispatcher; out-buffer -> String return (heuristic 7) */
 fun zfcn(cmd: String, svPtr: MsvState): String =
     TODO("zfcn not yet translated (not in batch 1)")
