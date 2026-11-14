@@ -1,0 +1,8 @@
+The Mumps Compiler
+Translating case_13_user_functions.mps to C++:
+
+*** 92 Missing zmain in or near line 7
+***	eport 
+
+
+[translator rc=9]

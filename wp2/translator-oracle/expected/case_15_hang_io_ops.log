@@ -1,0 +1,8 @@
+The Mumps Compiler
+Translating case_15_hang_io_ops.mps to C++:
+
+*** Warning: No Mumps Zmain or Zfunction
+7 lines of Mumps;
+233 lines of C++ generated
+
+[translator rc=0]

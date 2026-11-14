@@ -1,0 +1,8 @@
+The Mumps Compiler
+Translating case_06_justify_fnumber.mps to C++:
+
+*** Warning: No Mumps Zmain or Zfunction
+8 lines of Mumps;
+258 lines of C++ generated
+
+[translator rc=0]

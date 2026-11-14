@@ -1,0 +1,8 @@
+The Mumps Compiler
+Translating case_07_conditionals.mps to C++:
+
+*** Warning: No Mumps Zmain or Zfunction
+11 lines of Mumps;
+380 lines of C++ generated
+
+[translator rc=0]
