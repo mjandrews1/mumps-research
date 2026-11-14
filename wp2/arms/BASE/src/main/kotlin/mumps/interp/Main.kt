@@ -1,6 +1,7 @@
 package mumps.interp
 
 import java.io.File
+import kotlin.system.exitProcess
 
 /**
  * Kotlin translation of mumps.cpp (Study Subset unit 12, Batch 1, arm BASE;
@@ -56,7 +57,14 @@ private fun writeHistory(file: String) {
     File(file).writeText(history.joinToString("\n"))
 }
 
-fun main(args: Array<String>) {
+/**
+ * Kotlin entry point. C main returns an int exit code; Kotlin's entry must
+ * return Unit — so the body lives in mumpsMain(): Int and the exit code is
+ * delivered via exitProcess (heuristic 51), preserving every C return.
+ */
+fun main(args: Array<String>) = exitProcess(mumpsMain(args))
+
+fun mumpsMain(args: Array<String>): Int {
     val svPtr = MsvState()
 
     if (false) {
