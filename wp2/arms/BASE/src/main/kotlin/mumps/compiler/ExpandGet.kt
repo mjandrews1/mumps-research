@@ -36,7 +36,7 @@ fun expandGet(v1d: String, iStart: Int): String? {
         val arg2 = scanUntilHash()
         i++ // C: i=i+1
         val arg3: String
-        if (i < v1d.length && v1d[i] == CODED_COMMA.toChar()) {
+        if (i < v1d.length && v1d[i].code == CODED_COMMA) {
             i++
             arg3 = if (v1d.regionMatches(i, "#G#", 0, 3) || v1d.regionMatches(i, "#S#", 0, 3)) {
                 extract2(v1d, i) // first offset-overload caller (heuristic 57)
