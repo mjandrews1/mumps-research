@@ -4,7 +4,6 @@ import mumps.interp.CRuntime
 import mumps.interp.InterpState
 import mumps.interp.MsvState
 import mumps.interp.STR_MAX
-import mumps.interp.zfcn
 import java.io.RandomAccessFile
 import java.util.Locale
 import kotlin.system.exitProcess
@@ -25,7 +24,7 @@ import kotlin.system.exitProcess
  *  - lines 1-100: banner, #defines (SQLITE/MPSCPP/_INTERP_/VERSION/
  *    LOG2/NO/YES/gcvt_wrapper/GETPID), prototypes (sigint, pm), globals
  *    (ierr1, GlobalExceptionCode, svPtr, global::Eflg)
- *  - lines 534-589: mdh_tree_level_add (GTK tree zcall assembler)
+ *  - lines 534-589: mdh_tree_level_add 10-col overload (covered by unit 8)
  *  - lines 934-1148: the Hash class (ctor/dtor/operator()/operator=)
  *  - line 2360: indirect::operator=(string)
  *  - lines 2739-2930: global::operator() subscript overloads -> the
@@ -100,10 +99,10 @@ const val UNSPECIFIED = 0 // C: include/mumpsc/libmpscpp.h:69
 fun pm(string: String, pattern: String, svPtr: MsvState): Int =
     TODO("pm not yet translated (body outside batch 1)")
 
-/** C: MSV *svPtr = AllocSV(); (line 99) — global initial stack frame.
- *  AllocSV()'s body is outside batch 1; this constructs the state vector
- *  directly, preserving the file-scope singleton. */
-val svPtr: MsvState = MsvState()
+// C: MSV *svPtr = AllocSV(); (line 99) — global initial stack frame.
+// Already translated by unit 8 as MdhRuntime.svPtr (MdhTreeLevelAdd.kt,
+// which documents this exact C line); NOT redeclared here (heuristic 32
+// family: one Kotlin owner per C entity).
 
 // C: int global::Eflg = 0 (line 100) — lives on MdhGlobal.companion.
 
@@ -123,47 +122,16 @@ fun __finish(): Unit = TODO("__finish not yet translated (body outside batch 1)"
 
 /**
  * C: void mdh_tree_level_add(GtkTreeStore *tree, int depth, char *col1..col10)
- * (lines 534-589) — assembles the $z~mdh~tree~level~add zcall string with
- * the C's \xce arg-list-open, \xd0 argument, and \xcf arg-list-close
- * separators and dispatches through zfcn().
+ * (lines 534-589, the 10-column overload that fell into this residual
+ * chunk) — ALREADY COVERED by unit 8's mdhTreeLevelAdd (MdhTreeLevelAdd.kt):
+ * unit 8 translated the 1..4-column overloads as one required-col + vararg
+ * function (heuristic 32), which covers every C++ column arity including
+ * this one. NOT redeclared here (one Kotlin owner per C entity).
  *
- * GTK handle: the C prints the pointer with %p; the JVM has no raw
- * pointers, so the handle is an opaque Long (heuristic 71 family).
- * Separator bytes are built programmatically (Char(206)/Char(208)/Char(207))
- * to keep raw >0x7F bytes out of the tool payload (heuristic 80).
+ * The 10-column C body is otherwise identical in shape to the unit-8
+ * overloads (same \xce/\xd0/\xcf zcall assembly, same uninitialized
+ * tmp[0] read), so nothing else from this region needs translation.
  */
-fun mdhTreeLevelAdd(
-    tree: Long, depth: Int,
-    col1: String, col2: String, col3: String, col4: String, col5: String,
-    col6: String, col7: String, col8: String, col9: String, col10: String
-) {
-    val xce = Char(206) // C: "\xce" — open paren marker
-    val xd0 = Char(208) // C: "\xd0" — argument separator
-    val xcf = Char(207) // C: "\xcf" — close paren marker
-
-    // C: strcpy(&tmp[1],"$z~mdh~tree~level~add"); ... chain of strcats.
-    // QUIRK PRESERVED: the C builds from &tmp[1] but passes tmp (from
-    // tmp[0], UNINITIALIZED stack memory) to zfcn. Sibling mdh zcalls
-    // (libmpscpp.cpp:131-158) initialize that leading byte to a SPACE
-    // (" $zwi\xce"); modeled as a leading space — Kotlin cannot reproduce
-    // an uninitialized stack read (documented divergence, heuristic 71).
-    val tmp = StringBuilder(" $z~mdh~tree~level~add")
-    tmp.append(xce)
-    tmp.append(java.lang.Long.toHexString(tree)) // C: sprintf(tmp1,"%p",tree)
-    tmp.append(xd0)
-    tmp.append(depth)
-    tmp.append(xd0)
-    for (col in arrayOf(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10)) {
-        tmp.append(col)
-        tmp.append(xd0)
-    }
-    tmp.append(xcf)
-
-    // C: zfcn((unsigned char *) tmp, (unsigned char *) tmp2, svPtr)
-    // tmp2 is an UNINITIALIZED out-param local in the C; the Kotlin stub
-    // returns the result, and the leading tmp[0] byte is included above.
-    zfcn(tmp.toString(), svPtr)
-}
 
 // ---------------------------------------------------------------------------
 // C: lines 934-1148 — the Hash class
@@ -314,7 +282,7 @@ class Hash(name: String, sz: Long, disp: String) {
             if (pstr().length >= str.length) { // C: strlen(p)>=str.length() — replace
                 f.seek(i) // C: FSEEK(hashkey,i,SEEK_SET)
                 val k = pstr().length // C: k=strlen(p)
-                for (j in 0..k) f.write(SLOT_ZAPPED) // C: p[0]=2; zap to 2's
+                for (z in 0..k) f.write(SLOT_ZAPPED) // C: p[0]=2; zap to 2's
                 f.seek(i) // C: reset
                 f.write(str.toByteArray(Charsets.ISO_8859_1) + 0.toByte()) // C: fwrite(str, len+1)
                 return str
@@ -323,9 +291,9 @@ class Hash(name: String, sz: Long, disp: String) {
             // no-replace path: zap the OLD key slot (at ii) and old value
             f.seek(ii) // C: FSEEK(hashkey,ii,SEEK_SET)
             var k = ref.length + 1 // C: k=ref.length()+1
-            for (j in 0..k) f.write(SLOT_ZAPPED) // C: p[0]=2; zap to 2's
+            for (z in 0..k) f.write(SLOT_ZAPPED) // C: p[0]=2; zap to 2's
             ii = f.filePointer // C: ii=FTELL(hashkey)
-            var j = 0
+            j = 0
             while (j < STR_MAX) { // get value — QUIRK: C stores fgetc's
                 // EOF (-1) into p[j] and continues; preserved byte-exactly
                 p[j] = f.read().toByte()
@@ -336,7 +304,7 @@ class Hash(name: String, sz: Long, disp: String) {
             f.seek(ii)            // C: FSEEK(hashkey,ii,SEEK_SET)
             // C: comment says "zap to 1's" but the code writes p[0]=2 —
             // QUIRK PRESERVED: 2's (comment/code mismatch, heuristic 26)
-            for (j in 0..k) f.write(SLOT_ZAPPED)
+            for (z in 0..k) f.write(SLOT_ZAPPED)
         }
 
         // append path: find a run of j consecutive empty slots
@@ -422,7 +390,7 @@ fun Long.plusGlobal(g: MdhGlobal): Long = this + g.toLongVal()
 fun ULong.plusGlobal(g: MdhGlobal): ULong = this + g.toLongVal().toULong()
 fun Short.plusGlobal(g: MdhGlobal): Short = (this + g.toShortVal()).toShort()
 fun UShort.plusGlobal(g: MdhGlobal): UShort =
-    (this + g.toShortVal()).toShort().toUShort()
+    (this.toInt() + g.toIntVal()).toShort().toUShort()
 fun Float.plusGlobal(g: MdhGlobal): Float = this + g.numval().toFloat()
 fun Double.plusGlobal(g: MdhGlobal): Double = this + g.numval()
 
@@ -433,7 +401,7 @@ fun Long.minusGlobal(g: MdhGlobal): Long = this - g.toLongVal()
 fun ULong.minusGlobal(g: MdhGlobal): ULong = this - g.toLongVal().toULong()
 fun Short.minusGlobal(g: MdhGlobal): Short = (this - g.toShortVal()).toShort()
 fun UShort.minusGlobal(g: MdhGlobal): UShort =
-    (this - g.toShortVal()).toShort().toUShort()
+    (this.toInt() - g.toIntVal()).toShort().toUShort()
 fun Float.minusGlobal(g: MdhGlobal): Float = this - g.numval().toFloat()
 fun Double.minusGlobal(g: MdhGlobal): Double = this - g.numval()
 
@@ -444,7 +412,7 @@ fun Long.timesGlobal(g: MdhGlobal): Long = this * g.toLongVal()
 fun ULong.timesGlobal(g: MdhGlobal): ULong = this * g.toLongVal().toULong()
 fun Short.timesGlobal(g: MdhGlobal): Short = (this * g.toShortVal()).toShort()
 fun UShort.timesGlobal(g: MdhGlobal): UShort =
-    (this * g.toShortVal()).toShort().toUShort()
+    (this.toInt() * g.toIntVal()).toShort().toUShort()
 fun Float.timesGlobal(g: MdhGlobal): Float = this * g.numval().toFloat()
 fun Double.timesGlobal(g: MdhGlobal): Double = this * g.numval()
 
