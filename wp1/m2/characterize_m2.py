@@ -5,11 +5,15 @@ C++ output, anchored to the frozen oracle cases.
 Usage:
   python3 characterize_m2.py <capture-dir> <out-dir> [oracle-expected-dir]
 
-Reads the frozen M2 capture produced by run_m2.sh (per-case generated C++
-plus translator logs) and emits, into <out-dir>:
+Reads the frozen translator-output capture and emits, into <out-dir>:
 
   m2_characterization.json   full machine-readable characterization
   m2_summary.md              human-readable summary report
+
+Both capture layouts are supported:
+  - flat (wp2/translator-oracle/expected): case_<name>.<ext> files grouped
+    by stem — the frozen translator oracle (preferred; frozen 2026-11-14)
+  - directory-per-case (wp1/m2 capture style from run_m2.sh)
 
 If the frozen oracle expected/ directory is given, the summary also lists
 the oracle case names so every characterization entry is visibly anchored
@@ -39,13 +43,14 @@ INCLUDE = re.compile(r'^\s*#\s*include\s*[<"]([^">]+)[">]')
 STRING_LIT = re.compile(r'"(?:\\.|[^"\\])*"')
 COMMENT_LINE = re.compile(r"^\s*(//|/\*|\*)")
 FUNC_DEF = re.compile(r"^[A-Za-z_][A-Za-z0-9_<>:*&\s]*\b([A-Za-z_][A-Za-z0-9_]*)\s*\([^;]*\)\s*\{?\s*$")
+CPP_EXTS = (".cpp", ".c", ".cc", ".cxx", ".h", ".hpp")
 
 
 def characterize_file(path: str) -> dict:
     with open(path, "r", errors="replace") as fh:
         lines = fh.readlines()
     text = "".join(lines)
-    stats = {
+    return {
         "loc_total": len(lines),
         "loc_nonblank": sum(1 for l in lines if l.strip()),
         "loc_comment": sum(1 for l in lines if COMMENT_LINE.match(l)),
@@ -61,20 +66,45 @@ def characterize_file(path: str) -> dict:
                                if API_FAMILIES.match(m)}),
         "called_symbols": sorted(set(CALL.findall(text))),
     }
-    return stats
 
 
-def characterize_case(case_dir: str) -> dict:
-    out = {"files": {}}
-    for root, _dirs, files in os.walk(case_dir):
-        for fn in sorted(files):
-            full = os.path.join(root, fn)
-            rel = os.path.relpath(full, case_dir)
-            if fn.endswith((".cpp", ".c", ".cc", ".cxx", ".h", ".hpp")):
-                out["files"][rel] = characterize_file(full)
-            else:
-                out["files"][rel] = {"bytes": os.path.getsize(full)}
-    return out
+def collect_capture(capture: str) -> dict:
+    """Return per_case from either layout:
+    - directory-per-case (run_m2.sh style): <capture>/<case>/<files>
+    - flat (wp2/translator-oracle style): <capture>/<case>.<ext> files
+      grouped by stem. C++ sources are characterized; other files
+      (.m/.log/.err) are recorded as byte counts.
+    """
+    per_case: dict = {}
+    top = sorted(os.listdir(capture))
+    flat_exts = ("cpp", "c", "cc", "cxx", "h", "hpp", "m", "log", "err")
+    flat = [n for n in top
+            if os.path.isfile(os.path.join(capture, n))
+            and n.startswith("case_")
+            and n.rsplit(".", 1)[-1] in flat_exts]
+    for name in top:
+        case_dir = os.path.join(capture, name)
+        if not os.path.isdir(case_dir):
+            continue
+        files = {}
+        for root, _dirs, fnames in os.walk(case_dir):
+            for fn in sorted(fnames):
+                full = os.path.join(root, fn)
+                rel = os.path.relpath(full, case_dir)
+                if fn.endswith(CPP_EXTS):
+                    files[rel] = characterize_file(full)
+                else:
+                    files[rel] = {"bytes": os.path.getsize(full)}
+        per_case[name] = {"files": files}
+    for fn in flat:
+        stem, ext = fn.rsplit(".", 1)
+        full = os.path.join(capture, fn)
+        per_case.setdefault(stem, {"files": {}})
+        if ext in ("cpp", "c", "cc", "cxx", "h", "hpp"):
+            per_case[stem]["files"][fn] = characterize_file(full)
+        else:
+            per_case[stem]["files"][fn] = {"bytes": os.path.getsize(full)}
+    return per_case
 
 
 def aggregate(per_case: dict) -> dict:
@@ -105,21 +135,26 @@ def write_summary(out_dir: str, per_case: dict, agg: dict,
     lines = ["# WP1/M2 — Translator C++ Output Characterization (summary)",
              "",
              "Static characterization of the mumps2c translator's C++ output",
-             "for the frozen-oracle cases. Behavioral authority: the frozen",
-             "interpreter oracle (wp1/oracle/expected/).", ""]
+             "for the frozen-oracle cases (capture layout: "
+             + ("flat wp2/translator-oracle" if any(
+                 "." in f for f in next(iter(per_case.values()))["files"])
+                else "directory-per-case") + ").",
+             "Behavioral authority: the frozen interpreter oracle"
+             " (wp1/oracle/expected/).", ""]
     if oracle_cases is not None:
         lines.append(f"Oracle anchoring: {len(per_case)} cases characterized, "
                      f"{len(oracle_cases)} frozen-oracle cases"
                      + ("" if set(per_case) == set(oracle_cases)
                         else "  **MISMATCH — investigate**"))
         lines.append("")
-    lines.append("| Case | Files | Total LOC | Non-blank LOC | Labels | "
+    lines.append("| Case | C++ files | Total LOC | Non-blank LOC | Labels | "
                  "API symbols |")
-    lines.append("|------|-------|-----------|---------------|--------|"
+    lines.append("|------|-----------|-----------|---------------|--------|"
                  "------------|")
     for case in sorted(per_case):
         st = aggregate({case: per_case[case]})["totals"]
-        nfiles = len(per_case[case]["files"])
+        nfiles = sum(1 for v in per_case[case]["files"].values()
+                     if isinstance(v, dict) and "loc_total" in v)
         api_n = len(set().union(*[v.get("api_symbols", [])
                 for v in per_case[case]["files"].values()
                 if isinstance(v, dict) and "api_symbols" in v])) \
@@ -127,7 +162,7 @@ def write_summary(out_dir: str, per_case: dict, agg: dict,
         lines.append(f"| {case} | {nfiles} | {st['loc_total']} | "
                      f"{st['loc_nonblank']} | {st['labels']} | {api_n} |")
     lines += ["", "## Corpus totals", "",
-              f"- Generated source files: {agg['totals']['files']}",
+              f"- Generated C++ files: {agg['totals']['files']}",
               f"- Total LOC: {agg['totals']['loc_total']} "
               f"(non-blank {agg['totals']['loc_nonblank']})",
               f"- String literals: {agg['totals']['string_literals']}; "
@@ -148,11 +183,10 @@ def main() -> int:
     capture, out_dir = sys.argv[1], sys.argv[2]
     oracle_expected = sys.argv[3] if len(sys.argv) > 3 else None
 
-    per_case = {}
-    for name in sorted(os.listdir(capture)):
-        case_dir = os.path.join(capture, name)
-        if os.path.isdir(case_dir):
-            per_case[name] = characterize_case(case_dir)
+    per_case = collect_capture(capture)
+    if not per_case:
+        print(f"no capture data found under {capture}")
+        return 1
 
     agg = aggregate(per_case)
     oracle_cases = None

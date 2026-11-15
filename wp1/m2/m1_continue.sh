@@ -5,23 +5,28 @@
 # artifacts are only VERIFIED, never regenerated or overwritten.
 #
 # Usage (inside m1-build, from ~/mumps-research):
-#   ./wp1/m1_continue.sh            # check + proceed to next pending step
-#   ./wp1/m1_continue.sh --check    # report status only, do nothing
+#   ./wp1/m2/m1_continue.sh            # check + proceed to next pending step
+#   ./wp1/m2/m1_continue.sh --check    # report status only, do nothing
+#
+# Translator capture: prefers the FROZEN translator oracle at
+# wp2/translator-oracle/expected/ (frozen 2026-11-14, 59 files, case_13 is
+# a recorded error case with no .cpp). Only if that is absent does it fall
+# back to creating a wp1/m2/capture/ via run_m2.sh + freeze_m2.py.
 #
 # Exit codes: 0 = all WP1 steps complete and verified; 1 = a verification
 # FAILED (do not proceed — investigate, log deviations); 2 = a step was
 # executed (or usage error) — re-run to confirm it now passes.
 #
 # Protocol notes:
-#   - The oracle freeze and the M2 capture are one-time events. If either
-#     --verify fails, that is a protocol deviation: STOP, do not re-freeze.
+#   - The oracle freezes are one-time events. If either --verify fails,
+#     that is a protocol deviation: STOP, do not re-freeze.
 #   - Commits of new artifacts are left to the researcher (this script only
 #     stages hints at the end of its run).
 
 set -u
 CHECK_ONLY=0
 [ "${1:-}" = "--check" ] && CHECK_ONLY=1
-cd "$(dirname "$0")/.." || exit 2   # repo root
+cd "$(dirname "$0")/../.." || exit 2   # repo root
 REPO_TOP="$(pwd)"
 
 step() { printf '\n=== %s ===\n' "$*"; }
@@ -67,43 +72,56 @@ else
   fail "wp1/oracle/expected/manifest.json missing — oracle not frozen; freeze on the reference build first (see wp1/oracle/README.md)"
 fi
 
-step "3. M2 translator-output capture (wp1/m2/capture/)"
-if [ ! -f wp1/m2/capture/manifest.json ]; then
-  info "no M2 capture yet — creating it now (this is the one-time M2 FREEZE)"
-  run bash wp1/m2/run_m2.sh "$MUMPS2C_BIN" wp1/m2/capture \
-    || fail "run_m2.sh failed — translator failures are characterization data; record them before retrying"
-  run python3 wp1/m2/freeze_m2.py wp1/m2/capture \
-    || fail "freeze_m2.py could not write the capture manifest"
-  info "M2 capture frozen — commit wp1/m2/capture/ now, then re-run this script"
-  exit 2
+CAPTURE_DIR=""
+if [ -f wp2/translator-oracle/expected/manifest.json ]; then
+  step "3. Translator oracle (wp2/translator-oracle/expected/)"
+  verify_or_fail bash wp2/translator-oracle/run_translator_oracle.sh "$MUMPS2C_BIN" /tmp/tr-verify-run
+  [ $FAILED -eq 0 ] || fail "translator-oracle re-run incomplete — see output above"
+  verify_or_fail python3 wp2/translator-oracle/freeze_translator_oracle.py /tmp/tr-verify-run --verify
+  [ $FAILED -eq 0 ] || fail "TRANSLATOR ORACLE MISMATCH vs frozen manifest — protocol deviation: stop, investigate, do NOT re-freeze"
+  rm -rf /tmp/tr-verify-run
+  ok "frozen translator oracle verified against a fresh mumps2c run"
+  CAPTURE_DIR="wp2/translator-oracle/expected"
+else
+  step "3. M2 translator-output capture (wp1/m2/capture/)"
+  if [ ! -f wp1/m2/capture/manifest.json ]; then
+    info "no frozen translator oracle and no M2 capture — creating one now (one-time FREEZE)"
+    run bash wp1/m2/run_m2.sh "$MUMPS2C_BIN" wp1/m2/capture \
+      || fail "run_m2.sh failed — translator failures are characterization data; record them before retrying"
+    run python3 wp1/m2/freeze_m2.py wp1/m2/capture \
+      || fail "freeze_m2.py could not write the capture manifest"
+    info "M2 capture frozen — commit wp1/m2/capture/ now, then re-run this script"
+    exit 2
+  fi
+  verify_or_fail bash wp1/m2/run_m2.sh "$MUMPS2C_BIN" /tmp/m2-verify-run
+  [ $FAILED -eq 0 ] || fail "m2 re-capture incomplete — see output above"
+  verify_or_fail python3 wp1/m2/freeze_m2.py /tmp/m2-verify-run --verify
+  [ $FAILED -eq 0 ] || fail "M2 CAPTURE MISMATCH vs frozen manifest — protocol deviation: stop, investigate, do NOT re-freeze"
+  rm -rf /tmp/m2-verify-run
+  ok "frozen M2 capture verified against a fresh translator run"
+  CAPTURE_DIR="wp1/m2/capture"
 fi
-verify_or_fail bash wp1/m2/run_m2.sh "$MUMPS2C_BIN" /tmp/m2-verify-run
-[ $FAILED -eq 0 ] || fail "m2 re-capture incomplete — see output above"
-verify_or_fail python3 wp1/m2/freeze_m2.py /tmp/m2-verify-run --verify
-[ $FAILED -eq 0 ] || fail "M2 CAPTURE MISMATCH vs frozen manifest — protocol deviation: stop, investigate, do NOT re-freeze"
-rm -rf /tmp/m2-verify-run
-ok "frozen M2 capture verified against a fresh translator run"
 
 step "4. M2 characterization (wp1/m2/analysis/)"
 if [ ! -f wp1/m2/analysis/m2_characterization.json ]; then
-  info "no characterization yet — generating it now"
-  run python3 wp1/m2/characterize_m2.py wp1/m2/capture wp1/m2/analysis wp1/oracle/expected \
+  info "no characterization yet — generating it now (from $CAPTURE_DIR)"
+  run python3 wp1/m2/characterize_m2.py "$CAPTURE_DIR" wp1/m2/analysis wp1/oracle/expected \
     || fail "characterize_m2.py failed"
   info "characterization written — commit wp1/m2/analysis/ now, then re-run this script"
   exit 2
 fi
 ok "m2_characterization.json + m2_summary.md present"
-if [ wp1/m2/capture/manifest.json -nt wp1/m2/analysis/m2_characterization.json ]; then
+if [ "$CAPTURE_DIR/manifest.json" -nt wp1/m2/analysis/m2_characterization.json ]; then
   info "capture is newer than the analysis — consider re-running characterize_m2.py"
 fi
 
 step "Summary"
-cat wp1/m2/analysis/m2_summary.md 2>/dev/null | head -40
+head -60 wp1/m2/analysis/m2_summary.md 2>/dev/null
 echo
-if git status --porcelain | grep -q 'wp1/m2/\(capture\|analysis\)'; then
+if git status --porcelain | grep -q 'wp1/m2/\(analysis\)'; then
   info "uncommitted M2 artifacts:"
   git status --porcelain | grep 'wp1/m2/' | sed 's/^/    /'
-  info "commit with: git add wp1/m2/capture wp1/m2/analysis && git commit -m 'wp1/m2: freeze translator C++ capture + characterization'"
+  info "commit with: git add wp1/m2/analysis && git commit -m 'wp1/m2: translator C++ characterization' && git push"
 else
   ok "all WP1 steps complete and verified — next: WP2 pilot seeding from the M2 API surface"
 fi
