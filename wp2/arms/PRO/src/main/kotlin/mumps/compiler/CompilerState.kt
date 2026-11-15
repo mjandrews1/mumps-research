@@ -71,6 +71,8 @@ object CompilerState {
 
     /** :128 - extern short ExecName. */
     var ExecName: Short = 0
+    /** :53 - extern short ArgMax (owner added by unit 27). */
+    var ArgMax: Short = 0
 
     /** :158 - extern long pid. */
     var pid: Long = 0

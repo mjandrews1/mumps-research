@@ -44,3 +44,8 @@ fun epi(ExecName: Short, pid: Long) {
 fun EP(flg: Int, ExecName: Short, pid: Long) {
     TODO("h014 stub: owner compiler-mumps.c::EP (not in corpus)")
 }
+
+/** Owner: compiler-parse.c::Extract1 (compiler-parse.c:2119; not a corpus unit). */
+fun Extract1(str: CharArray): String {
+    TODO("h014 stub: owner compiler-parse.c::Extract1 (not a corpus unit)")
+}
