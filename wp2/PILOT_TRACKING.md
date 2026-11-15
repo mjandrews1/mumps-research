@@ -4,7 +4,7 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 
 | # | unit_id | lang | stratum | BASE | DOC | PRO | DAF | BOTH |
 |---|---|---|---|---|---|---|---|---|
-| 1 | compiler-copyright-notice.c::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
+| 1 | compiler-copyright-notice.c::<misc> | c | simple | graded-ok | todo | translated | todo | todo |
 | 2 | compiler-if.c::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
 | 3 | compiler-open.c::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
 | 4 | interp-native-btree.cpp::btree | cpp | simple | graded-ok | todo | todo | todo | todo |
