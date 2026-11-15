@@ -62,11 +62,13 @@ logged as data, never silently applied.
   ```bash
   sudo apt install -y swi-prolog   # if absent
   cd ~/mumps-research
-  swipl -g "consult('wp2/arms/PRO/rules_v0'), consult('wp2/arms/PRO/knowledge_tooling'), find_rule(out_param_bundle), halt."
+  bash wp2/arms/PRO/smoke_test.sh
   ```
-  Smoke-test FIRST: find_rule on every trigger family returns its rule;
-  a bogus family returns "no rule"; coverage_report runs on an empty
-  event log.
+  Smoke-test FIRST (the script checks all 17 trigger families resolve,
+  a bogus family finds nothing, coverage_report runs on an empty log —
+  without recording events). Pitfall: Prolog paths must be QUOTED atoms;
+  bare [wp2/arms/PRO/rules_v0] parses the uppercase PRO as a VARIABLE
+  and consult fails with an instantiation error.
 - **Per unit**: run from the repo root so the CSV path resolves:
   1. normalize constructs (same §2.4 as DOC);
   2. `find_rule(<family>).` for each construct found — the query itself
