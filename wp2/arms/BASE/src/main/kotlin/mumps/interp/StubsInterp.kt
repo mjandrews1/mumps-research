@@ -15,6 +15,10 @@ class MsvState {
     var program: String = ""
 }
 
+/** C: void sigint(int) — interpreter signal/abort handler (interp-interp.cpp) */
+fun sigint(sig: Int): Unit =
+    TODO("sigint not yet translated (lives in interp-interp.cpp)")
+
 /** C: int floatstring(char *) — is this a float-formatted string?
  *  Lives in interp-arith.cpp outside batch 1 (not a selected unit). */
 fun floatstring(s: String): Boolean =

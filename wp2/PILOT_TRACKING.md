@@ -24,8 +24,8 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 18 | compiler-abrtx.c::abrtx | c | core | graded-ok | todo | todo | todo | todo |
 | 19 | interp-interp.cpp::<misc> | cpp | core | graded-ok | todo | todo | todo | todo |
 | 20 | interp-arith.cpp::numcomp | cpp | core | graded-ok | todo | todo | todo | todo |
-| 21 | compiler-localarray.c::LocalArray | c | complex | translating | todo | todo | todo | todo |
-| 22 | interp-bstring.cpp::<misc> | cpp | complex | todo | todo | todo | todo | todo |
+| 21 | compiler-localarray.c::LocalArray | c | complex | graded-ok | todo | todo | todo | todo |
+| 22 | interp-bstring.cpp::<misc> | cpp | complex | translating | todo | todo | todo | todo |
 | 23 | libmpscpp.cpp::Input | cpp | complex | todo | todo | todo | todo | todo |
 | 24 | interp-sysfunc.cpp::DirectRead | cpp | complex | todo | todo | todo | todo | todo |
 | 25 | interp-sysfunc.cpp::<misc> | cpp | complex | todo | todo | todo | todo | todo |
