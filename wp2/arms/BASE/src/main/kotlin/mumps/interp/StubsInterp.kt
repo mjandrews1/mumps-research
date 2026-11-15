@@ -13,6 +13,16 @@ package mumps.interp
 class MsvState {
     /** C: svPtr->program — program name from argv (mumps.cpp main) */
     var program: String = ""
+
+    // --- stateVector.h fields (added unit 23: libmpscpp.cpp::Input) ---
+    /** C: int io — current io unit */
+    var io: Int = 0
+    /** C: int symflg — symbol table op flag */
+    var symflg: Int = 0
+    /** C: long tpx */
+    var tpx: Long = 0
+    /** C: FILE *in_file[10] — input streams by io unit */
+    val inFile: Array<java.io.BufferedReader?> = arrayOfNulls(10)
 }
 
 /** C: void sigint(int) — interpreter signal/abort handler (interp-interp.cpp) */
