@@ -46,7 +46,7 @@ fun mglobal(g: Int, key: CharArray, bd: CharArray, svPtr: Msv): Int {
     TODO("h014 stub: owner Mglobal machinery (not a corpus unit)")
 }
 
-/** Owner: symbol-table machinery - vendor \$SymPut macro (not a corpus unit). */
+/** Owner: symbol-table machinery - vendor $SymPut macro (not a corpus unit). */
 fun symPut(svPtr: Msv, name: String, value: String) {
     TODO("h014 stub: owner \$SymPut/SymPut machinery (not a corpus unit)")
 }
