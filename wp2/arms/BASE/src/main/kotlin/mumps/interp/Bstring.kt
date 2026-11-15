@@ -50,8 +50,12 @@ fun bcatchr(str: Bstring, c: Char): Bstring {
         System.err.print("String too long, aborting.\n")
         sigint(100)
     }
-    str.string.setCharAt(str.length - 1, c) // C: str->string[str->length - 1] = c
-    if (str.string.length < str.length) str.string.append(c) // pad if needed
+    // C writes into a fixed array: string[length-1] = c; string[length] = 0.
+    // All three Kotlin content-length cases must be handled explicitly:
+    if (str.string.length >= str.length) str.string.setLength(str.length) // C NUL truncates
+    while (str.string.length < str.length - 1) str.string.append('\u0000') // uninit gap -> placeholder (heuristic 34)
+    if (str.string.length == str.length - 1) str.string.append(c)
+    else str.string.setCharAt(str.length - 1, c)
     return str // C: return *str — same reference (copy semantics diverge only at aliasing)
 }
 
