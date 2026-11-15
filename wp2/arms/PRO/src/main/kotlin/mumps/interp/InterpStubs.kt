@@ -6,7 +6,10 @@ package mumps.interp
  * are added per translated unit as needed (same one-owner policy as
  * the compiler side's CompilerState, rules_v0.pl h004).
  */
-class Msv
+class Msv {
+    /** mumps.cpp main: svPtr->program - strncpy'd program name, 512. */
+    var program: CharArray = CharArray(512)
+}
 
 /**
  * PRO-arm interpreter-side out-of-scope stubs (h014 out_of_scope_call).
@@ -31,4 +34,29 @@ fun xindex(source: CharArray, ptrn: CharArray, strt: Short): Int {
  */
 fun gcvtWrapper(x: Double, a: CharArray) {
     TODO("h014 stub: owner gcvt_wrapper macro (unit 29 numSetup.h)")
+}
+
+/** Owner: interpreter core - Interpret(cmd, svPtr) (not a corpus unit). */
+fun interpret(cmd: String, svPtr: Msv): Int {
+    TODO("h014 stub: owner interpreter core (Interpret, not a corpus unit)")
+}
+
+/** Owner: global-array machinery Mglobal(g,key,bd,svPtr) (not a corpus unit). */
+fun mglobal(g: Int, key: CharArray, bd: CharArray, svPtr: Msv): Int {
+    TODO("h014 stub: owner Mglobal machinery (not a corpus unit)")
+}
+
+/** Owner: symbol-table machinery - vendor $SymPut macro (not a corpus unit). */
+fun symPut(svPtr: Msv, name: String, value: String) {
+    TODO("h014 stub: owner \$SymPut/SymPut machinery (not a corpus unit)")
+}
+
+/** Owner: global-array lock service cleanLocks(pid) (declared mumps.cpp). */
+fun cleanLocks(pid: String) {
+    TODO("h014 stub: owner cleanLocks (global array lock service)")
+}
+
+/** Owner: vendor GlobalClose macro (not a corpus unit). */
+fun globalClose(svPtr: Msv) {
+    TODO("h014 stub: owner GlobalClose macro (not a corpus unit)")
 }

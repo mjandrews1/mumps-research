@@ -58,3 +58,27 @@ fun writeCstring(dst: CharArray, s: String, off: Int = 0) {
     }
     dst[d] = NUL
 }
+
+/** strcpy(dst, src-string): copies src incl. the NUL. */
+fun strcpyC(dst: CharArray, src: String, off: Int = 0) = writeCstring(dst, src, off)
+
+/** strcat(dst, s): appends s at dst's NUL. */
+fun strcatC(dst: CharArray, s: String) {
+    var d = strlenC(dst)
+    for (c in s) {
+        dst[d] = c
+        d++
+    }
+    dst[d] = NUL
+}
+
+/** strncmp(b, off, s, n): 0 iff the first n bytes match s. */
+fun strncmpC(b: CharArray, off: Int, s: String, n: Int): Int {
+    for (k in 0 until n) {
+        val bc = b[off + k]
+        val sc = if (k < s.length) s[k] else NUL
+        if (bc != sc) return bc.code - sc.code
+        if (bc == NUL) return 0
+    }
+    return 0
+}

@@ -148,3 +148,7 @@ pilot deliverable of M2's "instrumentation calibrated" criterion.
   preprocessor_conditional miss (3-way #ifdef; reference build selects
   the plain-double branch). T1 (recurrence >= 2) now met for this
   family — capture candidate for the batch-close rule revision.
+
+### PRO adaptation journal (append-only)
+
+- Unit 12 (mumps.cpp): h003 pattern from unit 9 reused as-is (explicit svPtr in symPut/globalClose shims over h014 stubs) - logged reuse, not a new adaptation. Divergences documented in MumpsMain.kt header: __TIME__/__DATE__ build-machine constants use placeholders (announce line differs from reference in that field only); readline/history replaced by stdin reader + file analogs; set_alarm body unobservable (call site dead, --with-alarm=0). Third preprocessor_conditional miss logged (NATIVE_SHARED REPL deadlock guard, compiled out of reference build).
