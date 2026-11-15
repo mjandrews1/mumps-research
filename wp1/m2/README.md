@@ -93,3 +93,9 @@ Note: a bare `lxc exec m1-build -- bash -lc '...'` runs as ROOT and uses
 /root/mumps-research — do not use it for study work; builder's clone at
 /home/builder/mumps-research is canonical. Remove the root clone if it
 was created by accident (rm -rf /root/mumps-research) to prevent drift.
+
+One-off cleanup of the accidental root-session artifacts:
+
+```bash
+lxc exec m1-build -- bash /home/builder/mumps-research/wp1/m2/one_off_cleanup.sh
+```
