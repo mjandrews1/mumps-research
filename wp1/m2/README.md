@@ -75,14 +75,21 @@ deviation), then creates the M2 capture and characterization if missing.
 Exit codes: 0 = all complete and verified; 1 = verification failed
 (investigate); 2 = a step ran — re-run to confirm it passes.
 
-### From the `container` host (via lxc exec)
+### From the `container` host (via lxc exec, as `builder`)
 
-`lxc_continue.sh` runs the same driver inside m1-build without opening a
-shell in the guest (login environment as user `builder`, args and exit
-codes pass through):
+All guest work runs as user **builder** (the canonical account) via
+`su - builder` inside m1-build — no host checkout, git, or uid guessing
+needed. Args and exit codes pass through:
 
 ```bash
-./wp1/m2/lxc_continue.sh            # next pending step, inside m1-build
-./wp1/m2/lxc_continue.sh --check    # status only
-M1_CONTAINER=m1-build ./wp1/m2/lxc_continue.sh --check
+lxc exec m1-build -- su - builder -c \
+  'cd ~/mumps-research && git pull --ff-only && bash wp1/m2/m1_continue.sh --check'
+# drop --check to execute the next pending step
 ```
+
+`lxc_continue.sh` remains available for scripted use; it drops to builder
+the same way (login env, `M1_CONTAINER` overrides the container name).
+Note: a bare `lxc exec m1-build -- bash -lc '...'` runs as ROOT and uses
+/root/mumps-research — do not use it for study work; builder's clone at
+/home/builder/mumps-research is canonical. Remove the root clone if it
+was created by accident (rm -rf /root/mumps-research) to prevent drift.
