@@ -123,3 +123,10 @@ entry count, hit/reuse/miss counts (DOC journal + PRO coverage_report),
 red-build count, and grading outcome (all units). These calibrate the
 per-arm instrumentation before the interleaved cycles begin and are the
 pilot deliverable of M2's "instrumentation calibrated" criterion.
+## PRO adaptation journal (per knowledge_tooling.pl semantics: adapt = record_hit + note)
+
+- 2026-11-15, libmpscpp.cpp::EncodeHTML (B1 unit 5): h007 char_buffer
+  adapted — mutable scratch implemented as explicit CharArray instead of
+  the rule's StringBuilder default, to preserve byte-domain fidelity
+  (chars >= 0x80, NUL-terminated in-place C-string surgery). Logged as
+  hit, not reuse. (wp2/logs/PRO_knowledge_events.csv)
