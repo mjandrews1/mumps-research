@@ -44,8 +44,8 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 33 | libmpscpp.cpp::global::Find | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 34 | libmpscpp.cpp::SQL_Table | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 35 | compiler-abrtx.c::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
-| 36 | compiler-doty.c::<misc> | c | simple | translating | todo | todo | todo | todo |
-| 37 | libmpscpp.cpp::KiLL | cpp | simple | todo | todo | todo | todo | todo |
+| 36 | compiler-doty.c::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
+| 37 | libmpscpp.cpp::KiLL | cpp | simple | translating | todo | todo | todo | todo |
 | 38 | libmpscpp.cpp::global::Piece | cpp | simple | todo | todo | todo | todo | todo |
 | 39 | libmpscpp.cpp::GlobalOrder | cpp | simple | todo | todo | todo | todo | todo |
 | 40 | interp-arith.cpp::mps_exp | cpp | simple | todo | todo | todo | todo | todo |
