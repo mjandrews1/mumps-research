@@ -34,3 +34,13 @@ fun extract2(pd1: CharArray, sdlim: Int): String = Extract2(pd1, sdlim)
 fun linepad(n: Int, comment: String) {
     TODO("h014 stub: owner compiler-read.c (not in corpus)")
 }
+
+/** Owner: compiler-epi.c::epi (not in the B1/B2 corpus). */
+fun epi(ExecName: Short, pid: Long) {
+    TODO("h014 stub: owner compiler-epi.c::epi (not in corpus)")
+}
+
+/** Owner: compiler-mumps.c::EP (not in the B1/B2 corpus). */
+fun EP(flg: Int, ExecName: Short, pid: Long) {
+    TODO("h014 stub: owner compiler-mumps.c::EP (not in corpus)")
+}

@@ -50,3 +50,20 @@ fun strcpyC(dst: CharArray, src: String, off: Int = 0) {
     }
     dst[d] = NUL
 }
+
+/** strlen over a NUL-terminated region. */
+fun strlenC(b: CharArray, off: Int = 0): Int {
+    var n = off
+    while (b[n] != NUL) n++
+    return n - off
+}
+
+/** strcat(dst, s): appends the string at dst's NUL. */
+fun strcatC(dst: CharArray, s: String) {
+    var d = strlenC(dst)
+    for (c in s) {
+        dst[d] = c
+        d++
+    }
+    dst[d] = NUL
+}

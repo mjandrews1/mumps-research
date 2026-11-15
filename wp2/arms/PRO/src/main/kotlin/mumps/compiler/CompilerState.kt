@@ -47,6 +47,32 @@ object CompilerState {
     var at_flg: Short = 0                         // :136 (C: short at_flg = int atTest)
     var Set_flg: Short = 0                        // :136
 
+    // --- compiler-abrtx.c unit 18 additions (h004; header lines) ---
+
+    /** compiler-globals-ext.h:106 - FILE *Final (Writer at edges, h001). */
+    lateinit var Final: java.io.Writer
+
+    /** :51 - extern short MAIN_flg. */
+    var MAIN_flg: Short = 0
+
+    /** :117 - extern short FCN_flg. */
+    var FCN_flg: Short = 0
+
+    /** :141 - extern int F_flg. */
+    var F_flg: Int = 0
+
+    /** :107 - extern short ExitCode. */
+    var ExitCode: Short = 0
+
+    /** :128 - extern short ExecName. */
+    var ExecName: Short = 0
+
+    /** :158 - extern long pid. */
+    var pid: Long = 0
+
+    /** :170 - extern unsigned char output_file[1024] (h012). */
+    var output_file: CharArray = CharArray(1024)
+
     /**
      * h003 state-macro: vendor INTERPRET (compiler-macros.h:39-44),
      * a multi-emission macro writing via the shared Out stream, with the
