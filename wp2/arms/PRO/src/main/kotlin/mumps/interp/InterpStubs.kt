@@ -28,6 +28,12 @@ class Msv {
     var gpad: Int = 0
     /** :77 - int order. */
     var order: Int = 0
+
+    // --- stateVector.h fields added by B1 unit 28 (interp-sym.cpp::_SymFree) ---
+    /** :65 - int _Sym (symbol table stack depth). */
+    var _Sym: Int = 0
+    /** :71 - struct stab *start[SYM_MAX] (SYM_MAX=200, defines.h:218); stab carrier in SymFree.kt. */
+    val start: Array<Stab?> = arrayOfNulls(200)
 }
 
 /**

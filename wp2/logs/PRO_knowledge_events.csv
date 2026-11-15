@@ -287,3 +287,15 @@ reuse,h015,compiler-sys1.c,2026-11-16T12:00:00+0000
 hit,h015,compiler-sys1.c,2026-11-16T12:00:00+0000
 reuse,h017,compiler-sys1.c,2026-11-16T12:00:00+0000
 hit,h017,compiler-sys1.c,2026-11-16T12:00:00+0000
+reuse,h002,interp-sym.cpp,2026-11-16T13:30:00+0000
+hit,h002,interp-sym.cpp,2026-11-16T13:30:00+0000
+reuse,h004,interp-sym.cpp,2026-11-16T13:30:00+0000
+hit,h004,interp-sym.cpp,2026-11-16T13:30:00+0000
+reuse,h012,interp-sym.cpp,2026-11-16T13:30:00+0000
+hit,h012,interp-sym.cpp,2026-11-16T13:30:00+0000
+reuse,h014,interp-sym.cpp,2026-11-16T13:30:00+0000
+hit,h014,interp-sym.cpp,2026-11-16T13:30:00+0000
+reuse,h015,interp-sym.cpp,2026-11-16T13:30:00+0000
+hit,h015,interp-sym.cpp,2026-11-16T13:30:00+0000
+reuse,h017,interp-sym.cpp,2026-11-16T13:30:00+0000
+hit,h017,interp-sym.cpp,2026-11-16T13:30:00+0000
