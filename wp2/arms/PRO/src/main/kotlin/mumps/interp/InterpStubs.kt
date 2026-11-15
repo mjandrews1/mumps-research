@@ -53,13 +53,11 @@ fun xindex(source: CharArray, ptrn: CharArray, strt: Short): Int {
 }
 
 /**
- * Owner: gcvt_wrapper macro (interp-arith.cpp lines 69-77, config-
- * dependent; reference build: gcvt(x, 8, a)). Delegate when B1 unit 29
- * (include/mumpsc/numSetup.h) lands.
+ * gcvt_wrapper (interp-arith.cpp:69-77) was stubbed here until B1
+ * unit 29 (include/mumpsc/numSetup.h) landed; the owner-level
+ * definition now lives in NumSetup.kt (gcvtWrapper, gcvt(x, 8, a)
+ * reference arm) and the stub has been removed.
  */
-fun gcvtWrapper(x: Double, a: CharArray) {
-    TODO("h014 stub: owner gcvt_wrapper macro (unit 29 numSetup.h)")
-}
 
 /** Owner: interpreter core - Interpret(cmd, svPtr) (not a corpus unit). */
 fun interpret(cmd: String, svPtr: Msv): Int {
