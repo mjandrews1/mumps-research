@@ -51,3 +51,12 @@ fun levCheck(execName: Short, doRetX: Short, doRet: ShortArray): Int =
 /** C: void linepad(int, char *) — count is derivable from the text length */
 fun linepad(text: String, comment: String): Unit =
     TODO("linepad not yet translated")
+
+/**
+ * C: void memcheck(int iiitmp) — compiler-parse.c:2068:
+ * `if (iiitmp > MaxTmp) MaxTmp = iiitmp;` (MaxTmp: compiler-globals.h:108,
+ * a short initialized to 2). Not a selected Study Subset unit; stubbed.
+ * First needed by unit 52 globalArray.
+ */
+fun memcheck(iiitmp: Int): Unit =
+    TODO("memcheck not yet translated (lives in compiler-parse.c)")

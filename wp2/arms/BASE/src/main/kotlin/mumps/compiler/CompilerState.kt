@@ -48,6 +48,10 @@ object CompilerState {
     val DoRet = ShortArray(1000)
     var DoRetX: Short = 0
 
+    /** C: int iiitmp = 0 (compiler-globals.h:109) — count on temp strings
+     *  used so far in this stmt. First needed by unit 52 globalArray. */
+    var iiitmp: Int = 0
+
     // --- command flags / counters ---
     var IF_flg: Int = 0
     var tpx: Short = 0

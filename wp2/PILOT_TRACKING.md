@@ -59,7 +59,7 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 48 | interp-parse.cpp::getstr2 | cpp | core | graded-ok | todo | todo | todo | todo |
 | 49 | libmpscpp.cpp::global::IDF | cpp | core | graded-ok | todo | todo | todo | todo |
 | 50 | interp-native-btree.cpp::scanblocks | cpp | core | graded-ok | graded-ok | graded-ok | graded-ok | graded-ok |
-| 51 | interp-sql.cpp::embed | cpp | core | translating | translating | translating | translating | translating |
+| 51 | interp-sql.cpp::embed | cpp | core | graded-ok | graded-ok | graded-ok | graded-ok | graded-ok |
 | 52 | compiler-globalarray.c::GlobalArray | c | complex | todo | todo | todo | todo | todo |
 | 53 | libmpscpp.cpp::global::Multiply | cpp | complex | todo | todo | todo | todo | todo |
 | 54 | compiler-if.c::if_code | c | complex | todo | todo | todo | todo | todo |
