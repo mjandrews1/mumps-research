@@ -58,3 +58,19 @@ git add capture analysis && git commit -m "wp1/m2: freeze translator C++ capture
   `wp1/oracle/PRE_FREEZE_NOTES.md` should reappear structurally in the
   generated C++ (e.g. `$Extract` single-position semantics, `$$`
   external-call lowering, `$Translate`-based case conversion).
+## State-aware driver (recommended)
+
+`m1_continue.sh` checks work completed to date on m1-build and proceeds
+from that point forward — idempotent, safe to re-run any time:
+
+```bash
+cd ~/mumps-research && git pull
+./wp1/m1_continue.sh            # executes only the next pending step
+./wp1/m1_continue.sh --check    # report status only, do nothing
+```
+
+It verifies the oracle freeze and the M2 capture against fresh runs
+(never re-freezes; a mismatch is a hard stop and a logged protocol
+deviation), then creates the M2 capture and characterization if missing.
+Exit codes: 0 = all complete and verified; 1 = verification failed
+(investigate); 2 = a step ran — re-run to confirm it passes.
