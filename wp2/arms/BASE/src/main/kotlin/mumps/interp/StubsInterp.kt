@@ -21,6 +21,11 @@ class MsvState {
     var symflg: Int = 0
     /** C: long tpx */
     var tpx: Long = 0
+    /** C: int _Sym — current symbol table level (stateVector.h) */
+    var _Sym: Int = 0
+    /** C: struct stab *start[SYM_MAX] — symbol table stack heads */
+    val start: Array<Stab?> = arrayOfNulls(SYM_MAX)
+
     /** C: FILE *in_file[10] — input streams by io unit */
     val inFile: Array<java.io.BufferedReader?> = arrayOfNulls(10)
 }
