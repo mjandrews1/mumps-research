@@ -43,3 +43,10 @@ reuse,h014,compiler-open.c,2026-11-15T15:10:00+0000
 hit,h014,compiler-open.c,2026-11-15T15:10:00+0000
 reuse,h017,compiler-open.c,2026-11-15T15:10:00+0000
 hit,h017,compiler-open.c,2026-11-15T15:10:00+0000
+reuse,h012,interp-native-btree.cpp,2026-11-15T15:20:00+0000
+hit,h012,interp-native-btree.cpp,2026-11-15T15:20:00+0000
+reuse,h014,interp-native-btree.cpp,2026-11-15T15:20:00+0000
+hit,h014,interp-native-btree.cpp,2026-11-15T15:20:00+0000
+reuse,h017,interp-native-btree.cpp,2026-11-15T15:20:00+0000
+hit,h017,interp-native-btree.cpp,2026-11-15T15:20:00+0000
+miss,preprocessor_conditional,interp-native-btree.cpp,2026-11-15T15:20:00+0000
