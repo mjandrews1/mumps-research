@@ -19,6 +19,8 @@ object CompilerState {
     var F_flg: Short = 0
     var ExitCode: Short = 0
     var ExecName: Short = 0
+    /** C: extern short ArgMax (compiler-sys1.c) */
+    var ArgMax: Short = 0
     var pid: Long = 0
     var outputFile: String = ""
 

@@ -32,6 +32,11 @@ fun extract2(pd1: StringBuilder, from: Int): String =
 fun epi(execName: Short, pid: Long): Unit =
     TODO("epi not yet translated (lives in compiler-mumps.c)")
 
+/** C: char *Extract1(char *str) — returns the FIRST #..# field, no emission
+ *  (compiler-parse.c:2119; not a selected unit). */
+fun extract1(str: String): String =
+    TODO("Extract1 not yet translated (lives in compiler-parse.c)")
+
 /** C: void EP(int flg, short ExecName, long pid) — subfunction entry router (compiler-mumps.c:1978) */
 fun EP(flg: Int, execName: Short, pid: Long): Unit =
     TODO("EP not yet translated (lives in compiler-mumps.c)")
