@@ -205,3 +205,15 @@ reuse,h013,compiler-localarray.c,2026-11-16T03:00:00+0000
 hit,h013,compiler-localarray.c,2026-11-16T03:00:00+0000
 reuse,h017,compiler-localarray.c,2026-11-16T03:00:00+0000
 hit,h017,compiler-localarray.c,2026-11-16T03:00:00+0000
+reuse,h001,interp-bstring.cpp,2026-11-16T04:00:00+0000
+hit,h001,interp-bstring.cpp,2026-11-16T04:00:00+0000
+reuse,h007,interp-bstring.cpp,2026-11-16T04:00:00+0000
+hit,h007,interp-bstring.cpp,2026-11-16T04:00:00+0000
+reuse,h009,interp-bstring.cpp,2026-11-16T04:00:00+0000
+hit,h009,interp-bstring.cpp,2026-11-16T04:00:00+0000
+reuse,h012,interp-bstring.cpp,2026-11-16T04:00:00+0000
+hit,h012,interp-bstring.cpp,2026-11-16T04:00:00+0000
+reuse,h014,interp-bstring.cpp,2026-11-16T04:00:00+0000
+hit,h014,interp-bstring.cpp,2026-11-16T04:00:00+0000
+reuse,h017,interp-bstring.cpp,2026-11-16T04:00:00+0000
+hit,h017,interp-bstring.cpp,2026-11-16T04:00:00+0000

@@ -46,7 +46,7 @@ fun mglobal(g: Int, key: CharArray, bd: CharArray, svPtr: Msv): Int {
     TODO("h014 stub: owner Mglobal machinery (not a corpus unit)")
 }
 
-/** Owner: symbol-table machinery - vendor $SymPut macro (not a corpus unit). */
+/** Owner: symbol-table machinery - vendor \$SymPut macro (not a corpus unit). */
 fun symPut(svPtr: Msv, name: String, value: String) {
     TODO("h014 stub: owner \$SymPut/SymPut machinery (not a corpus unit)")
 }
@@ -59,4 +59,9 @@ fun cleanLocks(pid: String) {
 /** Owner: vendor GlobalClose macro (not a corpus unit). */
 fun globalClose(svPtr: Msv) {
     TODO("h014 stub: owner GlobalClose macro (not a corpus unit)")
+}
+
+/** Owner: interp-sysfunc.cpp (B1 unit 25 interp-sysfunc.cpp::<misc>; declared sym.h:41). */
+fun sigint(i: Int) {
+    TODO("h014 stub: owner interp-sysfunc.cpp::sigint (B1 unit 25 interp-sysfunc.cpp::<misc>)")
 }
