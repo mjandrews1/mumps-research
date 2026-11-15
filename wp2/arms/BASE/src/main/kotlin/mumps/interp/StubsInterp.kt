@@ -26,6 +26,14 @@ class MsvState {
     /** C: struct stab *start[SYM_MAX] — symbol table stack heads */
     val start: Array<Stab?> = arrayOfNulls(SYM_MAX)
 
+    // --- stateVector.h fields (added unit 30: interp-parse.cpp::patrn1) ---
+    /** C: unsigned char xd[STR_MAX] — expression parse buffer (immutable view here) */
+    var xd: String = ""
+    /** C: unsigned char bd[STR_MAX] — build buffer; strcat() appends map to append() */
+    val bd: StringBuilder = StringBuilder(STR_MAX)
+    /** C: int xpx — parse index (stateVector.h) */
+    var xpx: Int = 0
+
     /** C: FILE *in_file[10] — input streams by io unit */
     val inFile: Array<java.io.BufferedReader?> = arrayOfNulls(10)
 }

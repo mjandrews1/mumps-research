@@ -28,11 +28,6 @@ class InterpreterException(val message: String) {
     fun what(): String = message
 }
 
-/** C: static void patrn1(short *jpx, short *ernbr, struct MSV *) —
- *  pointer-params modeled as short[1] mutable holders. */
-fun patrn1(jpx: ShortArray, ernbr: ShortArray, svPtr: MsvState) {
-    TODO("patrn1 (interp-interp.cpp static) not yet translated — belongs to the Interpret body")
-}
 
 /**
  * C static function locals of Interpret() — persist across calls, so they
