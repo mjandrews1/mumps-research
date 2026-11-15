@@ -26,6 +26,10 @@ object CompilerState {
     var xd: String = ""            // source line buffer (scan-only role)
     var xpx: Long = 0              // index into xd (C: long)
     var pd1: StringBuilder = StringBuilder()  // parse workspace (mutable-scratch role)
+    /** C: extern unsigned char bd[] — compiler output workspace. Kotlin bd
+     *  models C bd+1 (callers strcat into &bd[1]; bd[0] is a sentinel byte).
+     *  First needed by unit 26 patrn1. */
+    val bd: StringBuilder = StringBuilder()
     /** C: extern unsigned char v1d[] — expression workspace (compiler-parse.c
      *  globals; first needed by unit 21 LocalArray's v1d[1] check). */
     val v1d: StringBuilder = StringBuilder()
