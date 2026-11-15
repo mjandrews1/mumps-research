@@ -26,8 +26,14 @@ fun zfcn(v1d: CharArray, bd: CharArray, svPtr: Msv) {
     TODO("h014 stub: owner interp-bifs.cpp::zfcn (not a corpus unit)")
 }
 
-/** Owner: interp-sym.cpp / sym.c symbol-table primitive sym_(fn,key,bd,svPtr) (not a corpus unit). */
-fun sym_(fn: Int, key: CharArray, bd: CharArray, svPtr: Msv) {
+/**
+ * Owner: interp-sym.cpp / sym.c symbol-table primitive
+ * sym_(fn,key,bd,svPtr) (not a corpus unit).
+ * Return type promoted from Unit to CharArray? (B1 unit 25,
+ * LocalGet tests sym_(11,...)==NULL; owner semantics: NULL when the
+ * variable is absent, bd pointer otherwise).
+ */
+fun sym_(fn: Int, key: CharArray, bd: CharArray, svPtr: Msv): CharArray? {
     TODO("h014 stub: owner sym_ symbol-table machinery (not a corpus unit)")
 }
 

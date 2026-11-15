@@ -20,6 +20,14 @@ class Msv {
     val out_file: Array<java.io.Writer?> = arrayOfNulls(10)
     /** :64 - long tpx. */
     var tpx: Long = 0
+
+    // --- stateVector.h fields added by B1 unit 25 (interp-sysfunc.cpp::<misc>) ---
+    /** stateVector.h:63 - long LineNumber. */
+    var LineNumber: Long = 0
+    /** :70 - int gpad. */
+    var gpad: Int = 0
+    /** :77 - int order. */
+    var order: Int = 0
 }
 
 /**
@@ -74,5 +82,10 @@ fun globalClose(svPtr: Msv) {
 
 /** Owner: interp-sysfunc.cpp (B1 unit 25 interp-sysfunc.cpp::<misc>; declared sym.h:41). */
 fun sigint(i: Int) {
-    TODO("h014 stub: owner interp-sysfunc.cpp::sigint (B1 unit 25 interp-sysfunc.cpp::<misc>)")
+    TODO("h014 stub: owner interp-sysfunc.cpp::sigint (batch-7 unit, not in B1 - see ARM_WORKING_NOTES)")
+}
+
+/** Owner: interp-sysfunc.cpp::unpad (batch-10 unit, not in B1). */
+fun unpad(key: CharArray, svPtr: Msv) {
+    TODO("h014 stub: owner interp-sysfunc.cpp::unpad (batch-10 unit, not in B1)")
 }
