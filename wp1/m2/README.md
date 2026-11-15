@@ -65,8 +65,8 @@ from that point forward — idempotent, safe to re-run any time:
 
 ```bash
 cd ~/mumps-research && git pull
-./wp1/m1_continue.sh            # executes only the next pending step
-./wp1/m1_continue.sh --check    # report status only, do nothing
+bash wp1/m2/m1_continue.sh            # executes only the next pending step
+bash wp1/m2/m1_continue.sh --check    # report status only, do nothing
 ```
 
 It verifies the oracle freeze and the M2 capture against fresh runs
