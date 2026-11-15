@@ -74,3 +74,15 @@ It verifies the oracle freeze and the M2 capture against fresh runs
 deviation), then creates the M2 capture and characterization if missing.
 Exit codes: 0 = all complete and verified; 1 = verification failed
 (investigate); 2 = a step ran — re-run to confirm it passes.
+
+### From the `container` host (via lxc exec)
+
+`lxc_continue.sh` runs the same driver inside m1-build without opening a
+shell in the guest (login environment as user `builder`, args and exit
+codes pass through):
+
+```bash
+./wp1/m2/lxc_continue.sh            # next pending step, inside m1-build
+./wp1/m2/lxc_continue.sh --check    # status only
+M1_CONTAINER=m1-build ./wp1/m2/lxc_continue.sh --check
+```
