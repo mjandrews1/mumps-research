@@ -1,6 +1,6 @@
 # Pilot (B1) Tracking
 
-Order within batch: complexity_rank ascending. Status: todo / translating / graded-ok / graded-deviation / deferred. Simple stratum COMPLETE (units 1-10, all builds green; unit 10 gcvt semantics verified against the reference binary). Core stratum in progress. Translator units integrate against the translator oracle; interpreter/library units against the interpreter oracle.
+Order within batch: complexity_rank ascending. Status: todo / translating / graded-ok / graded-deviation / deferred. Simple stratum COMPLETE (units 1-10, all builds green; unit 10 gcvt semantics verified against the reference binary). Core and complex strata COMPLETE for batch 1 (B1 closed 2026-11-15: 31/31 translated, all builds green; coverage_report: 17 rules, 179 triggering situations, 97.2% hit rate, 95.4% reuse rate; the 5 preprocessor_conditional misses captured as rule h018). Translator units integrate against the translator oracle; interpreter/library units against the interpreter oracle.
 
 | # | unit_id | lang | stratum | BASE | DOC | PRO | DAF | BOTH |
 |---|---|---|---|---|---|---|---|---|

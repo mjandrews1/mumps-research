@@ -110,3 +110,14 @@ rule(h017, trigger(naming),
      action('mechanical snake->camel rename; journal keyword collisions (in, is, object)'),
      example('compiler-copyright-notice.c'),
      provenance(base, b1, '2026-11-14'), verification(unit_tested)).
+
+% Captured at B1 batch close 2026-11-15 from the 5 preprocessor_conditional
+% misses (units 4, 10, 12, 20, 29; T1 recurrence >= 2; G4 dedup: no prior
+% rule with this canonical trigger). G1: applies to any #ifdef/#ifndef
+% construct, not any single unit. G3: no oracle outputs embedded.
+
+rule(h018, trigger(preprocessor_conditional),
+     condition(reference_build_config_is_the_only_resolution_authority),
+     action('resolve #ifdef/#ifndef arms against the reference build config (SQLITE, HAVE_HARDWARE_MATH, GCVT defined; NATIVE/NATIVE_SHARED/BIGFLOAT/MULTI_PRECISION undefined); translate only the live arm; document the excluded arms and any @VAR@ build-substitution macro as comments'),
+     example('interp-arith.cpp'),
+     provenance(pro, b1, '2026-11-15'), verification(untested)).
