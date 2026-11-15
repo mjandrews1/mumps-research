@@ -34,16 +34,16 @@ fun GlobalName(tmp1: CharArray, tok: Char, svPtr: Msv) {
     if (tok == NUL) {
         var i = 0
         while (tmp1[i] != NUL) {
-            if (tmp1[i] == \u0001 && oflg == 0) {
+            if (tmp1[i] == '\u0001' && oflg == 0) {
                 tmp3[tx++] = '('
-                tmp3[tx++] = \"
+                tmp3[tx++] = '\"'
                 oflg = 1
-            } else if (tmp1[i] == \u0001 && oflg != 0 && tmp1[i + 1] != NUL) {
-                tmp3[tx++] = \"
+            } else if (tmp1[i] == '\u0001' && oflg != 0 && tmp1[i + 1] != NUL) {
+                tmp3[tx++] = '\"'
                 tmp3[tx++] = ','
-                tmp3[tx++] = \"
-            } else if (tmp1[i] == \u0001) {
-                tmp3[tx++] = \"
+                tmp3[tx++] = '\"'
+            } else if (tmp1[i] == '\u0001') {
+                tmp3[tx++] = '\"'
                 tmp3[tx++] = ')'
             } else {
                 tmp3[tx++] = tmp1[i]
@@ -53,10 +53,10 @@ fun GlobalName(tmp1: CharArray, tok: Char, svPtr: Msv) {
     } else {
         var i = 0
         while (tmp1[i] != NUL) {
-            if (tmp1[i] == \u0001 && oflg == 0) {
+            if (tmp1[i] == '\u0001' && oflg == 0) {
                 tmp3[tx++] = tok
                 oflg = 1
-            } else if (tmp1[i] == \u0001) {
+            } else if (tmp1[i] == '\u0001') {
                 tmp3[tx++] = tok
             } else {
                 tmp3[tx++] = tmp1[i]
