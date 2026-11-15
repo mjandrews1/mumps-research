@@ -1,0 +1,1280 @@
+{
+  "aggregate": {
+    "api_surface": {
+      "Global": 14,
+      "GlobalData": 1,
+      "GlobalGet": 1,
+      "GlobalOrder": 1,
+      "MDH": 1,
+      "MUMPS": 1,
+      "Mumps": 2,
+      "global": 14,
+      "globalOrder": 14,
+      "globals": 1,
+      "mumpsc": 14
+    },
+    "control_flow": {
+      "break": 7,
+      "case": 2,
+      "continue": 34,
+      "do": 2,
+      "else": 60,
+      "for": 37,
+      "goto": 6,
+      "if": 323,
+      "return": 112,
+      "switch": 0,
+      "while": 65
+    },
+    "totals": {
+      "files": 14,
+      "labels": 2,
+      "loc_nonblank": 4033,
+      "loc_total": 4607,
+      "numeric_literals": 783,
+      "string_literals": 916
+    }
+  },
+  "oracle_cases": [
+    "case_01_literals",
+    "case_02_set_arith",
+    "case_03_strings",
+    "case_04_piece",
+    "case_05_extract_find",
+    "case_06_justify_fnumber",
+    "case_07_conditionals",
+    "case_08_loops",
+    "case_09_globals",
+    "case_10_translate_case",
+    "case_11_pattern",
+    "case_12_indirection",
+    "case_13_user_functions",
+    "case_14_numeric_forms",
+    "case_15_hang_io_ops"
+  ],
+  "per_case": {
+    "case_01_literals": {
+      "files": {
+        "case_01_literals.cpp": {
+          "api_symbols": [
+            "Global",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "Char",
+            "ErrorMessage",
+            "Mglobal",
+            "SyncClock",
+            "_fnumber",
+            "add",
+            "atof",
+            "atoi",
+            "atol",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcatz",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 2,
+            "for": 2,
+            "goto": 0,
+            "if": 14,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 79,
+          "loc_nonblank": 217,
+          "loc_total": 241,
+          "numeric_literals": 38,
+          "string_literals": 36
+        },
+        "case_01_literals.err": {
+          "bytes": 0
+        },
+        "case_01_literals.log": {
+          "bytes": 166
+        },
+        "case_01_literals.m": {
+          "bytes": 7356
+        }
+      }
+    },
+    "case_02_set_arith": {
+      "files": {
+        "case_02_set_arith.cpp": {
+          "api_symbols": [
+            "Global",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "Mglobal",
+            "Mltoa",
+            "SyncClock",
+            "VariableNotFound1",
+            "_fnumber",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "expx",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcatz",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 2,
+            "for": 2,
+            "goto": 0,
+            "if": 25,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 91,
+          "loc_nonblank": 274,
+          "loc_total": 304,
+          "numeric_literals": 44,
+          "string_literals": 66
+        },
+        "case_02_set_arith.err": {
+          "bytes": 0
+        },
+        "case_02_set_arith.log": {
+          "bytes": 167
+        },
+        "case_02_set_arith.m": {
+          "bytes": 10844
+        }
+      }
+    },
+    "case_03_strings": {
+      "files": {
+        "case_03_strings.cpp": {
+          "api_symbols": [
+            "Global",
+            "Mumps",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "Length",
+            "Mglobal",
+            "SyncClock",
+            "VariableNotFound1",
+            "_fnumber",
+            "_length",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcat",
+            "strcatz",
+            "strcmp",
+            "strlen",
+            "strmove",
+            "strstr",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 7,
+            "for": 2,
+            "goto": 0,
+            "if": 38,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 124,
+          "loc_nonblank": 315,
+          "loc_total": 364,
+          "numeric_literals": 52,
+          "string_literals": 81
+        },
+        "case_03_strings.err": {
+          "bytes": 0
+        },
+        "case_03_strings.log": {
+          "bytes": 166
+        },
+        "case_03_strings.m": {
+          "bytes": 11990
+        }
+      }
+    },
+    "case_04_piece": {
+      "files": {
+        "case_04_piece.cpp": {
+          "api_symbols": [
+            "Global",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "Length",
+            "Mglobal",
+            "Piece",
+            "SyncClock",
+            "VariableNotFound1",
+            "_fnumber",
+            "_length",
+            "_piece",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcatz",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 2,
+            "for": 2,
+            "goto": 0,
+            "if": 18,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 91,
+          "loc_nonblank": 253,
+          "loc_total": 283,
+          "numeric_literals": 45,
+          "string_literals": 68
+        },
+        "case_04_piece.err": {
+          "bytes": 0
+        },
+        "case_04_piece.log": {
+          "bytes": 163
+        },
+        "case_04_piece.m": {
+          "bytes": 9440
+        }
+      }
+    },
+    "case_05_extract_find": {
+      "files": {
+        "case_05_extract_find.cpp": {
+          "api_symbols": [
+            "Global",
+            "MDH",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "Extract",
+            "Find",
+            "Mglobal",
+            "SyncClock",
+            "VariableNotFound1",
+            "_extract",
+            "_find",
+            "_fnumber",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcatz",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 2,
+            "for": 3,
+            "goto": 0,
+            "if": 21,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 106,
+          "loc_nonblank": 268,
+          "loc_total": 305,
+          "numeric_literals": 48,
+          "string_literals": 56
+        },
+        "case_05_extract_find.err": {
+          "bytes": 0
+        },
+        "case_05_extract_find.log": {
+          "bytes": 171
+        },
+        "case_05_extract_find.m": {
+          "bytes": 10319
+        }
+      }
+    },
+    "case_06_justify_fnumber": {
+      "files": {
+        "case_06_justify_fnumber.cpp": {
+          "api_symbols": [
+            "Global",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "FNumber",
+            "Justify",
+            "Mglobal",
+            "SyncClock",
+            "_fnumber",
+            "_justify",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcatz",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 2,
+            "for": 2,
+            "goto": 0,
+            "if": 13,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 91,
+          "loc_nonblank": 228,
+          "loc_total": 258,
+          "numeric_literals": 54,
+          "string_literals": 42
+        },
+        "case_06_justify_fnumber.err": {
+          "bytes": 0
+        },
+        "case_06_justify_fnumber.log": {
+          "bytes": 173
+        },
+        "case_06_justify_fnumber.m": {
+          "bytes": 8300
+        }
+      }
+    },
+    "case_07_conditionals": {
+      "files": {
+        "case_07_conditionals.cpp": {
+          "api_symbols": [
+            "Global",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "Data",
+            "ErrorMessage",
+            "Get",
+            "LocalData",
+            "LocalGet",
+            "Mglobal",
+            "Set",
+            "SyncClock",
+            "VariableNotFound1",
+            "_fnumber",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp",
+            "numcomp1",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcatz",
+            "strcmp",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 13,
+            "for": 2,
+            "goto": 0,
+            "if": 44,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 127,
+          "loc_nonblank": 329,
+          "loc_total": 380,
+          "numeric_literals": 97,
+          "string_literals": 85
+        },
+        "case_07_conditionals.err": {
+          "bytes": 0
+        },
+        "case_07_conditionals.log": {
+          "bytes": 171
+        },
+        "case_07_conditionals.m": {
+          "bytes": 12527
+        }
+      }
+    },
+    "case_08_loops": {
+      "files": {
+        "case_08_loops.cpp": {
+          "api_symbols": [
+            "Global",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "LocalOrder",
+            "Mglobal",
+            "Order",
+            "SyncClock",
+            "VariableNotFound1",
+            "_fnumber",
+            "add",
+            "atof",
+            "atoi",
+            "atol",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "l",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp",
+            "numcomp1",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "setjmp",
+            "strcat",
+            "strcatz",
+            "strchr",
+            "strcmp",
+            "strcpy",
+            "strlen",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 2,
+            "case": 0,
+            "continue": 4,
+            "do": 2,
+            "else": 10,
+            "for": 10,
+            "goto": 6,
+            "if": 35,
+            "return": 8,
+            "switch": 0,
+            "while": 8
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [
+            "For1",
+            "For2"
+          ],
+          "loc_comment": 151,
+          "loc_nonblank": 446,
+          "loc_total": 532,
+          "numeric_literals": 121,
+          "string_literals": 101
+        },
+        "case_08_loops.err": {
+          "bytes": 0
+        },
+        "case_08_loops.log": {
+          "bytes": 164
+        },
+        "case_08_loops.m": {
+          "bytes": 16498
+        }
+      }
+    },
+    "case_09_globals": {
+      "files": {
+        "case_09_globals.cpp": {
+          "api_symbols": [
+            "Global",
+            "GlobalData",
+            "GlobalGet",
+            "GlobalOrder",
+            "global",
+            "globalOrder",
+            "globals",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "Data",
+            "ErrorMessage",
+            "Get",
+            "GlobalData",
+            "GlobalGet",
+            "GlobalOrder",
+            "Merge",
+            "Mglobal",
+            "Order",
+            "Query",
+            "SyncClock",
+            "VariableNotFound",
+            "VariableNotFound1",
+            "_fnumber",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "keyfix",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "orc",
+            "orc2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcat",
+            "strcatx",
+            "strcatz",
+            "strcmp",
+            "strcpy",
+            "strlen",
+            "strmove",
+            "strncmp",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 5,
+            "case": 0,
+            "continue": 6,
+            "do": 0,
+            "else": 3,
+            "for": 2,
+            "goto": 0,
+            "if": 28,
+            "return": 8,
+            "switch": 0,
+            "while": 9
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 145,
+          "loc_nonblank": 457,
+          "loc_total": 526,
+          "numeric_literals": 57,
+          "string_literals": 129
+        },
+        "case_09_globals.err": {
+          "bytes": 0
+        },
+        "case_09_globals.log": {
+          "bytes": 166
+        },
+        "case_09_globals.m": {
+          "bytes": 16556
+        }
+      }
+    },
+    "case_10_translate_case": {
+      "files": {
+        "case_10_translate_case.cpp": {
+          "api_symbols": [
+            "Global",
+            "MUMPS",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "Mglobal",
+            "SyncClock",
+            "Translate",
+            "VariableNotFound1",
+            "_fnumber",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcatz",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 2,
+            "continue": 2,
+            "do": 0,
+            "else": 2,
+            "for": 2,
+            "goto": 0,
+            "if": 14,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 97,
+          "loc_nonblank": 280,
+          "loc_total": 312,
+          "numeric_literals": 52,
+          "string_literals": 75
+        },
+        "case_10_translate_case.err": {
+          "bytes": 0
+        },
+        "case_10_translate_case.log": {
+          "bytes": 173
+        },
+        "case_10_translate_case.m": {
+          "bytes": 10695
+        }
+      }
+    },
+    "case_11_pattern": {
+      "files": {
+        "case_11_pattern.cpp": {
+          "api_symbols": [
+            "Global",
+            "Mumps",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "Mglobal",
+            "SyncClock",
+            "VariableNotFound1",
+            "_fnumber",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcatz",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "test",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 7,
+            "for": 2,
+            "goto": 0,
+            "if": 29,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 112,
+          "loc_nonblank": 276,
+          "loc_total": 319,
+          "numeric_literals": 54,
+          "string_literals": 62
+        },
+        "case_11_pattern.err": {
+          "bytes": 0
+        },
+        "case_11_pattern.log": {
+          "bytes": 165
+        },
+        "case_11_pattern.m": {
+          "bytes": 9977
+        }
+      }
+    },
+    "case_12_indirection": {
+      "files": {
+        "case_12_indirection.cpp": {
+          "api_symbols": [
+            "Global",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "Interpret",
+            "Mglobal",
+            "SyncClock",
+            "_fnumber",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcatz",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 2,
+            "for": 2,
+            "goto": 0,
+            "if": 13,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 97,
+          "loc_nonblank": 217,
+          "loc_total": 250,
+          "numeric_literals": 31,
+          "string_literals": 23
+        },
+        "case_12_indirection.err": {
+          "bytes": 0
+        },
+        "case_12_indirection.log": {
+          "bytes": 169
+        },
+        "case_12_indirection.m": {
+          "bytes": 7345
+        }
+      }
+    },
+    "case_13_user_functions": {
+      "files": {
+        "case_13_user_functions.err": {
+          "bytes": 0
+        },
+        "case_13_user_functions.log": {
+          "bytes": 137
+        },
+        "case_13_user_functions.m": {
+          "bytes": 6203
+        }
+      }
+    },
+    "case_14_numeric_forms": {
+      "files": {
+        "case_14_numeric_forms.cpp": {
+          "api_symbols": [
+            "Global",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "Justify",
+            "Mglobal",
+            "SyncClock",
+            "VariableNotFound1",
+            "_fnumber",
+            "_justify",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp1",
+            "numcomp2",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcat",
+            "strcatz",
+            "strlen",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 4,
+            "for": 2,
+            "goto": 0,
+            "if": 19,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 97,
+          "loc_nonblank": 267,
+          "loc_total": 300,
+          "numeric_literals": 63,
+          "string_literals": 63
+        },
+        "case_14_numeric_forms.err": {
+          "bytes": 0
+        },
+        "case_14_numeric_forms.log": {
+          "bytes": 171
+        },
+        "case_14_numeric_forms.m": {
+          "bytes": 9730
+        }
+      }
+    },
+    "case_15_hang_io_ops": {
+      "files": {
+        "case_15_hang_io_ops.cpp": {
+          "api_symbols": [
+            "Global",
+            "global",
+            "globalOrder",
+            "mumpsc"
+          ],
+          "called_symbols": [
+            "CSTR",
+            "ErrorMessage",
+            "Mglobal",
+            "Set",
+            "SyncClock",
+            "VariableNotFound1",
+            "_fnumber",
+            "add",
+            "atof",
+            "atoi",
+            "cleanLocks",
+            "divi",
+            "divx",
+            "eraseLocks",
+            "fcn",
+            "floatstring",
+            "for",
+            "fprintf",
+            "if",
+            "int",
+            "isdigit",
+            "longjmp",
+            "makeLock",
+            "mult",
+            "numcomp2",
+            "ops",
+            "pm",
+            "releaseLock",
+            "return",
+            "set_alarm",
+            "setitimer",
+            "strcatz",
+            "strmove",
+            "strxcat",
+            "sub",
+            "sym_",
+            "tolower",
+            "while",
+            "zfcn"
+          ],
+          "control_flow": {
+            "break": 0,
+            "case": 0,
+            "continue": 2,
+            "do": 0,
+            "else": 2,
+            "for": 2,
+            "goto": 0,
+            "if": 12,
+            "return": 8,
+            "switch": 0,
+            "while": 4
+          },
+          "function_defs": [],
+          "includes": [],
+          "labels": [],
+          "loc_comment": 85,
+          "loc_nonblank": 206,
+          "loc_total": 233,
+          "numeric_literals": 27,
+          "string_literals": 29
+        },
+        "case_15_hang_io_ops.err": {
+          "bytes": 0
+        },
+        "case_15_hang_io_ops.log": {
+          "bytes": 169
+        },
+        "case_15_hang_io_ops.m": {
+          "bytes": 7286
+        }
+      }
+    }
+  }
+}
