@@ -90,7 +90,7 @@ fun patrn1(jpx: ShortArray, ernbr: ShortArray, svPtr: Msv) {
             }
         }
 
-        svPtr.xpx = (jpx[0] - 1).toInt() // stateVector.h:56 int xpx
+        svPtr.xpx = jpx[0] - 1 // stateVector.h:56 int xpx (redundant .toInt() dropped, u30 warning fix folded into u31 push)
         ernbr[0] = 0
         return
     }

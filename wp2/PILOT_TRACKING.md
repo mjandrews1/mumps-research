@@ -34,7 +34,7 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 28 | interp-sym.cpp::_SymFree | cpp | complex | graded-ok | todo | translated | todo | todo |
 | 29 | include/mumpsc/numSetup.h::<misc> | c | complex | graded-ok | todo | translated | todo | todo |
 | 30 | interp-parse.cpp::patrn1 | cpp | complex | graded-ok | todo | translated | todo | todo |
-| 31 | libmpscpp.cpp::<misc-1> | cpp | complex | graded-ok | todo | todo | todo | todo |
+| 31 | libmpscpp.cpp::<misc-1> | cpp | complex | graded-ok | todo | translated | todo | todo |
 
 ## Batch 2 (units 32-62, opened 2026-11-15)
 

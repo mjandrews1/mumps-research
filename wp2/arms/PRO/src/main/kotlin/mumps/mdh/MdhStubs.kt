@@ -14,6 +14,15 @@ class GtkTreeStore
  */
 object MdhState {
     lateinit var svPtr: Msv
+
+    /** Owner: libmpscpp.cpp file-scope residue (B1 unit 31, misc-1): short ierr1. */
+    var ierr1: Short = 0
+
+    /**
+     * Owner: libmpscpp.cpp file-scope residue (B1 unit 31, misc-1):
+     * int GlobalExceptionCode = UNSPECIFIED (libmpscpp.h:69: 0).
+     */
+    var globalExceptionCode: Int = 0
 }
 
 /**
@@ -40,4 +49,48 @@ fun sym_(fn: Int, key: CharArray, bd: CharArray, svPtr: Msv): CharArray? {
 /** Owner: libmpscpp.cpp::strcatx - appends src with the vendor x01 subscript separator (not a corpus unit). */
 fun strcatx(dst: CharArray, src: CharArray) {
     TODO("h014 stub: owner libmpscpp.cpp::strcatx (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.cpp::lhash - disk-hash function used by Hash (misc-2 residue, not a B1 corpus unit; B1 unit 31). */
+fun lhash(ref: String): Long {
+    TODO("h014 stub: owner libmpscpp.cpp::lhash (not a corpus unit)")
+}
+
+/**
+ * Owner: libmpscpp.cpp::global::MakeGlobal (batch-7 unit).
+ * C variadic MakeGlobal(int, char *gblnme, char *key, ...) ->
+ * vararg values (B1 unit 31).
+ */
+fun makeGlobal(x: Int, gblnme: String, key: String, vararg vals: String) {
+    TODO("h014 stub: owner libmpscpp.cpp::global::MakeGlobal (batch-7 unit)")
+}
+
+/** Owner: libmpscpp.cpp::__finish - atexit target of the global constructor (misc-2 residue, not a B1 corpus unit; B1 unit 31). */
+fun __finish() {
+    TODO("h014 stub: owner libmpscpp.cpp::__finish (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.cpp::thrownMessage - set_terminate target of the global constructor (misc-2 residue, not a B1 corpus unit; B1 unit 31). */
+fun thrownMessage() {
+    TODO("h014 stub: owner libmpscpp.cpp::thrownMessage (not a corpus unit)")
+}
+
+/**
+ * Owner: libmpscpp.cpp global implicit-conversion operators
+ * (operator int/long/... via globalClass.h; not in the B1 corpus).
+ * The C++ per-type conversions collapse to one Double-valued stub
+ * (B1 unit 31, see journal).
+ */
+fun globalNumericValue(j: Global): Double {
+    TODO("h014 stub: owner libmpscpp.cpp global implicit conversion operators (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.cpp/globalClass.h global arithmetic - global + int (not in the B1 corpus; B1 unit 31 unary operator+). */
+fun globalPlusInt(g: Global, i: Int): Mstring {
+    TODO("h014 stub: owner globalClass.h global arithmetic operators (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.cpp/globalClass.h global arithmetic - int - global (not in the B1 corpus; B1 unit 31 unary operator-). */
+fun intMinusGlobal(i: Int, g: Global): Mstring {
+    TODO("h014 stub: owner globalClass.h global arithmetic operators (not a corpus unit)")
 }
