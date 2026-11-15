@@ -8,7 +8,9 @@ package mumps.interp
  * "pattern argument [right side] set up": copy the pattern tail from the
  * parse buffer svPtr->xd at jpx into svPtr->bd, decoding doubled quotes
  * ('""') inside the pattern literal into the 210 sentinel byte, until a
- * terminator outside the char set " ,&:!''><=[)+-*/#_" is met.
+ * terminator outside the char set (see PATRN1_TERMINATORS — note it
+ * contains star-slash, which cannot be quoted inside a block comment
+ * without closing it) is met.
  *
  * NOTE: this is the INTERPRETER patrn1 (interp-parse.cpp) — a different
  * function from the compiler's Patrn1 (compiler-sys1.c, unit 26); the
