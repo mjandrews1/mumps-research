@@ -34,7 +34,7 @@ package mumps.interp
  *    #2, fixed same day).
  *  - h017 naming              : mechanical snake->camel per-arm
  *    mapping: new_bstring -> newBstring, checked_strlen ->
- *    checkedStrlen, make_c_string -> makeCstring; bcatchr/bstrcat
+ *    checkedStrlen, make_cstring -> makeCstring; bcatchr/bstrcat
  *    single words keep vendor spelling; struct bstring -> Bstring.
  *
  * Vendor notes (translated faithfully, not "fixed"):
