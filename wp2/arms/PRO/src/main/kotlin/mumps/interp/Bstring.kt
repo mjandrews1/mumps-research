@@ -34,7 +34,7 @@ package mumps.interp
  *    #2, fixed same day).
  *  - h017 naming              : mechanical snake->camel per-arm
  *    mapping: new_bstring -> newBstring, checked_strlen ->
- *    checkedStrlen, make_cstring -> makeCstring; bcatchr/bstrcat
+ *    checkedStrlen, make_c_string -> makeCstring; bcatchr/bstrcat
  *    single words keep vendor spelling; struct bstring -> Bstring.
  *
  * Vendor notes (translated faithfully, not "fixed"):
@@ -84,7 +84,7 @@ fun bcatchr(str: Bstring, c: Char): Bstring {
     return str // vendor returns *str - same object aliased
 }
 
-/** interp-bstring.cpp:98-102 — void make_c_string(char *, struct bstring). */
+/** interp-bstring.cpp:98-102 — void make_cstring(char *, struct bstring). */
 fun makeCstring(dest: CharArray, src: Bstring) {
     // strncpy(dest, src.string, src.length);
     for (i in 0 until src.length) {
