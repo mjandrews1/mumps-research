@@ -91,7 +91,7 @@ fun timeOutGetstr1(io: Int, area: StringBuilder, timeout: String, dirflg: Int): 
         area.append(if (i == -1) ' ' else i.toChar())
     } else {
         // C: fgets(area, STR_MAX, stdin); area[strlen-1]=0 — readLine strips the newline
-        val line = console.reader().readLine()
+        val line = java.io.BufferedReader(console.reader()).readLine()
         area.setLength(0)
         if (line != null) area.append(line)
     }
