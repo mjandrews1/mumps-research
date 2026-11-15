@@ -25,3 +25,13 @@ object MdhState {
 fun zfcn(v1d: CharArray, bd: CharArray, svPtr: Msv) {
     TODO("h014 stub: owner interp-bifs.cpp::zfcn (not a corpus unit)")
 }
+
+/** Owner: interp-sym.cpp / sym.c symbol-table primitive sym_(fn,key,bd,svPtr) (not a corpus unit). */
+fun sym_(fn: Int, key: CharArray, bd: CharArray, svPtr: Msv) {
+    TODO("h014 stub: owner sym_ symbol-table machinery (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.cpp::strcatx - appends src with the vendor x01 subscript separator (not a corpus unit). */
+fun strcatx(dst: CharArray, src: CharArray) {
+    TODO("h014 stub: owner libmpscpp.cpp::strcatx (not a corpus unit)")
+}

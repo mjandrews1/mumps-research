@@ -9,6 +9,17 @@ package mumps.interp
 class Msv {
     /** mumps.cpp main: svPtr->program - strncpy'd program name, 512. */
     var program: CharArray = CharArray(512)
+
+    // --- stateVector.h fields added by B1 unit 23 (libmpscpp.cpp::Input) ---
+    /** stateVector.h:49 - int io. */
+    var io: Int = 0
+    /** :52 - int symflg. */
+    var symflg: Int = 0
+    /** :61 - FILE *in_file[10], *out_file[10] (Reader/Writer at edges, h001). */
+    val in_file: Array<java.io.Reader?> = arrayOfNulls(10)
+    val out_file: Array<java.io.Writer?> = arrayOfNulls(10)
+    /** :64 - long tpx. */
+    var tpx: Long = 0
 }
 
 /**
