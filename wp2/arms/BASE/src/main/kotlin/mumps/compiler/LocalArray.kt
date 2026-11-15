@@ -17,7 +17,7 @@ import mumps.compiler.CompilerState.Out
  */
 fun localArray(vd: StringBuilder, setFlg: BooleanArray) {
     val v1d = CompilerState.v1d
-    val c1 = if (v1d.length > 1) v1d[1] else ''\u0000''
+    val c1 = if (v1d.length > 1) v1d[1] else '\u0000'
     if (c1 == '^' || c1 == '$') return
 
     // C: for (i=0; vd[i]!=0; i++) if (vd[i]>127) goto has_array; return;
