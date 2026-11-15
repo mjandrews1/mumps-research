@@ -148,3 +148,13 @@ reuse,h014,libmpscpp.cpp,2026-11-15T23:30:00+0000
 hit,h014,libmpscpp.cpp,2026-11-15T23:30:00+0000
 reuse,h017,libmpscpp.cpp,2026-11-15T23:30:00+0000
 hit,h017,libmpscpp.cpp,2026-11-15T23:30:00+0000
+reuse,h001,compiler-parse.c,2026-11-16T00:15:00+0000
+hit,h001,compiler-parse.c,2026-11-16T00:15:00+0000
+reuse,h007,compiler-parse.c,2026-11-16T00:15:00+0000
+hit,h007,compiler-parse.c,2026-11-16T00:15:00+0000
+reuse,h012,compiler-parse.c,2026-11-16T00:15:00+0000
+hit,h012,compiler-parse.c,2026-11-16T00:15:00+0000
+reuse,h014,compiler-parse.c,2026-11-16T00:15:00+0000
+hit,h014,compiler-parse.c,2026-11-16T00:15:00+0000
+reuse,h017,compiler-parse.c,2026-11-16T00:15:00+0000
+hit,h017,compiler-parse.c,2026-11-16T00:15:00+0000

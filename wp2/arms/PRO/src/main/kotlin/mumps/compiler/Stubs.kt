@@ -27,10 +27,8 @@ fun parse_(): Int {
     TODO("h014 stub: owner compiler-parse.c (not yet translated)")
 }
 
-/** Owner: compiler-parse.c::Extract2 (B1 unit 15 — delegate when it lands). */
-fun extract2(pd1: CharArray, sdlim: Int): String {
-    TODO("h014 stub: owner compiler-parse.c::Extract2 (B1 unit 15)")
-}
+/** Owner: compiler-parse.c::Extract2 (B1 unit 15 - translated; delegates). */
+fun extract2(pd1: CharArray, sdlim: Int): String = Extract2(pd1, sdlim)
 
 /** Owner: compiler-read.c (not in the B1/B2 corpus). */
 fun linepad(n: Int, comment: String) {
