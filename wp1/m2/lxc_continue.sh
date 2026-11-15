@@ -3,15 +3,15 @@
 # container, from the container HOST (no need to open a shell in the guest).
 #
 # Usage (on the `container` host, as a user with LXD admin rights):
-#   ./wp1/m2/lxc_continue.sh [args...]     # e.g. --check
-#   M1_CONTAINER=m1-build ./wp1/m2/lxc_continue.sh --check
+#   bash wp1/m2/lxc_continue.sh [args...]     # e.g. --check
+#   M1_CONTAINER=m1-build bash wp1/m2/lxc_continue.sh --check
 #
+# Invokes the in-container driver via `bash` (no executable bit needed —
+# files committed via the GitHub API land as mode 644).
 # Passes exit codes through unchanged (0 all verified, 1 verification
-# failure, 2 a step ran — re-run). The in-container driver runs as user
-# `builder` with a login environment (HOME=/home/builder).
+# failure, 2 a step ran — re-run).
 
 set -u
-HERE="$(cd "$(dirname "$0")" && pwd)"
 CONTAINER="${M1_CONTAINER:-m1-build}"
 
 lxc info "$CONTAINER" >/dev/null 2>&1 \
@@ -27,5 +27,5 @@ lxc exec "$CONTAINER" \
   -- bash -lc '
     cd "$HOME/mumps-research" || exit 2
     if [ -d .git ]; then git pull --ff-only >/dev/null 2>&1 || true; fi
-    exec ./wp1/m1_continue.sh "$@"
+    exec bash wp1/m2/m1_continue.sh "$@"
   ' m1-continue "$@"
