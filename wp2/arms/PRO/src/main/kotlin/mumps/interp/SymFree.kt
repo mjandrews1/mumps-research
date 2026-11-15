@@ -63,10 +63,13 @@ fun _SymFree(i: Int, svPtr: Msv): Int {
     }
 
     while (p1 != null) {
-        if (p1.exec != 0 && p1.OrigName != null && p1.OrigName.isNotEmpty()) {
+        // red build #3 fix: local val so the null/isNotEmpty checks and the
+        // use below see the same value (no smart cast on a mutable property).
+        val orig = p1.OrigName
+        if (p1.exec != 0 && orig != null && orig.isNotEmpty()) {
             // vendor: sym_(0, USTR(*p1->OrigName).c_str(),
             //                USTR(*p1->data).c_str(), svPtr); // store call by ref
-            sym_(0, toC(p1.OrigName!!), toC(p1.data ?: ""), svPtr)
+            sym_(0, toC(orig), toC(p1.data ?: ""), svPtr)
         }
 
         p1.name = null // free(p1->name)
