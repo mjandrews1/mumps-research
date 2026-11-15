@@ -16,8 +16,8 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 10 | interp-arith.cpp::mps_acos | cpp | simple | graded-ok | todo | translated | todo | todo |
 | 11 | compiler-parse.c::ExpandNext | c | core | graded-ok | todo | translated | todo | todo |
 | 12 | mumps.cpp::<misc> | cpp | core | graded-ok | todo | translated | todo | todo |
-| 13 | interp-sysfunc.cpp::GlobalName | cpp | core | graded-ok | todo | todo | todo | todo |
-| 14 | libmpscpp.cpp::global::TermCorrelate | cpp | core | graded-ok | todo | todo | todo | todo |
+| 13 | interp-sysfunc.cpp::GlobalName | cpp | core | graded-ok | todo | translated | todo | todo |
+| 14 | libmpscpp.cpp::global::TermCorrelate | cpp | core | graded-ok | todo | translated | todo | todo |
 | 15 | compiler-parse.c::Extract2 | c | core | graded-ok | todo | todo | todo | todo |
 | 16 | compiler-parse.c::ExpandGet | c | core | graded-ok | todo | todo | todo | todo |
 | 17 | interp-bmgsubs.c::gotamatch | c | core | graded-ok | todo | todo | todo | todo |

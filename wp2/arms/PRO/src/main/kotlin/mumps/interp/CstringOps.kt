@@ -82,3 +82,13 @@ fun strncmpC(b: CharArray, off: Int, s: String, n: Int): Int {
     }
     return 0
 }
+
+/** strcpy(dst, src): copies the src C-string (incl. NUL) into dst. */
+fun strcpyC(dst: CharArray, src: CharArray) {
+    var k = 0
+    while (src[k] != NUL) {
+        dst[k] = src[k]
+        k++
+    }
+    dst[k] = NUL
+}
