@@ -27,6 +27,11 @@ package mumps.interp
  *    owned by interp-sysfunc.cpp (B1 unit 25 interp-
  *    sysfunc.cpp::<misc>) -> InterpStubs.sigint stub; delegate when
  *    unit 25 lands.
+ *  - h015 grammar_collision   : STR_MAX declared file-private -
+ *    GlobalName.kt (u13) and MumpsMain.kt (u12) already carry their
+ *    own STR_MAX; a public top-level const here caused
+ *    overload-resolution ambiguity at their usage sites (red build
+ *    #2, fixed same day).
  *  - h017 naming              : mechanical snake->camel per-arm
  *    mapping: new_bstring -> newBstring, checked_strlen ->
  *    checkedStrlen, make_cstring -> makeCstring; bcatchr/bstrcat
@@ -38,7 +43,7 @@ package mumps.interp
  *    so they stay unreachable).
  *  - STR_MAX = 32000 (include/mumpsc/strmax.h:3).
  */
-const val STR_MAX = 32000 // include/mumpsc/strmax.h:3
+private const val STR_MAX = 32000 // h015: file-private; GlobalName.kt/MumpsMain.kt declare their own
 
 /**
  * vendor struct bstring (bstring.h:33-36): int length; char
@@ -79,7 +84,7 @@ fun bcatchr(str: Bstring, c: Char): Bstring {
     return str // vendor returns *str - same object aliased
 }
 
-/** interp-bstring.cpp:98-102 — void make_cstring(char *, struct bstring). */
+/** interp-bstring.cpp:98-102 — void make_c_string(char *, struct bstring). */
 fun makeCstring(dest: CharArray, src: Bstring) {
     // strncpy(dest, src.string, src.length);
     for (i in 0 until src.length) {
