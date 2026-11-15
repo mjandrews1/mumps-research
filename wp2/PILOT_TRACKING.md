@@ -35,3 +35,39 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 29 | include/mumpsc/numSetup.h::<misc> | c | complex | graded-ok | todo | todo | todo | todo |
 | 30 | interp-parse.cpp::patrn1 | cpp | complex | graded-ok | todo | todo | todo | todo |
 | 31 | libmpscpp.cpp::<misc-1> | cpp | complex | graded-ok | todo | todo | todo | todo |
+
+## Batch 2 (units 32-62, opened 2026-11-15)
+
+| # | Unit | Lang | Class | Status | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-------------|--------------|---------------|--------------|
+| 32 | libmpscpp.cpp::global::Extract | cpp | simple | translating | todo | todo | todo | todo |
+| 33 | libmpscpp.cpp::global::Find | cpp | simple | todo | todo | todo | todo | todo |
+| 34 | libmpscpp.cpp::SQL_Table | cpp | simple | todo | todo | todo | todo | todo |
+| 35 | compiler-abrtx.c::<misc> | c | simple | todo | todo | todo | todo | todo |
+| 36 | compiler-doty.c::<misc> | c | simple | todo | todo | todo | todo | todo |
+| 37 | libmpscpp.cpp::KiLL | cpp | simple | todo | todo | todo | todo | todo |
+| 38 | libmpscpp.cpp::global::Piece | cpp | simple | todo | todo | todo | todo | todo |
+| 39 | libmpscpp.cpp::GlobalOrder | cpp | simple | todo | todo | todo | todo | todo |
+| 40 | interp-arith.cpp::mps_exp | cpp | simple | todo | todo | todo | todo | todo |
+| 41 | interp-arith.cpp::mps_exp10 | cpp | simple | todo | todo | todo | todo | todo |
+| 42 | libmpscpp.cpp::mstring::Fnumber | cpp | core | todo | todo | todo | todo | todo |
+| 43 | libmpscpp.cpp::mdh_tree_level_add | cpp | core | todo | todo | todo | todo | todo |
+| 44 | libmpscpp.cpp::global::Min | cpp | core | todo | todo | todo | todo | todo |
+| 45 | libmpscpp.cpp::prnt | cpp | core | todo | todo | todo | todo | todo |
+| 46 | libmpscpp.cpp::Multiply | cpp | core | todo | todo | todo | todo | todo |
+| 47 | compiler-copyright-notice.c::copyright_notice | c | core | todo | todo | todo | todo | todo |
+| 48 | interp-parse.cpp::getstr2 | cpp | core | todo | todo | todo | todo | todo |
+| 49 | libmpscpp.cpp::global::IDF | cpp | core | todo | todo | todo | todo | todo |
+| 50 | interp-native-btree.cpp::scanblocks | cpp | core | todo | todo | todo | todo | todo |
+| 51 | interp-sql.cpp::embed | cpp | core | todo | todo | todo | todo | todo |
+| 52 | compiler-globalarray.c::GlobalArray | c | complex | todo | todo | todo | todo | todo |
+| 53 | libmpscpp.cpp::global::Multiply | cpp | complex | todo | todo | todo | todo | todo |
+| 54 | compiler-if.c::if_code | c | complex | todo | todo | todo | todo | todo |
+| 55 | include/mumpsc/btree.h::<misc> | c | complex | todo | todo | todo | todo | todo |
+| 56 | interp-lock.cpp::<misc> | cpp | complex | todo | todo | todo | todo | todo |
+| 57 | include/mumpsc/arith.h::<misc> | c | complex | todo | todo | todo | todo | todo |
+| 58 | interp-parse.cpp::prnterr | cpp | complex | todo | todo | todo | todo | todo |
+| 59 | compiler-sys1.c::inout | c | complex | todo | todo | todo | todo | todo |
+| 60 | libmpscpp.cpp::global::TreePrint | cpp | complex | todo | todo | todo | todo | todo |
+| 61 | libmpscpp.cpp::sw | cpp | complex | todo | todo | todo | todo | todo |
+| 62 | libmpscpp.cpp::<misc-2> | cpp | complex | todo | todo | todo | todo | todo |

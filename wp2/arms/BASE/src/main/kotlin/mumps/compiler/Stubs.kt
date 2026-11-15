@@ -22,11 +22,13 @@ fun parse_(): Short =
 
 /** C: char *Extract2(unsigned char *) — overload for callers passing the
  * mutable pd1 scratch buffer (units 6/7: IfCode, MumpsOpen call it as
- * Extract2(&pd1[sdlim])). NOT superseded: the real translation (unit 15,
- * Extract2.kt) works on String. INTEGRATION DECISION: either convert
- * call sites (pd1.toString()) or give Extract2 a StringBuilder overload. */
+ * Extract2(&pd1[sdlim])). INTEGRATION RESOLVED (2026-11-15, Batch 2
+ * opening): delegates to the real unit-15 translation (Extract2.kt).
+ * Safe because the C Extract2 never writes its argument — it reads the
+ * buffer in place and the Kotlin reads a snapshot; identical semantics
+ * under the heuristic-8 buffer-role classification. */
 fun extract2(pd1: StringBuilder, from: Int): String =
-    TODO("extract2(StringBuilder) integration point — see Stubs.kt note")
+    extract2(pd1.toString(), from)
 
 /** C: void epi(short ExecName, long pid) — epilogue emitter (compiler-mumps.c) */
 fun epi(execName: Short, pid: Long): Unit =
