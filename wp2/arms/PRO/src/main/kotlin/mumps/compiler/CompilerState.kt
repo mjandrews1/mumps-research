@@ -34,6 +34,8 @@ object CompilerState {
 
     /** :45 - extern unsigned char v1d[2048] (h012 byte domain; owner added by unit 21). */
     var v1d: CharArray = CharArray(2048)
+    /** :33 - extern unsigned char bd[2048] (h012 byte domain; owner added by unit 26). */
+    var bd: CharArray = CharArray(2048)
     var ierr1: Short = 0                          // :48
     var IF_flg: Int = 0                           // :112
     var IF_flg_max: Int = 0                       // :113
