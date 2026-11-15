@@ -18,3 +18,8 @@ object InterpStubs
 fun btreeX(g: Int, key: CharArray, bd: CharArray, svPtr: Msv): Int {
     TODO("h014 stub: owner interp-native-btree.cpp::btreeX (not a corpus unit)")
 }
+
+/** Owner: interp-strmanip.cpp::xindex (not a corpus unit). */
+fun xindex(source: CharArray, ptrn: CharArray, strt: Short): Int {
+    TODO("h014 stub: owner interp-strmanip.cpp::xindex (not a corpus unit)")
+}
