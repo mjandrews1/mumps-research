@@ -31,6 +31,10 @@ class MsvState {
     var xd: String = ""
     /** C: unsigned char bd[STR_MAX] — build buffer; strcat() appends map to append() */
     val bd: StringBuilder = StringBuilder(STR_MAX)
+    /** C: unsigned char v1d[STR_MAX] — expression workspace. Kotlin models
+     *  &v1d[1] (C's v1d[0] is a sentinel byte; same convention as bd,
+     *  unit 30 precedent). First needed by unit 42 mstring::Fnumber. */
+    val v1d: StringBuilder = StringBuilder(STR_MAX)
     /** C: int xpx — parse index (stateVector.h) */
     var xpx: Int = 0
 

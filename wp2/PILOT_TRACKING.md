@@ -49,8 +49,8 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 38 | libmpscpp.cpp::global::Piece | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 39 | libmpscpp.cpp::GlobalOrder | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 40 | interp-arith.cpp::mps_exp | cpp | simple | graded-ok | todo | todo | todo | todo |
-| 41 | interp-arith.cpp::mps_exp10 | cpp | simple | translating | todo | todo | todo | todo |
-| 42 | libmpscpp.cpp::mstring::Fnumber | cpp | core | todo | todo | todo | todo | todo |
+| 41 | interp-arith.cpp::mps_exp10 | cpp | simple | graded-ok | todo | todo | todo | todo |
+| 42 | libmpscpp.cpp::mstring::Fnumber | cpp | core | translating | todo | todo | todo | todo |
 | 43 | libmpscpp.cpp::mdh_tree_level_add | cpp | core | todo | todo | todo | todo | todo |
 | 44 | libmpscpp.cpp::global::Min | cpp | core | todo | todo | todo | todo | todo |
 | 45 | libmpscpp.cpp::prnt | cpp | core | todo | todo | todo | todo | todo |
