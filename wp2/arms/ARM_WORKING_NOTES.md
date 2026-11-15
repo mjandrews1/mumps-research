@@ -139,3 +139,12 @@ pilot deliverable of M2's "instrumentation calibrated" criterion.
   trigger). Fix renames the C parameter "in" to in_ (trailing-underscore
   convention, vendor parse_ precedent); h015 grammar-collision family.
   Build-failure events logged as hits in wp2/logs/PRO_knowledge_events.csv.
+- 2026-11-15, include/mumpsc/libmpsrdbms.h (B1 unit 9): h003 state_macro
+  adapted — the vendor SELECT/PRINT/... macros splice in the file-scope
+  svPtr; Kotlin has no capture-by-name macros and svPtr is a pointer
+  value, so the shims take svPtr as an explicit leading parameter
+  instead of singleton members. Logged hit, not reuse.
+- 2026-11-15, interp-arith.cpp::mps_acos (B1 unit 10): second
+  preprocessor_conditional miss (3-way #ifdef; reference build selects
+  the plain-double branch). T1 (recurrence >= 2) now met for this
+  family — capture candidate for the batch-close rule revision.

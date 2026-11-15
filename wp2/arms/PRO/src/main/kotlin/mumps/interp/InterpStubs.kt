@@ -23,3 +23,12 @@ fun btreeX(g: Int, key: CharArray, bd: CharArray, svPtr: Msv): Int {
 fun xindex(source: CharArray, ptrn: CharArray, strt: Short): Int {
     TODO("h014 stub: owner interp-strmanip.cpp::xindex (not a corpus unit)")
 }
+
+/**
+ * Owner: gcvt_wrapper macro (interp-arith.cpp lines 69-77, config-
+ * dependent; reference build: gcvt(x, 8, a)). Delegate when B1 unit 29
+ * (include/mumpsc/numSetup.h) lands.
+ */
+fun gcvtWrapper(x: Double, a: CharArray) {
+    TODO("h014 stub: owner gcvt_wrapper macro (unit 29 numSetup.h)")
+}
