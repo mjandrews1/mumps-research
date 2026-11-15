@@ -5,8 +5,8 @@
 # artifacts are only VERIFIED, never regenerated or overwritten.
 #
 # Usage (inside m1-build, from ~/mumps-research):
-#   ./wp1/m2/m1_continue.sh            # check + proceed to next pending step
-#   ./wp1/m2/m1_continue.sh --check    # report status only, do nothing
+#   bash wp1/m2/m1_continue.sh            # check + proceed to next pending step
+#   bash wp1/m2/m1_continue.sh --check    # report status only, do nothing
 #
 # Translator capture: prefers the FROZEN translator oracle at
 # wp2/translator-oracle/expected/ (frozen 2026-11-14, 59 files, case_13 is
@@ -62,8 +62,13 @@ ok "translator:  $MUMPS2C_BIN"
 
 step "2. Behavioral oracle (frozen at 090a82f)"
 if [ -f wp1/oracle/expected/manifest.json ]; then
+  rm -rf /tmp/oracle-verify-run
   verify_or_fail bash wp1/oracle/run_oracle.sh "$MUMPS_BIN" /tmp/oracle-verify-run
   [ $FAILED -eq 0 ] || fail "oracle re-run incomplete — see output above"
+  # freeze_oracle.py --verify reads the manifest from the run dir: put the
+  # FROZEN manifest there (frozen data is never rewritten; we only copy it
+  # in for comparison).
+  cp wp1/oracle/expected/manifest.json /tmp/oracle-verify-run/manifest.json
   verify_or_fail python3 wp1/oracle/freeze_oracle.py /tmp/oracle-verify-run --verify
   [ $FAILED -eq 0 ] || fail "ORACLE MISMATCH vs frozen manifest — protocol deviation: stop, investigate, do NOT re-freeze"
   rm -rf /tmp/oracle-verify-run
@@ -75,8 +80,10 @@ fi
 CAPTURE_DIR=""
 if [ -f wp2/translator-oracle/expected/manifest.json ]; then
   step "3. Translator oracle (wp2/translator-oracle/expected/)"
+  rm -rf /tmp/tr-verify-run
   verify_or_fail bash wp2/translator-oracle/run_translator_oracle.sh "$MUMPS2C_BIN" /tmp/tr-verify-run
   [ $FAILED -eq 0 ] || fail "translator-oracle re-run incomplete — see output above"
+  cp wp2/translator-oracle/expected/manifest.json /tmp/tr-verify-run/manifest.json
   verify_or_fail python3 wp2/translator-oracle/freeze_translator_oracle.py /tmp/tr-verify-run --verify
   [ $FAILED -eq 0 ] || fail "TRANSLATOR ORACLE MISMATCH vs frozen manifest — protocol deviation: stop, investigate, do NOT re-freeze"
   rm -rf /tmp/tr-verify-run
@@ -93,8 +100,10 @@ else
     info "M2 capture frozen — commit wp1/m2/capture/ now, then re-run this script"
     exit 2
   fi
+  rm -rf /tmp/m2-verify-run
   verify_or_fail bash wp1/m2/run_m2.sh "$MUMPS2C_BIN" /tmp/m2-verify-run
   [ $FAILED -eq 0 ] || fail "m2 re-capture incomplete — see output above"
+  cp wp1/m2/capture/manifest.json /tmp/m2-verify-run/manifest.json
   verify_or_fail python3 wp1/m2/freeze_m2.py /tmp/m2-verify-run --verify
   [ $FAILED -eq 0 ] || fail "M2 CAPTURE MISMATCH vs frozen manifest — protocol deviation: stop, investigate, do NOT re-freeze"
   rm -rf /tmp/m2-verify-run
