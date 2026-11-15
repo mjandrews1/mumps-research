@@ -130,3 +130,12 @@ pilot deliverable of M2's "instrumentation calibrated" criterion.
   the rule's StringBuilder default, to preserve byte-domain fidelity
   (chars >= 0x80, NUL-terminated in-place C-string surgery). Logged as
   hit, not reuse. (wp2/logs/PRO_knowledge_events.csv)
+- 2026-11-15, red build #1 (units 1-6, first PRO compile on m1-build,
+  Gradle 9.9.1 / Kotlin 2.4.21): two fixes. (1) IfCode.kt:55 — Kotlin
+  rejects Short == Int equality (EQUALITY_NOT_APPLICABLE); h010
+  promotion made explicit: at_flg == (-1).toShort(). (2) Find.kt:25 —
+  root cause was a push-script bug: the backticked keyword parameter
+  was written without its CharArray type annotation (no missing-rule
+  trigger). Fix renames the C parameter "in" to in_ (trailing-underscore
+  convention, vendor parse_ precedent); h015 grammar-collision family.
+  Build-failure events logged as hits in wp2/logs/PRO_knowledge_events.csv.

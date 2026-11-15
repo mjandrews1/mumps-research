@@ -18,21 +18,22 @@ package mumps.interp
  *  - h014 out_of_scope_call   : xindex (owner interp-strmanip.cpp, not
  *    a corpus unit) -> InterpStubs.kt.
  *  - h015 grammar_collision   : pre-push scan caught raw VT/FF control
- *    bytes in the local atoi helper; rewritten as escapes.
- *  - h017 naming              : _find keeps the vendor name (the Kotlin
- *    keyword 'in' is kept as a backticked parameter).
+ *    bytes in the local atoi helper (rewritten as escapes); the C
+ *    parameter named "in" collides with the Kotlin keyword and is
+ *    renamed in_ (trailing-underscore convention, vendor parse_).
+ *  - h017 naming              : _find keeps the vendor name.
  */
-fun _find(out: CharArray, `in`, key: CharArray, begin: CharArray) {
+fun _find(out: CharArray, in_: CharArray, key: CharArray, begin: CharArray) {
     var i = atoiC(begin)
     if (i < 0) i = 0
 
     if (key[0] != NUL) {
         // C: if ((i = xindex(in, key, (short) i)) > 0) i += strlen(key);
-        i = xindex(`in`, key, i.toShort()) // h014 stub; h010 short cast
+        i = xindex(in_, key, i.toShort()) // h014 stub; h010 short cast
         if (i > 0) i += strlenC(key)
     }
 
-    if (i > strlenC(`in`) + 1) i = 0
+    if (i > strlenC(in_) + 1) i = 0
 
     writeCstring(out, i.toString()) // h009: sprintf "%d" collapse
 }

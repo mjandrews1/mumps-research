@@ -52,7 +52,7 @@ object IfCode {
         val r = atTest(st.xd, st.pd1, st.lines, st.xpx)
         st.at_flg = r.rc.toShort()
         st.pd1Last = r.pd1Last
-        if (st.at_flg == -1) return ABRTX // goto abrtx
+        if (st.at_flg == (-1).toShort()) return ABRTX // goto abrtx
 
         var gotoIfStructure = false // h011: forward goto if_structure
         if (st.at_flg != 0.toShort()) {
