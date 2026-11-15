@@ -94,7 +94,7 @@ fun myFunc(v1d: StringBuilder, iiitmp: Int): Int {
     }
 
     if (name.length >= 2 && name[0] == '^' && name[1] == '^') { // double ^
-        Out.write("\t_jj=Interpret(\"x \\\"do ^" + name.substring(1) + "\\\"",svPtr);\n")
+        Out.write("\t_jj=Interpret(\"x \\\"do ^" + name.substring(1) + "\\\"\",svPtr);\n")
         Out.write("\tsvPtr->ERROR=_jj;\n")
         Out.write("\tif (!svPtr->NOERR && _jj<0) ErrorMessage(\"Indirection error\",svPtr->LineNumber);")
         return 0
@@ -107,7 +107,7 @@ fun myFunc(v1d: StringBuilder, iiitmp: Int): Int {
             if (c == '"') continue
             return 9002
         }
-        Out.write("\t_jj=Interpret(\"x \\\"do ^" + name.substring(1) + "\\\"",svPtr);\n")
+        Out.write("\t_jj=Interpret(\"x \\\"do ^" + name.substring(1) + "\\\"\",svPtr);\n")
         Out.write("\tsvPtr->ERROR=_jj;\n")
         Out.write("\tif (!svPtr->NOERR && _jj<0) ErrorMessage(\"Indirection error\",svPtr->LineNumber);")
         return 0
