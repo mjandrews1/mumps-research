@@ -43,6 +43,11 @@ fun extract1(str: String): String =
 fun EP(flg: Int, execName: Short, pid: Long): Unit =
     TODO("EP not yet translated (lives in compiler-mumps.c)")
 
+/** C: int LevCheck(short ExecName, short DoRetX, short DoRet[])
+ *  (compiler-mumps.c:1949) — not a selected unit. */
+fun levCheck(execName: Short, doRetX: Short, doRet: ShortArray): Int =
+    TODO("LevCheck not yet translated (lives in compiler-mumps.c)")
+
 /** C: void linepad(int, char *) — count is derivable from the text length */
 fun linepad(text: String, comment: String): Unit =
     TODO("linepad not yet translated")

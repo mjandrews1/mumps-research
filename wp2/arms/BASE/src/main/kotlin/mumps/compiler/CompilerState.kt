@@ -39,6 +39,15 @@ object CompilerState {
     var lines: Short = 0
     var sdlim: Short = 0
 
+    // --- Do-block dot indent machinery (C: compiler-globals-ext.h:127-133;
+    //  first needed by unit 36 doty) ---
+    var ExecLevel: Short = 0
+    val ExecStack = ShortArray(25)
+    val ExecSym = ShortArray(25)
+    var ExecX: Short = 0
+    val DoRet = ShortArray(1000)
+    var DoRetX: Short = 0
+
     // --- command flags / counters ---
     var IF_flg: Int = 0
     var tpx: Short = 0
