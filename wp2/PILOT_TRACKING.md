@@ -53,8 +53,8 @@ Order within batch: complexity_rank ascending. Status: todo / translating / grad
 | 42 | libmpscpp.cpp::mstring::Fnumber | cpp | core | graded-ok | todo | todo | todo | todo |
 | 43 | libmpscpp.cpp::mdh_tree_level_add | cpp | core | graded-ok | todo | todo | todo | todo |
 | 44 | libmpscpp.cpp::global::Min | cpp | core | graded-ok | todo | todo | todo | todo |
-| 45 | libmpscpp.cpp::prnt | cpp | core | translating | todo | todo | todo | todo |
-| 46 | libmpscpp.cpp::Multiply | cpp | core | todo | todo | todo | todo | todo |
+| 45 | libmpscpp.cpp::prnt | cpp | core | graded-ok | todo | todo | todo | todo |
+| 46 | libmpscpp.cpp::Multiply | cpp | core | translating | todo | todo | todo | todo |
 | 47 | compiler-copyright-notice.c::copyright_notice | c | core | todo | todo | todo | todo | todo |
 | 48 | interp-parse.cpp::getstr2 | cpp | core | todo | todo | todo | todo | todo |
 | 49 | libmpscpp.cpp::global::IDF | cpp | core | todo | todo | todo | todo | todo |
