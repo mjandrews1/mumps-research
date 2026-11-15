@@ -51,7 +51,7 @@ fun symFree(@Suppress("UNUSED_PARAMETER") i: Int, svPtr: MsvState): Int {
     svPtr._Sym--
 
     if (svPtr._Sym < 0) {
-        print("*** SymFree symbol table underflow\n"), sigint(100) // C: comma operator — both run
+        print("*** SymFree symbol table underflow\n"); sigint(100) // C: comma operator — both run
     }
 
     return 0
