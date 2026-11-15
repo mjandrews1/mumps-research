@@ -41,7 +41,15 @@ load_events :-
                 repeat,
                     read_line_to_string(S, Line),
                     (   Line == end_of_file -> !
-                    ;   split_string(Line, ",", "", [K, T, U, TS]),
+                    ;   split_string(Line, ",", "", [Ks, Ts, Us, TS]),
+                        % 2026-11-15 fix: split_string yields strings, but
+                        % coverage_report queries event/4 with atoms
+                        % (record_* assert atoms); convert kind/target/
+                        % unit on load. The stamp stays a string, matching
+                        % the format_time(string(...)) stamp of the
+                        % runtime record_* path.
+                        atom_string(K, Ks), atom_string(T, Ts),
+                        atom_string(U, Us),
                         assertz(event(K, T, U, TS)),
                         fail
                     )

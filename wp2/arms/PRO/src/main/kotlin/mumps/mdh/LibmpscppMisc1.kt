@@ -76,7 +76,7 @@ private const val EOF = -1 // C fgetc end-of-file marker
 private const val EXIT_FAILURE = 1 // C stdlib EXIT_FAILURE
 
 /** C exit(EXIT_FAILURE) with the vendor message on stdout. */
-private inline fun fatal(msg: String): Nothing {
+private fun fatal(msg: String): Nothing {
     println(msg)
     exitProcess(EXIT_FAILURE)
 }
