@@ -34,6 +34,14 @@ class Msv {
     var _Sym: Int = 0
     /** :71 - struct stab *start[SYM_MAX] (SYM_MAX=200, defines.h:218); stab carrier in SymFree.kt. */
     val start: Array<Stab?> = arrayOfNulls(200)
+
+    // --- stateVector.h fields added by B1 unit 30 (interp-parse.cpp::patrn1) ---
+    /** :42 - unsigned char bd[STR_MAX] (h012 byte domain; STR_MAX=32000, strmax.h:3). */
+    val bd: CharArray = CharArray(32000)
+    /** :45 - unsigned char xd[STR_MAX] (h012 byte domain). */
+    val xd: CharArray = CharArray(32000)
+    /** :56 - int xpx. */
+    var xpx: Int = 0
 }
 
 /**
