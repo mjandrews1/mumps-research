@@ -149,3 +149,27 @@ fun xecute(exp: String): Int {
 fun SymGet(str: String): Mstring {
     TODO("h014 stub: owner libmpscpp.cpp:9858 SymGet (not a corpus unit)")
 }
+
+/**
+ * (u45) Vendor file-scope globals of the libmpscpp.cpp Smith-Waterman
+ * alignment block (h004: file-scope globals -> singleton object
+ * properties, source lines libmpscpp.cpp:8031-8040):
+ *   short **__a -> a (owner init, libmpscpp.cpp:8100, batch-4 unit,
+ *   allocates; empty array before init, mirroring the vendor's NULL)
+ *   string S_RESULT -> sResult
+ *   int GAP -> gap, int MISMATCH -> mismatch, int MATCH -> match
+ * The state persists across prnt/sw/init calls by design (the
+ * alignment block's cross-call state, not per-call scratch).
+ */
+object AlignState {
+    var a: Array<ShortArray> = arrayOf()
+    var sResult: String = ""
+    var gap: Int = 0
+    var mismatch: Int = 0
+    var match: Int = 0
+}
+
+/** Owner: libmpscpp.cpp:8049 inline int Score(char,char) (not a corpus unit). */
+fun Score(a: Char, b: Char): Int {
+    TODO("h014 stub: owner libmpscpp.cpp:8049 inline Score (not a corpus unit)")
+}
