@@ -117,3 +117,13 @@ fun Mltoa(n: Long, dst: CharArray) {
 fun _extract(r: CharArray, src: CharArray, a: CharArray, b: CharArray) {
     TODO("h014 stub: owner interp-sym.cpp::_extract (batch-10 unit)")
 }
+
+/** Owner: include/mumpsc/keyfix.h inline keyfix (not a corpus unit). */
+fun keyfix(key: CharArray) {
+    TODO("h014 stub: owner keyfix.h inline keyfix (not a corpus unit)")
+}
+
+/** Owner: include/mumpsc/inline.h:38 strmove (not a corpus unit). */
+fun strmove(a: CharArray, b: CharArray) {
+    TODO("h014 stub: owner inline.h:38 strmove (not a corpus unit)")
+}
