@@ -591,3 +591,15 @@ reuse,h014,btree.h,2026-11-18T16:30:00+0000
 hit,h014,btree.h,2026-11-18T16:30:00+0000
 reuse,h017,btree.h,2026-11-18T16:30:00+0000
 hit,h017,btree.h,2026-11-18T16:30:00+0000
+reuse,h002,interp-lock.cpp,2026-11-18T18:00:00+0000
+hit,h002,interp-lock.cpp,2026-11-18T18:00:00+0000
+reuse,h007,interp-lock.cpp,2026-11-18T18:00:00+0000
+hit,h007,interp-lock.cpp,2026-11-18T18:00:00+0000
+reuse,h010,interp-lock.cpp,2026-11-18T18:00:00+0000
+hit,h010,interp-lock.cpp,2026-11-18T18:00:00+0000
+reuse,h013,interp-lock.cpp,2026-11-18T18:00:00+0000
+hit,h013,interp-lock.cpp,2026-11-18T18:00:00+0000
+reuse,h014,interp-lock.cpp,2026-11-18T18:00:00+0000
+hit,h014,interp-lock.cpp,2026-11-18T18:00:00+0000
+reuse,h017,interp-lock.cpp,2026-11-18T18:00:00+0000
+hit,h017,interp-lock.cpp,2026-11-18T18:00:00+0000

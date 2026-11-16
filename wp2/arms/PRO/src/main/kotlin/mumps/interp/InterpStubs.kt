@@ -89,11 +89,6 @@ fun symPut(svPtr: Msv, name: String, value: String) {
     TODO("h014 stub: owner \$SymPut/SymPut machinery (not a corpus unit)")
 }
 
-/** Owner: global-array lock service cleanLocks(pid) (declared mumps.cpp). */
-fun cleanLocks(pid: String) {
-    TODO("h014 stub: owner cleanLocks (global array lock service)")
-}
-
 /** Owner: vendor GlobalClose macro (not a corpus unit). */
 fun globalClose(svPtr: Msv) {
     TODO("h014 stub: owner GlobalClose macro (not a corpus unit)")
