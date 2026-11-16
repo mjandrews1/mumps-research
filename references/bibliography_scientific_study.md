@@ -338,7 +338,7 @@ cite them — the grounding is applied through wp2/PRACTICE_NOTES.md
 - Author: Fidelity National Information Services (FIS); originally Greystone Technology Corp. (1980s)
 - Type: High-throughput key-value database engine and ISO standard M compiler; production use in FIS Profile core banking and healthcare EHR backends
 - License: GPL v2 (2001, Linux release) through GPL v3 to AGPL v3 lineage, per the YottaDB FAQ; YottaDB (2017) is the active open fork
-- Repository: https://github.com/ChristyV/fis-gtm (public mirror of the FIS GT.M source); releases at https://fis-gtm.sourceforge.io/ (release notes run through V7.2-002 as of 2026-11-16); implementation language not independently verified — pin at replication pre-registration
+- Repository: https://github.com/ChristyV/fis-gtm (public mirror of the FIS GT.M source); releases at https://fis-gtm.sourceforge.io/ (release notes run through V7.2-002 as of 2026-11-16); implementation language not independently verified — pin at replication pre-registration)
 - Summary: An industrial, production-scale M implementation with a decades-long commercial history; GT.M continues to be developed by FIS, while YottaDB maintains the active open-source line.
 - Study relevance: Second replication subject. Repeating the design on GT.M extends the external-validity ladder to an industrial production engine; its scale raises the unit-sampling question recorded as an open decision in docs/REPLICATION_ROADMAP.md.
 - Added: 2026-11-16. Program-level planning entry (see docs/REPLICATION_ROADMAP.md); record verified against the YottaDB FAQ (yottadb.com/resources/faq/).
