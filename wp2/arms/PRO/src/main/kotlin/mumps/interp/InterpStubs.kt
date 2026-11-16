@@ -108,3 +108,31 @@ fun sigint(i: Int) {
 fun unpad(key: CharArray, svPtr: Msv) {
     TODO("h014 stub: owner interp-sysfunc.cpp::unpad (batch-10 unit, not in B1)")
 }
+
+/**
+ * (u50) Vendor file-scope globals of the interp-native-btree.cpp
+ * high-key scan (h004: file-scope globals -> singleton object
+ * properties, source lines 92-101):
+ *   unsigned char BigKey[STR_MAX] -> bigKey (:92)
+ *   unsigned int BigKeyBlock -> bigKeyBlock (:93, unsigned 32-bit
+ *   domain maps to Int; block numbers stay in range)
+ *   unsigned int BigKeyParent -> bigKeyParent (:96)
+ *   unsigned int BigKeyParentOffset -> bigKeyParentOffset (:97)
+ *   int BigKeyOffset -> bigKeyOffset (:98)
+ *   int BigKeyLower -> bigKeyLower (:99)
+ *   OFF_T BigKeyData -> bigKeyData (:101, off_t -> Long)
+ */
+object NativeBtreeState {
+    val bigKey: CharArray = CharArray(32000) // vendor STR_MAX (strmax.h:3)
+    var bigKeyBlock: Int = 0
+    var bigKeyParent: Int = 0
+    var bigKeyParentOffset: Int = 0
+    var bigKeyOffset: Int = 0
+    var bigKeyLower: Int = 0
+    var bigKeyData: Long = 0
+}
+
+/** Owner: interp-native-btree.cpp:111 inline freadx (batch-7 unit). */
+fun freadx(r: Int, flag: Int): CharArray {
+    TODO("h014 stub: owner interp-native-btree.cpp::freadx (batch-7 unit); the vendor's unsigned char** out-param becomes the return value")
+}
