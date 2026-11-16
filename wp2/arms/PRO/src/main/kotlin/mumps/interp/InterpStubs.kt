@@ -38,6 +38,8 @@ class Msv {
     // --- stateVector.h fields added by B1 unit 30 (interp-parse.cpp::patrn1) ---
     /** :42 - unsigned char bd[STR_MAX] (h012 byte domain; STR_MAX=32000, strmax.h:3). */
     val bd: CharArray = CharArray(32000)
+    /** :44 - unsigned char v1d[STR_MAX] (h012 byte domain; added by B2 unit 42, mstring::Fnumber). */
+    val v1d: CharArray = CharArray(32000)
     /** :45 - unsigned char xd[STR_MAX] (h012 byte domain). */
     val xd: CharArray = CharArray(32000)
     /** :56 - int xpx. */
@@ -68,6 +70,11 @@ fun xindex(source: CharArray, ptrn: CharArray, strt: Short): Int {
  */
 
 /** Owner: interpreter core - Interpret(cmd, svPtr) (not a corpus unit). */
+/** Owner: interp-fcn.cpp::fcn (batch-4 unit, 775 LOC). */
+fun fcn(svPtr: Msv) {
+    TODO("h014 stub: owner interp-fcn.cpp::fcn (batch-4 unit)")
+}
+
 fun interpret(cmd: String, svPtr: Msv): Int {
     TODO("h014 stub: owner interpreter core (Interpret, not a corpus unit)")
 }
