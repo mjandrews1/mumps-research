@@ -495,3 +495,14 @@ reuse,h009,compiler-copyright-notice.c,2026-11-18T04:30:00+0000
 hit,h009,compiler-copyright-notice.c,2026-11-18T04:30:00+0000
 reuse,h017,compiler-copyright-notice.c,2026-11-18T04:30:00+0000
 hit,h017,compiler-copyright-notice.c,2026-11-18T04:30:00+0000
+hit,h001,interp-parse.cpp,2026-11-18T06:00:00+0000
+reuse,h002,interp-parse.cpp,2026-11-18T06:00:00+0000
+hit,h002,interp-parse.cpp,2026-11-18T06:00:00+0000
+reuse,h010,interp-parse.cpp,2026-11-18T06:00:00+0000
+hit,h010,interp-parse.cpp,2026-11-18T06:00:00+0000
+reuse,h012,interp-parse.cpp,2026-11-18T06:00:00+0000
+hit,h012,interp-parse.cpp,2026-11-18T06:00:00+0000
+reuse,h013,interp-parse.cpp,2026-11-18T06:00:00+0000
+hit,h013,interp-parse.cpp,2026-11-18T06:00:00+0000
+reuse,h017,interp-parse.cpp,2026-11-18T06:00:00+0000
+hit,h017,interp-parse.cpp,2026-11-18T06:00:00+0000
