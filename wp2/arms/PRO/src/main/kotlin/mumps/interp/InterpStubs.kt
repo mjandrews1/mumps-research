@@ -136,3 +136,9 @@ object NativeBtreeState {
 fun freadx(r: Int, flag: Int): CharArray {
     TODO("h014 stub: owner interp-native-btree.cpp::freadx (batch-7 unit); the vendor's unsigned char** out-param becomes the return value")
 }
+
+/** Owner: interp-sql.cpp::sql (batch-9 corpus unit, not yet translated). */
+fun sql(op: Int, svPtr: Msv, DataSourceName: CharArray, Command: CharArray,
+        arg5: CharArray, arg6: CharArray): Int {
+    TODO("h014 stub: owner interp-sql.cpp::sql (batch-9 unit); prototype include/mumpsc/btree.h:37")
+}
