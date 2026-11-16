@@ -617,3 +617,13 @@ reuse,h012,interp-parse.cpp,2026-11-18T21:00:00+0000
 hit,h012,interp-parse.cpp,2026-11-18T21:00:00+0000
 reuse,h017,interp-parse.cpp,2026-11-18T21:00:00+0000
 hit,h017,interp-parse.cpp,2026-11-18T21:00:00+0000
+reuse,h001,compiler-sys1.c,2026-11-18T22:30:00+0000
+hit,h001,compiler-sys1.c,2026-11-18T22:30:00+0000
+reuse,h011,compiler-sys1.c,2026-11-18T22:30:00+0000
+hit,h011,compiler-sys1.c,2026-11-18T22:30:00+0000
+reuse,h013,compiler-sys1.c,2026-11-18T22:30:00+0000
+hit,h013,compiler-sys1.c,2026-11-18T22:30:00+0000
+reuse,h014,compiler-sys1.c,2026-11-18T22:30:00+0000
+hit,h014,compiler-sys1.c,2026-11-18T22:30:00+0000
+reuse,h017,compiler-sys1.c,2026-11-18T22:30:00+0000
+hit,h017,compiler-sys1.c,2026-11-18T22:30:00+0000
