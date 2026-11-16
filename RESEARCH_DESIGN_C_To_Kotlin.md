@@ -183,7 +183,7 @@ Before any translation, the following preprocessing steps are applied identicall
    - Document module interfaces
 
 4. **Canonicalization** (supports the heuristic arms)
-   - Normalize C syntax patterns (whitespace, macro expansion, type simplification) so heuristics attach to canonical constructs rather than surface syntax (Newman et al. [36])
+   - Normalize C syntax patterns (whitespace, macro expansion, type simplification) so heuristics attach to canonical constructs rather than surface syntax (Newman et al. [27])
 
 5. **Oracle Creation and Freeze**
    - Build and run the original C code
@@ -342,8 +342,8 @@ translation_rule(r017,
 
 **Design principles:**
 
-1. **Canonical patterns:** Rules attach to canonicalized C constructs (Section 2.4), not surface syntax (Newman et al. [36])
-2. **Rules vs. strategies:** Reusable translation rules are separated from one-off translation strategies; only genuinely recurring, parameterizable decisions become rules (rule/strategy separation per Balland [34]; Drabent [60])
+1. **Canonical patterns:** Rules attach to canonicalized C constructs (Section 2.4), not surface syntax (Newman et al. [27])
+2. **Rules vs. strategies:** Reusable translation rules are separated from one-off translation strategies; only genuinely recurring, parameterizable decisions become rules (rule/strategy separation per Balland [28]; Drabent [29])
 3. **Provenance:** Each rule records rationale, conditions, the module and date that motivated it, and reuse count
 4. **Idempotent capture:** A heuristic is captured only when it has been applied (or considered) more than once
 5. **Shared criteria with DOC:** the same pre-registered capture criteria govern the cookbook and the rule base, so the DOC-vs-PRO contrast measures representation and consultation mechanism, not different notions of what to capture
@@ -1182,6 +1182,7 @@ Primary contrasts: DAF vs BASE; DOC vs BASE; PRO vs DOC; (BOTH − DAF) vs (PRO 
 | 1.2 | 2026-11-13 | Redesigned arms for validity: five distinct runs (BASE, DOC, PRO, DAF, BOTH); added DOC control arm to decompose the heuristic-capture effect; replaced sequential blocks with Latin-square counterbalanced interleaved cycles; added frozen-oracle requirement, pre-registered capture criteria, order-assignment commitment, micro-replication, knowledge-artifact maturity covariate, and learning-curve analysis | Mark Andrews |
 | 1.2a | 2026-11-13 | §2 corrected: subject confirmed as the Mumps II Interpreter-Compiler Library component of the O'Kane distribution (compiler in C ~8.7k LOC, interpreter in C++ ~26k LOC, 41 headers); documented that the interpreter is C++, so the study covers C→Kotlin and C++→Kotlin; documented corpus exclusions (`*.in`, packaging payloads, SVN `Checkout/` demos) | Mark Andrews |
 | 1.2b | 2026-11-14 | §11.2: pre-registered the source-language (`lang`) subgroup analyses S1–S3 — dual-language design embraced as a subgroup dimension; primary contrasts remain pooled, batch c/cpp mix recorded as covariate | Mark Andrews |
+| 1.2c | 2026-11-16 | §2.4, §5.2: editorial citation repair — the three dangling markers [34], [36], [60] resolved by adding the intended works to LITERATURE_REVIEW.md as [27] (Newman et al., canonicalizing restructurings), [28] (Balland et al., strategic programming), [29] (Drabent, logic + control) and renumbering the in-text citations; bibliographic records verified against Crossref; no protocol, instrument, or content changes | Mark Andrews |
 
 ---
 

@@ -311,6 +311,23 @@ This section contains primary, secondary, and tertiary monographic sources for e
 
 [26] A. Shalloway and J. R. Trott, *Design Patterns Explained: A New Perspective on Object Oriented Design*, 2nd ed. Addison-Wesley, 2004.
 
+### 9.4 Methodological Sources for the Research Design (added 2026-11-16)
+
+The three works below are cited by RESEARCH_DESIGN_C_To_Kotlin.md
+(§2.4 canonicalization; §5.2 rule/strategy separation). They were added by
+editorial amendment v1.2c to resolve the design's previously dangling
+citation markers; bibliographic records verified against Crossref on
+2026-11-16.
+
+[27] C. D. Newman, B. Bartman, M. L. Collard, and J. I. Maletic, "Simplifying the construction of source code transformations via automatic syntactic restructurings," *Journal of Software: Evolution and Process*, vol. 29, no. 4, e1831, Apr. 2017. doi: 10.1002/smr.1831
+  - *Relevance:* Normalizing restructurings convert variations in source syntax into a single canonical form, so transformations attach to canonical constructs rather than surface syntax — the basis of the canonicalization step (design §2.4) that the DOC cookbook and PRO rule base rely on.
+
+[28] E. Balland, P.-E. Moreau, and A. Reilles, "Effective strategic programming for Java developers," *Software: Practice and Experience*, vol. 44, no. 2, pp. 129-162, Feb. 2014. doi: 10.1002/spe.2159
+  - *Relevance:* Separates rewrite rules (the business transformations) from the strategies that control their application — the rule/strategy separation principle underlying the PRO/BOTH rule-base design (design §5.2).
+
+[29] W. Drabent, "Logic + control: On program construction and verification," *Theory and Practice of Logic Programming*, vol. 18, no. 1, pp. 1-29, Jan. 2018. doi: 10.1017/S1471068417000047
+  - *Relevance:* The logic + control separation for logic programs: a program's rules are kept distinct from the control of their application; cited alongside [28] for the rule/strategy separation in the Prolog rule-base design (design §5.2).
+
 ---
 
 **Note:** Additional monographic sources will be added as they become available. This section serves as a placeholder for expanding the bibliography with books and extended works relevant to the research project.
