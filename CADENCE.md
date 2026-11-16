@@ -33,22 +33,26 @@ advances one batch per cycle along its assigned row.
 |---|---|
 | Nov 2026 | Pilot batch B1, all arms (BASE and PRO complete 31/31; DOC, DAF, BOTH pending). B2 opened early in BASE. |
 | Dec 2026 | Cycle 1 opens |
-| Dec 2026 - Sep 2027 | Cycles 1-10 (one cycle per calendar month) |
+| Dec 2026 - Aug 2027 | Cycles 1-9: each arm completes its remaining nine batches in committed row order (B1 pre-satisfied by the pilot; clarification C-001) |
+| Sep 2027 | Cycle 10 - contingency/buffer: deferred-unit catch-up, micro-replication preparation, per-unit check backfill |
 | Oct - Dec 2027 | Analysis window (Q5): comparative analysis, documentation, final report |
 
 The fresh-attention rotation (BASE -> DOC -> PRO -> DAF -> BOTH -> BASE
 across cycles 1-10) applies exactly as pre-registered; it is not affected
 by this decision.
 
-## Open protocol question (log in the work journal, resolve before cycle 1)
+## Protocol clarifications
 
-The pilot ran B1 in all five arms (per wp2/README.md). The Latin-square
-rows assign BASE's cycle-1 batch as B1 but DOC/PRO/DAF/BOTH start at
-B2/B3/B4/B5. Record as a protocol clarification whether the pilot
-satisfies each arm's first-square-slot obligation (crediting BASE's B1)
-and how the remaining rows shift, so per-batch metrics stay
-cross-arm comparable. Do not revise order_assignments.md itself; log the
-clarification as data, per its own instruction.
+The pilot/square slot question flagged at this file's adoption is
+resolved: the pilot's B1 execution credits each arm's B1 cell in its
+committed Latin-square row (no arm re-translates B1), and each arm
+completes its remaining nine batches in committed row order across
+cycles 1-9. Cycle 10 (Sep 2027) becomes a contingency/buffer cycle;
+the analysis window (Oct-Dec 2027) is unchanged. The full entry —
+observation, per-cycle batch map, and methodological consequences — is
+logged as data in wp2/PROTOCOL_CLARIFICATIONS.md (C-001);
+wp1/order_assignments.md is unchanged, per its own instruction. Future
+protocol clarifications are logged in that registry and referenced here.
 
 ## Change protocol
 
