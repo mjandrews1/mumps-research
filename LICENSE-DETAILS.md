@@ -29,7 +29,7 @@ the maintainer.
 
 - Upstream subject code: Dr. Kevin O'Kane, Mumps II Interpreter-Compiler
   Library (GPLv2).
-- Historical/industry research strand: moved to
-  [mumps-history](https://github.com/mjandrews1/mumps-history) (CC BY-NC 4.0).
+- Historical/industry research strand: archived at
+  [archive/history/](archive/history/) (CC BY-NC 4.0).
 
 **Maintainer:** Mark Andrews

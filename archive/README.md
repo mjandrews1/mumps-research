@@ -3,6 +3,15 @@
 This directory holds superseded and non-research material, preserved for the
 record.
 
+## history/
+
+The MUMPS/M historical and industry research strand (citation pearl growing
+study): timeline.csv (123 events, 1963-2026), domain/standards/dialects/
+expert-systems analyses, histogram tooling, and the 128-entry bibliography.
+Moved here from the repository root (analysis/, data/, references/) on
+2026-11-15 so the active study is the repository's focus. See
+[history/README.md](history/README.md).
+
 ## research_program/
 
 Design documents and work logs of the earlier, broader research program

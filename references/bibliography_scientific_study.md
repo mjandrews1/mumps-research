@@ -3,7 +3,8 @@
 **Scientific strand of the mumps-research project.**
 **Created:** 2026-11-15 by pruning a copy of references/bibliography.md
 (commit 8abb800). The original file is unchanged and remains the
-bibliography of the historical/industry research strand.
+bibliography of the historical/industry research strand, now archived at
+archive/history/references/bibliography.md.
 
 ---
 
@@ -206,7 +207,8 @@ duplicated entry numbers in several sections (two each of #12-#17,
 
 ## Pruning Record
 
-**Source:** references/bibliography.md at commit 8abb800 (2026-11-15), copied
+**Source:** references/bibliography.md at commit 8abb800 (2026-11-15; the
+original now lives at archive/history/references/bibliography.md), copied
 verbatim and pruned. Nothing was added; no entry text was altered.
 
 **Inclusion criteria (all must relate to the scientific study):**
