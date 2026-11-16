@@ -17,9 +17,11 @@ repository as historical records; their schedules are no longer in force.
 - The urgency-first 50-month reorganization (2030 completion) is retired
   for scheduling purposes. Its methodology discussion (priority matrix,
   contingency planning) remains usable reference material.
-- The three design documents (research_project_design.md, _revised.md,
-  _urgency-first.md) are still pending consolidation; until that happens,
-  schedule questions resolve to this file and TRACKING_README.md.
+- The superseded program design documents (research_project_design.md,
+  _revised.md, _urgency-first.md) have been consolidated into
+  archive/research_program/ with supersession banners. The authoritative
+  methodology document is RESEARCH_DESIGN_C_To_Kotlin.md; schedule questions
+  resolve to this file and TRACKING_README.md.
 
 ## Cycle mapping (Latin square)
 

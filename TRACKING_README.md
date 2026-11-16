@@ -148,7 +148,7 @@
 2. **Batch Similar Tasks:** Group related activities (e.g., "translation day")
 3. **Use Pomodoro:** 50 minutes work, 10 minutes break for focus
 4. **Protect Research Time:** Treat it like a work meeting - it's important
-5. **Family Communication:** Let Mary and Josh know your schedule
+5. **Family Communication:** Let family know your schedule
 6. **Flexible Scheduling:** Move hours around as needed for family/personal needs
 7. **Review Regularly:** Weekly and monthly reviews keep you on track
 8. **Celebrate Wins:** Finished a module? Celebrate! Completed a phase? Celebrate more!
