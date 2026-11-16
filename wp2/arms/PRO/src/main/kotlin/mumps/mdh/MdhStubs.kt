@@ -127,3 +127,15 @@ fun keyfix(key: CharArray) {
 fun strmove(a: CharArray, b: CharArray) {
     TODO("h014 stub: owner inline.h:38 strmove (not a corpus unit)")
 }
+
+/**
+ * Owner: interp-piece.cpp:97 _piece (not a corpus unit; the
+ * interp-piece.cpp::<misc> batch-4 unit may claim its neighborhood).
+ * Signature: out, in, key, start, end, setpiece, lhs, svPtr.
+ */
+fun _piece(
+    out: CharArray, in_: CharArray, key: CharArray, start: CharArray,
+    end: CharArray, setpiece: Int, lhs: CharArray, svPtr: Msv,
+) {
+    TODO("h014 stub: owner interp-piece.cpp:97 _piece (not a corpus unit)")
+}
