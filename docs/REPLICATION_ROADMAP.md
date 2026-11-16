@@ -51,24 +51,30 @@ replications bound the claims.
   the replication program; wp2/PRACTICE_NOTES.md remains reserved for
   refinements to current-study practice.
 
+## Decisions
+
+- **GT.M, not YottaDB (2026-11-16).** The second replication subject is
+  GT.M proper, not the YottaDB fork. Version policy: use the latest
+  available GT.M version, even if the newest engine code is embedded in
+  a YottaDB release; record the exact version, its source distribution,
+  and whether it is standalone or embedded, at pre-registration. (As of
+  2026-11-16, FIS GT.M release notes run through V7.2-002.)
+
 ## Open decisions
 
-1. **GT.M vs YottaDB.** GT.M continues to be developed by FIS; YottaDB is
-   the active open fork (since 2017). Decide at RSM replication
-   pre-registration time.
-2. **Unit sampling at scale.** GT.M's codebase is far larger than the
+1. **Unit sampling at scale.** GT.M's codebase is far larger than the
    O'Kane library; the 308-unit sampling design may need a stratified
    variant.
-3. **License handling.** RSM is AGPL-3.0; GT.M has a GPL v2/v3/AGPL v3
+2. **License handling.** RSM is AGPL-3.0; GT.M has a GPL v2/v3/AGPL v3
    lineage. Translated artifacts are derivative works; license the
    replication outputs accordingly (cf. LICENSE-DETAILS.md for the GPLv2
    pattern used in the current study).
-4. **RSM version pinning.** Mainline vs m-2021-standard branch (MDC
+3. **RSM version pinning.** Mainline vs m-2021-standard branch (MDC
    Type A extensions); pin at pre-registration.
-5. **Subject-language scope.** The current study covers C + C++; RSM is
+4. **Subject-language scope.** The current study covers C + C++; RSM is
    C. GT.M's implementation language is not yet independently verified
    — verify and pin at pre-registration.
-6. **Oracle construction.** Each subject needs its own frozen
+5. **Oracle construction.** Each subject needs its own frozen
    characterization-test oracle built from its runtime behavior.
 
 ## Existing groundwork
