@@ -139,3 +139,13 @@ fun _piece(
 ) {
     TODO("h014 stub: owner interp-piece.cpp:97 _piece (not a corpus unit)")
 }
+
+/** Owner: libmpscpp.cpp:7073 xecute (not a corpus unit). */
+fun xecute(exp: String): Int {
+    TODO("h014 stub: owner libmpscpp.cpp:7073 xecute (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.cpp:9858 SymGet (not a corpus unit). */
+fun SymGet(str: String): Mstring {
+    TODO("h014 stub: owner libmpscpp.cpp:9858 SymGet (not a corpus unit)")
+}
