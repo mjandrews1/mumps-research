@@ -603,3 +603,7 @@ reuse,h014,interp-lock.cpp,2026-11-18T18:00:00+0000
 hit,h014,interp-lock.cpp,2026-11-18T18:00:00+0000
 reuse,h017,interp-lock.cpp,2026-11-18T18:00:00+0000
 hit,h017,interp-lock.cpp,2026-11-18T18:00:00+0000
+reuse,h014,arith.h,2026-11-18T19:30:00+0000
+hit,h014,arith.h,2026-11-18T19:30:00+0000
+reuse,h017,arith.h,2026-11-18T19:30:00+0000
+hit,h017,arith.h,2026-11-18T19:30:00+0000
