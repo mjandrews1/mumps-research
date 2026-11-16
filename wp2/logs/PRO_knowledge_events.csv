@@ -607,3 +607,13 @@ reuse,h014,arith.h,2026-11-18T19:30:00+0000
 hit,h014,arith.h,2026-11-18T19:30:00+0000
 reuse,h017,arith.h,2026-11-18T19:30:00+0000
 hit,h017,arith.h,2026-11-18T19:30:00+0000
+reuse,h002,interp-parse.cpp,2026-11-18T21:00:00+0000
+hit,h002,interp-parse.cpp,2026-11-18T21:00:00+0000
+reuse,h004,interp-parse.cpp,2026-11-18T21:00:00+0000
+hit,h004,interp-parse.cpp,2026-11-18T21:00:00+0000
+reuse,h011,interp-parse.cpp,2026-11-18T21:00:00+0000
+hit,h011,interp-parse.cpp,2026-11-18T21:00:00+0000
+reuse,h012,interp-parse.cpp,2026-11-18T21:00:00+0000
+hit,h012,interp-parse.cpp,2026-11-18T21:00:00+0000
+reuse,h017,interp-parse.cpp,2026-11-18T21:00:00+0000
+hit,h017,interp-parse.cpp,2026-11-18T21:00:00+0000

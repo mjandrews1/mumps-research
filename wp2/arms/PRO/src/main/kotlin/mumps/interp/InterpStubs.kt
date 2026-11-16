@@ -44,6 +44,14 @@ class Msv {
     val xd: CharArray = CharArray(32000)
     /** :56 - int xpx. */
     var xpx: Int = 0
+
+    // --- stateVector.h fields added by B2 unit 58 (interp-parse.cpp::prnterr) ---
+    /** :43 - unsigned char pd1[PS1] (h012 byte domain; PS=32000, sysparms.h:74, PS1=PS+1). */
+    val pd1: CharArray = CharArray(32001)
+    /** :60 - int NOERR. */
+    var NOERR: Int = 0
+    /** :95 - char ErrChar. */
+    var ErrChar: Char = ' '
 }
 
 /**
