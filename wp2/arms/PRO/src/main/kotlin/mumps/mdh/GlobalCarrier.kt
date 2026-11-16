@@ -131,4 +131,14 @@ class GlobalRef internal constructor(val g: Global, val subs: List<String>) {
     fun assign(v: Double) {
         TODO("h014 stub: owner libmpscpp.cpp class global operator=(double) (not a B1 corpus unit)")
     }
+
+    /**
+     * (u60) Vendor operator mstring / const char* - the implicit
+     * string read in cout << global contexts (TreePrint). Owner:
+     * libmpscpp.cpp class global conversion machinery (not a B1
+     * corpus unit).
+     */
+    fun stringValue(): String {
+        TODO("h014 stub: owner libmpscpp.cpp class global operator mstring/const char* (not a B1 corpus unit)")
+    }
 }
