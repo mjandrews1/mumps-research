@@ -39,10 +39,11 @@ Pre-registered before the pilot (do not revise; deviations are logged as data):
 |---|---|
 | [RESEARCH_PROPOSAL_C_To_Kotlin.md](RESEARCH_PROPOSAL_C_To_Kotlin.md) | Proposal and motivation |
 | [RESEARCH_DESIGN_C_To_Kotlin.md](RESEARCH_DESIGN_C_To_Kotlin.md) | **Authoritative methodology** |
-| [LITERATURE_REVIEW.md](LITERATURE_REVIEW.md) | Peer-reviewed translation/verification literature ([1]-[26]) |
+| [LITERATURE_REVIEW.md](LITERATURE_REVIEW.md) | Peer-reviewed translation/verification literature ([1]-[29]) |
 | [METHODOLOGICAL_RIGOR_REVIEW.md](METHODOLOGICAL_RIGOR_REVIEW.md) | Rigor review and recommendations |
 | [docs/research_narrative.md](docs/research_narrative.md) | Narrative of the design and plan |
-| [references/bibliography_scientific_study.md](references/bibliography_scientific_study.md) | Pruned subject-side bibliography (S1-S17) |
+| [references/bibliography_scientific_study.md](references/bibliography_scientific_study.md) | Subject-side bibliography (S1-S28) |
+| [docs/REPLICATION_ROADMAP.md](docs/REPLICATION_ROADMAP.md) | Replication roadmap (RSM, GT.M) — planning note |
 | [CADENCE.md](CADENCE.md) | Authoritative schedule decision (completion 2027-12-31) |
 | [TRACKING_README.md](TRACKING_README.md) | Tracking system (260 target hours, Q1-Q5 milestones) |
 
@@ -54,7 +55,7 @@ wp1/          Preparation: fleet build script, frozen oracle + manifest,
 wp2/          Pilot and batches: per-arm translations (BASE/DOC/PRO/DAF/BOTH),
               heuristic logs, translator oracle, batch tracking
 tools/        select_study_subset.py sampling tool + committed protocol files
-docs/         Research narrative
+docs/         Research narrative, replication roadmap
 references/   Scientific-study bibliography
 archive/      Superseded material (see below)
 ```

@@ -6,7 +6,8 @@
 bibliography of the historical/industry research strand, now archived at
 archive/history/references/bibliography.md.
 **Updated:** 2026-11-16 — S18-S19 appended to section C (machine-assisted
-translation prior art) and section E added (S20-S26, study methodology).
+translation prior art), section E added (S20-S26, study methodology), and
+section F added (S27-S28, replication subjects RSM and GT.M).
 See the Update Record at the end of this file.
 
 ---
@@ -34,10 +35,12 @@ methodological sources for the study's own instruments and analysis
 material, so they carry an "Added" provenance line instead of a "Copied
 from" line.
 
-Entries are numbered S1-S17. Each entry cites the section of
-references/bibliography.md it was copied from. The original file has
-duplicated entry numbers in several sections (two each of #12-#17,
-#70-#74, #106-#108); this copy resolves them by citing section + title.
+The pruned subject-side entries are numbered S1-S17; each cites the
+section of references/bibliography.md it was copied from. Later
+additions (S18-S28) carry "Added" provenance lines instead. The original
+file has duplicated entry numbers in several sections (two each of
+#12-#17, #70-#74, #106-#108); this copy resolves them by citing section
++ title.
 
 ---
 
@@ -319,6 +322,29 @@ cite them — the grounding is applied through wp2/PRACTICE_NOTES.md
 
 ---
 
+## F. Replication Subjects (added 2026-11-16)
+
+### S27. Reference Standard M (RSM)
+- Author: David Wicksell (Fourth Watch Software LC)
+- Type: Open-source MUMPS implementation (interpreter and database engine), written in C
+- Standard: ANSI/MDC X11.1-1995 (ISO/IEC 11756:1999); the m-2021-standard branch adds MDC Type A extensions
+- License: AGPL-3.0-only (GitHub SPDX identifier)
+- Repository: https://github.com/Reference-Standard-M/rsm
+- Summary: A compact, standards-focused, actively maintained open-source M implementation, maintained by David Wicksell of Fourth Watch Software LC.
+- Study relevance: First replication subject (planned start: early 2028, after the current study's analysis window closes). Repeating the five-arm translation design on RSM tests whether arm effects generalize from the compact academic O'Kane implementation to a standards-track, open-source C codebase.
+- Added: 2026-11-16. Program-level planning entry (see docs/REPLICATION_ROADMAP.md); record verified against the GitHub repository metadata.
+
+### S28. GT.M
+- Author: Fidelity National Information Services (FIS); originally Greystone Technology Corp. (1980s)
+- Type: High-throughput key-value database engine and ISO standard M compiler; production use in FIS Profile core banking and healthcare EHR backends
+- License: GPL v2 (2001, Linux release) through GPL v3 to AGPL v3 lineage, per the YottaDB FAQ; YottaDB (2017) is the active open fork
+- Repository: https://github.com/ChristyV/fis-gtm (public mirror of the FIS GT.M source; implementation language not independently verified — pin at replication pre-registration)
+- Summary: An industrial, production-scale M implementation with a decades-long commercial history; GT.M continues to be developed by FIS, while YottaDB maintains the active open-source line.
+- Study relevance: Second replication subject. Repeating the design on GT.M extends the external-validity ladder to an industrial production engine; its scale raises the unit-sampling question recorded as an open decision in docs/REPLICATION_ROADMAP.md.
+- Added: 2026-11-16. Program-level planning entry (see docs/REPLICATION_ROADMAP.md); record verified against the YottaDB FAQ (yottadb.com/resources/faq/).
+
+---
+
 ## Pruning Record
 
 **Source:** references/bibliography.md at commit 8abb800 (2026-11-15; the
@@ -364,3 +390,9 @@ peer-reviewed set remains in LITERATURE_REVIEW.md.
   translation premise. Records verified against Crossref, arXiv, and the
   publisher pages on 2026-11-16. No existing entry altered; "Copied from"
   provenance lines apply only to S1-S17.
+- 2026-11-16: Section F added with S27 (Reference Standard M) and S28
+  (GT.M), the two planned replication subjects. These are program-level
+  entries grounding docs/REPLICATION_ROADMAP.md, not sources for the
+  current study. Records verified against the RSM GitHub repository
+  metadata and the YottaDB FAQ. The "Entries are numbered S1-S17" scope
+  line was clarified to refer to the pruned subject-side entries.
