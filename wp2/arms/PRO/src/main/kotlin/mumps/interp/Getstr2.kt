@@ -1,6 +1,8 @@
 package mumps.interp
 
 import java.io.IOException
+import java.io.FileDescriptor
+import java.io.FileInputStream
 import java.io.InputStreamReader
 import java.io.Reader
 
@@ -58,7 +60,9 @@ fun getstr2(lun: Short, area: CharArray, svPtr: Msv): Short {
     val lunI = lun.toInt() // h010: short -> int for indexing
 
     // vendor: if (lun == 5) svPtr->in_file[lun] = stdin;
-    if (lunI == 5) svPtr.in_file[lunI] = InputStreamReader(System.in)
+    // (System.in is unnameable in Kotlin - the 'in' keyword needs
+    // backticks - so stdin's file descriptor is opened directly.)
+    if (lunI == 5) svPtr.in_file[lunI] = InputStreamReader(FileInputStream(FileDescriptor.in))
 
     // adaptation: an unopened unit raises here; the vendor would
     // fgetc(NULL) (undefined behavior).
