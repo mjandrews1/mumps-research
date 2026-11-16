@@ -94,3 +94,26 @@ fun globalPlusInt(g: Global, i: Int): Mstring {
 fun intMinusGlobal(i: Int, g: Global): Mstring {
     TODO("h014 stub: owner globalClass.h global arithmetic operators (not a corpus unit)")
 }
+
+private const val MUMPS_GLOBAL_EXCEPTION_MESSAGE = "Global reference not found"
+
+/**
+ * Carrier for the vendor header class MumpsGlobalException
+ * (libmpscpp.h:332; not a corpus unit). Thrown by the global members
+ * when Mglobal cannot find the reference (B1 unit 31 added the
+ * globalExceptionCode carrier; B2 units 32+ throw this).
+ */
+class MumpsGlobalException : RuntimeException(MUMPS_GLOBAL_EXCEPTION_MESSAGE) {
+    /** Vendor: char *what(). */
+    fun what(): String = MUMPS_GLOBAL_EXCEPTION_MESSAGE
+}
+
+/** Owner: interp-arith.cpp::Mltoa (batch-10 unit). */
+fun Mltoa(n: Long, dst: CharArray) {
+    TODO("h014 stub: owner interp-arith.cpp::Mltoa (batch-10 unit)")
+}
+
+/** Owner: interp-sym.cpp::_extract (batch-10 unit). */
+fun _extract(r: CharArray, src: CharArray, a: CharArray, b: CharArray) {
+    TODO("h014 stub: owner interp-sym.cpp::_extract (batch-10 unit)")
+}
