@@ -36,8 +36,7 @@ Both oracles are frozen before any pilot translation begins.
 ## Pilot sequence (per design §8 WP2)
 
 1. Translate B1 in BASE; every heuristic decision logged.
-2. Seed cookbook v0 (DOC) and rule base v0 (PRO) from
- the pilot log under
+2. Seed cookbook v0 (DOC) and rule base v0 (PRO) from the pilot log under
    the pre-registered capture criteria (`wp1/capture_criteria.md`).
 3. Translate B1 in DOC, PRO, DAF, BOTH per arm-specific workflow.
 4. Build Prolog query tooling (find_rule/1, record_reuse/2,

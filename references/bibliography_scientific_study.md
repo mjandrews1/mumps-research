@@ -50,8 +50,7 @@ duplicated entry numbers in several sections (two each of #12-#17,
 - ISBN: 978-1440455323
 - Summary: Comprehensive book on the MUMPS/M programming language, covering syntax, database features, and practical applications. Often cited in academic research on MUMPS.
 - Study relevance: Author of the study subject. The Mumps II Interpreter-Compiler Library (the code being translated) is drawn from the O'Kane distribution; this book is the primary printed reference for the language the translated processor implements.
-- Copied from: references/bibliography.md, Books sectio
-n.
+- Copied from: references/bibliography.md, Books section.
 
 ### S2. MUMPS (Wikipedia)
 - Title: MUMPS
@@ -81,8 +80,7 @@ n.
 
 ---
 
-## B. Formal Analyses of the MUMPS Language and Its Imple
-mentation
+## B. Formal Analyses of the MUMPS Language and Its Implementation
 
 ### S6. A Balanced View of MUMPS
 - Authors: Wasserman, A. I., & Sherertz, D. D.
@@ -112,8 +110,7 @@ mentation
 - Publisher: MUMPS Development Committee
 - Date: 1974 (Revised July 12, 1974)
 - Summary: First formal attempt to specify the MUMPS language structure and syntax.
-- Study relevance: Earliest formal s
-pecification in the lineage of the standard the study subject implements.
+- Study relevance: Earliest formal specification in the lineage of the standard the study subject implements.
 - Copied from: MUMPS Development Committee Technical Reports, entry #14 (first occurrence).
 
 ### S9. MUMPS Globals and their Implementation
@@ -151,8 +148,7 @@ pecification in the lineage of the standard the study subject implements.
 
 ### S12. Open Challenges in Incremental Coverage of Legacy Software Languages
 - Author: Vadim Zaytsev
-- Conference: Proce
-edings of the 3rd ACM SIGPLAN International Workshop on Programming Experience (PX/17)
+- Conference: Proceedings of the 3rd ACM SIGPLAN International Workshop on Programming Experience (PX/17)
 - Date: October 2017
 - Location: Vancouver, BC, Canada
 - DOI: [10.1145/3167105](https://doi.org/10.1145/3167105)
@@ -172,8 +168,7 @@ edings of the 3rd ACM SIGPLAN International Workshop on Programming Experience (
 - Copied from: Academic Publications, 2024 section.
 
 ### S14. Chapter 12 - Veterans Health Administration's VistA MUMPS modernization pilot
-- Au
-thors: P. H. Newcomb and R. Couch
+- Authors: P. H. Newcomb and R. Couch
 - Book: Information Systems Transformation
 - Editors: W. M. Ulrich and P. H. Newcomb
 - Publisher: Morgan Kaufmann
@@ -222,8 +217,7 @@ thors: P. H. Newcomb and R. Couch
 - Date: February 2018
 - DOI: [10.1002/smr.1943](https://doi.org/10.1002/smr.1943)
 - URL: https://onlinelibrary.wiley.com/doi/10.1002/smr.1943
-- Summary: Comprehensive systematic review of formal methods applied to medical software and systems. Finds that model checking is the predominant technique, with B tools, MATLAB/Simulink, and UPPAAL being most commonly 
-used. Notes that formal methods are primarily used for modeling, with verification (especially model checking) playing a predominant role.
+- Summary: Comprehensive systematic review of formal methods applied to medical software and systems. Finds that model checking is the predominant technique, with B tools, MATLAB/Simulink, and UPPAAL being most commonly used. Notes that formal methods are primarily used for modeling, with verification (especially model checking) playing a predominant role.
 - Study relevance: Verification-method landscape context for the DAF (Dafny-assisted) and BOTH arms; situates deductive verification among the techniques applied to this software class.
 - Copied from: Formal Methods and Verification section, entry #106 (first occurrence).
 
@@ -343,8 +337,7 @@ verbatim and pruned. Nothing was added; no entry text was altered.
 
 **Removed categories and rationale:**
 
-| Removed category | Approx. entries | Rationale 
-|
+| Removed category | Approx. entries | Rationale |
 |---|---|---|
 | Precursor languages (JOSS, TELCOMP, STRINGCOMP, FILECOMP) | 4 | Language pre-history; never consulted for translation decisions. |
 | Citation pearl growing methodology (Markey & Atherton 1978; Hawkins & Wagers 1982) | 2 | Methodology of the historical research strand, not of the scientific study. |

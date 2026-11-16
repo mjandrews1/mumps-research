@@ -39,8 +39,7 @@ standard-defined semantics.
 
 ## PN-3 — Related-work positioning for the final report (2026-11-16)
 
-- S13
- (Diggs et al., 2024 — LLM-generated documentation for WorldVistA
+- S13 (Diggs et al., 2024 — LLM-generated documentation for WorldVistA
   MUMPS): the closest academic neighbor. Anchor the motivation and
   discussion sections against it, noting that the DOC arm's artifact is
   a translation-heuristic cookbook, not code comments, so S13's
