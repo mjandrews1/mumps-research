@@ -9,7 +9,7 @@ import mumps.interp.writeCstring
  * (pilot B2, unit 38, provisional under deviation C-003). Translated
  * independently from the pristine vendor source (mumps-14-may-2026.tgz,
  * sha256 621deb25...ffdbe), reference source lines 7204-7235
- * (units.csv: 23 LOC; the const char*/string/mstring overload
+ * (units.csv: 23 LOC; the const char* / string / mstring overload
  * siblings are separate units, batches 7/8/10).
  *
  * The MUMPS dollar-Piece intrinsic over the subscripted global's
