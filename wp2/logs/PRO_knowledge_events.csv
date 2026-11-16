@@ -533,3 +533,8 @@ reuse,h014,interp-native-btree.cpp,2026-11-18T09:00:00+0000
 hit,h014,interp-native-btree.cpp,2026-11-18T09:00:00+0000
 reuse,h017,interp-native-btree.cpp,2026-11-18T09:00:00+0000
 hit,h017,interp-native-btree.cpp,2026-11-18T09:00:00+0000
+reuse,h008,interp-sql.cpp,2026-11-18T10:30:00+0000
+hit,h008,interp-sql.cpp,2026-11-18T10:30:00+0000
+reuse,h017,interp-sql.cpp,2026-11-18T10:30:00+0000
+hit,h017,interp-sql.cpp,2026-11-18T10:30:00+0000
+hit,h015,interp-sql.cpp,2026-11-18T10:30:00+0000
