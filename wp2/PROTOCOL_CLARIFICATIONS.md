@@ -13,6 +13,7 @@ effect on the committed schedule, and the methodological consequences.
 |---|------|-------|--------|
 | C-001 | 2026-11-16 | Pilot B1 vs. Latin-square slots | Resolved (before cycle 1) |
 | C-002 | 2026-11-16 | Per-unit check definitions formalized | Resolved (definition written) |
+| C-003 | 2026-11-16 | PRO early B2 execution | Active (deviation logged) |
 
 ---
 
@@ -111,3 +112,53 @@ and all batches from B2 onward.
 **Files touched by this entry:** `wp2/PER_UNIT_CHECKS.md` (new);
 `wp2/PILOT_TRACKING.md` (checks note now points at the definition).
 No pre-registered file was modified.
+
+---
+
+## C-003 — PRO's early B2 execution (logged 2026-11-16, active)
+
+**Observation.** Per C-001, PRO's committed row order (B1 hoisted to
+position 0) is B3, B4, ..., B10, B2; B2 is PRO's cycle-9 batch. On
+2026-11-16 the PRO arm translated B2 unit 32
+(libmpscpp.cpp::global::Extract; build green) before the C-001 cycle
+map was propagated into the arm's working loop. The PI elected
+(2026-11-16) to retain the translation and continue B2 as a logged
+deviation rather than revert.
+
+**Clarification (logged as data; no pre-registered instrument is
+modified).**
+
+1. PRO's early B2 translations are **provisional data**: retained in
+   the repo and recorded in the PRO arm journal, and **re-verified at
+   PRO's committed B2 position (cycle 9)** - each early unit receives
+   its full per-unit check pass (wp2/PER_UNIT_CHECKS.md) there before
+   the arm's B2 grading is finalized. The cycle-10 buffer (C-001) is
+   the fallback slot if the re-verification pass overruns.
+2. The batch-2 table's four check columns track the BASE reference
+   translation (C-002); PRO's early work is NOT recorded in them.
+   Unit 32's code-check was briefly set to `translated` in error
+   (2026-11-16) and is reverted in the same-day registry commit.
+   PRO-arm progress lives in wp2/arms/ARM_WORKING_NOTES.md and
+   wp2/logs/PRO_knowledge_events.csv.
+3. Ordinal accounting follows C-001: the batch-position covariate
+   uses actual completion ordinals; each early PRO B2 unit records
+   both its actual ordinal and its committed position (cycle 9).
+
+**Methodological consequences (recorded for the analysis phase).**
+
+- The Latin property per arm is preserved in kind - each batch is
+  still translated exactly once, and no committed relative order is
+  otherwise altered - but B2's position imbalance deepens: PRO now
+  encounters B2 at actual ordinal ~1 instead of cycle 9.
+- PRO's early-B2 units are flagged for a **practice-effect
+  sensitivity analysis** (compare against the arms that meet B2 at
+  its committed early position, BASE/DOC): if the study's arm-level
+  B2 metrics show a learning-position effect, the PRO early-B2 run
+  is the identifiable contaminated cell.
+- The re-verification pass at cycle 9 guards against drift; the
+  early translations' final graded values are those of the committed
+  position, not of the early run.
+
+**Files touched by this entry:** `wp2/PILOT_TRACKING.md` (unit-32
+check column reverted; batch-position note), `wp2/arms/ARM_WORKING_NOTES.md`
+(PRO journal deviation note). No pre-registered file was modified.

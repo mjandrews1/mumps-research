@@ -53,7 +53,7 @@ pilot. Checks use the same status vocabulary as the arm columns.
 
 | # | Unit | Lang | Class | Status | code-check | output-check | runtime-check | target-check |
 |---|------|------|-------|--------|-------------|--------------|---------------|--------------|
-| 32 | libmpscpp.cpp::global::Extract | cpp | simple | graded-ok | translated | todo | todo | todo |
+| 32 | libmpscpp.cpp::global::Extract | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 33 | libmpscpp.cpp::global::Find | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 34 | libmpscpp.cpp::SQL_Table | cpp | simple | graded-ok | todo | todo | todo | todo |
 | 35 | compiler-abrtx.c::<misc> | c | simple | graded-ok | todo | todo | todo | todo |
