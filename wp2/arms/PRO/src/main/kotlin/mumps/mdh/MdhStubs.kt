@@ -198,3 +198,103 @@ fun nodash(a: CharArray): Int {
 fun Score(a: Char, b: Char): Int {
     TODO("h014 stub: owner libmpscpp.cpp:8049 inline Score (not a corpus unit)")
 }
+
+// --- (u62) global numeric carrier stubs (owners: the operator>>/<<
+// extraction and insertion families and the class global operator=
+// machinery; the extraction/insertion owners live in the misc-3
+// residual chunk, not yet translated) ---
+
+/** Owner: libmpscpp.cpp global::operator>>(int&) (misc-3 unit, not yet translated). */
+fun Global.extractInt(): Int {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(int&) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp global::operator>>(unsigned int&) (misc-3 unit, not yet translated). */
+fun Global.extractUInt(): UInt {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(unsigned int&) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp global::operator>>(short&) (misc-3 unit, not yet translated). */
+fun Global.extractShort(): Short {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(short&) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp global::operator>>(unsigned short&) (misc-3 unit, not yet translated). */
+fun Global.extractUShort(): UShort {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(unsigned short&) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp global::operator>>(long&) (misc-3 unit, not yet translated). */
+fun Global.extractLong(): Long {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(long&) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp global::operator>>(unsigned long&) (misc-3 unit, not yet translated). */
+fun Global.extractULong(): ULong {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(unsigned long&) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp global::operator>>(float&) (misc-3 unit, not yet translated). */
+fun Global.extractFloat(): Float {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(float&) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp global::operator>>(double&) (misc-3 unit, not yet translated). */
+fun Global.extractDouble(): Double {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(double&) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp global::operator>>(char*) (misc-3 unit, not yet translated). */
+fun Global.extractCstring(): CharArray {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(char*) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp global::operator<<(long) (misc-3 unit, not yet translated). */
+fun Global.insertLong(v: Long) {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator<<(long) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp global::operator<<(double) (misc-3 unit, not yet translated). */
+fun Global.insertDouble(v: Double) {
+    TODO("h014 stub: owner libmpscpp.cpp global::operator<<(double) (misc-3 unit)")
+}
+
+/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
+fun Global.assignInt(v: Int) {
+    TODO("h014 stub: owner libmpscpp.h class global::operator=(int) machinery (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
+fun Global.assignUInt(v: UInt) {
+    TODO("h014 stub: owner libmpscpp.h class global::operator=(unsigned int) machinery (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
+fun Global.assignShort(v: Short) {
+    TODO("h014 stub: owner libmpscpp.h class global::operator=(short) machinery (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
+fun Global.assignUShort(v: UShort) {
+    TODO("h014 stub: owner libmpscpp.h class global::operator=(unsigned short) machinery (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
+fun Global.assignLong(v: Long) {
+    TODO("h014 stub: owner libmpscpp.h class global::operator=(long) machinery (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
+fun Global.assignULong(v: ULong) {
+    TODO("h014 stub: owner libmpscpp.h class global::operator=(unsigned long) machinery (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
+fun Global.assignFloat(v: Float) {
+    TODO("h014 stub: owner libmpscpp.h class global::operator=(float) machinery (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
+fun Global.assignDouble(v: Double) {
+    TODO("h014 stub: owner libmpscpp.h class global::operator=(double) machinery (not a corpus unit)")
+}
