@@ -49,3 +49,8 @@ fun EP(flg: Int, ExecName: Short, pid: Long) {
 fun Extract1(str: CharArray): String {
     TODO("h014 stub: owner compiler-parse.c::Extract1 (not a corpus unit)")
 }
+
+/** Owner: compiler-parse.c:2068 memcheck (not a corpus unit). */
+fun memcheck(iiitmp: Int) {
+    TODO("h014 stub: owner compiler-parse.c:2068 memcheck (not a corpus unit)")
+}

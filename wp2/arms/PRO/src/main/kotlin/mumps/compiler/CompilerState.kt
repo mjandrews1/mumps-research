@@ -86,6 +86,9 @@ object CompilerState {
      * caller's local tmp spliced into the second emission. Member of the
      * state singleton; one-line call sites preserved.
      */
+    /** :109 - extern int iiitmp; count on temp strings used so far in this stmt (h004; owner added by unit 52). */
+    var iiitmp: Int = 0
+
     fun interpret(tmp: String) {
         out.write("\t_jj = Interpret( (CCHR) \n")
         out.write("\t\t\"" + tmp + "\", svPtr); \n")
