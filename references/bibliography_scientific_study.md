@@ -5,6 +5,9 @@
 (commit 8abb800). The original file is unchanged and remains the
 bibliography of the historical/industry research strand, now archived at
 archive/history/references/bibliography.md.
+**Updated:** 2026-11-16 — S18-S19 appended to section C (machine-assisted
+translation prior art) and section E added (S20-S26, study methodology).
+See the Update Record at the end of this file.
 
 ---
 
@@ -20,8 +23,16 @@ and modernization prior art, and formal-methods context for the
 verification arms.
 
 The peer-reviewed translation/verification literature (IEEE-numbered
-[1]-[26]) lives in LITERATURE_REVIEW.md and is complementary to this
+[1]-[29]) lives in LITERATURE_REVIEW.md and is complementary to this
 file, not duplicated by it.
+
+On 2026-11-16 the scope was extended beyond the pruned subject-side set
+to cover two grounding needs of the study itself: contemporary
+machine-assisted (LLM) translation prior art (S18-S19, section C) and the
+methodological sources for the study's own instruments and analysis
+(S20-S26, section E). Unlike S1-S17 these are additions, not pruned-copy
+material, so they carry an "Added" provenance line instead of a "Copied
+from" line.
 
 Entries are numbered S1-S17. Each entry cites the section of
 references/bibliography.md it was copied from. The original file has
@@ -39,7 +50,8 @@ duplicated entry numbers in several sections (two each of #12-#17,
 - ISBN: 978-1440455323
 - Summary: Comprehensive book on the MUMPS/M programming language, covering syntax, database features, and practical applications. Often cited in academic research on MUMPS.
 - Study relevance: Author of the study subject. The Mumps II Interpreter-Compiler Library (the code being translated) is drawn from the O'Kane distribution; this book is the primary printed reference for the language the translated processor implements.
-- Copied from: references/bibliography.md, Books section.
+- Copied from: references/bibliography.md, Books sectio
+n.
 
 ### S2. MUMPS (Wikipedia)
 - Title: MUMPS
@@ -69,7 +81,8 @@ duplicated entry numbers in several sections (two each of #12-#17,
 
 ---
 
-## B. Formal Analyses of the MUMPS Language and Its Implementation
+## B. Formal Analyses of the MUMPS Language and Its Imple
+mentation
 
 ### S6. A Balanced View of MUMPS
 - Authors: Wasserman, A. I., & Sherertz, D. D.
@@ -99,7 +112,8 @@ duplicated entry numbers in several sections (two each of #12-#17,
 - Publisher: MUMPS Development Committee
 - Date: 1974 (Revised July 12, 1974)
 - Summary: First formal attempt to specify the MUMPS language structure and syntax.
-- Study relevance: Earliest formal specification in the lineage of the standard the study subject implements.
+- Study relevance: Earliest formal s
+pecification in the lineage of the standard the study subject implements.
 - Copied from: MUMPS Development Committee Technical Reports, entry #14 (first occurrence).
 
 ### S9. MUMPS Globals and their Implementation
@@ -137,7 +151,8 @@ duplicated entry numbers in several sections (two each of #12-#17,
 
 ### S12. Open Challenges in Incremental Coverage of Legacy Software Languages
 - Author: Vadim Zaytsev
-- Conference: Proceedings of the 3rd ACM SIGPLAN International Workshop on Programming Experience (PX/17)
+- Conference: Proce
+edings of the 3rd ACM SIGPLAN International Workshop on Programming Experience (PX/17)
 - Date: October 2017
 - Location: Vancouver, BC, Canada
 - DOI: [10.1145/3167105](https://doi.org/10.1145/3167105)
@@ -157,7 +172,8 @@ duplicated entry numbers in several sections (two each of #12-#17,
 - Copied from: Academic Publications, 2024 section.
 
 ### S14. Chapter 12 - Veterans Health Administration's VistA MUMPS modernization pilot
-- Authors: P. H. Newcomb and R. Couch
+- Au
+thors: P. H. Newcomb and R. Couch
 - Book: Information Systems Transformation
 - Editors: W. M. Ulrich and P. H. Newcomb
 - Publisher: Morgan Kaufmann
@@ -176,6 +192,25 @@ duplicated entry numbers in several sections (two each of #12-#17,
 - Study relevance: Prior non-academic case of planning machine-assisted migration of the MUMPS codebase family to a modern managed language; useful industry framing for the study's motivation section.
 - Copied from: Government and Military Applications section.
 
+### S18. Lost in Translation: A Study of Bugs Introduced by Large Language Models while Translating Code
+- Authors: R. Pan, A. R. Ibrahimzada, R. Krishna, D. Sankar, L. P. Wassi, M. Merler, B. Sobolev, R. Pavuluri, S. Sinha, and R. Jabbarvand
+- Conference: Proc. IEEE/ACM 46th International Conference on Software Engineering (ICSE 2024)
+- Pages: 1-13
+- Date: April 2024
+- DOI: [10.1145/3597503.3639226](https://doi.org/10.1145/3597503.3639226)
+- Summary: Large-scale empirical study of LLM code translation across C, C++, Go, Java, and Python (1,700 code samples from three benchmarks and two real-world projects). Correct translations range from 2.1% to 47.3% for the studied LLMs; manual investigation of unsuccessful translations identifies 15 categories of translation bugs; compares LLM-based and traditional approaches; prompt-crafting from error symptoms improves results by 5.5% on average.
+- Study relevance: Grounds the study's machine-assisted premise: LLM translation of C/C++ is error-prone in characterizable ways. The 15-category translation-bug taxonomy informs the categorization of graded-deviation entries in the qualitative synthesis, and the documented unreliability of raw LLM translation motivates the frozen-oracle-first design and the faithful-quirk discipline.
+- Added: 2026-11-16. Bibliographic record verified against Crossref. Placed here as machine-assisted modernization prior art.
+
+### S19. Towards Translating Real-World Code with LLMs: A Study of Translating to Rust
+- Authors: H. F. Eniser, H. Zhang, C. David, M. Wang, M. Christakis, B. Paulsen, J. Dodds, and D. Kroening
+- Type: arXiv preprint
+- arXiv ID: [2405.11514](https://arxiv.org/abs/2405.11514)
+- Date: May 2024 (v3 revised April 2025)
+- Summary: Substantial study of LLM-based translation of real-world open-source C/C++ projects to Rust, assessing five state-of-the-art LLMs. Introduces FLOURINE, an end-to-end translation tool that uses differential fuzzing to check I/O equivalence between the translation and the original program without pre-existing tests, with counterexample feedback to the LLM. The best model translates 47% of the benchmarks.
+- Study relevance: The closest modern analogue of this study's core loop: machine-assisted translation of real-world legacy C/C++, checked by I/O equivalence with the original. Grounds both the premise (LLMs can partially translate real code) and the equivalence-checking method; informs the motivation and discussion sections and the differential-testing practice (design §9.3).
+- Added: 2026-11-16. Bibliographic record verified against arXiv. Placed here as machine-assisted modernization prior art.
+
 ---
 
 ## D. Formal Methods and Verification Context (DAF / BOTH arms)
@@ -187,7 +222,8 @@ duplicated entry numbers in several sections (two each of #12-#17,
 - Date: February 2018
 - DOI: [10.1002/smr.1943](https://doi.org/10.1002/smr.1943)
 - URL: https://onlinelibrary.wiley.com/doi/10.1002/smr.1943
-- Summary: Comprehensive systematic review of formal methods applied to medical software and systems. Finds that model checking is the predominant technique, with B tools, MATLAB/Simulink, and UPPAAL being most commonly used. Notes that formal methods are primarily used for modeling, with verification (especially model checking) playing a predominant role.
+- Summary: Comprehensive systematic review of formal methods applied to medical software and systems. Finds that model checking is the predominant technique, with B tools, MATLAB/Simulink, and UPPAAL being most commonly 
+used. Notes that formal methods are primarily used for modeling, with verification (especially model checking) playing a predominant role.
 - Study relevance: Verification-method landscape context for the DAF (Dafny-assisted) and BOTH arms; situates deductive verification among the techniques applied to this software class.
 - Copied from: Formal Methods and Verification section, entry #106 (first occurrence).
 
@@ -202,6 +238,90 @@ duplicated entry numbers in several sections (two each of #12-#17,
 - Summary: Historical perspective on software verification techniques at Bell Labs. Examines a line of research that led to widely used verification systems for distributed software. Provides context for the evolution of formal verification methods.
 - Study relevance: Historical context for the automated-verification tradition the Dafny toolchain descends from; supports the study's verification-background section.
 - Copied from: Formal Methods and Verification section, entry #108 (first occurrence).
+
+---
+
+## E. Study Methodology (added 2026-11-16)
+
+Sections A-D hold the subject-side literature. This section extends the
+bibliography to ground the study's own instruments and analysis methods,
+each of which the research design names without a source. The entries are
+additions, not pruned-copy material, so they carry no "Copied from"
+provenance. They complement LITERATURE_REVIEW.md's peer-reviewed
+translation/verification set ([1]-[29]); no design text was modified to
+cite them — the grounding is applied through wp2/PRACTICE_NOTES.md
+(PN-4, PN-5) and the final report.
+
+### S20. Working Effectively with Legacy Code
+- Author: Michael C. Feathers
+- Publisher: Prentice Hall PTR
+- Date: 2004
+- ISBN: 978-0-13-117705-5
+- Summary: Origin of the "characterization test" — a test that pins down what legacy code actually does before you change it, so behavioral changes become visible. Defines legacy code as code without tests and gives start-to-finish strategies for putting large untested systems under test.
+- Study relevance: The design's characterization-test oracle (§2.4 step 5: characterization tests capturing observed behavior, frozen and version-controlled before any translation) is the Feathers characterization-test discipline applied at whole-program scale; grounds the oracle method and its freeze requirement.
+- Added: 2026-11-16. Bibliographic record verified against the publisher (Prentice Hall PTR, 2004).
+
+### S21. The Oracle Problem in Software Testing: A Survey
+- Authors: E. T. Barr, M. Harman, P. McMinn, M. Shahbaz, and S. Yoo
+- Journal: IEEE Transactions on Software Engineering
+- Volume: 41(5)
+- Pages: 507-525
+- Date: May 2015
+- DOI: [10.1109/TSE.2014.2372785](https://doi.org/10.1109/TSE.2014.2372785)
+- Summary: Survey of the oracle problem — deciding expected outputs for test cases. Presents a taxonomy of oracle classes and covers differential testing and pseudo-oracles that compare candidate behavior against an existing program.
+- Study relevance: Grounds the grading-instrument choice: the frozen C baseline acts as a pseudo-oracle against which byte equivalence is judged (wp2/PER_UNIT_CHECKS.md output-check), and frames the oracle's known limit — it characterizes the baseline's observed behavior, quirks included.
+- Added: 2026-11-16. Bibliographic record verified against Crossref.
+
+### S22. Differential Testing for Software
+- Author: William M. McKeeman
+- Journal: Digital Technical Journal
+- Volume: 10(1)
+- Pages: 100-107
+- Date: 1998
+- Summary: The canonical differential-testing reference: feed the same inputs to alternative implementations and compare outputs. Motivated by commercial systems too large and too change-heavy for exhaustive specification-based testing.
+- Study relevance: Grounds the design's differential testing vs. the C baseline (§9.3, WP4) — the beyond-oracle check that the Kotlin translation and the C original agree on inputs outside the frozen suite.
+- Added: 2026-11-16. Bibliographic record verified against the Digital Technical Journal (dblp indexing).
+
+### S23. QuickCheck: A Lightweight Tool for Random Testing of Haskell Programs
+- Authors: K. Claessen and J. Hughes
+- Conference: Proc. 5th ACM SIGPLAN International Conference on Functional Programming (ICFP 2000)
+- Pages: 268-279
+- Date: September 2000
+- DOI: [10.1145/351240.351266](https://doi.org/10.1145/351240.351266)
+- Summary: Introduced property-based testing: executable properties are checked against a large number of randomly generated inputs; the origin of the property-test category (Kotest's property testing is a descendant).
+- Study relevance: Grounds the property-test category of the runtime-check (wp2/PER_UNIT_CHECKS.md §3; design §7.3, §9.3): edge and state behavior exercised via generated inputs rather than enumerated cases.
+- Added: 2026-11-16. Bibliographic record verified against Crossref.
+
+### S24. An Analysis and Survey of the Development of Mutation Testing
+- Authors: Y. Jia and M. Harman
+- Journal: IEEE Transactions on Software Engineering
+- Volume: 37(5)
+- Pages: 649-678
+- Date: September/October 2011
+- DOI: [10.1109/TSE.2010.62](https://doi.org/10.1109/TSE.2010.62)
+- Summary: Survey of mutation testing: systematically seeded faults measure how well a test suite detects them. Establishes foundational results including the equivalent-mutant problem and the design of mutation operators.
+- Study relevance: Grounds the design's mutation testing of the test suite (§9.3, WP4) and its interpretation: the frozen oracle's mutation score measures how much divergence the oracle would actually detect — directly relevant to how much trust oracle-based grading deserves across arms.
+- Added: 2026-11-16. Bibliographic record verified against Crossref.
+
+### S25. The preregistration revolution
+- Authors: B. A. Nosek, C. R. Ebersole, A. C. DeHaven, and D. T. Mellor
+- Journal: Proceedings of the National Academy of Sciences
+- Volume: 115(11)
+- Pages: 2600-2606
+- Date: March 2018
+- DOI: [10.1073/pnas.1708274114](https://doi.org/10.1073/pnas.1708274114)
+- Summary: Argues that preregistration — separating planned analyses from data-informed decisions — improves the credibility of research findings; discusses the challenge of distinguishing exploration from confirmation.
+- Study relevance: Grounds the design's validity architecture (§1.4, §9.2): committed order assignments, pre-registered capture criteria, and pre-specified contrasts/subgroups are instances of separating confirmatory analysis choices from observation, with deviations logged as data (wp2/PROTOCOL_CLARIFICATIONS.md).
+- Added: 2026-11-16. Bibliographic record verified against Crossref.
+
+### S26. Experimentation in Software Engineering
+- Authors: C. Wohlin, P. Runeson, M. Höst, M. C. Ohlsson, B. Regnell, and A. Wesslén
+- Publisher: Springer
+- Date: 2012
+- DOI: [10.1007/978-3-642-29044-2](https://doi.org/10.1007/978-3-642-29044-2)
+- Summary: The standard text on empirical experimentation in software engineering: experiment design (blocking, counterbalancing, Latin squares), a threats-to-validity taxonomy (conclusion, internal, construct, external), and analysis planning for technology-heavy studies with human subjects.
+- Study relevance: Grounds the design's experimental framework: within-subjects blocking by module (§1.1), Latin-square counterbalancing (§1.4, §12.3), blocked models with covariates (§10.3), and supplies the threats-to-validity taxonomy for the final report alongside PN-3's S12-based hazards framing.
+- Added: 2026-11-16. Bibliographic record verified against Crossref.
 
 ---
 
@@ -223,7 +343,8 @@ verbatim and pruned. Nothing was added; no entry text was altered.
 
 **Removed categories and rationale:**
 
-| Removed category | Approx. entries | Rationale |
+| Removed category | Approx. entries | Rationale 
+|
 |---|---|---|
 | Precursor languages (JOSS, TELCOMP, STRINGCOMP, FILECOMP) | 4 | Language pre-history; never consulted for translation decisions. |
 | Citation pearl growing methodology (Markey & Atherton 1978; Hawkins & Wagers 1982) | 2 | Methodology of the historical research strand, not of the scientific study. |
@@ -239,3 +360,14 @@ numbering resolved by citing section + title in each provenance line.
 **Maintenance:** New subject-side sources should be appended here with an
 S-prefixed ID and a study-relevance line. The translation/verification
 peer-reviewed set remains in LITERATURE_REVIEW.md.
+
+## Update Record
+
+- 2026-11-16: S18-S19 appended to section C and section E added (S20-S26),
+  grounding the design/plan/practice elements previously named without a
+  source: characterization tests, oracle grading, differential testing,
+  property-based testing, mutation testing, preregistration, and the
+  Latin-square/blocked experiment design, plus the machine-assisted
+  translation premise. Records verified against Crossref, arXiv, and the
+  publisher pages on 2026-11-16. No existing entry altered; "Copied from"
+  provenance lines apply only to S1-S17.

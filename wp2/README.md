@@ -31,12 +31,13 @@ Both oracles are frozen before any pilot translation begins.
 - `PILOT_TRACKING.md` — per-unit status per arm.
 - `PROTOCOL_CLARIFICATIONS.md` — protocol clarifications/deviations, logged as data (C-001 pilot slots; C-002 check definitions).
 - `PER_UNIT_CHECKS.md` — definition of the four per-unit verification checks.
-- `PRACTICE_NOTES.md` — non-protocol practice refinements (PN-1..PN-3, bibliography-derived).
+- `PRACTICE_NOTES.md` — non-protocol practice refinements (PN-1..PN-5, bibliography-derived).
 
 ## Pilot sequence (per design §8 WP2)
 
 1. Translate B1 in BASE; every heuristic decision logged.
-2. Seed cookbook v0 (DOC) and rule base v0 (PRO) from the pilot log under
+2. Seed cookbook v0 (DOC) and rule base v0 (PRO) from
+ the pilot log under
    the pre-registered capture criteria (`wp1/capture_criteria.md`).
 3. Translate B1 in DOC, PRO, DAF, BOTH per arm-specific workflow.
 4. Build Prolog query tooling (find_rule/1, record_reuse/2,
