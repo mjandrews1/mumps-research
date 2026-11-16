@@ -381,3 +381,7 @@ reuse,h014,compiler-abrtx.c,2026-11-17T10:30:00+0000
 hit,h014,compiler-abrtx.c,2026-11-17T10:30:00+0000
 reuse,h017,compiler-abrtx.c,2026-11-17T10:30:00+0000
 hit,h017,compiler-abrtx.c,2026-11-17T10:30:00+0000
+reuse,h014,compiler-doty.c,2026-11-17T12:00:00+0000
+hit,h014,compiler-doty.c,2026-11-17T12:00:00+0000
+reuse,h017,compiler-doty.c,2026-11-17T12:00:00+0000
+hit,h017,compiler-doty.c,2026-11-17T12:00:00+0000
