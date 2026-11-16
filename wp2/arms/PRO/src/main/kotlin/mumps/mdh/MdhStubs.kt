@@ -173,8 +173,3 @@ object AlignState {
 fun Score(a: Char, b: Char): Int {
     TODO("h014 stub: owner libmpscpp.cpp:8049 inline Score (not a corpus unit)")
 }
-
-/** Owner: libmpscpp.cpp:2164 global::Multiply(global,global) (batch-2 complex unit, later in B2). */
-fun Global.Multiply(b: Global, c: Global) {
-    TODO("h014 stub: owner libmpscpp.cpp:2164 global::Multiply (batch-2 complex unit, later in B2)")
-}
