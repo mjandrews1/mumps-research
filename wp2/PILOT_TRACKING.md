@@ -8,7 +8,9 @@ target-check) apply to the B1 table from this date as well, so both batches
 share one tracking schema and cross-batch comparisons remain like-for-like.
 The columns were added retroactively: at B1 close (2026-11-15) no per-unit
 check pass had been executed, so all B1 entries are initialized `todo` —
-nothing is backfilled. As in batch 2, the check columns track the BASE
+nothing is backfilled. The four checks are
+defined in `wp2/PER_UNIT_CHECKS.md` (registry entry C-002,
+`wp2/PROTOCOL_CLARIFICATIONS.md`). As in batch 2, the check columns track the BASE
 reference translation; check results for the other arms' B1 translations
 are recorded in the per-arm logs under `arms/` as those arms complete the
 pilot. Checks use the same status vocabulary as the arm columns.

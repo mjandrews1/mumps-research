@@ -12,6 +12,7 @@ effect on the committed schedule, and the methodological consequences.
 | # | Date | Title | Status |
 |---|------|-------|--------|
 | C-001 | 2026-11-16 | Pilot B1 vs. Latin-square slots | Resolved (before cycle 1) |
+| C-002 | 2026-11-16 | Per-unit check definitions formalized | Resolved (definition written) |
 
 ---
 
@@ -83,3 +84,30 @@ question to resolve before cycle 1.
 
 **Files touched by this entry:** `CADENCE.md` (open-question section
 resolved; cycle mapping updated). No pre-registered file was modified.
+
+
+---
+
+## C-002 — Per-unit check definitions formalized (2026-11-16)
+
+**Observation.** The four per-unit verification columns (code-check,
+output-check, runtime-check, target-check) entered use with batch 2 on
+2026-11-15 without a written definition; units 50-51 were graded
+against the operative informal practice. On 2026-11-16 the B1 table was
+retrofitted with the same columns, making the definition gap material
+for both batches and the pending B1 backfill pass.
+
+**Clarification.** The operative practice is now written down unchanged
+as `wp2/PER_UNIT_CHECKS.md`: code-check (static equivalence review,
+design §9.1 code-review discipline), output-check (byte equivalence vs.
+the frozen oracle, per `wp2/arms/ARM_WORKING_NOTES.md` §0.2),
+runtime-check (edge/error-path/state exercise per design §9.3),
+target-check (Kotlin target-spec compliance per design §7.2). The
+researcher confirmed (2026-11-16) that the written definitions match
+the practice under which units 50-51 were graded; no graded value is
+reinterpreted or changed. The definition governs the B1 backfill pass
+and all batches from B2 onward.
+
+**Files touched by this entry:** `wp2/PER_UNIT_CHECKS.md` (new);
+`wp2/PILOT_TRACKING.md` (checks note now points at the definition).
+No pre-registered file was modified.
