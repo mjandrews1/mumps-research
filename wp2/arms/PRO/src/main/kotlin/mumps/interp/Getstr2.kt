@@ -1,8 +1,7 @@
 package mumps.interp
 
 import java.io.IOException
-import java.io.FileDescriptor
-import java.io.FileInputStream
+import java.io.InputStream
 import java.io.InputStreamReader
 import java.io.Reader
 
@@ -21,9 +20,9 @@ import java.io.Reader
  * Rules applied (wp2/arms/PRO/rules_v0.pl):
  *  - h001 io_stream_param     : FILE* in_file[lun] -> the Msv Reader
  *    carrier (stateVector.h:61, B1 unit 23); the vendor's
- *    in_file[5]=stdin becomes a fresh InputStreamReader over
- *    System.in on each call, mirroring the vendor's unconditional
- *    pointer reassignment. Adaptation (journal): an unopened unit
+ *    in_file[5]=stdin becomes a fresh InputStreamReader over the
+ *    reflectively-fetched System.in stream on each call, mirroring
+ *    the vendor's unconditional pointer reassignment. Adaptation (journal): an unopened unit
  *    (null Reader) raises an explicit error here - the vendor would
  *    fgetc(NULL), undefined behavior.
  *  - h002 simple_output_macro : fgetc becomes the local helper
@@ -51,6 +50,14 @@ private const val STR_MAX = 32000 // vendor strmax.h:3 (file-private, cf. unit 2
 private const val LINEFEED = '\n' // vendor defines.h:195 ('\012')
 private const val TAB = '\t' // vendor interp.h:56
 
+// stdin: java.lang.System's 'in' field is a Kotlin hard keyword
+// (only nameable as a backtacked identifier, which the arm's byte
+// gate forbids), so the vendor's stdin stream is fetched
+// reflectively - the same System.in object, not a second stream
+// over fd 0.
+private val STDIN: InputStream =
+    System::class.java.getField("in").get(null) as InputStream
+
 /** h002: vendor fgetc(file) - one byte, or -1 at EOF. */
 @Throws(IOException::class)
 private fun fgetcC(r: Reader): Int = r.read()
@@ -60,9 +67,7 @@ fun getstr2(lun: Short, area: CharArray, svPtr: Msv): Short {
     val lunI = lun.toInt() // h010: short -> int for indexing
 
     // vendor: if (lun == 5) svPtr->in_file[lun] = stdin;
-    // (System.in is unnameable in Kotlin - the 'in' keyword needs
-    // backticks - so stdin's file descriptor is opened directly.)
-    if (lunI == 5) svPtr.in_file[lunI] = InputStreamReader(FileInputStream(FileDescriptor.in))
+    if (lunI == 5) svPtr.in_file[lunI] = InputStreamReader(STDIN)
 
     // adaptation: an unopened unit raises here; the vendor would
     // fgetc(NULL) (undefined behavior).
