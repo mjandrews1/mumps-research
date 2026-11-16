@@ -29,6 +29,9 @@ Both oracles are frozen before any pilot translation begins.
 - `logs/heuristic_log_TEMPLATE.csv` — the decision-log schema, identical
   for all arms (construct, decision, rationale, unit, date, reused_from).
 - `PILOT_TRACKING.md` — per-unit status per arm.
+- `PROTOCOL_CLARIFICATIONS.md` — protocol clarifications/deviations, logged as data (C-001 pilot slots; C-002 check definitions).
+- `PER_UNIT_CHECKS.md` — definition of the four per-unit verification checks.
+- `PRACTICE_NOTES.md` — non-protocol practice refinements (PN-1..PN-3, bibliography-derived).
 
 ## Pilot sequence (per design §8 WP2)
 
