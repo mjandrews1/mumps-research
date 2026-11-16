@@ -96,10 +96,10 @@ fun GlobalRef.Min(): Double {
         strcpyC(tmp1, tmp)
         // get_global is the libmpscpp.h:117 macro, expanded inline:
         //   (svPtr->tpx = Mglobal(RETRIEVE, ref, rslt, svPtr), rslt)
-        MdhState.svPtr.tpx = mglobal(RETRIEVE, tmp1, rslt, MdhState.svPtr)
+        MdhState.svPtr.tpx = mglobal(RETRIEVE, tmp1, rslt, MdhState.svPtr).toLong()
 
         // vendor: if (!svPtr->tpx) { GlobalExceptionCode=...; throw }
-        if (MdhState.svPtr.tpx == 0) {
+        if (MdhState.svPtr.tpx == 0L) {
             MdhState.globalExceptionCode = GLOBAL_NOT_FOUND
             throw MumpsGlobalException()
         }
