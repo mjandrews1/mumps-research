@@ -167,6 +167,31 @@ object AlignState {
     var gap: Int = 0
     var mismatch: Int = 0
     var match: Int = 0
+
+    // (u61) libmpscpp.cpp:8033-8039 file-scope alignment globals.
+    /** :8033 - int Size. */
+    var Size: Int = 0
+    /** :8034 - int Size_s. */
+    var Size_s: Int = 0
+    /** :8035 - int Size_t. */
+    var Size_t: Int = 0
+    /** :8039 - int sx = 0. */
+    var sx: Int = 0
+}
+
+/** Owner: libmpscpp.cpp::Cost (batch-3 corpus unit, not yet translated). */
+fun Cost(s: CharArray, t: CharArray, i: Int, j: Int): Int {
+    TODO("h014 stub: owner libmpscpp.cpp::Cost (batch-3 unit)")
+}
+
+/** Owner: libmpscpp.cpp::init (batch-4 corpus unit, not yet translated). */
+fun init() {
+    TODO("h014 stub: owner libmpscpp.cpp::init (batch-4 unit); owns the AlignState.a matrix allocation")
+}
+
+/** Owner: libmpscpp.cpp:8041 nodash (not a corpus unit). */
+fun nodash(a: CharArray): Int {
+    TODO("h014 stub: owner libmpscpp.cpp::nodash (not a corpus unit)")
 }
 
 /** Owner: libmpscpp.cpp:8049 inline int Score(char,char) (not a corpus unit). */
