@@ -66,7 +66,7 @@ fun Mstring.Eval(): Mstring {
         // tmp = "err"; return tmp; // h013: unreachable after the throw
     } else {
         val sb = StringBuilder()
-        var i = svPtr.sdlim.toInt()
+        var i = svPtr.sdlim // (build clean) sdlim is already Int; the .toInt() was redundant
         while (svPtr.pd1[i] != NUL) {
             sb.append(svPtr.pd1[i])
             i++
