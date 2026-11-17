@@ -146,6 +146,10 @@ coverage_report :-
     (   Misses > 0
     ->  format('capture candidates (missed triggers):~n', []),
         forall(event(miss, F, _, _),
-               format('  - ~w~n', [F]))
+               (   rule(Id, trigger(F), _, _, _, _, _)
+               ->  format('  - ~w [captured -> rule ~w; miss is pre-capture history]~n', [F, Id])
+               ;   format('  - ~w~n', [F])
+               ))
     ;   true
     ).
+

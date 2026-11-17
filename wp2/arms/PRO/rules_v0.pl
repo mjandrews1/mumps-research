@@ -125,9 +125,24 @@ rule(h017, trigger(naming),
 % exercises at units 40/41 (mps_exp2/mps_exp10, 3-way #ifdef resolved
 % against the reference build config), recurring in units 52-53, 55,
 % and 57; both exercises build-green.
+%
+% Recurred through B3 (2026-11-21 close): units 75 (SQLITE include
+% guard), 78 (NOTABS defined -> tab-to-space LIVE), and 83/85/89
+% (3-way numeric-precision #ifdefs in interp-arith.cpp). The B3
+% record initially mislabeled units 83/85/89 as record_miss and
+% omitted their h018 rows - impossible per capture_criteria.md
+% (a miss requires that no entry existed; h018 had existed since
+% the B1 close), and the units in fact followed the h018 action
+% throughout (live-arm-only translation, excluded arms documented).
+% Corrected at B3 close: KDoc paragraphs rewritten, h018 reuse+hit
+% pairs appended at the unit timestamps. The 5 miss rows in the
+% events log are pre-capture history (B1 units 4/10/12/20/29) and
+% remain as misses per the append-only log; coverage_report now
+% annotates them as captured.
 
 rule(h018, trigger(preprocessor_conditional),
      condition(reference_build_config_is_the_only_resolution_authority),
      action('resolve #ifdef/#ifndef arms against the reference build config (SQLITE, HAVE_HARDWARE_MATH, GCVT defined; NATIVE/NATIVE_SHARED/BIGFLOAT/MULTI_PRECISION undefined); translate only the live arm; document the excluded arms and any @VAR@ build-substitution macro as comments'),
      example('interp-arith.cpp'),
      provenance(pro, b1, '2026-11-15'), verification(unit_tested)).
+

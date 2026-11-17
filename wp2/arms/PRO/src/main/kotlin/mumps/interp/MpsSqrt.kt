@@ -29,19 +29,26 @@ import kotlin.math.sqrt
  *    rendered as inCh (vendor name in the header comment).
  *  - h017 naming            : mps_sqrt -> mpsSqrt (mpsAcos
  *    precedent); the Int return is the vendor's literal 0.
+ *  - h018 preprocessor_conditional: the 3-way #ifdef below is
+ *    resolved against the reference build config (B1-close rule;
+ *    see the paragraph at the end of this KDoc).
  *
- * MISSED TRIGGER (record_miss, preprocessor_conditional family):
- * the vendor body is a 3-way #ifdef (MULTI_PRECISION / BIGFLOAT /
- * default). The reference build (vendor configure defaults) takes
- * the plain double branch: gcvt_wrapper(sqrt(strtod(in,NULL)),
- * out); return 0. The MPFR branch - including the negative-input
- * numcomp gate with its printf and the NUMERIC_RANGE throw - is
- * compiled out of the reference binary and omitted here (the plain
- * branch has no negative check at all; C sqrt of a negative yields
- * NaN through the same path). (Family precedent: unit 4 btree,
- * unit 10 mpsAcos, unit 85 mpsAtan.)
+ * h018 preprocessor_conditional (CORRECTED at B3 close, was first
+ * written as a record_miss): the vendor body is a 3-way #ifdef
+ * (MULTI_PRECISION / BIGFLOAT / default). Rule h018 has existed
+ * since the B1 close (captured from units 4/10/12/20/29, upgraded
+ * unit_tested at the B2 close exercising units 40/41) - so a miss
+ * could not apply. The reference build (MULTI_PRECISION and
+ * BIGFLOAT undefined) selects the plain double branch
+ * gcvt_wrapper(sqrt(strtod(in,NULL)), out); return 0 - translated
+ * here. The MPFR arm - including the negative-input numcomp gate
+ * with its printf and the NUMERIC_RANGE throw - is compiled out
+ * of the reference binary and documented as the excluded arm, per
+ * the h018 action (the plain branch has no negative check at all;
+ * C sqrt of a negative yields NaN through the same path).
  */
 fun mpsSqrt(out: CharArray, inCh: CharArray): Int {
     gcvtWrapper(sqrt(strtodC(inCh)), out)
     return 0
 }
+

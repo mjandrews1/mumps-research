@@ -29,14 +29,21 @@ package mumps.interp
  *    top-level names: new top-level mpsJustify - no collisions.
  *  - h017 naming            : mps_justify -> mpsJustify (mpsAcos
  *    precedent).
+ *  - h018 preprocessor_conditional: the 3-way #ifdef below is
+ *    resolved against the reference build config (B1-close rule;
+ *    see the paragraph at the end of this KDoc).
  *
- * MISSED TRIGGER (record_miss, preprocessor_conditional family):
- * the vendor body is a 3-way #ifdef (MULTI_PRECISION / BIGFLOAT /
- * default). The reference build (vendor configure defaults) takes
- * the plain double branch: double fc = strtod(c,NULL);
- * sprintf(b,a,fc). The MPFR and long-double branches are compiled
- * out of the reference binary and omitted here. (Family
- * precedent: unit 4 btree, unit 10 mpsAcos, units 85/89.)
+ * h018 preprocessor_conditional (CORRECTED at B3 close, was first
+ * written as a record_miss): the vendor body is a 3-way #ifdef
+ * (MULTI_PRECISION / BIGFLOAT / default). Rule h018 has existed
+ * since the B1 close (captured from units 4/10/12/20/29, upgraded
+ * unit_tested at the B2 close exercising units 40/41) - so a miss
+ * could not apply. The reference build (MULTI_PRECISION and
+ * BIGFLOAT undefined) selects the plain double branch
+ * (double fc = strtod(c,NULL); sprintf(b,a,fc)) - translated
+ * here; the MPFR and long-double arms are compiled out of the
+ * reference binary and documented as the excluded arms, per the
+ * h018 action.
  */
 fun mpsJustify(a: CharArray, b: CharArray, c: CharArray) {
     val fc = strtodC(c)
@@ -44,3 +51,4 @@ fun mpsJustify(a: CharArray, b: CharArray, c: CharArray) {
     for (k in s.indices) b[k] = s[k]
     b[s.length] = NUL
 }
+
