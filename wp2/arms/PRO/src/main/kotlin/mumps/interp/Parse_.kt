@@ -703,7 +703,7 @@ fun parse_(svPtr: Msv): Int {
                         while (svPtr.pd1[k] != NUL) k++
                         k--
 
-                        if (svPtr.pd1[k] == OPEN_PAREN) { // first argument
+                        if (svPtr.pd1[k] == OPEN_PAREN.toChar()) { // first argument (build fix: OPEN_PAREN is the Int 206 token code; the pd1 byte domain holds the Char form)
                             strcpyAC(svPtr.bd, bOff, svPtr.v1d, vOff)
                             var m = bOff
                             while (svPtr.bd[m] != NUL) {
