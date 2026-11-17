@@ -1648,3 +1648,11 @@ reuse,h015,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
 hit,h015,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
 reuse,h017,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
 hit,h017,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+reuse,h001,compiler-parse.c::ExpandData,2026-11-25T15:00:00+0000
+hit,h001,compiler-parse.c::ExpandData,2026-11-25T15:00:00+0000
+reuse,h012,compiler-parse.c::ExpandData,2026-11-25T15:00:00+0000
+hit,h012,compiler-parse.c::ExpandData,2026-11-25T15:00:00+0000
+reuse,h015,compiler-parse.c::ExpandData,2026-11-25T15:00:00+0000
+hit,h015,compiler-parse.c::ExpandData,2026-11-25T15:00:00+0000
+reuse,h017,compiler-parse.c::ExpandData,2026-11-25T15:00:00+0000
+hit,h017,compiler-parse.c::ExpandData,2026-11-25T15:00:00+0000
