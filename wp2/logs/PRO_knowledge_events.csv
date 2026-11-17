@@ -1984,3 +1984,13 @@ reuse,h017,include/mumpsc/memsize.h::<misc>,2026-11-26T21:00:00+0000
 hit,h017,include/mumpsc/memsize.h::<misc>,2026-11-26T21:00:00+0000
 reuse,h018,include/mumpsc/memsize.h::<misc>,2026-11-26T21:00:00+0000
 hit,h018,include/mumpsc/memsize.h::<misc>,2026-11-26T21:00:00+0000
+reuse,h009,interp-arith.cpp::mps_log2,2026-11-26T22:00:00+0000
+hit,h009,interp-arith.cpp::mps_log2,2026-11-26T22:00:00+0000
+reuse,h012,interp-arith.cpp::mps_log2,2026-11-26T22:00:00+0000
+hit,h012,interp-arith.cpp::mps_log2,2026-11-26T22:00:00+0000
+reuse,h015,interp-arith.cpp::mps_log2,2026-11-26T22:00:00+0000
+hit,h015,interp-arith.cpp::mps_log2,2026-11-26T22:00:00+0000
+reuse,h017,interp-arith.cpp::mps_log2,2026-11-26T22:00:00+0000
+hit,h017,interp-arith.cpp::mps_log2,2026-11-26T22:00:00+0000
+reuse,h018,interp-arith.cpp::mps_log2,2026-11-26T22:00:00+0000
+hit,h018,interp-arith.cpp::mps_log2,2026-11-26T22:00:00+0000
