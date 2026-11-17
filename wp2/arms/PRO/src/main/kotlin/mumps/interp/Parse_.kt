@@ -78,6 +78,9 @@ private const val CONTAINS = 15
 private const val FOLLOWS = 16
 private const val PATTERN = 17
 private const val NOTEQ = 18
+// vendor interp.h:82-83: NOT_NOT aliases NOTEQ's value 18 (the
+// unary-not switch uses NOT_NOT as the token label)
+private const val NOT_NOT = 18
 private const val NOTGREATER = 19
 private const val NOTLESS = 20
 private const val NOTCONTAINS = 21
@@ -90,8 +93,9 @@ private const val NOTOR = 27
 private const val INDIRECT = 28
 private const val EXPONEN = 29
 
-// vendor interp-parse.cpp:80 (== CodedOpen)
-private const val OPEN_PAREN = 206
+// (build fix) OPEN_PAREN was REMOVED here: the package-level
+// OPEN_PAREN (InterpInterpMisc.kt, == CodedOpen 206) is the single
+// definition now (conflicting declarations, cleanLocks precedent).
 // interp.h:63
 private const val QUOTEC = '\''
 // interp.h:56
@@ -186,7 +190,7 @@ private val operand = intArrayOf(
 )
 // --- the parse_ state machine (vendor labels -> states) ---
 
-private enum class PState { START, NCHAR, SCAN_OPERAND, VAR1, UN_NEST, SYM1, EXEC, NXT_EXPR, NXT_OPERATOR, DEC_STK, FINISH }
+private enum class PState { START, NCHAR, SCAN_OPERAND, VAR1, UN_NEST, SYM1, EXEC, NXT_EXPR, NXT_OPERATOR, NXT_OPERATOR_U, DEC_STK, FINISH }
 
 // vendor CodedOpen/CodedClose/CodedComma (defines.h:38-40)
 private val COD_OPEN = 206.toChar()

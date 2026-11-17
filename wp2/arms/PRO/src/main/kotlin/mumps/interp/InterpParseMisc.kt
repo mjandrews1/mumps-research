@@ -63,11 +63,13 @@ package mumps.interp
  *    in the journal; the stub stays until that unit lands).
  */
 
-private const val GOSUBMAX = 50   // vendor interp-parse.cpp:66
-private const val SWAP = 30       // :67
-private const val FORMAX = 30     // :68
-private const val EXECLEVS = 40   // :69
-private const val LBLS = 80       // :70
-private const val OPEN_PAREN = 206 // :76 (cf. unit 63 Parse_.kt)
-private const val COMMA = 207     // :77
+// (build fix) GOSUBMAX/SWAP/FORMAX/EXECLEVS/LBLS/OPEN_PAREN were
+// REMOVED here: the InterpInterpMisc.kt declarations (the
+// interp-interp.cpp residue unit) already carry the same values in this
+// package - they are the single definitions now (conflicting
+// declarations, cleanLocks precedent). The interp-parse-only
+// residue keeps its file-private COMMA and CLOSE_PAREN below
+// (not declared elsewhere in the package).
+
+private const val COMMA = 207     // vendor interp-parse.cpp:77
 private const val CLOSE_PAREN = 209 // :78

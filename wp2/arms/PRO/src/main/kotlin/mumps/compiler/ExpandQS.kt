@@ -146,16 +146,10 @@ fun ExpandQS(v1d: CharArray, iStart: Int, bp: CharArray) {
     }
 }
 
-/** C strncmp(buf+off, lit, n). */
-private fun strncmpC(b: CharArray, off: Int, lit: String, n: Int): Int {
-    for (k in 0 until n) {
-        val cb = b[off + k]
-        val cl = lit[k]
-        if (cb != cl) return if (cb < cl) -1 else 1
-        if (cb == NUL) return 0
-    }
-    return 0
-}
+// (build fix) the private strncmpC mirror was REMOVED: the
+// package-level compiler strncmpC (CompilerCstring.kt, B1) has the
+// same shape - it is now the single definition (conflicting
+// overloads, cleanLocks precedent).
 
 /** C strcpy(dst, src) over the byte domain from offset 0. */
 private fun strcpyC(dst: CharArray, src: String) {

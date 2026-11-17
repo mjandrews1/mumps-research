@@ -3,6 +3,7 @@ package mumps.mdh
 import mumps.interp.NUL
 import mumps.interp.mglobal
 import mumps.interp.strlenC
+import mumps.interp.strcpyC
 import mumps.interp.writeCstring
 import kotlin.math.sqrt
 
@@ -104,7 +105,7 @@ fun Cosine(A: Global, B: Global): Double {
 
         if (strncmpOff(refA, tmp, i) != 0) break // strncmp(A.ref,tmp,i)
 
-        writeCstring(tmp1, tmp) // strcpy(tmp1,tmp)
+        strcpyC(tmp1, tmp) // strcpy(tmp1,tmp)
         get_global(tmp1, rslt)
 
         if (MdhState.svPtr.tpx == 0L) {
@@ -115,9 +116,9 @@ fun Cosine(A: Global, B: Global): Double {
         val v = strtodC(rslt) // first operand
         totD = totD + v * v
 
-        writeCstring(refB, ctmp) // strcpy(B.ref,ctmp)
+        strcpyC(refB, ctmp) // strcpy(B.ref,ctmp)
         strcatOff(refB, tmp, i) // strcat(B.ref,&tmp[i])
-        writeCstring(btmp, refB) // strcpy(btmp,B.ref)
+        strcpyC(btmp, refB) // strcpy(btmp,B.ref)
 
         if (GlobalRef(B, emptyList()).Data() == 0.0) continue // !B.Data()
 
@@ -135,7 +136,7 @@ fun Cosine(A: Global, B: Global): Double {
 
     if (tot == 0.0) return 0.0
 
-    writeCstring(refB, ctmp) // restore
+    strcpyC(refB, ctmp) // restore
     val bflg = 1 // vendor: int bflg=1 (never read; kept per source)
     ttt[0] = NUL // strcpy(ttt,"")
 
@@ -144,7 +145,7 @@ fun Cosine(A: Global, B: Global): Double {
 
         if (strncmpOff(refB, ctmp, j) != 0) break // strncmp(B.ref,ctmp,j)
 
-        writeCstring(tmp1, ctmp) // strcpy(tmp1,ctmp)
+        strcpyC(tmp1, ctmp) // strcpy(tmp1,ctmp)
         get_global(tmp1, rslt)
 
         if (MdhState.svPtr.tpx == 0L) {

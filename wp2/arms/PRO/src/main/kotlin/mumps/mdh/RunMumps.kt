@@ -1,6 +1,7 @@
 package mumps.mdh
 
 import mumps.interp.Msv
+import mumps.interp.interpret // (build fix) the InterpStubs interpret(cmd, svPtr) stub is in package mumps.interp
 import mumps.interp.NUL
 import mumps.interp.writeCstring
 

@@ -1,6 +1,6 @@
 package mumps.interp
 
-import mumps.mdh.MdhStubs
+import mumps.mdh.MdhState // (build fix) the file-scope globals ride the MdhState object (MdhStubs.kt), not an MdhStubs object
 
 /**
  * PRO-arm translation of interp-parse.cpp::patrn (pilot B3, unit 64,
@@ -14,7 +14,7 @@ import mumps.mdh.MdhStubs
  * match(), then either delegates (definite patterns) or runs the
  * indefinite-pattern odometer loop over ct2/stk retrying match()
  * until success or exhaustion. Results report via the libmpscpp.cpp
- * file-scope global ierr1 (h004: MdhStubs.ierr1, B1 unit 31 owner).
+ * file-scope global ierr1 (h004: MdhState.ierr1, B1 unit 31 owner).
  *
  * Rules applied (wp2/arms/PRO/rules_v0.pl):
  *  - h011 goto : the vendor's a108 label becomes an inner while over
@@ -129,7 +129,7 @@ fun patrn(ad: CharArray, svPtr: Msv) {
                 xindex(CNPALUE_U, tmp, 1) == 0
             ) {
                 // goto err
-                MdhStubs.ierr1 = 99
+                MdhState.ierr1 = 99
                 return
             }
             pts[1][lx] = i
@@ -154,7 +154,7 @@ fun patrn(ad: CharArray, svPtr: Msv) {
             j++
             if (svPtr.bd[j] == NUL) {
                 // goto err
-                MdhStubs.ierr1 = 99
+                MdhState.ierr1 = 99
                 return
             }
             if (svPtr.bd[j] != '"') {
@@ -174,7 +174,7 @@ fun patrn(ad: CharArray, svPtr: Msv) {
     if (indef != 1) {
         match(pts, lx, count, ad, jH, svPtr.bd)
         j = jH[0].toInt()
-        MdhStubs.ierr1 = j.toShort()
+        MdhState.ierr1 = j.toShort()
         return
     }
 
@@ -202,7 +202,7 @@ fun patrn(ad: CharArray, svPtr: Msv) {
             ct2[stk[1]] = low[stk[1]]
             m = 2
             if (stx == 1) {
-                MdhStubs.ierr1 = 0
+                MdhState.ierr1 = 0
                 return
             }
             ct2[stk[m]]++
@@ -210,7 +210,7 @@ fun patrn(ad: CharArray, svPtr: Msv) {
             // recount:
             while (ct2[stk[m]] > lad || ct2[stk[m]] > high[stk[m]]) {
                 if (m >= stx) {
-                    MdhStubs.ierr1 = 0
+                    MdhState.ierr1 = 0
                     return
                 }
                 ct2[stk[m]] = low[stk[m]]
@@ -225,7 +225,7 @@ fun patrn(ad: CharArray, svPtr: Msv) {
 
         match(pts, lx, ct2, ad, jH, svPtr.bd)
         j = jH[0].toInt()
-        MdhStubs.ierr1 = j.toShort()
+        MdhState.ierr1 = j.toShort()
         if (j == 1) return
         // goto retry
     }

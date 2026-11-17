@@ -78,7 +78,7 @@ object NewCode {
             st.out.write("ErrorMessage(\"Symbol Table Overflow\",svPtr->LineNumber);\n")
             st.out.write("\tsvPtr->nstart=NULL;\n")
             st.out.write("\tsym_(7,(UNS) \"\", (UNS) \"\", svPtr);\n")
-            st.ExecSym[st.ExecX] = 1
+            st.ExecSym[st.ExecX.toInt()] = 1
 
             if (st.POST_flg != 0.toShort()) {
                 st.out.write("\t} /* post conditional in new */\n")
@@ -98,7 +98,7 @@ object NewCode {
             while (true) {
                 st.t0px = 1
                 st.t2 = 1
-                st.retz = NEW_C
+                st.retz = NEW_C.code.toShort() // h010: char code into the short domain
 
                 return_code = set_code(SET_C) // goto set; process item to read
 
@@ -140,8 +140,8 @@ object NewCode {
 
                 st.out.write("\tsym_(7,(UNS) \"\",(UNS) \"\",svPtr); // new except (...) \n")
                 st.out.write("\t}\n")
-                st.ExecSym[st.ExecX] = 1
-                if (st.ExecX == 0) {
+                st.ExecSym[st.ExecX.toInt()] = 1
+                if (st.ExecX == 0.toShort()) {
                     st.out.write("\tif (_doStx == 0) ")
                     st.out.write("\t_doStackN[_doStx-1]=1;\n")
                 }
@@ -157,7 +157,7 @@ object NewCode {
         }
 
         // Push locals inclusive
-        st.ExecSym[st.ExecX] = 1
+        st.ExecSym[st.ExecX.toInt()] = 1
 
         if (st.POST_flg != 0.toShort()) {
             st.out.write("\t} /* post conditional new push */\n")
@@ -168,7 +168,7 @@ object NewCode {
         while (true) {
             st.t0px = 1
             st.t2 = 1
-            st.retz = NEW1_C
+            st.retz = NEW1_C.code.toShort() // h010: char code into the short domain
 
             return_code = set_code(SET_C) // goto set; process item to read
 
@@ -187,7 +187,7 @@ object NewCode {
                 vdWrite(st, tmp)
             }
 
-            if (st.exportflag != 0) {
+            if (st.exportflag != 0.toShort()) {
                 st.out.write(
                     "\tsym_(SymMarkCopyFlag, (UNS) " + cstringAt(st.vd, 0) +
                         ", (UNS) \"\",svPtr); // mark copy flag\n"
