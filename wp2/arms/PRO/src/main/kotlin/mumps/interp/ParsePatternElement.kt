@@ -88,22 +88,12 @@ class Parser(
     var s: Scanner = Scanner("")
 )
 
-/** vendor static const char pattern_codes[] (interp-rpm.cpp:109). */
-private val PATTERN_CODES = "ACELNPU"
-
-/** vendor static const char * const char_classes[] (interp-rpm.cpp:110-114). */
-private val CHAR_CLASSES = arrayOf(
-    "[:alpha:]", "[:cntrl:]", "[:print:][:cntrl:]",
-    "[:lower:]", "[:digit:]", "[:punct:]", "[:upper:]"
-)
-
-/** new_bstring over a C string literal (call-shape helper, h015 private). */
-private fun newBstringLit(s: String): Bstring {
-    val buf = CharArray(s.length + 1)
-    for (i in s.indices) buf[i] = s[i]
-    buf[s.length] = NUL
-    return newBstring(buf)
-}
+/** vendor static const char pattern_codes[] (interp-rpm.cpp:109),
+ *  CHAR_CLASSES (110-114), newBstringLit and toupperC were raised
+ *  here provisionally and are RECONCILED to their misc-chunk owner
+ *  InterpRpmMisc.kt (unit 127, h004) - internal there, same
+ *  package, binding unchanged; toupperC stays file-private in
+ *  each user file (h015, the Parse_.kt:258 convention). */
 
 /** C toupper over the byte domain (C locale ASCII fold). */
 private fun toupperC(c: Char): Char = if (c in 'a'..'z') c - 32 else c

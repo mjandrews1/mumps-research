@@ -253,9 +253,23 @@ fun BuildLocal(a: Int, g: Int, key: CharArray, keyOff: Int, arg4: CharArray?,
     TODO("h014 stub: owner interp-sym.cpp::BuildLocal (batch-8 unit); vendor arg4 NULL renders as null; returns Int (vendor interp-sym.cpp:97), arg4Off default 0 (u94 fcn)")
 }
 
-/** Owner: interp-rpm.cpp::rpm (not a corpus unit). */
-fun rpm(ad: CharArray, adOff: Int, bd: CharArray, bdOff: Int, svPtr: Msv): Int {
-    TODO("h014 stub: owner interp-rpm.cpp::rpm (not a corpus unit)")
+/** Owner: interp-rpm.cpp::perl_pm (batch-9 corpus unit) - the regex
+ *  engine entry behind rpm/perlmatch/perlcpp; string/pattern carry
+ *  the offset shape rpm passes (pcre_pattern local C-string at 0). */
+fun perlPm(string: CharArray, stringOff: Int, pattern: CharArray, patternOff: Int,
+           allowPartial: Int, svPtr: Msv): Int {
+    TODO("h014 stub: owner interp-rpm.cpp::perl_pm (batch-9 unit)")
+}
+
+/** Owner: interp-rpm.cpp::scan_token (batch-5 corpus unit, unit 128;
+ *  vendor 259-506 boundary overlaps unit 135 parse_count 360-406). */
+fun scanToken(s: Scanner): TokenType {
+    TODO("h014 stub: owner interp-rpm.cpp::scan_token (unit 128)")
+}
+
+/** Owner: interp-rpm.cpp::parse_count (batch-5 corpus unit, unit 135). */
+fun parseCount(p: Parser): Bstring {
+    TODO("h014 stub: owner interp-rpm.cpp::parse_count (unit 135)")
 }
 
 /**
@@ -383,27 +397,11 @@ fun bstrcat(a: Bstring, b: Bstring): Bstring {
     TODO("h014 stub: owner interp-bstring.cpp::bstrcat (batch-9 unit)")
 }
 
-/** Owner: interp-rpm.cpp:472-475 file static accept_it (not a corpus unit). */
-fun acceptIt(p: Parser) {
-    TODO("h014 stub: owner interp-rpm.cpp accept_it (not a corpus unit)")
-}
-
-/** Owner: interp-rpm.cpp:461-469 accept (not a corpus unit). */
-fun accept(p: Parser, expectedKind: TokenType) {
-    TODO("h014 stub: owner interp-rpm.cpp accept (not a corpus unit)")
-}
-
-/** Owner: interp-rpm.cpp:493-500 file static syntax_error (not a corpus
- *  unit; prints the caret line and sigint(100)s). */
-fun syntaxError(msg: String, line: String, pos: Int) {
-    TODO("h014 stub: owner interp-rpm.cpp syntax_error (not a corpus unit)")
-}
-
-/** Owner: interp-rpm.cpp::parse_pattern_atom_list (file static, not a
- *  corpus unit; rides parse_pattern_atom, not in the corpus either). */
-fun parsePatternAtomList(p: Parser): Bstring {
-    TODO("h014 stub: owner interp-rpm.cpp parse_pattern_atom_list (not a corpus unit)")
-}
+/** Owner: interp-rpm.cpp accept_it/accept/syntax_error/
+ *  parse_pattern_atom_list/rpm/perlmatch/perlcpp/scan/new_scanner/
+ *  take_char/new_parser/parse/parse_pattern/parse_pattern_atom
+ *  - all RESOLVED by the misc-chunk owner InterpRpmMisc.kt
+ *  (unit 127); stubs removed. */
 
 /** Owner: interp-rpm.cpp::leaning_toothpickize (batch-6 corpus unit). */
 fun leaningToothpickize(b: Bstring): Bstring {
