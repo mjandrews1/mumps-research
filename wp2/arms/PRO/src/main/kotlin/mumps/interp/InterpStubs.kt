@@ -76,6 +76,29 @@ class Msv {
     var symlen: Int = 0
     /** :96 - char CurrentFile[512] (h012 byte domain; see readf_). */
     val currentFile: CharArray = CharArray(512)
+
+    // --- stateVector.h fields added by B4 unit 94 (interp-fcn.cpp::fcn) ---
+    /** :54 - int setpiece (the dollar-piece/dollar-extract LHS flag). */
+    var setpiece: Int = 0
+    /** :62 - int hor[10], ver[10] ($x/$y cursor coordinates per io channel). */
+    val hor: IntArray = IntArray(10)
+    val ver: IntArray = IntArray(10)
+    /**
+     * :72 - struct nmes * nstart (opaque pointer carrier; the nmes
+     * struct is not in the corpus - fcn's dollar-dollar block only
+     * copies the pointer into the child state vector).
+     */
+    var nstart: Any? = null
+    /** :82 - int PD1 ($storage). */
+    var PD1: Int = 0
+    /** :85 - unsigned char args[STR_MAX] (h012 byte domain; STR_MAX=32000, strmax.h:3). */
+    val args: CharArray = CharArray(32000)
+    /** :86 - char Table[256] (h012 byte domain; data base table). */
+    val Table: CharArray = CharArray(256)
+    /** :87 - int TabSize. */
+    var TabSize: Int = 0
+    /** :99 - char sqloutput[512] (h012 byte domain). */
+    val sqloutput: CharArray = CharArray(512)
 }
 
 /**
@@ -101,12 +124,12 @@ fun xindex(source: CharArray, ptrn: CharArray, strt: Short): Int {
  * reference arm) and the stub has been removed.
  */
 
-/** Owner: interpreter core - Interpret(cmd, svPtr) (not a corpus unit). */
-/** Owner: interp-fcn.cpp::fcn (batch-4 unit, 775 LOC). */
-fun fcn(svPtr: Msv) {
-    TODO("h014 stub: owner interp-fcn.cpp::fcn (batch-4 unit)")
-}
-
+/**
+ * Owner: interpreter core - Interpret(cmd, svPtr) (not a corpus unit).
+ * fcn (interp-fcn.cpp::fcn) was stubbed here until B4 unit 94
+ * landed; the owner-level definition now lives in Fcn.kt and the
+ * stub has been removed.
+ */
 fun interpret(cmd: String, svPtr: Msv): Int {
     TODO("h014 stub: owner interpreter core (Interpret, not a corpus unit)")
 }
@@ -165,9 +188,9 @@ fun freadx(r: Int, flag: Int): CharArray {
 }
 
 /** Owner: interp-sql.cpp::sql (batch-9 corpus unit, not yet translated). */
-fun sql(op: Int, svPtr: Msv, DataSourceName: CharArray, Command: CharArray,
-        arg5: CharArray, arg6: CharArray): Int {
-    TODO("h014 stub: owner interp-sql.cpp::sql (batch-9 unit); prototype include/mumpsc/btree.h:37")
+fun sql(op: Int, svPtr: Msv, DataSourceName: CharArray?, Command: CharArray?,
+        arg5: CharArray?, arg6: CharArray?): Int {
+    TODO("h014 stub: owner interp-sql.cpp::sql (batch-9 unit); prototype include/mumpsc/btree.h:37; the char* parameters are nullable for the vendor NULL-argument calls (u94 fcn)")
 }
 
 // --- added by B3 unit 63 (interp-parse.cpp::parse_) ---
@@ -212,16 +235,22 @@ fun sym_(flag: Int, name: CharArray, nameOff: Int, bd: CharArray, bdOff: Int,
     TODO("h014 stub: owner interp-sym.cpp::sym_ (batch-10 unit)")
 }
 
-/** Owner: interp-parse.cpp::BuildGlobal (batch-8 corpus unit). */
+/**
+ * Owner: interp-parse.cpp::BuildGlobal (batch-8 corpus unit).
+ * Returns Int (vendor interp-parse.cpp:1836) and carries the
+ * rslt-buffer offset (u94 fcn passes and-tests the result and
+ * binds arg4 to bd+1; the parse_ call sites ignore both, so the
+ * arg4Off parameter defaults to 0).
+ */
 fun BuildGlobal(a: Int, g: Int, key: CharArray, keyOff: Int, arg4: CharArray?,
-                svPtr: Msv) {
+                svPtr: Msv, arg4Off: Int = 0): Int {
     TODO("h014 stub: owner interp-parse.cpp::BuildGlobal (batch-8 unit); vendor arg4 NULL renders as null")
 }
 
 /** Owner: interp-sym.cpp::BuildLocal (batch-8 corpus unit). */
 fun BuildLocal(a: Int, g: Int, key: CharArray, keyOff: Int, arg4: CharArray?,
-               svPtr: Msv) {
-    TODO("h014 stub: owner interp-sym.cpp::BuildLocal (batch-8 unit); vendor arg4 NULL renders as null")
+               svPtr: Msv, arg4Off: Int = 0): Int {
+    TODO("h014 stub: owner interp-sym.cpp::BuildLocal (batch-8 unit); vendor arg4 NULL renders as null; returns Int (vendor interp-sym.cpp:97), arg4Off default 0 (u94 fcn)")
 }
 
 /** Owner: interp-rpm.cpp::rpm (not a corpus unit). */
@@ -292,4 +321,57 @@ fun gtkTreeStoreSet(t: mumps.mdh.GtkTreeStore, itera: GtkTreeIter, column: Int,
  */
 fun allocSV(): Msv {
     TODO("h014 stub: owner state-vector machinery AllocSV (not a corpus unit)")
+}
+
+// --- added by B4 unit 94 (interp-fcn.cpp::fcn) ---
+
+/** Owner: interp-sym.cpp::ScanParse (batch-8 corpus unit; declared interp-fcn.cpp:81). */
+fun ScanParse(tmp1: CharArray, tmp1Off: Int): Int {
+    TODO("h014 stub: owner interp-sym.cpp::ScanParse (batch-8 unit)")
+}
+
+/** Owner: interp-sym.cpp::Eval (interp-sym.cpp:1192, not a corpus unit; declared interp-fcn.cpp:82). */
+fun Eval(tmp0: CharArray, tmp2: CharArray, svPtr: Msv): Int {
+    TODO("h014 stub: owner interp-sym.cpp::Eval (not a corpus unit)")
+}
+
+/** Owner: interp-sym.cpp::Qlength (batch-5 corpus unit, interp-sym.cpp:1100). */
+fun Qlength(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int, svPtr: Msv) {
+    TODO("h014 stub: owner interp-sym.cpp::Qlength (batch-5 unit)")
+}
+
+/** Owner: interp-sym.cpp::Qsub (batch-7 corpus unit, interp-sym.cpp:1126). */
+fun Qsub(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int,
+         tmp2: CharArray, tmp2Off: Int, svPtr: Msv) {
+    TODO("h014 stub: owner interp-sym.cpp::Qsub (batch-7 unit)")
+}
+
+/**
+ * Owner: interp-sysfunc.cpp::LocalName (B4 corpus unit, groups 2/3,
+ * interp-sysfunc.cpp:827); tmp1 is the out buffer, tmp2 nullable for
+ * the vendor NULL third argument (declared cppsysfunc.h:40).
+ */
+fun LocalName(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int,
+              tmp2: CharArray?, tmp2Off: Int, svPtr: Msv) {
+    TODO("h014 stub: owner interp-sysfunc.cpp::LocalName (B4 unit, groups 2/3)")
+}
+
+/**
+ * Owner: include/mumpsc/globalOrder.h:8 inline GlobalOrder (not a
+ * corpus unit); tmp1 is the out buffer.
+ */
+fun GlobalOrder(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int,
+                tmp2: CharArray, tmp2Off: Int, svPtr: Msv) {
+    TODO("h014 stub: owner globalOrder.h inline GlobalOrder (not a corpus unit)")
+}
+
+/** Owner: interp-strmanip.cpp::lpad (interp-strmanip.cpp:135, not a corpus unit). */
+fun lpad(strin: CharArray, strinOff: Int, strout: CharArray, stroutOff: Int, l: Short) {
+    TODO("h014 stub: owner interp-strmanip.cpp::lpad (not a corpus unit)")
+}
+
+/** Owner: C library strfmon (monetary.h; external library, no corpus unit). */
+fun strfmon(s: CharArray, sOff: Int, maxsize: Int, format: CharArray, formatOff: Int,
+            x: Double) {
+    TODO("h014 stub: owner C library strfmon (monetary.h)")
 }

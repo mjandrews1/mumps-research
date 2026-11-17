@@ -145,9 +145,92 @@ fun xecute(exp: String): Int {
     TODO("h014 stub: owner libmpscpp.cpp:7073 xecute (not a corpus unit)")
 }
 
-/** Owner: libmpscpp.cpp:9858 SymGet (not a corpus unit). */
-fun SymGet(str: String): Mstring {
-    TODO("h014 stub: owner libmpscpp.cpp:9858 SymGet (not a corpus unit)")
+// --- added by B4 unit 97 (libmpscpp.cpp::<misc-9>) ---
+//
+// The misc-9 svPtr-intrinsic wrappers bind these callees. The
+// SymGet(String) stub previously raised here (owner libmpscpp.cpp:
+// 9858) is REMOVED - unit 97 owns SymGet now (Scan unit 81
+// precedent). Wrapper/callee name pairs (Cosine, Sim1, ...) are
+// distinct overloads on parameter shape (h015 scan clean).
+
+/**
+ * Owner: libmpscpp.cpp class global operator>>(char*) machinery
+ * (globalClass.h:178; not a corpus unit). The mstring <=/==/!=
+ * global overloads and SymGet/SymPut(global) extract through it.
+ */
+fun Global.readInto(dst: CharArray) {
+    TODO("h014 stub: owner libmpscpp.cpp class global operator>> machinery (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.cpp::Sim1 (batch-7 corpus unit, units.csv row 199). */
+fun Sim1(a: Global, b: Global): Double {
+    TODO("h014 stub: owner libmpscpp.cpp::Sim1 (batch-7 unit)")
+}
+
+/** Owner: libmpscpp.cpp::Jaccard (batch-9 corpus unit, units.csv row 256). */
+fun Jaccard(a: Global, b: Global): Double {
+    TODO("h014 stub: owner libmpscpp.cpp::Jaccard (batch-9 unit)")
+}
+
+/** Owner: libmpscpp.cpp::Dice (batch-6 corpus unit, units.csv row 166). */
+fun Dice(a: Global, b: Global): Double {
+    TODO("h014 stub: owner libmpscpp.cpp::Dice (batch-6 unit)")
+}
+
+/**
+ * Owner: libmpscpp.cpp::global::Centroid (batch-4 corpus unit,
+ * units.csv row 106 - B4 groups 2/3; remove when it lands).
+ */
+fun Global.Centroid(B: Global) {
+    TODO("h014 stub: owner libmpscpp.cpp::global::Centroid (batch-4 unit)")
+}
+
+/**
+ * Owner: libmpscpp.cpp::global::DocCorrelate (batch-10 corpus
+ * unit, units.csv row 288).
+ */
+fun Global.DocCorrelate(B: Global, arg3: String, x: Double) {
+    TODO("h014 stub: owner libmpscpp.cpp::global::DocCorrelate (batch-10 unit)")
+}
+
+/** Owner: libmpscpp.cpp::StopInit (batch-6 corpus unit, row 175; the wrapper binds the char* overload at 7720). */
+fun StopInit(file: String) {
+    TODO("h014 stub: owner libmpscpp.cpp::StopInit (batch-6 unit)")
+}
+
+/** Owner: libmpscpp.cpp::StopLookup (char* overload at 7777; not a corpus unit). */
+fun StopLookup(str: String): Boolean {
+    TODO("h014 stub: owner libmpscpp.cpp::StopLookup (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.cpp::SynInit (batch-5 corpus unit, row 133; char* overload). */
+fun SynInit(file: String) {
+    TODO("h014 stub: owner libmpscpp.cpp::SynInit (batch-5 unit)")
+}
+
+/** Owner: libmpscpp.cpp::SYN (7788; not a corpus unit). */
+fun SYN(word: String): String {
+    TODO("h014 stub: owner libmpscpp.cpp::SYN (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.cpp::Shred (batch-6 corpus unit, row 165; free Shred(char*, int)). */
+fun Shred(str: String, size: Int): String {
+    TODO("h014 stub: owner libmpscpp.cpp::Shred (batch-6 unit)")
+}
+
+/** Owner: libmpscpp.cpp::ShredQuery (7970; not a corpus unit). */
+fun ShredQuery(str: String, size: Int): String {
+    TODO("h014 stub: owner libmpscpp.cpp::ShredQuery (not a corpus unit)")
+}
+
+/**
+ * Owner: libmpscpp.cpp::bmg_fullsearch (not a corpus unit; the
+ * wrapper's (char*, char*) call binds the (char*, global) overload
+ * at 8371 via the implicit char*->global conversion - noted per
+ * the LibmpscppMisc9 header).
+ */
+fun bmg_fullsearch(a: String, buf: String): Int {
+    TODO("h014 stub: owner libmpscpp.cpp::bmg_fullsearch (not a corpus unit)")
 }
 
 /**
