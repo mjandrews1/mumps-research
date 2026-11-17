@@ -1782,3 +1782,17 @@ reuse,h015,mpstime.cpp::main,2026-11-26T03:00:00+0000
 hit,h015,mpstime.cpp::main,2026-11-26T03:00:00+0000
 reuse,h017,mpstime.cpp::main,2026-11-26T03:00:00+0000
 hit,h017,mpstime.cpp::main,2026-11-26T03:00:00+0000
+reuse,h001,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+hit,h001,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+reuse,h010,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+hit,h010,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+reuse,h011,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+hit,h011,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+reuse,h012,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+hit,h012,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+reuse,h014,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+hit,h014,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+reuse,h015,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+hit,h015,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+reuse,h017,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+hit,h017,compiler-read.c::read_code,2026-11-26T04:00:00+0000
