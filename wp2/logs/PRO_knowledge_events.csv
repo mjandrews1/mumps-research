@@ -1808,3 +1808,17 @@ reuse,h015,interp-parse.cpp::match,2026-11-26T05:00:00+0000
 hit,h015,interp-parse.cpp::match,2026-11-26T05:00:00+0000
 reuse,h017,interp-parse.cpp::match,2026-11-26T05:00:00+0000
 hit,h017,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+reuse,h003,server.cpp::main,2026-11-26T06:00:00+0000
+hit,h003,server.cpp::main,2026-11-26T06:00:00+0000
+reuse,h004,server.cpp::main,2026-11-26T06:00:00+0000
+hit,h004,server.cpp::main,2026-11-26T06:00:00+0000
+reuse,h012,server.cpp::main,2026-11-26T06:00:00+0000
+hit,h012,server.cpp::main,2026-11-26T06:00:00+0000
+reuse,h013,server.cpp::main,2026-11-26T06:00:00+0000
+hit,h013,server.cpp::main,2026-11-26T06:00:00+0000
+reuse,h014,server.cpp::main,2026-11-26T06:00:00+0000
+hit,h014,server.cpp::main,2026-11-26T06:00:00+0000
+reuse,h015,server.cpp::main,2026-11-26T06:00:00+0000
+hit,h015,server.cpp::main,2026-11-26T06:00:00+0000
+reuse,h017,server.cpp::main,2026-11-26T06:00:00+0000
+hit,h017,server.cpp::main,2026-11-26T06:00:00+0000

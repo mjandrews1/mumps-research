@@ -408,3 +408,21 @@ fun bstrcat(a: Bstring, b: Bstring): Bstring {
 fun leaningToothpickize(b: Bstring): Bstring {
     TODO("h014 stub: owner interp-rpm.cpp::leaning_toothpickize (batch-6 unit)")
 }
+
+// --- added by B6 unit 161 (server.cpp::main) ---
+
+/**
+ * Owner: interp-globalb.cpp::Mglobal (batch-6 corpus unit, roster
+ * row 174 - resolves when that unit lands). The capital-M global
+ * array dispatcher called by the transaction server; key carries
+ * the C-string key with its offset (the server passes
+ * &clientMsg.buff0[1] - InterpStubs.kt offset-carrying precedent).
+ */
+fun Mglobal(g: Int, key: CharArray, keyOff: Int, bd: CharArray, svPtr: Msv): Int {
+    TODO("h014 stub: owner interp-globalb.cpp::Mglobal (batch-6 unit)")
+}
+
+/** Owner: server.cpp::logtime (server.cpp:62, not a corpus unit). */
+fun logtime(): CharArray {
+    TODO("h014 stub: owner server.cpp::logtime (not a corpus unit)")
+}
