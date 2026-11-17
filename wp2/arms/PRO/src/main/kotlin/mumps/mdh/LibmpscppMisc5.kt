@@ -314,7 +314,7 @@ fun mdh_calendar_get_date(e: GtkCalendar): String {
     gtk_calendar_get_date(e, yr, mn, dy)
     return String.format(
         Locale.US, "%d %d %d",
-        yr[0].toLong(), mn[0].toLong(), dy[0].toLong()
+        yr[0], mn[0], dy[0]
     )
 }
 
