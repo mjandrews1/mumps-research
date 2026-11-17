@@ -177,10 +177,12 @@ fun Jaccard(a: Global, b: Global): Double {
 // site now binds the real owner.
 
 
-/** Owner: libmpscpp.cpp::StopInit (batch-6 corpus unit, row 175; the wrapper binds the char* overload at 7720). */
-fun StopInit(file: String) {
-    TODO("h014 stub: owner libmpscpp.cpp::StopInit (batch-6 unit)")
-}
+/** Owner: libmpscpp.cpp::StopInit - RESOLVED by StopInit.kt
+ *  (unit 174, vendor 7729-7761; roster row 175, batch 6 - the
+ *  string-owning overload with the char-star/mstring forwarders
+ *  collapsed; the h008 stop-set carrier lives in the unit file);
+ *  stub removed (the LibmpscppMisc9.kt:529 MSV wrapper call site
+ *  binds unchanged). */
 
 /** Owner: libmpscpp.cpp::StopLookup (char* overload at 7777; not a corpus unit). */
 fun StopLookup(str: String): Boolean {
