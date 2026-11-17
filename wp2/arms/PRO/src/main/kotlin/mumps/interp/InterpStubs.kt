@@ -106,6 +106,58 @@ class Msv {
     var TabSize: Int = 0
     /** :99 - char sqloutput[512] (h012 byte domain). */
     val sqloutput: CharArray = CharArray(512)
+
+    // --- stateVector.h fields added by B6 unit 168
+    // (include/mumpsc/stateVector.h::<misc>, the header residual;
+    // every remaining struct member of vendor 40-100, banner and
+    // includes journaled in ARM_WORKING_NOTES, u35 ledger shape) ---
+
+    /** :40 - char cfgdata[256] (h012 byte domain; config data). */
+    val cfgdata: CharArray = CharArray(256)
+    /** :41 - char cfgkey[256] (h012 byte domain; config key). */
+    val cfgkey: CharArray = CharArray(256)
+    /** :53 - int ITRAP. */
+    var ITRAP: Int = 0
+    /** :57 - int ctrlc. */
+    var ctrlc: Int = 0
+    /** :58 - int iorg (the compiler-side CompilerState extern twin is separate). */
+    var iorg: Int = 0
+    /** :68 - int nflg. */
+    var nflg: Int = 0
+    /** :73 - char RefParm[10][16] (h012 byte domain). */
+    val RefParm: Array<CharArray> = Array(10) { CharArray(16) }
+    /** :74 - char Rargs[10][16] (h012 byte domain). */
+    val Rargs: Array<CharArray> = Array(10) { CharArray(16) }
+    /** :75 - int Rargsx. */
+    var Rargsx: Int = 0
+    /** :76 - int _SymPush. */
+    var _SymPush: Int = 0
+    /** :78 - unsigned long int hit, count (btree cache hit ratio;
+     * unsigned 64-bit domain maps to Long, u50 NativeBtreeState note). */
+    var hit: Long = 0
+    var count: Long = 0
+    /** :79 - unsigned long long restoredata (64-bit domain -> Long). */
+    var restoredata: Long = 0
+    /** :80 - int ScanMinWordSize. */
+    var ScanMinWordSize: Int = 0
+    /** :81 - int ScanMaxWordSize. */
+    var ScanMaxWordSize: Int = 0
+    /** :88 - int ConOpen. */
+    var ConOpen: Int = 0
+    /** :89 - char pgsql_msg[STR_MAX] (h012 byte domain; STR_MAX=32000, strmax.h:3). */
+    val pgsql_msg: CharArray = CharArray(32000)
+    /** :90 - char Connection[STR_MAX] (h012 byte domain). */
+    val Connection: CharArray = CharArray(32000)
+    /** :91 - char Col_Names[STR_MAX] (h012 byte domain). */
+    val Col_Names: CharArray = CharArray(32000)
+    /** :92 - int fdes[2]. */
+    val fdes: IntArray = IntArray(2)
+    /** :93 - int exec. */
+    var exec: Int = 0
+    /** :94 - char reference[1024] (h012 byte domain; call-by-ref underlying name). */
+    val reference: CharArray = CharArray(1024)
+    // :97-98 - the vendor's commented-out char-star grslts[22] and
+    // int grsltsx are fossil declarations (h013) - roster note only.
 }
 
 /**
