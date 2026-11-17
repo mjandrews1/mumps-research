@@ -2072,3 +2072,7 @@ reuse,h015,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
 hit,h015,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
 reuse,h017,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
 hit,h017,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+reuse,h014,compiler-fcninit.c::<misc>,2026-11-27T06:00:00+0000
+hit,h014,compiler-fcninit.c::<misc>,2026-11-27T06:00:00+0000
+reuse,h017,compiler-fcninit.c::<misc>,2026-11-27T06:00:00+0000
+hit,h017,compiler-fcninit.c::<misc>,2026-11-27T06:00:00+0000
