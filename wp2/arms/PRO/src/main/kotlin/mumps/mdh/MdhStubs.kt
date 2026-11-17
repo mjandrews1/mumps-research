@@ -51,10 +51,6 @@ fun strcatx(dst: CharArray, src: CharArray) {
     TODO("h014 stub: owner libmpscpp.cpp::strcatx (not a corpus unit)")
 }
 
-/** Owner: libmpscpp.cpp::lhash - disk-hash function used by Hash (misc-2 residue, not a B1 corpus unit; B1 unit 31). */
-fun lhash(ref: String): Long {
-    TODO("h014 stub: owner libmpscpp.cpp::lhash (not a corpus unit)")
-}
 
 /**
  * Owner: libmpscpp.cpp::global::MakeGlobal (batch-7 unit).
@@ -65,15 +61,7 @@ fun makeGlobal(x: Int, gblnme: String, key: String, vararg vals: String) {
     TODO("h014 stub: owner libmpscpp.cpp::global::MakeGlobal (batch-7 unit)")
 }
 
-/** Owner: libmpscpp.cpp::__finish - atexit target of the global constructor (misc-2 residue, not a B1 corpus unit; B1 unit 31). */
-fun __finish() {
-    TODO("h014 stub: owner libmpscpp.cpp::__finish (not a corpus unit)")
-}
 
-/** Owner: libmpscpp.cpp::thrownMessage - set_terminate target of the global constructor (misc-2 residue, not a B1 corpus unit; B1 unit 31). */
-fun thrownMessage() {
-    TODO("h014 stub: owner libmpscpp.cpp::thrownMessage (not a corpus unit)")
-}
 
 /**
  * Owner: libmpscpp.cpp global implicit-conversion operators
@@ -183,13 +171,6 @@ fun Dice(a: Global, b: Global): Double {
 // removed, cleanLocks precedent, unit 56); the u97 wrapper's call
 // site now binds the real owner.
 
-/**
- * Owner: libmpscpp.cpp::global::DocCorrelate (batch-10 corpus
- * unit, units.csv row 288).
- */
-fun Global.DocCorrelate(B: Global, arg3: String, x: Double) {
-    TODO("h014 stub: owner libmpscpp.cpp::global::DocCorrelate (batch-10 unit)")
-}
 
 /** Owner: libmpscpp.cpp::StopInit (batch-6 corpus unit, row 175; the wrapper binds the char* overload at 7720). */
 fun StopInit(file: String) {
@@ -398,9 +379,129 @@ fun GlobalRef.Max(): Double {
     TODO("h014 stub: owner libmpscpp.cpp::global::Max (not a corpus unit)")
 }
 
-// --- added by B4 unit 118 (libmpscpp.cpp::Count) ---
+// --- added by B5 unit 124 (libmpscpp.cpp::<misc-5>) ---
 
-/** Owner: libmpscpp.cpp::global::Count (libmpscpp.cpp:1811, not a corpus unit; sibling of the unit-88 global::Max and B2 unit 44 global::Min stubs). */
-fun GlobalRef.Count(): Double {
-    TODO("h014 stub: owner libmpscpp.cpp::global::Count (not a corpus unit)")
+/** Owner: interp-stem.cpp stem tables (batch-6 unit owns the tables; wstem itself is not a corpus unit). */
+fun wstem(word: CharArray, len: Int): Int {
+    TODO("h014 stub: owner interp-stem.cpp::wstem (stem tables, batch-6)")
+}
+
+/** Owner: interp-pm.cpp:43 pm (pattern match engine, not a corpus unit). */
+fun pm(string: CharArray, pattern: CharArray, svPtr: mumps.interp.Msv): Int {
+    TODO("h014 stub: owner interp-pm.cpp::pm (not a corpus unit)")
+}
+
+/** Owner: libmpscpp.cpp::global::DocCorrelate(global,string,double) (vendor 1215, batch-10 corpus unit). */
+fun docCorrelate(B: Global, fcn: String, threshold: Double) {
+    TODO("h014 stub: owner libmpscpp.cpp::global::DocCorrelate(global,string,double) (batch-10 unit)")
+}
+
+// --- opaque GTK carriers (GUI glue; the mdh wrappers only forward
+//     opaque handles to the underlying libgtk calls) ---
+
+class GtkWindow
+class GtkToggleButton
+class GtkSwitch
+class GtkEntry
+class GtkRange
+class GtkCalendar
+class GtkTextBuffer
+class GtkFontChooser
+class GtkColorChooser
+class GtkLabel
+class GtkWidget
+class GtkTreeSelection
+class GtkTreeIter
+class GtkTreeModel
+class GtkAdjustment
+class GtkSpinButton
+
+/** vendor struct GdkRGBA (gtk color carrier for mdh_color_chooser_get_rgba). */
+class GdkRGBA {
+    var red: Double = 0.0
+    var green: Double = 0.0
+    var blue: Double = 0.0
+    var alpha: Double = 0.0
+}
+
+// --- underlying libgtk C calls (h014: owner libgtk, out of corpus) ---
+
+fun gtk_toggle_button_get_active(b: GtkToggleButton): Boolean {
+    TODO("h014 stub: owner libgtk gtk_toggle_button_get_active (out of corpus)")
+}
+
+fun gtk_toggle_button_set_active(b: GtkToggleButton, x: Boolean) {
+    TODO("h014 stub: owner libgtk gtk_toggle_button_set_active (out of corpus)")
+}
+
+fun gtk_switch_get_active(b: GtkSwitch): Boolean {
+    TODO("h014 stub: owner libgtk gtk_switch_get_active (out of corpus)")
+}
+
+fun gtk_entry_get_text(e: GtkEntry): String {
+    TODO("h014 stub: owner libgtk gtk_entry_get_text (out of corpus)")
+}
+
+fun gtk_entry_set_text(e: GtkEntry, txt: String) {
+    TODO("h014 stub: owner libgtk gtk_entry_set_text (out of corpus)")
+}
+
+fun gtk_range_get_adjustment(e: GtkRange): GtkAdjustment {
+    TODO("h014 stub: owner libgtk gtk_range_get_adjustment (out of corpus)")
+}
+
+fun gtk_adjustment_get_value(adj: GtkAdjustment): Double {
+    TODO("h014 stub: owner libgtk gtk_adjustment_get_value (out of corpus)")
+}
+
+fun gtk_calendar_get_date(e: GtkCalendar, yr: LongArray, mn: LongArray, dy: LongArray) {
+    TODO("h014 stub: owner libgtk gtk_calendar_get_date (out of corpus)")
+}
+
+fun gtk_text_buffer_set_text(t: GtkTextBuffer, txt: String, len: Int) {
+    TODO("h014 stub: owner libgtk gtk_text_buffer_set_text (out of corpus)")
+}
+
+fun gtk_font_chooser_get_font(b: GtkFontChooser): String {
+    TODO("h014 stub: owner libgtk gtk_font_chooser_get_font (out of corpus)")
+}
+
+fun gtk_color_chooser_get_rgba(c: GtkColorChooser, r: GdkRGBA) {
+    TODO("h014 stub: owner libgtk gtk_color_chooser_get_rgba (out of corpus)")
+}
+
+fun gtk_label_set_text(l: GtkLabel, txt: String) {
+    TODO("h014 stub: owner libgtk gtk_label_set_text (out of corpus)")
+}
+
+fun gtk_widget_hide(w: GtkWidget) {
+    TODO("h014 stub: owner libgtk gtk_widget_hide (out of corpus)")
+}
+
+fun gtk_widget_show(w: GtkWidget) {
+    TODO("h014 stub: owner libgtk gtk_widget_show (out of corpus)")
+}
+
+fun gtk_tree_selection_get_selected(
+    t: GtkTreeSelection,
+    m: Array<GtkTreeModel?>,
+    iter: GtkTreeIter
+): Boolean {
+    TODO("h014 stub: owner libgtk gtk_tree_selection_get_selected (out of corpus)")
+}
+
+fun gtk_tree_model_get(m: GtkTreeModel, iter: GtkTreeIter, col: Int): String {
+    TODO("h014 stub: owner libgtk gtk_tree_model_get (out of corpus)")
+}
+
+fun gtk_tree_store_clear(t: GtkTreeStore) {
+    TODO("h014 stub: owner libgtk gtk_tree_store_clear (out of corpus)")
+}
+
+fun gtk_spin_button_get_value(s: GtkSpinButton): Double {
+    TODO("h014 stub: owner libgtk gtk_spin_button_get_value (out of corpus)")
+}
+
+fun gtk_spin_button_set_value(s: GtkSpinButton, v: Double) {
+    TODO("h014 stub: owner libgtk gtk_spin_button_set_value (out of corpus)")
 }
