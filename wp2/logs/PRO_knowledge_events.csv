@@ -1838,3 +1838,13 @@ reuse,h015,compiler-write.c::write_code,2026-11-26T07:00:00+0000
 hit,h015,compiler-write.c::write_code,2026-11-26T07:00:00+0000
 reuse,h017,compiler-write.c::write_code,2026-11-26T07:00:00+0000
 hit,h017,compiler-write.c::write_code,2026-11-26T07:00:00+0000
+reuse,h004,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
+hit,h004,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
+reuse,h012,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
+hit,h012,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
+reuse,h014,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
+hit,h014,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
+reuse,h015,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
+hit,h015,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
+reuse,h017,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
+hit,h017,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
