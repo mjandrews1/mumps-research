@@ -107,3 +107,75 @@ fun Global.Length(needle: Global): Int {
         p = hit + ndl.length
     }
 }
+
+// ----------------------------------------------------------------------------
+// (B6 unit 181) libmpscpp.cpp::global::Length(mstring needle) - the
+// mstring-needle overload (reference lines 3306-3328; the global-needle
+// overload above is B5 unit 145). Identity verified against the study tool
+// (tools/select_study_subset.py): global::Length, cpp, loc 17,
+// comment_ratio 0.056, pointer_marks 0, control_marks 4, score 8.1 - exact
+// match to wp1/study-subset/units.csv row 181 (batch 6); disambiguates from
+// the global-needle form (row 146, score 9.9, DONE as u145) by loc/ctrl.
+// ----------------------------------------------------------------------------
+
+/**
+ * global::Length(mstring needle): piece count of this global's value under
+ * the mstring needle - single retrieve (this global only; the needle is
+ * the caller's mstring value, no second Mglobal), then the same
+ * strstr-walk piece count as u145: i starts at 1, an empty haystack
+ * returns 0, zero needle hits return 1 ("one piece").
+ *
+ * Rules applied (wp2/arms/PRO/rules_v0.pl):
+ *  - h007 char_buffer     : gtmp[STR_MAX] Mglobal out buffer.
+ *  - h012 unsigned_byte_domain: the walk folds to String.indexOf over the
+ *    retrieved C-string domain (u145 precedent - strstrC has no shared
+ *    seat, the fold replaces the per-file private helper).
+ *  - h014 out_of_scope_call: Mglobal seat (mglobal InterpStubs stub,
+ *    RETRIEVE = 0, defines.h:83) reused unmodified;
+ *    GlobalExceptionCode/throw MumpsGlobalException -> MdhState;
+ *    GLOBAL_NOT_FOUND = 2 (libmpscpp.h:71); needle.c_str() -> the Mstring
+ *    value carrier (unit 131).
+ *  - h015 grammar_collision: overload folds into the Kotlin overload set
+ *    by parameter type (Mstring vs Global); pre-push scan clean.
+ *  - h017 naming          : Length keeps the vendor name; extension on
+ *    the Global carrier (u145 precedent).
+ *
+ * Vendor notes (translated faithfully, not "fixed"):
+ *  - i starts at 1 BEFORE the walk; a non-empty haystack with zero needle
+ *    hits returns 1 - "one piece" (vendor comment) - kept verbatim.
+ *  - The walk advances by the needle LENGTH (p1+strlen(needle)), so
+ *    overlapping occurrences are counted - kept verbatim.
+ *  - An EMPTY needle makes the vendor loop forever (strstr(p1,"") returns
+ *    p1, i++ advances but p1 never moves) - the C infinite loop is kept
+ *    byte-faithful in the fold (indexOf returns p each time, p unchanged).
+ */
+fun Global.Length(needle: Mstring): Int {
+    val svPtr: Msv = MdhState.svPtr
+    val gtmp = CharArray(STR_MAX)
+
+    // vendor: Mglobal(RETRIEVE,(unsigned char *)ref,gtmp,svPtr)
+    val refBuf = CharArray(STR_MAX)
+    writeCstring(refBuf, ref)
+    val f = mglobal(RETRIEVE, refBuf, gtmp, svPtr)
+
+    if (f == 0) {
+        MdhState.globalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
+    }
+
+    // vendor: p1=(char *)gtmp; if (strlen(p1)==0) return 0;
+    val hay = cstringAt(gtmp)
+    if (hay.isEmpty()) return 0
+
+    // vendor: while(1){ if ((p1=strstr(p1,needle.c_str()))==NULL)
+    //                 return i; i++; p1=p1+strlen(needle.c_str()); }
+    val ndl = needle.value
+    var i = 1
+    var p = 0
+    while (true) {
+        val hit = hay.indexOf(ndl, p)
+        if (hit == -1) return i // one piece
+        i++
+        p = hit + ndl.length
+    }
+}
