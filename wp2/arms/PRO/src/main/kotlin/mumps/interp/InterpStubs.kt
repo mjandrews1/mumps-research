@@ -465,15 +465,13 @@ fun leaningToothpickize(b: Bstring): Bstring {
 // --- added by B6 unit 161 (server.cpp::main) ---
 
 /**
- * Owner: interp-globalb.cpp::Mglobal (batch-6 corpus unit, roster
- * row 174 - resolves when that unit lands). The capital-M global
- * array dispatcher called by the transaction server; key carries
- * the C-string key with its offset (the server passes
- * &clientMsg.buff0[1] - InterpStubs.kt offset-carrying precedent).
+ * Owner: interp-globalb.cpp::Mglobal - RESOLVED by Mglobal.kt
+ * (unit 173, vendor 70-93; roster row 174, batch 6 - the h018
+ * SQLITE arm per the reference build; the keyfix copy/write-back
+ * adapter and the NativeBtree.btree seat carry the body); stub
+ * removed (the ServerMain.kt:237 call site binds unchanged on
+ * the key-offset-carrying signature).
  */
-fun Mglobal(g: Int, key: CharArray, keyOff: Int, bd: CharArray, svPtr: Msv): Int {
-    TODO("h014 stub: owner interp-globalb.cpp::Mglobal (batch-6 unit)")
-}
 
 /** Owner: server.cpp::logtime (server.cpp:62, not a corpus unit). */
 fun logtime(): CharArray {

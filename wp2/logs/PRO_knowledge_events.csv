@@ -1940,3 +1940,15 @@ reuse,h015,interp-sym.cpp::_extract,2026-11-26T17:00:00+0000
 hit,h015,interp-sym.cpp::_extract,2026-11-26T17:00:00+0000
 reuse,h017,interp-sym.cpp::_extract,2026-11-26T17:00:00+0000
 hit,h017,interp-sym.cpp::_extract,2026-11-26T17:00:00+0000
+reuse,h012,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+hit,h012,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+reuse,h013,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+hit,h013,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+reuse,h014,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+hit,h014,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+reuse,h015,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+hit,h015,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+reuse,h017,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+hit,h017,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+reuse,h018,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
+hit,h018,interp-globalb.cpp::Mglobal,2026-11-26T18:00:00+0000
