@@ -1694,3 +1694,17 @@ reuse,h015,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
 hit,h015,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
 reuse,h017,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
 hit,h017,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
+reuse,h008,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+hit,h008,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+reuse,h009,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+hit,h009,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+reuse,h012,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+hit,h012,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+reuse,h013,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+hit,h013,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+reuse,h014,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+hit,h014,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+reuse,h015,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+hit,h015,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+reuse,h017,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000
+hit,h017,libmpscpp.cpp::Avg,2026-11-25T20:00:00+0000

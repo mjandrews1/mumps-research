@@ -378,6 +378,20 @@ fun GlobalRef.Max(): Double {
     TODO("h014 stub: owner libmpscpp.cpp::global::Max (not a corpus unit)")
 }
 
+// --- added by B5 unit 148 (libmpscpp.cpp::Avg) ---
+
+/**
+ * Owner: libmpscpp.cpp::global::Avg (libmpscpp.cpp:1726, corpus
+ * unit roster row 262, batch 9 - out of B5 scope; resolves when
+ * batch 9 lands). TAG NOTE (u141 precedent): the sibling
+ * global::Max above was tagged "not a corpus unit" by u88 but IS
+ * roster row 170 (batch 6) - superseded note, kept verbatim here.
+ */
+fun GlobalRef.Avg(): Double {
+    TODO("h014 stub: owner libmpscpp.cpp::global::Avg (corpus unit row 262, batch 9)")
+}
+
+
 // --- added by B5 unit 124 (libmpscpp.cpp::<misc-5>) ---
 
 /** Owner: interp-stem.cpp stem tables (batch-6 unit owns the tables; wstem itself is not a corpus unit). */
