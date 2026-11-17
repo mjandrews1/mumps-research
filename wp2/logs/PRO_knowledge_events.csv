@@ -1444,3 +1444,9 @@ reuse,h017,libmpscpp.cpp::<misc-5>,2026-11-24T20:00:00+0000
 hit,h017,libmpscpp.cpp::<misc-5>,2026-11-24T20:00:00+0000
 reuse,h004,libmpscpp.cpp::<misc-5>,2026-11-24T20:00:00+0000
 hit,h004,libmpscpp.cpp::<misc-5>,2026-11-24T20:00:00+0000
+reuse,h015,rdbms-if.c::sql,2026-11-24T21:00:00+0000
+hit,h015,rdbms-if.c::sql,2026-11-24T21:00:00+0000
+reuse,h017,rdbms-if.c::sql,2026-11-24T21:00:00+0000
+hit,h017,rdbms-if.c::sql,2026-11-24T21:00:00+0000
+reuse,h018,rdbms-if.c::sql,2026-11-24T21:00:00+0000
+hit,h018,rdbms-if.c::sql,2026-11-24T21:00:00+0000
