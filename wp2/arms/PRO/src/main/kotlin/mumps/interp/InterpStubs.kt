@@ -91,6 +91,13 @@ class Msv {
     var nstart: Any? = null
     /** :82 - int PD1 ($storage). */
     var PD1: Int = 0
+    // --- stateVector.h fields added by B6 unit 158 (mpstime.cpp::main) ---
+    /** :47 - int LockDone (the cleanLocks epilogue gate). */
+    var LockDone: Int = 0
+    /** :83 - char UKEY[1024] (h012 byte domain; the btree key file). */
+    val UKEY: CharArray = CharArray(1024)
+    /** :84 - char UDAT[1024] (h012 byte domain; the btree data file). */
+    val UDAT: CharArray = CharArray(1024)
     /** :85 - unsigned char args[STR_MAX] (h012 byte domain; STR_MAX=32000, strmax.h:3). */
     val args: CharArray = CharArray(32000)
     /** :86 - char Table[256] (h012 byte domain; data base table). */
