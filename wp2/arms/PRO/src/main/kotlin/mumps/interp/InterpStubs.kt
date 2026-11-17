@@ -184,13 +184,32 @@ fun xindex(source: CharArray, ptrn: CharArray, strt: Short): Int {
  */
 
 /**
- * Owner: interpreter core - Interpret(cmd, svPtr) (not a corpus unit).
- * fcn (interp-fcn.cpp::fcn) was stubbed here until B4 unit 94
- * landed; the owner-level definition now lives in Fcn.kt and the
- * stub has been removed.
+ * Owner: interpreter core - Interpret(cmd, svPtr). The stub that
+ * lived here (u159-era mis-tag, corrected at u171: roster row 156
+ * is interp-zfcns.cpp::zfcn, this seat is u155) was resolved by
+ * batch-6 unit 155; the owner-level definition now lives in
+ * Interpret.kt and call sites bind unchanged on this signature.
  */
-fun interpret(cmd: String, svPtr: Msv): Int {
-    TODO("h014 stub: owner interpreter core (Interpret, not a corpus unit)")
+
+/**
+ * Owner: interp-sysfunc.cpp::Merge (batch-8 corpus unit). Raised at
+ * u155 (h014 out_of_scope_call) - the MERGE command arm calls it
+ * with left=v1d offset 0, right=MergeRHS offset 1; returns Int to
+ * match the Mglobal(STORE,...) sibling call in the LHSREF arm.
+ */
+fun Merge(left: CharArray, leftOff: Int, right: CharArray, rightOff: Int,
+          svPtr: Msv): Int {
+    TODO("h014 stub: owner interp-sysfunc.cpp::Merge (batch-8 unit)")
+}
+
+/**
+ * Owner: interp-parse.cpp::inout (batch-10 corpus unit). Raised at
+ * u155 (h014 out_of_scope_call) - the NEXT_CMND comment/blank-line
+ * skip passes (text=pd1 at sdlim, cmnd/col as ints); the batch-10
+ * render will resolve the seat.
+ */
+fun inout(text: CharArray, textOff: Int, cmnd: Int, col: Int, svPtr: Msv) {
+    TODO("h014 stub: owner interp-parse.cpp::inout (batch-10 unit)")
 }
 
 /** Owner: global-array machinery Mglobal(g,key,bd,svPtr) (not a corpus unit). */
@@ -301,13 +320,13 @@ fun sym_(flag: Int, name: CharArray, nameOff: Int, bd: CharArray, bdOff: Int,
  * binds arg4 to bd+1; the parse_ call sites ignore both, so the
  * arg4Off parameter defaults to 0).
  */
-fun BuildGlobal(a: Int, g: Int, key: CharArray, keyOff: Int, arg4: CharArray?,
+fun BuildGlobal(a: Int, g: Int, key: CharArray?, keyOff: Int, arg4: CharArray?,
                 svPtr: Msv, arg4Off: Int = 0): Int {
     TODO("h014 stub: owner interp-parse.cpp::BuildGlobal (batch-8 unit); vendor arg4 NULL renders as null")
 }
 
 /** Owner: interp-sym.cpp::BuildLocal (batch-8 corpus unit). */
-fun BuildLocal(a: Int, g: Int, key: CharArray, keyOff: Int, arg4: CharArray?,
+fun BuildLocal(a: Int, g: Int, key: CharArray?, keyOff: Int, arg4: CharArray?,
                svPtr: Msv, arg4Off: Int = 0): Int {
     TODO("h014 stub: owner interp-sym.cpp::BuildLocal (batch-8 unit); vendor arg4 NULL renders as null; returns Int (vendor interp-sym.cpp:97), arg4Off default 0 (u94 fcn)")
 }
