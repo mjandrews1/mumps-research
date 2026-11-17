@@ -539,7 +539,7 @@ fun StopLookup(svptr: Msv, ep: CharArray?, arg1: CharArray): String {
 
 /** vendor 10513: char * SynInit(struct MSV* svptr, char* ep, char* arg1). */
 fun SynInit(svptr: Msv, ep: CharArray?, arg1: CharArray): String {
-    SynInit(cstringAt(arg1)) // h014 stub (batch-5 owner; char* overload)
+    SynInit(cstringAt(arg1)) // unit 126 (DONE - real body in SynInit.kt)
     return ""
 }
 

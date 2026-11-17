@@ -182,12 +182,10 @@ fun StopLookup(str: String): Boolean {
     TODO("h014 stub: owner libmpscpp.cpp::StopLookup (not a corpus unit)")
 }
 
-/** Owner: libmpscpp.cpp::SynInit (batch-5 corpus unit, row 133; char* overload). */
-fun SynInit(file: String) {
-    TODO("h014 stub: owner libmpscpp.cpp::SynInit (batch-5 unit)")
-}
-
-/** Owner: libmpscpp.cpp::SYN (7788; not a corpus unit). */
+/** Owner: libmpscpp.cpp::SYN (7788; not a corpus unit).
+ *  Carrier note: the syn table and synx now live in SynInit.kt
+ *  (unit 126, h008 carrier) - when this stub resolves it reads
+ *  them; bsearch/cmpr at vendor 7790-7791. */
 fun SYN(word: String): String {
     TODO("h014 stub: owner libmpscpp.cpp::SYN (not a corpus unit)")
 }
