@@ -31,8 +31,9 @@
 % 2026-11-19 hardening (B2 close post-mortem): the old cwd-relative
 % fact silently reported 0 events when swipl started anywhere other
 % than the repo root. The path is now resolved relative to THIS
-% script file (.../wp2/arms/PRO -> ../../../logs/), so it is correct
-% from any working directory.
+% script file (.../wp2/arms/PRO -> ../../logs/, i.e. wp2/logs),
+% so it is correct from any working directory. (First cut used
+% three .. segments - one too many; caught on the m1-build verify.)
 
 :- dynamic script_dir/1.
 :- (   prolog_load_context(file, ScriptFile)
@@ -47,7 +48,7 @@ default_log_path(File) :-
     % .. segments resolve fine in exists_file/open, and the path is
     % cwd-independent whenever the script was consulted absolutely.
     (   script_dir(Dir)
-    ->  directory_file_path(Dir, '../../../logs/PRO_knowledge_events.csv', File)
+    ->  directory_file_path(Dir, '../../logs/PRO_knowledge_events.csv', File)
     ;   File = 'wp2/logs/PRO_knowledge_events.csv'
     ).
 
