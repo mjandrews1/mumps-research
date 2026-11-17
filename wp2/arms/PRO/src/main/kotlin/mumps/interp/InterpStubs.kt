@@ -346,10 +346,9 @@ fun Eval(tmp0: CharArray, tmp2: CharArray, svPtr: Msv): Int {
     TODO("h014 stub: owner interp-sym.cpp::Eval (not a corpus unit)")
 }
 
-/** Owner: interp-sym.cpp::Qlength (batch-5 corpus unit, interp-sym.cpp:1100). */
-fun Qlength(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int, svPtr: Msv) {
-    TODO("h014 stub: owner interp-sym.cpp::Qlength (batch-5 unit)")
-}
+/** Owner: interp-sym.cpp::Qlength - RESOLVED by Qlength.kt (unit
+ *  133, vendor 1100-1124); stub removed (Fcn.kt call site binds
+ *  unchanged). */
 
 /** Owner: interp-sym.cpp::Qsub (batch-7 corpus unit, interp-sym.cpp:1126). */
 fun Qsub(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int,
