@@ -1796,3 +1796,15 @@ reuse,h015,compiler-read.c::read_code,2026-11-26T04:00:00+0000
 hit,h015,compiler-read.c::read_code,2026-11-26T04:00:00+0000
 reuse,h017,compiler-read.c::read_code,2026-11-26T04:00:00+0000
 hit,h017,compiler-read.c::read_code,2026-11-26T04:00:00+0000
+reuse,h006,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+hit,h006,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+reuse,h008,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+hit,h008,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+reuse,h012,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+hit,h012,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+reuse,h014,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+hit,h014,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+reuse,h015,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+hit,h015,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+reuse,h017,interp-parse.cpp::match,2026-11-26T05:00:00+0000
+hit,h017,interp-parse.cpp::match,2026-11-26T05:00:00+0000

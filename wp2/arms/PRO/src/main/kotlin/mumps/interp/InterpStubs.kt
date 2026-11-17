@@ -286,11 +286,11 @@ fun mglobalAt(g: Int, key: CharArray, keyOff: Int, bd: CharArray, bdOff: Int,
 
 // --- added by B3 unit 64 (interp-parse.cpp::patrn) ---
 
-/** Owner: interp-parse.cpp::match (batch-6 corpus unit). */
-fun match(pts: Array<IntArray>, lx: Int, ct: IntArray, ad: CharArray,
-          rslt: ShortArray, bd: CharArray) {
-    TODO("h014 stub: owner interp-parse.cpp::match (batch-6 unit); rslt is the vendor short * out-param")
-}
+/**
+ * interp-parse.cpp::match was stubbed here until B6 unit 160
+ * landed; the owner-level definition now lives in Match.kt and
+ * the stub has been removed.
+ */
 
 /** Owner: interp-strmanip.cpp::substr (batch-7 corpus unit). */
 fun substr(src: CharArray, srcOff: Int, dst: CharArray, start: Int, len: Int) {
