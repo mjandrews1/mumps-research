@@ -115,9 +115,13 @@ rule(h017, trigger(naming),
 % misses (units 4, 10, 12, 20, 29; T1 recurrence >= 2; G4 dedup: no prior
 % rule with this canonical trigger). G1: applies to any #ifdef/#ifndef
 % construct, not any single unit. G3: no oracle outputs embedded.
+% Upgraded untested -> unit_tested at B2 close (2026-11-19): first
+% exercises at units 40/41 (mps_exp2/mps_exp10, 3-way #ifdef resolved
+% against the reference build config), recurring in units 52-53, 55,
+% and 57; both exercises build-green.
 
 rule(h018, trigger(preprocessor_conditional),
      condition(reference_build_config_is_the_only_resolution_authority),
      action('resolve #ifdef/#ifndef arms against the reference build config (SQLITE, HAVE_HARDWARE_MATH, GCVT defined; NATIVE/NATIVE_SHARED/BIGFLOAT/MULTI_PRECISION undefined); translate only the live arm; document the excluded arms and any @VAR@ build-substitution macro as comments'),
      example('interp-arith.cpp'),
-     provenance(pro, b1, '2026-11-15'), verification(untested)).
+     provenance(pro, b1, '2026-11-15'), verification(unit_tested)).
