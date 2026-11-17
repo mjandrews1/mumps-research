@@ -1614,3 +1614,11 @@ reuse,h017,interp-arith.cpp::expx,2026-11-25T11:00:00+0000
 hit,h017,interp-arith.cpp::expx,2026-11-25T11:00:00+0000
 reuse,h018,interp-arith.cpp::expx,2026-11-25T11:00:00+0000
 hit,h018,interp-arith.cpp::expx,2026-11-25T11:00:00+0000
+reuse,h008,libmpscpp.cpp::Multiply,2026-11-25T12:00:00+0000
+hit,h008,libmpscpp.cpp::Multiply,2026-11-25T12:00:00+0000
+reuse,h014,libmpscpp.cpp::Multiply,2026-11-25T12:00:00+0000
+hit,h014,libmpscpp.cpp::Multiply,2026-11-25T12:00:00+0000
+reuse,h015,libmpscpp.cpp::Multiply,2026-11-25T12:00:00+0000
+hit,h015,libmpscpp.cpp::Multiply,2026-11-25T12:00:00+0000
+reuse,h017,libmpscpp.cpp::Multiply,2026-11-25T12:00:00+0000
+hit,h017,libmpscpp.cpp::Multiply,2026-11-25T12:00:00+0000

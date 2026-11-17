@@ -109,3 +109,55 @@ fun Multiply(svptr: Msv, ep: String, arg1: CharArray, arg2: CharArray, arg3: Cha
 
     return "" // vendor: return (char *) "";
 }
+
+/**
+ * PRO-arm translation of libmpscpp.cpp::Multiply(string, string,
+ * string) (B5 tranche B, unit 140, rank 172). Translated
+ * independently from the pristine vendor source
+ * (mumps-14-may-2026.tgz, sha256 621deb25...ffdbe), reference
+ * source lines 2211-2250.
+ *
+ * Identity verified against the study tool (tools/select_study_
+ * subset.py): Multiply, cpp, loc 26, comment_ratio 0.037,
+ * pointer_marks 2, control_marks 8, score 21.4 - exact match to
+ * wp1/study-subset/units.csv row 141 (batch 5).
+ *
+ * Overload disambiguation (four same-named units in the roster):
+ * this is the STRING-argument library helper at :2211; the
+ * intrinsic MSV wrapper (:10193, rank 154) is the fun above;
+ * global::Multiply (:2164, rank 213) is GlobalMultiply.kt (u53);
+ * the char-star helper (:2252, rank 169) is the batch-7 unit.
+ *
+ * The vendor body is a VERBATIM copy of the global::Multiply
+ * matrix loop (the only difference is the three fresh global
+ * constructions from the string args). The arm folds the
+ * duplicate to the single u53 seat (u117 Transpose-forwarder
+ * precedent): construct A/B/C from the strings and dispatch.
+ *
+ * Rules applied (wp2/arms/PRO/rules_v0.pl):
+ *  - h008 static_scratch     : the vendor takes the three strings
+ *    BY VALUE (fresh std::string copies); Kotlin String is
+ *    immutable - the copy semantic is the same aliasing freedom.
+ *  - h014 out_of_scope_call  : the matrix machinery is DONE -
+ *    the Global.Multiply extension (u53) is a direct call; the
+ *    Global(String) construction is the DONE carrier
+ *    (GlobalCarrier.kt:21).
+ *  - h015 grammar_collision  : pre-push scan incl. cross-file
+ *    top-level names: new overload Multiply(String, String,
+ *    String) - distinct from the MSV-intrinsic signature above
+ *    (overload resolution is the C++ name-overload analog).
+ *  - h017 naming             : Multiply keeps the vendor name.
+ *
+ * Vendor notes (translated faithfully, not "fixed"):
+ *  - The C().Kill() clears the destination global first - the
+ *    fold preserves it inside the u53 seat (its first statement).
+ *  - The duplicated loop in the vendor is dead weight on the
+ *    roster side; the fold is journaled as the diverging render
+ *    decision with the u117 precedent.
+ */
+fun Multiply(a: String, b: String, c: String) {
+    val A = Global(a) // vendor: global A((char *) a.c_str());
+    val B = Global(b) // vendor: global B((char *) b.c_str());
+    val C = Global(c) // vendor: global C((char *) c.c_str());
+    A.Multiply(B, C) // the verbatim-duplicate matrix loop (u53 seat)
+}
