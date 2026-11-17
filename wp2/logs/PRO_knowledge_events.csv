@@ -1684,3 +1684,13 @@ reuse,h012,interp-arith.cpp::mps_log10,2026-11-25T18:00:00+0000
 hit,h012,interp-arith.cpp::mps_log10,2026-11-25T18:00:00+0000
 reuse,h017,interp-arith.cpp::mps_log10,2026-11-25T18:00:00+0000
 hit,h017,interp-arith.cpp::mps_log10,2026-11-25T18:00:00+0000
+reuse,h007,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
+hit,h007,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
+reuse,h012,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
+hit,h012,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
+reuse,h014,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
+hit,h014,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
+reuse,h015,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
+hit,h015,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
+reuse,h017,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
+hit,h017,libmpscpp.cpp::global::Translate,2026-11-25T19:00:00+0000
