@@ -230,3 +230,92 @@ private fun cstring(b: CharArray): String {
     while (b[i] != NUL) i++
     return b.concatToString(0, i)
 }
+
+// ----------------------------------------------------------------------------
+// (B6 unit 180) libmpscpp.cpp::ScanAlnum(istream, int, int) - the SECOND of
+// the three vendor overloads (reference lines 10086-10110; the MSV overload
+// is B3 unit 79 above, the FILE* overload is B4 unit 113 above). Identity
+// verified against the study tool (tools/select_study_subset.py):
+// libmpscpp.cpp::ScanAlnum, cpp, loc 18, comment_ratio 0.053,
+// pointer_marks 0, control_marks 5, score 8.4, rank 73 - exact match to
+// wp1/study-subset/units.csv row 180 (batch 6); the pointer_mark count (0:
+// istream passed by value, no pointer parameter) disambiguates this
+// overload from the FILE* sibling (1 pointer mark, row 114, DONE as
+// u113).
+// ----------------------------------------------------------------------------
+
+/**
+ * mstring ScanAlnum(istream u, int min, int max): the istream twin of the
+ * FILE* tokenizer directly above - read whitespace-delimited tokens, keep
+ * the first whose alphanumeric-only lowercase fold has length within
+ * [min, max] and does not start with a digit; on end-of-input or the
+ * max>511 guard return the empty mstring.
+ *
+ * Rules applied (wp2/arms/PRO/rules_v0.pl):
+ *  - h001 io_stream_param     : istream u -> java.util.Scanner (the
+ *    operator-extraction analog of the FILE*-to-Reader edge in u113;
+ *    the Scanner type also keeps the Kotlin overload set unambiguous -
+ *    Reader/Int/Int is already taken by u113).
+ *  - h008 static_scratch      : word/tmp1 are STACK buffers (8192 bytes
+ *    each, fresh per call) - no scratch object, as in u113.
+ *  - h011 goto                : the backward "goto repeat" becomes the
+ *    while(true)+continue shape.
+ *  - h012 unsigned_byte_domain: word/tmp1 Char(0..255); isalnum/tolower/
+ *    isdigit are the C-locale byte-domain helpers (shared with the
+ *    overloads above).
+ *  - h015 grammar_collision   : the overload folds into the Kotlin
+ *    overload set by parameter types (Scanner/Int/Int); pre-push scan
+ *    clean.
+ *  - h017 naming              : ScanAlnum keeps the vendor name; the
+ *    mstring return rides the Mstring carrier.
+ *
+ * Vendor notes (translated faithfully, not "fixed"):
+ *  - The istream is passed BY VALUE (istream u - istream is not
+ *    copyable in real C++; a vendor fossil, noted, not widened).
+ *  - As in u113, the token is read FIRST and then discarded when
+ *    "max > 511" - the guard is checked after the extraction, so one
+ *    token is always consumed before the empty return; kept.
+ *  - "u >> word" over a char array is uncapped by width in the
+ *    vendor (no setw is in effect) - Scanner.next() likewise returns
+ *    the full token.
+ *  - "isdigit(tmp1[0])" is only evaluated when j>0 (the j==0 test
+ *    short-circuits first in both C and Kotlin); fold order kept.
+ *  - A stream of only alnum-free or digit-leading tokens loops until
+ *    end-of-input (the vendor's repeat loop; kept).
+ */
+fun ScanAlnum(u: java.util.Scanner, min: Int, max: Int): Mstring {
+
+    val word = CharArray(8192)
+    val tmp1 = CharArray(8192)
+    val tmp = Mstring()
+
+    while (true) { // repeat:
+
+        // vendor: if (! (u >> word) || max > 511)
+        if (!u.hasNext() || max > 511) {
+            tmp.value = ""
+            return tmp
+        }
+        val token = u.next()
+        for (k in token.indices) word[k] = token[k]
+        word[token.length] = NUL
+
+        var j = 0
+        var i = 0
+        while (word[i] != NUL) { // vendor: for (int i=0; word[i]; i++)
+            if (isAlnum(word[i])) {
+                tmp1[j] = toLower(word[i])
+                j++
+            }
+            i++
+        }
+
+        // vendor: if ( j == 0 || j < min || j > max || isdigit(tmp1[0]) )
+        // goto repeat;
+        if (j == 0 || j < min || j > max || isDigit(tmp1[0])) continue
+
+        tmp1[j] = NUL
+        tmp.value = cstring(tmp1)
+        return tmp
+    }
+}
