@@ -13,9 +13,11 @@ package mumps.compiler
  */
 data class AtTestResult(val rc: Int, val pd1Last: Short)
 
-/** Owner: compiler-at-test.c (not in the B1/B2 corpus). */
-fun atTest(xd: CharArray, pd1: CharArray, lines: Int, xpx: Long): AtTestResult =
-    TODO("h014 stub: owner compiler-at-test.c (not in corpus)")
+// (B4 unit 108) atTest landed in AtTest.kt: its h014 stub is REMOVED
+// (cleanLocks precedent, unit 56); the real atTest reads the caller's
+// pd1Last (imbalanced-quotes diagnostic) and echoes it back in the
+// AtTestResult bundle (h005 shape kept; the old stub's "not in
+// corpus" owner note was wrong - scope note corrected).
 
 /** Owner: compiler-at-test.c (not in the B1/B2 corpus). */
 fun atCopy(atFlg: Int, tmp: StringBuilder) {

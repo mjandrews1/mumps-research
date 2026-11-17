@@ -159,7 +159,7 @@ fun setCode(entry_pt: Int): Int {
 
             st.Set_flg = 0
 
-            val r = atTest(st.xd, st.pd1, st.lines, st.xpx) // h005 bundle
+            val r = atTest(st.xd, st.pd1, st.pd1Last, st.lines, st.xpx) // h005 bundle (B4 u108 real owner)
             st.at_flg = r.rc.toShort() // h010: int result into the short domain
             st.pd1Last = r.pd1Last
 

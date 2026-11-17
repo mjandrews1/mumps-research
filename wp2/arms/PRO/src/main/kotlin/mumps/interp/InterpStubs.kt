@@ -346,15 +346,11 @@ fun Qsub(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int,
     TODO("h014 stub: owner interp-sym.cpp::Qsub (batch-7 unit)")
 }
 
-/**
- * Owner: interp-sysfunc.cpp::LocalName (B4 corpus unit, groups 2/3,
- * interp-sysfunc.cpp:827); tmp1 is the out buffer, tmp2 nullable for
- * the vendor NULL third argument (declared cppsysfunc.h:40).
- */
-fun LocalName(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int,
-              tmp2: CharArray?, tmp2Off: Int, svPtr: Msv) {
-    TODO("h014 stub: owner interp-sysfunc.cpp::LocalName (B4 unit, groups 2/3)")
-}
+// (B4 unit 112) The LocalName stub raised by B4 unit 94 is RESOLVED:
+// B4 unit 112 translated interp-sysfunc.cpp::LocalName - see
+// LocalName.kt (the stub was removed, cleanLocks precedent, unit 56);
+// the Fcn.kt call sites bind the real owner with their existing
+// offset shapes.
 
 /**
  * Owner: include/mumpsc/globalOrder.h:8 inline GlobalOrder (not a
@@ -374,4 +370,42 @@ fun lpad(strin: CharArray, strinOff: Int, strout: CharArray, stroutOff: Int, l: 
 fun strfmon(s: CharArray, sOff: Int, maxsize: Int, format: CharArray, formatOff: Int,
             x: Double) {
     TODO("h014 stub: owner C library strfmon (monetary.h)")
+}
+
+// (added by B4 unit 104 - parse_pattern_element owner family)
+
+/**
+ * Owner: interp-bstring.cpp::bstrcat (batch-9 corpus unit); the
+ * vendor takes both bstrings BY VALUE and returns the fresh
+ * concatenation struct.
+ */
+fun bstrcat(a: Bstring, b: Bstring): Bstring {
+    TODO("h014 stub: owner interp-bstring.cpp::bstrcat (batch-9 unit)")
+}
+
+/** Owner: interp-rpm.cpp:472-475 file static accept_it (not a corpus unit). */
+fun acceptIt(p: Parser) {
+    TODO("h014 stub: owner interp-rpm.cpp accept_it (not a corpus unit)")
+}
+
+/** Owner: interp-rpm.cpp:461-469 accept (not a corpus unit). */
+fun accept(p: Parser, expectedKind: TokenType) {
+    TODO("h014 stub: owner interp-rpm.cpp accept (not a corpus unit)")
+}
+
+/** Owner: interp-rpm.cpp:493-500 file static syntax_error (not a corpus
+ *  unit; prints the caret line and sigint(100)s). */
+fun syntaxError(msg: String, line: String, pos: Int) {
+    TODO("h014 stub: owner interp-rpm.cpp syntax_error (not a corpus unit)")
+}
+
+/** Owner: interp-rpm.cpp::parse_pattern_atom_list (file static, not a
+ *  corpus unit; rides parse_pattern_atom, not in the corpus either). */
+fun parsePatternAtomList(p: Parser): Bstring {
+    TODO("h014 stub: owner interp-rpm.cpp parse_pattern_atom_list (not a corpus unit)")
+}
+
+/** Owner: interp-rpm.cpp::leaning_toothpickize (batch-6 corpus unit). */
+fun leaningToothpickize(b: Bstring): Bstring {
+    TODO("h014 stub: owner interp-rpm.cpp::leaning_toothpickize (batch-6 unit)")
 }

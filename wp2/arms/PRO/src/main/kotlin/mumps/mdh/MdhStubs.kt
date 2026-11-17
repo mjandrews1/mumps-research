@@ -177,13 +177,11 @@ fun Dice(a: Global, b: Global): Double {
     TODO("h014 stub: owner libmpscpp.cpp::Dice (batch-6 unit)")
 }
 
-/**
- * Owner: libmpscpp.cpp::global::Centroid (batch-4 corpus unit,
- * units.csv row 106 - B4 groups 2/3; remove when it lands).
- */
-fun Global.Centroid(B: Global) {
-    TODO("h014 stub: owner libmpscpp.cpp::global::Centroid (batch-4 unit)")
-}
+// (B4 unit 105) The Global.Centroid stub raised by B4 unit 97
+// (LibmpscppMisc9 wrapper) is RESOLVED: B4 unit 105 translated
+// libmpscpp.cpp::global::Centroid - see Centroid.kt (the stub was
+// removed, cleanLocks precedent, unit 56); the u97 wrapper's call
+// site now binds the real owner.
 
 /**
  * Owner: libmpscpp.cpp::global::DocCorrelate (batch-10 corpus
@@ -267,9 +265,10 @@ object AlignState {
 // removed, cleanLocks precedent, unit 56).
 
 /** Owner: libmpscpp.cpp::init (batch-4 corpus unit, not yet translated). */
-fun init() {
-    TODO("h014 stub: owner libmpscpp.cpp::init (batch-4 unit); owns the AlignState.a matrix allocation")
-}
+// (B4 unit 109) The init stub raised by unit 61 (Sw) is RESOLVED:
+// B4 unit 109 translated libmpscpp.cpp::init - see Init.kt (the
+// stub was removed, cleanLocks precedent, unit 56); Sw.kt's init()
+// call site now binds the real owner.
 
 /** Owner: libmpscpp.cpp:8041 nodash (not a corpus unit). */
 fun nodash(a: CharArray): Int {

@@ -48,8 +48,9 @@ object IfCode {
         }
 
         // h005 + h010: C is at_flg = atTest(xd, pd1, &pd1Last, lines, xpx);
-        // the int return is assigned to short at_flg.
-        val r = atTest(st.xd, st.pd1, st.lines, st.xpx)
+        // the int return is assigned to short at_flg. (B4 u108: the real
+        // atTest landed; the caller's pd1Last rides the parameter.)
+        val r = atTest(st.xd, st.pd1, st.pd1Last, st.lines, st.xpx)
         st.at_flg = r.rc.toShort()
         st.pd1Last = r.pd1Last
         if (st.at_flg == (-1).toShort()) return ABRTX // goto abrtx
