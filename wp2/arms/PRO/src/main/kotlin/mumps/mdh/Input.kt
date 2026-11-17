@@ -5,6 +5,7 @@ import java.io.Reader
 import mumps.interp.Msv
 import mumps.interp.NUL
 import mumps.interp.strcpyC
+import mumps.interp.strcatx // unit 136: resolved real seat (was the mdh stub)
 
 /**
  * PRO-arm translation of libmpscpp.cpp::Input (pilot B1, unit 23).

@@ -1,6 +1,7 @@
 package mumps.interp
 
-import mumps.mdh.strcatx
+// (unit 136: the strcatx import is gone - the resolved real seat
+// strcatx lives in this package, InterpStrmanipMisc.kt)
 import mumps.mdh.sym_
 
 /**

@@ -1568,3 +1568,13 @@ reuse,h015,interp-rpm.cpp::parse_count,2026-11-25T07:00:00+0000
 hit,h015,interp-rpm.cpp::parse_count,2026-11-25T07:00:00+0000
 reuse,h017,interp-rpm.cpp::parse_count,2026-11-25T07:00:00+0000
 hit,h017,interp-rpm.cpp::parse_count,2026-11-25T07:00:00+0000
+reuse,h012,interp-strmanip.cpp::<misc>,2026-11-25T08:00:00+0000
+hit,h012,interp-strmanip.cpp::<misc>,2026-11-25T08:00:00+0000
+reuse,h014,interp-strmanip.cpp::<misc>,2026-11-25T08:00:00+0000
+hit,h014,interp-strmanip.cpp::<misc>,2026-11-25T08:00:00+0000
+reuse,h015,interp-strmanip.cpp::<misc>,2026-11-25T08:00:00+0000
+hit,h015,interp-strmanip.cpp::<misc>,2026-11-25T08:00:00+0000
+reuse,h017,interp-strmanip.cpp::<misc>,2026-11-25T08:00:00+0000
+hit,h017,interp-strmanip.cpp::<misc>,2026-11-25T08:00:00+0000
+reuse,h018,interp-strmanip.cpp::<misc>,2026-11-25T08:00:00+0000
+hit,h018,interp-strmanip.cpp::<misc>,2026-11-25T08:00:00+0000

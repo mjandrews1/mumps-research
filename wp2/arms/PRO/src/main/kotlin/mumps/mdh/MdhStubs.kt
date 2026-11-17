@@ -46,10 +46,11 @@ fun sym_(fn: Int, key: CharArray, bd: CharArray, svPtr: Msv): CharArray? {
     TODO("h014 stub: owner sym_ symbol-table machinery (not a corpus unit)")
 }
 
-/** Owner: libmpscpp.cpp::strcatx - appends src with the vendor x01 subscript separator (not a corpus unit). */
-fun strcatx(dst: CharArray, src: CharArray) {
-    TODO("h014 stub: owner libmpscpp.cpp::strcatx (not a corpus unit)")
-}
+/** Owner: interp-strmanip.cpp::strcatx - RESOLVED by
+ *  InterpStrmanipMisc.kt (unit 136; tag corrected: libmpscpp.cpp
+ *  only calls it at 6978+, the single C definition is strmanip);
+ *  stub removed, the InterpSysfuncMisc call sites rebind via the
+ *  mumps.interp import. */
 
 
 /**

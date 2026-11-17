@@ -370,10 +370,10 @@ fun GlobalOrder(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int,
     TODO("h014 stub: owner globalOrder.h inline GlobalOrder (not a corpus unit)")
 }
 
-/** Owner: interp-strmanip.cpp::lpad (interp-strmanip.cpp:135, not a corpus unit). */
-fun lpad(strin: CharArray, strinOff: Int, strout: CharArray, stroutOff: Int, l: Short) {
-    TODO("h014 stub: owner interp-strmanip.cpp::lpad (not a corpus unit)")
-}
+/** Owner: interp-strmanip.cpp::lpad - RESOLVED by
+ *  InterpStrmanipMisc.kt (unit 136 - lpad rides the strmanip misc
+ *  chunk below the function-unit threshold); stub removed (the
+ *  Fcn.kt call site binds unchanged on the offset signature). */
 
 /** Owner: C library strfmon (monetary.h; external library, no corpus unit). */
 fun strfmon(s: CharArray, sOff: Int, maxsize: Int, format: CharArray, formatOff: Int,
