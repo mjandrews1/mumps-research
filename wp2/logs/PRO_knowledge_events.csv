@@ -1528,3 +1528,17 @@ reuse,h014,include/mumpsc/mstringClass.h::<misc>,2026-11-25T03:00:00+0000
 hit,h014,include/mumpsc/mstringClass.h::<misc>,2026-11-25T03:00:00+0000
 reuse,h015,include/mumpsc/mstringClass.h::<misc>,2026-11-25T03:00:00+0000
 hit,h015,include/mumpsc/mstringClass.h::<misc>,2026-11-25T03:00:00+0000
+reuse,h004,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+hit,h004,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+reuse,h011,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+hit,h011,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+reuse,h012,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+hit,h012,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+reuse,h013,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+hit,h013,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+reuse,h014,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+hit,h014,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+reuse,h015,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+hit,h015,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+reuse,h017,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
+hit,h017,interp-bmgsubs.c::bmg_search,2026-11-25T04:00:00+0000
