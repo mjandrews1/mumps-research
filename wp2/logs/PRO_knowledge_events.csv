@@ -1848,3 +1848,13 @@ reuse,h015,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
 hit,h015,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
 reuse,h017,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
 hit,h017,interp-stem.cpp::<misc>,2026-11-26T08:00:00+0000
+reuse,h008,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
+hit,h008,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
+reuse,h012,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
+hit,h012,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
+reuse,h014,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
+hit,h014,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
+reuse,h015,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
+hit,h015,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
+reuse,h017,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
+hit,h017,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000

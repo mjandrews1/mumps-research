@@ -191,10 +191,12 @@ fun SYN(word: String): String {
     TODO("h014 stub: owner libmpscpp.cpp::SYN (not a corpus unit)")
 }
 
-/** Owner: libmpscpp.cpp::Shred (batch-6 corpus unit, row 165; free Shred(char*, int)). */
-fun Shred(str: String, size: Int): String {
-    TODO("h014 stub: owner libmpscpp.cpp::Shred (batch-6 unit)")
-}
+/**
+ * libmpscpp.cpp::Shred was stubbed here until B6 unit 164
+ * landed; the owner-level definition now lives in Shred.kt and
+ * the stub has been removed (the MSV wrapper's call binds
+ * unchanged).
+ */
 
 /** Owner: libmpscpp.cpp::ShredQuery (7970; not a corpus unit). */
 fun ShredQuery(str: String, size: Int): String {

@@ -602,7 +602,7 @@ fun BMGSearch(svptr: Msv, ep: CharArray?, arg1: CharArray, arg2: CharArray): Cha
 /** vendor 10562: char * Shred(struct MSV*, char* ep, char* arg1, char* arg2). */
 fun Shred(svptr: Msv, ep: CharArray?, arg1: CharArray, arg2: CharArray): String {
     val i = atoiC(arg2) // vendor: i = atoi(arg2)
-    return Shred(cstringAt(arg1), i) // h014 stub (batch-6 owner)
+    return Shred(cstringAt(arg1), i) // h014 real seat (B6 u164 Shred.kt)
 }
 
 /** vendor 10570: char * ShredQuery(struct MSV* svPtr, char* ep, char* arg1, char* arg2). */
