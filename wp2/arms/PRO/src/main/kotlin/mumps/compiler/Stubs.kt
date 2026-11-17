@@ -66,12 +66,10 @@ fun set_code(cmd: Char): Int {
 // --- added by B3 unit 68 (compiler-sys1.c::patrn) ---
 
 /**
- * Owner: compiler-sys1.c::cannon (B3 unit 72 - this batch); prototype
- * compiler-sys1.c:63, definition compiler-sys1.c:971.
+ * cannon (compiler-sys1.c::cannon) was stubbed here until B3 unit
+ * 72 landed; the owner-level definition now lives in Cannon.kt and
+ * the stub has been removed.
  */
-fun cannon(a: CharArray) {
-    TODO("h014 stub: owner compiler-sys1.c::cannon (B3 unit 72)")
-}
 
 /** Owner: compiler-sys1.c::substr (compiler-sys1.c:396, batch-7 unit). */
 fun substr(src: CharArray, srcOff: Int, dst: CharArray, start: Int, len: Int) {

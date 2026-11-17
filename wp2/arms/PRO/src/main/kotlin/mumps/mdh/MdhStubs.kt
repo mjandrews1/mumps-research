@@ -179,10 +179,9 @@ object AlignState {
     var sx: Int = 0
 }
 
-/** Owner: libmpscpp.cpp::Cost (batch-3 corpus unit, not yet translated). */
-fun Cost(s: CharArray, t: CharArray, i: Int, j: Int): Int {
-    TODO("h014 stub: owner libmpscpp.cpp::Cost (batch-3 unit)")
-}
+// (u82) The Cost stub raised by unit 61 (Sw) is RESOLVED: B3 unit
+// 82 translated libmpscpp.cpp::Cost - see Cost.kt (the stub was
+// removed, cleanLocks precedent, unit 56).
 
 /** Owner: libmpscpp.cpp::init (batch-4 corpus unit, not yet translated). */
 fun init() {
@@ -297,4 +296,22 @@ fun Global.assignFloat(v: Float) {
 /** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
 fun Global.assignDouble(v: Double) {
     TODO("h014 stub: owner libmpscpp.h class global::operator=(double) machinery (not a corpus unit)")
+}
+
+// --- added by B3 unit 71 (libmpscpp.cpp::Cosine) ---
+
+/** Owner: libmpscpp.cpp::get_global (not a corpus unit; called by Cosine). */
+fun get_global(src: CharArray, rslt: CharArray) {
+    TODO("h014 stub: owner libmpscpp.cpp::get_global (not a corpus unit)")
+}
+
+// (u81) The Scan stub raised by unit 79 (ScanAlnum) is RESOLVED:
+// B3 unit 81 translated libmpscpp.cpp::Scan - see Scan.kt (the
+// stub was removed, cleanLocks precedent, unit 56).
+
+// --- added by B3 unit 88 (libmpscpp.cpp::Max) ---
+
+/** Owner: libmpscpp.cpp::global::Max (libmpscpp.cpp:1651, not a corpus unit; sibling of B2 unit 44's global::Min). */
+fun GlobalRef.Max(): Double {
+    TODO("h014 stub: owner libmpscpp.cpp::global::Max (not a corpus unit)")
 }

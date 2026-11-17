@@ -50,6 +50,8 @@ class Msv {
     val pd1: CharArray = CharArray(32001)
     /** :60 - int NOERR. */
     var NOERR: Int = 0
+    /** :69 - int ERROR (owner added by B3 unit 74, libmpscpp.cpp::RunMumps). */
+    var ERROR: Int = 0
     /** :95 - char ErrChar. */
     var ErrChar: Char = ' '
 
@@ -251,4 +253,26 @@ fun substr(src: CharArray, srcOff: Int, dst: CharArray, start: Int, len: Int) {
  */
 fun cannon(a: CharArray) {
     TODO("h014 stub: owner interp-parse.cpp::<misc> (B3 unit 75)")
+}
+
+// --- added by B3 unit 73 (interp-zfcns.cpp::GtkTreeAdd) ---
+
+/**
+ * Owner: GTK C library glue (not a corpus unit) - the sscanf("%p")
+ * decode of the treestore pointer text into the opaque handle
+ * carrier (cf. the mumps.mdh GtkTreeStore stand-in).
+ */
+fun gtkTreeStoreFromPtr(treestore: CharArray): mumps.mdh.GtkTreeStore {
+    TODO("h014 stub: owner GTK C library glue - sscanf %p decode (not a corpus unit)")
+}
+
+/** Owner: GTK C library gtk_tree_store_append (not a corpus unit). */
+fun gtkTreeStoreAppend(t: mumps.mdh.GtkTreeStore, itera: GtkTreeIter, iterb: GtkTreeIter) {
+    TODO("h014 stub: owner GTK C library gtk_tree_store_append (not a corpus unit)")
+}
+
+/** Owner: GTK C library gtk_tree_store_set (not a corpus unit); value at v1d[off]. */
+fun gtkTreeStoreSet(t: mumps.mdh.GtkTreeStore, itera: GtkTreeIter, column: Int,
+                    v1d: CharArray, off: Int) {
+    TODO("h014 stub: owner GTK C library gtk_tree_store_set (not a corpus unit)")
 }
