@@ -102,10 +102,12 @@ fun Mltoa(n: Long, dst: CharArray) {
     TODO("h014 stub: owner interp-arith.cpp::Mltoa (batch-10 unit)")
 }
 
-/** Owner: interp-sym.cpp::_extract (batch-10 unit). */
-fun _extract(r: CharArray, src: CharArray, a: CharArray, b: CharArray) {
-    TODO("h014 stub: owner interp-sym.cpp::_extract (batch-10 unit)")
-}
+/** Owner: interp-sym.cpp::_extract - RESOLVED by Extract.kt
+ *  (unit 172, vendor 1235-1277; roster row 173, batch 6 - the
+ *  former "batch-10 unit" tag was a mis-tag, u141/u148/u169
+ *  tag-correction family); stub removed (the GlobalExtract.kt
+ *  call site rebinds to mumps.interp._extract, u136 strcatx
+ *  import precedent). */
 
 /** Owner: include/mumpsc/keyfix.h inline keyfix (not a corpus unit). */
 fun keyfix(key: CharArray) {

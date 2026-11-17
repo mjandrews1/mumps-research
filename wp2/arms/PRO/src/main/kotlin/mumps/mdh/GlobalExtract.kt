@@ -1,5 +1,6 @@
 package mumps.mdh
 
+import mumps.interp._extract
 import mumps.interp.cstringAt
 import mumps.interp.mglobal
 import mumps.interp.writeCstring
@@ -23,8 +24,11 @@ import mumps.interp.writeCstring
  *  - h012 unsigned_byte_domain: buffers are Char(0..255) domains.
  *  - h014 out_of_scope_call  : Mglobal (InterpStubs stub, owner
  *    global-array machinery), Mltoa (owner interp-arith.cpp::Mltoa,
- *    batch-10 unit) and _extract (owner interp-sym.cpp::_extract,
- *    batch-10 unit) -> MdhStubs.kt.
+ *    batch-10 unit) -> MdhStubs.kt; _extract resolves to the REAL
+ *    seat mumps.interp._extract (unit 172, roster row 173 batch 6;
+ *    the former "batch-10 unit" stub tag was a mis-tag - superseded
+ *    note kept in MdhStubs; the import rebind follows the u136
+ *    strcatx precedent).
  *  - h017 naming             : Extract keeps the vendor name; emitted
  *    as a GlobalRef extension (unit-14 precedent: the carrier stays
  *    minimal; the vendor's operator() result maps to GlobalRef).
