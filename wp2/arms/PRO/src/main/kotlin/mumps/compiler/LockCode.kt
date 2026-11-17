@@ -153,7 +153,7 @@ fun lockCode(): Int {
         // lck1:
         skipToLck1 = false
         st.xpx++
-        st.dirflg = 0
+        st.dirflg = 0.toChar() // h010: int literal into the byte domain
         if (st.xd[st.xpx.toInt()] == ',') {
             st.xpx++
             continue // goto NxtLckArg

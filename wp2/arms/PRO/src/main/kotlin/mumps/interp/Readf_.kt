@@ -53,9 +53,9 @@ package mumps.interp
  *    symlen (vendor 1590) - kept as the post-loop check.
  */
 
-private const val CRTN = Char(13) // vendor defines.h:197 ('\015')
-private const val CTRLZ = Char(26) // vendor defines.h:198 ('\032')
-private const val LINEFEED = Char(10) // vendor defines.h:196 ('\012')
+private const val CRTN = 13.toChar() // vendor defines.h:197 ('\015')
+private const val CTRLZ = 26.toChar() // vendor defines.h:198 ('\032')
+private const val LINEFEED = 10.toChar() // vendor defines.h:196 ('\012')
 
 fun readf_(zd: CharArray, pd1org: Short, svPtr: Msv) {
     var i: Int

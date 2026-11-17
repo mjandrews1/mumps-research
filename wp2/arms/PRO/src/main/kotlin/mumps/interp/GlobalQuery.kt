@@ -76,13 +76,6 @@ private const val XNEXT_OP = 8 // vendor defines.h:88
 /** vendor printf literal dollar byte (h015). */
 private val DOLLARC = 36.toChar()
 
-/** strcpy((char*)dst, src) over the NUL-terminated views. */
-private fun strcpyC(dst: CharArray, src: CharArray) {
-    val s = cstringAt(src)
-    for (k in s.indices) dst[k] = s[k]
-    dst[s.length] = NUL
-}
-
 /** Whole-struct memcpy of the Msv carrier (vendor line 999). */
 private fun msvCopyInto(dst: Msv, src: Msv) {
     System.arraycopy(src.program, 0, dst.program, 0, src.program.size)

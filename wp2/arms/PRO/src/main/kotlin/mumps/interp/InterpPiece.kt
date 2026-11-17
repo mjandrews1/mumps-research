@@ -77,23 +77,6 @@ private const val STR_MAX = 32000 // vendor strmax.h:3
 /** vendor printf literal dollar byte (h015). */
 private val DOLLARC = 36.toChar()
 
-/** C atoi over the NUL-terminated view (leading spaces/sign/digits). */
-private fun atoiC(b: CharArray, off: Int = 0): Int {
-    var i = off
-    while (b[i] == ' ') i++
-    var neg = false
-    if (b[i] == '+' || b[i] == '-') {
-        neg = b[i] == '-'
-        i++
-    }
-    var v = 0
-    while (b[i] in '0'..'9') {
-        v = v * 10 + (b[i] - '0')
-        i++
-    }
-    return if (neg) -v else v
-}
-
 /** C strcat(dst, src) over NUL-terminated buffers; returns new length. */
 private fun strcatC(dst: CharArray, src: CharArray, srcOff: Int = 0): Int {
     var d = 0
