@@ -207,10 +207,9 @@ fun strmove(dst: CharArray, dstOff: Int, src: CharArray, srcOff: Int) {
  * unit 29) and the stubs have been removed.
  */
 
-/** Owner: interp-arith.cpp::expx (batch-5 corpus unit). */
-fun expx(a: CharArray, aOff: Int, b: CharArray, bOff: Int, r: CharArray, rOff: Int) {
-    TODO("h014 stub: owner interp-arith.cpp::expx (batch-5 unit)")
-}
+/** Owner: interp-arith.cpp::expx - RESOLVED by Expx.kt (unit 139,
+ *  vendor 923-968; the reference-build double arm); stub removed
+ *  (the Parse_.kt:1018 call site binds unchanged). */
 
 /** Owner: interp-arith.cpp::modulo (batch-6 corpus unit). */
 fun modulo(a: CharArray, aOff: Int, b: CharArray, bOff: Int, r: CharArray, rOff: Int) {
