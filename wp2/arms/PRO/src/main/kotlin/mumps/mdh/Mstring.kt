@@ -31,8 +31,8 @@ class Mstring(var value: String = "") {
      * (u97) The vendor == / != overload families (libmpscpp.cpp:
      * 9726-9837) ride Kotlin's equals: C++ compares data against
      * the rhs - atol for Int/Long rhs, atof for Double/Float,
-     * value equality for string-ish rhs (char*/const char*/
-     * std::string all map to String), extraction (i >> t1) for
+     * value equality for string-ish rhs (vendor char-star and
+     * const-char-star, plus std::string - all map to String), extraction (i >> t1) for
      * global rhs, data equality for mstring rhs. The != families
      * fold into Kotlin's negated equals (h015); the <= family is
      * translated as compareTo extensions in LibmpscppMisc9.kt.

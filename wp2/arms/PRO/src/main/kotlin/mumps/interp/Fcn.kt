@@ -174,7 +174,7 @@ fun fcn(svPtr: Msv) {
         if (svPtr.xd[ca] == NUL) { // local label form
             var i = 3
             while (svPtr.v1d[i] != NUL) {
-                if (svPtr.v1d[i] == CODED_OPEN) break
+                if (svPtr.v1d[i].code == CODED_OPEN) break
                 i++
             }
             val noArgs = svPtr.v1d[i] == NUL // vendor j flag: 1 = no arg case
@@ -229,10 +229,10 @@ fun fcn(svPtr: Msv) {
 
     copyC(tmp2, 0, svPtr.v1d, 1) // strcpy(tmp2,&v1d[1])
 
-    while (svPtr.v1d[1] != CODED_OPEN && svPtr.v1d[1] != NUL)
+    while (svPtr.v1d[1].code != CODED_OPEN && svPtr.v1d[1] != NUL)
         strmove(svPtr.v1d, 1, svPtr.v1d, 2)
 
-    if (svPtr.v1d[1] == CODED_OPEN) strmove(svPtr.v1d, 1, svPtr.v1d, 2)
+    if (svPtr.v1d[1].code == CODED_OPEN) strmove(svPtr.v1d, 1, svPtr.v1d, 2)
 
     if (j == CODED_OPEN) { // noname form - parms to sub only
         copyC(svPtr.args, 0, svPtr.v1d, 1)
@@ -242,7 +242,7 @@ fun fcn(svPtr: Msv) {
 
     var i = 1
     while (svPtr.v1d[i] != NUL) {
-        if (svPtr.v1d[i] == CODED_CLOSE || svPtr.v1d[i] == CODED_COMMA) {
+        if (svPtr.v1d[i].code == CODED_CLOSE || svPtr.v1d[i].code == CODED_COMMA) {
             svPtr.v1d[i] = NUL
             nargs++
             iargs[nargs] = i + 1
@@ -261,14 +261,8 @@ fun fcn(svPtr: Msv) {
 
     when (opc) {
 
-        //-----------------------------------------------------------------------
-        // unknown code
-        //-----------------------------------------------------------------------
-
-        else -> {
-            svPtr.ierr = 30
-            fcnUnknown(svPtr)
-        }
+        // (vendor default: - see the trailing else at the end of this when,
+        // which Kotlin requires to be its last entry)
 
         //-----------------------------------------------------------------------
         // $z variable and LHS functions
@@ -533,7 +527,7 @@ fun fcn(svPtr: Msv) {
                 strmove(tmp2, 0, svPtr.v1d, jc)
                 day = atolC(tmp2).toLong()
                 if (day <= 0) day = 0
-                tmp1[0] = day.toChar() // vendor char truncation
+                tmp1[0] = Char((day and 0xFF).toInt()) // vendor char truncation
                 tmp1[1] = NUL
                 appendC(svPtr.bd, tmp1, 0, 1) // strcat(&bd[1], tmp1)
                 jc = iargs[pc]
@@ -1313,9 +1307,9 @@ fun fcn(svPtr: Msv) {
                     BuildLocal(2, 0, EMPTY_C, 0, op2, svPtr) // extract lcl stack
                     var qi = 0
                     while (op2[qi] != NUL) {
-                        if (op2[qi] == CODED_OPEN) op2[qi] = '('
-                        else if (op2[qi] == CODED_CLOSE) op2[qi] = ')'
-                        else if (op2[qi] == CODED_COMMA) op2[qi] = ','
+                        if (op2[qi].code == CODED_OPEN) op2[qi] = '('
+                        else if (op2[qi].code == CODED_CLOSE) op2[qi] = ')'
+                        else if (op2[qi].code == CODED_COMMA) op2[qi] = ','
                         qi++
                     }
                     if (Eval(op2, op2, svPtr) != 0) { // qsuberr1
@@ -1351,6 +1345,15 @@ fun fcn(svPtr: Msv) {
             }
 
             fcnUnknown(svPtr) // function not recognized
+        }
+
+        //-----------------------------------------------------------------------
+        // unknown code (vendor default: - shared with opc 99 above)
+        //-----------------------------------------------------------------------
+
+        else -> {
+            svPtr.ierr = 30
+            fcnUnknown(svPtr)
         }
     }
 }

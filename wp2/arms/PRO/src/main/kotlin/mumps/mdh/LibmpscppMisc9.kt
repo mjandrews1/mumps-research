@@ -67,8 +67,8 @@ import mumps.interp.strtodC
  *    CharArray, CharArray) - distinct from unit 71's Cosine(Global,
  *    Global) - plus Sim1/Jaccard/Dice/TermCorrelate-style names - no
  *    collisions; the C++ operator overloads fold per Kotlin
- *    conventions (see header notes); the vendor char*/const char*/
- *    std::string rhs overloads of <=/==/!= all map to Kotlin String
+ *    conventions (see header notes); the vendor char-star, const
+ *    char-star and std::string rhs overloads of <=/==/!= all map to Kotlin String
  *    and are FOLDED into one overload each (three vendor signatures
  *    per operator, one Kotlin signature - documented, not silently
  *    dropped); the vendor != families fold into Kotlin's negated
