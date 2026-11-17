@@ -127,6 +127,105 @@ object CompilerState {
     var lhsf: Int = 0                                 // :156
     var dirflg: Char = 0.toChar()                     // :170 (h012 byte domain)
 
+    // ------------------------------------------------------------
+    // --- B5 unit 129 completion (compiler-globals-ext.h::<misc>):
+    //     the full-header render. Every extern of the header is now
+    //     carried here; the entries above (units 18/21/26/27/35/36/
+    //     52/65/95/96/101 riders) are the FRONT-RUN of this unit -
+    //     verified against the header, no redeclaration (u124
+    //     precedent). New entries carry their header line anchors.
+    // ------------------------------------------------------------
+
+    /** :37 - extern short iorg. */
+    var iorg: Short = 0
+    /** :41 - extern short symlen. */
+    var symlen: Short = 0
+    /** :46 - extern short int ctrlc. */
+    var ctrlc: Short = 0
+    /** :47 - extern int gpad. */
+    var gpad: Int = 0
+    /** :49 - extern struct nmes *nstart. */
+    var nstart: Nmes? = null
+    /** :50 - extern short Jflg. */
+    var Jflg: Short = 0
+    /** :52 - extern char FunctionName[256] (h012 byte domain). */
+    val FunctionName: CharArray = CharArray(256)
+    /** :54 - extern char ErrChar (h012 byte domain). */
+    var ErrChar: Char = 0.toChar()
+    /** :66 - extern struct txt *LabelsStart, *TextStart, *p1, *p3. */
+    var LabelsStart: Txt? = null
+    /** :66 - see LabelsStart. */
+    var TextStart: Txt? = null
+    /** :66 - see LabelsStart. */
+    var p1: Txt? = null
+    /** :66 - see LabelsStart. */
+    var p3: Txt? = null
+    /** :71 - #define CVARMAX 100. */
+    const val CVARMAX = 100
+    /** :73-74 - extern struct dcs cvars[CVARMAX]. */
+    val cvars: Array<Dcs> = Array(CVARMAX) { Dcs() }
+    /** :76 - extern int cvarx. */
+    var cvarx: Int = 0
+    /** :104 - extern short MaxTmp (max temp strings used so far in
+     *  this function - vendor comment kept). */
+    var MaxTmp: Short = 0
+    /** :122 - extern short l. */
+    var l: Short = 0
+    /** :127 - extern short ExecLevel. */
+    var ExecLevel: Short = 0
+    /** :129 - extern short ExecStack[25]. */
+    val ExecStack: ShortArray = ShortArray(25)
+    /** :132 - extern short DoRet[1000]. */
+    val DoRet: ShortArray = ShortArray(1000)
+    /** :133 - extern short DoRetX. */
+    var DoRetX: Short = 0
+    /** :134 - extern short CX, EmitLabel. */
+    var CX: Short = 0
+    /** :134 - see CX. */
+    var EmitLabel: Short = 0
+    /** :135 - extern short JOB_flg. */
+    var JOB_flg: Short = 0
+    /** :138 - extern short SubFlag. */
+    var SubFlag: Short = 0
+    /** :139 - extern short SymIncrFlg. */
+    var SymIncrFlg: Short = 0
+    /** :146 - extern int TryFlg, CatchFlg. */
+    var TryFlg: Int = 0
+    /** :146 - see TryFlg. */
+    var CatchFlg: Int = 0
+    /** :148 - extern FILE *opnfile[7]; open-stream handles at the
+     *  h001 edges (the Out/Final Writer precedent - Closeable
+     *  carrier until the include-file owner binds a concrete
+     *  stream type). */
+    val opnfile: Array<java.io.Closeable?> = arrayOfNulls(7)
+    /** :149 - extern FILE *in; 'in' is a Kotlin hard keyword -
+     *  h017 keyword rename (u124 Getenv 'in_' precedent). */
+    var in_: java.io.Closeable? = null
+    /** :152 - extern unsigned char dosave[64] (h012 byte domain). */
+    val dosave: CharArray = CharArray(64)
+    /** :153 - extern char cur_line[512] (h012 byte domain). */
+    val cur_line: CharArray = CharArray(512)
+    /** :169 - extern short retz, icmnd, p2px, ernbr (retz above). */
+    var icmnd: Short = 0
+    /** :169 - see icmnd. */
+    var p2px: Short = 0
+    /** :169 - see icmnd. */
+    var ernbr: Short = 0
+    /** :170 - extern unsigned char tmp2[1024] (h012 byte domain). */
+    val tmp2: CharArray = CharArray(1024)
+    /** :170 - extern unsigned char tmp3[1024] (h012 byte domain). */
+    val tmp3: CharArray = CharArray(1024)
+    /** :171 - extern int pl. */
+    var pl: Int = 0
+    /** :172 - extern char *p2. */
+    var p2: String? = null
+    /** :174 - extern char *except[] - incomplete-array extern;
+     *  unbound carrier until its owner (the C exception-string
+     *  table) initializes the table. */
+    var except: Array<String?>? = null
+    /** :176 - extern int flg. */
+    var flg: Int = 0
+
     fun interpret(tmp: String) {
         out.write("\t_jj = Interpret( (CCHR) \n")
         out.write("\t\t\"" + tmp + "\", svPtr); \n")
@@ -134,4 +233,47 @@ object CompilerState {
         out.write("\tif (!svPtr->NOERR && _jj < 0) \n")
         out.write("\t\tErrorMessage(\"Indirection error\", svPtr->LineNumber); \n")
     }
+}
+
+/**
+ * B5 unit 129 (include/mumpsc/compiler-globals-ext.h::<misc>,
+ * rank 265) - the struct carriers of the header, riding the
+ * CompilerState owner object (h004; identity: units.csv row 128 -
+ * c, loc 144, comment_ratio 0.077, pointer_marks 31,
+ * control_marks 2, score 83.4, batch 5; the 177-line physical
+ * header minus blank/comment lines = the 144 physLOC).
+ *
+ * PROTOTYPE ROSTER (header lines 77-101 + 49 + 79 - declarations
+ * carry no Kotlin obligation beyond this ledger; the functions
+ * exist as renders or owner-named stubs): cvar (Stubs.kt,
+ * owner compiler-parse.c:2074, with the cvars/cvarx table now
+ * carried above); Extract2 (DONE, unit u122 Extract2.kt);
+ * Extract1 (Stubs.kt); readf_ (DONE, Readf.kt); errmod_ (DONE,
+ * Errmod.kt); inout (DONE, Inout.kt); doty (DONE, Doty.kt);
+ * LevCheck (Stubs.kt levCheck); LocalArray (DONE, unit 21);
+ * GlobalArray (DONE, units 26/119); atTest (DONE, AtTest.kt);
+ * atCopy (Stubs.kt); linepad (Stubs.kt); epi (Stubs.kt);
+ * EP (Stubs.kt); ScanPastPostCond, xindex, pindex, add, numcomp,
+ * linepad2, fcninit, getstr1 - not yet raised; they raise with
+ * their first caller per the h014 stub protocol.
+ */
+class Nmes {
+    /** vendor :57 - char *name. */
+    var name: String? = null
+    /** vendor :58 - struct nmes *next. */
+    var next: Nmes? = null
+}
+
+/** vendor :62-66 - struct txt { char *name; int lnbr; txt *next; }. */
+class Txt {
+    var name: String? = null
+    var lnbr: Int = 0
+    var next: Txt? = null
+}
+
+/** vendor :72-74 - struct dcs { char name[32]; int type; }
+ *  (h012 byte domain for the 32-byte name field). */
+class Dcs {
+    val name: CharArray = CharArray(32)
+    var type: Int = 0
 }
