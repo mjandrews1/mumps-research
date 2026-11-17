@@ -38,9 +38,9 @@ package mumps.interp
  *  :68 sym_                             -> DONE: InterpStubs stub
  *     (batch-10 owner) + the separate mdh MdhStubs sym_ stub.
  *  :69 _SymFree                         -> DONE: SymFree.kt (u28).
- *  :70 SysDump                          -> NEW stub (this unit);
- *     owner interp-sym.cpp::SysDump (vendor 925; corpus unit rank
- *     200, later batch - seat raised now, resolved when it lands).
+ *  :70 SysDump                          -> RESOLVED: SysDump.kt
+ *     (u137, vendor 925-943; the u134 stub seat was removed
+ *     there).
  *  :71 Mltoa (commented prototype)      -> dead commented prototype,
  *     nothing to render.
  *  :72 include arith.h                  -> DONE: arith.h was its own
@@ -104,11 +104,8 @@ fun strsep(p: CharArray, pOff: Int, delim: CharArray): CharArray? {
 }
 
 /** sym.h:70 - void SysDump(long pid, struct MSV * svPtr). Seat
- *  raised by this unit; the real body (interp-sym.cpp:925) is a
- *  later-batch corpus unit (rank 200). */
-fun SysDump(pid: Long, svPtr: Msv) {
-    TODO("h014 stub: owner interp-sym.cpp::SysDump (corpus unit rank 200, later batch)")
-}
+ *  raised by u134; RESOLVED by SysDump.kt (unit 137, the real
+ *  vendor 925-943 body); stub removed. */
 
 /** sym.h:80-81 - void ServiceInterface(unsigned char * x4,
  *  unsigned char * x5, unsigned char * x1, unsigned char * x2,
