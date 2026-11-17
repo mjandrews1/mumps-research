@@ -70,6 +70,12 @@ class Msv {
     var pd1len: Long = 0
     /** :67 - int t2. */
     var t2: Int = 0
+
+    // --- stateVector.h fields added by B4 unit 102 (interp-parse.cpp::readf_) ---
+    /** :59 - int symlen. */
+    var symlen: Int = 0
+    /** :96 - char CurrentFile[512] (h012 byte domain; see readf_). */
+    val currentFile: CharArray = CharArray(512)
 }
 
 /**
@@ -275,4 +281,15 @@ fun gtkTreeStoreAppend(t: mumps.mdh.GtkTreeStore, itera: GtkTreeIter, iterb: Gtk
 fun gtkTreeStoreSet(t: mumps.mdh.GtkTreeStore, itera: GtkTreeIter, column: Int,
                     v1d: CharArray, off: Int) {
     TODO("h014 stub: owner GTK C library gtk_tree_store_set (not a corpus unit)")
+}
+
+// --- added by B4 unit 98 (interp-sym.cpp::GlobalQuery) ---
+
+/**
+ * Owner: state-vector machinery AllocSV (interp.cpp; not a corpus
+ * unit). Vendor: struct MSV *svPtr=AllocSV() - push a fresh state
+ * vector; the caller's memcpy/free become the carrier copy (GC).
+ */
+fun allocSV(): Msv {
+    TODO("h014 stub: owner state-vector machinery AllocSV (not a corpus unit)")
 }

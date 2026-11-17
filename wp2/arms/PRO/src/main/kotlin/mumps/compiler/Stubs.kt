@@ -83,3 +83,10 @@ fun substr(src: CharArray, srcOff: Int, dst: CharArray, start: Int, len: Int) {
 fun match(pts: Array<IntArray>, lx: Int, ct: IntArray, ad: CharArray, rslt: ShortArray) {
     TODO("h014 stub: owner compiler-sys1.c::match (batch-7 unit)")
 }
+
+// --- added by B4 unit 100 (compiler-doty.c::doty) ---
+
+/** Owner: compiler-mumps.c:1949 LevCheck (not a corpus unit). */
+fun levCheck(ExecName: Short, DoRetX: Short, DoRet: ShortArray): Int {
+    TODO("h014 stub: owner compiler-mumps.c:1949 LevCheck (not a corpus unit)")
+}
