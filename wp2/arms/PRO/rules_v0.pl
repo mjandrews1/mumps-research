@@ -87,11 +87,17 @@ rule(h013, trigger(dead_store),
      example('interp-native-btree.cpp'),
      provenance(base, 'b1-b2', '2026-11-15'), verification(unit_tested)).
 
+% Upgraded untested -> unit_tested at B2 close (2026-11-19): heavily
+% exercised across B2 (units 45, 52-53, 58, 60, 61, 62 - every owner-
+% named stub family in InterpStubs/MdhStubs/Stubs), all build-green;
+% the unit-56 cleanLocks stub removal demonstrated the delegate-
+% when-owner-lands mechanism end to end.
+
 rule(h014, trigger(out_of_scope_call),
      condition(owner_unit_named_in_units_csv_not_yet_translated),
      action('TODO stub in arm Stubs.kt naming owner unit; delegate when owner lands'),
      example('compiler-globalarray.c'),
-     provenance(base, 'b1-b2', '2026-11-15'), verification(untested)).
+     provenance(base, 'b1-b2', '2026-11-15'), verification(unit_tested)).
 
 rule(h015, trigger(grammar_collision),
      condition(applies_to_any_quoted_c_source_before_every_push),

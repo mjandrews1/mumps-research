@@ -28,7 +28,28 @@
 :- dynamic event/4.            % event(Kind, Target, Unit, Stamp)
 :- dynamic event_log_loaded/0.
 
-default_log_path('wp2/logs/PRO_knowledge_events.csv').
+% 2026-11-19 hardening (B2 close post-mortem): the old cwd-relative
+% fact silently reported 0 events when swipl started anywhere other
+% than the repo root. The path is now resolved relative to THIS
+% script file (.../wp2/arms/PRO -> ../../../logs/), so it is correct
+% from any working directory.
+
+:- dynamic script_dir/1.
+:- (   prolog_load_context(file, ScriptFile)
+   ->  file_directory_name(ScriptFile, ScriptDir0),
+       assertz(script_dir(ScriptDir0))
+   ;   true
+   ).
+
+default_log_path(File) :-
+    % note: plain composition (no absolute_file_name) so a missing
+    % log file cannot throw before load_events' exists_file guard;
+    % .. segments resolve fine in exists_file/open, and the path is
+    % cwd-independent whenever the script was consulted absolutely.
+    (   script_dir(Dir)
+    ->  directory_file_path(Dir, '../../../logs/PRO_knowledge_events.csv', File)
+    ;   File = 'wp2/logs/PRO_knowledge_events.csv'
+    ).
 
 load_events :-
     event_log_loaded, !.
@@ -55,7 +76,9 @@ load_events :-
                     )
             ),
             close(S))
-    ;   true
+    ;   format(user_error,
+               'ERROR: event log not found at ~w - coverage_report will report 0 events.~n',
+               [File])
     ),
     assertz(event_log_loaded).
 
