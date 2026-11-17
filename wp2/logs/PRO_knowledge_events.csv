@@ -1678,3 +1678,9 @@ reuse,h015,libmpscpp.cpp::global::Length,2026-11-25T17:00:00+0000
 hit,h015,libmpscpp.cpp::global::Length,2026-11-25T17:00:00+0000
 reuse,h017,libmpscpp.cpp::global::Length,2026-11-25T17:00:00+0000
 hit,h017,libmpscpp.cpp::global::Length,2026-11-25T17:00:00+0000
+reuse,h009,interp-arith.cpp::mps_log10,2026-11-25T18:00:00+0000
+hit,h009,interp-arith.cpp::mps_log10,2026-11-25T18:00:00+0000
+reuse,h012,interp-arith.cpp::mps_log10,2026-11-25T18:00:00+0000
+hit,h012,interp-arith.cpp::mps_log10,2026-11-25T18:00:00+0000
+reuse,h017,interp-arith.cpp::mps_log10,2026-11-25T18:00:00+0000
+hit,h017,interp-arith.cpp::mps_log10,2026-11-25T18:00:00+0000
