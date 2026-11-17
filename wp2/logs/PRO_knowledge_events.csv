@@ -1522,3 +1522,9 @@ reuse,h017,mumps.cpp::main,2026-11-25T02:00:00+0000
 hit,h017,mumps.cpp::main,2026-11-25T02:00:00+0000
 reuse,h018,mumps.cpp::main,2026-11-25T02:00:00+0000
 hit,h018,mumps.cpp::main,2026-11-25T02:00:00+0000
+reuse,h004,include/mumpsc/mstringClass.h::<misc>,2026-11-25T03:00:00+0000
+hit,h004,include/mumpsc/mstringClass.h::<misc>,2026-11-25T03:00:00+0000
+reuse,h014,include/mumpsc/mstringClass.h::<misc>,2026-11-25T03:00:00+0000
+hit,h014,include/mumpsc/mstringClass.h::<misc>,2026-11-25T03:00:00+0000
+reuse,h015,include/mumpsc/mstringClass.h::<misc>,2026-11-25T03:00:00+0000
+hit,h015,include/mumpsc/mstringClass.h::<misc>,2026-11-25T03:00:00+0000
