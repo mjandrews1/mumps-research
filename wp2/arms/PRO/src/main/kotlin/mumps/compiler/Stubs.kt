@@ -56,12 +56,20 @@ fun memcheck(iiitmp: Int) {
 }
 
 /**
- * Owner: compiler-set.c::set_code (batch-4 corpus unit, 256 LOC).
- * Added by B3 unit 65 (compiler-new.c::new_code).
+ * compiler-set.c::set_code (B4 unit 96) was stubbed here until
+ * SetCode.kt landed; the owner-level definition now lives in
+ * SetCode.kt (fun setCode(entry_pt: Int)) and the stub has been
+ * removed. The NewCode.kt and LockCode.kt call sites were updated
+ * in the same tranche.
  */
-fun set_code(cmd: Char): Int {
-    TODO("h014 stub: owner compiler-set.c::set_code (batch-4 unit)")
-}
+
+/**
+ * Owner: compiler-parse.c:2074 cvar (not a corpus unit). Raised by
+ * B4 units 95/96 (for_code/set_code); scans the compiler's declared
+ * C-variable table (cvars/cvarx, compiler-parse.c:187-189).
+ */
+fun cvar(str: String): Boolean =
+    TODO("h014 stub: owner compiler-parse.c:2074 cvar (not a corpus unit)")
 
 // --- added by B3 unit 68 (compiler-sys1.c::patrn) ---
 

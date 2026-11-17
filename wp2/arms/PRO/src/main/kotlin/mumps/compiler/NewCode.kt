@@ -31,8 +31,10 @@ import mumps.interp.cstringAt
  *    straight-line code.
  *  - h012 unsigned_byte_domain : xd/vd byte domains (Char(0..255)).
  *  - h014 out_of_scope_call : set_code (compiler-set.c::set_code,
- *    batch-4 corpus unit) -> Stubs.kt owner-named stub; strcmp via
- *    cstringAt comparison (String == over the C-string view).
+ *    B4 unit 96 - owner landed as SetCode.kt setCode; the B3-era
+ *    Stubs.kt stub is removed and the two call sites updated);
+ *    strcmp via cstringAt comparison (String == over the
+ *    C-string view).
  *  - h015 grammar_collision : no dollar bytes needed in the emitted
  *    C text of this unit.
  *  - h017 naming          : new_code -> newCode (B1 if_code ->
@@ -100,7 +102,7 @@ object NewCode {
                 st.t2 = 1
                 st.retz = NEW_C.code.toShort() // h010: char code into the short domain
 
-                return_code = set_code(SET_C) // goto set; process item to read
+                return_code = setCode(SET_C.code) // goto set; process item to read
 
                 if (return_code == PARSE_ERROR) return PARSE_ERROR // goto parse_err
                 if (return_code == ARG_LIST_ERROR) return ARG_LIST_ERROR
@@ -170,7 +172,7 @@ object NewCode {
             st.t2 = 1
             st.retz = NEW1_C.code.toShort() // h010: char code into the short domain
 
-            return_code = set_code(SET_C) // goto set; process item to read
+            return_code = setCode(SET_C.code) // goto set; process item to read
 
             if (return_code == PARSE_ERROR) return PARSE_ERROR // goto parse_err
             if (return_code == ARG_LIST_ERROR) return ARG_LIST_ERROR

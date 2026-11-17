@@ -103,6 +103,30 @@ object CompilerState {
     /** :170 - extern unsigned char vd[1024] (h012 byte domain). */
     var vd: CharArray = CharArray(1024)
 
+    // --- added by B4 units 95/96/101 (compiler-for.c, compiler-set.c, compiler-lock.c) ---
+
+    var setpiece: Short = 0                           // :31
+    val setname: CharArray = CharArray(128)           // :32 (h012 byte domain)
+    var GBL_flg: Short = 0                            // :125
+    var LockFlag: Short = 0                           // :137
+    var MergeFlg: Int = 0                             // :143 (C int)
+    var MergeTmp: Int = 0                             // :144 (C int)
+    var forxmax: Int = 0                              // :110 (C int)
+    var forxFLG: Int = 0                              // :111 (C int)
+    var forLine: Int = 0                              // :111 (C int)
+    var forx: Int = 0                                 // :111 (C int)
+    var for_fcn_flg: Int = 0                          // :114 (C int)
+    var for_fcn_flg2: Int = 0                         // :114 (C int)
+    var SinglesFlg: Int = 0                           // :142 (C short; h010 widened)
+    var for_mult: Int = 0                             // :140 (C short; h010 widened)
+    val forv: CharArray = CharArray(256)              // :150 (h012 byte domain)
+    var FOR_limit: Int = 0                            // :151 (C int)
+    val lhs: Array<String?> = arrayOfNulls(25)        // :154 (C char*[25]; GC slots)
+    val lhsGF: IntArray = IntArray(25)                // :155
+    var lhsx: Int = 0                                 // :156
+    var lhsf: Int = 0                                 // :156
+    var dirflg: Char = 0.toChar()                     // :170 (h012 byte domain)
+
     fun interpret(tmp: String) {
         out.write("\t_jj = Interpret( (CCHR) \n")
         out.write("\t\t\"" + tmp + "\", svPtr); \n")
