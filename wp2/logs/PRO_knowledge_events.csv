@@ -1858,3 +1858,15 @@ reuse,h015,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
 hit,h015,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
 reuse,h017,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
 hit,h017,libmpscpp.cpp::Shred,2026-11-26T09:00:00+0000
+reuse,h007,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+hit,h007,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+reuse,h010,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+hit,h010,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+reuse,h012,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+hit,h012,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+reuse,h014,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+hit,h014,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+reuse,h015,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+hit,h015,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+reuse,h017,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000
+hit,h017,libmpscpp.cpp::Dice,2026-11-26T10:00:00+0000

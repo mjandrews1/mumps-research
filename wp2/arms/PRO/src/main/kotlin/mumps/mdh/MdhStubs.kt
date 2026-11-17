@@ -161,10 +161,12 @@ fun Jaccard(a: Global, b: Global): Double {
     TODO("h014 stub: owner libmpscpp.cpp::Jaccard (batch-9 unit)")
 }
 
-/** Owner: libmpscpp.cpp::Dice (batch-6 corpus unit, units.csv row 166). */
-fun Dice(a: Global, b: Global): Double {
-    TODO("h014 stub: owner libmpscpp.cpp::Dice (batch-6 unit)")
-}
+/**
+ * libmpscpp.cpp::Dice was stubbed here until B6 unit 165
+ * landed; the owner-level definition now lives in Dice.kt and
+ * the stub has been removed (the MSV wrapper's call binds
+ * unchanged).
+ */
 
 // (B4 unit 105) The Global.Centroid stub raised by B4 unit 97
 // (LibmpscppMisc9 wrapper) is RESOLVED: B4 unit 105 translated
