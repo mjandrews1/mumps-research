@@ -1554,3 +1554,11 @@ reuse,h015,interp-sym.cpp::Qlength,2026-11-25T05:00:00+0000
 hit,h015,interp-sym.cpp::Qlength,2026-11-25T05:00:00+0000
 reuse,h017,interp-sym.cpp::Qlength,2026-11-25T05:00:00+0000
 hit,h017,interp-sym.cpp::Qlength,2026-11-25T05:00:00+0000
+reuse,h012,include/mumpsc/sym.h::<misc>,2026-11-25T06:00:00+0000
+hit,h012,include/mumpsc/sym.h::<misc>,2026-11-25T06:00:00+0000
+reuse,h014,include/mumpsc/sym.h::<misc>,2026-11-25T06:00:00+0000
+hit,h014,include/mumpsc/sym.h::<misc>,2026-11-25T06:00:00+0000
+reuse,h015,include/mumpsc/sym.h::<misc>,2026-11-25T06:00:00+0000
+hit,h015,include/mumpsc/sym.h::<misc>,2026-11-25T06:00:00+0000
+reuse,h018,include/mumpsc/sym.h::<misc>,2026-11-25T06:00:00+0000
+hit,h018,include/mumpsc/sym.h::<misc>,2026-11-25T06:00:00+0000
