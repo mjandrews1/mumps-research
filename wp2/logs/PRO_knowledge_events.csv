@@ -1636,3 +1636,15 @@ reuse,h015,libmpscpp.cpp::Transpose,2026-11-25T13:00:00+0000
 hit,h015,libmpscpp.cpp::Transpose,2026-11-25T13:00:00+0000
 reuse,h017,libmpscpp.cpp::Transpose,2026-11-25T13:00:00+0000
 hit,h017,libmpscpp.cpp::Transpose,2026-11-25T13:00:00+0000
+reuse,h004,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+hit,h004,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+reuse,h008,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+hit,h008,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+reuse,h012,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+hit,h012,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+reuse,h014,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+hit,h014,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+reuse,h015,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+hit,h015,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+reuse,h017,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
+hit,h017,libmpscpp.cpp::global::Sum,2026-11-25T14:00:00+0000
