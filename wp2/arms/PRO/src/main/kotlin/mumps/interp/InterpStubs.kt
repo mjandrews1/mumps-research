@@ -264,10 +264,9 @@ fun perlPm(string: CharArray, stringOff: Int, pattern: CharArray, patternOff: In
 /** Owner: interp-rpm.cpp::scan_token - RESOLVED by ScanToken.kt
  *  (unit 128, the real vendor 259-297 body); stub removed. */
 
-/** Owner: interp-rpm.cpp::parse_count (batch-5 corpus unit, unit 135). */
-fun parseCount(p: Parser): Bstring {
-    TODO("h014 stub: owner interp-rpm.cpp::parse_count (unit 135)")
-}
+/** Owner: interp-rpm.cpp::parse_count - RESOLVED by ParseCount.kt
+ *  (unit 135, the real vendor 360-401 body); stub removed (the
+ *  InterpRpmMisc.kt parse_pattern_atom call site binds unchanged). */
 
 /**
  * Owner: global-array machinery Mglobal(g,key,bd,svPtr) (not a corpus

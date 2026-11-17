@@ -288,7 +288,7 @@ fun parsePattern(p: Parser): Bstring {
  * quantifier (regex order; vendor argument order kept verbatim).
  */
 fun parsePatternAtom(p: Parser): Bstring {
-    val count = parseCount(p) // h014 stub (owner unit 135)
+    val count = parseCount(p) // DONE - unit 135
     val element = parsePatternElement(p) // DONE - unit 104
 
     return bstrcat(element, count) // h014 stub (batch-9 owner)
