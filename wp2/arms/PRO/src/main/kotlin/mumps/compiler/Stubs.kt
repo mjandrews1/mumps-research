@@ -54,3 +54,34 @@ fun Extract1(str: CharArray): String {
 fun memcheck(iiitmp: Int) {
     TODO("h014 stub: owner compiler-parse.c:2068 memcheck (not a corpus unit)")
 }
+
+/**
+ * Owner: compiler-set.c::set_code (batch-4 corpus unit, 256 LOC).
+ * Added by B3 unit 65 (compiler-new.c::new_code).
+ */
+fun set_code(cmd: Char): Int {
+    TODO("h014 stub: owner compiler-set.c::set_code (batch-4 unit)")
+}
+
+// --- added by B3 unit 68 (compiler-sys1.c::patrn) ---
+
+/**
+ * Owner: compiler-sys1.c::cannon (B3 unit 72 - this batch); prototype
+ * compiler-sys1.c:63, definition compiler-sys1.c:971.
+ */
+fun cannon(a: CharArray) {
+    TODO("h014 stub: owner compiler-sys1.c::cannon (B3 unit 72)")
+}
+
+/** Owner: compiler-sys1.c::substr (compiler-sys1.c:396, batch-7 unit). */
+fun substr(src: CharArray, srcOff: Int, dst: CharArray, start: Int, len: Int) {
+    TODO("h014 stub: owner compiler-sys1.c::substr (batch-7 unit)")
+}
+
+/**
+ * Owner: compiler-sys1.c::match (compiler-sys1.c:453, batch-7 unit);
+ * rslt is the short* out-parameter (h006 holder).
+ */
+fun match(pts: Array<IntArray>, lx: Int, ct: IntArray, ad: CharArray, rslt: ShortArray) {
+    TODO("h014 stub: owner compiler-sys1.c::match (batch-7 unit)")
+}

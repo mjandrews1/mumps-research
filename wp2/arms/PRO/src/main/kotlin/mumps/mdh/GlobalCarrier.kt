@@ -15,6 +15,9 @@ package mumps.mdh
  * MakeGlobal call inside the vararg invoke (the vendor's 30+
  * global::operator() overloads fold into it; see the journal).
  */
+/** strmax.h:3 - #define STR_MAX 32000 (file-private, cf. unit 22/29). */
+private const val GLOBAL_CARRIER_STR_MAX = 32000
+
 class Global(val ref: String) {
 
     /**
@@ -24,6 +27,36 @@ class Global(val ref: String) {
      * separate field.
      */
     val myname: String = ref.take(255)
+
+    // --- added by B3 unit 67 (include/mumpsc/globalClass.h::<misc>) ---
+
+    /**
+     * (u67) Vendor global::Gtmp[STR_MAX] (globalClass.h:530) - public
+     * scratch buffer (strmax.h:3: STR_MAX 32000).
+     */
+    val Gtmp: CharArray = CharArray(GLOBAL_CARRIER_STR_MAX)
+
+    /** (u67) Vendor global::tmp[STR_MAX] (globalClass.h:531). */
+    val tmp: CharArray = CharArray(GLOBAL_CARRIER_STR_MAX)
+
+    /**
+     * (u67) Vendor global::ArgCount (globalClass.h:534; vendor
+     * private) - subscript count of the last MakeGlobal; kept
+     * accessible for the owning libmpscpp.cpp units (adaptation).
+     */
+    var ArgCount: Int = 0
+
+    /**
+     * (u67) Vendor global::Sref - std::string (globalClass.h:538;
+     * the commented-out char[STR_MAX] form above it is superseded).
+     */
+    var Sref: String = ""
+
+    /**
+     * (u67) Vendor global::Sname - std::string (globalClass.h:540;
+     * the commented-out char[STR_MAX] form above it is superseded).
+     */
+    var Sname: String = ""
 
     init {
         // (u31) Vendor global::global(const char * n):

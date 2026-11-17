@@ -60,7 +60,8 @@ fun numcomp(aa: CharArray, bb: CharArray): Int {
 private fun strtodC(b: CharArray, off: Int = 0): Double =
     cstringAt(b, off).toDoubleOrNull() ?: 0.0
 
-/** Owner: interp-arith.cpp:597 floatstring (B3 interp-arith.cpp::<misc>). */
-fun floatstring(p: CharArray, off: Int = 0): Boolean {
-    TODO("h014 stub: owner interp-arith.cpp::floatstring (B3 unit interp-arith.cpp::<misc>)")
-}
+/**
+ * floatstring (interp-arith.cpp:597) was stubbed here until B3 unit
+ * 66 (interp-arith.cpp::<misc>) landed; the owner-level definition
+ * now lives in ArithMisc.kt and the stub has been removed.
+ */

@@ -89,6 +89,20 @@ object CompilerState {
     /** :109 - extern int iiitmp; count on temp strings used so far in this stmt (h004; owner added by unit 52). */
     var iiitmp: Int = 0
 
+    // --- compiler-globals-ext.h globals added by B3 unit 65 (compiler-new.c::new_code) ---
+    /** :39 - extern short t0px. */
+    var t0px: Short = 0
+    /** :126 - extern short exportflag. */
+    var exportflag: Short = 0
+    /** :131 - extern short ExecX. */
+    var ExecX: Short = 0
+    /** :130 - extern short ExecSym[25] (h012 byte domain not needed; short values). */
+    var ExecSym: ShortArray = ShortArray(25)
+    /** :169 - extern short retz. */
+    var retz: Short = 0
+    /** :170 - extern unsigned char vd[1024] (h012 byte domain). */
+    var vd: CharArray = CharArray(1024)
+
     fun interpret(tmp: String) {
         out.write("\t_jj = Interpret( (CCHR) \n")
         out.write("\t\t\"" + tmp + "\", svPtr); \n")

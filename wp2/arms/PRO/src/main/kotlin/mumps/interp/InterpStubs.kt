@@ -52,6 +52,22 @@ class Msv {
     var NOERR: Int = 0
     /** :95 - char ErrChar. */
     var ErrChar: Char = ' '
+
+    // --- stateVector.h fields added by B3 unit 63 (interp-parse.cpp::parse_) ---
+    /** :46 - unsigned char setname[STR_MAX] (h012 byte domain; STR_MAX=32000, strmax.h:3). */
+    val setname: CharArray = CharArray(32000)
+    /** :48 - int kflg. */
+    var kflg: Int = 0
+    /** :50 - int ierr. */
+    var ierr: Int = 0
+    /** :51 - int sdlim. */
+    var sdlim: Int = 0
+    /** :55 - int t0px. */
+    var t0px: Int = 0
+    /** :66 - long pd1len. */
+    var pd1len: Long = 0
+    /** :67 - int t2. */
+    var t2: Int = 0
 }
 
 /**
@@ -144,4 +160,95 @@ fun freadx(r: Int, flag: Int): CharArray {
 fun sql(op: Int, svPtr: Msv, DataSourceName: CharArray, Command: CharArray,
         arg5: CharArray, arg6: CharArray): Int {
     TODO("h014 stub: owner interp-sql.cpp::sql (batch-9 unit); prototype include/mumpsc/btree.h:37")
+}
+
+// --- added by B3 unit 63 (interp-parse.cpp::parse_) ---
+
+/** Owner: interp-strmanip.cpp::strmove (not a corpus unit). */
+fun strmove(dst: CharArray, dstOff: Int, src: CharArray, srcOff: Int) {
+    TODO("h014 stub: owner interp-strmanip.cpp::strmove (not a corpus unit)")
+}
+
+/**
+ * mult/add/sub/divx/divi (interp-arith.cpp) were stubbed here until
+ * B3 unit 66 (interp-arith.cpp::<misc>) landed; the owner-level
+ * definitions now live in ArithMisc.kt (thin numSetup wrappers,
+ * unit 29) and the stubs have been removed.
+ */
+
+/** Owner: interp-arith.cpp::expx (batch-5 corpus unit). */
+fun expx(a: CharArray, aOff: Int, b: CharArray, bOff: Int, r: CharArray, rOff: Int) {
+    TODO("h014 stub: owner interp-arith.cpp::expx (batch-5 unit)")
+}
+
+/** Owner: interp-arith.cpp::modulo (batch-6 corpus unit). */
+fun modulo(a: CharArray, aOff: Int, b: CharArray, bOff: Int, r: CharArray, rOff: Int) {
+    TODO("h014 stub: owner interp-arith.cpp::modulo (batch-6 unit)")
+}
+
+/**
+ * Owner: interp-zfcns.cpp::zfcn (batch-6 corpus unit; the
+ * interp-bifs.cpp::zfcn batch-6 overload is a separate unit).
+ */
+fun zfcn(v1d: CharArray, v1dOff: Int, bd: CharArray, bdOff: Int, svPtr: Msv) {
+    TODO("h014 stub: owner interp-zfcns.cpp::zfcn (batch-6 unit); result written to bd+bdOff")
+}
+
+/**
+ * Owner: interp-sym.cpp::sym_ (batch-10 corpus unit, 484 LOC).
+ * Vendor returns unsigned char * (NULL on not-found); the Kotlin
+ * carrier returns CharArray? for the NULL test at call sites.
+ */
+fun sym_(flag: Int, name: CharArray, nameOff: Int, bd: CharArray, bdOff: Int,
+         svPtr: Msv): CharArray? {
+    TODO("h014 stub: owner interp-sym.cpp::sym_ (batch-10 unit)")
+}
+
+/** Owner: interp-parse.cpp::BuildGlobal (batch-8 corpus unit). */
+fun BuildGlobal(a: Int, g: Int, key: CharArray, keyOff: Int, arg4: CharArray?,
+                svPtr: Msv) {
+    TODO("h014 stub: owner interp-parse.cpp::BuildGlobal (batch-8 unit); vendor arg4 NULL renders as null")
+}
+
+/** Owner: interp-sym.cpp::BuildLocal (batch-8 corpus unit). */
+fun BuildLocal(a: Int, g: Int, key: CharArray, keyOff: Int, arg4: CharArray?,
+               svPtr: Msv) {
+    TODO("h014 stub: owner interp-sym.cpp::BuildLocal (batch-8 unit); vendor arg4 NULL renders as null")
+}
+
+/** Owner: interp-rpm.cpp::rpm (not a corpus unit). */
+fun rpm(ad: CharArray, adOff: Int, bd: CharArray, bdOff: Int, svPtr: Msv): Int {
+    TODO("h014 stub: owner interp-rpm.cpp::rpm (not a corpus unit)")
+}
+
+/**
+ * Owner: global-array machinery Mglobal(g,key,bd,svPtr) (not a corpus
+ * unit) - the offset-carrying variant used by parse_ (vendor passes
+ * &v1d[1]/&bd[1] pointers); same owner as the mglobal stub above.
+ */
+fun mglobalAt(g: Int, key: CharArray, keyOff: Int, bd: CharArray, bdOff: Int,
+              svPtr: Msv): Int {
+    TODO("h014 stub: owner Mglobal machinery, offset variant (not a corpus unit)")
+}
+
+// --- added by B3 unit 64 (interp-parse.cpp::patrn) ---
+
+/** Owner: interp-parse.cpp::match (batch-6 corpus unit). */
+fun match(pts: Array<IntArray>, lx: Int, ct: IntArray, ad: CharArray,
+          rslt: ShortArray, bd: CharArray) {
+    TODO("h014 stub: owner interp-parse.cpp::match (batch-6 unit); rslt is the vendor short * out-param")
+}
+
+/** Owner: interp-strmanip.cpp::substr (batch-7 corpus unit). */
+fun substr(src: CharArray, srcOff: Int, dst: CharArray, start: Int, len: Int) {
+    TODO("h014 stub: owner interp-strmanip.cpp::substr (batch-7 unit)")
+}
+
+/**
+ * Owner: interp-parse.cpp::<misc> (B3 unit 75, same tranche as the
+ * caller patrn); the compiler-sys1.c::cannon B3 unit 72 is the
+ * compiler-side twin.
+ */
+fun cannon(a: CharArray) {
+    TODO("h014 stub: owner interp-parse.cpp::<misc> (B3 unit 75)")
 }

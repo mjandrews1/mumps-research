@@ -25,8 +25,33 @@ package mumps.interp
 private const val BUFSIZE = 50000 // interp-bmgsubs.c:75
 private const val NL = '\n'       // interp-bmgsubs.c:81
 
-/** h004: interp-bmgsubs.c bmdata carrier (bmg_nsuccess; #define nsuccess). */
+/**
+ * h004: interp-bmgsubs.c bmdata carrier (struct bmg_data, lines
+ * 84-93; the #define aliases delta0/cmap/str/linetemp/pattern/
+ * patlen/nsuccess). nsuccess was added by unit 17; the remaining
+ * members were added by B3 unit 70 (bmg_fsearch) in vendor struct
+ * order; contents are owned by bmg_setup (not a corpus unit) and
+ * bmg_search (batch-5 unit).
+ */
 object BmgData {
+    /** line 85: int bmg_delta0[256] - ascii only. */
+    val delta0 = IntArray(256)
+
+    /** line 86: char bmg_cmap[256] - (un)folded characters. */
+    val cmap = CharArray(256)
+
+    /** line 87: char bmg_str[BUFSIZE + 2] (BUFSIZE 50000, :75). */
+    val str = CharArray(50000 + 2)
+
+    /** line 88: char bmg_linetemp[BUFSIZE]. */
+    val linetemp = CharArray(50000)
+
+    /** line 89: char bmg_pattern[PATSIZE] (PATSIZE 9000, :78). */
+    val pattern = CharArray(9000)
+
+    /** line 90: int bmg_patlen. */
+    var patlen: Int = 0
+
     /** line 91: int bmg_nsuccess. */
     var nsuccess: Int = 0
 }
