@@ -457,10 +457,8 @@ fun bstrcat(a: Bstring, b: Bstring): Bstring {
  *  - all RESOLVED by the misc-chunk owner InterpRpmMisc.kt
  *  (unit 127); stubs removed. */
 
-/** Owner: interp-rpm.cpp::leaning_toothpickize (batch-6 corpus unit). */
-fun leaningToothpickize(b: Bstring): Bstring {
-    TODO("h014 stub: owner interp-rpm.cpp::leaning_toothpickize (batch-6 unit)")
-}
+/** Owner: interp-rpm.cpp::leaning_toothpickize - RESOLVED by B6
+ *  unit 183 (LeaningToothpickize.kt); stub removed. */
 
 // --- added by B6 unit 161 (server.cpp::main) ---
 
