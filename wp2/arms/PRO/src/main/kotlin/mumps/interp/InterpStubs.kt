@@ -261,11 +261,8 @@ fun perlPm(string: CharArray, stringOff: Int, pattern: CharArray, patternOff: In
     TODO("h014 stub: owner interp-rpm.cpp::perl_pm (batch-9 unit)")
 }
 
-/** Owner: interp-rpm.cpp::scan_token (batch-5 corpus unit, unit 128;
- *  vendor 259-506 boundary overlaps unit 135 parse_count 360-406). */
-fun scanToken(s: Scanner): TokenType {
-    TODO("h014 stub: owner interp-rpm.cpp::scan_token (unit 128)")
-}
+/** Owner: interp-rpm.cpp::scan_token - RESOLVED by ScanToken.kt
+ *  (unit 128, the real vendor 259-297 body); stub removed. */
 
 /** Owner: interp-rpm.cpp::parse_count (batch-5 corpus unit, unit 135). */
 fun parseCount(p: Parser): Bstring {

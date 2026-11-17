@@ -1484,3 +1484,13 @@ reuse,h017,interp-rpm.cpp::<misc>,2026-11-24T23:00:00+0000
 hit,h017,interp-rpm.cpp::<misc>,2026-11-24T23:00:00+0000
 reuse,h018,interp-rpm.cpp::<misc>,2026-11-24T23:00:00+0000
 hit,h018,interp-rpm.cpp::<misc>,2026-11-24T23:00:00+0000
+reuse,h007,interp-rpm.cpp::scan_token,2026-11-25T00:00:00+0000
+hit,h007,interp-rpm.cpp::scan_token,2026-11-25T00:00:00+0000
+reuse,h012,interp-rpm.cpp::scan_token,2026-11-25T00:00:00+0000
+hit,h012,interp-rpm.cpp::scan_token,2026-11-25T00:00:00+0000
+reuse,h014,interp-rpm.cpp::scan_token,2026-11-25T00:00:00+0000
+hit,h014,interp-rpm.cpp::scan_token,2026-11-25T00:00:00+0000
+reuse,h015,interp-rpm.cpp::scan_token,2026-11-25T00:00:00+0000
+hit,h015,interp-rpm.cpp::scan_token,2026-11-25T00:00:00+0000
+reuse,h017,interp-rpm.cpp::scan_token,2026-11-25T00:00:00+0000
+hit,h017,interp-rpm.cpp::scan_token,2026-11-25T00:00:00+0000
