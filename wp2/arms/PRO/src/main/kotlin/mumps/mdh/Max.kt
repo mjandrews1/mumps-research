@@ -16,9 +16,9 @@ import mumps.interp.strlenC
  * 0.056, pointer_marks 0, control_marks 4, score 8.1, batch 3 -
  * exact match to wp1/study-subset/units.csv row 67. Overload
  * disambiguation: the free intrinsic wrapper Max (loc 17) - the
- * class member global::Max (libmpscpp.cpp:1651) is NOT a corpus
- * unit (the sibling global::Min was B2 unit 44) and rides a new
- * owner-named MdhStubs stub raised by this unit.
+ * class member global::Max (libmpscpp.cpp:1651) is roster row 170
+ * (batch 6, SUPERSEDED tag correction; resolved by GlobalMax.kt,
+ * unit 169 - the sibling global::Min was B2 unit 44).
  *
  * char* Max(MSV* svptr, char* ep, char* arg1): the MUMPS max
  * intrinsic over a global's children - strips the trailing SOH
@@ -41,8 +41,10 @@ import mumps.interp.strlenC
  *    never used in the vendor body - kept in the signature for
  *    call-shape fidelity, documented.
  *  - h014 out_of_scope_call : global::Max (owner libmpscpp.cpp:
- *    1651, not a corpus unit; sibling of unit 44's global::Min)
- *    -> new MdhStubs stub raised by this unit; strlen resolves
+ *    1651) was tagged "not a corpus unit" here - SUPERSEDED (it
+ *    IS roster row 170, batch 6, u148 tag-correction family);
+ *    resolved by GlobalMax.kt (unit 169) - the delegation below
+ *    binds the real seat. strlen resolves
  *    to the real B1 strlenC helper - reused unmodified.
  *  - h015 grammar_collision : pre-push scan incl. cross-file
  *    top-level names: new top-level Max - no collisions (the

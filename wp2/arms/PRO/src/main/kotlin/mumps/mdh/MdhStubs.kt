@@ -377,10 +377,11 @@ fun get_global(src: CharArray, rslt: CharArray) {
 
 // --- added by B3 unit 88 (libmpscpp.cpp::Max) ---
 
-/** Owner: libmpscpp.cpp::global::Max (libmpscpp.cpp:1651, not a corpus unit; sibling of B2 unit 44's global::Min). */
-fun GlobalRef.Max(): Double {
-    TODO("h014 stub: owner libmpscpp.cpp::global::Max (not a corpus unit)")
-}
+/** Owner: libmpscpp.cpp::global::Max - RESOLVED by GlobalMax.kt
+ *  (unit 169, vendor 1651-1688; roster row 170, batch 6 - the
+ *  u148 tag-correction family: u88's "not a corpus unit" tag
+ *  superseded, u141 precedent); stub removed (the Max.kt wrapper
+ *  call sites a("").Max() / a(subs).Max() bind unchanged). */
 
 // --- added by B5 unit 148 (libmpscpp.cpp::Avg) ---
 
