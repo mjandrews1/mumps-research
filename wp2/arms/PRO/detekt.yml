@@ -1,0 +1,26 @@
+# detekt config for the PRO translation arm.
+#
+# The arm translates vendor C (mumps-14-may-2026.tgz) line-for-line:
+# function sizes, parameter counts, magic numbers and naming follow
+# the VENDOR, not Kotlin idiom. Those rule sets are therefore off.
+# Everything else stays at detekt defaults (build-upon-default),
+# so potential bugs, exception handling and correctness rules
+# still run.
+
+complexity:
+  active: false
+
+style:
+  active: false
+
+naming:
+  active: false
+
+# Blanket leniency for the deliberately vendor-shaped constructs
+# that survive in the active rule sets:
+empty-blocks:
+  EmptyFunctionBlock:
+    active: false          # h014 TODO-stubs and dead vendor arms
+exceptions:
+  TooGenericExceptionCaught:
+    active: false          # fopen/edge fopen-style try/catch carriers
