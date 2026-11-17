@@ -1,5 +1,6 @@
 package mumps.mdh
 
+import mumps.interp.Msv
 import mumps.interp.NUL
 import mumps.interp.cstringAt
 import mumps.interp.mglobal
@@ -117,4 +118,78 @@ fun GlobalRef.Min(): Double {
     }
 
     return min
+}
+
+// ----------------------------------------------------------------------------
+// (B4 unit 119) libmpscpp.cpp::Min (reference lines 10262-10287) - the free
+// MSV wrapper for the min-over-children intrinsic; the global::Min METHOD
+// above is the B2 unit 44 translation. Identity: units.csv row 120 -
+// libmpscpp.cpp::Min, cpp, loc 17, comment_ratio 0.056, pointer_marks 0,
+// control_marks 4, score 8.1, rank 69 - exact match (the wrapper, not the
+// method: the method's own row was unit 44, batch 2).
+// ----------------------------------------------------------------------------
+
+/**
+ * char * Min(struct MSV* svptr, char* ep, char* arg1): the Max unit-88
+ * wrapper shape over global::Min() - split the coded reference at the SOH
+ * separator (bypassing the caret), call Min() over the unsubscripted or
+ * subscripted reference, render the double via "%g" into the static tmp.
+ *
+ * Rules applied (wp2/arms/PRO/rules_v0.pl):
+ *  - h008 static_scratch    : vendor "static char tmp[32]" - the
+ *    MinScratch object (the method above keeps its own carriers).
+ *  - h009 format_string     : sprintf(tmp,"%g",x) - JVM %g shape.
+ *  - h012 unsigned_byte_domain: arg1 C-string domain; SOH = Char(1).
+ *  - h014 out_of_scope_call : global::Min is the REAL B2 unit 44
+ *    translation above (GlobalRef.Min) - reused, not stubbed; the
+ *    ctor/invoke ride the u31/u14 carriers.
+ *  - h015 grammar_collision : pre-push scan incl. cross-file names: the
+ *    new top-level Min overloads the existing class member (receiver-
+ *    scoped) - no conflicts.
+ *  - h017 naming            : Min keeps the vendor spelling.
+ *
+ * Vendor notes (translated faithfully, not "fixed"):
+ *  - The leading double-SOH strip mutates the caller's buffer in place -
+ *    kept (identical to the Max/Count wrappers).
+ *  - No SOH found -> j = arg1[i] = 0 -> the unsubscripted a("").Min()
+ *    arm runs - kept.
+ */
+/** vendor: static char tmp[32] - persists across calls (h008). */
+object MinScratch {
+    val tmp = CharArray(32)
+}
+
+fun Min(svptr: Msv, ep: CharArray?, arg1: CharArray): CharArray {
+    val tmp = MinScratch.tmp
+
+    var i = strlenC(arg1)
+
+    // vendor: if (i> 0 && arg1[i-1]==1 && arg1[i-2]==1) arg1[i-2]=0;
+    if (i > 0 && arg1[i - 1] == 1.toChar() && arg1[i - 2] == 1.toChar()) {
+        arg1[i - 2] = NUL
+    }
+
+    i = 0
+    while (arg1[i] != NUL) { // vendor: for (i=0; arg1[i]!=0; i++)
+        if (arg1[i] == 1.toChar()) break
+        i++
+    }
+
+    val j = arg1[i]
+    arg1[i] = NUL
+
+    val a = Global(cstringAt(arg1, 1)) // vendor: global a(&arg1[1]); // bypass ^
+
+    val x = if (j == NUL) {
+        a("").Min() // vendor: x = a("").Min();
+    } else {
+        a(cstringAt(arg1, i + 1)).Min() // vendor: x = a(&arg1[i+1]).Min();
+    }
+
+    // vendor: sprintf(tmp,"%g",x);
+    val s = String.format("%g", x) // h009: JVM %g shape
+    for (k in s.indices) tmp[k] = s[k]
+    tmp[s.length] = NUL
+
+    return tmp
 }

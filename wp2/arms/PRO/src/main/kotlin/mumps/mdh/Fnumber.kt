@@ -82,3 +82,56 @@ fun Mstring.Fnumber(a: Mstring, b: Mstring): Mstring {
     // vendor: rslt = (char *) &svPtr->bd[1];
     return Mstring(cstringAt(svPtr.bd, 1))
 }
+
+// ----------------------------------------------------------------------------
+// (B4 unit 120) libmpscpp.cpp::mstring::Fnumber(mstring) (vendor reference
+// lines 7512-7535) - the one-argument overload of the B2 unit 42 two-arg
+// Fnumber above. Identity: units.csv row 121 - libmpscpp.cpp::Fnumber,
+// cpp, loc 17, comment_ratio 0.056, pointer_marks 2, control_marks 0,
+// score 7.9, rank 61 - exact match.
+// ----------------------------------------------------------------------------
+
+/**
+ * mstring mstring::Fnumber(mstring a): the one-argument Fnumber - assemble
+ * the coded call "<dollar>fnumber<Open><data>,<a><Close>" into v1d at
+ * offset 1, run fcn(svPtr), read bd at offset 1. The same assembly shape
+ * as the two-arg overload above, minus the optional second argument.
+ *
+ * Rules applied (wp2/arms/PRO/rules_v0.pl):
+ *  - h007 char_buffer        : tmp[STR_MAX] call-assembly buffer.
+ *  - h012 unsigned_byte_domain: Char(0..255) buffers; the offset-1
+ *    state-vector convention kept.
+ *  - h014 out_of_scope_call  : fcn is the REAL batch-4 unit 94
+ *    dispatcher (Fcn.kt) - reused via the existing import; the file's
+ *    strcpy/strcat CstringOps helpers reused unmodified.
+ *  - h015 grammar_collision  : the file's DOLLAR/CODED_* private
+ *    carriers reused (SQL_Table precedent, unit 34).
+ *  - h017 naming             : Fnumber overloads the vendor name; the
+ *    receiver carries the invoking mstring's data.
+ *
+ * Vendor notes (translated faithfully, not "fixed"):
+ *  - Unlike _fnumber (unit 106), which spells the coded function
+ *    "<dollar>fn", this overload spells it "<dollar>fnumber" - both
+ *    spellings kept exactly as the vendor writes them.
+ */
+fun Mstring.Fnumber(a: Mstring): Mstring {
+    val tmp = CharArray(STR_MAX)
+    val svPtr: Msv = MdhState.svPtr
+
+    // vendor: strcpy(tmp, "$fnumber"); strcat(tmp, Open);
+    writeCstring(tmp, DOLLAR + "fnumber")
+    strcatC(tmp, CODED_OPEN.toString())
+
+    strcatC(tmp, value) // vendor: invoking mstring data
+    strcatC(tmp, CODED_COMMA.toString())
+
+    strcatC(tmp, a.c_str()) // first argument required
+    strcatC(tmp, CODED_CLOSE.toString())
+
+    // vendor: strcpy((char *) &svPtr->v1d[1], tmp); fcn(svPtr);
+    writeCstring(svPtr.v1d, cstringAt(tmp), 1)
+    fcn(svPtr)
+
+    // vendor: rslt = (char *) &svPtr->bd[1];
+    return Mstring(cstringAt(svPtr.bd, 1))
+}

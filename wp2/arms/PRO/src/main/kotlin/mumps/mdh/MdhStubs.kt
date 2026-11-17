@@ -397,3 +397,10 @@ fun get_global(src: CharArray, rslt: CharArray) {
 fun GlobalRef.Max(): Double {
     TODO("h014 stub: owner libmpscpp.cpp::global::Max (not a corpus unit)")
 }
+
+// --- added by B4 unit 118 (libmpscpp.cpp::Count) ---
+
+/** Owner: libmpscpp.cpp::global::Count (libmpscpp.cpp:1811, not a corpus unit; sibling of the unit-88 global::Max and B2 unit 44 global::Min stubs). */
+fun GlobalRef.Count(): Double {
+    TODO("h014 stub: owner libmpscpp.cpp::global::Count (not a corpus unit)")
+}
