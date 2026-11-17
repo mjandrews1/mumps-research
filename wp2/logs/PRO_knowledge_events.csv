@@ -1882,3 +1882,13 @@ reuse,h017,interp-arith.cpp::modulo,2026-11-26T11:00:00+0000
 hit,h017,interp-arith.cpp::modulo,2026-11-26T11:00:00+0000
 reuse,h018,interp-arith.cpp::modulo,2026-11-26T11:00:00+0000
 hit,h018,interp-arith.cpp::modulo,2026-11-26T11:00:00+0000
+reuse,h001,compiler-parse.c::ExpandOrder,2026-11-26T12:00:00+0000
+hit,h001,compiler-parse.c::ExpandOrder,2026-11-26T12:00:00+0000
+reuse,h012,compiler-parse.c::ExpandOrder,2026-11-26T12:00:00+0000
+hit,h012,compiler-parse.c::ExpandOrder,2026-11-26T12:00:00+0000
+reuse,h014,compiler-parse.c::ExpandOrder,2026-11-26T12:00:00+0000
+hit,h014,compiler-parse.c::ExpandOrder,2026-11-26T12:00:00+0000
+reuse,h015,compiler-parse.c::ExpandOrder,2026-11-26T12:00:00+0000
+hit,h015,compiler-parse.c::ExpandOrder,2026-11-26T12:00:00+0000
+reuse,h017,compiler-parse.c::ExpandOrder,2026-11-26T12:00:00+0000
+hit,h017,compiler-parse.c::ExpandOrder,2026-11-26T12:00:00+0000
