@@ -1590,3 +1590,17 @@ reuse,h015,interp-sym.cpp::SysDump,2026-11-25T09:00:00+0000
 hit,h015,interp-sym.cpp::SysDump,2026-11-25T09:00:00+0000
 reuse,h017,interp-sym.cpp::SysDump,2026-11-25T09:00:00+0000
 hit,h017,interp-sym.cpp::SysDump,2026-11-25T09:00:00+0000
+reuse,h001,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+hit,h001,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+reuse,h007,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+hit,h007,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+reuse,h012,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+hit,h012,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+reuse,h013,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+hit,h013,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+reuse,h014,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+hit,h014,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+reuse,h015,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+hit,h015,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+reuse,h017,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
+hit,h017,interp-sysfunc.cpp::getstr1,2026-11-25T10:00:00+0000
