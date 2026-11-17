@@ -4,7 +4,7 @@ import java.io.File
 import java.io.RandomAccessFile
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.file.PosixFilePermissions
+import java.nio.file.attribute.PosixFilePermissions
 
 /**
  * PRO-arm translation of interp-lock.cpp::<misc> (pilot B2, unit 56,

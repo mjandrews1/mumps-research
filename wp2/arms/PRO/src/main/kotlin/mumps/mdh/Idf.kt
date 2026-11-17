@@ -121,11 +121,14 @@ fun GlobalRef.IDF(DC: Double) {
         }
 
         // vendor: if (sscanf(rslt,"%lf",&val)==0) { ...INVALID_CONVERSION...; throw }
-        v = sscanfLf(rslt)
-        if (v == null) {
+        // sscanfLf returns Double? (null on zero items); the null arm
+        // throws, so v below keeps its non-null C double shape.
+        val scanned = sscanfLf(rslt)
+        if (scanned == null) {
             MdhState.globalExceptionCode = INVALID_CONVERSION
             throw MumpsGlobalException()
         }
+        v = scanned
 
         // vendor: if (val <= 0.0) { ...DATA_RANGE_ERROR...; throw }
         if (v <= 0.0) {

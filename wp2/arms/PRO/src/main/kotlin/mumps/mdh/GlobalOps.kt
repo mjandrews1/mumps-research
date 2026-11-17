@@ -103,8 +103,8 @@ operator fun Global.divAssign(i: Short) { assignShort((extractShort() / i).toSho
 
 operator fun Global.plusAssign(i: UShort) { assignUShort(this + i) }
 operator fun Global.minusAssign(i: UShort) { assignUShort(this - i) }
-operator fun Global.timesAssign(i: UShort) { assignUShort(extractUShort() * i) }
-operator fun Global.divAssign(i: UShort) { assignUShort(extractUShort() / i) }
+operator fun Global.timesAssign(i: UShort) { assignUShort((extractUShort() * i).toUShort()) }
+operator fun Global.divAssign(i: UShort) { assignUShort((extractUShort() / i).toUShort()) }
 
 operator fun Global.plusAssign(i: Long) { assignLong(this + i) }
 operator fun Global.minusAssign(i: Long) { assignLong(this - i) }
@@ -143,9 +143,9 @@ operator fun Global.plus(s: Short): Short = (s + extractShort()).toShort()
 operator fun Global.minus(s: Short): Short = (s - extractShort()).toShort()
 operator fun Global.div(s: Short): Short = (extractShort() / s).toShort()
 
-operator fun Global.plus(s: UShort): UShort = s + extractUShort()
-operator fun Global.minus(s: UShort): UShort = s - extractUShort()
-operator fun Global.div(s: UShort): UShort = extractUShort() / s
+operator fun Global.plus(s: UShort): UShort = (s + extractUShort()).toUShort()
+operator fun Global.minus(s: UShort): UShort = (s - extractUShort()).toUShort()
+operator fun Global.div(s: UShort): UShort = (extractUShort() / s).toUShort()
 
 operator fun Global.plus(s: Long): Long = s + extractLong()
 operator fun Global.minus(s: Long): Long = s - extractLong()
@@ -180,9 +180,9 @@ operator fun Short.plus(a: Global): Short = (a.extractShort() + this).toShort()
 operator fun Short.minus(a: Global): Short = (this - a.extractShort()).toShort()
 operator fun Short.div(a: Global): Short = (this / a.extractShort()).toShort()
 
-operator fun UShort.plus(a: Global): UShort = a.extractUShort() + this
-operator fun UShort.minus(a: Global): UShort = this - a.extractUShort()
-operator fun UShort.div(a: Global): UShort = this / a.extractUShort()
+operator fun UShort.plus(a: Global): UShort = (a.extractUShort() + this).toUShort()
+operator fun UShort.minus(a: Global): UShort = (this - a.extractUShort()).toUShort()
+operator fun UShort.div(a: Global): UShort = (this / a.extractUShort()).toUShort()
 
 operator fun Long.plus(a: Global): Long = a.extractLong() + this
 operator fun Long.minus(a: Global): Long = this - a.extractLong()
