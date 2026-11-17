@@ -2060,3 +2060,15 @@ reuse,h015,libmpscpp.cpp::SmithWaterman,2026-11-27T04:00:00+0000
 hit,h015,libmpscpp.cpp::SmithWaterman,2026-11-27T04:00:00+0000
 reuse,h017,libmpscpp.cpp::SmithWaterman,2026-11-27T04:00:00+0000
 hit,h017,libmpscpp.cpp::SmithWaterman,2026-11-27T04:00:00+0000
+reuse,h007,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+hit,h007,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+reuse,h010,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+hit,h010,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+reuse,h012,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+hit,h012,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+reuse,h014,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+hit,h014,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+reuse,h015,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+hit,h015,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+reuse,h017,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
+hit,h017,libmpscpp.cpp::global::Find,2026-11-27T05:00:00+0000
