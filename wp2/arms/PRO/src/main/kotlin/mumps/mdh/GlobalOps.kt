@@ -96,8 +96,8 @@ operator fun Global.minusAssign(i: UInt) { assignUInt(this - i) }
 operator fun Global.timesAssign(i: UInt) { assignUInt(extractUInt() * i) }
 operator fun Global.divAssign(i: UInt) { assignUInt(extractUInt() / i) }
 
-operator fun Global.plusAssign(i: Short) { assignShort((this + i).toShort()) }
-operator fun Global.minusAssign(i: Short) { assignShort((this - i).toShort()) }
+operator fun Global.plusAssign(i: Short) { assignShort(this + i) }
+operator fun Global.minusAssign(i: Short) { assignShort(this - i) }
 operator fun Global.timesAssign(i: Short) { assignShort((extractShort() * i).toShort()) }
 operator fun Global.divAssign(i: Short) { assignShort((extractShort() / i).toShort()) }
 

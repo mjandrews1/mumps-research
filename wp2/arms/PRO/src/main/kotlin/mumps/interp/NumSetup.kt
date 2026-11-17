@@ -122,7 +122,7 @@ private fun formatG8(x: Double): String {
     if (x.isNaN()) return "nan"
     if (x.isInfinite()) return if (x > 0) "inf" else "-inf"
 
-    var s = String.format("%.8g", x)
+    var s = String.format(java.util.Locale.getDefault(), "%.8g", x) // explicit default locale = C printf locale semantics
 
     // strip trailing zeros in the mantissa only (never the exponent)
     val ei = s.indexOf('e')

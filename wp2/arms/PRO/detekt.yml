@@ -21,6 +21,19 @@ naming:
 empty-blocks:
   EmptyFunctionBlock:
     active: false          # h014 TODO-stubs and dead vendor arms
+  EmptyElseBlock:
+    active: false          # vendor empty else {} fall-through arms (C has no
+                          # "no else" requirement; the empty arm IS the
+                          # translated body - GlobalOps disambiguation chains)
 exceptions:
   TooGenericExceptionCaught:
     active: false          # fopen/edge fopen-style try/catch carriers
+  SwallowedException:
+    active: false          # C ignores error returns (fopen etc.); the
+                          # catch-and-continue carrier renders the vendor's
+                          # own error paths - rethrowing would diverge
+performance:
+  SpreadOperator:
+    active: false          # C varargs call shape (GlobalCarrier sprintf
+                          # seat); the array copy is the vendor's own
+                          # varargs marshalling

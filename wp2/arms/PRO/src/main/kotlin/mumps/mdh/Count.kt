@@ -82,7 +82,7 @@ fun Count(svptr: Msv, ep: CharArray?, arg1: CharArray): CharArray {
     }
 
     // vendor: sprintf(tmp,"%g",x);
-    val s = String.format("%g", x) // h009: JVM %g shape
+    val s = String.format(java.util.Locale.getDefault(), "%g", x) // h009: JVM %g shape; explicit default locale = C printf locale semantics (potential-bugs rule satisfied, behavior byte-identical)
     for (k in s.indices) tmp[k] = s[k]
     tmp[s.length] = NUL
 
