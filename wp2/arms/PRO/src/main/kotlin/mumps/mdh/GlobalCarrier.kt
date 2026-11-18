@@ -75,9 +75,20 @@ class Global(val ref: String) {
         }
     }
 
-    /** Vendor global::Kill - kill entire global (owner: libmpscpp.cpp). */
+    /**
+     * Vendor global::Kill (libmpscpp.cpp:3629-3639) - RESOLVED
+     * by the misc-7 unit (u218, batch 8): an empty ref prints
+     * the vendor banner and throws GLOBAL_NOT_FOUND (2,
+     * libmpscpp.h:71); otherwise KiLL the reference (u24 seat).
+     * The GlobalRef.Kill delegate at :146 binds unchanged.
+     */
     fun Kill() {
-        TODO("h014 stub: owner libmpscpp.cpp class global::Kill (not a B1 corpus unit)")
+        if (ref.isEmpty()) {
+            MdhState.globalExceptionCode = 2
+            println("Incomplete global reference - no parens ")
+            throw MumpsGlobalException()
+        }
+        KiLL(toCbufCarrier(ref), MdhState.svPtr)
     }
 
     /**
@@ -95,6 +106,14 @@ class Global(val ref: String) {
         val vals = if (subs.isEmpty()) arrayOf("") else subs
         this.makeGlobal(0, myname, names, *vals) // unit-203 seat (this. = member adaptation)
         return GlobalRef(this, subs.toList())
+    }
+
+
+    /** Per-file C-string bridge (h007; Misc-6 toCbuf precedent). */
+    private fun toCbufCarrier(s: String): CharArray {
+        val b = CharArray(GLOBAL_CARRIER_STR_MAX)
+        for (i in s.indices) b[i] = s[i]
+        return b
     }
 
     /**

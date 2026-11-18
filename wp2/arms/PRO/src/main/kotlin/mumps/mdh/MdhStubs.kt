@@ -382,9 +382,25 @@ fun Global.assignDouble(v: Double) {
 
 // --- added by B3 unit 71 (libmpscpp.cpp::Cosine) ---
 
-/** Owner: libmpscpp.cpp::get_global (not a corpus unit; called by Cosine). */
+/**
+ * (u218) RESOLVED: libmpscpp.cpp::get_global is the
+ * libmpscpp.h:117 macro, expanded inline per its definition -
+ * svPtr->tpx = Mglobal(RETRIEVE, ref, rslt, svPtr).  The macro
+ * value (rslt) is used only as a statement at every call site
+ * (Cosine/Dice/GlobalMax precedent, u218 Set/Get machinery),
+ * so the seat stays Unit.  RETRIEVE = 0 (defines.h:83).
+ */
 fun get_global(src: CharArray, rslt: CharArray) {
-    TODO("h014 stub: owner libmpscpp.cpp::get_global (not a corpus unit)")
+    MdhState.svPtr.tpx = mumps.interp.mglobal(0, src, rslt, MdhState.svPtr).toLong()
+}
+
+/**
+ * (u218) libmpscpp.h:118 macro set_global(ref,rslt) - same
+ * expansion with STORE = 1 (defines.h:84); seat raised and
+ * resolved by the misc-7 Set members (call sites bind here).
+ */
+fun set_global(ref: CharArray, rslt: CharArray) {
+    MdhState.svPtr.tpx = mumps.interp.mglobal(1, ref, rslt, MdhState.svPtr).toLong()
 }
 
 // (u81) The Scan stub raised by unit 79 (ScanAlnum) is RESOLVED:
@@ -587,9 +603,11 @@ fun gtk_file_chooser_get_filename(c: GtkFileChooser): String? {
 
 // --- added by B7 unit 187 (ServiceInterface INVDF relay) ---
 
-/** Owner: libmpscpp.cpp::IDF (vendor 10370, units.csv data row
- * 240 - not yet a corpus unit). The INVDF ServiceInterface relay
- * (interp-service.cpp:303-312) is the only in-arm caller. */
-fun IDF(svptr: Msv, ep: CharArray?, arg1: CharArray, arg2: CharArray): CharArray {
-    TODO("h014 stub: owner libmpscpp.cpp::IDF (units.csv data row 240)")
-}
+/**
+ * Owner: libmpscpp.cpp::IDF - RESOLVED by IdfWrapper.kt
+ * (unit 240, vendor 10370-10388; roster row 240, batch 8); the
+ * stub raised at u187 (the INVDF ServiceInterface relay,
+ * interp-service.cpp:303-312, is the only in-arm caller) is
+ * removed - the relay binds to the real IDF seat unchanged.
+ */
+

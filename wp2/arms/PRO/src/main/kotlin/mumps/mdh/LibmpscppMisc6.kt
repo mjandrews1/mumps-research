@@ -46,7 +46,11 @@ import mumps.interp.writeCstring
  *    twin folds onto the Mstring carrier (EncodeHtml.kt:30); no
  *    redeclaration.
  *  - global::Name (2991), __test (2999): RENDERED.
- *  - global::ReadLine x3 (vendor 3003-3069): DEFERRED - corpus row
+ *  - global::ReadLine x3 (vendor 3003-3069): RESOLVED by
+ *    GlobalReadLine.kt (roster row 236, batch 8 - the former
+ *    deferral owner landed; this file's mstring family above
+ *    is receiver-distinct, both seats coexist),
+ *    formerly DEFERRED - corpus row
  *    236 (batch 8, libmpscpp.cpp::global::ReadLine) owns the family;
  *    the misc-5 pm precedent (future-batch owner, stub/deferral
  *    note only). No seat raised here.

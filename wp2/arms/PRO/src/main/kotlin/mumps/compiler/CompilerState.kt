@@ -118,7 +118,7 @@ object CompilerState {
     var for_fcn_flg: Int = 0                          // :114 (C int)
     var for_fcn_flg2: Int = 0                         // :114 (C int)
     var SinglesFlg: Int = 0                           // :142 (C short; h010 widened)
-    var for_mult: Int = 0                             // :140 (C short; h010 widened)
+    var for_mult: Int = -1                            // :140 (C short; h010 widened; vendor init -1, owner B8 u221 compiler-globals.h::<misc>)
     val forv: CharArray = CharArray(256)              // :150 (h012 byte domain)
     var FOR_limit: Int = 0                            // :151 (C int)
     val lhs: Array<String?> = arrayOfNulls(25)        // :154 (C char*[25]; GC slots)
@@ -166,6 +166,18 @@ object CompilerState {
     val cvars: Array<Dcs> = Array(CVARMAX) { Dcs() }
     /** :76 - extern int cvarx. */
     var cvarx: Int = 0
+    /**
+     * compiler-parse.c:180 - unsigned char *SSS, *TTT (file-scope
+     * scratch cursors; owner added by B8 unit 220,
+     * compiler-parse.c::<misc> - the parse_ body resets them on
+     * every use, vendor 198/418-424/847-848; the pointer folds
+     * to a buffer+offset pair, Msv.bigKey carrier precedent).
+     */
+    var SSS: CharArray? = null
+    var SSSOff: Int = 0
+    var TTT: CharArray? = null
+    var TTTOff: Int = 0
+
     /** externs.h:60 - extern unsigned char symflg (owner added by
      *  B7 unit 205, include/mumpsc/externs.h::<misc>; the ONLY
      *  externs.h extern previously uncarried - unsigned char ->
@@ -173,7 +185,7 @@ object CompilerState {
     var symflg: Char = 0.toChar()
     /** :104 - extern short MaxTmp (max temp strings used so far in
      *  this function - vendor comment kept). */
-    var MaxTmp: Short = 0
+    var MaxTmp: Short = 2 /* vendor init 2, owner B8 u221 compiler-globals.h::<misc>: max number of temp strrings used so far in this function */
     /** :122 - extern short l. */
     var l: Short = 0
     /** :127 - extern short ExecLevel. */
@@ -224,12 +236,16 @@ object CompilerState {
     var pl: Int = 0
     /** :172 - extern char *p2. */
     var p2: String? = null
-    /** :174 - extern char *except[] - incomplete-array extern;
-     *  unbound carrier until its owner (the C exception-string
-     *  table) initializes the table. */
-    var except: Array<String?>? = null
-    /** :176 - extern int flg. */
-    var flg: Int = 0
+    /**
+     * :174 - char *except[] - the C exception-string table,
+     * RESOLVED by its owner (B8 unit 221,
+     * include/mumpsc/compiler-globals.h::<misc>): the vendor
+     * initializer list ("InputLengthException",
+     * "InterpreterException", "") binds here.
+     */
+    var except: Array<String?>? = arrayOf("InputLengthException", "InterpreterException", "")
+    /** :176 - int flg = 1 (vendor initializer; owner B8 u221). */
+    var flg: Int = 1
 
     fun interpret(tmp: String) {
         out.write("\t_jj = Interpret( (CCHR) \n")

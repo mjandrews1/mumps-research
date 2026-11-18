@@ -192,16 +192,14 @@ fun xindex(source: CharArray, ptrn: CharArray, strt: Short): Int {
  */
 
 /**
- * Owner: interp-sysfunc.cpp::Merge (batch-8 corpus unit). Raised at
- * u155 (h014 out_of_scope_call) - the MERGE command arm calls it
- * with left=v1d offset 0, right=MergeRHS offset 1; returns Int to
- * match the Mglobal(STORE,...) sibling call in the LHSREF arm.
- */
-fun Merge(left: CharArray, leftOff: Int, right: CharArray, rightOff: Int,
-          svPtr: Msv): Int {
-    TODO("h014 stub: owner interp-sysfunc.cpp::Merge (batch-8 unit)")
-}
-
+ * Owner: interp-sysfunc.cpp::Merge - RESOLVED by Merge.kt
+ * (unit 226, vendor 650-729; roster row 226, batch 8 - the
+ * former "batch-8 unit" stub raised at u155 is removed, the
+ * cleanLocks precedent). The u155 MERGE command arm calls it
+ * with left=v1d offset 0, right=MergeRHS offset 1; returns Int
+ * to match the Mglobal(STORE,...) sibling call in the LHSREF
+ * arm; the misc-7 global::Merge member (u218) reuses it via
+ * the mumps.interp.Merge seat.*/
 /**
  * Owner: interp-parse.cpp::inout (batch-10 corpus unit). Raised at
  * u155 (h014 out_of_scope_call) - the NEXT_CMND comment/blank-line
@@ -363,16 +361,19 @@ fun sym_(flag: Int, name: CharArray, nameOff: Int, bd: CharArray, bdOff: Int,
  * binds arg4 to bd+1; the parse_ call sites ignore both, so the
  * arg4Off parameter defaults to 0).
  */
-fun BuildGlobal(a: Int, g: Int, key: CharArray?, keyOff: Int, arg4: CharArray?,
-                svPtr: Msv, arg4Off: Int = 0): Int {
-    TODO("h014 stub: owner interp-parse.cpp::BuildGlobal (batch-8 unit); vendor arg4 NULL renders as null")
-}
+/**
+ * Owner: interp-parse.cpp::BuildGlobal - RESOLVED by
+ * BuildGlobal.kt (unit 233, vendor 1836-1878; roster row 233,
+ * batch 8); stub removed, the Fcn call sites bind unchanged
+ * (a NULL rslt folds to a scratch buffer there, journaled).
+ */
 
-/** Owner: interp-sym.cpp::BuildLocal (batch-8 corpus unit). */
-fun BuildLocal(a: Int, g: Int, key: CharArray?, keyOff: Int, arg4: CharArray?,
-               svPtr: Msv, arg4Off: Int = 0): Int {
-    TODO("h014 stub: owner interp-sym.cpp::BuildLocal (batch-8 unit); vendor arg4 NULL renders as null; returns Int (vendor interp-sym.cpp:97), arg4Off default 0 (u94 fcn)")
-}
+/**
+ * Owner: interp-sym.cpp::BuildLocal - RESOLVED by BuildLocal.kt
+ * (unit 232, vendor 97-144; roster row 232, batch 8); stub
+ * removed, the Fcn call sites bind unchanged (a NULL rslt
+ * folds to a scratch buffer there, journaled).
+ */
 
 /** Owner: interp-rpm.cpp::perl_pm (batch-9 corpus unit) - the regex
  *  engine entry behind rpm/perlmatch/perlcpp; string/pattern carry
@@ -414,13 +415,14 @@ fun mglobalAt(g: Int, key: CharArray, keyOff: Int, bd: CharArray, bdOff: Int,
  */
 
 /**
- * Owner: interp-parse.cpp::<misc> (B3 unit 75, same tranche as the
- * caller patrn); the compiler-sys1.c::cannon B3 unit 72 is the
- * compiler-side twin.
+ * Owner: interp-parse.cpp::cannon - RESOLVED by Cannon.kt
+ * (unit 223, vendor 215-256; roster row 223, batch 8 - the
+ * former "interp-parse.cpp::<misc> (B3 unit 75)" tag was a
+ * mis-tag, u141/u148/u169/u219 tag-correction family); stub
+ * removed, the Patrn call sites bind unchanged (the
+ * compiler-sys1.c::cannon B3 unit 72 remains the separate
+ * compiler-side twin seat).
  */
-fun cannon(a: CharArray) {
-    TODO("h014 stub: owner interp-parse.cpp::<misc> (B3 unit 75)")
-}
 
 // --- added by B3 unit 73 (interp-zfcns.cpp::GtkTreeAdd) ---
 
@@ -449,20 +451,23 @@ fun gtkTreeStoreSet(t: mumps.mdh.GtkTreeStore, itera: mumps.mdh.GtkTreeIter, col
 // --- added by B4 unit 98 (interp-sym.cpp::GlobalQuery) ---
 
 /**
- * Owner: state-vector machinery AllocSV (interp.cpp; not a corpus
- * unit). Vendor: struct MSV *svPtr=AllocSV() - push a fresh state
- * vector; the caller's memcpy/free become the carrier copy (GC).
+ * Owner: interp-sysfunc.cpp::AllocSV - RESOLVED by AllocSV.kt
+ * (unit 219, vendor 528-651; roster row 219, batch 8 - the
+ * former "not a corpus unit" tag was a mis-tag, u141/u148/u169
+ * tag-correction family); the stub now delegates to the real
+ * AllocSV seat and the Qsub/Sigint/SqlBtree call sites bind
+ * unchanged.
  */
-fun allocSV(): Msv {
-    TODO("h014 stub: owner state-vector machinery AllocSV (not a corpus unit)")
-}
+fun allocSV(): Msv = AllocSV()
 
 // --- added by B4 unit 94 (interp-fcn.cpp::fcn) ---
 
-/** Owner: interp-sym.cpp::ScanParse (batch-8 corpus unit; declared interp-fcn.cpp:81). */
-fun ScanParse(tmp1: CharArray, tmp1Off: Int): Int {
-    TODO("h014 stub: owner interp-sym.cpp::ScanParse (batch-8 unit)")
-}
+/**
+ * Owner: interp-sym.cpp::ScanParse - RESOLVED by ScanParse.kt
+ * (unit 234, vendor 1410-1435; roster row 234, batch 8;
+ * declared interp-fcn.cpp:81); stub removed, the Fcn call
+ * site binds unchanged.
+ */
 
 /** Owner: interp-sym.cpp::Eval (interp-sym.cpp:1192, not a corpus unit; declared interp-fcn.cpp:82). */
 fun Eval(tmp0: CharArray, tmp2: CharArray, svPtr: Msv): Int {
