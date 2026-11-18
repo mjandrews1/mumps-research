@@ -64,7 +64,10 @@ import mumps.interp.writeCstring
  *    mstring operator= names setFrom, both h017 adaptations.
  *  - h017 naming          : operator conventions adopted where a
  *    token exists (Mstring plusAssign/minusAssign/timesAssign/
- *    divAssign/remAssign, Mstring get for operator[]).
+ *    divAssign/remAssign, Mstring get for operator[]); the 38 raised
+ *    mPlus/mMinus/mTimes/mDiv/mRem stubs are RESOLVED (u283: the
+ *    LibmpscppMisc4 plus/minus/div/rem families + LibmpscppMisc8
+ *    times family).
  *  - h018 preprocessor_conditional: the #undef kill (7990) and
  *    the sw-section defines (MAX_ALIGNS/EMPTY_CELL, 8028-8039)
  *    are fossil text whose carriers were front-run by unit 45
@@ -577,176 +580,66 @@ operator fun Mstring.get(x: String): Mstring {
 
 // ---------------------------------------------------------------------------
 // mstring compound assignments (8518-8705): every body is
-// (*this)=(*this) op i; return (*this) - delegated to the misc-4
-// owner seats below (batch-10), per-file private TODO stubs.
+// (*this)=(*this) op i; return (*this). (u283 TAG CORRECTION: the 38
+// per-file mPlus/mMinus/mTimes/mDiv/mRem TODO stubs raised here in
+// batch-9 are RESOLVED - plus/minus/div/rem seats are the
+// LibmpscppMisc4.kt row-283 operator families; the times seats are
+// the LibmpscppMisc8.kt row-281 operator* family. The +=/*= calls
+// below now bind those seats directly.)
 // ---------------------------------------------------------------------------
-
-private fun mPlus(a: Mstring, i: Mstring): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator+(mstring) (misc-4 chunk, batch-10)")
-
-private fun mPlus(a: Mstring, i: Int): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator+(int) (misc-4, batch-10)")
-
-private fun mPlus(a: Mstring, i: Long): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator+(long) (misc-4, batch-10)")
-
-private fun mPlus(a: Mstring, i: Double): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator+(double) (misc-4, batch-10)")
-
-private fun mPlus(a: Mstring, i: Float): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator+(float) (misc-4, batch-10)")
-
-private fun mPlus(a: Mstring, i: String): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator+(string) (misc-4, batch-10)")
-
-private fun mPlus(a: Mstring, i: CharArray): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator+(const char *) (misc-4, batch-10)")
-
-private fun mPlus(a: Mstring, i: Global): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator+(global) (misc-4, batch-10)")
-
-private fun mMinus(a: Mstring, i: Mstring): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator-(mstring) (misc-4, batch-10)")
-
-private fun mMinus(a: Mstring, i: Int): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator-(int) (misc-4, batch-10)")
-
-private fun mMinus(a: Mstring, i: Long): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator-(long) (misc-4, batch-10)")
-
-private fun mMinus(a: Mstring, i: Double): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator-(double) (misc-4, batch-10)")
-
-private fun mMinus(a: Mstring, i: Float): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator-(float) (misc-4, batch-10)")
-
-private fun mMinus(a: Mstring, i: String): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator-(string) (misc-4, batch-10)")
-
-private fun mMinus(a: Mstring, i: CharArray): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator-(const char *) (misc-4, batch-10)")
-
-private fun mMinus(a: Mstring, i: Global): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator-(global) (misc-4, batch-10)")
-
-private fun mTimes(a: Mstring, i: Mstring): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator*(mstring) (misc-4, batch-10)")
-
-private fun mTimes(a: Mstring, i: Int): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator*(int) (misc-4, batch-10)")
-
-private fun mTimes(a: Mstring, i: Long): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator*(long) (misc-4, batch-10)")
-
-private fun mTimes(a: Mstring, i: Double): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator*(double) (misc-4, batch-10)")
-
-private fun mTimes(a: Mstring, i: Float): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator*(float) (misc-4, batch-10)")
-
-private fun mTimes(a: Mstring, i: String): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator*(string) (misc-4, batch-10)")
-
-private fun mTimes(a: Mstring, i: CharArray): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator*(const char *) (misc-4, batch-10)")
-
-private fun mTimes(a: Mstring, i: Global): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator*(global) (misc-4, batch-10)")
-
-private fun mDiv(a: Mstring, i: Mstring): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator/(mstring) (misc-4, batch-10)")
-
-private fun mDiv(a: Mstring, i: Int): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator/(int) (misc-4, batch-10)")
-
-private fun mDiv(a: Mstring, i: Long): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator/(long) (misc-4, batch-10)")
-
-private fun mDiv(a: Mstring, i: Double): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator/(double) (misc-4, batch-10)")
-
-private fun mDiv(a: Mstring, i: Float): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator/(float) (misc-4, batch-10)")
-
-private fun mDiv(a: Mstring, i: String): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator/(string) (misc-4, batch-10)")
-
-private fun mDiv(a: Mstring, i: CharArray): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator/(const char *) (misc-4, batch-10)")
-
-private fun mDiv(a: Mstring, i: Global): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator/(global) (misc-4, batch-10)")
-
-private fun mRem(a: Mstring, i: Mstring): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator%(mstring) (misc-4, batch-10)")
-
-private fun mRem(a: Mstring, i: Int): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator%(int) (misc-4, batch-10)")
-
-private fun mRem(a: Mstring, i: Long): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator%(long) (misc-4, batch-10)")
-
-private fun mRem(a: Mstring, i: String): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator%(string) (misc-4, batch-10)")
-
-private fun mRem(a: Mstring, i: CharArray): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator%(const char *) (misc-4, batch-10)")
-
-private fun mRem(a: Mstring, i: Global): Mstring =
-    TODO("h014 stub: owner libmpscpp.cpp mstring::operator%(global) (misc-4, batch-10)")
 
 // += family (8518-8555)
 
-operator fun Mstring.plusAssign(i: Mstring) { this.setFrom(mPlus(this, i)) }
-operator fun Mstring.plusAssign(i: Int) { this.setFrom(mPlus(this, i)) }
-operator fun Mstring.plusAssign(i: Long) { this.setFrom(mPlus(this, i)) }
-operator fun Mstring.plusAssign(i: Double) { this.setFrom(mPlus(this, i)) }
-operator fun Mstring.plusAssign(i: Float) { this.setFrom(mPlus(this, i)) }
-operator fun Mstring.plusAssign(i: String) { this.setFrom(mPlus(this, i)) }
-operator fun Mstring.plusAssign(i: CharArray) { this.setFrom(mPlus(this, i)) }
-operator fun Mstring.plusAssign(i: Global) { this.setFrom(mPlus(this, i)) }
+operator fun Mstring.plusAssign(i: Mstring) { this.setFrom(this + i) }
+operator fun Mstring.plusAssign(i: Int) { this.setFrom(this + i) }
+operator fun Mstring.plusAssign(i: Long) { this.setFrom(this + i) }
+operator fun Mstring.plusAssign(i: Double) { this.setFrom(this + i) }
+operator fun Mstring.plusAssign(i: Float) { this.setFrom(this + i) }
+operator fun Mstring.plusAssign(i: String) { this.setFrom(this + i) }
+operator fun Mstring.plusAssign(i: CharArray) { this.setFrom(this + i) }
+operator fun Mstring.plusAssign(i: Global) { this.setFrom(this + i) }
 
 // -= family (8557-8595)
 
-operator fun Mstring.minusAssign(i: Mstring) { this.setFrom(mMinus(this, i)) }
-operator fun Mstring.minusAssign(i: Int) { this.setFrom(mMinus(this, i)) }
-operator fun Mstring.minusAssign(i: Long) { this.setFrom(mMinus(this, i)) }
-operator fun Mstring.minusAssign(i: Double) { this.setFrom(mMinus(this, i)) }
-operator fun Mstring.minusAssign(i: Float) { this.setFrom(mMinus(this, i)) }
-operator fun Mstring.minusAssign(i: String) { this.setFrom(mMinus(this, i)) }
-operator fun Mstring.minusAssign(i: CharArray) { this.setFrom(mMinus(this, i)) }
-operator fun Mstring.minusAssign(i: Global) { this.setFrom(mMinus(this, i)) }
+operator fun Mstring.minusAssign(i: Mstring) { this.setFrom(this - i) }
+operator fun Mstring.minusAssign(i: Int) { this.setFrom(this - i) }
+operator fun Mstring.minusAssign(i: Long) { this.setFrom(this - i) }
+operator fun Mstring.minusAssign(i: Double) { this.setFrom(this - i) }
+operator fun Mstring.minusAssign(i: Float) { this.setFrom(this - i) }
+operator fun Mstring.minusAssign(i: String) { this.setFrom(this - i) }
+operator fun Mstring.minusAssign(i: CharArray) { this.setFrom(this - i) }
+operator fun Mstring.minusAssign(i: Global) { this.setFrom(this - i) }
 
 // *= family (8597-8635)
 
-operator fun Mstring.timesAssign(i: Mstring) { this.setFrom(mTimes(this, i)) }
-operator fun Mstring.timesAssign(i: Int) { this.setFrom(mTimes(this, i)) }
-operator fun Mstring.timesAssign(i: Long) { this.setFrom(mTimes(this, i)) }
-operator fun Mstring.timesAssign(i: Double) { this.setFrom(mTimes(this, i)) }
-operator fun Mstring.timesAssign(i: Float) { this.setFrom(mTimes(this, i)) }
-operator fun Mstring.timesAssign(i: String) { this.setFrom(mTimes(this, i)) }
-operator fun Mstring.timesAssign(i: CharArray) { this.setFrom(mTimes(this, i)) }
-operator fun Mstring.timesAssign(i: Global) { this.setFrom(mTimes(this, i)) }
+operator fun Mstring.timesAssign(i: Mstring) { this.setFrom(this * i) }
+operator fun Mstring.timesAssign(i: Int) { this.setFrom(this * i) }
+operator fun Mstring.timesAssign(i: Long) { this.setFrom(this * i) }
+operator fun Mstring.timesAssign(i: Double) { this.setFrom(this * i) }
+operator fun Mstring.timesAssign(i: Float) { this.setFrom(this * i) }
+operator fun Mstring.timesAssign(i: String) { this.setFrom(this * i) }
+operator fun Mstring.timesAssign(i: CharArray) { this.setFrom(this * i) }
+operator fun Mstring.timesAssign(i: Global) { this.setFrom(this * i) }
 
 // /= family (8637-8675)
 
-operator fun Mstring.divAssign(i: Mstring) { this.setFrom(mDiv(this, i)) }
-operator fun Mstring.divAssign(i: Int) { this.setFrom(mDiv(this, i)) }
-operator fun Mstring.divAssign(i: Long) { this.setFrom(mDiv(this, i)) }
-operator fun Mstring.divAssign(i: Double) { this.setFrom(mDiv(this, i)) }
-operator fun Mstring.divAssign(i: Float) { this.setFrom(mDiv(this, i)) }
-operator fun Mstring.divAssign(i: String) { this.setFrom(mDiv(this, i)) }
-operator fun Mstring.divAssign(i: CharArray) { this.setFrom(mDiv(this, i)) }
-operator fun Mstring.divAssign(i: Global) { this.setFrom(mDiv(this, i)) }
+operator fun Mstring.divAssign(i: Mstring) { this.setFrom(this / i) }
+operator fun Mstring.divAssign(i: Int) { this.setFrom(this / i) }
+operator fun Mstring.divAssign(i: Long) { this.setFrom(this / i) }
+operator fun Mstring.divAssign(i: Double) { this.setFrom(this / i) }
+operator fun Mstring.divAssign(i: Float) { this.setFrom(this / i) }
+operator fun Mstring.divAssign(i: String) { this.setFrom(this / i) }
+operator fun Mstring.divAssign(i: CharArray) { this.setFrom(this / i) }
+operator fun Mstring.divAssign(i: Global) { this.setFrom(this / i) }
 
 // %= family (8677-8705; no double/float forms in the vendor)
 
-operator fun Mstring.remAssign(i: Mstring) { this.setFrom(mRem(this, i)) }
-operator fun Mstring.remAssign(i: Int) { this.setFrom(mRem(this, i)) }
-operator fun Mstring.remAssign(i: Long) { this.setFrom(mRem(this, i)) }
-operator fun Mstring.remAssign(i: String) { this.setFrom(mRem(this, i)) }
-operator fun Mstring.remAssign(i: CharArray) { this.setFrom(mRem(this, i)) }
-operator fun Mstring.remAssign(i: Global) { this.setFrom(mRem(this, i)) }
+operator fun Mstring.remAssign(i: Mstring) { this.setFrom(this % i) }
+operator fun Mstring.remAssign(i: Int) { this.setFrom(this % i) }
+operator fun Mstring.remAssign(i: Long) { this.setFrom(this % i) }
+operator fun Mstring.remAssign(i: String) { this.setFrom(this % i) }
+operator fun Mstring.remAssign(i: CharArray) { this.setFrom(this % i) }
+operator fun Mstring.remAssign(i: Global) { this.setFrom(this % i) }
 
 // ---------------------------------------------------------------------------
 // mstring operator= family (8717-8758): setFrom (h017 - Kotlin has no
