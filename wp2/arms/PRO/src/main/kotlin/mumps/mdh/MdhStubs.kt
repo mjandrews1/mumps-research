@@ -1,6 +1,7 @@
 package mumps.mdh
 
 import mumps.interp.Msv
+import mumps.interp.writeCstring
 
 /**
  * Opaque PRO-arm stand-in for the GTK type GtkTreeStore (GUI glue;
@@ -47,14 +48,15 @@ fun Replace(svPtr: Msv, ep: CharArray?, arg1: CharArray, arg2: CharArray,
 }
 /**
  * Owner: interp-sym.cpp / sym.c symbol-table primitive
- * sym_(fn,key,bd,svPtr) (not a corpus unit).
- * Return type promoted from Unit to CharArray? (B1 unit 25,
- * LocalGet tests sym_(11,...)==NULL; owner semantics: NULL when the
- * variable is absent, bd pointer otherwise).
+ * sym_(fn,key,bd,svPtr) - RESOLVED by Sym_.kt (roster row 280,
+ * batch 10; TAG CORRECTION: it IS a corpus unit, 484 LOC).
+ * Return type stays CharArray? (B1 unit 25: LocalGet tests
+ * sym_(11,...)==NULL; NULL when the variable is absent). This is
+ * now a thin delegate to the 6-arg interp seat (bmg_fullsearch
+ * delegate precedent); mdh call sites bind unchanged.
  */
-fun sym_(fn: Int, key: CharArray, bd: CharArray, svPtr: Msv): CharArray? {
-    TODO("h014 stub: owner sym_ symbol-table machinery (not a corpus unit)")
-}
+fun sym_(fn: Int, key: CharArray, bd: CharArray, svPtr: Msv): CharArray? =
+    mumps.interp.sym_(fn, key, 0, bd, 0, svPtr)
 
 /** Owner: interp-strmanip.cpp::strcatx - RESOLVED by
  *  InterpStrmanipMisc.kt (unit 136; tag corrected: libmpscpp.cpp
@@ -106,10 +108,13 @@ class MumpsGlobalException : RuntimeException(MUMPS_GLOBAL_EXCEPTION_MESSAGE) {
     fun what(): String = MUMPS_GLOBAL_EXCEPTION_MESSAGE
 }
 
-/** Owner: interp-arith.cpp::Mltoa (batch-10 unit). */
-fun Mltoa(n: Long, dst: CharArray) {
-    TODO("h014 stub: owner interp-arith.cpp::Mltoa (batch-10 unit)")
-}
+/**
+ * Owner: interp-arith.cpp::Mltoa - RESOLVED by Mltoa.kt (roster
+ * row 292, batch 10; stub removed, cleanLocks precedent). The
+ * raised stub signature moves to the real seat in this package
+ * (h015 fold note); the SysDump/GlobalExtract/GlobalFind/
+ * LibmpscppMisc7 callers bind unchanged.
+ */
 
 /** Owner: interp-sym.cpp::_extract - RESOLVED by Extract.kt
  *  (unit 172, vendor 1235-1277; roster row 173, batch 6 - the
@@ -140,10 +145,12 @@ fun _piece(
     TODO("h014 stub: owner interp-piece.cpp:97 _piece (not a corpus unit)")
 }
 
-/** Owner: libmpscpp.cpp:7073 xecute (not a corpus unit). */
-fun xecute(exp: String): Int {
-    TODO("h014 stub: owner libmpscpp.cpp:7073 xecute (not a corpus unit)")
-}
+/** Owner: libmpscpp.cpp:7053-7082 xecute - RESOLVED by
+ *  LibmpscppMisc8.kt (roster row 281, batch 10; TAG CORRECTION:
+ *  the bodies are carrying lines of the libmpscpp.cpp::<misc-8>
+ *  residual chunk, not out-of-corpus - the String overload is the
+ *  core, with Mstring/char* overloads beside it); stub removed
+ *  (cleanLocks precedent, unit 56). */
 
 // --- added by B4 unit 97 (libmpscpp.cpp::<misc-9>) ---
 //
@@ -186,18 +193,17 @@ fun xecute(exp: String): Int {
  *  stub removed (the LibmpscppMisc9.kt:529 MSV wrapper call site
  *  binds unchanged). */
 
-/** Owner: libmpscpp.cpp::StopLookup (char* overload at 7777; not a corpus unit). */
-fun StopLookup(str: String): Boolean {
-    TODO("h014 stub: owner libmpscpp.cpp::StopLookup (not a corpus unit)")
-}
+/** Owner: libmpscpp.cpp::StopLookup (7763-7781 x3) - RESOLVED by
+ *  LibmpscppMisc8.kt (roster row 281, batch 10; Boolean u97 fold
+ *  of the vendor 0/1 set-membership returns); the mstring/char*
+ *  forwarders land there too; stub removed (cleanLocks precedent,
+ *  unit 56; the LibmpscppMisc9.kt:535 MSV wrapper call site binds
+ *  unchanged). */
 
-/** Owner: libmpscpp.cpp::SYN (7788; not a corpus unit).
- *  Carrier note: the syn table and synx now live in SynInit.kt
- *  (unit 126, h008 carrier) - when this stub resolves it reads
- *  them; bsearch/cmpr at vendor 7790-7791. */
-fun SYN(word: String): String {
-    TODO("h014 stub: owner libmpscpp.cpp::SYN (not a corpus unit)")
-}
+/** Owner: libmpscpp.cpp::SYN (7788-7810, with cmpr 7773 and the
+ *  bsearch folded) - RESOLVED by LibmpscppMisc8.kt (roster row 281,
+ *  batch 10; String core + Mstring/char* forms; reads the SynInit.kt
+ *  syn/synx carriers); stub removed (cleanLocks precedent, unit 56). */
 
 /**
  * libmpscpp.cpp::Shred was stubbed here until B6 unit 164
@@ -206,19 +212,26 @@ fun SYN(word: String): String {
  * unchanged).
  */
 
-/** Owner: libmpscpp.cpp::ShredQuery (7970; not a corpus unit). */
-fun ShredQuery(str: String, size: Int): String {
-    TODO("h014 stub: owner libmpscpp.cpp::ShredQuery (not a corpus unit)")
-}
+/** Owner: libmpscpp.cpp::ShredQuery (7959-7989) - RESOLVED by
+ *  LibmpscppMisc8.kt (roster row 281, batch 10; String/Mstring
+ *  forms over the persistent static-i core; the Msv wrapper
+ *  binding note above still applies); stub removed (cleanLocks
+ *  precedent, unit 56). */
 
 /**
- * Owner: libmpscpp.cpp::bmg_fullsearch (not a corpus unit; the
- * wrapper's (char*, char*) call binds the (char*, global) overload
- * at 8371 via the implicit char*->global conversion - noted per
- * the LibmpscppMisc9 header).
+ * Owner: the bmg_fullsearch char* core (interp-bmgsubs.c misc body,
+ * the B10 roster row 285 seat in mumps.interp) - the earlier
+ * "not a corpus unit" tag was WRONG and is corrected (u285): the
+ * core IS a corpus unit. The stub is RESOLVED as a thin delegate
+ * over the mumps.interp seat (cleanLocks precedent, unit 56); the
+ * (char*, global) overload-8371 binding note above still applies.
  */
 fun bmg_fullsearch(a: String, buf: String): Int {
-    TODO("h014 stub: owner libmpscpp.cpp::bmg_fullsearch (not a corpus unit)")
+    val p = CharArray(a.length + 1)
+    writeCstring(p, a)
+    val inp = CharArray(buf.length + 1)
+    writeCstring(inp, buf)
+    return mumps.interp.bmg_fullsearch(p, inp)
 }
 
 /**
@@ -260,15 +273,14 @@ object AlignState {
 // stub was removed, cleanLocks precedent, unit 56); Sw.kt's init()
 // call site now binds the real owner.
 
-/** Owner: libmpscpp.cpp:8041 nodash (not a corpus unit). */
-fun nodash(a: CharArray): Int {
-    TODO("h014 stub: owner libmpscpp.cpp::nodash (not a corpus unit)")
-}
+/** Owner: libmpscpp.cpp:8041 nodash - RESOLVED by LibmpscppMisc8.kt
+ *  (roster row 281, batch 10); stub removed (cleanLocks precedent,
+ *  unit 56; the Sw.kt path call site binds unchanged). */
 
-/** Owner: libmpscpp.cpp:8049 inline int Score(char,char) (not a corpus unit). */
-fun Score(a: Char, b: Char): Int {
-    TODO("h014 stub: owner libmpscpp.cpp:8049 inline Score (not a corpus unit)")
-}
+/** Owner: libmpscpp.cpp:8049 inline int Score(char, char) - RESOLVED
+ *  by LibmpscppMisc8.kt (roster row 281, batch 10; GAP/MATCH/
+ *  MISMATCH bind the AlignState seats); stub removed (Cost.kt now
+ *  binds the real owner). */
 
 // --- (u62) global numeric carrier stubs: RESOLVED in batch 9 ---
 
@@ -324,20 +336,26 @@ fun set_global(ref: CharArray, rslt: CharArray) {
 
 // --- added by B5 unit 124 (libmpscpp.cpp::<misc-5>) ---
 
-/** Owner: interp-stem.cpp stem tables (batch-6 unit owns the tables; wstem itself is not a corpus unit). */
-fun wstem(word: CharArray, len: Int): Int {
-    TODO("h014 stub: owner interp-stem.cpp::wstem (stem tables, batch-6)")
-}
+/**
+ * Owner: interp-stem.cpp::wstem - RESOLVED by Wstem.kt (roster row
+ * 292, batch 10; stub removed, cleanLocks precedent). TAG
+ * CORRECTION: the old stub note "wstem itself is not a corpus
+ * unit" was wrong - wstem IS roster row 293; callers bind to
+ * mumps.mdh.wstem unchanged.
+ */
 
 /** Owner: interp-pm.cpp:43 pm (pattern match engine, not a corpus unit). */
 fun pm(string: CharArray, pattern: CharArray, svPtr: mumps.interp.Msv): Int {
     TODO("h014 stub: owner interp-pm.cpp::pm (not a corpus unit)")
 }
 
-/** Owner: libmpscpp.cpp::global::DocCorrelate(global,string,double) (vendor 1215, batch-10 corpus unit). */
-fun docCorrelate(B: Global, fcn: String, threshold: Double) {
-    TODO("h014 stub: owner libmpscpp.cpp::global::DocCorrelate(global,string,double) (batch-10 unit)")
-}
+/**
+ * Owner: libmpscpp.cpp::global::DocCorrelate(global,string,double)
+ * - RESOLVED by DocCorrelate.kt (roster row 288, batch 10; stub
+ * removed, cleanLocks precedent; the Global extension shape is
+ * the TermCorrelate unit-14 precedent).
+ */
+
 
 // --- opaque GTK carriers (GUI glue; the mdh wrappers only forward
 //     opaque handles to the underlying libgtk calls) ---
