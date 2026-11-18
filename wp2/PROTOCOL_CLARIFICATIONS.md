@@ -15,6 +15,7 @@ effect on the committed schedule, and the methodological consequences.
 | C-002 | 2026-11-16 | Per-unit check definitions formalized | Resolved (definition written) |
 | C-003 | 2026-11-16 | PRO early B2 execution | Active (deviation logged) |
 | C-004 | 2026-12-04 | Statistical Analysis Plan specified before pending-arm outcomes | Registered (SAP committed) |
+| C-005 | 2026-12-04 | DOC cookbook-consult event-log mapping | Registered (prospective) |
 
 ---
 
@@ -205,3 +206,69 @@ pairwise contrasts are not blinded; the SAP states this openly
 
 **Files touched by this entry:** `wp2/STATISTICAL_ANALYSIS_PLAN.md`
 (new). No pre-existing pre-registered file was modified.
+
+---
+
+## C-005 — DOC cookbook-consult event-log mapping (registered 2026-12-04)
+
+**Observation.** The DOC arm's pre-registered instrumentation
+(`wp2/arms/DOC/cookbook_v0.md`, "Lookup logging") records each
+cookbook consult as an arm-journal row holding (unit id, entry id,
+outcome), with outcome in {hit-reuse, hit-adapt, miss}. The analysis
+input contract (`wp2/analysis/README.md`, contract 1; C-004)
+requires event CSVs with columns exactly
+`kind,target,unit,timestamp` and kind in {reuse, hit, miss}. A DOC
+log in the pre-registered journal form therefore does not satisfy
+the contract as-is, and an explicit mapping is needed before any
+DOC batch produces analysable outcomes.
+
+**Resolution.** The pre-registered journal practice is unchanged
+(the instrument is not modified mid-study); the mapping is fixed
+prospectively, before any DOC batch runs. At each DOC batch close,
+`wp2/logs/DOC_knowledge_events.csv` is generated from that batch's
+journal consult rows, LF line endings, header exactly
+`kind,target,unit,timestamp`, one consult per (roster unit, cookbook
+entry) expanded as follows:
+
+- `hit-reuse` -> one `reuse` row plus one `hit` row (PRO pair
+  semantics: target = cookbook entry id, e.g. H-001);
+- `hit-adapt` -> one `reuse` row plus one `hit` row. Decision
+  (researcher, 2026-12-04): adaptation of a cookbook entry counts as
+  reuse, so PRO and DOC reuse rates both measure
+  consult-and-apply of the knowledge artifact, not verbatim
+  copying. Both arms' definitions are stated openly in the SAP's
+  E5 interpretation as a result;
+- `miss` -> one `miss` row.
+
+Timestamps carry the consult time as recorded in the journal row.
+Arms with no recorded consult for a unit emit no row, per PRO's
+one-pair-per-(unit, rule) protocol carried over to (unit, entry).
+Coverage/hit-rate denominators follow capture_criteria §4-5 as for
+PRO. The BOTH arm, if it consults the combined artifact, must
+register or match this schema before analysis likewise.
+
+**Effect on the committed schedule.** None. No DOC outcome exists
+yet; the mapping binds before any DOC batch begins.
+
+**Methodological consequences.** The reuse-rate *definition* for DOC
+now includes adaptations; this is recorded here rather than inferred
+during analysis. Any later deviation from this mapping must be
+logged as a new entry, with the analysis not silently re-run.
+
+**Files touched by this entry:** `wp2/PROTOCOL_CLARIFICATIONS.md`
+(this entry), `wp2/analysis/README.md` (contract 1 and contract 3
+and layout amended: DOC mapping reference, check-export generator,
+and the `roster_row` unit key), `wp2/analysis/R/export_per_unit_checks.R`
+(new). No pre-registered instrument (order assignments, capture
+criteria, oracle manifests, cookbook content) was modified.
+
+**Unit-key registration.** The per-unit check export
+(`per_unit_checks.csv`, README contract 3) is keyed by
+`roster_row` (units.csv physical row, header = line 1, units =
+rows 2-309), not by the roster `id` string: roster ids are
+file-level and not unique (one id appears on 9 rows), so an
+id-keyed export would silently collapse distinct units, the same
+hazard registered for the events log under C-004 contract 5. The
+check generator emits `roster_row` as the join key and `unit_id`
+as descriptive only. Registered before any export exists; no
+recorded value is reinterpreted.

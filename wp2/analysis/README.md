@@ -28,6 +28,12 @@ PROTOCOL_CLARIFICATIONS entry, not silently applied.
   (e.g. `precapture_pro_seed.csv`); the per-unit check and deviation
   exports are generated here at each arm's close and committed once
   exported (`per_unit_checks.csv`, `deviations.csv`).
+- `R/export_per_unit_checks.R`: generator that seeds
+  `data/per_unit_checks.csv` from the roster (one row per roster
+  unit per arm, keyed by `roster_row`, all four checks `todo`);
+  statuses are filled by the per-unit check backfill pass
+  (C-001 cycle-10 buffer, per `PER_UNIT_CHECKS.md`) and committed
+  once evaluated.
 
 ## Input contracts (all committed data; readers fail loudly otherwise)
 
@@ -36,13 +42,23 @@ PROTOCOL_CLARIFICATIONS entry, not silently applied.
    kind in {reuse, hit, miss}. PRO's contract is verified (3690 rows);
    OTHER event-producing arms (BOTH; DOC cookbook-consult logs) must
    match this schema or a registry entry must be logged before analysis.
-2. **Roster**: `roster/units.csv` (CRLF endings) as sampled and
+   DOC is registered by C-005
+   (`wp2/PROTOCOL_CLARIFICATIONS.md`): `DOC_knowledge_events.csv` is
+   generated at each DOC batch close from the journal consult rows,
+   with hit-reuse and hit-adapt each emitting a reuse+hit pair
+   (adaptation counts as reuse), miss emitting a miss row, and
+   target = cookbook entry id (H-nnn).
+2. **Roster**: `wp1/study-subset/units.csv` (CRLF endings) as sampled and
    committed in WP1; the readers strip CR. Row 1 is the header; rows
    2-309 are the 308 units.
 3. **Per-unit checks**: `wp2/analysis/data/per_unit_checks.csv`,
-   columns: `unit_id,arm,code_check,output_check,runtime_check,target_check`,
-   each status in {todo, evaluated-pass, evaluated-fail} or unevaluated
-   per PER_UNIT_CHECKS.md vocabulary. E2 tests run on evaluated units
+   columns: `roster_row,unit_id,arm,code_check,output_check,runtime_check,target_check`.
+   `roster_row` is the authoritative unit key (units.csv physical
+   row, header = line 1, units = rows 2-309): roster `id` strings are
+   file-level and not unique (e.g. one id appears on 9 rows), so
+   `unit_id` is descriptive only and never a join key (C-005).
+   Each status is {todo, evaluated-pass, evaluated-fail} per
+   PER_UNIT_CHECKS.md vocabulary. E2 tests run on evaluated units
    only (SAP §4) and report the evaluated fraction.
 4. **Deviation exports**: `wp2/analysis/data/deviations.csv`,
    columns: `unit_id,arm,count,notes` (E3; count >= 0).
