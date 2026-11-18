@@ -386,7 +386,7 @@ fun parse_(): Int {
             ////-----------------------------------------------------------------------------------------------------------------
             if (nxtchr == CodedOpen.toChar()) {
                 spx++
-                while (st.pd1[sdLim++] != NUL) { } // slide sdlim past the current top
+                do { sdLim++ } while (st.pd1[sdLim - 1] != NUL) // slide sdlim past the current top
                 if (sdLim >= st.symlen) { st.sdlim = sdLim.toShort(); return 31 }
                 var p1 = 1
                 var p2 = sdLim
@@ -438,7 +438,7 @@ fun parse_(): Int {
                 st.pd1[i] = CodedComma
                 st.pd1[i + 1] = NUL
                 sdLim--
-                while (st.pd1[sdLim--] != NUL) { } // find new stack top start
+                do { sdLim-- } while (st.pd1[sdLim + 1] != NUL) // find new stack top start
                 sdLim += 2
                 spx--
                 phase = P_NCHAR; continue@outer
@@ -453,9 +453,9 @@ fun parse_(): Int {
                     if (s1p[spx - 1] != OPENC) {
                         if (s1p[spx] == OPENC) { // fcn() type ref
                             // un_nest: copy answer from stack
-                            while (st.pd1[--sdLim] != NUL) { }
+                            do { sdLim-- } while (st.pd1[sdLim] != NUL)
                             strcpyC(st.v1d, cstringAt(st.pd1, sdLim + 1), 1)
-                            while (st.pd1[--sdLim] != NUL) { }
+                            do { sdLim-- } while (st.pd1[sdLim] != NUL)
                             sdLim++
                             spx -= 2
                             phase = P_VAR1; continue@outer
@@ -473,13 +473,13 @@ fun parse_(): Int {
                     st.pd1[i] = CodedClose
                     st.pd1[i + 1] = NUL
                     sdLim--
-                    while (st.pd1[sdLim--] != NUL) { }
+                    do { sdLim-- } while (st.pd1[sdLim + 1] != NUL)
                     sdLim += 2
                     spx--
                     // un_nest: copy answer from stack
-                    while (st.pd1[--sdLim] != NUL) { }
+                    do { sdLim-- } while (st.pd1[sdLim] != NUL)
                     strcpyC(st.v1d, cstringAt(st.pd1, sdLim + 1), 1)
-                    while (st.pd1[--sdLim] != NUL) { }
+                    do { sdLim-- } while (st.pd1[sdLim] != NUL)
                     sdLim++
                     spx -= 2
                     phase = P_VAR1; continue@outer
@@ -515,7 +515,7 @@ fun parse_(): Int {
                     st.SSSOff++
                 } while (st.pd1[st.SSSOff] != NUL)
 
-                while (st.pd1[sdLim--] != NUL) { }
+                do { sdLim-- } while (st.pd1[sdLim + 1] != NUL)
                 sdLim += 2
                 var e = sdLim
                 while (st.pd1[e] != NUL) e++
