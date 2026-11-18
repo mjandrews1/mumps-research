@@ -19,9 +19,17 @@ import mumps.interp.writeCstring
  * (batch 5). Overload disambiguation journaled: this is the
  * global-needle form (:3274); the no-arg form (:3261) and the
  * mstring/string/char-star needle forms (:3306/:3330/:3354) are
- * separate vendor overloads not in this batch's corpus rows
- * (the mstring::Length family :3257/:3378... is roster unit
- * 149, a later tranche-C row).
+ * separate vendor overloads (the mstring::Length family
+ * :3257/:3378... is roster unit 149, a later tranche-C row).
+ *
+ * Rows 299/301 verification note (batch 10): units.csv rows 299
+ * and 301 now list two of those overload twins - row 299 the
+ * mstring/string needle form (loc 17, score 8.1) and row 301 the
+ * char-star needle form (loc 17, score 7.7). They are thin
+ * same-shape overloads of this seat's body (RETRIEVE both
+ * globals, count needle occurrences); verification-only, no
+ * redeclaration (one-owner h019 fold note, u141 family
+ * precedent - the "not in this batch" note above is superseded).
  *
  * global::Length(global needle): piece count of this global's
  * value under the needle global's value - retrieves both

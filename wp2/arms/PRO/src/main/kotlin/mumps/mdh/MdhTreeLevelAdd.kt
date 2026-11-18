@@ -6,6 +6,12 @@ package mumps.mdh
  * the pristine vendor source (mumps-14-may-2026.tgz, sha256
  * 621deb25...ffdbe).
  *
+ * Row 298 verification note (batch 10): units.csv row 298 lists the
+ * col9 overload (loc 33, comment_ratio 0.132, ptr 1, score 10.9)
+ * - this batch-1 seat already renders ALL ten overloads incl. that
+ * one; verification-only, no redeclaration (one-owner h019 fold
+ * note, u141 family precedent).
+ *
  * Rules applied (wp2/arms/PRO/rules_v0.pl):
  *  - h004 globals_ext        : the file-scope svPtr rides the mdh owner
  *    object (MdhState).
