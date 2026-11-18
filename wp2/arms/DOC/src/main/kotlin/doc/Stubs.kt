@@ -66,4 +66,38 @@ object Stubs {
     // wrapper macro); the numSetup residue unit owns it.
     fun gcvtWrapper(a: Double, out: CharArray): Unit =
         throw NotImplementedError("gcvt_wrapper: out-of-scope owner (numSetup.h residue unit)")
+
+    // TODO stub: zfcn (unsigned char *, unsigned char *, MSV *) declared
+    // libmpscpp.h (zfcn interpreter dispatcher); owner is the interp zfcn
+    // corpus unit of a later batch; not a batch-2 unit.
+    fun zfcn(tmp: CharArray, tmp2: CharArray, sv: Msv): Unit =
+        throw NotImplementedError("zfcn: out-of-scope owner (interp zfcn dispatcher)")
+
+    // TODO stub: void sigint(int) declared include/mumpsc/SYM.h:41;
+    // owner is the interp SIGINT shutdown path; not a corpus unit.
+    fun sigint(i: Int): Unit =
+        throw NotImplementedError("sigint: out-of-scope owner (SYM.h:41 SIGINT path)")
+
+    // TODO stub: global::Multiply three-reference member; owner is unit
+    // 53 of this batch (not yet translated); delegation replaces this
+    // when the u53 file lands.
+    fun globalRefMultiply(a: GlobalRef, b: GlobalRef, c: GlobalRef): Unit =
+        throw NotImplementedError("global::Multiply: owner unit 53 of this batch; delegate when u53 lands")
+
+    // TODO stub: global::get_global two-buffer member (libmpscpp.cpp);
+    // owner unit not selected in this batch; translation pending.
+    fun get_global(key: CharArray, rslt: CharArray): Unit {
+        Globals.svPtr.tpx = 0
+        throw NotImplementedError("get_global: out-of-scope owner (libmpscpp.cpp global member)")
+    }
+
+    // TODO stub: global::set_global two-buffer member (libmpscpp.cpp);
+    // owner unit not selected in this batch; translation pending.
+    fun set_global(key: CharArray, rslt: CharArray): Unit =
+        throw NotImplementedError("set_global: out-of-scope owner (libmpscpp.cpp global member)")
+
+    // TODO stub: interp-native-btree.cpp block reader freadx; owner is
+    // the btree block-IO unit of a later batch; not a batch-2 unit.
+    fun freadx(block: Int, mode: Int): ByteArray =
+        throw NotImplementedError("freadx: out-of-scope owner (interp-native-btree.cpp block reader)")
 }

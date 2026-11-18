@@ -23,6 +23,10 @@ const val STORE = 1
 const val GKILL = 3
 const val XNEXT = 8
 const val GLOBAL_NOT_FOUND = 2
+// libmpscpp.h:73 error code 4
+const val DATA_RANGE_ERROR = 4
+// libmpscpp.h:70 error code 1
+const val INVALID_CONVERSION = 1
 const val CodedOpen = 206
 const val CodedClose = 207
 const val CodedComma = 208
@@ -40,6 +44,9 @@ class Msv {
     val bd = CharArray(STR_MAX)
     val v1d = CharArray(STR_MAX)
     var tpx: Long = 0
+    // stateVector.h FILE *in_file[10] carrier (unit 48: getstr2 binds
+    // lun 5 to stdin); rendered as Readers indexed as in the vendor.
+    val in_file = arrayOfNulls<java.io.Reader>(10)
 }
 
 // File-scope externs of libmpscpp.h:62 (GlobalExceptionCode) :210
@@ -154,10 +161,61 @@ object CstringOps {
     fun cstring(buf: CharArray): String {
         val sb = StringBuilder()
         var i = 0
-        while (i < buf.size && buf[i] != '\u0000') {
+        while (i < buf.size && buf[i] != NUL) {
             sb.append(buf[i])
             i++
         }
         return sb.toString()
+    }
+
+    // strcpy(&dst[offset], src) String form (vendor idiom &tmp[1]).
+    fun copyAtS(dst: CharArray, offset: Int, src: String) {
+        var i = 0
+        while (i < src.length) {
+            dst[offset + i] = src[i]
+            i++
+        }
+        dst[offset + i] = NUL
+    }
+
+    // strcat(&dst[offset], ch): append one char at the NUL of a
+    // NUL-terminated region beginning at offset.
+    fun catAt(dst: CharArray, offset: Int, ch: Char) {
+        var i = offset
+        while (i < dst.size && dst[i] != NUL) i++
+        if (i < dst.size) {
+            dst[i] = ch
+            if (i + 1 < dst.size) dst[i + 1] = NUL
+        }
+    }
+
+    // catAt String form used by the mdh_tree_level_add unit file.
+    fun catAt(dst: CharArray, offset: Int, src: String) = catAtS(dst, offset, src)
+
+    // strcat(&dst[offset], src) String form.
+    fun catAtS(dst: CharArray, offset: Int, src: String) {
+        var i = offset
+        while (i < dst.size && dst[i] != NUL) i++
+        var j = 0
+        while (j < src.length && i < dst.size) {
+            dst[i] = src[j]
+            i++
+            j++
+        }
+        if (i < dst.size) dst[i] = NUL
+    }
+
+    // strncmp(ref, tmp, i): compare a String against the first n bytes
+    // of a NUL-terminated buffer region (vendors global::Min and IDF).
+    fun strncmpS(a: String, b: CharArray, n: Int): Int {
+        var i = 0
+        while (i < n) {
+            val ca = if (i < a.length) a[i] else NUL
+            val cb = if (i < b.size) b[i] else NUL
+            if (ca != cb) return if (ca < cb) -1 else 1
+            if (ca == NUL) return 0
+            i++
+        }
+        return 0
     }
 }
