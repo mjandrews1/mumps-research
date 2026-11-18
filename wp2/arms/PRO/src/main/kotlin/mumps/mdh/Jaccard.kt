@@ -8,13 +8,14 @@ import mumps.interp.writeCstring
 
 /**
  * PRO-arm translation of libmpscpp.cpp::Jaccard (roster row 256,
- * batch 9; units.csv: loc 58, comment_ratio 0.017, pointer_marks 4,
- * control_marks 13, score 35.0, rank 217). Translated independently
- * from the pristine vendor source (mumps-14-may-2026.tgz, sha256
- * 621deb25...ffdbe), reference source lines 1376-1459 - RESOLVES
- * the MdhStubs Jaccard(Global, Global) stub raised at u187
- * ServiceInterface (correct batch-9 owner tag; the ServiceInterface
- * JACCARD-arm call site binds unchanged) - stub removed.
+ * batch 9; units.csv: loc 58, comment_ratio 0.017, pointer_marks
+ * 4, control_marks 13, score 35.0, rank 217). Translated
+ * independently from the pristine vendor source
+ * (mumps-14-may-2026.tgz, sha256 621deb25...ffdbe), reference
+ * source lines 1376-1459 - RESOLVES the MdhStubs Jaccard(Global,
+ * Global) stub raised at u187 ServiceInterface (correct
+ * batch-9 owner tag; the ServiceInterface JACCARD-arm call site
+ * binds unchanged) - stub removed.
  *
  * Jaccard(A, B): the Jaccard coefficient of two term-weight
  * globals (friend of class global, Cosine unit-71 / Dice u165
@@ -24,33 +25,34 @@ import mumps.interp.writeCstring
  * val = totD+totQ-tot; return tot/val (0.0 on val==0.0).
  *
  * Rules applied (wp2/arms/PRO/rules_v0.pl):
- *  - h007 char_buffer        : ttt/ctmp/btmp/tmp/tmp1/rslt/OriginalB
- *    STR_MAX C-string buffers (Dice precedent).
+ *  - h007 char_buffer        : ttt/ctmp/btmp/tmp/tmp1/rslt/
+ *    OriginalB are STR_MAX C-string buffers (Dice precedent).
  *  - h012 unsigned_byte_domain: Char(0..255) domains; the SOH
  *    sentinel tests compare against Char(1).
- *  - h014 out_of_scope_call : mglobal with XNEXT=8 (defines.h:88);
- *    get_global (MdhStubs, Cosine precedent); B.Data() via
- *    GlobalRef(B, emptyList()) (Dice precedent); GlobalExceptionCode/
- *    throw -> MdhState; strtod -> per-file strtodC; strncmp ->
- *    per-file helpers (Dice file-private precedent).
- *  - h015 grammar_collision : new top-level Jaccard replaces the
- *    removed stub one-for-one - no collisions.
+ *  - h014 out_of_scope_call : mglobal with XNEXT=8 (defines.h:
+ *    88); get_global (MdhStubs, Cosine precedent); B.Data()
+ *    via GlobalRef(B, emptyList()) (Dice precedent);
+ *    GlobalExceptionCode/throw -> MdhState; strtod ->
+ *    per-file strtodC prefix parse; strncmp/strcat -> per-file
+ *    helpers (Dice file-private precedent).
+ *  - h015 grammar_collision : new top-level Jaccard replaces
+ *    the removed stub one-for-one - no collisions.
  *  - h017 naming           : Jaccard keeps the vendor name; the
- *    vendor mutates B.ref in place - the carrier keeps the refB
- *    local stand-in plus the OriginalB save/restore (Cosine/Dice
- *    notes).
- *  - h018 preprocessor_conditional: none in the function body.
+ *    vendor mutates B.ref in place - the carrier keeps the
+ *    refB local stand-in plus the OriginalB save/restore
+ *    (Cosine/Dice unit-71/u165 notes).
+ *  - h018 preprocessor_conditional: none in the function body
+ *    (the surrounding file arms are owned by the misc units).
  *
  * Vendor notes (translated faithfully, not "fixed"):
- *  - The SOH-pair strip runs on B first, then A (Dice order) - kept.
- *  - Unlike Dice, the A-walk does NOT accumulate totQ - totQ comes
- *    only from the second B-walk - kept.
- *  - B.ref is restored from OriginalB BEFORE the B-walk (unlike
- *    Cosine which restores at the end) - kept; ctmp is NOT reset -
- *    it carries the stripped B ref and MUTATES in place under XNEXT
- *    (the in/out key, Mglobal u173 note).
- *  - The B.Data() skip (continue) leaves tot untouched for missing
- *    B children - kept.
+ *  - The SOH-pair strip runs on B first, then A (Dice order) -
+ *    kept.
+ *  - Unlike Dice, the A-walk does NOT accumulate totQ - totQ
+ *    comes only from the second B-walk - kept.
+ *  - B.ref is restored from OriginalB BEFORE the B-walk
+ *    (unlike Cosine which restores at the end) - kept.
+ *  - The B.Data() skip (continue) leaves tot untouched for
+ *    missing B children - kept.
  *  - val==0.0 returns 0.0 - kept.
  */
 fun Jaccard(A: Global, B: Global): Double {
@@ -209,8 +211,7 @@ private fun strtodC(b: CharArray): Double {
     return if (s.isEmpty()) 0.0 else s.toString().toDouble()
 }
 
-private const val STR_MAX = 32000 // vendor strmax.h:3 (unit-44 precedent)
+private const val STR_MAX = 32000 // vendor strmax.h:3 (file-private, cf. unit 22)
 private const val XNEXT = 8 // vendor defines.h:88
 private const val GLOBAL_NOT_FOUND = 2 // vendor libmpscpp.h:71
-
 private val SOH = 1.toChar() // the vendor's x01 separator byte

@@ -28,10 +28,14 @@ data class AtTestResult(val rc: Int, val pd1Last: Short)
  * the stub has been removed.
  */
 
-/** Owner: compiler-parse.c (unit not yet translated). */
-fun parse_(): Int {
-    TODO("h014 stub: owner compiler-parse.c (not yet translated)")
-}
+/**
+ * Owner: compiler-parse.c::parse_ (roster row 248, batch 9).
+ * RESOLVED by Parse_.kt (unit compiler-parse.c::parse_); the
+ * phase-cursor translation renders the vendor goto web.  Call
+ * sites bind unchanged (frontend and the generated indirect
+ * _i=parse_() emission).
+ */
+
 
 /** Owner: compiler-parse.c::Extract2 (B1 unit 15 - translated; delegates). */
 fun extract2(pd1: CharArray, sdlim: Int): String = Extract2(pd1, sdlim)

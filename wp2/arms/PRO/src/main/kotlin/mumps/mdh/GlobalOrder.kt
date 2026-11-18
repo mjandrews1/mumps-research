@@ -139,3 +139,20 @@ fun GlobalOrderString(a: String, i: Int): String {
         ""
     }
 }
+
+// ----------------------------------------------------------------------------
+// (B9 row 274, closing batch 9) libmpscpp.cpp::GlobalOrder(std::string a,
+// int i) - the std::string overload (vendor 2576-2592, loc 15,
+// comment_ratio 0.062, pointer_marks 2, control_marks 1, score 8.1,
+// rank 63 - exact match to wp1/study-subset/units.csv row 274, batch 9)
+// - CARRIER FOLD, u209 GlobalData precedent: once char* folds to the
+// Kotlin String carrier, the C++ char*/std::string/mstring overloads
+// are observationally identical here (same "s percent-eq-dollar-
+// order(a)" command build, same xecute/tpx set, same SymGet("%")
+// read-back; the mstring twin at vendor 2558-2574 - the second
+// off-roster sibling, h013 mis-tag ledger note - is likewise the
+// same body). The u39 seat above (the char* form) carries all three
+// argument carriers; no distinct Kotlin declaration is emitted - RO
+// fold, documented not duplicated. Rules: h007, h008, h012, h014,
+// h015, h017.
+// ----------------------------------------------------------------------------

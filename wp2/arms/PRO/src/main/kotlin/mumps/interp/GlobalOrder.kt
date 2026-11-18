@@ -66,8 +66,8 @@ fun GlobalOrder(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int,
         return
     }
 
-    // vendor: ErrorMessage("$order() second argument incorrect",
-    //                     svPtr->LineNumber);
+    // vendor: ErrorMessage(<dollar>order() second argument incorrect",
+    //                     svPtr->LineNumber); // <dollar> per KDoc convention
     // DOLLAR carrier: no raw dollar in code (Match.kt precedent)
     val msg = 36.toChar() + "order() second argument incorrect"
     val msgBuf = CharArray(msg.length + 1)

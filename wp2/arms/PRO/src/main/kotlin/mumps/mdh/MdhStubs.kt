@@ -154,15 +154,6 @@ fun xecute(exp: String): Int {
 // distinct overloads on parameter shape (h015 scan clean).
 
 /**
- * Owner: libmpscpp.cpp class global operator>>(char*) machinery
- * (globalClass.h:178; not a corpus unit). The mstring <=/==/!=
- * global overloads and SymGet/SymPut(global) extract through it.
- */
-fun Global.readInto(dst: CharArray) {
-    TODO("h014 stub: owner libmpscpp.cpp class global operator>> machinery (not a corpus unit)")
-}
-
-/**
  * Sim1 (libmpscpp.cpp::Sim1, units.csv row 199) was stubbed
  * here until B7 unit 199 landed; the owner-level class-global
  * definition now lives in Sim1.kt (distinct overload from the
@@ -279,125 +270,29 @@ fun Score(a: Char, b: Char): Int {
     TODO("h014 stub: owner libmpscpp.cpp:8049 inline Score (not a corpus unit)")
 }
 
-// --- (u62) global numeric carrier stubs (owners: the operator>>/<<
-// extraction and insertion families and the class global operator=
-// machinery; the extraction/insertion owners live in the misc-3
-// residual chunk, not yet translated) ---
-
-/** Owner: libmpscpp.cpp global::operator>>(int&) (misc-3 unit, not yet translated). */
-fun Global.extractInt(): Int {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(int&) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.cpp global::operator>>(unsigned int&) (misc-3 unit, not yet translated). */
-fun Global.extractUInt(): UInt {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(unsigned int&) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.cpp global::operator>>(short&) (misc-3 unit, not yet translated). */
-fun Global.extractShort(): Short {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(short&) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.cpp global::operator>>(unsigned short&) (misc-3 unit, not yet translated). */
-fun Global.extractUShort(): UShort {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(unsigned short&) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.cpp global::operator>>(long&) (misc-3 unit, not yet translated). */
-fun Global.extractLong(): Long {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(long&) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.cpp global::operator>>(unsigned long&) (misc-3 unit, not yet translated). */
-fun Global.extractULong(): ULong {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(unsigned long&) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.cpp global::operator>>(float&) (misc-3 unit, not yet translated). */
-fun Global.extractFloat(): Float {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(float&) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.cpp global::operator>>(double&) (misc-3 unit, not yet translated). */
-fun Global.extractDouble(): Double {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(double&) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.cpp global::operator>>(char*) (misc-3 unit, not yet translated). */
-fun Global.extractCstring(): CharArray {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator>>(char*) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.cpp global::operator<<(long) (misc-3 unit, not yet translated). */
-fun Global.insertLong(v: Long) {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator<<(long) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.cpp global::operator<<(double) (misc-3 unit, not yet translated). */
-fun Global.insertDouble(v: Double) {
-    TODO("h014 stub: owner libmpscpp.cpp global::operator<<(double) (misc-3 unit)")
-}
-
-/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
-fun Global.assignInt(v: Int) {
-    TODO("h014 stub: owner libmpscpp.h class global::operator=(int) machinery (not a corpus unit)")
-}
-
-/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
-fun Global.assignUInt(v: UInt) {
-    TODO("h014 stub: owner libmpscpp.h class global::operator=(unsigned int) machinery (not a corpus unit)")
-}
-
-/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
-fun Global.assignShort(v: Short) {
-    TODO("h014 stub: owner libmpscpp.h class global::operator=(short) machinery (not a corpus unit)")
-}
-
-/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
-fun Global.assignUShort(v: UShort) {
-    TODO("h014 stub: owner libmpscpp.h class global::operator=(unsigned short) machinery (not a corpus unit)")
-}
-
-/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
-fun Global.assignLong(v: Long) {
-    TODO("h014 stub: owner libmpscpp.h class global::operator=(long) machinery (not a corpus unit)")
-}
-
-/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
-fun Global.assignULong(v: ULong) {
-    TODO("h014 stub: owner libmpscpp.h class global::operator=(unsigned long) machinery (not a corpus unit)")
-}
-
-/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
-fun Global.assignFloat(v: Float) {
-    TODO("h014 stub: owner libmpscpp.h class global::operator=(float) machinery (not a corpus unit)")
-}
-
-/** Owner: libmpscpp.h class global operator= machinery (not a corpus unit). */
-fun Global.assignDouble(v: Double) {
-    TODO("h014 stub: owner libmpscpp.h class global::operator=(double) machinery (not a corpus unit)")
-}
-
-// --- added by B3 unit 71 (libmpscpp.cpp::Cosine) ---
+// --- (u62) global numeric carrier stubs: RESOLVED in batch 9 ---
 
 /**
- * (u218) RESOLVED: libmpscpp.cpp::get_global is the
- * libmpscpp.h:117 macro, expanded inline per its definition -
- * svPtr->tpx = Mglobal(RETRIEVE, ref, rslt, svPtr).  The macro
- * value (rslt) is used only as a statement at every call site
- * (Cosine/Dice/GlobalMax precedent, u218 Set/Get machinery),
- * so the seat stays Unit.  RETRIEVE = 0 (defines.h:83).
+ * (u249) The extractT/insertT/assignT carrier stubs (and
+ * Global.readInto) are RESOLVED by LibmpscppMisc3.kt (libmpscpp.cpp
+ * ::<misc-3> residual chunk, roster row 249, batch 9; vendor
+ * 6613-6961). TAG CORRECTIONS (u141 family): the extraction/
+ * insertion bodies were tagged "misc-3 owner, not yet translated" -
+ * closed here; the assignT stubs were tagged "libmpscpp.h machinery,
+ * not a corpus unit" - the definitions ARE the misc-3 corpus lines;
+ * readInto was tagged "globalClass.h char-star machinery" - the
+ * owner is global::operator>>(char*) at vendor 6699. The GlobalOps
+ * u62 call sites and the Misc9 compare call sites bind unchanged
+ * to the LibmpscppMisc3.kt seats (same signatures).
  */
+
+// --- (u218) get_global/set_global macro seats (restored; the u249
+//     note block above displaced them) ---
+
 fun get_global(src: CharArray, rslt: CharArray) {
     MdhState.svPtr.tpx = mumps.interp.mglobal(0, src, rslt, MdhState.svPtr).toLong()
 }
 
-/**
- * (u218) libmpscpp.h:118 macro set_global(ref,rslt) - same
- * expansion with STORE = 1 (defines.h:84); seat raised and
- * resolved by the misc-7 Set members (call sites bind here).
- */
 fun set_global(ref: CharArray, rslt: CharArray) {
     MdhState.svPtr.tpx = mumps.interp.mglobal(1, ref, rslt, MdhState.svPtr).toLong()
 }
