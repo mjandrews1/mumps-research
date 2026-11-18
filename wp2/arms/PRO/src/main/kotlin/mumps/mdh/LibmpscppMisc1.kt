@@ -91,7 +91,7 @@ class Hash(name: String, sz: Long, disp: String) {
     var key: String
     var size: Long
     var ref: String = ""
-    private val hashkey: RandomAccessFile
+    val hashkey: RandomAccessFile // (u291) widened from private for the Line1149 sibling seat
 
     init {
         // vendor: char x = '\1' - the padding byte for new files

@@ -1,5 +1,8 @@
 package mumps.mdh
 
+import java.util.Locale
+import mumps.interp.cstringAt
+
 /**
  * PRO-arm minimal carrier for the vendor C++ class mstring
  * (libmpscpp machinery). Not itself a corpus unit; members are added per
@@ -130,15 +133,29 @@ class Mstring(var value: String = "") {
      *  value carrier above, u97 binding). */
     var name: String = ""
 
-    // --- vendor :40-45 numeric ctors (secondary constructor
-    //     seats; the toString conversion is the minimal honest
-    //     binding until the libmpscpp.cpp ctor-owner renders -
-    //     h014 note, decimal string shape). ---
-    constructor(v: Long) : this(v.toString())
-    constructor(v: Int) : this(v.toString())
-    constructor(v: Double) : this(v.toString())
-    constructor(v: Float) : this(v.toString())
-    constructor(v: Char) : this(v.toString())
+    // --- vendor :40-45 numeric constructors (secondary constructor
+    //     seats; the libmpscpp.cpp ctor owner landed at batch-10
+    //     row 281 (LibmpscppMisc8.kt) - TAG CORRECTION: the
+    //     double/float seats had rendered as toString() minimal
+    //     bindings; the vendor bodies at 8448-8461 emit %lf/%f
+    //     fixed-decimal strings and the seats are corrected to the
+    //     faithful emitters; the commented atexit/set_terminate
+    //     fossils in every ctor body are h013, not translated). ---
+    constructor(v: Long) : this(String.format(Locale.getDefault(), "%ld", v)) // vendor: sprintf "%ld"
+    constructor(v: Int) : this(String.format(Locale.getDefault(), "%d", v)) // vendor: sprintf "%d"
+    constructor(v: Double) : this(String.format(Locale.getDefault(), "%lf", v)) // vendor: sprintf "%lf" (h018 u182 locale carrier)
+    constructor(v: Float) : this(String.format(Locale.getDefault(), "%f", v)) // vendor: sprintf "%f" (h018 u182 locale carrier)
+    constructor(v: Char) : this(v.toString()) // vendor: tmp[0]=a; tmp[1]=0
+
+    // --- vendor 8458-8465: mstring(const char * a) { data = a; }
+    //     and the copy constructor (const mstring & a) copying
+    //     name and data; the (const string &) and default forms
+    //     are the primary seat above (batch-10 row 281 render). ---
+    constructor(a: CharArray) : this(cstringAt(a))
+
+    constructor(a: Mstring) : this(a.value) {
+        name = a.name // vendor: name = a.name; data = a.data
+    }
 
     // --- vendor :95-104 conversion operators (h015 fold: no
     //     Kotlin implicit-conversion point; explicit member seats).
