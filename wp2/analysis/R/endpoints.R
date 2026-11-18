@@ -26,7 +26,7 @@ read_events <- function(path) {
     ev <- ev[!(is.na(ev$kind) | ev$kind == ""), ]
     warning("tolerated exactly one blank row (committed artifact); any more fails")
   }
-  bad <- setDistinctKind <- setdiff(unique(ev$kind), EVENT_KINDS)
+  bad <- setdiff(unique(ev$kind), EVENT_KINDS)
   if (length(bad))
     stop("events CSV unknown kind values: ", bad)
   blank2 <- sum(is.na(ev$kind) | ev$kind == "")

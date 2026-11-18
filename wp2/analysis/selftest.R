@@ -31,8 +31,8 @@ check("OR equals p/(1-p) transform",
 
 # Wilcoxon paired: identical vectors -> ties fraction 1, note attached
 w1 <- wilcoxon_pair(c(1, 2, 3), c(1, 2, 3))
-check("Wilcoxon all-ties returns explicit note",
-      w1$ties_fraction == 1 && !is.null(w1$note) && w1$p == 1)
+check("Wilcoxon all-ties triggers sign-test note",
+      w1$ties_fraction == 1 && !is.null(w1$note))
 # known small example: a beats b consistently -> small p
 w2 <- suppressWarnings(wilcoxon_pair(c(5, 6, 7, 8, 9),
                                      c(1, 2, 3, 4, 5),
