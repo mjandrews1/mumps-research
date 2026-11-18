@@ -401,10 +401,11 @@ fun mglobalAt(g: Int, key: CharArray, keyOff: Int, bd: CharArray, bdOff: Int,
  * the stub has been removed.
  */
 
-/** Owner: interp-strmanip.cpp::substr (batch-7 corpus unit). */
-fun substr(src: CharArray, srcOff: Int, dst: CharArray, start: Int, len: Int) {
-    TODO("h014 stub: owner interp-strmanip.cpp::substr (batch-7 unit)")
-}
+/**
+ * interp-strmanip.cpp::substr was stubbed here until B7 unit 212
+ * landed; the owner-level definition now lives in Substr.kt and
+ * the stub has been removed.
+ */
 
 /**
  * Owner: interp-parse.cpp::<misc> (B3 unit 75, same tranche as the

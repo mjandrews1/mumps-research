@@ -106,6 +106,46 @@ internal fun msvCopyInto(dst: Msv, src: Msv) {
     dst.t0px = src.t0px
     dst.pd1len = src.pd1len
     dst.t2 = src.t2
+    // --- u187 full-field extension (ServiceInterface): the vendor
+    // memcpy copies the WHOLE struct MSV; the prior seat stopped at
+    // t2 (the fields below were never read through a pushed copy
+    // before unit 187). All prior call sites bind unchanged.
+    dst.symlen = src.symlen
+    System.arraycopy(src.currentFile, 0, dst.currentFile, 0, src.currentFile.size)
+    dst.setpiece = src.setpiece
+    System.arraycopy(src.hor, 0, dst.hor, 0, src.hor.size)
+    System.arraycopy(src.ver, 0, dst.ver, 0, src.ver.size)
+    dst.nstart = src.nstart
+    dst.PD1 = src.PD1
+    dst.LockDone = src.LockDone
+    System.arraycopy(src.UKEY, 0, dst.UKEY, 0, src.UKEY.size)
+    System.arraycopy(src.UDAT, 0, dst.UDAT, 0, src.UDAT.size)
+    System.arraycopy(src.args, 0, dst.args, 0, src.args.size)
+    System.arraycopy(src.Table, 0, dst.Table, 0, src.Table.size)
+    dst.TabSize = src.TabSize
+    System.arraycopy(src.sqloutput, 0, dst.sqloutput, 0, src.sqloutput.size)
+    System.arraycopy(src.cfgdata, 0, dst.cfgdata, 0, src.cfgdata.size)
+    System.arraycopy(src.cfgkey, 0, dst.cfgkey, 0, src.cfgkey.size)
+    dst.ITRAP = src.ITRAP
+    dst.ctrlc = src.ctrlc
+    dst.iorg = src.iorg
+    dst.nflg = src.nflg
+    for (r in src.RefParm.indices) System.arraycopy(src.RefParm[r], 0, dst.RefParm[r], 0, 16)
+    for (r in src.Rargs.indices) System.arraycopy(src.Rargs[r], 0, dst.Rargs[r], 0, 16)
+    dst.Rargsx = src.Rargsx
+    dst._SymPush = src._SymPush
+    dst.hit = src.hit
+    dst.count = src.count
+    dst.restoredata = src.restoredata
+    dst.ScanMinWordSize = src.ScanMinWordSize
+    dst.ScanMaxWordSize = src.ScanMaxWordSize
+    dst.ConOpen = src.ConOpen
+    System.arraycopy(src.pgsql_msg, 0, dst.pgsql_msg, 0, src.pgsql_msg.size)
+    System.arraycopy(src.Connection, 0, dst.Connection, 0, src.Connection.size)
+    System.arraycopy(src.Col_Names, 0, dst.Col_Names, 0, src.Col_Names.size)
+    System.arraycopy(src.fdes, 0, dst.fdes, 0, src.fdes.size)
+    dst.exec = src.exec
+    System.arraycopy(src.reference, 0, dst.reference, 0, src.reference.size)
 }
 
 fun GlobalQuery(tmp0: CharArray, tmp1: CharArray, tok: Char, svPtrX: Msv) {

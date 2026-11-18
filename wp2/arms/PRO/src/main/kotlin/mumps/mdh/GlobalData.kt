@@ -80,3 +80,43 @@ fun GlobalData(a: String): Int {
         return -1
     }
 }
+
+// --- added by B7 unit 209 (libmpscpp.cpp::GlobalData(mstring), vendor :2616-2635) ---
+
+/**
+ * B7 unit 209: the MSTRING overload of GlobalData (units.csv data
+ * row 209: loc 17, score 8.7, complexity_rank 79, simple stratum;
+ * vendor libmpscpp.cpp:2616-2635). Identical body to the char*
+ * member above with a.c_str() as the strcat carrier. The third
+ * vendor overload, GlobalData(std::string) at :2636, also loc 17,
+ * renders onto the SAME Kotlin String carrier as the unit-86
+ * char* member above (no distinct carrier exists for the two C++
+ * argument types once char* folds to String; documented here
+ * rather than duplicated).
+ *
+ * Rules: same as the unit-86 member above (h007 command buffer,
+ * h012 byte domain, h014 xecute/SymGet stubs reused + atoiC/
+ * strcatC real reuse, h015 DOLLAR carrier, h017 vendor name);
+ * scan clean.
+ */
+fun GlobalData(a: Mstring): Int {
+    val svPtr: Msv = MdhState.svPtr
+    val tmp = CharArray(STR_MAX)
+
+    // vendor: strcpy(tmp,"s %=<dollar>data("); strcat(tmp,a.c_str());
+    // strcat(tmp,")");
+    writeCstring(tmp, "s %=" + DOLLAR + "data(")
+    strcatC(tmp, a.c_str())
+    strcatC(tmp, ")")
+
+    if (xecute(cstringAt(tmp)) == 0) {
+        svPtr.tpx = 1
+        val t = SymGet("%")
+        val r = CharArray(STR_MAX) // vendor's local result buffer
+        writeCstring(r, t.c_str())
+        return atoiC(r)
+    } else {
+        svPtr.tpx = 0
+        return -1
+    }
+}

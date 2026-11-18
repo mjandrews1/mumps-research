@@ -137,3 +137,64 @@ fun GlobalRef.Find(key: Global, st: Int): Int {
     _find(r, tmp, tmp1, a)
     return atoiC(r) // vendor: rr = atoi((char *) r)
 }
+
+// ----------------------------------------------------------------------------
+// (B7 unit 216, closing batch 7) libmpscpp.cpp::global::Find(char* key, int st)
+// - the char*-key overload (reference lines 7566-7585). Identity
+// verified against the study tool (tools/select_study_subset.py):
+// global::Find, cpp, loc 16, comment_ratio 0.059, pointer_marks 0,
+// control_marks 1, score 4.0, complexity_rank 4 - exact match to
+// wp1/study-subset/units.csv row 216 (batch 7); disambiguates from
+// the mstring-key form (u33, loc 16 via key.c_str()) and the
+// global-key form (u185, loc 22, second retrieve) by the bare
+// char* key parameter - the last of the three global::Find rows.
+// ----------------------------------------------------------------------------
+
+/**
+ * global::Find(char* key, int st): the MUMPS dollar-Find intrinsic
+ * with the key as a caller string - one retrieve of the receiver
+ * (throwing MumpsGlobalException on absence), st via Mltoa, then
+ * _find and atoi.
+ *
+ * Rules applied (wp2/arms/PRO/rules_v0.pl):
+ *  - h007 char_buffer     : a[40]/r[20] buffers (C-string domains).
+ *  - h010 numeric_promotion: vendor Mltoa(long,...) receives the
+ *    int st via implicit widening - explicit .toLong() (u33
+ *    precedent).
+ *  - h012 unsigned_byte_domain: buffers are Char(0..255) domains.
+ *  - h014 out_of_scope_call: mglobal/MdhState/MumpsGlobalException
+ *    seats as in u33/u185 above; _find/atoiC/Mltoa real or stub
+ *    seats reused unmodified; the char* key rides the String
+ *    carrier (unit-39 precedent) folded into a byte buffer.
+ *  - h015 grammar_collision: overload folds into the Kotlin
+ *    overload set by parameter type (String vs Mstring vs Global
+ *    key); pre-push scan clean.
+ *  - h017 naming          : Find keeps the vendor name; GlobalRef
+ *    extension receiver (u33 precedent, same file).
+ *
+ * Vendor notes (translated faithfully, not "fixed"):
+ *  - The const char* and std::string overload twins do not exist
+ *    for global::Find (only mstring/global/char*) - no carrier
+ *    fold note needed here, unlike the Piece/Data families.
+ */
+fun GlobalRef.Find(key: String, st: Int): Int {
+    val a = CharArray(40)
+    val r = CharArray(20)
+    val tmp = CharArray(STR_MAX)
+
+    // vendor: Mglobal(RETRIEVE, (unsigned char *) ref, tmp, svPtr)
+    val refBuf = CharArray(STR_MAX)
+    writeCstring(refBuf, g.ref)
+    val f = mglobal(RETRIEVE, refBuf, tmp, MdhState.svPtr)
+
+    if (f == 0) {
+        MdhState.globalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
+    }
+
+    Mltoa(st.toLong(), a) // h010: int -> long widening documented
+    val keyBuf = CharArray(STR_MAX)
+    writeCstring(keyBuf, key) // vendor: (unsigned char *) key
+    _find(r, tmp, keyBuf, a)
+    return atoiC(r) // vendor: rr = atoi((char *) r)
+}

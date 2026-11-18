@@ -3,7 +3,7 @@ package mumps.compiler
 /**
  * PRO-arm out-of-scope stubs (h014 out_of_scope_call). Each stub names
  * its owner unit; delegate when the owner lands. Verification: untested
- * (stub — flagged, per rules_v0.pl h014).
+ * (stub - flagged, per rules_v0.pl h014).
  */
 
 /**
@@ -81,10 +81,12 @@ fun cvar(str: String): Boolean =
  * the stub has been removed.
  */
 
-/** Owner: compiler-sys1.c::substr (compiler-sys1.c:396, batch-7 unit). */
-fun substr(src: CharArray, srcOff: Int, dst: CharArray, start: Int, len: Int) {
-    TODO("h014 stub: owner compiler-sys1.c::substr (batch-7 unit)")
-}
+/**
+ * substr (compiler-sys1.c::substr) was stubbed here until B7
+ * unit 213 landed; the owner-level definition now lives in
+ * Substr.kt and the stub has been removed (Match.kt and the
+ * Patrn call sites bind unchanged).
+ */
 
 /**
  * Owner: compiler-sys1.c::match (compiler-sys1.c:453, batch-7 unit);

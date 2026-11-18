@@ -582,3 +582,12 @@ fun gtk_tree_view_get_selection(t: GtkTreeView): GtkTreeSelection {
 fun gtk_file_chooser_get_filename(c: GtkFileChooser): String? {
     TODO("h014 stub: owner libgtk gtk_file_chooser_get_filename (out of corpus)")
 }
+
+// --- added by B7 unit 187 (ServiceInterface INVDF relay) ---
+
+/** Owner: libmpscpp.cpp::IDF (vendor 10370, units.csv data row
+ * 240 - not yet a corpus unit). The INVDF ServiceInterface relay
+ * (interp-service.cpp:303-312) is the only in-arm caller. */
+fun IDF(svptr: Msv, ep: CharArray?, arg1: CharArray, arg2: CharArray): CharArray {
+    TODO("h014 stub: owner libmpscpp.cpp::IDF (units.csv data row 240)")
+}

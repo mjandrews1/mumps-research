@@ -85,3 +85,57 @@ fun GlobalRef.Piece(pat: Global, ii: Int, jj: Int): Mstring {
     tmp1.value = cstringAt(tmp) // vendor: tmp1 = tmp
     return tmp1
 }
+
+// --- added by B7 unit 214 (libmpscpp.cpp::global::Piece(string), vendor :7236-7258) ---
+
+/**
+ * B7 unit 214: the STRING-key overload of global::Piece (units.csv
+ * data row 214: loc 17, score 5.5, complexity_rank 32, simple
+ * stratum; vendor libmpscpp.cpp:7236-7258). The const char* twin
+ * at :7181 (also loc 17) folds onto this same Kotlin String
+ * carrier (the GlobalData unit-209 precedent: no distinct carrier
+ * exists for the two C++ argument types); the mstring& twin at
+ * :7259 is a separate sibling NOT in this corpus row (mis-tag
+ * ledger note - it renders as its own overload when claimed).
+ *
+ * Vendor shape: identical to the unit-38 member above minus the
+ * pattern-global fetch - one RETRIEVE of this global, the
+ * jj<0 -> jj=ii clamp, the %d collapses, then _piece with the
+ * caller's pat string as the delimiter pattern.
+ *
+ * Rules: same as the unit-38 member above (h007 buffers, h009
+ * %d collapse, h012 byte domain, h014 mglobal/_piece stubs,
+ * h017 vendor name + GlobalRef receiver); scan clean.
+ */
+fun GlobalRef.Piece(pat: String, ii: Int, jj: Int): Mstring {
+    val tmp = CharArray(STR_MAX)
+    val cc1 = CharArray(65)
+    val cc2 = CharArray(64)
+    val gtmp = CharArray(STR_MAX)
+    var jjv = jj // vendor: if (jj<0) jj=ii;
+
+    // vendor: Mglobal(RETRIEVE, (unsigned char *) ref, gtmp, svPtr)
+    val refBuf = CharArray(STR_MAX)
+    writeCstring(refBuf, g.ref)
+
+    val f = mglobal(RETRIEVE, refBuf, gtmp, MdhState.svPtr)
+
+    if (f == 0) {
+        MdhState.globalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
+    }
+
+    if (jjv < 0) jjv = ii
+
+    writeCstring(cc1, ii.toString()) // h009: sprintf "%d" collapse
+    writeCstring(cc2, jjv.toString()) // h009
+
+    val patBuf = CharArray(STR_MAX)
+    writeCstring(patBuf, pat) // vendor: pat.c_str()
+    val lhs = CharArray(1) // vendor: (unsigned char *) ""
+    _piece(tmp, gtmp, patBuf, cc1, cc2, 0, lhs, MdhState.svPtr)
+
+    val tmp1 = Mstring()
+    tmp1.value = cstringAt(tmp) // vendor: tmp1 = tmp
+    return tmp1
+}

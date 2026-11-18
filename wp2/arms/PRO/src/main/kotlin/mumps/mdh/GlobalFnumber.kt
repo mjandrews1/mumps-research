@@ -101,3 +101,64 @@ fun Global.Fnumber(a: Mstring): Mstring {
     // vendor: rslt = (char *) &svPtr->bd[1];
     return Mstring(cstringAt(svPtr.bd, 1))
 }
+
+// --- added by B7 unit 206 (libmpscpp.cpp::global::Fnumber, the two-arg overload) ---
+
+/**
+ * B7 unit 206: the TWO-ARGUMENT global member at :7415 (rank
+ * 284) - the last of the four-member Fnumber family (the
+ * mstring pair DONE in Fnumber.kt, the one-arg global member
+ * above DONE unit 84; the Fnumber.kt unit-42 disambiguation note
+ * already named this the batch-7 wrapper).
+ *
+ * Same shape as the one-arg member above, plus the optional
+ * second-argument arm: "if (b.c_str()==0) strcat(tmp,Close);
+ * else strcat(Comma);strcat(b.c_str());strcat(Close);" - the
+ * vendor's b.c_str()==0 test can never be true for a real
+ * std::string (c_str() is never NULL), so the else arm always
+ * runs for a two-argument call - kept verbatim (the h013 note
+ * in Fnumber.kt documents the same idiom on the mstring twin).
+ *
+ * Rules: same as the one-arg member above (h007/h012/h014
+ * mglobal+fcn stubs, h015 DOLLAR carrier, h017 extension seat);
+ * scan clean.
+ */
+fun Global.Fnumber(a: Mstring, b: Mstring): Mstring {
+    val tmp = CharArray(STR_MAX)
+    val gtmp = CharArray(STR_MAX)
+    val svPtr: Msv = MdhState.svPtr
+
+    // vendor: Mglobal(RETRIEVE, (unsigned char *) ref, gtmp, svPtr)
+    val refBuf = CharArray(STR_MAX)
+    writeCstring(refBuf, ref)
+    val f = mglobal(RETRIEVE, refBuf, gtmp, svPtr)
+
+    if (f == 0) {
+        MdhState.globalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
+    }
+
+    // vendor: strcpy(tmp,"<dollar>fnumber"); strcat(tmp,Open);
+    writeCstring(tmp, DOLLAR + "fnumber")
+    strcatC(tmp, CODED_OPEN.toString())
+    strcatC(tmp, cstringAt(gtmp)) // invoking global's value
+    strcatC(tmp, CODED_COMMA.toString())
+    strcatC(tmp, a.c_str()) // first argument required
+
+    // vendor: if (b.c_str()==0) strcat(tmp,Close); else {...}
+    // (the b.c_str()==0 arm is the vendor's dead test - kept)
+    if (b.c_str() == "") {
+        strcatC(tmp, CODED_CLOSE.toString()) // second arg optional
+    } else {
+        strcatC(tmp, CODED_COMMA.toString())
+        strcatC(tmp, b.c_str())
+        strcatC(tmp, CODED_CLOSE.toString())
+    }
+
+    // vendor: strcpy((char *) &svPtr->v1d[1], tmp); fcn(svPtr);
+    writeCstring(svPtr.v1d, cstringAt(tmp), 1)
+    fcn(svPtr)
+
+    // vendor: rslt = (char *) &svPtr->bd[1];
+    return Mstring(cstringAt(svPtr.bd, 1))
+}
