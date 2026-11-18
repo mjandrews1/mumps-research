@@ -200,11 +200,11 @@ private object InterpretState {
 
 /**
  * h008 carrier: vendor struct nmes (sym.h:29-31, the new/kill
- * except-list node). name renders as a String (the vendor copies a
- * C string into malloc'd storage); svPtr.nstart stays the opaque
- * Any? carrier - the sym_ owner consumes it.
+ * except-list node). The private per-file copy is REMOVED and the
+ * name now binds to the promoted internal seat in Sym_.kt (roster
+ * row 280, batch 10); the svPtr.nstart opaque Any? carrier and all
+ * casts in this file bind unchanged.
  */
-private class Nmes(var name: String, var next: Nmes?)
 
 /**
  * h011: state-machine labels. Names are the vendor goto labels;
