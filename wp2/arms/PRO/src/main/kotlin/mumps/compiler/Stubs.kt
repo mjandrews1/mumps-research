@@ -126,10 +126,7 @@ fun cvar(str: String): Boolean =
 // --- added by B7 unit 195 (compiler-fcninit.c::fcninit) ---
 
 /**
- * Owner: compiler-sys1.c:963 linepad2 (not a corpus unit; the
- * compiler-sys1.c residue is batch-9 row 258). Raised by the B7
- * fcninit render (Fcninit.kt "Temporary variables" line).
+ * Owner: compiler-sys1.c:963 linepad2 - RESOLVED by
+ * CompilerSys1Misc.kt (roster row 258, batch 9, vendor :963-966;
+ * stub removed, the Fcninit.kt call site binds unchanged).
  */
-fun linepad2(str: String) {
-    TODO("h014 stub: owner compiler-sys1.c:963 linepad2 (not a corpus unit)")
-}

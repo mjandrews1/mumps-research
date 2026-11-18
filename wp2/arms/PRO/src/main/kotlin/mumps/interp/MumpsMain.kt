@@ -102,6 +102,12 @@ fun main(args: Array<String>) {
     // h013: DirectRead is forward-declared but never called - dropped.
 
     val svPtr = InterpState.svPtr
+
+    // mumps.cpp:136: #include <mumpsc/cgi.h> - the include-function
+    // body rides Cgi.kt (roster row 255, batch 9); the include site
+    // binds mumpsCgi before the argv processing (vendor order).
+    mumpsCgi(svPtr)
+
     val tmp = CharArray(STR_MAX)
     val tmp0 = CharArray(STR_MAX)
     val tmp1 = CharArray(STR_MAX)

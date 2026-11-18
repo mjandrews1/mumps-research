@@ -117,12 +117,9 @@ private const val XCE = 206.toChar()
 private const val XCF = 207.toChar() // vendor close-paren marker
 private const val SOH = 1.toChar() // vendor subscript marker (init p674)
 
-/** h014 stub: owner mpstime.cpp:102 strxcat - file-local inline,
- *  not a corpus unit (the file residue rides roster row 253,
- *  batch 9); u95 cvar precedent. */
-private fun strxcat(a: CharArray, b: CharArray): CharArray {
-    TODO("h014 stub: owner mpstime.cpp::strxcat (mpstime.cpp:102, batch-9 misc row)")
-}
+/** strxcat (mpstime.cpp:95-101) - RESOLVED by MpstimeMisc.kt
+ *  (roster row 253 has the inline-helper seat, batch 9; stub
+ *  removed, the call site below binds unchanged). */
 
 fun mpstimeMain(args: Array<String>): Int {
     val svPtr = InterpState.svPtr

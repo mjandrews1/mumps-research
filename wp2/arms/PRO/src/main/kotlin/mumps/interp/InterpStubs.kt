@@ -166,10 +166,11 @@ class Msv {
  */
 object InterpStubs
 
-/** Owner: interp-native-btree.cpp::btreeX (same file, not a corpus unit). */
-fun btreeX(g: Int, key: CharArray, bd: CharArray, svPtr: Msv): Int {
-    TODO("h014 stub: owner interp-native-btree.cpp::btreeX (not a corpus unit)")
-}
+/** Owner: interp-native-btree.cpp::btreeX - RESOLVED by BtreeX.kt
+ * (unit 250, batch 9, vendor 318-1193; TAG CORRECTION, u141 family:
+ * the "not a corpus unit" tag superseded - roster row 250 IS the
+ * owner; stub removed, call sites bind unchanged on the real seat). */
+
 
 /** Owner: interp-strmanip.cpp::xindex - RESOLVED by Xindex.kt
  * (roster row 265, batch 9, vendor 87-112; TAG CORRECTION, u141
@@ -259,6 +260,12 @@ object NativeBtreeState {
     var bigKeyOffset: Int = 0
     var bigKeyLower: Int = 0
     var bigKeyData: Long = 0
+
+    /** B9 rows 250/252: vendor interp-native-btree.cpp :93-95,:99
+     * (FoundBlock/Reinsert/FoundOffset - the btreeX seats). */
+    var foundBlock: Int = 0
+    var reinsert: Int = 0
+    var foundOffset: Int = 0
 }
 
 /**

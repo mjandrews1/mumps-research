@@ -85,6 +85,10 @@ object BtreeBufferState {
  */
 object BtreeFile {
     var raf: RandomAccessFile? = null
+
+    /** B9 row 250: the gbldat data-file carrier (vendor fd pair
+     * gblfd/gbldat; UKEY/UDAT files, btreeX auto-open). */
+    var datRaf: RandomAccessFile? = null
 }
 
 /**
