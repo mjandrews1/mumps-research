@@ -100,7 +100,7 @@ for (hp in names(PAIRS)) {
   }
   a1 <- ck_all[ck_all$arm == pair[1], ]
   a2 <- ck_all[ck_all$arm == pair[2], ]
-  m <- merge(a1, a2, by = "unit_id", suffixes = c("_1", "_2"))
+  m <- merge(a1, a2, by = "roster_row", suffixes = c("_1", "_2"))
   ev_cols <- c(paste0("target_check_", 1:2))
   m <- m[apply(m[, ev_cols], 1, function(r)
     all(r %in% c("evaluated-pass", "evaluated-fail"))), , drop = FALSE]

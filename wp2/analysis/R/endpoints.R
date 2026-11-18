@@ -52,10 +52,13 @@ read_checks <- function(path = "wp2/analysis/data/per_unit_checks.csv") {
     stop("missing per-unit check export: ", path,
          " (E2 requires the committed export; refusing to run)")
   ck <- utils::read.csv(path, stringsAsFactors = FALSE)
-  need <- c("unit_id", "arm", "code_check", "output_check",
+  need <- c("roster_row", "unit_id", "arm", "code_check", "output_check",
             "runtime_check", "target_check")
   if (!all(need %in% names(ck)))
     stop("per-unit check export schema violation: expected ", need)
+  # roster_row is the authoritative unit key (C-005): ids are not unique
+  if (anyDuplicated(ck[, c("roster_row", "arm")]) > 0)
+    stop("duplicate (roster_row, arm) rows in the check export")
   ck
 }
 
