@@ -163,6 +163,7 @@ modified).**
 **Files touched by this entry:** `wp2/PILOT_TRACKING.md` (unit-32
 check column reverted; batch-position note), `wp2/arms/ARM_WORKING_NOTES.md`
 (PRO journal deviation note). No pre-registered file was modified.
+
 ---
 
 ## C-004 — Statistical Analysis Plan specified before pending-arm outcomes (registered 2026-12-04)
