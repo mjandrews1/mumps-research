@@ -14,8 +14,8 @@ effect on the committed schedule, and the methodological consequences.
 | C-001 | 2026-11-16 | Pilot B1 vs. Latin-square slots | Resolved (before cycle 1) |
 | C-002 | 2026-11-16 | Per-unit check definitions formalized | Resolved (definition written) |
 | C-003 | 2026-11-16 | PRO early B2 execution | Active (deviation logged) |
-| C-004 | 2026-12-04 | Statistical Analysis Plan specified before pending-arm outcomes | Registered (SAP committed) |
-| C-005 | 2026-12-04 | DOC cookbook-consult event-log mapping | Registered (prospective) |
+| C-004 | 2026-11-18 | Statistical Analysis Plan specified before pending-arm outcomes | Registered (SAP committed) |
+| C-005 | 2026-11-18 | DOC cookbook-consult event-log mapping | Registered (prospective) |
 
 ---
 
@@ -167,7 +167,7 @@ check column reverted; batch-position note), `wp2/arms/ARM_WORKING_NOTES.md`
 
 ---
 
-## C-004 — Statistical Analysis Plan specified before pending-arm outcomes (registered 2026-12-04)
+## C-004 — Statistical Analysis Plan specified before pending-arm outcomes (registered 2026-11-18)
 
 **Observation.** Design §11.2 pre-specifies the primary contrasts
 (H2-H5) and the language subgroups (S1-S3) at the level of intent
@@ -209,7 +209,7 @@ pairwise contrasts are not blinded; the SAP states this openly
 
 ---
 
-## C-005 — DOC cookbook-consult event-log mapping (registered 2026-12-04)
+## C-005 — DOC cookbook-consult event-log mapping (registered 2026-11-18)
 
 **Observation.** The DOC arm's pre-registered instrumentation
 (`wp2/arms/DOC/cookbook_v0.md`, "Lookup logging") records each
@@ -233,7 +233,7 @@ entry) expanded as follows:
 - `hit-reuse` -> one `reuse` row plus one `hit` row (PRO pair
   semantics: target = cookbook entry id, e.g. H-001);
 - `hit-adapt` -> one `reuse` row plus one `hit` row. Decision
-  (researcher, 2026-12-04): adaptation of a cookbook entry counts as
+  (researcher, 2026-11-18): adaptation of a cookbook entry counts as
   reuse, so PRO and DOC reuse rates both measure
   consult-and-apply of the knowledge artifact, not verbatim
   copying. Both arms' definitions are stated openly in the SAP's
