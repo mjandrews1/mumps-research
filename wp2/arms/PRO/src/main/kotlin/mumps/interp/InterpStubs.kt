@@ -171,10 +171,10 @@ fun btreeX(g: Int, key: CharArray, bd: CharArray, svPtr: Msv): Int {
     TODO("h014 stub: owner interp-native-btree.cpp::btreeX (not a corpus unit)")
 }
 
-/** Owner: interp-strmanip.cpp::xindex (not a corpus unit). */
-fun xindex(source: CharArray, ptrn: CharArray, strt: Short): Int {
-    TODO("h014 stub: owner interp-strmanip.cpp::xindex (not a corpus unit)")
-}
+/** Owner: interp-strmanip.cpp::xindex - RESOLVED by Xindex.kt
+ * (roster row 265, batch 9, vendor 87-112; TAG CORRECTION, u141
+ * family: the "not a corpus unit" tag superseded; stub removed,
+ * the Match.kt-family call sites bind unchanged). */
 
 /**
  * gcvt_wrapper (interp-arith.cpp:69-77) was stubbed here until B1
@@ -309,10 +309,14 @@ fun strmove(dst: CharArray, dstOff: Int, src: CharArray, srcOff: Int) {
 //     are the interp-arith.cpp batch-10 corpus units; seats raised,
 //     bodies pending those units) ---
 
-/** interp-arith.cpp:442 - int mps_floor(char * out, char * in). */
-fun mpsFloor(out: CharArray, inCh: CharArray): Int {
-    TODO("h014 stub: owner interp-arith.cpp::mps_floor (batch-10 corpus unit)")
-}
+
+// --- u156 mps_* seats: five RESOLVED in batch 9 (mps_floor, mps_cos,
+//     mps_tan, mps_log, mps_exp2 - owners MpsFloor.kt/MpsCos.kt/
+//     MpsTan.kt/MpsLog.kt/MpsExp2.kt, roster rows 268/272/273/271/
+//     269; call sites bind to the same-package real seats, the
+//     u156 batch-10 tags superseded, u141 family precedent);
+//     mpsCeil/mpsTrunc stubs remain (owners interp-arith.cpp
+//     :483/:406, not on the B9 roster) ---
 
 /** interp-arith.cpp:483 - int mps_ceil(char * out, char * in). */
 fun mpsCeil(out: CharArray, inCh: CharArray): Int {
@@ -322,26 +326,6 @@ fun mpsCeil(out: CharArray, inCh: CharArray): Int {
 /** interp-arith.cpp:406 - int mps_trunc(char * out, char * in). */
 fun mpsTrunc(out: CharArray, inCh: CharArray): Int {
     TODO("h014 stub: owner interp-arith.cpp::mps_trunc (batch-10 corpus unit)")
-}
-
-/** interp-arith.cpp:192 - void mps_log(char *a, char *b). */
-fun mpsLog(a: CharArray, b: CharArray) {
-    TODO("h014 stub: owner interp-arith.cpp::mps_log (batch-10 corpus unit)")
-}
-
-/** interp-arith.cpp:223 - void mps_cos(char *a, char *b). */
-fun mpsCos(a: CharArray, b: CharArray) {
-    TODO("h014 stub: owner interp-arith.cpp::mps_cos (batch-10 corpus unit)")
-}
-
-/** interp-arith.cpp:375 - void mps_tan(char *a, char *b). */
-fun mpsTan(a: CharArray, b: CharArray) {
-    TODO("h014 stub: owner interp-arith.cpp::mps_tan (batch-10 corpus unit)")
-}
-
-/** interp-arith.cpp:818 - void mps_exp2(char *c, char *a). */
-fun mpsExp2(c: CharArray, a: CharArray) {
-    TODO("h014 stub: owner interp-arith.cpp::mps_exp2 (batch-10 corpus unit)")
 }
 
 /**
@@ -469,10 +453,11 @@ fun allocSV(): Msv = AllocSV()
  * site binds unchanged.
  */
 
-/** Owner: interp-sym.cpp::Eval (interp-sym.cpp:1192, not a corpus unit; declared interp-fcn.cpp:82). */
-fun Eval(tmp0: CharArray, tmp2: CharArray, svPtr: Msv): Int {
-    TODO("h014 stub: owner interp-sym.cpp::Eval (not a corpus unit)")
-}
+/** Owner: interp-sym.cpp::Eval (interp-sym.cpp:1192) - RESOLVED by
+ * Eval.kt (roster row 261, batch 9, vendor 1192-1214; TAG
+ * CORRECTION, u141 family: the "not a corpus unit" tag was a
+ * mis-tag, roster row 261 IS the owner; stub removed, the Fcn.kt
+ * call sites bind unchanged). */
 
 /** Owner: interp-sym.cpp::Qlength - RESOLVED by Qlength.kt (unit
  *  133, vendor 1100-1124); stub removed (Fcn.kt call site binds
@@ -492,13 +477,12 @@ fun Eval(tmp0: CharArray, tmp2: CharArray, svPtr: Msv): Int {
 // offset shapes.
 
 /**
- * Owner: include/mumpsc/globalOrder.h:8 inline GlobalOrder (not a
- * corpus unit); tmp1 is the out buffer.
+ * Owner: include/mumpsc/globalOrder.h:8 inline GlobalOrder -
+ * RESOLVED by GlobalOrder.kt (roster row 266, batch 9, vendor
+ * header 8-30; TAG CORRECTION, u141 family: the "not a corpus
+ * unit" tag superseded; stub removed, the Fcn.kt :1150/:1169/:1183
+ * call sites bind unchanged on the offset-carrying signature).
  */
-fun GlobalOrder(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int,
-                tmp2: CharArray, tmp2Off: Int, svPtr: Msv) {
-    TODO("h014 stub: owner globalOrder.h inline GlobalOrder (not a corpus unit)")
-}
 
 /** Owner: interp-strmanip.cpp::lpad - RESOLVED by
  *  InterpStrmanipMisc.kt (unit 136 - lpad rides the strmanip misc

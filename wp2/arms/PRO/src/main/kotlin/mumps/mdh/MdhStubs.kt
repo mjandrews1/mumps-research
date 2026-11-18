@@ -170,10 +170,9 @@ fun Global.readInto(dst: CharArray) {
  * the stub has been removed.
  */
 
-/** Owner: libmpscpp.cpp::Jaccard (batch-9 corpus unit, units.csv row 256). */
-fun Jaccard(a: Global, b: Global): Double {
-    TODO("h014 stub: owner libmpscpp.cpp::Jaccard (batch-9 unit)")
-}
+/** Owner: libmpscpp.cpp::Jaccard - RESOLVED by Jaccard.kt (roster
+ * row 256, batch 9, vendor 1376-1459); stub removed (the
+ * ServiceInterface JACCARD-arm call site binds unchanged). */
 
 /**
  * libmpscpp.cpp::Dice was stubbed here until B6 unit 165
@@ -419,14 +418,13 @@ fun set_global(ref: CharArray, rslt: CharArray) {
 
 /**
  * Owner: libmpscpp.cpp::global::Avg (libmpscpp.cpp:1726, corpus
- * unit roster row 262, batch 9 - out of B5 scope; resolves when
- * batch 9 lands). TAG NOTE (u141 precedent): the sibling
- * global::Max above was tagged "not a corpus unit" by u88 but IS
- * roster row 170 (batch 6) - superseded note, kept verbatim here.
+ * unit roster row 262, batch 9) - RESOLVED by GlobalAvg.kt
+ * (unit 262, batch 9, vendor 1726-1756; roster row 262; the
+ * a("").Avg() call sites in Avg.kt bind unchanged). TAG NOTE
+ * (u141 precedent): the sibling global::Max above was tagged
+ * "not a corpus unit" by u88 but IS roster row 170 (batch 6) -
+ * superseded note, kept verbatim here.
  */
-fun GlobalRef.Avg(): Double {
-    TODO("h014 stub: owner libmpscpp.cpp::global::Avg (corpus unit row 262, batch 9)")
-}
 
 
 // --- added by B5 unit 124 (libmpscpp.cpp::<misc-5>) ---
