@@ -109,3 +109,63 @@ fun Global.Translate(a1: Mstring): Mstring {
     // vendor: m = (char *) &svPtr->bd[1];
     return Mstring(cstringAt(svPtr.bd, 1))
 }
+
+// --- added by B9 row 270 (libmpscpp.cpp::global::Translate(mstring,mstring), vendor :4264-4288) ---
+
+/**
+ * PRO-arm translation of libmpscpp.cpp::global::Translate(mstring
+ * a1, mstring a2) (roster row 270, batch 9; units.csv: loc 21,
+ * comment_ratio 0.095, pointer_marks 2, control_marks 1, score
+ * 10.5, rank 307). Translated independently from the pristine
+ * vendor source (mumps-14-may-2026.tgz, sha256 621deb25...ffdbe),
+ * reference source lines 4264-4288. The TWO-ARGUMENT overload -
+ * the unit-147 one-argument member above is a separate vendor
+ * overload (vendor :4292); this unit renders the a1/a2 form only.
+ *
+ * Global.Translate(a1, a2): the two-argument $translate() on the
+ * invoking global - RETRIEVE the value (GLOBAL_NOT_FOUND throw),
+ * build "<dollar>translate" + Open + value + Comma + a1 + Comma +
+ * a2 + Close into v1d[1], fcn it, re-read bd[1].
+ *
+ * Rules: identical to the unit-147 member above (h007 command
+ * buffer, h012 byte domain, h014 mglobal/MumpsGlobalException/
+ * fcn reused seats, h015 DOLLAR + CodedText markers carriers,
+ * h017 vendor name; the only delta is the extra Comma + a2
+ * Concat pair). Scan clean.
+ */
+fun Global.Translate(a1: Mstring, a2: Mstring): Mstring {
+    val gtmp = CharArray(STR_MAX)
+    val tmp = CharArray(STR_MAX)
+    val svPtr: Msv = MdhState.svPtr
+
+    // vendor: Mglobal(RETRIEVE,(unsigned char *)ref,gtmp,svPtr)
+    val refBuf = CharArray(STR_MAX)
+    writeCstring(refBuf, ref)
+    val f = mglobal(RETRIEVE, refBuf, gtmp, svPtr)
+
+    if (f == 0) {
+        MdhState.globalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
+    }
+
+    // vendor: m="<dollar>translate"; m=m.Concat(Open);
+    //         m=m.Concat(gtmp); m=m.Concat(Comma);
+    //         m=m.Concat(a1); m=m.Concat(Comma);
+    //         m=m.Concat(a2); m=m.Concat(Close);
+    writeCstring(tmp, DOLLAR + "translate")
+    strcatC(tmp, CODED_OPEN.toString())
+    strcatC(tmp, cstringAt(gtmp)) // invoking global's value
+    strcatC(tmp, CODED_COMMA.toString())
+    strcatC(tmp, a1.c_str())
+    strcatC(tmp, CODED_COMMA.toString())
+    strcatC(tmp, a2.c_str())
+    strcatC(tmp, CODED_CLOSE.toString())
+
+    // vendor: strcpy((char *) &svPtr->v1d[1], m.data.c_str());
+    //         fcn(svPtr);
+    writeCstring(svPtr.v1d, cstringAt(tmp), 1)
+    fcn(svPtr)
+
+    // vendor: m = (char *) &svPtr->bd[1];
+    return Mstring(cstringAt(svPtr.bd, 1))
+}

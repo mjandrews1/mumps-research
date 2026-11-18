@@ -269,11 +269,13 @@ object NativeBtreeState {
  * removed.
  */
 
-/** Owner: interp-sql.cpp::sql (batch-9 corpus unit, not yet translated). */
-fun sql(op: Int, svPtr: Msv, DataSourceName: CharArray?, Command: CharArray?,
-        arg5: CharArray?, arg6: CharArray?): Int {
-    TODO("h014 stub: owner interp-sql.cpp::sql (batch-9 unit); prototype include/mumpsc/btree.h:37; the char* parameters are nullable for the vendor NULL-argument calls (u94 fcn)")
-}
+/**
+ * Owner: interp-sql.cpp::sql - RESOLVED by Sql.kt (unit 254,
+ * batch 9, vendor 935-1133; roster row 254, batch 9); stub
+ * removed, the SqlBtree/Zfcn/ZfcnBifs call sites bind unchanged
+ * on the same 6-arg signature (arg5/arg6 renamed rslt/TOK at
+ * the owner seat, the arg names are not binding).
+ */
 
 // --- added by B3 unit 63 (interp-parse.cpp::parse_) ---
 
@@ -359,13 +361,12 @@ fun sym_(flag: Int, name: CharArray, nameOff: Int, bd: CharArray, bdOff: Int,
  * folds to a scratch buffer there, journaled).
  */
 
-/** Owner: interp-rpm.cpp::perl_pm (batch-9 corpus unit) - the regex
- *  engine entry behind rpm/perlmatch/perlcpp; string/pattern carry
- *  the offset shape rpm passes (pcre_pattern local C-string at 0). */
-fun perlPm(string: CharArray, stringOff: Int, pattern: CharArray, patternOff: Int,
-           allowPartial: Int, svPtr: Msv): Int {
-    TODO("h014 stub: owner interp-rpm.cpp::perl_pm (batch-9 unit)")
-}
+/**
+ * Owner: interp-rpm.cpp::perl_pm - RESOLVED by PerlPm.kt
+ * (unit 257, batch 9, vendor 158-232; roster row 257, batch 9);
+ * stub removed, the rpm/perlmatch/perlcpp call sites in
+ * InterpRpmMisc.kt bind unchanged on the same signature.
+ */
 
 /** Owner: interp-rpm.cpp::scan_token - RESOLVED by ScanToken.kt
  *  (unit 128, the real vendor 259-297 body); stub removed. */
