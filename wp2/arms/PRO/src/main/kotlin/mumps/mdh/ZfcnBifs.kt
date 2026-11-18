@@ -292,18 +292,20 @@ private object ZfcnState {
     /** h014: the sscanf percent-p decode registry - pointer text
      *  to the opaque widget instance (u73 gtkTreeStoreFromPtr
      *  precedent; one registry for all widget families). */
-    val ptrReg = HashMap<Long, java.lang.Object>()
+    val ptrReg = HashMap<Long, GtkHandle>()
 
-    fun <T> widgetAt(h: Long, mk: () -> T): T {
-        // h012: the registry rides java.lang.Object (this build's
-        // gate classpath keeps a lean kotlin.Any builtin)
+    fun <T : GtkHandle> widgetAt(h: Long, mk: () -> T): T {
+        // h012: the registry rides the GtkHandle marker supertype
+        // (gate-fix: java.lang.Object drew "not recommended in
+        // Kotlin" under the gradle gate, and kotlin.Any subtyping
+        // is unreliable under the lean local gate toolchain)
         val ex = ptrReg[h]
         if (ex != null) {
             @Suppress("UNCHECKED_CAST")
             return ex as T
         }
         val nw = mk()
-        ptrReg[h] = nw as java.lang.Object
+        ptrReg[h] = nw
         return nw
     }
 }

@@ -2521,7 +2521,7 @@ fun interpret(parm1: String, svPtr: Msv): Int {
                             if (t === svPtr.args) {
                                 sym_(symflg, varBuf, 0, svPtr.args, iargs[count], svPtr)
                             } else {
-                                sym_(symflg, varBuf, 0, t ?: error("sym_ null carrier"), 0, svPtr)
+                                sym_(symflg, varBuf, 0, t, 0, svPtr)
                             }
                         }
                         ii = 0

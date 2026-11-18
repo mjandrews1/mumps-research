@@ -6,7 +6,7 @@ import mumps.interp.Msv
  * Opaque PRO-arm stand-in for the GTK type GtkTreeStore (GUI glue;
  * the mdh functions only forward an opaque handle to the $z dispatcher).
  */
-class GtkTreeStore
+class GtkTreeStore : GtkHandle
 
 /**
  * PRO-arm mdh-side owner object for libmpscpp.cpp's file-scope globals
@@ -431,30 +431,40 @@ fun docCorrelate(B: Global, fcn: String, threshold: Double) {
 // --- opaque GTK carriers (GUI glue; the mdh wrappers only forward
 //     opaque handles to the underlying libgtk calls) ---
 
-open class GtkWindow() : GtkWidget()
-class GtkToggleButton
-class GtkSwitch
-class GtkEntry
-class GtkRange
-class GtkCalendar
-class GtkTextBuffer
-class GtkFontChooser
-class GtkColorChooser
-class GtkLabel
-open class GtkWidget
-class GtkTreeSelection
+/** u156/u157 gate-fix carrier: the shared marker supertype of the
+ *  opaque GTK widget stand-ins. The ZfcnState ptrReg registry (the
+ *  vendor sscanf percent-p decode of a widget pointer) needs one
+ *  type-erased value type; the first draft used java.lang.Object,
+ *  which the gradle gate flags ("not recommended in Kotlin"), and
+ *  kotlin.Any subtyping is unreliable under the lean local gate
+ *  toolchain - the marker interface keeps both gates clean and the
+ *  stand-ins opaque. */
+interface GtkHandle
+
+open class GtkWindow : GtkWidget(), GtkHandle
+class GtkToggleButton : GtkHandle
+class GtkSwitch : GtkHandle
+class GtkEntry : GtkHandle
+class GtkRange : GtkHandle
+class GtkCalendar : GtkHandle
+class GtkTextBuffer : GtkHandle
+class GtkFontChooser : GtkHandle
+class GtkColorChooser : GtkHandle
+class GtkLabel : GtkHandle
+open class GtkWidget : GtkHandle
+class GtkTreeSelection : GtkHandle
 class GtkTreeIter
-class GtkTreeModel
-class GtkAdjustment
-class GtkSpinButton
+class GtkTreeModel : GtkHandle
+class GtkAdjustment : GtkHandle
+class GtkSpinButton : GtkHandle
 
 /** u156 (interp-zfcns.cpp::zfcn): the dialog and chooser carriers;
  *  GtkDialog : GtkWindow : GtkWidget mirrors the libgtk hierarchy
  *  (the dialog arm passes its dialog to gtk_window_set_keep_above
  *  and gtk_widget_destroy). */
-class GtkDialog() : GtkWindow()
-class GtkFileChooser
-class GtkTreeView
+class GtkDialog : GtkWindow(), GtkHandle
+class GtkFileChooser : GtkHandle
+class GtkTreeView : GtkHandle
 
 /** vendor struct GdkRGBA (gtk color carrier for mdh_color_chooser_get_rgba). */
 class GdkRGBA {
