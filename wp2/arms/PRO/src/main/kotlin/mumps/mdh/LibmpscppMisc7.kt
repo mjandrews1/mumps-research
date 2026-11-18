@@ -276,7 +276,7 @@ fun Global.Set(s: Int): Int {
 
 /** vendor 3561-3567 global::Set(double s) - %f format. */
 fun Global.Set(s: Double): Double {
-    writeCstring(Misc7State.tmp64, String.format("%f", s)) // vendor: sprintf(tmp,"%f",s)
+    writeCstring(Misc7State.tmp64, String.format(java.util.Locale.getDefault(), "%f", s)) // vendor: sprintf(tmp,"%f",s)
     set_global(toCbuf(ref), Misc7State.tmp64)
     return s
 }
@@ -449,7 +449,7 @@ fun Mstring.Assign(b: Int) {
 
 /** vendor 3708-3713 mstring::Assign(double b) - sprintf "%f". */
 fun Mstring.Assign(b: Double) {
-    Assign(String.format("%f", b))
+    Assign(String.format(java.util.Locale.getDefault(), "%f", b)) // explicit default locale (u182 precedent)
 }
 
 /** vendor 3715-3720 mstring::Assign(long b) - sprintf "%ld". */
@@ -600,7 +600,7 @@ private fun Global.concatRetrieve(): CharArray {
 /** vendor 3936-3952 global::Concat(double b) - rslt=b; strcat. */
 fun Global.Concat(b: Double): Mstring {
     val gtmp = concatRetrieve()
-    return Mstring(cstringAt(gtmp) + String.format("%f", b)) // vendor: rslt=b (%f)
+    return Mstring(cstringAt(gtmp) + String.format(java.util.Locale.getDefault(), "%f", b)) // vendor: rslt=b (%f); explicit default locale (u182 precedent)
 }
 
 /** vendor 3954-3970 global::Concat(long b). */
@@ -656,7 +656,7 @@ fun Mstring.Concat(b: Global): Mstring {
 }
 
 /** vendor 4092-4098 mstring::Concat(double b) - rslt=b (%f). */
-fun Mstring.Concat(b: Double): Mstring = Mstring(value + String.format("%f", b))
+fun Mstring.Concat(b: Double): Mstring = Mstring(value + String.format(java.util.Locale.getDefault(), "%f", b))
 
 /** vendor 4100-4106 mstring::Concat(long b) - sprintf "%ld". */
 fun Mstring.Concat(b: Long): Mstring = Mstring(value + b.toString())
