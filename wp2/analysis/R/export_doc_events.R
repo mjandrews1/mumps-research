@@ -75,16 +75,17 @@ for (c in consults) {
     rows[[length(rows) + 1]] <- c("miss", c$entry, c$unit, c$ts)
   }
 }
-ev <- if (length(rows) == 0)
+ev <- if (length(rows) == 0) {
   data.frame(kind = character(0), target = character(0),
             unit = character(0), timestamp = character(0),
             stringsAsFactors = FALSE)
-else
+} else {
   data.frame(kind = vapply(rows, `[[`, character(1), 1),
             target = vapply(rows, `[[`, character(1), 2),
             unit = vapply(rows, `[[`, character(1), 3),
             timestamp = vapply(rows, `[[`, character(1), 4),
             stringsAsFactors = FALSE)
+}
 
 ## write LF-exact CSV with the exact header
 con <- file(out_path, open = "wb")

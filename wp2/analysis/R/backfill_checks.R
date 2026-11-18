@@ -54,7 +54,7 @@ if (cmd == "report") {
     cat(sprintf("arm %s: %d units\n", a, nrow(sub)))
     for (j in checks) {
       tab <- table(sub[[j]])
-      ev <- sum(tab[c("evaluated-pass", "evaluated-fail")])
+      ev <- sum(tab[intersect(names(tab), c("evaluated-pass", "evaluated-fail"))])
       frac <- if (nrow(sub) > 0) ev / nrow(sub) else NA_real_
       cat(sprintf("  %-13s evaluated %d (%.1f%%): pass %d fail %d todo %d\n",
                   j, ev, 100 * frac,
