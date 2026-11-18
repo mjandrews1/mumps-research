@@ -298,9 +298,46 @@ fun strmove(dst: CharArray, dstOff: Int, src: CharArray, srcOff: Int) {
 /**
  * Owner: interp-zfcns.cpp::zfcn (batch-6 corpus unit; the
  * interp-bifs.cpp::zfcn batch-6 overload is a separate unit).
+ * RESOLVED by Zfcn.kt (unit 156); stub removed.
  */
-fun zfcn(v1d: CharArray, v1dOff: Int, bd: CharArray, bdOff: Int, svPtr: Msv) {
-    TODO("h014 stub: owner interp-zfcns.cpp::zfcn (batch-6 unit); result written to bd+bdOff")
+
+// --- added by u156 (interp-zfcns.cpp::zfcn mps_* call sites; owners
+//     are the interp-arith.cpp batch-10 corpus units; seats raised,
+//     bodies pending those units) ---
+
+/** interp-arith.cpp:442 - int mps_floor(char * out, char * in). */
+fun mpsFloor(out: CharArray, inCh: CharArray): Int {
+    TODO("h014 stub: owner interp-arith.cpp::mps_floor (batch-10 corpus unit)")
+}
+
+/** interp-arith.cpp:483 - int mps_ceil(char * out, char * in). */
+fun mpsCeil(out: CharArray, inCh: CharArray): Int {
+    TODO("h014 stub: owner interp-arith.cpp::mps_ceil (batch-10 corpus unit)")
+}
+
+/** interp-arith.cpp:406 - int mps_trunc(char * out, char * in). */
+fun mpsTrunc(out: CharArray, inCh: CharArray): Int {
+    TODO("h014 stub: owner interp-arith.cpp::mps_trunc (batch-10 corpus unit)")
+}
+
+/** interp-arith.cpp:192 - void mps_log(char *a, char *b). */
+fun mpsLog(a: CharArray, b: CharArray) {
+    TODO("h014 stub: owner interp-arith.cpp::mps_log (batch-10 corpus unit)")
+}
+
+/** interp-arith.cpp:223 - void mps_cos(char *a, char *b). */
+fun mpsCos(a: CharArray, b: CharArray) {
+    TODO("h014 stub: owner interp-arith.cpp::mps_cos (batch-10 corpus unit)")
+}
+
+/** interp-arith.cpp:375 - void mps_tan(char *a, char *b). */
+fun mpsTan(a: CharArray, b: CharArray) {
+    TODO("h014 stub: owner interp-arith.cpp::mps_tan (batch-10 corpus unit)")
+}
+
+/** interp-arith.cpp:818 - void mps_exp2(char *c, char *a). */
+fun mpsExp2(c: CharArray, a: CharArray) {
+    TODO("h014 stub: owner interp-arith.cpp::mps_exp2 (batch-10 corpus unit)")
 }
 
 /**
@@ -389,13 +426,15 @@ fun gtkTreeStoreFromPtr(treestore: CharArray): mumps.mdh.GtkTreeStore {
     TODO("h014 stub: owner GTK C library glue - sscanf %p decode (not a corpus unit)")
 }
 
-/** Owner: GTK C library gtk_tree_store_append (not a corpus unit). */
-fun gtkTreeStoreAppend(t: mumps.mdh.GtkTreeStore, itera: GtkTreeIter, iterb: GtkTreeIter) {
+/** Owner: GTK C library gtk_tree_store_append (not a corpus unit).
+ *  iterb widened to GtkTreeIter? by u156 (interp-zfcns.cpp::zfcn):
+ *  the vendor calls it with NULL for the level-1 add (zfcns 555). */
+fun gtkTreeStoreAppend(t: mumps.mdh.GtkTreeStore, itera: mumps.mdh.GtkTreeIter, iterb: mumps.mdh.GtkTreeIter?) {
     TODO("h014 stub: owner GTK C library gtk_tree_store_append (not a corpus unit)")
 }
 
 /** Owner: GTK C library gtk_tree_store_set (not a corpus unit); value at v1d[off]. */
-fun gtkTreeStoreSet(t: mumps.mdh.GtkTreeStore, itera: GtkTreeIter, column: Int,
+fun gtkTreeStoreSet(t: mumps.mdh.GtkTreeStore, itera: mumps.mdh.GtkTreeIter, column: Int,
                     v1d: CharArray, off: Int) {
     TODO("h014 stub: owner GTK C library gtk_tree_store_set (not a corpus unit)")
 }

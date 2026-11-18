@@ -111,8 +111,9 @@ fun strsep(p: CharArray, pOff: Int, delim: CharArray): CharArray? {
  *  unsigned char * x5, unsigned char * x1, unsigned char * x2,
  *  unsigned char * x3, char c, struct MSV * svPtr). Seat raised by
  *  this unit; the real body (interp-service.cpp:87) is a batch-7
- *  corpus unit (rank 299). */
-fun ServiceInterface(x1: CharArray, x1Off: Int, x2: CharArray, x2Off: Int,
+ *  corpus unit (rank 299). x1/x2 widened to CharArray? by u156
+ *  (interp-zfcns.cpp::zfcn): several vendor call sites pass NULL. */
+fun ServiceInterface(x1: CharArray?, x1Off: Int, x2: CharArray?, x2Off: Int,
                      x3: CharArray, x3Off: Int, x4: CharArray, x4Off: Int,
                      x5: CharArray, x5Off: Int, c: Char, svPtr: Msv) {
     TODO("h014 stub: owner interp-service.cpp::ServiceInterface (batch-7 corpus unit)")

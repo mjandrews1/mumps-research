@@ -421,7 +421,7 @@ fun docCorrelate(B: Global, fcn: String, threshold: Double) {
 // --- opaque GTK carriers (GUI glue; the mdh wrappers only forward
 //     opaque handles to the underlying libgtk calls) ---
 
-class GtkWindow
+open class GtkWindow() : GtkWidget()
 class GtkToggleButton
 class GtkSwitch
 class GtkEntry
@@ -431,12 +431,20 @@ class GtkTextBuffer
 class GtkFontChooser
 class GtkColorChooser
 class GtkLabel
-class GtkWidget
+open class GtkWidget
 class GtkTreeSelection
 class GtkTreeIter
 class GtkTreeModel
 class GtkAdjustment
 class GtkSpinButton
+
+/** u156 (interp-zfcns.cpp::zfcn): the dialog and chooser carriers;
+ *  GtkDialog : GtkWindow : GtkWidget mirrors the libgtk hierarchy
+ *  (the dialog arm passes its dialog to gtk_window_set_keep_above
+ *  and gtk_widget_destroy). */
+class GtkDialog() : GtkWindow()
+class GtkFileChooser
+class GtkTreeView
 
 /** vendor struct GdkRGBA (gtk color carrier for mdh_color_chooser_get_rgba). */
 class GdkRGBA {
@@ -526,4 +534,31 @@ fun gtk_spin_button_get_value(s: GtkSpinButton): Double {
 
 fun gtk_spin_button_set_value(s: GtkSpinButton, v: Double) {
     TODO("h014 stub: owner libgtk gtk_spin_button_set_value (out of corpus)")
+}
+
+// --- added by u156 (interp-zfcns.cpp::zfcn GTK arms; owner libgtk,
+//     out of corpus) ---
+
+fun gtk_dialog_new_with_buttons(title: String, parent: GtkWindow?, flags: Int): GtkDialog {
+    TODO("h014 stub: owner libgtk gtk_dialog_new_with_buttons (out of corpus)")
+}
+
+fun gtk_dialog_run(d: GtkDialog): Int {
+    TODO("h014 stub: owner libgtk gtk_dialog_run (out of corpus)")
+}
+
+fun gtk_window_set_keep_above(w: GtkWindow, b: Boolean) {
+    TODO("h014 stub: owner libgtk gtk_window_set_keep_above (out of corpus)")
+}
+
+fun gtk_widget_destroy(w: GtkWidget) {
+    TODO("h014 stub: owner libgtk gtk_widget_destroy (out of corpus)")
+}
+
+fun gtk_tree_view_get_selection(t: GtkTreeView): GtkTreeSelection {
+    TODO("h014 stub: owner libgtk gtk_tree_view_get_selection (out of corpus)")
+}
+
+fun gtk_file_chooser_get_filename(c: GtkFileChooser): String? {
+    TODO("h014 stub: owner libgtk gtk_file_chooser_get_filename (out of corpus)")
 }

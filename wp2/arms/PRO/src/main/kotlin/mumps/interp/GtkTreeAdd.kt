@@ -1,5 +1,13 @@
 package mumps.interp
 
+import mumps.mdh.GtkTreeIter
+
+/** u156 (interp-zfcns.cpp::zfcn): the local GtkTreeIter carrier
+ *  declaration was removed - the mumps.mdh.MdhStubs GtkTreeIter
+ *  (same opaque carrier) is imported instead, so the zfcn GTK arms
+ *  can share one static iter across the GtkTreeAdd and mdh
+ *  gtk_tree_* seats (the vendor has one struct type). */
+
 /**
  * PRO-arm translation of interp-zfcns.cpp::GtkTreeAdd (B3 unit 73,
  * rank 208). Translated independently from the pristine vendor
@@ -49,9 +57,9 @@ package mumps.interp
  *    header comment block (preserved above in spirit; the port
  *    takes treestore directly).
  */
-class GtkTreeIter // opaque GTK C struct carrier
-
-fun GtkTreeAdd(itera: GtkTreeIter, iterb: GtkTreeIter,
+/** iterb widened to GtkTreeIter? by u156 (interp-zfcns.cpp::zfcn):
+ *  the level-1 vendor call site passes NULL (zfcns 555). */
+fun GtkTreeAdd(itera: GtkTreeIter, iterb: GtkTreeIter?,
                treestore: CharArray, v1d: CharArray,
                iargs: ShortArray, nargs: Int) {
 
