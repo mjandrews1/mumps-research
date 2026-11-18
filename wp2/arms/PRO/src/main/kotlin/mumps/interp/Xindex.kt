@@ -12,6 +12,13 @@ package mumps.interp
  * the Match.kt-family call sites bind unchanged on the
  * (source, ptrn, strt: Short) signature).
  *
+ * Row 297 verification note (batch 10): units.csv row 297 lists
+ * compiler-sys1.c::xindex - the compiler-side TWIN of this exact
+ * body (the identical scan text shipped again in compiler-sys1.c,
+ * verified line for line). Verification-only, no redeclaration
+ * (one-owner h004/h019 fold note, u141 family precedent; this seat
+ * is the owner; globalb/Pattern-family call sites unchanged).
+ *
  * xindex(source, ptrn, strt): Int - the pattern substring search:
  * find the first occurrence of ptrn in source at or after
  * strt (1-based; <=1 clamps to 0-offset), return the 1-based
