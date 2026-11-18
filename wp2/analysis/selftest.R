@@ -15,8 +15,11 @@ t1 <- mcnemar_exact(1, 15)
 check("McNemar exact two-sided p (b=1,c=15)",
       abs(t1$p_two - 2 * pbinom(1, 16, 0.5)) < 1e-12)
 t2 <- mcnemar_exact(15, 1, alternative = "greater")
-check("McNemar one-sided greater non-significant when b>>c",
-      t2$p > 0.99)
+check("McNemar one-sided greater significant when b>>c",
+      t2$p < 0.01)
+t3 <- mcnemar_exact(15, 1, alternative = "less")
+check("McNemar one-sided less non-significant when b>>c",
+      t3$p > 0.99)
 
 # matched OR: symmetric case -> OR=1
 o1 <- matched_or(10, 10)
