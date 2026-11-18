@@ -202,14 +202,11 @@ object InterpStubs
  * arm; the misc-7 global::Merge member (u218) reuses it via
  * the mumps.interp.Merge seat.*/
 /**
- * Owner: interp-parse.cpp::inout (batch-10 corpus unit). Raised at
- * u155 (h014 out_of_scope_call) - the NEXT_CMND comment/blank-line
- * skip passes (text=pd1 at sdlim, cmnd/col as ints); the batch-10
- * render will resolve the seat.
+ * Owner: interp-parse.cpp::inout - RESOLVED by Inout.kt (roster
+ * row 286, batch 10; raised at u155, cleanLocks precedent). The
+ * two Interpret.kt NEXT_CMND call sites bind the owner-level seat
+ * with text=pd1 at sdlim unchanged.
  */
-fun inout(text: CharArray, textOff: Int, cmnd: Int, col: Int, svPtr: Msv) {
-    TODO("h014 stub: owner interp-parse.cpp::inout (batch-10 unit)")
-}
 
 /** Owner: global-array machinery Mglobal(g,key,bd,svPtr) (not a corpus unit). */
 fun mglobal(g: Int, key: CharArray, bd: CharArray, svPtr: Msv): Int {
@@ -234,10 +231,13 @@ fun globalClose(svPtr: Msv) {
  * removed.
  */
 
-/** Owner: interp-sysfunc.cpp::unpad (batch-10 unit, not in B1). */
-fun unpad(key: CharArray, svPtr: Msv) {
-    TODO("h014 stub: owner interp-sysfunc.cpp::unpad (batch-10 unit, not in B1)")
-}
+/**
+ * Owner: interp-sysfunc.cpp::unpad - RESOLVED by Unpad.kt (roster
+ * row 289, batch 10; raised at u155, cleanLocks precedent). The
+ * fullUnpad caller here and the GlobalbMisc NEXT-scan call site
+ * bind the owner-level seat unchanged.
+ */
+
 
 /**
  * (u50) Vendor file-scope globals of the interp-native-btree.cpp
@@ -319,33 +319,20 @@ fun strmove(dst: CharArray, dstOff: Int, src: CharArray, srcOff: Int) {
 //     bodies pending those units) ---
 
 
-// --- u156 mps_* seats: five RESOLVED in batch 9 (mps_floor, mps_cos,
-//     mps_tan, mps_log, mps_exp2 - owners MpsFloor.kt/MpsCos.kt/
-//     MpsTan.kt/MpsLog.kt/MpsExp2.kt, roster rows 268/272/273/271/
-//     269; call sites bind to the same-package real seats, the
-//     u156 batch-10 tags superseded, u141 family precedent);
-//     mpsCeil/mpsTrunc stubs remain (owners interp-arith.cpp
-//     :483/:406, not on the B9 roster) ---
-
-/** interp-arith.cpp:483 - int mps_ceil(char * out, char * in). */
-fun mpsCeil(out: CharArray, inCh: CharArray): Int {
-    TODO("h014 stub: owner interp-arith.cpp::mps_ceil (batch-10 corpus unit)")
-}
-
-/** interp-arith.cpp:406 - int mps_trunc(char * out, char * in). */
-fun mpsTrunc(out: CharArray, inCh: CharArray): Int {
-    TODO("h014 stub: owner interp-arith.cpp::mps_trunc (batch-10 corpus unit)")
-}
+// --- u156 mps_* seats: SEVEN RESOLVED - mps_floor/mps_cos/mps_tan/
+//     mps_log/mps_exp2 in batch 9 (roster rows 268/272/273/271/269)
+//     and mps_ceil/mps_trunc in batch 10 (roster rows 302/301,
+//     owners MpsCeil.kt/MpsTrunc.kt); all call sites bind to the
+//     same-package real seats, the batch-10 tags superseded,
+//     u141 family precedent ---
 
 /**
- * Owner: interp-sym.cpp::sym_ (batch-10 corpus unit, 484 LOC).
- * Vendor returns unsigned char * (NULL on not-found); the Kotlin
- * carrier returns CharArray? for the NULL test at call sites.
+ * Owner: interp-sym.cpp::sym_ - RESOLVED by Sym_.kt (roster row
+ * 280, batch 10, vendor lines 33-516, 484 LOC; the batch-10
+ * monster); stub removed, the cleanLocks precedent. All call
+ * sites in this package and the mdh 4-arg delegate bind to the
+ * new seat unchanged (return CharArray? with NULL semantics kept).
  */
-fun sym_(flag: Int, name: CharArray, nameOff: Int, bd: CharArray, bdOff: Int,
-         svPtr: Msv): CharArray? {
-    TODO("h014 stub: owner interp-sym.cpp::sym_ (batch-10 unit)")
-}
 
 /**
  * Owner: interp-parse.cpp::BuildGlobal (batch-8 corpus unit).
@@ -506,13 +493,14 @@ fun strfmon(s: CharArray, sOff: Int, maxsize: Int, format: CharArray, formatOff:
 // (added by B4 unit 104 - parse_pattern_element owner family)
 
 /**
- * Owner: interp-bstring.cpp::bstrcat (batch-9 corpus unit); the
- * vendor takes both bstrings BY VALUE and returns the fresh
- * concatenation struct.
+ * Owner: interp-bstring.cpp::bstrcat - RESOLVED by Bstrcat.kt
+ * (roster row 277, batch 10; vendor 52-77). TAG CORRECTION: the seat
+ * was raised with a batch-9 owner tag; the roster assignment is
+ * row 277, batch 10. The vendor takes both bstrings BY VALUE and
+ * returns the fresh concatenation struct; the render keeps the
+ * reference reads (never mutated) per the bcatchr alias precedent.
+ * Stubs removed; the InterpRpmMisc.kt call sites bind unchanged.
  */
-fun bstrcat(a: Bstring, b: Bstring): Bstring {
-    TODO("h014 stub: owner interp-bstring.cpp::bstrcat (batch-9 unit)")
-}
 
 /** Owner: interp-rpm.cpp accept_it/accept/syntax_error/
  *  parse_pattern_atom_list/rpm/perlmatch/perlcpp/scan/new_scanner/
@@ -542,11 +530,11 @@ fun logtime(): CharArray {
 // --- added by B7 unit 188 (libmpscpp.cpp::<misc-6>, Horolog) ---
 
 /**
- * Owner: interp-sym.cpp::_horolog (vendor 1305; batch-9 corpus
- * unit, roster row 259 interp-sym.cpp::<misc> family). Raised by
- * the B7 Horolog render (LibmpscppMisc6.kt); the owner unit
- * resolves it. Param renamed in -> t (Kotlin hard keyword, h015).
+ * Owner: interp-sym.cpp::_horolog (vendor 1305-1322) - RESOLVED by
+ * Horolog.kt (roster row 278, batch 10). TAG CORRECTION: the seat
+ * was raised with a batch-9 owner tag (roster row 259 family
+ * guess); the roster assignment is row 278, batch 10. Param renamed
+ * in -> t (Kotlin hard keyword, h015) in the seat and kept in the
+ * render. Stub removed; the Parse_.kt <dollar>h emission, the
+ * ZfcnsH.kt seat notes and the Fcn.kt dispatcher bind unchanged.
  */
-fun _horolog(t: CharArray) {
-    TODO("h014 stub: owner interp-sym.cpp::_horolog (batch-9 corpus unit)")
-}
