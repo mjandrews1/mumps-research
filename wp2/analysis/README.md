@@ -34,6 +34,16 @@ PROTOCOL_CLARIFICATIONS entry, not silently applied.
   statuses are filled by the per-unit check backfill pass
   (C-001 cycle-10 buffer, per `PER_UNIT_CHECKS.md`) and committed
   once evaluated.
+- `R/export_doc_events.R`: regenerates
+  `wp2/logs/DOC_knowledge_events.csv` from the DOC consult rows in
+  the arm journal per the C-005 mapping (see "DOC consult rows in
+  the arm journal" below). Idempotent; run at each DOC batch close
+  and before analysis.
+- `R/backfill_checks.R`: guarded stamping helper for the backfill
+  pass (see "Backfill tooling" below).
+- `oracle_verify.sh`: verifies both frozen oracles against their
+  committed manifests (integrity prerequisite; not by itself
+  per-unit evidence).
 
 ## Input contracts (all committed data; readers fail loudly otherwise)
 
@@ -75,6 +85,54 @@ PROTOCOL_CLARIFICATIONS entry, not silently applied.
    units; rows are counted as-is (the log already holds one pair per
    (roster unit, rule) per the capture protocol), and string-level
    dedup is forbidden (it would collapse distinct units).
+
+## DOC consult rows in the arm journal (C-005 tooling contract)
+
+DOC consults stay journal rows (pre-registered practice; C-005 maps
+them at close). To make the mapping mechanical, each DOC consult row
+in `wp2/arms/ARM_WORKING_NOTES.md` uses this exact single-line
+grammar (one line per consult; registered here before any DOC
+consult exists, so no recorded value is touched):
+
+```
+- DOC consult: unit <unit_id>, entry <H-nnn>, outcome <hit-reuse|hit-adapt|miss>, timestamp <ISO8601>
+```
+
+`unit_id` is the roster id string; `entry` is the cookbook entry id;
+`timestamp` is `YYYY-MM-DDTHH:MM[:SS]...`. `export_doc_events.R`
+selects rows by the `- DOC consult:` prefix and fails loudly on any
+prefix-matching line that does not match the full grammar. The
+regenerated events CSV is header-only when no consults exist
+(present, never omitted).
+
+## Backfill tooling (cycle-10 buffer; C-002 discipline)
+
+`R/backfill_checks.R` is the stamping helper for the per-unit check
+backfill pass:
+
+```
+Rscript wp2/analysis/R/backfill_checks.R report
+Rscript wp2/analysis/R/backfill_checks.R verify-roster
+Rscript wp2/analysis/R/backfill_checks.R set <arm> <check> <roster_row> <evaluated-pass|evaluated-fail> [--force]
+```
+
+Scope rules, enforced in code where possible:
+
+- The tool STAMPS evidence a human produced; it never infers a
+  check result from a grade, an oracle run, or a build status. A
+  `graded-ok` unit is not by itself `evaluated-pass` (C-002: the
+  checks run in the verification pass; nothing is backfilled from
+  grades).
+- For output-check, the workflow per unit is: `oracle_verify.sh`
+  (oracle integrity), then a per-unit matched-input byte comparison
+  against the arm build, run and read by the researcher, THEN
+  `set`. The arm-side oracle runners (design section 9.3, the
+  finish-line tests) are not yet built; until they exist, the
+  comparison is the manual harness exactly as `PER_UNIT_CHECKS.md`
+  section 2 defines it.
+- Refuses to overwrite a non-todo cell without `--force`;
+  corrections that change an evaluated value are journal events,
+  not silent edits.
 
 ## Run
 
