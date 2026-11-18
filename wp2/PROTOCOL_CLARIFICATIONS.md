@@ -14,6 +14,7 @@ effect on the committed schedule, and the methodological consequences.
 | C-001 | 2026-11-16 | Pilot B1 vs. Latin-square slots | Resolved (before cycle 1) |
 | C-002 | 2026-11-16 | Per-unit check definitions formalized | Resolved (definition written) |
 | C-003 | 2026-11-16 | PRO early B2 execution | Active (deviation logged) |
+| C-004 | 2026-12-04 | Statistical Analysis Plan specified before pending-arm outcomes | Registered (SAP committed) |
 
 ---
 
@@ -162,3 +163,44 @@ modified).**
 **Files touched by this entry:** `wp2/PILOT_TRACKING.md` (unit-32
 check column reverted; batch-position note), `wp2/arms/ARM_WORKING_NOTES.md`
 (PRO journal deviation note). No pre-registered file was modified.
+---
+
+## C-004 — Statistical Analysis Plan specified before pending-arm outcomes (registered 2026-12-04)
+
+**Observation.** Design §11.2 pre-specifies the primary contrasts
+(H2-H5) and the language subgroups (S1-S3) at the level of intent
+("paired per-module comparisons; blocked model with arm term",
+"statistical test on decision logs"), but commits no concrete test
+statistics, effect estimators, exclusion rules, or multiplicity
+control. At this date BASE and PRO are complete and closed; DOC, DAF,
+and BOTH have produced no translation outcomes (todo across
+PILOT_TRACKING.md).
+
+**Clarification.** A Statistical Analysis Plan is registered as
+`wp2/STATISTICAL_ANALYSIS_PLAN.md`, specifying: matched-pair tests
+per endpoint type (McNemar exact / Wilcoxon signed-rank with
+Hodges-Lehmann / batch-paired Fisher with Mantel-Haenszel pooling for
+coverage endpoints); Holm-Bonferroni across the four primary
+contrasts; the pre-capture-history exclusion rule (the PRO h018
+units 4/10/12/20/29 modeled formally); the treatment of front-run and
+verification-only units (PN-1, unit-43 precedent: real outcomes,
+one situation per unit-rule); pilot-B1 exclusion from confirmatory
+tests with sensitivity appendix; and reporting requirements
+(effect estimate with CI, N analyzed/excluded/deferred, per test).
+
+**Effect on the committed schedule.** None. The SAP is registered
+before any DOC/DAF/BOTH outcome exists; within-study PRO-vs-BASE
+comparisons are classified specified-exploratory in this study and
+carry forward as the confirmatory pre-registration basis for the
+RSM/GT.M replications (docs/REPLICATION_ROADMAP.md).
+
+**Methodological consequences.** No pre-registered instrument
+(order assignments, capture criteria, oracle manifests) is modified.
+The SAP binds the analysis of outcomes not yet observed; any
+deviation from it during analysis must be logged here with the
+analysis not silently re-run. Because PRO is already complete, its
+pairwise contrasts are not blinded; the SAP states this openly
+(§0) rather than claiming full prospective registration.
+
+**Files touched by this entry:** `wp2/STATISTICAL_ANALYSIS_PLAN.md`
+(new). No pre-existing pre-registered file was modified.
