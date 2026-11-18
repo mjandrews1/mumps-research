@@ -227,10 +227,13 @@ fun globalClose(svPtr: Msv) {
     TODO("h014 stub: owner GlobalClose macro (not a corpus unit)")
 }
 
-/** Owner: interp-sysfunc.cpp (B1 unit 25 interp-sysfunc.cpp::<misc>; declared sym.h:41). */
-fun sigint(i: Int) {
-    TODO("h014 stub: owner interp-sysfunc.cpp::sigint (batch-7 unit, not in B1 - see ARM_WORKING_NOTES)")
-}
+/**
+ * sigint (interp-sysfunc.cpp::sigint, batch-7 roster row 191) was
+ * stubbed here until B7 landed; the owner-level definition now
+ * lives in Sigint.kt (same signature; every sigint(100)
+ * diagnostic call site binds unchanged) and the stub has been
+ * removed.
+ */
 
 /** Owner: interp-sysfunc.cpp::unpad (batch-10 unit, not in B1). */
 fun unpad(key: CharArray, svPtr: Msv) {
@@ -260,10 +263,13 @@ object NativeBtreeState {
     var bigKeyData: Long = 0
 }
 
-/** Owner: interp-native-btree.cpp:111 inline freadx (batch-7 unit). */
-fun freadx(r: Int, flag: Int): CharArray {
-    TODO("h014 stub: owner interp-native-btree.cpp::freadx (batch-7 unit); the vendor's unsigned char** out-param becomes the return value")
-}
+/**
+ * freadx (interp-native-btree.cpp::freadx, batch-7 roster row
+ * 193) was stubbed here until B7 landed; the owner-level
+ * definition now lives in Freadx.kt (same signature; the
+ * Scanblocks call site binds unchanged) and the stub has been
+ * removed.
+ */
 
 /** Owner: interp-sql.cpp::sql (batch-9 corpus unit, not yet translated). */
 fun sql(op: Int, svPtr: Msv, DataSourceName: CharArray?, Command: CharArray?,
@@ -467,11 +473,12 @@ fun Eval(tmp0: CharArray, tmp2: CharArray, svPtr: Msv): Int {
  *  133, vendor 1100-1124); stub removed (Fcn.kt call site binds
  *  unchanged). */
 
-/** Owner: interp-sym.cpp::Qsub (batch-7 corpus unit, interp-sym.cpp:1126). */
-fun Qsub(tmp0: CharArray, tmp0Off: Int, tmp1: CharArray, tmp1Off: Int,
-         tmp2: CharArray, tmp2Off: Int, svPtr: Msv) {
-    TODO("h014 stub: owner interp-sym.cpp::Qsub (batch-7 unit)")
-}
+/**
+ * Qsub (interp-sym.cpp::Qsub, batch-7 roster row 194) was stubbed
+ * here until B7 landed; the owner-level definition now lives in
+ * Qsub.kt (same signature; the Fcn.kt call sites bind unchanged)
+ * and the stub has been removed.
+ */
 
 // (B4 unit 112) The LocalName stub raised by B4 unit 94 is RESOLVED:
 // B4 unit 112 translated interp-sysfunc.cpp::LocalName - see
@@ -533,4 +540,16 @@ fun bstrcat(a: Bstring, b: Bstring): Bstring {
 /** Owner: server.cpp::logtime (server.cpp:62, not a corpus unit). */
 fun logtime(): CharArray {
     TODO("h014 stub: owner server.cpp::logtime (not a corpus unit)")
+}
+
+// --- added by B7 unit 188 (libmpscpp.cpp::<misc-6>, Horolog) ---
+
+/**
+ * Owner: interp-sym.cpp::_horolog (vendor 1305; batch-9 corpus
+ * unit, roster row 259 interp-sym.cpp::<misc> family). Raised by
+ * the B7 Horolog render (LibmpscppMisc6.kt); the owner unit
+ * resolves it. Param renamed in -> t (Kotlin hard keyword, h015).
+ */
+fun _horolog(t: CharArray) {
+    TODO("h014 stub: owner interp-sym.cpp::_horolog (batch-9 corpus unit)")
 }

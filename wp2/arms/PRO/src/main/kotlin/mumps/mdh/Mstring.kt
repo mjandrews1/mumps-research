@@ -141,58 +141,42 @@ class Mstring(var value: String = "") {
     constructor(v: Char) : this(v.toString())
 
     // --- vendor :95-104 conversion operators (h015 fold: no
-    //     Kotlin implicit-conversion point; explicit member
-    //     seats, bodies owned by libmpscpp.cpp - h014 stubs). ---
+    //     Kotlin implicit-conversion point; explicit member seats).
+    //     B7 unit 188 (libmpscpp.cpp::<misc-6>, vendor 3113-3168)
+    //     resolves the bodies: the vendor atoi()/atof() over the
+    //     data string, with C implicit narrowing kept as explicit
+    //     Kotlin conversions (the unsigned forms wrap negatives,
+    //     as the C implicit conversions do). ---
 
-    /** vendor :95 operator int() - body pending (h014 stub). */
-    fun toInt(): Int {
-        TODO("h014 stub: owner libmpscpp.cpp::mstring::operator int()")
-    }
+    /** vendor :95 operator int() - i = atoi(data.c_str()). */
+    fun toInt(): Int = atol_(value).toInt()
 
-    /** vendor :96 operator float() - body pending (h014 stub). */
-    fun toFloat(): Float {
-        TODO("h014 stub: owner libmpscpp.cpp::mstring::operator float()")
-    }
+    /** vendor :96 operator float() - i = atof(data.c_str()). */
+    fun toFloat(): Float = atof_(value).toFloat()
 
-    /** vendor :97 operator double() - body pending (h014 stub). */
-    fun toDouble(): Double {
-        TODO("h014 stub: owner libmpscpp.cpp::mstring::operator double()")
-    }
+    /** vendor :97 operator double() - i = atof(data.c_str()). */
+    fun toDouble(): Double = atof_(value)
 
-    /** vendor :98 operator char() - body pending (h014 stub). */
-    fun toChar(): Char {
-        TODO("h014 stub: owner libmpscpp.cpp::mstring::operator char()")
-    }
+    /** vendor :98 operator char() - i = atoi(data.c_str()); char i. */
+    fun toChar(): Char = atol_(value).toInt().toChar()
 
-    /** vendor :99 operator short() - body pending (h014 stub). */
-    fun toShort(): Short {
-        TODO("h014 stub: owner libmpscpp.cpp::mstring::operator short()")
-    }
+    /** vendor :99 operator short() - i = atoi(data.c_str()); short i. */
+    fun toShort(): Short = atol_(value).toInt().toShort()
 
-    /** vendor :100 operator long() - body pending (h014 stub). */
-    fun toLong(): Long {
-        TODO("h014 stub: owner libmpscpp.cpp::mstring::operator long()")
-    }
+    /** vendor :100 operator long() - i = atoi(data.c_str()); long i. */
+    fun toLong(): Long = atol_(value)
 
-    /** vendor :101 operator unsigned long() - body pending (h014). */
-    fun toULong(): ULong {
-        TODO("h014 stub: owner libmpscpp.cpp::mstring::operator unsigned long()")
-    }
+    /** vendor :101 operator unsigned long() - atoi wrapped (C implicit). */
+    fun toULong(): ULong = atol_(value).toULong()
 
-    /** vendor :102 operator unsigned int() - body pending (h014). */
-    fun toUInt(): UInt {
-        TODO("h014 stub: owner libmpscpp.cpp::mstring::operator unsigned int()")
-    }
+    /** vendor :102 operator unsigned int() - atoi wrapped (C implicit). */
+    fun toUInt(): UInt = atol_(value).toInt().toUInt()
 
-    /** vendor :103 operator unsigned char() - body pending (h014). */
-    fun toUByte(): UByte {
-        TODO("h014 stub: owner libmpscpp.cpp::mstring::operator unsigned char()")
-    }
+    /** vendor :103 operator unsigned char() - atoi wrapped (C implicit). */
+    fun toUByte(): UByte = atol_(value).toInt().toUByte()
 
-    /** vendor :104 operator unsigned short() - body pending (h014). */
-    fun toUShort(): UShort {
-        TODO("h014 stub: owner libmpscpp.cpp::mstring::operator unsigned short()")
-    }
+    /** vendor :104 operator unsigned short() - atoi wrapped (C implicit). */
+    fun toUShort(): UShort = atol_(value).toInt().toUShort()
 }
 
 /** strmax.h:3 STR_MAX 32000 (file-private, cf. Cosine unit 71). */

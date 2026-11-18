@@ -93,7 +93,7 @@ class Global(val ref: String) {
     operator fun invoke(vararg subs: String): GlobalRef {
         val names = if (subs.isEmpty()) "" else subs.indices.joinToString(",") { ('a' + it).toString() }
         val vals = if (subs.isEmpty()) arrayOf("") else subs
-        makeGlobal(0, myname, names, *vals)
+        this.makeGlobal(0, myname, names, *vals) // unit-203 seat (this. = member adaptation)
         return GlobalRef(this, subs.toList())
     }
 

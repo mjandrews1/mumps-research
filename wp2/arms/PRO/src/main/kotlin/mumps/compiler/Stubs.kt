@@ -19,10 +19,14 @@ data class AtTestResult(val rc: Int, val pd1Last: Short)
 // AtTestResult bundle (h005 shape kept; the old stub's "not in
 // corpus" owner note was wrong - scope note corrected).
 
-/** Owner: compiler-at-test.c (not in the B1/B2 corpus). */
-fun atCopy(atFlg: Int, tmp: StringBuilder) {
-    TODO("h014 stub: owner compiler-at-test.c (not in corpus)")
-}
+/**
+ * atCopy (compiler-mumps.c:1956) was stubbed here with a WRONG
+ * owner tag (compiler-at-test.c; u127 rpm precedent - the
+ * B7 unit 196 misc chunk owns it); the owner-level definition
+ * now lives in CompilerMumpsMisc.kt (same StringBuilder shape;
+ * the IfCode/SetCode/WriteCode call sites bind unchanged) and
+ * the stub has been removed.
+ */
 
 /** Owner: compiler-parse.c (unit not yet translated). */
 fun parse_(): Int {
@@ -37,15 +41,19 @@ fun linepad(n: Int, comment: String) {
     TODO("h014 stub: owner compiler-read.c (not in corpus)")
 }
 
-/** Owner: compiler-epi.c::epi (not in the B1/B2 corpus). */
-fun epi(ExecName: Short, pid: Long) {
-    TODO("h014 stub: owner compiler-epi.c::epi (not in corpus)")
-}
+/**
+ * epi (compiler-epi.c::epi) was stubbed here until B7 unit 189
+ * landed; the owner-level definition now lives in Epi.kt (same
+ * signature; the batch-7 corpus unit, roster row 189) and the stub
+ * has been removed.
+ */
 
-/** Owner: compiler-mumps.c::EP (not in the B1/B2 corpus). */
-fun EP(flg: Int, ExecName: Short, pid: Long) {
-    TODO("h014 stub: owner compiler-mumps.c::EP (not in corpus)")
-}
+/**
+ * EP (compiler-mumps.c::EP) was stubbed here until B7 unit 196
+ * landed; the owner-level definition now lives in
+ * CompilerMumpsMisc.kt (same signature; call sites bind
+ * unchanged) and the stub has been removed.
+ */
 
 /** Owner: compiler-parse.c::Extract1 (compiler-parse.c:2119; not a corpus unit). */
 fun Extract1(str: CharArray): String {
@@ -89,16 +97,39 @@ fun cvar(str: String): Boolean =
  */
 
 /**
- * Owner: compiler-sys1.c::match (compiler-sys1.c:453, batch-7 unit);
- * rslt is the short* out-parameter (h006 holder).
+ * match (compiler-sys1.c::match) was stubbed here until B7 unit
+ * 190 landed; the owner-level definition now lives in Match.kt
+ * (same signature; batch-7 corpus unit, roster row 190) and the
+ * stub has been removed (the Patrn call sites bind unchanged).
  */
-fun match(pts: Array<IntArray>, lx: Int, ct: IntArray, ad: CharArray, rslt: ShortArray) {
-    TODO("h014 stub: owner compiler-sys1.c::match (batch-7 unit)")
-}
 
 // --- added by B4 unit 100 (compiler-doty.c::doty) ---
 
-/** Owner: compiler-mumps.c:1949 LevCheck (not a corpus unit). */
-fun levCheck(ExecName: Short, DoRetX: Short, DoRet: ShortArray): Int {
-    TODO("h014 stub: owner compiler-mumps.c:1949 LevCheck (not a corpus unit)")
+/**
+ * levCheck (compiler-mumps.c:1949 LevCheck) was stubbed here
+ * until B7 unit 196 landed (TAG CORRECTION: the stub's "not a
+ * corpus unit" tag was wrong, u127 precedent - the misc chunk
+ * owns it); the owner-level definition now lives in
+ * CompilerMumpsMisc.kt (same signature; the Doty call site
+ * binds unchanged) and the stub has been removed.
+ */
+
+// --- added by B7 unit 192 (compiler-zcommands.c::zcommands_code) ---
+
+/**
+ * fcninit (compiler-fcninit.c::fcninit, batch-7 roster row 195)
+ * was stubbed here until B7 landed; the owner-level definition
+ * now lives in Fcninit.kt (same signature; the ZcommandsCode.kt
+ * call sites bind unchanged) and the stub has been removed.
+ */
+
+// --- added by B7 unit 195 (compiler-fcninit.c::fcninit) ---
+
+/**
+ * Owner: compiler-sys1.c:963 linepad2 (not a corpus unit; the
+ * compiler-sys1.c residue is batch-9 row 258). Raised by the B7
+ * fcninit render (Fcninit.kt "Temporary variables" line).
+ */
+fun linepad2(str: String) {
+    TODO("h014 stub: owner compiler-sys1.c:963 linepad2 (not a corpus unit)")
 }

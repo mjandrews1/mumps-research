@@ -161,3 +161,62 @@ fun Multiply(a: String, b: String, c: String) {
     val C = Global(c) // vendor: global C((char *) c.c_str());
     A.Multiply(B, C) // the verbatim-duplicate matrix loop (u53 seat)
 }
+
+/**
+ * PRO-arm translation of libmpscpp.cpp::Multiply (the CHAR-STAR
+ * library helper, B7 tranche 2, unit 201, rank 169). Translated
+ * independently from the pristine vendor source
+ * (mumps-14-may-2026.tgz, sha256 621deb25...ffdbe), reference
+ * source lines 2252-2290.
+ *
+ * Identity verified against the study tool: Multiply, cpp,
+ * loc 26, comment_ratio 0.037, pointer_marks 2,
+ * control_marks 8, score 20.8 - exact match to
+ * wp1/study-subset/units.csv row 201 (batch 7).
+ *
+ * Overload disambiguation (four same-named units, the row-141
+ * string twin's ledger): this is the CHAR-STAR-argument library
+ * helper at :2252; the intrinsic MSV wrapper (:10193, rank
+ * 154) and the string twin (:2211, rank 141 = u140) ride this
+ * file above; global::Multiply (:2164, rank 213) is
+ * GlobalMultiply.kt (u53).
+ *
+ * The vendor body is a VERBATIM copy of the string twin (the
+ * only difference is global A/B/C constructed from the raw
+ * char-star args instead of a.c_str()) and of the u53 matrix
+ * loop. The arm folds the duplicate to the single u53 seat
+ * (u117 Transpose-forwarder precedent, u140 fold twin):
+ * construct A/B/C from the char-star cstrings and dispatch.
+ *
+ * Rules applied (wp2/arms/PRO/rules_v0.pl):
+ *  - h006 low_level_pointer  : the char* args become the
+ *    caller-owned CharArray cstrings (cstringAt reads them
+ *    from offset 0; the null terminator is the boundary).
+ *  - h012 unsigned_byte_domain: the args are Char(0..255)
+ *    domains.
+ *  - h014 out_of_scope_call  : the matrix machinery is DONE -
+ *    the Global.Multiply extension (u53) is a direct call; the
+ *    Global(String) construction is the DONE carrier
+ *    (GlobalCarrier.kt:21), reached via cstringAt (interp
+ *    CstringOps seat).
+ *  - h015 grammar_collision  : pre-push scan incl. cross-file
+ *    top-level names: new overload Multiply(CharArray,
+ *    CharArray, CharArray) - distinct from the MSV-intrinsic
+ *    and String-twin signatures above (overload resolution is
+ *    the C++ name-overload analog).
+ *  - h017 naming             : Multiply keeps the vendor name.
+ *
+ * Vendor notes (translated faithfully, not "fixed"):
+ *  - The C().Kill() clears the destination global first - the
+ *    fold preserves it inside the u53 seat (its first
+ *    statement).
+ *  - The duplicated loop in the vendor is dead weight on the
+ *    roster side; the fold is journaled as the diverging
+ *    render decision with the u117/u140 precedents.
+ */
+fun Multiply(a: CharArray, b: CharArray, c: CharArray) {
+    val A = Global(cstringAt(a, 0)) // vendor: global A((char *) a);
+    val B = Global(cstringAt(b, 0)) // vendor: global B((char *) b);
+    val C = Global(cstringAt(c, 0)) // vendor: global C((char *) c);
+    A.Multiply(B, C) // the verbatim-duplicate matrix loop (u53 seat)
+}

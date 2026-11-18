@@ -64,13 +64,12 @@ fun sym_(fn: Int, key: CharArray, bd: CharArray, svPtr: Msv): CharArray? {
 
 
 /**
- * Owner: libmpscpp.cpp::global::MakeGlobal (batch-7 unit).
- * C variadic MakeGlobal(int, char *gblnme, char *key, ...) ->
- * vararg values (B1 unit 31).
+ * makeGlobal (libmpscpp.cpp::global::MakeGlobal, units.csv row
+ * 203) was stubbed here from B1 unit 31 until B7 unit 203
+ * landed; the owner-level definition now lives in MakeGlobal.kt
+ * as a Global extension (the member-method adaptation), and
+ * the stub has been removed.
  */
-fun makeGlobal(x: Int, gblnme: String, key: String, vararg vals: String) {
-    TODO("h014 stub: owner libmpscpp.cpp::global::MakeGlobal (batch-7 unit)")
-}
 
 
 
@@ -163,10 +162,13 @@ fun Global.readInto(dst: CharArray) {
     TODO("h014 stub: owner libmpscpp.cpp class global operator>> machinery (not a corpus unit)")
 }
 
-/** Owner: libmpscpp.cpp::Sim1 (batch-7 corpus unit, units.csv row 199). */
-fun Sim1(a: Global, b: Global): Double {
-    TODO("h014 stub: owner libmpscpp.cpp::Sim1 (batch-7 unit)")
-}
+/**
+ * Sim1 (libmpscpp.cpp::Sim1, units.csv row 199) was stubbed
+ * here until B7 unit 199 landed; the owner-level class-global
+ * definition now lives in Sim1.kt (distinct overload from the
+ * MSV wrapper in LibmpscppMisc9.kt, which binds unchanged) and
+ * the stub has been removed.
+ */
 
 /** Owner: libmpscpp.cpp::Jaccard (batch-9 corpus unit, units.csv row 256). */
 fun Jaccard(a: Global, b: Global): Double {

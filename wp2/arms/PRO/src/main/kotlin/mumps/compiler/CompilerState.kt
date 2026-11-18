@@ -166,6 +166,11 @@ object CompilerState {
     val cvars: Array<Dcs> = Array(CVARMAX) { Dcs() }
     /** :76 - extern int cvarx. */
     var cvarx: Int = 0
+    /** externs.h:60 - extern unsigned char symflg (owner added by
+     *  B7 unit 205, include/mumpsc/externs.h::<misc>; the ONLY
+     *  externs.h extern previously uncarried - unsigned char ->
+     *  Char(0..255) per h012). */
+    var symflg: Char = 0.toChar()
     /** :104 - extern short MaxTmp (max temp strings used so far in
      *  this function - vendor comment kept). */
     var MaxTmp: Short = 0
