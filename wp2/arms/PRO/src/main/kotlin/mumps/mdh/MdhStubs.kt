@@ -30,11 +30,21 @@ object MdhState {
  * Each stub names its owner; delegate when the owner lands.
  */
 
-/** Owner: interp-bifs.cpp::zfcn (not a corpus unit). */
-fun zfcn(v1d: CharArray, bd: CharArray, svPtr: Msv) {
-    TODO("h014 stub: owner interp-bifs.cpp::zfcn (not a corpus unit)")
-}
+/** Owner: interp-bifs.cpp::zfcn - RESOLVED by ZfcnBifs.kt (unit
+ * 157; TAG CORRECTION, u141/u148/u169/u172 family: the "not a
+ * corpus unit" tag was a mis-tag, roster row 158 IS a batch-6
+ * corpus unit, score 1173.4, rank 305); stub removed, the
+ * LibmpscppMisc5.kt:220/235/267/407 and MdhTreeLevelAdd.kt:117
+ * call sites bind unchanged on the 3-arg signature. */
 
+/** Owner: builtin.h:40 Replace (char * Replace(MSV*, char * ep,
+ *  char *arg1, char *arg2, char *arg3); not a corpus unit) - seat
+ *  raised by u157 (the interp-bifs.cpp::zfcn zreplace arm, vendor
+ *  1029-1034). */
+fun Replace(svPtr: Msv, ep: CharArray?, arg1: CharArray, arg2: CharArray,
+            arg3: CharArray): CharArray {
+    TODO("h014 stub: owner builtin.h:40 Replace (not a corpus unit)")
+}
 /**
  * Owner: interp-sym.cpp / sym.c symbol-table primitive
  * sym_(fn,key,bd,svPtr) (not a corpus unit).
