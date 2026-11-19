@@ -32,6 +32,14 @@ const val INVALID_CONVERSION = 1
 const val CodedOpen = 206
 const val CodedClose = 207
 const val CodedComma = 208
+// libmpscpp.h:78 error code 9 (the sym_ NULL-return code of the
+// SymGet="__symput family; EDIT-ONLY carrier addition of the unit-120
+// render)
+const val SYMTAB_ERROR = 9
+// defines.h:91 FLUSH 21 (Mglobal code of global::Flush; the vendor
+// defines it a SECOND time at defines.h:180 - duplicate define kept
+// as this note; EDIT-ONLY carrier addition of the unit-120 render)
+const val FLUSH = 21
 
 // Low bytes per cookbook H-015: built as named constants instead of raw
 // control-byte literals (Mumps delimiter byte is 1; NUL is 0). The

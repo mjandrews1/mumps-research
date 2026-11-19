@@ -48,10 +48,18 @@ object Stubs {
     fun xecute(cmd: CharArray): Int =
         throw NotImplementedError("xecute: out-of-scope owner (libmpscpp.h:121 macro)")
 
-    // TODO stub: owned by the symbol-table SymGet path
-    // (libmpscpp.h:95 macro _SymGet); not a corpus unit.
+    // RESOLVED + TAG CORRECTION: the prior seat tag (the libmpscpp.h
+    // 95 macro _SymGet; not a corpus unit) was a MIS-TAG - the
+    // CharArray-name surface of SymGet resolves onto the
+    // libmpscpp.cpp SymGet family (libmpscpp.h:179-181 declares the
+    // mstring / char* / global overloads), which IS the batch-4
+    // unit-120 render (SymOpsMisc.kt). The seat converts to the
+    // unit-120 delegate; the char* form is the String seat there
+    // (H-012), so the CharArray content is parsed to its C string
+    // first. The GlobalOrder.kt and GlobalData.kt call sites bind
+    // unchanged.
     fun SymGet(name: CharArray): Mstring =
-        throw NotImplementedError("SymGet: out-of-scope owner (libmpscpp.h:95 macro)")
+        SymGet(CstringOps.cstring(name))
 
     // TODO stub: int Interpret(const char *, struct MSV *) declared
     // libmpscpp.h:210-facing interp core; not a corpus unit.
@@ -468,9 +476,9 @@ object Stubs {
     // name is kept verbatim (sym_ naming precedent).
     // LANDS as batch-4 unit 121 (SetCode.kt, same tranche): the
     // seat converts to the delegate per the H-014 Extract2
-    // precedent; the lock_code/IfCode call sites bind unchanged.
+    // precedent; the LockCode.kt call site binds unchanged.
     fun set_code(entry_pt: Int): Int =
-        throw NotImplementedError("set_code: out-of-scope owner (compiler-set.c::set_code) batch-4 unit (in-tranche, converts to delegate at the u121 landing)")
+        doc.set_code(entry_pt)
 
     // ------------------------------------------------------------------
     // unit 14 (libmpscpp.cpp::global::TermCorrelate) keyed seats:
@@ -654,4 +662,88 @@ object Stubs {
     // row 219 (the state-vector push of the query walkers).
     fun AllocSV(): Msv =
         throw NotImplementedError("AllocSV: out-of-scope owner (interp-sysfunc.cpp::AllocSV) batch-8 unit")
+
+    // ------------------------------------------------------------------
+    // unit 120 (libmpscpp.cpp::<misc-9>) H-014 seats: the MSV-intrinsic
+    // wrapper call-outs of the chunk. Corpus-unit owners are named
+    // with their batch; seats flip to delegates when those land. The
+    // two class-global members reached through keyed invoke seats are
+    // NOT stubbed again here (the unit-120 wrappers keep calling the
+    // existing real renders: Cosine(A,B) double, the GlobalRef
+    // globalTermCorrelate member, and the GlobalRef Centroid member).
+
+    // double Sim1(global a, global b); owner
+    // libmpscpp.cpp::Sim1 - batch-7 roster row 199. The wrapper
+    // compares two document vectors; the double returns through
+    // the wrapper's sprintf percent-g render unchanged.
+    fun sim1(a: GlobalRef, b: GlobalRef): Double =
+        throw NotImplementedError("Sim1: out-of-scope owner (libmpscpp.cpp::Sim1) batch-7 unit")
+
+    // double Jaccard(global a, global b); owner
+    // libmpscpp.cpp::Jaccard - batch-9 roster row 256.
+    fun jaccard(a: GlobalRef, b: GlobalRef): Double =
+        throw NotImplementedError("Jaccard: out-of-scope owner (libmpscpp.cpp::Jaccard) batch-9 unit")
+
+    // double Dice(global a, global b); owner
+    // libmpscpp.cpp::Dice - batch-6 roster row 166.
+    fun dice(a: GlobalRef, b: GlobalRef): Double =
+        throw NotImplementedError("Dice: out-of-scope owner (libmpscpp.cpp::Dice) batch-6 unit")
+
+    // void global::DocCorrelate(global B, char * fcn, double
+    // threshold); owner libmpscpp.cpp::global::DocCorrelate - batch-10
+    // roster row 288 (the char* overload of the three-twin member;
+    // the mstring and string twins fold onto the same seat).
+    fun globalDocCorrelate(
+        a: GlobalRef,
+        b: GlobalRef,
+        fcn: String,
+        threshold: Double
+    ): Unit =
+        throw NotImplementedError("global::DocCorrelate: out-of-scope owner (libmpscpp.cpp::global::DocCorrelate) batch-10 unit")
+
+    // void StopInit(char * file); owner libmpscpp.cpp::StopInit -
+    // batch-6 roster row 175 (the stopword table loader).
+    fun stopInit(file: String): Unit =
+        throw NotImplementedError("StopInit: out-of-scope owner (libmpscpp.cpp::StopInit) batch-6 unit")
+
+    // int StopLookup(char * str); owner libmpscpp.cpp:7777 - not a
+    // corpus unit (the stopword membership test).
+    fun stopLookup(str: String): Int =
+        throw NotImplementedError("StopLookup: out-of-scope owner (libmpscpp.cpp:7777 stopword table)")
+
+    // int SynInit(char * file); owner libmpscpp.cpp::SynInit -
+    // batch-5 roster row 133 (the synonym table loader).
+    fun synInit(file: String): Int =
+        throw NotImplementedError("SynInit: out-of-scope owner (libmpscpp.cpp::SynInit) batch-5 unit")
+
+    // char * SYN(char * word); owner libmpscpp.cpp:7788 - not a
+    // corpus unit (the synonym lookup).
+    fun SYN(word: String): String =
+        throw NotImplementedError("SYN: out-of-scope owner (libmpscpp.cpp:7788 synonym table)")
+
+    // int bmg_fullsearch(char * p, char * inp); owner
+    // interp-bmgsubs.c:116 - not a corpus unit. The free C search of
+    // the full file mode; unit-86 bmg_fsearch (BmgFsearch.kt) is the
+    // RELATED but DISTINCT keyed callback entry and stays separate.
+    fun bmgFullSearch(p: String, inp: String): Int =
+        throw NotImplementedError("bmg_fullsearch: out-of-scope owner (interp-bmgsubs.c:116 full-file twin)")
+
+    // char * Shred(char * str, int size); owner
+    // libmpscpp.cpp::Shred - batch-6 roster row 165.
+    fun shred(str: String, size: Int): String =
+        throw NotImplementedError("Shred: out-of-scope owner (libmpscpp.cpp::Shred) batch-6 unit")
+
+    // char * ShredQuery(char * str, int size); owner
+    // libmpscpp.cpp:7970 - not a corpus unit (the shred query twin).
+    fun shredQuery(str: String, size: Int): String =
+        throw NotImplementedError("ShredQuery: out-of-scope owner (libmpscpp.cpp:7970)")
+
+    // ------------------------------------------------------------------
+    // unit 121 (compiler-set.c::set_code) H-014 seat
+
+    // int cvar(char * str); owner compiler-parse.c:2074 (the
+    // named-variable test of the LHS store) - not a corpus unit
+    // (no units.csv row). H-017: the snake name kept verbatim.
+    fun cvar(str: String): Int =
+        throw NotImplementedError("cvar: out-of-scope owner (compiler-parse.c:2074)")
 }

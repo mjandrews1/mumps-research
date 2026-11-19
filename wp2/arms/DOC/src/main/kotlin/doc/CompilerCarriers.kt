@@ -129,6 +129,53 @@ object CompilerState {
     // directive direction flag; unit-116 lock_code seat, Char
     // render of the byte domain)
     var dirflg: Char = NUL
+    // compiler-globals.h:32 extern unsigned char setname[128] (the
+    // set-name scratch; unit-121 set_code seat).
+    val setname = CharArray(128)
+    // compiler-globals.h:124 extern short GBL_flg (the global-array
+    // flag out of GlobalArray; unit-121 set_code seat, H-010 Int).
+    var GBL_flg: Int = 0
+    // compiler-globals.h:135 extern short Set_flg (the local-array
+    // flag out of LocalArray; unit-121 set_code seat, H-010 Int).
+    var Set_flg: Int = 0
+    // compiler-globals.h:142 extern int MergeFlg (unit-121 seat).
+    var MergeFlg: Int = 0
+    // compiler-globals.h:143 extern int MergeTmp (unit-121 seat).
+    var MergeTmp: Int = 0
+    // compiler-globals.h:153 extern char *lhs[25] - the malloc
+    // domain folds to the String seat (H-008: JVM allocation; the
+    // vendor malloc-null MEM_ERROR arm is unreachable in the JVM
+    // and ledgered in the unit-121 render); free() maps to the
+    // null store exactly where the vendor frees.
+    val lhs = arrayOfNulls<String>(25)
+    // compiler-globals.h:154 extern int lhsGF[25] (unit-121 seat).
+    val lhsGF = IntArray(25)
+    // compiler-globals.h:155 extern int lhsx (unit-121 seat).
+    var lhsx: Int = 0
+    // compiler-globals.h:156 extern int lhsf (unit-121 seat).
+    var lhsf: Int = 0
+    // compiler-globals.h:111 extern int forxFLG, forLine, forx
+    // (unit-122 for_code seats).
+    var forxFLG: Int = 0
+    var forLine: Int = 0
+    var forx: Int = 0
+    // compiler-globals.h:110 extern int forxmax (unit-122 seat).
+    var forxmax: Int = 0
+    // compiler-globals.h:114 extern int for_fcn_flg, for_fcn_flg2
+    // (unit-122 seats).
+    var for_fcn_flg: Int = 0
+    var for_fcn_flg2: Int = 0
+    // compiler-globals.h:139 extern short for_mult (unit-122 seat,
+    // H-010 Int).
+    var for_mult: Int = 0
+    // compiler-globals.h:141 extern short SinglesFlg (unit-122
+    // seat, H-010 Int).
+    var SinglesFlg: Int = 0
+    // compiler-globals.h:149 extern unsigned char forv[256] (the
+    // loop index name; unit-122 seat).
+    val forv = CharArray(256)
+    // compiler-globals.h:150 extern int FOR_limit (unit-122 seat).
+    var FOR_limit: Int = 0
 }
 
 // sysparms.h:74-75 live PS/PS1 sizes (the memsize.h 4096 twins are the
