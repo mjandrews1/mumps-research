@@ -1,0 +1,96 @@
+
+### DOC B4 tranche 1 (units 94-103), 2026-11-19
+
+Rendered 2026-11-19 from pristine vendor sources only (arm
+independence kept; no PRO/DAF/BOTH Kotlin consulted). Kotlinc
+2.1.20 whole-arm gate: 0 errors / 0 warnings first pass.
+Scan gates clean (dollar delta 0 on Fnumber.kt and Stubs.kt;
+new files raw-dollar-free, backtick/!!/dash scan clean, ASCII
+only, comment-close positional check clean). Pushed as 140e3b0
+(11 files: 9 new + Fnumber.kt append + Stubs.kt append);
+post-push byte-fidelity verified against the gate copies.
+
+Units (batch_plan ascending order):
+- u94 GlobalArrayMisc (globalArray.h): banner/include ledger
+  only (H-004 table carrier); GlobalArray fn = done B2 u52.
+- u95 NewMisc (new.h): banner ledger only; new_code = done
+  B3 u91.
+- u96 escan: Ends data class carrier (stem.h:31 fields);
+  strncmpAt + explicit NUL-after-tail check; strmove in-place
+  loop (H-007 adapt); quirks kept: wl - offset > 3 strict,
+  i=0 restart when next==0; empty-ending table terminator.
+- u97 mstring::Fnumber one-arg overload (LOC 17): appended to
+  the u42 file; overload arity resolves call sites; same
+  coded-command shape (v1d off 1 in, bd off 1 out, Stubs.fcn).
+- u98 Count: free wrapper, Max-u68 template; new Stubs.global-
+  Count seat raised (owner libmpscpp.cpp:2257 global::Count,
+  sibling of globalMax u68).
+- u99 Min: free wrapper calling the REAL unit-44 GlobalRef.Min
+  member; NO stub raised - sibling asymmetry vs Max/Count noted
+  (u44 was a corpus unit; global::Max/Count were not).
+- u100 Transpose (LOC 15 std::string overload): Stubs seats
+  globalOrder/globalOrder2/getGlobalString/globalSetKeyed;
+  H-013: dead duplicate bb = "" store dropped with comment.
+- u101 server misc: SERVERBUF const; Mymsgbuf/Socketdata data
+  classes; logtime via SimpleDateFormat "EEE MMM dd HH:mm:ss
+  yyyy" Locale.US (H-009 adapt, ctime quanta); H-008 fresh
+  String; newline-strip folded.
+- u102 rdbms misc: declaration-only ledger (H-004); H-018:
+  SQL/POSTGRES arms EXCLUDED per reference config (SQLITE
+  live); extern ierr binds Msv.ierr.
+- u103 mps_asin: mps_sqrt twin; plain-double arm live; mpfr
+  and long-double arms journaled not rendered (H-018);
+  gcvtWrapper stub; no domain check quirk kept (NaN via
+  library path).
+
+Consult rows (timestamp 2026-11-19T19:30:34Z, tranche-wide):
+- DOC consult: unit 94, entry H-004, outcome hit-reuse
+- DOC consult: unit 94, entry H-013, outcome hit-reuse
+- DOC consult: unit 94, entry H-014, outcome hit-reuse
+- DOC consult: unit 94, entry H-017, outcome hit-reuse
+- DOC consult: unit 95, entry H-004, outcome hit-reuse
+- DOC consult: unit 95, entry H-013, outcome hit-reuse
+- DOC consult: unit 95, entry H-014, outcome hit-reuse
+- DOC consult: unit 95, entry H-017, outcome hit-reuse
+- DOC consult: unit 96, entry H-007, outcome hit-adapt
+- DOC consult: unit 96, entry H-012, outcome hit-reuse
+- DOC consult: unit 96, entry H-014, outcome hit-reuse
+- DOC consult: unit 96, entry H-017, outcome hit-reuse
+- DOC consult: unit 97, entry H-012, outcome hit-reuse
+- DOC consult: unit 97, entry H-015, outcome hit-reuse
+- DOC consult: unit 97, entry H-017, outcome hit-reuse
+- DOC consult: unit 97, entry H-014, outcome hit-adapt
+- DOC consult: unit 98, entry H-008, outcome hit-reuse
+- DOC consult: unit 98, entry H-009, outcome hit-reuse
+- DOC consult: unit 98, entry H-013, outcome hit-reuse
+- DOC consult: unit 98, entry H-014, outcome hit-reuse
+- DOC consult: unit 98, entry H-017, outcome hit-reuse
+- DOC consult: unit 99, entry H-008, outcome hit-reuse
+- DOC consult: unit 99, entry H-009, outcome hit-reuse
+- DOC consult: unit 99, entry H-013, outcome hit-reuse
+- DOC consult: unit 99, entry H-017, outcome hit-reuse
+- DOC consult: unit 100, entry H-007, outcome hit-reuse
+- DOC consult: unit 100, entry H-013, outcome hit-reuse
+- DOC consult: unit 100, entry H-014, outcome hit-reuse
+- DOC consult: unit 100, entry H-017, outcome hit-reuse
+- DOC consult: unit 101, entry H-004, outcome hit-reuse
+- DOC consult: unit 101, entry H-008, outcome hit-reuse
+- DOC consult: unit 101, entry H-009, outcome hit-adapt
+- DOC consult: unit 101, entry H-013, outcome hit-reuse
+- DOC consult: unit 101, entry H-014, outcome hit-reuse
+- DOC consult: unit 101, entry H-017, outcome hit-reuse
+- DOC consult: unit 102, entry H-004, outcome hit-reuse
+- DOC consult: unit 102, entry H-013, outcome hit-reuse
+- DOC consult: unit 102, entry H-014, outcome hit-reuse
+- DOC consult: unit 102, entry H-017, outcome hit-reuse
+- DOC consult: unit 102, entry H-018, outcome hit-reuse
+- DOC consult: unit 103, entry H-009, outcome hit-reuse
+- DOC consult: unit 103, entry H-010, outcome hit-reuse
+- DOC consult: unit 103, entry H-014, outcome hit-reuse
+- DOC consult: unit 103, entry H-017, outcome hit-reuse
+- DOC consult: unit 103, entry H-018, outcome hit-reuse
+
+Tranche totals: 45 consults, 42 hit-reuse, 3 hit-adapt
+(u96 H-007, u97 H-014, u101 H-009), 0 miss. Hit rate 100.0%,
+reuse rate 93.3%. Gradle gate on m1-build pending; results
+append with the gate run per the B3 discipline.
