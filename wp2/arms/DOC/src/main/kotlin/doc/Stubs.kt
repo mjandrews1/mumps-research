@@ -78,6 +78,49 @@ object Stubs {
     fun sigint(i: Int): Unit =
         throw NotImplementedError("sigint: out-of-scope owner (SYM.h:41 SIGINT path)")
 
+    // ------------------------------------------------------------------
+    // B3 tranche 3 / sub-push A seats (units 83/84/86):
+
+    // TODO stub: gtk_tree_store_append(GtkTreeStore*, GtkTreeIter*,
+    // GtkTreeIter* parent) owned by the GTK library (out-of-scope C
+    // function, vendor interp-zfcns.cpp:101); not a corpus unit. The
+    // IntArray holders carry the opaque iters (unit 83 render).
+    fun gtkTreeStoreAppend(t: String, itera: IntArray, iterb: IntArray?): Unit =
+        throw NotImplementedError("gtk_tree_store_append: out-of-scope owner (GTK library)")
+
+    // TODO stub: gtk_tree_store_set(GtkTreeStore*, GtkTreeIter*, int
+    // column, value, -1) owned by the GTK library (vendor
+    // interp-zfcns.cpp:103 etc.); not a corpus unit.
+    fun gtkTreeStoreSet(t: String, itera: IntArray, column: Int, value: String): Unit =
+        throw NotImplementedError("gtk_tree_store_set: out-of-scope owner (GTK library)")
+
+    // TODO stub: mult(char a[], char b[], char c[]) declared
+    // compiler-sys1.c:1080 (the decimal-string multiply of the
+    // exponent expansion); not a corpus unit (units.csv has no
+    // compiler-sys1.c mult row); owner named per H-014.
+    fun mult(a: CharArray, b: String, c: CharArray): Unit =
+        throw NotImplementedError("mult: out-of-scope owner (compiler-sys1.c::mult)")
+
+    // TODO stub: the POSIX read(2) raw file-descriptor entry; the JVM
+    // carries no raw fd domain. fd 0 (stdin) routes to the arm
+    // STDIN_READER carrier (getstr2 unit-48 precedent, chars standing
+    // in for bytes per H-012); fd != 0 is out of scope (units.csv has
+    // no POSIX unit - the owner here is the OS syscall interface),
+    // named per H-014.
+    fun posixRead(fd: Int, buf: CharArray, off: Int, len: Int): Int {
+        if (fd != 0) {
+            throw NotImplementedError("posixRead: out-of-scope owner (POSIX read(2), fd != 0)")
+        }
+        var n = 0
+        while (n < len) {
+            val c = STDIN_READER.read()
+            if (c == -1) break
+            buf[off + n] = c.toChar()
+            n++
+        }
+        return if (n == 0) -1 else n
+    }
+
     // global::Multiply three-reference member - DELEGATE (unit 53 of
     // this batch has landed): the u46 wrapper call sites bind unchanged
     // to this seat; the H-014 stub is superseded (delegate precedent).

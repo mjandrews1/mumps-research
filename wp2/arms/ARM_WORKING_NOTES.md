@@ -1482,3 +1482,34 @@ The ten core-stratum units of B3, consult timestamp 2026-11-19T02:42:31Z capture
 - DOC consult: unit libmpscpp.cpp::RunMumps, entry H-007, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
 - DOC consult: unit libmpscpp.cpp::RunMumps, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
 - DOC consult: unit libmpscpp.cpp::RunMumps, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+
+### DOC B3 tranche 3 / sub-push A (units 83-87), 2026-11-19
+
+First half of the complex tier, consult timestamp 2026-11-19T15:06:11Z captured before renders (the same timestamp serves the whole tranche per the working discipline). All renders from the pristine vendor tree. Gate: one red pass (a get_global seat call with a String where the seat takes CharArray in Cosine - cosmetic call-shape slip, fixed to the tmp1/btmp carriers), then 0/0, no warnings; scan clean on all six touched files after two KDoc dollar-letter escapes (GtkTreeAdd z~gtree name, Errmod Order/text names - the u39 re-escape precedent). Environment note: the execution environment reset twice during this sub-push (rebuilds from the repo tarball + sha256-verified vendor tarball each time; renders survived the resets, no work lost).
+
+- interp-zfcns.cpp::GtkTreeAdd (83): GtkTreeAdd.kt. The GTK tree-store ladder: iters as H-006 single-slot holders, the sscanf %p handle recovery as an opaque String (the u8/u43 %p divergence precedent), gtk_tree_store_append/set as H-014 GTK-library seats. Quirks kept: the SECOND dead nargs==10 check (already returned at the first), the drifted inline column comments (column 6 twice etc.), the final nargs==13 return guarding nothing, and column 0 set before any bound test (nargs>=2 assumed).
+- compiler-sys1.c::cannon (84): Cannon.kt. The numeric canonicalizer: sign folding, trailing-zero trim, leading-zero strip (the strcpy self-shifts as CharArray shift helpers), E/e exponent expansion via repeated mult by "10"/".1". mult is not a corpus unit anywhere in units.csv: H-014 Stubs.mult seat named for compiler-sys1.c::mult; atoi reuses the unit render of Find.kt. Quirk kept: the tmp[25] exponent gather has NO vendor bound test (guarded here, H-007 divergence note).
+- libmpscpp.cpp::Cosine (85): Cosine.kt. A/B XNEXT walks with strncmp prefix tests, totD/totQ/tot accumulation, sqrt denominator with zero guards. Seats: Mglobal (XNEXT 8), get_global, globalData for the B.Data() probe, strtod reuse, kotlin.math.sqrt. Adaptation: the vendor mutates B.ref in place across the walk and restores it - the GlobalRef carrier is immutable (val ref), so walk state renders in locals with the same observable seat-call sequence (TermCorrelate precedent). Dead stores ledgered (x01, A2, bflg, the dummy strcpy).
+- interp-bmgsubs.c::bmg_fsearch (86): BmgFsearch.kt. Boyer-Moore-Gosper file search: chunk reads with partial-line carry (linetemp), the delta0 scan with the LARGE cutoff wrap, the cmap/pattern equality confirmation, gotamatch handoff (unit 17, landed - the real function) with the NULL -1 sentinel preserved. bmdata struct carries render in BmgFsearchStatic per H-004 with the documented owner split (nsuccess stays in the unit-17 BmgStatic; a Kotlin object cannot grow across files). POSIX read(2) divergence: fd 0 routes to the arm STDIN_READER (getstr2 precedent, chars-for-bytes per H-012), fd != 0 rides the Stubs.posixRead seat naming the OS syscall interface. Quirks kept: the --j predecrement skips the last pattern byte (the "delta-less shortcut"), the vendor UB run of pattern[-1] on a full equal match (guarded here - a full real-equal run takes the submatch path, H-007 divergence note), the fd==0 exception to the NL insurance line.
+- compiler-sys1.c::errmod_ (87): Errmod.kt. The error catalog switch: 33 message arms verbatim, printf banners via String.format Locale.US to System.out (H-001 console, Prnterr precedent). Quirks kept: cases 20/21 print the literals "21"/"22", the default prints only the number with the IGNORED extra printf argument, the banner itself prints msgnbr - 1, and the two raw dollar-letter strings (Order, text) render via the H-015 unicode escape with the same runtime bytes.
+
+- DOC consult: unit interp-zfcns.cpp::GtkTreeAdd, entry H-006, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-zfcns.cpp::GtkTreeAdd, entry H-013, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-zfcns.cpp::GtkTreeAdd, entry H-014, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-zfcns.cpp::GtkTreeAdd, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::cannon, entry H-007, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::cannon, entry H-014, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::cannon, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit libmpscpp.cpp::Cosine, entry H-007, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit libmpscpp.cpp::Cosine, entry H-010, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit libmpscpp.cpp::Cosine, entry H-013, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit libmpscpp.cpp::Cosine, entry H-014, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit libmpscpp.cpp::Cosine, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-bmgsubs.c::bmg_fsearch, entry H-004, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-bmgsubs.c::bmg_fsearch, entry H-007, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-bmgsubs.c::bmg_fsearch, entry H-012, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-bmgsubs.c::bmg_fsearch, entry H-014, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::errmod_, entry H-001, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::errmod_, entry H-007, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::errmod_, entry H-009, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::errmod_, entry H-015, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z

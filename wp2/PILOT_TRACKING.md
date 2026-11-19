@@ -114,11 +114,11 @@ pilot. Checks use the same status vocabulary as the arm columns.
 | 80 | compiler-parse.c::ExpandQS | c | core | todo | translated | todo | todo | todo | todo |
 | 81 | interp-parse.cpp::<misc> | cpp | core | todo | translated | todo | todo | todo | todo |
 | 82 | libmpscpp.cpp::RunMumps | cpp | core | todo | translated | todo | todo | todo | todo |
-| 83 | interp-zfcns.cpp::GtkTreeAdd | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 84 | compiler-sys1.c::cannon | c | complex | todo | todo | todo | todo | todo | todo |
-| 85 | libmpscpp.cpp::Cosine | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 86 | interp-bmgsubs.c::bmg_fsearch | c | complex | todo | todo | todo | todo | todo | todo |
-| 87 | compiler-sys1.c::errmod_ | c | complex | todo | todo | todo | todo | todo | todo |
+| 83 | interp-zfcns.cpp::GtkTreeAdd | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 84 | compiler-sys1.c::cannon | c | complex | todo | translated | todo | todo | todo | todo |
+| 85 | libmpscpp.cpp::Cosine | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 86 | interp-bmgsubs.c::bmg_fsearch | c | complex | todo | translated | todo | todo | todo | todo |
+| 87 | compiler-sys1.c::errmod_ | c | complex | todo | translated | todo | todo | todo | todo |
 | 88 | compiler-sys1.c::patrn | c | complex | todo | todo | todo | todo | todo | todo |
 | 89 | include/mumpsc/globalClass.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
 | 90 | interp-arith.cpp::<misc> | cpp | complex | todo | todo | todo | todo | todo | todo |
