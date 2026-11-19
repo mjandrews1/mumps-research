@@ -68,6 +68,17 @@ class Msv {
     val out_file = arrayOfNulls<java.io.Writer>(10)
     // stateVector.h:43 unsigned char pd1[PS1] (sysparms PS1 32001)
     val pd1 = CharArray(PS1)
+    // stateVector.h:46 unsigned char setname[STR_MAX] (name scratch
+    // for SET/NEW symbol resolution; bound by unit 93).
+    val setname = CharArray(STR_MAX)
+    // stateVector.h:48 int kflg (kill flag; bound by unit 93).
+    var kflg: Int = 0
+    // stateVector.h:55 int t0px (saved xpx source index; bound by
+    // unit 93).
+    var t0px: Int = 0
+    // stateVector.h:50 int ierr (interpreter error return code; bound
+    // by unit 93).
+    var ierr: Int = 0
     // stateVector.h:49 int io
     var io: Int = 0
     // stateVector.h:60 int NOERR

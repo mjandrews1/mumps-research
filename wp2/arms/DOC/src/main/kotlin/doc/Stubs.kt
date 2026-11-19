@@ -101,6 +101,14 @@ object Stubs {
     fun mult(a: CharArray, b: String, c: CharArray): Unit =
         throw NotImplementedError("mult: out-of-scope owner (compiler-sys1.c::mult)")
 
+    // TODO stub: mult(char a[], char b[], char c[]) - the CHAR-ARRAY
+    // OVERLOAD of the seat above (same-name resolution by arity/types);
+    // owner interp-arith.cpp:624 (add-family multiply, batch-7 land);
+    // unit 93 calls it with whole-array seats so its pointer-shift
+    // shifts are zero in this render (H-014 ledger note).
+    fun mult(a: CharArray, b: CharArray, c: CharArray): Unit =
+        throw NotImplementedError("mult: out-of-scope owner (interp-arith.cpp::mult)")
+
     // TODO stub: the POSIX read(2) raw file-descriptor entry; the JVM
     // carries no raw fd domain. fd 0 (stdin) routes to the arm
     // STDIN_READER carrier (getstr2 unit-48 precedent, chars standing
@@ -210,10 +218,20 @@ object Stubs {
     fun atCopy(at_flg: Int, tmp: CharArray): Unit =
         throw NotImplementedError("atCopy: out-of-scope owner (compiler-at-test.c helper)")
 
-    // TODO stub: parse_ owned by interp-parse.cpp::parse_ (batch-3
-    // corpus unit).
+    // TODO stub: parse_() TAG CORRECTION (u160-Interpret mis-tag family
+    // precedent): the zero-arg seat is the compiler twin
+    // compiler-parse.c::parse_ (batch-9 unit 302, signature
+    // int parse_()); the one-arg interp twin renders as unit 93.
+    // IfCode.kt binds this zero-arg seat at its
+    // CompilerState.ierr = Stubs.parse_() call site.
     fun parse_(): Int =
-        throw NotImplementedError("parse_: out-of-scope owner (interp-parse.cpp::parse_) batch-3 unit")
+        throw NotImplementedError("parse_: out-of-scope owner (compiler-parse.c::parse_) batch-9 unit")
+
+    // H-014 delegate (Extract2 seat-conversion precedent): the interp
+    // twin int parse_(struct MSV *) is unit 93, rendered in Parse_.kt;
+    // this delegate converts the former placeholder seat into a
+    // same-name overload resolved by arity at call sites.
+    fun parse_(svPtr: Msv): Int = doc.parse_(svPtr)
 
     // TODO stub: linepad owned by compiler-sys1.c::linepad (loc 5, below
     // roster min loc - not a corpus unit).
@@ -500,4 +518,55 @@ object Stubs {
     fun makeGlobal(g: GlobalRef, mode: Int, fmt: String,
             vararg args: String): Unit =
         throw NotImplementedError("makeGlobal: out-of-scope owner (libmpscpp.cpp::global::MakeGlobal)")
+
+    // ---- seats raised by unit 93 (interp-parse.cpp::parse_) ----
+
+    // TODO stub: add(a, b, c) char-array string arithmetic family,
+    // owner interp-arith.cpp:624 (not a roster unit); unit 93 calls
+    // with whole-array seats (pd1/bd), pointer shifts are zero in
+    // this render (H-014 ledger note).
+    fun add(a: CharArray, b: CharArray, c: CharArray): Unit =
+        throw NotImplementedError("add: out-of-scope owner (interp-arith.cpp::add)")
+
+    // TODO stub: sub, owner interp-arith.cpp:658.
+    fun sub(a: CharArray, b: CharArray, c: CharArray): Unit =
+        throw NotImplementedError("sub: out-of-scope owner (interp-arith.cpp::sub)")
+
+    // TODO stub: divx, owner interp-arith.cpp:682.
+    fun divx(a: CharArray, b: CharArray, c: CharArray): Unit =
+        throw NotImplementedError("divx: out-of-scope owner (interp-arith.cpp::divx)")
+
+    // TODO stub: divi, owner interp-arith.cpp:768.
+    fun divi(a: CharArray, b: CharArray, c: CharArray): Unit =
+        throw NotImplementedError("divi: out-of-scope owner (interp-arith.cpp::divi)")
+
+    // TODO stub: modulo, owner interp-arith.cpp:695.
+    fun modulo(a: CharArray, b: CharArray, c: CharArray): Unit =
+        throw NotImplementedError("modulo: out-of-scope owner (interp-arith.cpp::modulo)")
+
+    // TODO stub: expx, owner interp-arith.cpp (batch-5 corpus unit;
+    // ln/exponent arm of the arithmetic family).
+    fun expx(a: CharArray, b: CharArray, c: CharArray): Unit =
+        throw NotImplementedError("expx: out-of-scope owner (interp-arith.cpp::expx) batch-5 unit")
+
+    // TODO stub: rpm(string_, pattern, svPtr) regular-expression match,
+    // owner interp-rpm.cpp::rpm (NOT a corpus unit - its roster rows
+    // are parse_pattern_element/parse_count/misc/scan_token/perl_pm/
+    // leaning_toothpickize); raised because the vendor forward-declares
+    // rpm mid-switch at interp-parse.cpp:1190 (H-014 seat).
+    fun rpm(string_: CharArray, pattern: CharArray, svPtr: Msv): Int =
+        throw NotImplementedError("rpm: out-of-scope owner (interp-rpm.cpp::rpm)")
+
+    // TODO stub: BuildGlobal (batch-8 unit 150,
+    // interp-parse.cpp:1836); rslt nullable because unit 93 passes
+    // NULL for the result pointer in one arm.
+    fun BuildGlobal(code: Int, g: Int, str: CharArray,
+            rslt: CharArray?, svPtr: Msv): Int =
+        throw NotImplementedError("BuildGlobal: out-of-scope owner (interp-parse.cpp::BuildGlobal) batch-8 unit")
+
+    // TODO stub: BuildLocal (batch-8 unit 152, interp-sym.cpp:97),
+    // same shape as BuildGlobal.
+    fun BuildLocal(code: Int, g: Int, str: CharArray,
+            rslt: CharArray?, svPtr: Msv): Int =
+        throw NotImplementedError("BuildLocal: out-of-scope owner (interp-sym.cpp::BuildLocal) batch-8 unit")
 }

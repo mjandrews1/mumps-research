@@ -7,10 +7,10 @@ package doc
 // the strcpy idiom renders as the H-007 strcpyS carrier write),
 // resetting xpx to 0, setting the t2 reentry flag (new carrier,
 // stateVector.h:67) and pd1len to 0 (new carrier, stateVector.h:66),
-// then calls the interpreter parse_ core. parse_ is unit 93 of this
-// same batch (the roster's last/hardest unit): the call rides the
-// existing H-014 Stubs.parse_ seat naming that owner and converts to
-// a delegate when unit 93 lands (the Extract2 precedent). On a
+// then calls the interpreter parse_ core. parse_ landed as unit 93 of
+// this batch (the roster's last/hardest unit): the call site rebinds
+// to the landed one-arg delegate Stubs.parse_(Globals.svPtr), the
+// Extract2 seat-conversion precedent. On a
 // parse_ error the GlobalExceptionCode is set to INTERPRETER_ERROR
 // (libmpscpp.h:77, new Carriers const) and MumpsGlobalException is
 // raised. Vendor quirks kept and noted: the "tmp = \"err\"; return
@@ -33,7 +33,7 @@ fun Mstring.eval(): Mstring {
     Globals.svPtr.t2 = 1
     Globals.svPtr.pd1len = 0
 
-    if (Stubs.parse_() != 0) {
+    if (Stubs.parse_(Globals.svPtr) != 0) {
         Globals.GlobalExceptionCode = INTERPRETER_ERROR
         throw MumpsGlobalException()
         // vendor unreachable tail (H-013): tmp = "err"; return tmp;

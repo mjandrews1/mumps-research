@@ -1644,3 +1644,89 @@ Consult rows (sub-push B, tranche-wide timestamp):
 - DOC consult: unit interp-parse.cpp::patrn, entry H-015, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
 - DOC consult: unit interp-parse.cpp::patrn, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
 - DOC consult: unit interp-parse.cpp::patrn, entry H-010, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+
+### DOC B3 tranche 3 / sub-push C (unit 93), 2026-11-19
+
+Unit 93, interp-parse.cpp::parse_ (Parse_.kt, the roster's last and
+hardest unit of the tranche) rendered and pushed alone as agreed. The
+tranche-wide consult timestamp 2026-11-19T15:06:11Z (captured before
+the first tranche render, per the working discipline; it serves the
+whole tranche including this sub-push).
+
+Narrative:
+
+- The vendor parse_ (lines 260-1328) renders as the one-argument H-011
+  state machine over the private Pc93 enum (the twelve vendor labels
+  start/nchar/scan_operand/un_nest/var1/exec/nxt_expr/dec_stk/
+  nxt_operator/sym1/finish/idxin; finish inlines at each goto site,
+  idxin at its single caller fall-through). The five const tables
+  (code[26], opcode/ncode/dcode/operand[256]) are byte-faithful
+  intArray renders: the vendor initializers list only the first 128
+  entries of each 256-entry table (the C zero-pad tail renders as
+  explicit zeros, quirk ledgered), and the code[26] row of the quote
+  walk is guarded against an out-of-range index (the vendor can read
+  code[28] when a not-in-table residue reaches the composed lookup at
+  at-sign; H-007/H-013, guarded as 0, ledgered in the unit KDoc).
+- Same-name twin resolution: compiler-parse.c::parse_ (batch-9 unit
+  302, zero-arg) is the TRUE owner of the existing zero-arg
+  Stubs.parse_ seat (the earlier batch-3 tag was a mis-tag in the
+  u160-Interpret family; tag corrected on the seat, the IfCode.kt
+  call site keeps binding it). This unit lands as the one-argument
+  DELEGATE Stubs.parse_(svPtr) (H-014/Extract2 seat-conversion
+  precedent) and the MstringEval.kt eval call site rebinds to it
+  with Globals.svPtr (the interpreter caller). Overload arity
+  resolves the twins at the call sites, H-015 precedent.
+- New seats (H-014, whole-array seat calls with the vendor pointer
+  shifts kept as the caller-side comment ledger): the arithmetic
+  family add/sub/divx/divi/modulo (owners interp-arith.cpp:624/658/
+  682/768/695, non-roster) and expx (batch-5 corpus unit), the
+  char-array mult OVERLOAD of the existing compiler-sys1.c seat
+  (owner interp-arith.cpp:624), rpm(string_, pattern, svPtr) (owner
+  interp-rpm.cpp::rpm, NOT a corpus unit; raised from the vendor
+  mid-switch forward declaration at interp-parse.cpp:1190),
+  BuildGlobal (batch-8 unit 150, interp-parse.cpp:1836; the vendor
+  signature is int g, taken over verbatim after checking the vendor
+  prototype) and BuildLocal (batch-8 unit 152, interp-sym.cpp:97),
+  both with a nullable rslt because this unit passes NULL in every
+  call.
+- New Msv carriers (Carriers.kt, stateVector.h line-numbered
+  comments): setname (:46, CharArray STR_MAX), kflg (:48), t0px (:55),
+  ierr (:50). numcomp reuses the landed render through the per-file
+  numcompAt93 offset adapter slicing into the Parse93Static scratch
+  object (the Patrn1Sys1Static precedent); patrn1 rides the existing
+  delegate with jpx93/ernb93 ShortArray(1) holders (H-006) and the
+  ernbr-only readback (patrn1 owns the xpx write internally).
+- Quirks kept and ledgered in the unit KDoc: the CONTAINS arm dead
+  bp == 0 clause (the pointer is never zero in this frame; renders
+  as the literal pd1 top test plus a false arm, H-013); s1p[40]
+  auto-bounds versus the vendor raw short scratch (H-007); NOT_NOT
+  (18) duplicates NOTEQ, kept verbatim; the SQLITE directive pair
+  resolves UNDEFINED per H-018 (no sqlite include in the reference
+  build); dead locals tmp1[25]/tmp2[4] not declared (H-013).
+
+Gate: kotlinc 2.1.20, 0 errors / 0 warnings at close. Three red
+passes logged as data (the session discipline): first pass 49 errors -
+the table name OPERAND_93 collided with the interp.h constant of the
+same name (conflicting declarations; the 256-entry table renamed
+OPERAND_T93 with its indexing sites, the constant keeps the vendor
+name), plus seat-signature and inline-comment defects; second pass
+12 errors - BuildGlobal/BuildLocal seat g parameter rendered as
+CharArray before the vendor prototype read (vendor is int g;
+also two mangled character literals and a comment-swallowed call
+paren from the repair sed, all fixed line-exact); third pass 4
+errors - missing != 0 on the Int-returning rpm/xindex if-conditions;
+fourth pass 0/0. Scan-gate clean on all four touched files (one
+stray KDoc backtick pair in the CONTAINS quirk line fixed pre-gate;
+two sub-sed corrections during the repair kept the file ASCII-clean
+throughout).
+
+Consult rows (sub-push C, tranche-wide timestamp):
+
+- DOC consult: unit interp-parse.cpp::parse_, entry H-006, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::parse_, entry H-007, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::parse_, entry H-011, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::parse_, entry H-013, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::parse_, entry H-014, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::parse_, entry H-015, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::parse_, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::parse_, entry H-018, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
