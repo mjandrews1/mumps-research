@@ -66,9 +66,12 @@ object Stubs {
     fun Interpret(cmd: String, sv: Msv): Int =
         throw NotImplementedError("Interpret: out-of-scope owner (interpreter core Interpret)")
 
-    // TODO stub: void fcn(MSV *) declared include/mumpsc/libmpscpp.h (fcn
-    // dispatcher); owner is the interp fcn corpus unit of batch 4.
-    fun fcn(sv: Msv): Unit = throw NotImplementedError("fcn: out-of-scope owner (fcn dispatcher) batch-4 unit")
+    // RESOLVED: void fcn(MSV *) declared include/mumpsc/libmpscpp.h (fcn
+    // dispatcher); owner landed as the batch-4 unit 123 render (Fcn.kt,
+    // the T3 tail unit). The seat converts to the unit-123 delegate per
+    // the H-014 Extract2 precedent; the Fnumber_/Fnumber/_fnumber and
+    // Parse_ call sites bind unchanged.
+    fun fcn(sv: Msv): Unit = doc.fcn(sv)
 
     // TODO stub: gcvt_wrapper owned by include/mumpsc/numSetup.h (gcvt
     // wrapper macro); the numSetup residue unit owns it.
@@ -429,9 +432,11 @@ object Stubs {
 
     // int sql(int, struct MSV *, char *DataSourceName, char
     // *Command, char *, const char *); owner is the interp SQL
-    // subprocess (not a roster unit).
-    fun sql(a: Int, sv: Msv, dsn: CharArray, command: CharArray,
-            e: CharArray, tail: String): Int =
+    // subprocess (not a roster unit). The CharArray parameters
+    // are nullable per the unit-123 fcn call site (the vendor
+    // NULL triple of the \u0024ztabsize OPEN call).
+    fun sql(a: Int, sv: Msv, dsn: CharArray?, command: CharArray?,
+            e: CharArray?, tail: String?): Int =
         throw NotImplementedError("sql: out-of-scope owner (interp SQL subprocess)")
 
     // static void patrn1(short *, short *, struct MSV *); the
@@ -746,4 +751,42 @@ object Stubs {
     // (no units.csv row). H-017: the snake name kept verbatim.
     fun cvar(str: String): Int =
         throw NotImplementedError("cvar: out-of-scope owner (compiler-parse.c:2074)")
+
+    // ------------------------------------------------------------------
+    // unit 123 (B4 tranche 3 tail) H-014 seats: the fcn dispatcher
+    // call-outs of the batch-4 head unit (Fcn.kt).
+
+    // int ScanParse(char *); owner interp-sym.cpp::ScanParse
+    // (batch-8 roster row 234, interp-sym.cpp:81 prototype,
+    // :1410 body). The call site passes the xd offset slice.
+    fun ScanParse(s: CharArray): Int =
+        throw NotImplementedError("ScanParse: out-of-scope owner (interp-sym.cpp::ScanParse) batch-8 unit")
+
+    // int Eval(unsigned char *, unsigned char *, struct MSV *);
+    // owner interp-sym.cpp::Eval (batch-9 roster row 261,
+    // interp-sym.cpp:82 prototype, :1192 body). The vendor
+    // in-place aliasing of the two \u0024qlength/\u0024qsubscript
+    // operand carriers is kept by the call site passing the same
+    // array twice (H-014 alias ledger).
+    fun Eval(a: CharArray, b: CharArray, sv: Msv): Int =
+        throw NotImplementedError("Eval: out-of-scope owner (interp-sym.cpp::Eval) batch-9 unit")
+
+    // inline void GlobalOrder(unsigned char *, unsigned char *,
+    // unsigned char *, struct MSV *); globalOrder.h:8 - the
+    // FOUR-ARG interpreter inline is the batch-9 roster row 266
+    // (include/mumpsc/globalOrder.h; ints distinct from the landed
+    // unit-39/69 libmpscpp GlobalOrder renders per the same-name
+    // H-015 overload-family rule). tmp2 is the direction carrier
+    // ("1" / "-1" literals of the \u0024order walk).
+    fun GlobalOrder(tmp0: CharArray, tmp1: CharArray, tmp2: String,
+            svPtr: Msv): Unit =
+        throw NotImplementedError("GlobalOrder: out-of-scope owner (globalOrder.h::GlobalOrder) batch-9 unit")
+
+    // int strfmon(char *s, size_t max, const char *format, double);
+    // the POSIX monetary.h libc entry (no roster unit can own it -
+    // the OS libc owner, the read(2) seat precedent). Both fcn
+    // call sites (the \u0024fnumber str format arms) pass the
+    // format String and read the dst carrier back by the slice.
+    fun strfmon(dst: CharArray, max: Int, format: String, x: Double): Int =
+        throw NotImplementedError("strfmon: out-of-scope owner (POSIX monetary.h libc)")
 }

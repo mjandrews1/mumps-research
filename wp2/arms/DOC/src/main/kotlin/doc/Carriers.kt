@@ -117,6 +117,27 @@ class Msv {
     // stateVector.h:96 char CurrentFile[512] (name of current
     // file - see readf_; String render, unit-115 seat)
     var CurrentFile: String = ""
+    // stateVector.h:54 int setpiece (LHS piece/extract store
+    // flag; the unit-93 binder, dispatched by unit 123)
+    var setpiece: Int = 0
+    // stateVector.h:72 struct nmes * nstart (the pushed name
+    // stack pointer; opaque pointer seat carried for the
+    // copy-through of the fcn unit-123 \u0024\u0024FUNCTION launch)
+    var nstart: Any? = null
+    // stateVector.h:82 int PD1 (available pd1 parse-buffer
+    // space; the \u0024storage read, unit 123 seat)
+    var PD1: Int = 0
+    // stateVector.h:85 unsigned char args[STR_MAX] (the pushed
+    // function-argument carrier read back by the \u0024\u0024FUNCTION
+    // launch, unit 123 seat)
+    val args = CharArray(STR_MAX)
+    // stateVector.h:87 int TabSize (the \u0024ztabsize RDBMS bound,
+    // unit 123 seat; SQLITE live per the reference build)
+    var TabSize: Int = 0
+    // stateVector.h:99 char sqloutput[512] (sql output file name;
+    // String render per the CurrentFile H-008 precedent, unit
+    // 123 seat)
+    var sqloutput: String = ""
 }
 
 // libmpscpp.h:75 define INPUT_ERROR 6 (bounded-read error code; the
