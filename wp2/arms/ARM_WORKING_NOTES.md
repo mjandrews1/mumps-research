@@ -1427,3 +1427,58 @@ Gate note: kotlinc 0 errors / 0 warnings first pass; scan clean after the two he
 - DOC consult: unit libmpscpp.cpp::global::Fnumber, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
 - DOC consult: unit libmpscpp.cpp::global::Fnumber, entry H-015, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
 - DOC consult: unit libmpscpp.cpp::global::Fnumber, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+
+### DOC B3 tranche 2 (units 73-82), 2026-11-19
+
+The ten core-stratum units of B3, consult timestamp 2026-11-19T02:42:31Z captured before renders. All renders from the pristine vendor tree only. Gate note: FIRST PASS RED (5 errors), unusual for this arm after the B1 discipline stabilized - two incidents, both logged as data: (a) a duplicate LINEFEED const (readf_ needed the byte filters; LINEFEED 10 was already declared by the unit-48 Getstr2 render as a Char, and my Carriers add collided; fixed by referencing the Getstr2 const per H-015 redeclaration rule and keeping only CRTN 13 / CTRLZ 26 as new Int consts), and (b) a val reassignment in ScanAlnum (tmp1 assigned in the repeat loop had to be var). Second pass 0/0, no warnings; scan clean on all 13 touched files after the fixes. Environment note: the working tree was rebuilt this session (repo tarball at master, vendor tarball sha256-verified against the wp1 pin, and the gate toolchain re-downloaded) after the execution environment upgrade wiped it.
+
+- interp-arith.cpp::mps_justify (73): MpsJustify.kt. Dynamic-format sprintf: a is the caller-supplied format string handed to String.format(Locale.US) per H-009; BIGFLOAT (strtold) and MULTI_PRECISION (static once-init mpfr f=1 quirk, mpfr_sprintf) arms ledgered out per H-018.
+- libmpscpp.cpp::Cost (74): Cost.kt. Memo recursion over the SeqAlignExterns matrix; EMPTY_CELL test, max-of-three with the A<=0 clamp BEFORE the memo write; costMatrix alias of the `a` top-level seat; missing init is a vendor NULL deref rendered as IllegalStateException (Sw.kt precedent); dead x local kept as comment (H-013). Landing this unit converted the unit-61 Stubs.Cost seat to a delegate (return widened Unit to Int, sw ignores it).
+- libmpscpp.cpp::Scan (75): Scan.kt. fscanf %1024s analogue over the in_file Reader; fresh String per call per H-008 (ScanAlnum copies before the next call, no aliasing); dead j local and the UNREACHABLE too-long test (i >= 1023 compares the fscanf ITEM COUNT, always 1) ledgered per H-013; the one-byte C overflow of %1024s into tmp[1024] diverged away by the String carrier; tpx 0/1; INPUT_ERROR raise path kept unreachable as in the vendor.
+- include/mumpsc/cppsysfunc.h::<misc> (76): CppsysfuncMisc.kt. Declaration-only ledger of the C-ABI support header; LocalName declared TWICE (kept); the C-ABI GlobalData/GlobalOrder names collide with the class-global members DOC's units 69/70 render, DISTINCT entities noted explicitly.
+- libmpscpp.cpp::ScanAlnum (77): ScanAlnum.kt. MSV overload; dead ep/toklist/k locals (H-013); goto again as H-011 while(true); strlen-in-loop recompute quirk ledgered; isalnum/tolower as ASCII byte-domain helpers per H-012 with the signed-char UB divergence noted; FILE*/istream overloads not corpus units, ledgered.
+- compiler-sys1.c::readf_ (78): Readf.kt. Reader over infile per the H-001 input direction; k>200 byte-drop filter kept verbatim; NOTABS arm ledgered out per H-018; dead for-loop counter i kept as comment; pd1/pd1len into CompilerState (new pd1len seat, compiler-globals-ext.h:36); PS1 overrun guarded with divergence note (vendor overflows silently).
+- libmpscpp.cpp::mstring::Eval (79): MstringEval.kt. New Msv carriers sdlim/pd1len/t2/ERROR with stateVector.h lines, new INTERPRETER_ERROR const; parse_ rides the Stubs seat naming unit 93 (this batch, converts on landing); unreachable tmp="err" tail ledgered per H-013; pd1[sdlim] via cstringAt per the offset idiom.
+- compiler-parse.c::ExpandQS (80): ExpandQS.kt. #G#/#S# branches byte-identical logic (same family as unit 65 Concat; NOT refactored, both rendered verbatim); CodedComma tail via the Stubs.Extract2 delegate or the raw sub-128 copy, literal NULL default; GlobalQS emission byte-verbatim into CompilerState.Out; i is a by-value copy, no back-propagation (kept).
+- interp-parse.cpp::<misc> (81): InterpParseMisc.kt. Residue chunk through extern ierr1 (new top-level Int seat per H-004); SQLITE resolved DEFINED per H-018; prototype roster cross-references the unit-19 seats instead of redeclaring (both vendor files carry the same core declarations); paren-coding divergence ledgered: this chunk declares COMMA 207 and CLOSE_PAREN 209, NOT the stateVector CodedClose 207/CodedComma 208 pair - kept verbatim as IOPARSE consts with the same-byte remark on 207.
+- libmpscpp.cpp::RunMumps (82): RunMumps.kt. varargs as Kotlin vararg of nullable strings; sym_ store/release rides the Stubs.sym_ seat (opcode 0/1); ERROR via the new Msv.ERROR carrier; NOERR armed before Interpret (Stubs seat); second strtok pass with the SPACE delimiter over the comma-tokenized buffer yields the same sequence - shape preserved, divergence ledgered; j = commas+1 can exceed the vararg count, break on running past (the vendor breaks on the NULL sentinel read out of the va_list, kept as the same break).
+
+- DOC consult: unit interp-arith.cpp::mps_justify, entry H-009, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit interp-arith.cpp::mps_justify, entry H-010, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit interp-arith.cpp::mps_justify, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit interp-arith.cpp::mps_justify, entry H-018, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::Cost, entry H-012, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::Cost, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::Cost, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::Cost, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::Scan, entry H-001, outcome hit-adapt, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::Scan, entry H-008, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::Scan, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit include/mumpsc/cppsysfunc.h::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit include/mumpsc/cppsysfunc.h::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit include/mumpsc/cppsysfunc.h::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-008, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-011, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-012, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit compiler-sys1.c::readf_, entry H-001, outcome hit-adapt, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit compiler-sys1.c::readf_, entry H-007, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit compiler-sys1.c::readf_, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit compiler-sys1.c::readf_, entry H-018, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::mstring::Eval, entry H-007, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::mstring::Eval, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::mstring::Eval, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::mstring::Eval, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit compiler-parse.c::ExpandQS, entry H-001, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit compiler-parse.c::ExpandQS, entry H-007, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit compiler-parse.c::ExpandQS, entry H-012, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit compiler-parse.c::ExpandQS, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit compiler-parse.c::ExpandQS, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit interp-parse.cpp::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit interp-parse.cpp::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit interp-parse.cpp::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit interp-parse.cpp::<misc>, entry H-018, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::RunMumps, entry H-007, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::RunMumps, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z
+- DOC consult: unit libmpscpp.cpp::RunMumps, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:42:31Z

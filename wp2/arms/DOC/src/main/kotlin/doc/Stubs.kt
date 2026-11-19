@@ -206,9 +206,14 @@ object Stubs {
     fun init(): Unit =
         throw NotImplementedError("init: out-of-scope owner (libmpscpp.cpp alignment initializer)")
 
-    // void Cost(char*,char*,int,int) - cost matrix fill; not a roster unit.
-    fun Cost(s: CharArray, t: CharArray, i: Int, j: Int): Unit =
-        throw NotImplementedError("Cost: out-of-scope owner (libmpscpp.cpp Cost)")
+    // void Cost(char*,char*,int,int) - cost matrix fill. DELEGATE:
+    // the owner landed as B3 batch-3 unit 74 (Cost.kt, tranche 2);
+    // the unit-61 sw call sites bind unchanged to this seat
+    // (H-014 delegate precedent, Extract2). Return widens Unit->Int:
+    // the vendor return was always the memo cell value and sw
+    // ignores it.
+    fun Cost(s: CharArray, t: CharArray, i: Int, j: Int): Int =
+        cost(s, t, i, j)
 
     // int nodash(char*) - non-dash char count of an alignment string;
     // not a roster unit.

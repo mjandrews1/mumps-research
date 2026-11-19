@@ -83,7 +83,29 @@ class Msv {
     var symflg: Int = 0
     // stateVector.h:77 int order (the order walk direction)
     var order: Int = 0
+    // stateVector.h:51 int sdlim (pd1 result lower bound; read by the
+    // mstring::Eval unit 79 render)
+    var sdlim: Int = 0
+    // stateVector.h:66 long pd1len (length of the pd1 parse buffer)
+    var pd1len: Long = 0
+    // stateVector.h:67 int t2 (indirection reentry flag; Eval sets 1)
+    var t2: Int = 0
+    // stateVector.h:69 int ERROR (last interpretation error code)
+    var ERROR: Int = 0
 }
+
+// libmpscpp.h:75 define INPUT_ERROR 6 (bounded-read error code; the
+// Scan unit 75 render raises through GlobalExceptionCode)
+const val INPUT_ERROR = 6
+// libmpscpp.h:77 define INTERPRETER_ERROR 8 (parse_ failure code; the
+// mstring::Eval unit 79 render raises through GlobalExceptionCode)
+const val INTERPRETER_ERROR = 8
+// defines.h:197-198 CRTN 13, CTRLZ 26 (readf_ unit 78 byte filters;
+// LINEFEED 10 is the Getstr2 unit-48 render's const - referenced
+// there, not redeclared, H-015 reuse; .code reads for the Int getc
+// compares per H-010)
+const val CRTN: Int = 13
+const val CTRLZ: Int = 26
 
 // File-scope externs of libmpscpp.h:62 (GlobalExceptionCode) :210
 // (svPtr) live in one owner object per the one-owner-per-C-entity rule.

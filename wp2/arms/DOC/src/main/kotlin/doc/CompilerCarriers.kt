@@ -55,6 +55,9 @@ object CompilerState {
     var ierr: Int = 0
     // compiler-globals-ext.h:42 extern short sdlim
     var sdlim: Int = 0
+    // compiler-globals-ext.h:36 extern short pd1len (line length of
+    // the pd1 read; int seat per the H-010 promotion note)
+    var pd1len: Int = 0
     // compiler-globals-ext.h:43 extern unsigned char pd1[PS1]
     // (PS1 32001, sysparms.h:75 - the live sizing)
     val pd1 = CharArray(PS1)
