@@ -569,4 +569,12 @@ object Stubs {
     fun BuildLocal(code: Int, g: Int, str: CharArray,
             rslt: CharArray?, svPtr: Msv): Int =
         throw NotImplementedError("BuildLocal: out-of-scope owner (interp-sym.cpp::BuildLocal) batch-8 unit")
+    // ------------------------------------------------------------------
+    // unit 98 (B4 tranche 1): the class-global member Count over the
+    // unsubscripted/subscripted reference (owner libmpscpp.cpp:2257
+    // global::Count) is not a corpus unit; owner-named seat raised by
+    // unit 98 (sibling of globalMax unit 68; note the REAL unit-44
+    // GlobalRef.Min render needs no seat).
+    fun globalCount(g: GlobalRef): Double =
+        throw NotImplementedError("globalCount: out-of-scope class member (libmpscpp.cpp::global::Count, not a corpus unit)")
 }
