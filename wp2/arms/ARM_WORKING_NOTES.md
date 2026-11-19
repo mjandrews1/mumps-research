@@ -1835,3 +1835,7 @@ the gate result.
   consult rows logged here per unit); pure-logic spec candidates per
   the section-3 heuristic: u15 Extract2, u17 gotamatch, u20 numcomp;
   exemptions (pointer/IO-heavy units) journaled per unit.
+- Gate/smoke results (m1-build, 2026-11-19, Mark): DAF project
+  gradle build BUILD SUCCESSFUL in 9s (empty project, 4 tasks);
+  dafny verify spec/smoke_test.dfy: 2 verified, 0 errors.
+  DAF arm is provisioned end-to-end; B1 translation can start.
