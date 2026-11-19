@@ -209,9 +209,11 @@ object Stubs {
 
     // TODO stub: atTest owned by compiler-at-test.c::atTest (units.csv
     // row 109, batch-4 core unit). pd1Last is the H-006 holder.
+    // LANDS as batch-4 unit 109 (AtTest.kt): delegate per the H-014
+    // Extract2 precedent; IfCode binds unchanged.
     fun atTest(xd: CharArray, pd1: CharArray, pd1Last: ShortArray,
                lines: Int, xpx: Long): Int =
-        throw NotImplementedError("atTest: out-of-scope owner (compiler-at-test.c::atTest) batch-4 unit")
+        doc.atTest(xd, pd1, pd1Last, lines, xpx)
 
     // TODO stub: atCopy (compiler-globals.h:104 declaration; no
     // definition is a roster unit).
@@ -263,9 +265,10 @@ object Stubs {
     // unit 61 (libmpscpp.cpp::sw) alignment-scope seats: none of the
     // remaining alignment helpers are roster units.
 
-    // void init(void) - matrix initializer; not a roster unit.
-    fun init(): Unit =
-        throw NotImplementedError("init: out-of-scope owner (libmpscpp.cpp alignment initializer)")
+    // void init(void) - matrix initializer. LANDS as batch-4 unit 108
+    // (Init.kt): this seat converts to the delegate per the H-014
+    // Extract2 precedent; the sw call sites bind unchanged.
+    fun init(): Unit = doc.init()
 
     // void Cost(char*,char*,int,int) - cost matrix fill. DELEGATE:
     // the owner landed as B3 batch-3 unit 74 (Cost.kt, tranche 2);
@@ -359,11 +362,11 @@ object Stubs {
     fun substr(a: CharArray, b: CharArray, i: Int, j: Int): Unit =
         throw NotImplementedError("substr: out-of-scope owner (interp substr helper)")
 
-    // void LocalName(unsigned char *, unsigned char *, unsigned
-    // char *, MSV *); owner interp-sysfunc.cpp::LocalName (not a
-    // roster unit).
-    fun LocalName(a: CharArray, b: CharArray, c: CharArray, sv: Msv): Unit =
-        throw NotImplementedError("LocalName: out-of-scope owner (interp-sysfunc.cpp::LocalName)")
+    // LocalName RESOLVED: the seat's "not a roster unit" tag was a
+    // mis-tag (TAG CORRECTION) - interp-sysfunc.cpp::LocalName IS the
+    // batch-4 unit 105 (LocalName.kt, rendered with the nullable tmp2
+    // of the vendor signature). The stub seat is removed; no in-arm
+    // call site binds it today.
 
     // void GlobalQuery(unsigned char *, unsigned char *, char,
     // MSV *); not a roster unit.
@@ -577,4 +580,57 @@ object Stubs {
     // GlobalRef.Min render needs no seat).
     fun globalCount(g: GlobalRef): Double =
         throw NotImplementedError("globalCount: out-of-scope class member (libmpscpp.cpp::global::Count, not a corpus unit)")
+
+    // ------------------------------------------------------------------
+    // unit 113 (interp-rpm.cpp::parse_pattern_element) H-014 seats
+
+    // struct bstring bstrcat(struct bstring, struct bstring); owner
+    // interp-bstring.cpp::bstrcat - CORRECTLY TAGGED batch-9 roster
+    // row (the body sits below the unit-22 chunk cut, banner-only
+    // there). Resolves at batch 9.
+    fun bstrcat(a: Bstring, b: Bstring): Bstring =
+        throw NotImplementedError("bstrcat: out-of-scope owner (interp-bstring.cpp::bstrcat) batch-9 unit")
+
+    // struct bstring leaning_toothpickize(const struct bstring);
+    // owner interp-rpm.cpp::leaning_toothpickize - batch-6 roster
+    // row of the same vendor file. Resolves at batch 6.
+    fun leaning_toothpickize(text: Bstring): Bstring =
+        throw NotImplementedError("leaning_toothpickize: out-of-scope owner (interp-rpm.cpp::leaning_toothpickize) batch-6 unit")
+
+    // struct bstring parse_pattern_atom_list(struct parser*);
+    // sub-min-loc function of interp-rpm.cpp - owned by the batch-5
+    // interp-rpm.cpp::<misc> chunk.
+    fun parse_pattern_atom_list(p: parser): Bstring =
+        throw NotImplementedError("parse_pattern_atom_list: out-of-scope owner (interp-rpm.cpp::<misc>) batch-5 unit")
+
+    // void accept_it(struct parser*); sub-min-loc function of
+    // interp-rpm.cpp - batch-5 misc chunk owner.
+    fun accept_it(p: parser): Unit =
+        throw NotImplementedError("accept_it: out-of-scope owner (interp-rpm.cpp::<misc>) batch-5 unit")
+
+    // void accept(struct parser*, const enum token_type); the
+    // expectation-checking accept; batch-5 misc chunk owner.
+    fun accept(p: parser, expected: token_type): Unit =
+        throw NotImplementedError("accept: out-of-scope owner (interp-rpm.cpp::<misc>) batch-5 unit")
+
+    // static void syntax_error(const char[], const char[], const
+    // int); batch-5 misc chunk owner.
+    fun syntax_error(msg: String, input: String, offset: Int): Unit =
+        throw NotImplementedError("syntax_error: out-of-scope owner (interp-rpm.cpp::<misc>) batch-5 unit")
+
+    // ------------------------------------------------------------------
+    // unit 112 (libmpscpp.cpp::global::Centroid) one-subscript double
+    // seats (the keyed global double operator family; vararg keys
+    // cover the B(k) and B(k1,k2) invoke shapes)
+
+    // (double) B(keys...) - double conversion of an invoked global;
+    // owner: libmpscpp.cpp subscripted operator double family; not
+    // a roster unit.
+    fun getGlobalDoubleKeyed(g: GlobalRef, vararg keys: String): Double =
+        throw NotImplementedError("global keyed double conversion: out-of-scope owner (libmpscpp.cpp subscripted operator family)")
+
+    // B(keys...) = value - double assignment to an invoked global;
+    // same owner family; not a roster unit.
+    fun setGlobalDoubleKeyed(g: GlobalRef, v: Double, vararg keys: String): Unit =
+        throw NotImplementedError("global keyed double assignment: out-of-scope owner (libmpscpp.cpp subscripted operator family)")
 }
