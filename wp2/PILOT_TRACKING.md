@@ -15,7 +15,7 @@ defined in `wp2/PER_UNIT_CHECKS.md` (registry entry C-002,
 **DOC B1 opened 2026-11-19** (registry entry C-007: the DOC arm
 completed B2 before B1; the inversion is a logged deviation, and B1
 proceeds in phased tranches under the unchanged fixed discipline.
-The DOC column below updates per tranche.) As in batch 2, the check columns track the BASE
+The DOC column below updates per tranche.) DOC B1 closed 2026-11-19: 31/31 translated (check columns todo per the C-001 cycle-10 backfill decision); gradle BUILD SUCCESSFUL on m1-build; events CSV regenerated under the C-008 export key (commit 45df0fe); coverage checklist and both close decisions recorded in the arm journal (commit ebea35f). As in batch 2, the check columns track the BASE
 reference translation; check results for the other arms' B1 translations
 are recorded in the per-arm logs under `arms/` as those arms complete the
 pilot. Checks use the same status vocabulary as the arm columns.

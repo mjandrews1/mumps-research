@@ -1304,7 +1304,7 @@ remainder). No miss rows: the B1 canon was fully covered by cookbook
 v0 as it stood at batch open (with H-018 added during the batch per
 C-007 and consulted by its four triggering units).
 
-Per-unit consult coverage (unit -> entries consulted; B1 order:
+Per-unit consult coverage (unit -> entries consulted, B1 order):
 
 - compiler-copyright-notice.c::<misc>: H-004
 - compiler-if.c::<misc>: H-004
