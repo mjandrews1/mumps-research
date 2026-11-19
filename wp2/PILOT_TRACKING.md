@@ -10,7 +10,12 @@ The columns were added retroactively: at B1 close (2026-11-15) no per-unit
 check pass had been executed, so all B1 entries are initialized `todo` —
 nothing is backfilled. The four checks are
 defined in `wp2/PER_UNIT_CHECKS.md` (registry entry C-002,
-`wp2/PROTOCOL_CLARIFICATIONS.md`). As in batch 2, the check columns track the BASE
+`wp2/PROTOCOL_CLARIFICATIONS.md`).
+
+**DOC B1 opened 2026-11-19** (registry entry C-007: the DOC arm
+completed B2 before B1; the inversion is a logged deviation, and B1
+proceeds in phased tranches under the unchanged fixed discipline.
+The DOC column below updates per tranche.) As in batch 2, the check columns track the BASE
 reference translation; check results for the other arms' B1 translations
 are recorded in the per-arm logs under `arms/` as those arms complete the
 pilot. Checks use the same status vocabulary as the arm columns.

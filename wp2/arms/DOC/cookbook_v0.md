@@ -218,3 +218,27 @@ PRO's `coverage_report/0`).
 - **example:** copyright_notice → copyrightNotice (row 4)
 - **provenance:** BASE, B1, 2026-11-14
 - **verification:** unit-tested
+
+## H-018 · Preprocessor conditional arms
+
+- **trigger:** conditional compilation of whole functions or
+  declarations (`preprocessor_conditional`: #ifdef/#ifndef/#else
+  splicing declarations or bodies)
+- **condition:** the reference build config is the only resolution
+  authority (config.h of the reference build)
+- **action:** resolve the arms against the reference build config
+  (SQLITE, HAVE_HARDWARE_MATH, GCVT defined; NATIVE, NATIVE_SHARED,
+  BIGFLOAT, MULTI_PRECISION undefined); translate ONLY the live arm;
+  document the excluded arms and any build-substitution macro as
+  comments
+- **example:** interp-arith.cpp (DOC batch-2 misses mps_exp and
+  mps_exp10 consulted H-003 and found nothing for the 3-way #ifdef;
+  mirrors PRO rule h018, captured at PRO's B1 close 2026-11-15)
+- **provenance:** arm DOC, batch-2 close, 2026-11-19 (T1: recurrence
+  two within DOC; PRO-side precedent mps_acos/mumps.cpp/numSetup.h
+  via h018); gates G1-G4 checked: canonical trigger (G2), no oracle
+  outputs embedded (G3), no duplicate trigger - distinct from
+  H-003/H-002/H-008 (G4)
+- **verification:** pending first application in DOC's B1 renders
+  (entry-for-entry mirror of PRO's h018 restores cookbook/rule-base
+  parity at 18 entries each)

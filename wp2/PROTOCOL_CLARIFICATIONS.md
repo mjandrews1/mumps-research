@@ -329,3 +329,56 @@ section with the reconstructed consult rows), and the
 copyright_notice KDoc typo fix (H-09 -> H-009). No
 pre-registered instrument (cookbook content, capture criteria,
 order assignments, oracle manifests) is modified.
+
+---
+
+## C-007 — DOC's B2-before-B1 execution, and H-018 capture (logged 2026-11-19, active)
+
+**Observation.** The DOC arm's committed pilot order is B1 first
+(units 1-31, complexity_rank ascending, common discipline section 0.1)
+then B2 (committed early position among the post-B1 batches per
+C-001). On 2026-11-18/19 the DOC arm translated, gated, and closed
+batch 2 (units 32-62; commits 8039e9d..8dbe4dd, kotlinc 0/0 and
+gradle BUILD SUCCESSFUL on m1-build, events export instrument-stable)
+before any B1 unit was started; PILOT_TRACKING's DOC column for B1
+remained `todo`. The PI elected (2026-11-19) to retain the B2 work
+as a logged deviation rather than revert, register the inversion
+here, and open B1 now in phased tranches.
+
+**Clarification (logged as data; no pre-registered instrument is
+modified — the H-018 capture below follows capture_criteria T1 with
+gates G1-G4 checked and mirrors PRO's existing h018 exactly).**
+
+1. DOC's B2 translations remain graded at close as provisional data,
+   C-003's model: ordinal accounting follows C-001 — the
+   batch-position covariate uses actual completion ordinals; each
+   DOC B2 unit records its actual ordinal (~1, before B1) and its
+   committed batch position.
+2. Practice-effect consequence mirrors C-003: DOC joins PRO as an
+   early-B2 arm, so the identifiable contaminated cells for the
+   practice-effect sensitivity analysis are the PRO and DOC early
+   runs, against BASE (native order) and the arms meeting B2 at its
+   committed position without inversion.
+3. Combined with C-006 (partial-evidence reconstructed consults for
+   B2 units 32-51), DOC's B2 is the study's most position- and
+   evidence-confounded cell; the analysis phase treats it as such
+   (both flags travel together on those units).
+4. B1 opens 2026-11-19 in phased tranches under the unchanged fixed
+   discipline; PILOT_TRACKING's DOC B1 column updates per tranche,
+   and B1 consult rows are logged before consultation as from unit
+   52 onward in B2 (no reconstruction expected).
+5. The preprocessor_conditional capture decided by the PI on
+   2026-11-19 lands as cookbook entry H-018 (T1 via mps_exp +
+   mps_exp10 within DOC; PRO precedent under h018 since B1 close),
+   restoring the two knowledge artifacts to entry-for-entry parity
+   (18 entries each) before the interleaved cycles begin.
+
+**Effect on the committed schedule.** None beyond the recorded
+inversion: B1 is the open work; C-001's cycle map is otherwise
+unmodified.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
+entry), wp2/arms/DOC/cookbook_v0.md (H-018),
+wp2/arms/ARM_WORKING_NOTES.md (DOC section-5 calibration block,
+B2-only scope), wp2/PILOT_TRACKING.md (B1 header note: DOC opened
+2026-11-19). No pre-registered instrument is modified.
