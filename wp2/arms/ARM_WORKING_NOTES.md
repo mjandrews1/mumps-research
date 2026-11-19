@@ -1243,3 +1243,24 @@ the operator= seat names, the SymFree OrigName string accessor); the
 pre-push scan is clean on all nine touched files (dollar byte in the
 mdh comment rebuilt programmatically, the null-assertion
 alternatives as local non-null binding and checkNotNull).
+
+### DOC B1 close — export instrument fix (C-008), 2026-11-19
+
+The first post-tranche-5 Rscript of export_doc_events.R on m1-build
+halted: "duplicate consult for (unit, entry)" on
+libmpscpp.cpp::mdh_tree_level_add / H-015. Diagnosis: the two rows
+are DISTINCT roster units consulting H-015 once each (the batch-2
+seven-column overload, hit-reuse 2026-11-18T22:51:46Z; the batch-1
+five-column overload, hit-adapt 2026-11-19T01:52:03Z). The roster id
+strings are file-level and not unique (nine rows share the
+mdh_tree_level_add string), so the string-level duplicate check
+contradicted the C-005 contract it implemented (README: unit_id is
+descriptive only; string-level dedup is forbidden). No journal row
+was wrong; neither row is edited. The exporter's duplicate check now
+keys on (unit, entry, timestamp) (an exact repeat of all three fields
+still fails loudly); the grammar check, the roster-id check, and the
+C-005 event mapping are unchanged. Registered as C-008 (registry and
+README amended in the same push; the C-007 table row backfill is
+noted there). The CSV export re-runs on the same journal after this
+push.
+

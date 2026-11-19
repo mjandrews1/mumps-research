@@ -17,6 +17,8 @@ effect on the committed schedule, and the methodological consequences.
 | C-004 | 2026-11-18 | Statistical Analysis Plan specified before pending-arm outcomes | Registered (SAP committed) |
 | C-005 | 2026-11-18 | DOC cookbook-consult event-log mapping | Registered (prospective) |
 | C-006 | 2026-11-19 | DOC batch-2 tranche 1-2 consult rows: one-time reconstruction | Registered (retrospective, bounded) |
+| C-007 | 2026-11-19 | DOC's B2-before-B1 execution, and H-018 capture | Active (deviation logged) |
+| C-008 | 2026-11-19 | export_doc_events.R duplicate-consult key vs. non-unique roster ids | Registered (tooling amendment) |
 
 ---
 
@@ -382,3 +384,59 @@ entry), wp2/arms/DOC/cookbook_v0.md (H-018),
 wp2/arms/ARM_WORKING_NOTES.md (DOC section-5 calibration block,
 B2-only scope), wp2/PILOT_TRACKING.md (B1 header note: DOC opened
 2026-11-19). No pre-registered instrument is modified.
+
+---
+
+## C-008 — export_doc_events.R duplicate-consult key vs. non-unique roster ids (logged 2026-11-19, registered)
+
+**Observation.** At the DOC B1 close export (2026-11-19, m1-build),
+Rscript wp2/analysis/R/export_doc_events.R halted with "duplicate
+consult for (unit, entry)" on the pair
+libmpscpp.cpp::mdh_tree_level_add / H-015: the batch-2 seven-column
+overload (consult 2026-11-18T22:51:46Z, hit-reuse) and the batch-1
+five-column overload (consult 2026-11-19T01:52:03Z, hit-adapt). These
+are two DISTINCT roster units: the units.csv id strings are
+file-level and not unique (one id string appears on nine roster rows;
+analysis README "Input contracts" #3: unit_id is descriptive only and
+never a join key; #5: string-level dedup is forbidden because it
+would collapse distinct units). Both consults are true single
+consultations of H-015 by two different units; no journal row is
+wrong and no recorded value is touched. The exporter's duplicate
+check, as coded, keyed on (unit id string, entry), which contradicts
+the C-005 roster-id contract it implements.
+
+**Clarification (tooling amendment; no pre-registered instrument is
+modified — the journal and both consult rows stand unchanged).**
+
+1. The duplicate check in export_doc_events.R keys on
+   (unit, entry, timestamp): the consult timestamp is captured per
+   unit, so a repeated (unit, entry) pair at distinct timestamps is
+   two roster units and both are emitted as separate consults; an
+   exact repeat of all three fields is a true duplicate and still
+   fails loudly.
+2. The malformed-row grammar check, the roster-id membership check,
+   and the C-005 event mapping (hit-reuse / hit-adapt each emit a
+   reuse+hit pair; miss emits a miss row) are unchanged.
+3. The analysis README "DOC consult rows" section documents the
+   duplicate keying rule with a pointer to this entry.
+4. The registry table is also backfilled with the C-007 row (the
+   C-007 entry was committed without its table row; noted here, no
+   content change).
+
+**Effect on the committed schedule.** None. The B1 close export is
+re-run after this amendment; the CSV is fully regenerated from the
+journal, so the run is idempotent.
+
+**Methodological consequences.** None to the data: consult rows are
+timestamped and batch-identifiable, and the events CSV unit strings
+were already file-level per C-005 (the same string may carry several
+roster rows in later joins, per the README counting note). The
+amendment only removes a false-positive halt; it cannot create or
+drop events.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
+entry and the C-007 table row backfill),
+wp2/analysis/R/export_doc_events.R (the duplicate-check key and two
+comment blocks), wp2/analysis/README.md (one sentence in the DOC
+consult rows section), wp2/arms/ARM_WORKING_NOTES.md (the B1 close
+journal note). No pre-registered instrument is modified.

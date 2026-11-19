@@ -3,6 +3,8 @@
 ## DOC batch close and any time before analysis; the output is fully
 ## regenerated from the arm journal, so the run is idempotent and the
 ## journal stays the single source of truth. No instrument is modified.
+## Duplicate consult rows key on (unit, entry, timestamp) per C-008
+## (registry entry; roster id strings are file-level and not unique).
 ##
 ## Source rows are DOC consult lines in wp2/arms/ARM_WORKING_NOTES.md of
 ## the exact single-line grammar registered in wp2/analysis/README.md
@@ -57,12 +59,26 @@ if (any(unknown)) {
   stop("DOC consult unit id(s) not in the roster:\n",
        paste(unique(consults[unknown]$unit), collapse = ", "))
 }
-keys <- vapply(consults, function(c) paste(c$unit, c$entry, sep = "\r"), character(1))
+## C-008: roster id strings are file-level and NOT unique (one id
+## string appears on 9 roster rows; analysis README "Input contracts"
+## #3/#5: unit_id is descriptive only and never a join key, and
+## string-level dedup is forbidden because it would collapse distinct
+## units). The C-005 rule "one consult per (roster unit, cookbook
+## entry)" therefore cannot be checked at string level: two distinct
+## roster units sharing an id string legitimately consult the same
+## entry once each. The duplicate check keys on (unit, entry,
+## timestamp) instead: the consult timestamp is captured per unit, so
+## a repeated (unit, entry) pair at distinct timestamps is two roster
+## units (e.g. the mdh_tree_level_add overloads of batches 1 and 2)
+## and both are emitted; an exact repeat of all three fields is a true
+## duplicate and still fails loudly.
+keys <- vapply(consults, function(c) paste(c$unit, c$entry, c$ts, sep = "\r"), character(1))
 if (anyDuplicated(keys) > 0) {
   d <- keys[which(duplicated(keys))]
   dk <- vapply(d, function(k) gsub("\r", " / ", k, fixed = TRUE), character(1))
-  stop("duplicate consult for (unit, entry); C-005 allows one consult per ",
-       "(roster unit, cookbook entry):\n", paste(dk, collapse = "\n"))
+  stop("duplicate consult for (unit, entry, timestamp); C-005/C-008 ",
+       "allow one consult per (roster unit, cookbook entry); identical ",
+       "repeats are duplicates:\n", paste(dk, collapse = "\n"))
 }
 
 ## map to event rows per C-005

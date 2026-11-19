@@ -103,7 +103,12 @@ consult exists, so no recorded value is touched):
 selects rows by the `- DOC consult:` prefix and fails loudly on any
 prefix-matching line that does not match the full grammar. The
 regenerated events CSV is header-only when no consults exist
-(present, never omitted).
+(present, never omitted). Duplicate consult rows are
+detected on (unit, entry, timestamp), not (unit, entry): roster id
+strings are file-level and not unique, so two roster units sharing an
+id may each consult the same entry once (their timestamps differ);
+an exact repeat of all three fields is a true duplicate and fails
+loudly (C-008).
 
 ## Backfill tooling (cycle-10 buffer; C-002 discipline)
 
