@@ -10,7 +10,7 @@ package doc
 
 fun GlobalOrder(a: String, i: Int): String {
     val cmd = CharArray(STR_MAX)
-    var tmp = "s %=\$order("
+    var tmp = "s %=\u0024order("
     tmp += a
     tmp += ")"
 
@@ -25,4 +25,36 @@ fun GlobalOrder(a: String, i: Int): String {
     }
 
     return r
+}
+
+// Unit 69 (B3 tranche 1): libmpscpp.cpp::GlobalOrder (batch 3, simple
+// stratum; LOC 16, score 8.2) - the std::string overload. NAMING
+// ADAPTATION (H-015): the vendor's char* and std::string overloads
+// collapse to IDENTICAL Kotlin signatures after the unit-39 String
+// carrier, so this overload renders as the named seat globalOrderString
+// (vendor name kept here). VENDOR DIVERGENCE from the unit-39 body:
+// this overload declares the dead scratch char r[STR_MAX] (kept as a
+// comment per H-013) and folds the vendor's static std::string rr to a
+// fresh String per call (H-008, the unit-39 fold); the success arm's
+// (string)SymGet("%") cast rides the carrier's c_str(); the int
+// parameter i is again a dead parameter (H-013, signature kept).
+
+fun globalOrderString(a: String, i: Int): String {
+    // vendor declares char r[STR_MAX]; dead per H-013 (drop documented)
+
+    var tmp = "s %=\u0024order("
+    tmp += a
+    tmp += ")"
+
+    val rr: String
+    if (Stubs.xecute(tmp.toCharArray()) == 0) {
+        Globals.svPtr.tpx = 1
+        val t = Stubs.SymGet("%".toCharArray())
+        rr = t.c_str()
+    } else {
+        Globals.svPtr.tpx = 0
+        rr = ""
+    }
+
+    return rr
 }

@@ -89,3 +89,39 @@ pilot. Checks use the same status vocabulary as the arm columns.
 | 60 | libmpscpp.cpp::global::TreePrint | cpp | complex | todo | todo | todo | todo | todo |
 | 61 | libmpscpp.cpp::sw | cpp | complex | todo | todo | todo | todo | todo |
 | 62 | libmpscpp.cpp::<misc-2> | cpp | complex | todo | todo | todo | todo | todo |
+
+## Batch 3 (units 63-93, opened 2026-11-19; DOC cycle-2 cell per the C-001 map: DOC's committed row order is B2, B3, ... so B3 follows the closed B2 with no inversion to log)
+
+| # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
+| 63 | compiler-epi.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+| 64 | compiler-read.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+| 65 | libmpscpp.cpp::global::Concat | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 66 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 67 | interp-arith.cpp::mps_sqrt | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 68 | libmpscpp.cpp::Max | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 69 | libmpscpp.cpp::GlobalOrder | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 70 | libmpscpp.cpp::GlobalData | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 71 | interp-arith.cpp::mps_atan | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 72 | libmpscpp.cpp::global::Fnumber | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 73 | interp-arith.cpp::mps_justify | cpp | core | todo | todo | todo | todo | todo | todo |
+| 74 | libmpscpp.cpp::Cost | cpp | core | todo | todo | todo | todo | todo | todo |
+| 75 | libmpscpp.cpp::Scan | cpp | core | todo | todo | todo | todo | todo | todo |
+| 76 | include/mumpsc/cppsysfunc.h::<misc> | c | core | todo | todo | todo | todo | todo | todo |
+| 77 | libmpscpp.cpp::ScanAlnum | cpp | core | todo | todo | todo | todo | todo | todo |
+| 78 | compiler-sys1.c::readf_ | c | core | todo | todo | todo | todo | todo | todo |
+| 79 | libmpscpp.cpp::mstring::Eval | cpp | core | todo | todo | todo | todo | todo | todo |
+| 80 | compiler-parse.c::ExpandQS | c | core | todo | todo | todo | todo | todo | todo |
+| 81 | interp-parse.cpp::<misc> | cpp | core | todo | todo | todo | todo | todo | todo |
+| 82 | libmpscpp.cpp::RunMumps | cpp | core | todo | todo | todo | todo | todo | todo |
+| 83 | interp-zfcns.cpp::GtkTreeAdd | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 84 | compiler-sys1.c::cannon | c | complex | todo | todo | todo | todo | todo | todo |
+| 85 | libmpscpp.cpp::Cosine | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 86 | interp-bmgsubs.c::bmg_fsearch | c | complex | todo | todo | todo | todo | todo | todo |
+| 87 | compiler-sys1.c::errmod_ | c | complex | todo | todo | todo | todo | todo | todo |
+| 88 | compiler-sys1.c::patrn | c | complex | todo | todo | todo | todo | todo | todo |
+| 89 | include/mumpsc/globalClass.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
+| 90 | interp-arith.cpp::<misc> | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 91 | compiler-new.c::new_code | c | complex | todo | todo | todo | todo | todo | todo |
+| 92 | interp-parse.cpp::patrn | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 93 | interp-parse.cpp::parse_ | cpp | complex | todo | todo | todo | todo | todo | todo |

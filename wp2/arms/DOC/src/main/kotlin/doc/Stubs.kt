@@ -390,6 +390,14 @@ object Stubs {
 
 
     // ------------------------------------------------------------------
+    // unit 68 (B3 tranche 1): the class-global member Max over the
+    // unsubscripted/subscripted reference (owner libmpscpp.cpp:1651
+    // global::Max) is not a corpus unit; owner-named seat raised by
+    // unit 68 (sibling of global::Min, unit 44's real render).
+    fun globalMax(g: GlobalRef): Double =
+        throw NotImplementedError("globalMax: out-of-scope class member (libmpscpp.cpp::global::Max, not a corpus unit)")
+
+    // ------------------------------------------------------------------
     // unit 31 carrier seats (H-014 stubs; owners below the roster or
     // outside the pre-registered chunks):
 

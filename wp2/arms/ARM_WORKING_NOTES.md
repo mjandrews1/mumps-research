@@ -1367,3 +1367,63 @@ interleaved cycles per C-001's map (C1..C9 batches; DOC cycle-1
 batch B2 per the map is already translated and closed, so the DOC
 cycle-1 cell carries the batch-2 close record and any directory
 carryover).
+
+### DOC B3 tranche 1 (units 63-72), 2026-11-19
+
+B3 opens with the ten simple units (roster 63-72, batch_plan ascending order; PRO's own B3 runs descending so its u63 is its parse_, a numbering artifact, not a discipline divergence). All renders from the pristine vendor tree only. Gate green on first pass (kotlinc 0 errors / 0 warnings); post-gate scan found one raw-order hit in my own MpsSqrt.kt header ("QUARK" -> "Quirk") and one raw $order literal in the earlier u39 GlobalOrder.kt render; both fixed and re-scanned clean, with the u39 fix noted below (no plan change, the emitted bytes are identical).
+
+- compiler-epi.c::<misc> (63): EpiMisc.kt. Chunk is the June 16 2024 banner plus the 4-include block at the top of epi.c; the epi unit itself is batch-7 row 189 and is not rendered here. Include ledger kept verbatim (H-013), seat named after the chunk, out-of-scope body not rendered.
+- compiler-read.c::<misc> (64): ReadMisc.kt. May 15 2024 banner plus includes; read_code proper is batch-6 row 160 and stays unrendered. Quirk: banner text is byte-identical to epi.c's except the date line, kept verbatim.
+- libmpscpp.cpp::global::Concat (65): GlobalConcat.kt. Two Mglobal RETRIEVE calls into fresh Mstrings, wraps via execOrderPair, matching MumpsGlobalException throws on both failure arms. Quirk kept: both arms carry the same body comment; LPWD/CodedOpen/Close built with Char(0x00ce..cf).
+- libmpscpp.cpp::mdh_tree_level_add (66): MdhTreeLevelAdd3.kt. Three-column overload; joins the u8 five-col and u43 seven-col seats as the third arity in the family. Identity-comment "%p won't match on JVM" divergence re-H-017'd. Inline decimals replaced by named Char(0x00ce/d0/cf) consts (H-014 named-seat pattern, incident-free).
+- interp-arith.cpp::mps_sqrt (67): MpsSqrt.kt. C "in" parameter name is a Kotlin keyword, renamed to inCh (H-015). Plain-double arm live; BIGFLOAT and MULTI_PRECISION arms ledgered as usual preprocessor contracts (H-018). Quirk kept: no negative-operand check in the live arm ($Sqrt semantics differ from sqrt(3)).
+- libmpscpp.cpp::Max (68): Max.kt. Dead args (svptr, ep) kept verbatim; arg1[-1] UB edge kept with note and GlobalMin u44 precedent; %g via String.format(Locale.US) (H-009 JVM-shape adaptation, hit-adapt); folds into a fresh String (H-008). global::Max is a class member, out of corpus scope here, so it rides in Stubs as a globalMax seat raising NotImplementedError, and Max.kt calls that seat.
+- libmpscpp.cpp::GlobalOrder (69): appended globalOrderString onto u39 GlobalOrder.kt (H-015 naming adaptation, std::string overload). Vendor's dead r[STR_MAX] buffer noted and folded; u39's earlier literal $order re-escaped to \u0024order for scan-cleanliness (emitted bytes unchanged, first-pass render note only).
+- libmpscpp.cpp::GlobalData (70): GlobalData.kt. char* $Data(\x01) form; builds "s %=\u0024data(" then xecute + SymGet (reused seats) + atoi (Find.kt) reuse; dead r[STR_MAX] comment kept; tpx 0/1 and -1 fail distinct.
+- interp-arith.cpp::mps_atan (71): MpsAtan.kt. Twin of the already-rendered mps_acos (u42), same shape and ledger quirks; plain-double arm live, high-precision arms ledgered (H-018).
+- libmpscpp.cpp::global::Fnumber (72): GlobalFnumber.kt. One-arg member (i.e. the global itself); DOLLAR_72 named const, Mglobal throw on fail, v1d[1]/bd[1] offset-1 convention with u42 precedent.
+
+Gate note: kotlinc 0 errors / 0 warnings first pass; scan clean after the two header/literal fixes above (MpsSqrt header, u39 $order re-escape). Scan-gate pattern used: raw $-letter form, !!, backtick, em/en dash, non-ASCII.
+
+- DOC consult: unit compiler-epi.c::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit compiler-epi.c::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit compiler-epi.c::<misc>, entry H-018, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit compiler-read.c::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit compiler-read.c::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit compiler-read.c::<misc>, entry H-018, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::global::Concat, entry H-012, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::global::Concat, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::global::Concat, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::global::Concat, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-015, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_sqrt, entry H-009, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_sqrt, entry H-010, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_sqrt, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_sqrt, entry H-015, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_sqrt, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_sqrt, entry H-018, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::Max, entry H-008, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::Max, entry H-009, outcome hit-adapt, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::Max, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::Max, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::Max, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::GlobalOrder, entry H-008, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::GlobalOrder, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::GlobalOrder, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::GlobalOrder, entry H-015, outcome hit-adapt, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::GlobalOrder, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::GlobalData, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::GlobalData, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::GlobalData, entry H-015, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::GlobalData, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_atan, entry H-009, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_atan, entry H-010, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_atan, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_atan, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit interp-arith.cpp::mps_atan, entry H-018, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::global::Fnumber, entry H-012, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::global::Fnumber, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::global::Fnumber, entry H-015, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
+- DOC consult: unit libmpscpp.cpp::global::Fnumber, entry H-017, outcome hit-reuse, timestamp 2026-11-19T02:35:54Z
