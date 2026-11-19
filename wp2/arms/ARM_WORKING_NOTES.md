@@ -2051,3 +2051,203 @@ Tranche totals: 46 consults, 40 hit-reuse, 6 hit-adapt
 and H-014), 0 miss. Hit rate 100.0%, reuse rate 87.0%.
 Gradle gate on m1-build pending; results append with the gate
 run per the B3 discipline.
+### DOC B4 tranche 3 (units 114-123), 2026-11-19
+
+Rendered 2026-11-19 from pristine vendor sources only (arm
+independence kept; no PRO/DAF/BOTH Kotlin consulted; DOC's own
+prior files consulted). Consult timestamp 2026-11-19T20:53:08Z
+captured before renders (the same timestamp serves the whole
+tranche per the working discipline; all ten unit banners carry it).
+Whole-arm kotlinc 2.1.20 gate 0 errors / 0 warnings at every
+sub-push boundary and re-run at master 266ce6d (125 files).
+Scan gates clean on every tranche file at every push (raw
+dollar zero via the unicode escapes, backtick zero, bang-bang
+zero, ASCII only, no line-final comment-close in the rendered
+files). Pushed in three sub-pushes: 0d18bfd (units 114-119),
+8717ba0 (units 120-122), 266ce6d (unit 123); gradle host gate
+on m1-build BUILD SUCCESSFUL at 0d18bfd, 8717ba0 and 266ce6d.
+
+Units (batch_plan ascending order):
+- u114 interp-piece.cpp::<misc>: PieceMisc.kt append. The piece
+  library residue ledger: banner/includes/prototype roster,
+  SQLITE in-file define note, the _INTERP_/CSTR/USTR/intLong
+  define notes (H-018: BIGFLOAT out per the reference build;
+  intLong in-file unconditional per the interp-arith.cpp:59
+  precedent), and the _piece body: sentinel defaults, the
+  DOLLAR_P start/end banner (H-015), xindex-seat delimiter and
+  end walks (H-014) with length-plus-one tail clamp, the
+  catAt rebuild through sym_ (local) / Mglobal(STORE) (caret),
+  setpiece double-test kept verbatim.
+- u115 readf_: Readf_.kt. The dotted ZLOAD source reader: pd1
+  offset-pd1org byte folds (CR/T/CTRLZ), backslash-newline
+  continuation, high-byte fold (H-012 signed-char-at-EOF order
+  kept), CR/TN current-file carriers, pd1 one-owner H-004,
+  getc through Reader.read, dead l local not rendered (H-013),
+  pd1len one-short write and double terminator kept.
+- u116 lock_code: LockCode.kt append. The LOCK compiler:
+  argumentless unlock-cleanup scaffolding via the skipLck1
+  flag (goto lck1 re-entry shape), +/- prefix, caret
+  requirement, set_code(SET) delegation to the real u121
+  render, keyfix plus optional timeout emission, emitted C
+  kept byte-identical, LockFlag/dirflg the new CompilerState
+  seats, zero-arg parse_ stub seat tagged batch-9.
+- u117 doty: Doty.kt. The dotted-Do indent manager: short*
+  out-parameters as H-006 holders, ExecStack double
+  post-increment evaluation split into explicit steps with the
+  ledger note, Do_Block_Bypass extra-argument fossil ledgered,
+  emitted INDENT mark strings, LevCheck the new H-014 stub
+  seat (compiler-mumps.c:1949 owner).
+- u118 pcre.h::<misc>: PcreH.kt. Cambridge PCRE 4.5 header
+  residue as a declaration LEDGER (nothing in-arm calls);
+  H-018: the _WIN32 DLL arm commented out (extern arm live),
+  VPCOMPAT undefined (ifndef arm live); version roster note.
+- u119 GlobalQuery: GlobalQuery.kt. The dollar-Query walker:
+  AllocSV new H-014 stub seat (batch-8 row 219 tag correct),
+  the state push memcpy as the copyMsv H-004 adapter, real
+  u93 parse_ reuse, keyfix v1d offset-1, SOH tail append with
+  the vendor off-by-one mid-name probe kept, Mglobal(XNEXT)
+  walk, H-018: the SQLITE cut LIVE (post-endif tail dead,
+  journaled), H-008 p1 fold, TAG CORRECTION removing the
+  Stubs.GlobalQuery "not a roster unit" mis-tag.
+- u120 libmpscpp.cpp::<misc-9>: SymOpsMisc.kt. The operator/
+  SymOps residue: String.times/GlobalRef.times via Stubs.mult
+  (H-014 adapt, word-operator convention), Mstring lt/gt
+  ladders x7 each over the atol/strtod/char*/mstring domains
+  (H-012 distinct seats, unit-62 gte/lte precedent) with the
+  char*+std::string H-015 collapse onto one String seat,
+  SymGet x3 (SYMTAB_ERROR throw) and SymPut x9 plus the __symput
+  sym_(0) seat, GlobalRef.Flush() via Mglobal(FLUSH=21), the 14
+  MSV-intrinsic wrappers (H-014 seats; Cosine/TermCorrelate/
+  Centroid ride the real renders), svptr/ep dead H-013 params,
+  percent-g/percent-d String.format Locale.US (H-009), dstr
+  strcpy-fold String domain (H-008).
+- u121 set_code: SetCode.kt. Full SET_STORE control flow as
+  labeled loops plus goto flags; the compiler interpret
+  macro seat is CompilerState.interpret (H-003); atTest and
+  parse_ stub seats; LocalArray/GlobalArray real renders over
+  the H-006 holders; the piece/extract indirection forest with
+  the exact <128 marker arithmetic (bound-guarded; one fullwidth
+  vendor semicolon narrowed to ASCII); emitted C byte-identical
+  including the missing-percent-s-arg LOCK quirk; freest rstr
+  dead store not rendered (H-013); malloc-per-LHS strlen+1
+  String seat (H-008); var renamed varArr (Kotlin reserved word).
+- u122 for_code: ForCode.kt. The FOR compiler: argumentless
+  zbreak form via linepad(emit(...)) (linepad the H-014 stub
+  seat, below-loc owner tagged), skipWhile01/gotoSingles/
+  oneArgFcn flags, forAgain2 labeled loop, singles label
+  guarded by the for_fcn_flg test, f264 arg quirk kept,
+  setjmp scaffolding, ForBlocks close with Lines emission,
+  the dead post-goto SinglesFlg code not rendered (H-013),
+  unused for-loop warts byte-identical (all substitutions the
+  forx conv helper), for_mult/SinglesFlg H-010 short-to-Int.
+- u123 fcn: Fcn.kt (the tranche closer and the largest unit of
+  the arm, row 95 score 1221.5, 775-LOC parity). The
+  dollar-function dispatcher: the FUNCTION launch head,
+  strmoveShift operand strip, noname args arm, iargs roster
+  walk, tolower fold, the 128-entry FC opcode table (indices
+  128-255 the C zero-fill, default arm via size guard), the 19
+  case arms (extract/ascii/char/find/fnumber/justify/job/len/
+  piece/select/test/text/translate/random/reverse/x/y/io/
+  horolog/get/1-9/name/next/noerr/order/query/qlength/
+  qsubscript), goto-tail bouquet as labeled run blocks
+  returning the private FcnT enum with the tail when; H-018:
+  SQLITE live (file-scope define, OPEN=206), MULTI_PRECISION/
+  BIGFLOAT dead per config; getepid/time/getcwd/rand(3) map
+  to JVM intrinsics per H-010 (pid/ProcessHandle, millis/1000,
+  user.dir, kotlin.random.Random), exits via exitProcess(1),
+  sprintf folds String.format Locale.US with the buf seats
+  H-008 carriers; strfmon the new POSIX libc seat; the
+  sql seat params nullable (the vendor NULL triple in the
+  ztabsize OPEN); Shadowed vendor locals renamed per H-017;
+  the strfmon bound quirk into rstr kept and ledgered.
+
+Sub-push boundary detail: sub-push A (units 114-119) six
+files (PieceMisc/Readf_/LockCode/Doty/PcreH/GlobalQuery plus
+Stubs seat work), sub-push B (units 120-122) three new files
+plus Stubs/Carriers/CompilerCarriers seat work (Sim1 batch-7,
+Jaccard/Dice/Shred/StopInit/SynInit batch-5/6 seats, the bmg
+full-search reset tagged interp-bmgsubs.c:116, the SimGet
+windowed tag, the SYMTAB_ERROR=9 and FLUSH=21 carriers, the
+forx/fcn_x block), sub-push C (unit 123) the new Fcn.kt plus
+the fcn delegate seat and the new ScanParse/Eval/GlobalOrder/
+strfmon seats.
+
+Close scan exceptions, documented and reconciled at 266ce6d,
+all pre-existing from earlier batches and unchanged by this
+tranche (no tranche-3 file carries any): raw dollars in seven
+files all runtime Char literals or Kotlin escapes
+(Fnumber/GlobalFnumber/IfCode/Prnterr/Parse_/LocalArray
+char-literal compares, the escaped pair in SQLTable, one
+prose dollar-fnumber in the Fnumber banner from tranche 2),
+one backtick (Getstr2 FileDescriptor), six line-final
+comment-closes all earlier banners' own block-tails (Getstr2/
+GlobalQuery/LockCode/LockMisc/Parse_/PieceMisc). None affect
+compilation or the emitted-byte gates; whole-arm kotlinc 0/0.
+
+Consult rows (timestamp 2026-11-19T20:53:08Z, tranche-wide):
+- DOC consult: unit 114, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 114, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 114, entry H-015, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 114, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 114, entry H-018, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 115, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 115, entry H-004, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 115, entry H-012, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 115, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 115, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 115, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 116, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 117, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 117, entry H-004, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 117, entry H-006, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 117, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 117, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 117, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 118, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 118, entry H-018, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 119, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 119, entry H-004, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 119, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 119, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 119, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 119, entry H-015, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 119, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 120, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 120, entry H-009, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 120, entry H-012, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 120, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 120, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 120, entry H-015, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 120, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 121, entry H-003, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 121, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 121, entry H-009, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 121, entry H-012, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 121, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 121, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 121, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 122, entry H-010, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 122, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 122, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 122, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 123, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 123, entry H-009, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 123, entry H-010, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 123, entry H-011, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 123, entry H-012, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 123, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 123, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 123, entry H-015, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 123, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit 123, entry H-018, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+
+Tranche totals: 56 consults, 45 hit-reuse, 11 hit-adapt
+(u114 H-018, u115 H-012, u117 H-014, u118 H-018, u119 H-014
+and H-018, u120 H-014 and H-015, u121 H-003, u123 H-014 and
+H-018), 0 miss. Hit rate 100.0%, reuse rate 80.4%. TRANCHE 3
+(rows 114-123, 10 units) COMPLETE: the piece residue, readf_,
+lock_code, doty, the pcre ledger, GlobalQuery, the libmpscpp
+operator residue, set_code, for_code, fcn. With tranche 3
+landed, all 30 Batch 4 units (94-123) are rendered and gated;
+batch 4 is closed pending the tracking-table and events
+exports.
