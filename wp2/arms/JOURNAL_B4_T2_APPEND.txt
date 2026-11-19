@@ -1,0 +1,116 @@
+
+### DOC B4 tranche 2 (units 104-113), 2026-11-19
+
+Rendered 2026-11-19 from pristine vendor sources only (arm
+independence kept; no PRO/DAF/BOTH Kotlin consulted; DOC's own
+prior files consulted). Kotlinc 2.1.20 whole-arm gate: 0 errors /
+0 warnings. Scan gates clean (dollar delta 0 on Stubs.kt; the
+one raw dollar in the new Fnumber_.kt DOLLAR const replaced with
+the unicode escape pre-push; backtick/!!/dash/ASCII scans and
+the comment-close positional check clean; ScanAlnum.kt unit-77
+prefix byte-identical after the append). Pushed as 5c67fd3
+(11 files: 9 new + ScanAlnum.kt append + Stubs.kt edit);
+post-push fetch verification at the commit confirmed all
+rendered bytes.
+
+Units (batch_plan ascending order):
+- u104 ScanAlnum (LOC 18 FILE* overload): appended to the
+  unit-77 file; TAG CORRECTION on the u77 "overloads not corpus
+  units" ledger note (this overload IS roster row 105); Reader
+  carrier, fscanf 8191s scanWord8k, repeat restart H-011,
+  max>511 guard, digit-first reject; per-file isalnum/tolower
+  helpers.
+- u105 LocalName: real render; Stubs.LocalName seat REMOVED
+  (TAG CORRECTION - the "not a roster unit" tag was a mis-tag;
+  row 121 is this unit); nullable tmp2; coded 206/207/208 case
+  values; j default 999; the two k>=j break arms journaled.
+- u106 pb: RawBlocks printer; ByteArray domain; MBLOCK/MMARK/
+  ADSIZE live seats; memcpy(&x,block,4) little-endian assembly;
+  dead OFF_T z (H-013) kept as comment; vendor test order of
+  the trailing-zero walk kept.
+- u107 sysfunc.h misc: declaration-only ledger; H-018 note -
+  the _INTERP_ if-pair arms DIFFER and both are live per-TU
+  (union ledger rendered); prototypes mapped to seats; the
+  commented-out VariableNotFound fossil noted.
+- u108 init: real Smith-Waterman matrix initializer; rides the
+  SeqAlignExterns a/EMPTY_CELL/S_RESULT seats; Stubs.init
+  converted to delegate.
+- u109 atTest: real render; Stubs.atTest converted to delegate
+  (IfCode binds unchanged); pd1Last is READ (H-006) for the
+  imbalanced-quote banner - superseding any earlier write
+  note; doubled-quote walk byte-faithful; one-past-NUL read
+  bounds-guarded with the divergence ledgered.
+- u110 interp-bifs.cpp misc: banner/include/define ledger;
+  H-018: SQLITE live, GCVT macro NOT in the reference config
+  (gcvt arm already seated at Stubs.gcvtWrapper); Mget real
+  render riding Stubs.sym_.
+- u111 _fnumber: the dollar-fn runtime wrapper (SPELLING
+  QUIRK: "$fn" vs "$fnumber" - missing umber kept verbatim);
+  v1d offset-1 in, bd offset-1 out, Stubs.fcn dispatch.
+- u112 global::Centroid: GlobalRef extension; TermCorrelate
+  seats (Order/Data/SetKeyed/PlusIntKeyed) plus NEW vararg
+  double seats getGlobalDoubleKeyed/setGlobalDoubleKeyed
+  (one- and two-key invocations); string-concat accumulation
+  and integer-increment count journaled; base Kill ledgered.
+- u113 parse_pattern_element: H-004 CARRIER SEATS - the
+  token/scanner/parser/token_type carriers and the
+  pattern_codes/char_classes tables of interp-rpm.cpp rendered
+  ahead of the batch-5 misc owner (supersede note); six new
+  H-014 seats (bstrcat batch-9 correctly tagged,
+  leaning_toothpickize batch-6, parse_pattern_atom_list/
+  accept/accept_it/syntax_error batch-5 misc); strchr-miss UB
+  quantized to clamp 0 (H-007).
+
+Consult rows (timestamp 2026-11-19T19:44:21Z, tranche-wide):
+- DOC consult: unit 104, entry H-001, outcome hit-reuse
+- DOC consult: unit 104, entry H-008, outcome hit-reuse
+- DOC consult: unit 104, entry H-011, outcome hit-reuse
+- DOC consult: unit 104, entry H-012, outcome hit-reuse
+- DOC consult: unit 104, entry H-017, outcome hit-reuse
+- DOC consult: unit 105, entry H-008, outcome hit-reuse
+- DOC consult: unit 105, entry H-012, outcome hit-reuse
+- DOC consult: unit 105, entry H-014, outcome hit-reuse
+- DOC consult: unit 105, entry H-017, outcome hit-reuse
+- DOC consult: unit 106, entry H-001, outcome hit-reuse
+- DOC consult: unit 106, entry H-012, outcome hit-reuse
+- DOC consult: unit 106, entry H-013, outcome hit-reuse
+- DOC consult: unit 106, entry H-017, outcome hit-reuse
+- DOC consult: unit 107, entry H-004, outcome hit-reuse
+- DOC consult: unit 107, entry H-013, outcome hit-reuse
+- DOC consult: unit 107, entry H-014, outcome hit-reuse
+- DOC consult: unit 107, entry H-017, outcome hit-reuse
+- DOC consult: unit 107, entry H-018, outcome hit-adapt
+- DOC consult: unit 108, entry H-001, outcome hit-reuse
+- DOC consult: unit 108, entry H-004, outcome hit-reuse
+- DOC consult: unit 108, entry H-013, outcome hit-reuse
+- DOC consult: unit 108, entry H-014, outcome hit-adapt
+- DOC consult: unit 108, entry H-017, outcome hit-reuse
+- DOC consult: unit 109, entry H-001, outcome hit-reuse
+- DOC consult: unit 109, entry H-006, outcome hit-reuse
+- DOC consult: unit 109, entry H-012, outcome hit-reuse
+- DOC consult: unit 109, entry H-014, outcome hit-adapt
+- DOC consult: unit 109, entry H-017, outcome hit-reuse
+- DOC consult: unit 110, entry H-004, outcome hit-reuse
+- DOC consult: unit 110, entry H-013, outcome hit-reuse
+- DOC consult: unit 110, entry H-014, outcome hit-reuse
+- DOC consult: unit 110, entry H-017, outcome hit-reuse
+- DOC consult: unit 110, entry H-018, outcome hit-reuse
+- DOC consult: unit 111, entry H-012, outcome hit-reuse
+- DOC consult: unit 111, entry H-014, outcome hit-reuse
+- DOC consult: unit 111, entry H-015, outcome hit-reuse
+- DOC consult: unit 111, entry H-017, outcome hit-reuse
+- DOC consult: unit 112, entry H-004, outcome hit-reuse
+- DOC consult: unit 112, entry H-013, outcome hit-reuse
+- DOC consult: unit 112, entry H-014, outcome hit-adapt
+- DOC consult: unit 112, entry H-017, outcome hit-reuse
+- DOC consult: unit 113, entry H-004, outcome hit-adapt
+- DOC consult: unit 113, entry H-007, outcome hit-reuse
+- DOC consult: unit 113, entry H-013, outcome hit-reuse
+- DOC consult: unit 113, entry H-014, outcome hit-adapt
+- DOC consult: unit 113, entry H-017, outcome hit-reuse
+
+Tranche totals: 46 consults, 40 hit-reuse, 6 hit-adapt
+(u107 H-018, u108 H-014, u109 H-014, u112 H-014, u113 H-004
+and H-014), 0 miss. Hit rate 100.0%, reuse rate 87.0%.
+Gradle gate on m1-build pending; results append with the gate
+run per the B3 discipline.
