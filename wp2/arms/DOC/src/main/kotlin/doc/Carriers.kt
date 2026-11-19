@@ -39,7 +39,9 @@ const val CHAR_1: Char = '\u0001'
 
 // struct MSV state vector (include/mumpsc/stateVector.h:39-), fields added
 // per unit with the vendor line recorded: bd (stateVector.h:42),
-// v1d (stateVector.h:44), tpx (stateVector.h:64, long).
+// v1d (stateVector.h:44), tpx (stateVector.h:64, long), pd1 (:43),
+// io (:49), NOERR (:60), out_file (:61), hor/ver (:62),
+// LineNumber (:63), ErrChar (:95), in_file (:61 carrier).
 class Msv {
     val bd = CharArray(STR_MAX)
     val v1d = CharArray(STR_MAX)
@@ -47,6 +49,22 @@ class Msv {
     // stateVector.h FILE *in_file[10] carrier (unit 48: getstr2 binds
     // lun 5 to stdin); rendered as Readers indexed as in the vendor.
     val in_file = arrayOfNulls<java.io.Reader>(10)
+    // stateVector.h:61 FILE *out_file[10] - Writers, same indexing;
+    // assigned by the open/use owner units.
+    val out_file = arrayOfNulls<java.io.Writer>(10)
+    // stateVector.h:43 unsigned char pd1[PS1] (sysparms PS1 32001)
+    val pd1 = CharArray(PS1)
+    // stateVector.h:49 int io
+    var io: Int = 0
+    // stateVector.h:60 int NOERR
+    var NOERR: Int = 0
+    // stateVector.h:62 int hor[10], ver[10]
+    val hor = IntArray(10)
+    val ver = IntArray(10)
+    // stateVector.h:63 long LineNumber
+    var LineNumber: Long = 0
+    // stateVector.h:95 char ErrChar
+    var ErrChar: Char = NUL
 }
 
 // File-scope externs of libmpscpp.h:62 (GlobalExceptionCode) :210
