@@ -743,3 +743,28 @@ Consult rows for units 55-59 (true timestamps, in-session):
 - DOC consult: unit compiler-sys1.c::inout, entry H-013, outcome hit-reuse, timestamp 2026-11-19T00:44:00Z
 - DOC consult: unit compiler-sys1.c::inout, entry H-014, outcome hit-reuse, timestamp 2026-11-19T00:44:00Z
 - DOC consult: unit compiler-sys1.c::inout, entry H-015, outcome hit-reuse, timestamp 2026-11-19T00:44:00Z
+
+### Tranche 3 (DOC arm, units 60-62, batch-2 tail close) — pushed with this tranche
+
+Narrative per unit (timestamps true and recorded before the renders):
+
+- **u60 libmpscpp.cpp::global::TreePrint (TreePrint.kt)**: ten-level indented Order/Data tree dump, the vendor's literal flat nesting kept verbatim. Quirks kept: level-8 Order subscript list omits a1 while its Data call includes it; levels 8/9 print the name before probing Data; levels 6/7 carry the extra Data<2 continue guard. New H-014 seats: globalOrderN/globalDataN (vararg even for the 3..10-subscript arms), getGlobalString.
+- **u61 libmpscpp.cpp::sw (Sw.kt)**: S-W entry: penalty/size priming, Cost fill, optional matrix print, max-cell scan, prnt(0,...) traceback (u45), score pass, 60-char alignment block display. ShowAlign&&0 dead banner kept as H-013 comments; malloc arm raise(SIGSEGV) rendered as thrown Error; fprintf rides Msv out_file Writers (closed lun throws, diverged from vendor FILE* deref); reversal buffers sized on the halved length per vendor quirk; the __a free tail is a GC no-op ledger. SeqAlignExterns extended with GAP/MISMATCH/MATCH/Size_s/Size_t/Size/sx; Stubs gained init/Cost/nodash.
+- **u62 libmpscpp.cpp::<misc-2> (ArithOpsMisc2.kt)**: the class-global arithmetic operator support: +=,-=,*=,/= over 8 C numeric types; member and friend +,-,/ cast families; global-vs-global double arithmetic via the arm strtod; pre/post ++/-- with the floor-checked long-vs-double store; >= and <= member/friend ladders. Both chunker boundaries ledgered (chunk opens with the orphan return-tmp tail of misc-1; closes mid-signature in the <=(short,global) friend, not rendered). Unsigned seats ride UInt/UShort/ULong per the PRO u62 lessons; JVM unsigned-throw vs C wrap divergence noted; member minus/div operand-direction quirks kept; char*/string comparison overloads collapse onto one String seat (H-015, ledgered). 17 new per-type H-014 extraction/assignment seats in Stubs.
+
+Consult rows for units 60-62 (true timestamps; logged before the renders, 2026-11-19T00:46Z):
+
+- DOC consult: unit libmpscpp.cpp::global::TreePrint, entry H-001, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::global::TreePrint, entry H-013, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::global::TreePrint, entry H-014, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::global::TreePrint, entry H-017, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::sw, entry H-001, outcome hit-adapt, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::sw, entry H-007, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::sw, entry H-009, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::sw, entry H-013, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::sw, entry H-014, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::<misc-2>, entry H-007, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::<misc-2>, entry H-012, outcome hit-adapt, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::<misc-2>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::<misc-2>, entry H-015, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
+- DOC consult: unit libmpscpp.cpp::<misc-2>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z

@@ -176,4 +176,85 @@ object Stubs {
     // roster min loc - not a corpus unit).
     fun linepad(n: Int, s: String): Unit =
         throw NotImplementedError("linepad: out-of-scope owner (compiler-sys1.c::linepad)")
+
+    // ------------------------------------------------------------------
+    // unit 60 (libmpscpp.cpp::global::TreePrint) member seats: the C++
+    // class-global member functions are not roster units (units.csv has
+    // no global::Order/Data/invoke rows across any arm unit).
+
+    // (*this)(k1..kn).Order(1) - n-subscript Order walk (TreePrint uses
+    // 3..10 subscripts; the one/two-subscript seats above cover the
+    // small arities).
+    fun globalOrderN(g: GlobalRef, vararg keys: String): String =
+        throw NotImplementedError("global::Order(this,*keys): out-of-scope owner (libmpscpp.cpp member)")
+
+    // (*this)(k1..kn).Data() - n-subscript Data probe returning the
+    // integer DATA-test style value (TreePrint branches on 1/11/<2).
+    fun globalDataN(g: GlobalRef, vararg keys: String): Int =
+        throw NotImplementedError("global::Data(this,*keys): out-of-scope owner (libmpscpp.cpp member)")
+
+    // (string)(*this)(k1..kn) - invoked-global string conversion
+    // (operator string / operator<<).
+    fun getGlobalString(g: GlobalRef, vararg keys: String): String =
+        throw NotImplementedError("global string conversion: out-of-scope owner (libmpscpp.cpp member)")
+
+    // ------------------------------------------------------------------
+    // unit 61 (libmpscpp.cpp::sw) alignment-scope seats: none of the
+    // remaining alignment helpers are roster units.
+
+    // void init(void) - matrix initializer; not a roster unit.
+    fun init(): Unit =
+        throw NotImplementedError("init: out-of-scope owner (libmpscpp.cpp alignment initializer)")
+
+    // void Cost(char*,char*,int,int) - cost matrix fill; not a roster unit.
+    fun Cost(s: CharArray, t: CharArray, i: Int, j: Int): Unit =
+        throw NotImplementedError("Cost: out-of-scope owner (libmpscpp.cpp Cost)")
+
+    // int nodash(char*) - non-dash char count of an alignment string;
+    // not a roster unit.
+    fun nodash(m: CharArray): Int =
+        throw NotImplementedError("nodash: out-of-scope owner (libmpscpp.cpp nodash)")
+
+    // ------------------------------------------------------------------
+    // unit 62 (libmpscpp.cpp misc-2 arithmetic operator family) seats:
+    // the *this >> value typed extraction, the *this = value raw
+    // assignment, and *this << value store idioms are class-global
+    // members, not roster units; one seat per C numeric type.
+
+    fun globalGetInt(g: GlobalRef): Int =
+        throw NotImplementedError("global int extraction: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalGetUInt(g: GlobalRef): UInt =
+        throw NotImplementedError("global unsigned int extraction: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalGetShort(g: GlobalRef): Short =
+        throw NotImplementedError("global short extraction: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalGetUShort(g: GlobalRef): UShort =
+        throw NotImplementedError("global unsigned short extraction: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalGetLong(g: GlobalRef): Long =
+        throw NotImplementedError("global long extraction: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalGetULong(g: GlobalRef): ULong =
+        throw NotImplementedError("global unsigned long extraction: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalGetFloat(g: GlobalRef): Float =
+        throw NotImplementedError("global float extraction: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalGetDouble(g: GlobalRef): Double =
+        throw NotImplementedError("global double extraction: out-of-scope owner (libmpscpp.cpp member)")
+    // char tmp[STR_MAX] extraction: the string read of the global.
+    fun globalGetStrMax(g: GlobalRef): String =
+        throw NotImplementedError("global char* extraction: out-of-scope owner (libmpscpp.cpp member)")
+
+    fun globalSetInt(g: GlobalRef, v: Int): Unit =
+        throw NotImplementedError("global int assignment: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalSetUInt(g: GlobalRef, v: UInt): Unit =
+        throw NotImplementedError("global unsigned int assignment: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalSetShort(g: GlobalRef, v: Short): Unit =
+        throw NotImplementedError("global short assignment: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalSetUShort(g: GlobalRef, v: UShort): Unit =
+        throw NotImplementedError("global unsigned short assignment: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalSetLong(g: GlobalRef, v: Long): Unit =
+        throw NotImplementedError("global long assignment: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalSetULong(g: GlobalRef, v: ULong): Unit =
+        throw NotImplementedError("global unsigned long assignment: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalSetFloat(g: GlobalRef, v: Float): Unit =
+        throw NotImplementedError("global float assignment: out-of-scope owner (libmpscpp.cpp member)")
+    fun globalSetDouble(g: GlobalRef, v: Double): Unit =
+        throw NotImplementedError("global double assignment: out-of-scope owner (libmpscpp.cpp member)")
 }

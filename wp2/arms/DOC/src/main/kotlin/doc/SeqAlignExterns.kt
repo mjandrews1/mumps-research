@@ -19,3 +19,16 @@ var S_RESULT = ""
 // by the sequence-alignment Score unit of a later batch; out-of-scope.
 fun Score(a: Char, b: Char): Int =
     throw NotImplementedError("Score: out-of-scope owner (libmpscpp.cpp:8049)")
+
+
+// Same libmpscpp.cpp sequence-alignment file scope as EMPTY_CELL/__a/
+// S_RESULT above: the gap/match/mismatch penalties set by sw, the
+// sequence sizes + Size padding, and the sweep origin index sx.
+// Owner: the alignment initializers (init/Cost seats ride Stubs).
+var GAP = 0
+var MISMATCH = 0
+var MATCH = 0
+var Size_s = 0
+var Size_t = 0
+var Size = 0
+var sx = 0
