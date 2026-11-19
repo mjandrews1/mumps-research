@@ -92,6 +92,16 @@ pilot. Checks use the same status vocabulary as the arm columns.
 
 ## Batch 3 (units 63-93, opened 2026-11-19; DOC cycle-2 cell per the C-001 map: DOC's committed row order is B2, B3, ... so B3 follows the closed B2 with no inversion to log)
 
+**DOC B3 closed 2026-11-19**: 31/31 translated in tranches T1-T3. Coverage
+checklist in the arm journal (commit d0339fb, line repair 4b040e7): 140
+consults, 125 hit-reuse / 15 hit-adapt / 0 miss; 100.0% hit, 89.3% reuse;
+cookbook stays H-001..H-018 (no capture candidate under T1/T2/T3). Gradle
+gate on m1-build BUILD SUCCESSFUL (build only; the detekt rig is
+PRO-only). Events CSV regenerated under the C-008 export key: 320 consult
+rows -> 638 event rows (the B3 delta over the B1-close export is exactly
+140 reuse+hit pairs). Check columns track the BASE reference translation
+(C-002) and stay todo per the C-001 cycle-10 backfill decision.
+
 | # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
 |---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
 | 63 | compiler-epi.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
