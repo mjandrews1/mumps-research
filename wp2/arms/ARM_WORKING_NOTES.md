@@ -697,3 +697,24 @@ biased toward hits; C-006 carries the analysis-phase note.
 - DOC consult: unit interp-native-btree.cpp::scanblocks, entry H-007, outcome hit-adapt, timestamp 2026-11-18T22:51:46Z
 - DOC consult: unit interp-native-btree.cpp::scanblocks, entry H-014, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
 - DOC consult: unit interp-sql.cpp::embed, entry H-008, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- Unit 52 (compiler-globalarray.c::GlobalArray, B2 tail tranche 1): the LHS global-array-ref processor (row 43: loc 59, ptr 4, ctrl 12, score 31.9, rank 209, complex). New file doc/GlobalArray.kt; new carrier file doc/CompilerCarriers.kt (CompilerState owner object: Out Writer, iiitmp; per H-004 with vendor line anchors). Vendor quirks kept: the h sprintf overwrite order, the 207 code-byte written into the caller's v1d on NUL delimiter, the dead leading-comment fossil (kept as KDoc). Extract2/memcheck are H-014 stubs; GBL_flg rides the H-006 ShortArray(1) holder (the cookbook's own example); t is H-007 scratch adapted to CharArray (index-based two-char appends); %2x collapses per H-009 (Locale.US); byte-domain range checks per H-012. Local gate 0/0.
+- DOC consult: unit compiler-globalarray.c::GlobalArray, entry H-001, outcome hit-reuse, timestamp 2026-11-19T00:41:00Z
+- DOC consult: unit compiler-globalarray.c::GlobalArray, entry H-004, outcome hit-reuse, timestamp 2026-11-19T00:41:00Z
+- DOC consult: unit compiler-globalarray.c::GlobalArray, entry H-006, outcome hit-reuse, timestamp 2026-11-19T00:41:00Z
+- DOC consult: unit compiler-globalarray.c::GlobalArray, entry H-007, outcome hit-adapt, timestamp 2026-11-19T00:41:00Z
+- DOC consult: unit compiler-globalarray.c::GlobalArray, entry H-009, outcome hit-reuse, timestamp 2026-11-19T00:41:00Z
+- DOC consult: unit compiler-globalarray.c::GlobalArray, entry H-012, outcome hit-reuse, timestamp 2026-11-19T00:41:00Z
+- DOC consult: unit compiler-globalarray.c::GlobalArray, entry H-014, outcome hit-reuse, timestamp 2026-11-19T00:41:00Z
+- DOC consult: unit compiler-globalarray.c::GlobalArray, entry H-015, outcome hit-reuse, timestamp 2026-11-19T00:41:00Z
+- DOC consult: unit compiler-globalarray.c::GlobalArray, entry H-017, outcome hit-reuse, timestamp 2026-11-19T00:41:00Z
+- Unit 53 (libmpscpp.cpp::global::Multiply, B2 tail tranche 1): the three-reference class-global multiplication C = this x B (row 42: loc 26, ptr 7, ctrl 8, score 34.2, rank 213, complex). New file doc/GlobalMultiply.kt: vendor control flow verbatim (row/coll/level Order walks, B(k).Data() guard continue, first-time vs accumulate branches); the class-global member seats (Kill/Order x3/Data x2/double fetch/store) are H-014 stubs - none of the C++ members is a roster unit; the nine vendor debug printf fossil comments kept verbatim. RESOLVES the u46 Stubs.globalRefMultiply stub as a delegate (call sites bind unchanged).
+- DOC consult: unit libmpscpp.cpp::global::Multiply, entry H-014, outcome hit-reuse, timestamp 2026-11-19T00:41:30Z
+- DOC consult: unit libmpscpp.cpp::global::Multiply, entry H-017, outcome hit-reuse, timestamp 2026-11-19T00:41:30Z
+- Unit 54 (compiler-if.c::if_code, B2 tail tranche 1): the IF command compiler (row 41: loc 40, ptr 4, ctrl 21, score 38.8, rank 222, complex; NOTE - unlike the PRO arm, DOC has no B1 banner unit yet, so if_code is a FULL render here, no front-run seat exists). New file doc/IfCode.kt: the if_again/if_structure goto pair linearized per H-011 (the cookbook's own example); INTERPRET macro per H-003 as CompilerState.interpret (five emissions verbatim); pd1Last H-006 holder; short externs widened per H-010; the emitted dollar bytes built via DOLLAR per H-015 (byte-identical emission); atTest/parse_/Extract2/atCopy/numcomp2/linepad are H-014 stubs (atTest batch-4 row 109, parse_ batch-3, Extract2 batch-1, the rest not roster units); the commented numcomp fossil kept verbatim. CompilerState extended with the parse externs (vendor compiler-globals-ext.h anchors); Blocks widened to CharArray to carry the 'i' opcode verbatim (H-010 note). Local gate 0/0.
+- DOC consult: unit compiler-if.c::if_code, entry H-003, outcome hit-reuse, timestamp 2026-11-19T00:42:00Z
+- DOC consult: unit compiler-if.c::if_code, entry H-006, outcome hit-reuse, timestamp 2026-11-19T00:42:00Z
+- DOC consult: unit compiler-if.c::if_code, entry H-010, outcome hit-reuse, timestamp 2026-11-19T00:42:00Z
+- DOC consult: unit compiler-if.c::if_code, entry H-011, outcome hit-reuse, timestamp 2026-11-19T00:42:00Z
+- DOC consult: unit compiler-if.c::if_code, entry H-014, outcome hit-reuse, timestamp 2026-11-19T00:42:00Z
+- DOC consult: unit compiler-if.c::if_code, entry H-015, outcome hit-reuse, timestamp 2026-11-19T00:42:00Z
+- DOC consult: unit compiler-if.c::if_code, entry H-017, outcome hit-reuse, timestamp 2026-11-19T00:42:00Z

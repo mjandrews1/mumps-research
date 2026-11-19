@@ -1,0 +1,85 @@
+package doc
+
+// Compiler-side extern carriers (arm scaffolding, opened with batch-2
+// unit 52 and extended by unit 54). One owner object per the cookbook
+// one-owner-per-C-entity rule (H-004); each property names its vendor
+// source line.
+//
+// Emission helper: the vendor fprintf returns the number of chars
+// written and the compiler code passes that count to linepad
+// (compiler-if.c:70 shape); emit() returns the char count for that
+// idiom.
+
+object CompilerState {
+    // extern FILE *Out (compiler-parse.c:166); the Writer is assigned by
+    // the owning initialization units of later batches (H-001 FILE*
+    // to Writer).
+    var Out: java.io.Writer = java.io.PrintWriter(java.io.OutputStreamWriter(
+        java.lang.System.out), true)
+
+    // fprintf(Out, ...) emission with the fprintf char-count return.
+    fun emit(text: String): Int {
+        Out.write(text)
+        return text.length
+    }
+
+    // interpret(tmp): the INTERPRET stateful macro
+    // (include/mumpsc/compiler-macros.h:39) - five sequential
+    // emissions reading Out and tmp (cookbook H-003 example itself).
+    fun interpret(tmp: String) {
+        Out.write("\t_jj = Interpret( (CCHR) \n")
+        Out.write("\t\t\"" + tmp + "\", svPtr); \n")
+        Out.write("\tsvPtr->ERROR = _jj; \n")
+        Out.write("\tif (!svPtr->NOERR && _jj < 0) \n")
+        Out.write("\t\tErrorMessage(\"Indirection error\", svPtr->LineNumber); \n")
+    }
+
+    // include/mumpsc/compiler-globals-ext.h:109 - count on temp strings
+    // used so far in this statement (initializer 0, vendor
+    // compiler-globals.h:109).
+    var iiitmp: Int = 0
+
+    // compiler-globals-ext.h:38 extern long xpx (Kotlin array indexing
+    // takes Int; the narrowing helper documents each use).
+    var xpx: Long = 0
+    fun xpxIdx(): Int = xpx.toInt()
+    fun xpxInc() { xpx++ }
+
+    // compiler-globals-ext.h:35 extern short t2 (H-010 explicit widening)
+    var t2: Int = 0
+    // compiler-globals-ext.h:40 extern short ierr
+    var ierr: Int = 0
+    // compiler-globals-ext.h:42 extern short sdlim
+    var sdlim: Int = 0
+    // compiler-globals-ext.h:43 extern unsigned char pd1[PS1]
+    // (PS1 32001, sysparms.h:75 - the live sizing)
+    val pd1 = CharArray(PS1)
+    // compiler-globals.h:124 extern short pd1Last (atTest out-param
+    // contract, compiler-globals.h:103 - H-006 holder array)
+    val pd1Last = ShortArray(1)
+    // compiler-globals-ext.h:44 extern unsigned char xd[2048]
+    val xd = CharArray(2048)
+    // compiler-globals-ext.h:112 extern int IF_flg
+    var IF_flg: Int = 0
+    // compiler-globals.h:124 extern short POST_flg
+    var POST_flg: Int = 0
+    // compiler-globals.h:136 extern short at_flg
+    var at_flg: Int = 0
+    // compiler-globals-ext.h:118 extern int lines
+    var lines: Int = 0
+    // compiler-globals-ext.h:115/116 extern short ForBlocks[FBMAX],
+    // Blocks[FBMAX] (FBMAX 4000, compiler-macros.h:124)
+    val ForBlocks = ShortArray(4000)
+    val Blocks = CharArray(4000)
+    // compiler-globals-ext.h:34 extern short int tpx
+    var tpx: Int = 0
+}
+
+// sysparms.h:74-75 live PS/PS1 sizes (the memsize.h 4096 twins are the
+// vendor FIXME mismatch, kept as a roster note)
+const val PS: Int = 32000
+const val PS1: Int = 32001
+
+// compiler-macros.h:95 define IF - the reference-build opcode for the
+// IF command block table (Blocks assignment of unit 54)
+const val IF_OPCODE: Char = 'i'

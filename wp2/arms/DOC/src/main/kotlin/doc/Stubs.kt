@@ -78,11 +78,11 @@ object Stubs {
     fun sigint(i: Int): Unit =
         throw NotImplementedError("sigint: out-of-scope owner (SYM.h:41 SIGINT path)")
 
-    // TODO stub: global::Multiply three-reference member; owner is unit
-    // 53 of this batch (not yet translated); delegation replaces this
-    // when the u53 file lands.
+    // global::Multiply three-reference member - DELEGATE (unit 53 of
+    // this batch has landed): the u46 wrapper call sites bind unchanged
+    // to this seat; the H-014 stub is superseded (delegate precedent).
     fun globalRefMultiply(a: GlobalRef, b: GlobalRef, c: GlobalRef): Unit =
-        throw NotImplementedError("global::Multiply: owner unit 53 of this batch; delegate when u53 lands")
+        a.globalMultiply(b, c)
 
     // TODO stub: global::get_global two-buffer member (libmpscpp.cpp);
     // owner unit not selected in this batch; translation pending.
@@ -100,4 +100,80 @@ object Stubs {
     // the btree block-IO unit of a later batch; not a batch-2 unit.
     fun freadx(block: Int, mode: Int): ByteArray =
         throw NotImplementedError("freadx: out-of-scope owner (interp-native-btree.cpp block reader)")
+
+    // ------------------------------------------------------------------
+    // batch-2 tail stubs (units 52/53/54)
+
+    // TODO stub: memcheck owned by compiler-parse.c:2068; below roster
+    // min loc - not a corpus unit.
+    fun memcheck(iiitmp: Int): Unit =
+        throw NotImplementedError("memcheck: out-of-scope owner (compiler-parse.c:2068)")
+
+    // TODO stub: Extract2 owned by compiler-parse.c::Extract2
+    // (batch-1 corpus unit, row 15 of units.csv). Signature carries the
+    // offset for the vendor pd1[sdlim] idiom; the unit-52 call passes 0.
+    fun Extract2(buf: CharArray, offset: Int): CharArray =
+        throw NotImplementedError("Extract2: out-of-scope owner (compiler-parse.c::Extract2) batch-1 unit")
+
+    // ------------------------------------------------------------------
+    // unit 53 (libmpscpp.cpp::global::Multiply) member seats: the C++
+    // class-global member functions are not roster units; stubs name
+    // their vendor owners.
+
+    // global::Kill member (libmpscpp.cpp); not a roster unit.
+    fun globalKill(g: GlobalRef): Unit =
+        throw NotImplementedError("global::Kill: out-of-scope owner (libmpscpp.cpp member)")
+
+    // (*this)(i).Order(1) - one-subscript Order walk (libmpscpp.cpp
+    // global::Order member); not a roster unit.
+    fun globalOrder(g: GlobalRef, key: String): String =
+        throw NotImplementedError("global::Order(this,key): out-of-scope owner (libmpscpp.cpp member)")
+
+    // (*this)(i,j).Order(1) - two-subscript Order walk; not a roster unit.
+    fun globalOrder2(g: GlobalRef, key1: String, key2: String): String =
+        throw NotImplementedError("global::Order(this,k1,k2): out-of-scope owner (libmpscpp.cpp member)")
+
+    // B(k,m).Order(1) - level Order walk on another global; not a roster unit.
+    fun globalOrderB(g: GlobalRef, base: String, key: String): String =
+        throw NotImplementedError("global::Order(g,base,key): out-of-scope owner (libmpscpp.cpp member)")
+
+    // B(k).Data() - one-subscript Data probe; not a roster unit.
+    fun globalData(g: GlobalRef, key: String): Boolean =
+        throw NotImplementedError("global::Data(g,key): out-of-scope owner (libmpscpp.cpp member)")
+
+    // C(i,m).Data() - two-subscript Data probe; not a roster unit.
+    fun globalData2(g: GlobalRef, key1: String, key2: String): Boolean =
+        throw NotImplementedError("global::Data(g,k1,k2): out-of-scope owner (libmpscpp.cpp member)")
+
+    // (double) operator on an invoked global; not a roster unit.
+    fun getGlobalDouble(g: GlobalRef, key1: String, key2: String): Double =
+        throw NotImplementedError("global double conversion: out-of-scope owner (libmpscpp.cpp member)")
+
+    // global assignment from a double (operator=); not a roster unit.
+    fun setGlobalDouble(g: GlobalRef, v: Double, key1: String, key2: String): Unit =
+        throw NotImplementedError("global double assignment: out-of-scope owner (libmpscpp.cpp member)")
+
+    // ------------------------------------------------------------------
+    // unit 54 (compiler-if.c::if_code) stubs
+
+    // TODO stub: atTest owned by compiler-at-test.c::atTest (units.csv
+    // row 109, batch-4 core unit). pd1Last is the H-006 holder.
+    fun atTest(xd: CharArray, pd1: CharArray, pd1Last: ShortArray,
+               lines: Int, xpx: Long): Int =
+        throw NotImplementedError("atTest: out-of-scope owner (compiler-at-test.c::atTest) batch-4 unit")
+
+    // TODO stub: atCopy (compiler-globals.h:104 declaration; no
+    // definition is a roster unit).
+    fun atCopy(at_flg: Int, tmp: CharArray): Unit =
+        throw NotImplementedError("atCopy: out-of-scope owner (compiler-at-test.c helper)")
+
+    // TODO stub: parse_ owned by interp-parse.cpp::parse_ (batch-3
+    // corpus unit).
+    fun parse_(): Int =
+        throw NotImplementedError("parse_: out-of-scope owner (interp-parse.cpp::parse_) batch-3 unit")
+
+    // TODO stub: linepad owned by compiler-sys1.c::linepad (loc 5, below
+    // roster min loc - not a corpus unit).
+    fun linepad(n: Int, s: String): Unit =
+        throw NotImplementedError("linepad: out-of-scope owner (compiler-sys1.c::linepad)")
 }
