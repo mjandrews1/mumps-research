@@ -73,6 +73,20 @@ object CompilerState {
     val Blocks = CharArray(4000)
     // compiler-globals-ext.h:34 extern short int tpx
     var tpx: Int = 0
+
+    // compiler-globals externs used by the abrtx epilogue
+    // (compiler-abrtx.c; MAIN_flg/FCN_flg/F_flg/ExitCode externs,
+    // ExecName extern char *, pid extern int), added by batch-1
+    // unit 18 (owner named per H-004 single-owner rule).
+    var MAIN_flg: Int = 0
+    var FCN_flg: Int = 0
+    var F_flg: Int = 0
+    var ExitCode: Int = 0
+    var ExecName: String = ""
+    var pid: Int = 0
+    // compiler output_file name carrier (the abrtx name surgery
+    // drop-last-2 + suffix append renders over the String content).
+    var output_file: String = ""
 }
 
 // sysparms.h:74-75 live PS/PS1 sizes (the memsize.h 4096 twins are the

@@ -914,3 +914,148 @@ Consult rows for B1 units 1-6 (timestamped before the renders):
 Local gate 0 errors / 0 warnings (kotlinc 2.1.20, JDK corretto
 17.0.21.1); pre-push scan clean after two fixes (a raw dollar-FIND in
 the _find KDoc, a backtick pair in the EncodeHTML KDoc).
+
+### DOC B1 tranche 2 (units 7-10), 2026-11-19
+
+Narrative per unit (timestamp 2026-11-19T01:52:03Z recorded before
+the renders; full instrument):
+
+- **u7 compiler-parse.c::fixstr (Fixstr.kt)**: pure escape pass over
+  a NUL-terminated CharArray (double quote, single quote, backslash
+  gain a leading backslash into the tmp ledger, copied back in
+  place); H-015 char literals written directly.
+- **u8 libmpscpp.cpp::mdh_tree_level_add (MdhTreeLevelAdd5.kt)**: the
+  FIVE-column overload instance (roster loc 24; the B2 unit 43 render
+  is the seven-column instance - the same-named vendor chunk family
+  resolves by arity per H-015). Private per-instance coded-byte
+  consts; zfcn remains the H-014 stub; the identity-hash <int> (this)
+  sprintf divergence is ledgered in the KDoc.
+- **u9 include/mumpsc/libmpsrdbms.h::<misc> (RdbmsMisc.kt)**: seven
+  H-003 macro shims with explicit svPtr parameters (the ARM-adapted
+  INTERPRET shape) plus eight H-014 prototype stubs
+  (rdbmsSelect..rdbmsTablePrint) with owners named.
+- **u10 interp-arith.cpp::mps_acos (MpsAcos.kt)**: second application
+  of H-018 - live arm is Stubs.gcvtWrapper(acos(strtod(...))); the
+  BIGFLOAT and MULTI_PRECISION arms are restated as the excluded
+  per-build ledger comments.
+
+Consult rows for B1 units 7-10 (timestamped before the renders):
+
+- DOC consult: unit compiler-parse.c::fixstr, entry H-007, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit compiler-parse.c::fixstr, entry H-015, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit compiler-parse.c::fixstr, entry H-017, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-015, outcome hit-adapt, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-017, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit include/mumpsc/libmpsrdbms.h::<misc>, entry H-003, outcome hit-adapt, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit include/mumpsc/libmpsrdbms.h::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit include/mumpsc/libmpsrdbms.h::<misc>, entry H-015, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit interp-arith.cpp::mps_acos, entry H-018, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit interp-arith.cpp::mps_acos, entry H-010, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit interp-arith.cpp::mps_acos, entry H-009, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+- DOC consult: unit interp-arith.cpp::mps_acos, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:52:03Z
+
+Local gate 0 errors / 0 warnings; pre-push scan clean.
+
+### DOC B1 tranche 3 (units 11-20), 2026-11-19
+
+Narrative per unit (timestamp 2026-11-19T01:54:24Z recorded before
+the renders; full instrument):
+
+- **u11 compiler-parse.c::ExpandNext (ExpandNext.kt)**: the coded
+  #G#/#S# indirection expander; emissions byte-verbatim through
+  CompilerState.emit; new CstringOps.strncmpAt seat (offset strncmp
+  family); vendor arg[32] zero-init buffers kept.
+- **u12 mumps.cpp::<misc> (MumpsMisc.kt)**: leading-residue ledger
+  (banner, SQLITE, readline includes document-only); pad/SyncClock
+  live; file-scope DBTimePulse/DBSem in the MumpsRunStatic owner
+  object; set_alarm is an H-014 TODO stub (owner: OS itimer service);
+  pad returns the padded content (the vendor's stack-dangling return
+  has no safe Kotlin analog - divergence documented).
+- **u13 interp-sysfunc.cpp::GlobalName (GlobalName.kt)**: \\x01
+  separator recoding; CHAR_1/NUL carriers; H-013: the vendor locals
+  j=999 and k (written, never read) dropped with the note; tmp1[i+1]
+  lookahead bounds-guarded (H-007).
+- **u14 libmpscpp.cpp::global::TermCorrelate (TermCorrelate.kt)**:
+  three-level Order/Data walk symmetrizing pair counts into global B;
+  all member seats H-014 stubs (globalOrderN/globalDataN precedent,
+  new keyed seats globalPlusIntKeyed/globalSetKeyed); vendor quirks
+  kept (mid-loop xi declaration; the symmetrizing read takes the
+  already-incremented value).
+- **u15 compiler-parse.c::Extract2 (Extract2.kt)**: closes the
+  Stubs.Extract2 seat (converted to the delegate; ExpandGet/IfCode
+  call sites now hit the real function). Static tmp1[64]/tmp2[64] in
+  the Extract2Static holder (H-006); the multicharacter ' \0'
+  terminator quirk kept as the NUL write with note; defensive-copy
+  early return divergence documented.
+- **u16 compiler-parse.c::ExpandGet (ExpandGet.kt)**: ExpandNext
+  shape plus the CodedComma default-slot tail routing through the
+  now-real Extract2; the vendor's duplicated "#S#" || "#S#" tail test
+  kept verbatim with the H-013 note.
+- **u17 interp-bmgsubs.c::gotamatch (Gotamatch.kt)**: line acceptor;
+  BUFSIZE 50000 and the bmdata.nsuccess counter in the BmgStatic
+  owner (H-004/H-006); action callback is a nullable higher-order
+  function; the NULL return renders as the -1 sentinel (noted, no
+  in-corpus caller).
+- **u18 compiler-abrtx.c::abrtx (Abrtx.kt)**: compiler epilogue;
+  MAIN_flg/FCN_flg/F_flg/ExitCode/ExecName/pid/output_file added to
+  CompilerState (H-004); epi/EP are H-014 stubs; H-001 divergences
+  documented (the FILE* Out read-handle reuse becomes a local
+  Reader; readLine newline handling; abort() as a thrown exception
+  after the vendor message).
+- **u19 interp-interp.cpp::<misc> (InterpMisc.kt)**: residue ledger
+  (banner, includes, SQLITE/_INTERP_ define notes); define constants
+  kept (GOSUBMAX etc); OPEN_PAREN references CodedOpen per H-015 (no
+  redeclaration); InterpreterException declaration-shape class kept
+  with the out-of-chunk definitions note; the prototype roster lands
+  as H-014 Stubs seats with owners named (DirectRead unit 24,
+  _SymFree unit 28, patrn1 unit 30 seats flagged for delegate
+  conversion when those units land; the compiler-sys1.c::patrn1
+  name collision is a distinct unit 26 question, ledgered on the
+  seat).
+- **u20 interp-arith.cpp::numcomp (Numcomp.kt)**: numeric strcmp;
+  live non-MULTI_PRECISION arm (strtod double compare, BIGFLOAT arm
+  ledgered; MP/GMP arm excluded per the reference build, H-018);
+  floatstring as an H-014 stub (interp-arith.cpp:597 below-roster
+  inline); private atoll helper parses the C leading-integer domain
+  (the vendor int truncation kept).
+
+Consult rows for B1 units 11-20 (timestamped before the renders):
+
+- DOC consult: unit compiler-parse.c::ExpandNext, entry H-001, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-parse.c::ExpandNext, entry H-007, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-parse.c::ExpandNext, entry H-017, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit mumps.cpp::<misc>, entry H-001, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit mumps.cpp::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit mumps.cpp::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-sysfunc.cpp::GlobalName, entry H-007, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-sysfunc.cpp::GlobalName, entry H-013, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-sysfunc.cpp::GlobalName, entry H-015, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit libmpscpp.cpp::global::TermCorrelate, entry H-013, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit libmpscpp.cpp::global::TermCorrelate, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit libmpscpp.cpp::global::TermCorrelate, entry H-017, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-parse.c::Extract2, entry H-001, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-parse.c::Extract2, entry H-006, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-parse.c::Extract2, entry H-013, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-parse.c::ExpandGet, entry H-013, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-parse.c::ExpandGet, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-parse.c::ExpandGet, entry H-015, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-bmgsubs.c::gotamatch, entry H-004, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-bmgsubs.c::gotamatch, entry H-006, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-bmgsubs.c::gotamatch, entry H-015, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-abrtx.c::abrtx, entry H-001, outcome hit-adapt, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-abrtx.c::abrtx, entry H-004, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-abrtx.c::abrtx, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit compiler-abrtx.c::abrtx, entry H-015, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-interp.cpp::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-interp.cpp::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-interp.cpp::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-interp.cpp::<misc>, entry H-015, outcome hit-adapt, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-arith.cpp::numcomp, entry H-009, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-arith.cpp::numcomp, entry H-010, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-arith.cpp::numcomp, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+- DOC consult: unit interp-arith.cpp::numcomp, entry H-018, outcome hit-reuse, timestamp 2026-11-19T01:54:24Z
+
+Local gate 0 errors / 0 warnings (kotlinc 2.1.20, corretto
+17.0.21.1); pre-push scan clean across the 17 touched files
+(10 tranche-3 unit files, 3 carrier files, 4 tranche-2 files).

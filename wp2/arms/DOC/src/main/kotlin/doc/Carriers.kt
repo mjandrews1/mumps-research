@@ -196,6 +196,21 @@ object CstringOps {
         dst[offset + i] = NUL
     }
 
+    // strncmp(&buf[offset], s, n): compare a NUL-terminated literal
+    // against a buffer region starting at offset (vendors
+    // ExpandNext/ExpandGet/Extract2 idiom strncmp(&v1d[i],"#G#",3)).
+    fun strncmpAt(buf: CharArray, offset: Int, s: String, n: Int): Int {
+        var i = 0
+        while (i < n) {
+            val ca = buf[offset + i]
+            val cb = if (i < s.length) s[i] else NUL
+            if (ca != cb) return if (ca < cb) -1 else 1
+            if (ca == NUL) return 0
+            i++
+        }
+        return 0
+    }
+
     // strcat(&dst[offset], ch): append one char at the NUL of a
     // NUL-terminated region beginning at offset.
     fun catAt(dst: CharArray, offset: Int, ch: Char) {

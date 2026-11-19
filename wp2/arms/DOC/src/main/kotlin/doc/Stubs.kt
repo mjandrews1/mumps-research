@@ -109,11 +109,11 @@ object Stubs {
     fun memcheck(iiitmp: Int): Unit =
         throw NotImplementedError("memcheck: out-of-scope owner (compiler-parse.c:2068)")
 
-    // TODO stub: Extract2 owned by compiler-parse.c::Extract2
-    // (batch-1 corpus unit, row 15 of units.csv). Signature carries the
-    // offset for the vendor pd1[sdlim] idiom; the unit-52 call passes 0.
+    // Extract2 delegation: owned by compiler-parse.c::Extract2
+    // (batch-1 unit 15, landed in tranche 3 - the unit-52 call in
+    // IfCode passes 0; ExpandGet passes the CodedComma tail offset).
     fun Extract2(buf: CharArray, offset: Int): CharArray =
-        throw NotImplementedError("Extract2: out-of-scope owner (compiler-parse.c::Extract2) batch-1 unit")
+        extract2(buf, offset)
 
     // ------------------------------------------------------------------
     // unit 53 (libmpscpp.cpp::global::Multiply) member seats: the C++
@@ -257,4 +257,130 @@ object Stubs {
         throw NotImplementedError("global float assignment: out-of-scope owner (libmpscpp.cpp member)")
     fun globalSetDouble(g: GlobalRef, v: Double): Unit =
         throw NotImplementedError("global double assignment: out-of-scope owner (libmpscpp.cpp member)")
+    // ------------------------------------------------------------------
+    // batch-1 tranche-3 seats (units 18/19/20 call sites; owners
+    // named per H-014; seats convert to delegates when the owning
+    // batch-1 units land - the Extract2 precedent)
+
+    // TODO stub: epi(char *, int) declared compiler-abrtx.c family;
+    // owner is the compiler epilogue emitter; not a roster unit.
+    fun epi(name: String, pid: Int): Unit =
+        throw NotImplementedError("epi: out-of-scope owner (compiler epilogue emitter)")
+
+    // TODO stub: EP(int, char *, int) declared compiler-abrtx.c
+    // family; owner is the compiler Zfunction epilogue emitter; not
+    // a roster unit.
+    fun EP(x: Int, name: String, pid: Int): Unit =
+        throw NotImplementedError("EP: out-of-scope owner (compiler Zfunction epilogue emitter)")
+
+    // TODO stub: floatstring owned by interp-arith.cpp:597 (static
+    // inline below-roster helper; numcomp branch selector).
+    fun floatstring(p: CharArray): Boolean =
+        throw NotImplementedError("floatstring: out-of-scope owner (interp-arith.cpp:597 inline)")
+
+    // ------------------------------------------------------------------
+    // unit 19 (interp-interp.cpp::<misc>) prototype roster seats:
+    // declarations of the interpretation core; owners named. Several
+    // are batch-1 units landing in later tranches (DirectRead =
+    // unit 24, _SymFree = unit 28, patrn1 = unit 30); those seats
+    // convert to delegates when the units land.
+
+    // void lpad(unsigned char *, unsigned char *, short)
+    fun lpad(a: CharArray, b: CharArray, sh: Short): Unit =
+        throw NotImplementedError("lpad: out-of-scope owner (interp pad helper)")
+
+    // void substr(unsigned char *, unsigned char *, int, int)
+    fun substr(a: CharArray, b: CharArray, i: Int, j: Int): Unit =
+        throw NotImplementedError("substr: out-of-scope owner (interp substr helper)")
+
+    // void LocalName(unsigned char *, unsigned char *, unsigned
+    // char *, MSV *); owner interp-sysfunc.cpp::LocalName (not a
+    // roster unit).
+    fun LocalName(a: CharArray, b: CharArray, c: CharArray, sv: Msv): Unit =
+        throw NotImplementedError("LocalName: out-of-scope owner (interp-sysfunc.cpp::LocalName)")
+
+    // void GlobalQuery(unsigned char *, unsigned char *, char,
+    // MSV *); not a roster unit.
+    fun GlobalQuery(a: CharArray, b: CharArray, ch: Char, sv: Msv): Unit =
+        throw NotImplementedError("GlobalQuery: out-of-scope owner (interp query walker)")
+
+    // void Qsub(unsigned char *, unsigned char *, unsigned char
+    // *, MSV *); not a roster unit.
+    fun Qsub(a: CharArray, b: CharArray, c: CharArray, sv: Msv): Unit =
+        throw NotImplementedError("Qsub: out-of-scope owner (interp Qsub helper)")
+
+    // void Qlength(unsigned char *, unsigned char *, MSV *);
+    fun Qlength(a: CharArray, b: CharArray, sv: Msv): Unit =
+        throw NotImplementedError("Qlength: out-of-scope owner (interp Qlength helper)")
+
+    // void ErrorMessage(const char *, long); owner
+    // interp-parse.cpp::ErrorMessage (not a roster unit).
+    fun ErrorMessage(msg: String, ln: Long): Unit =
+        throw NotImplementedError("ErrorMessage: out-of-scope owner (interp error reporter)")
+
+    // char * sym_(int, unsigned char *, unsigned char *, MSV *);
+    // owner is the interp symbol-table routing interface.
+    fun sym_(opcode: Int, name: CharArray, rslt: CharArray, sv: Msv): CharArray =
+        throw NotImplementedError("sym_: out-of-scope owner (interp symbol routing)")
+
+    // int xindex(const unsigned char *, const unsigned char *,
+    // short); not a roster unit.
+    fun xindex(a: CharArray, b: CharArray, sh: Short): Int =
+        throw NotImplementedError("xindex: out-of-scope owner (interp xindex helper)")
+
+    // int TimeOut(int, unsigned char *, char *, int); not a roster
+    // unit.
+    fun TimeOut(a: Int, b: CharArray, c: CharArray, d: Int): Int =
+        throw NotImplementedError("TimeOut: out-of-scope owner (interp timeout helper)")
+
+    // int TimeOut_getstr1(int, unsigned char *, char *, int);
+    fun TimeOut_getstr1(a: Int, b: CharArray, c: CharArray, d: Int): Int =
+        throw NotImplementedError("TimeOut_getstr1: out-of-scope owner (interp timeout reader)")
+
+    // int DirectRead(int, unsigned char *); TODO stub - owner is
+    // batch-1 unit 24 (interp-sysfunc.cpp::DirectRead); the seat
+    // converts to a delegate when the unit lands.
+    fun DirectRead(a: Int, b: CharArray): Int =
+        throw NotImplementedError("DirectRead: out-of-scope owner (interp-sysfunc.cpp::DirectRead) batch-1 unit 24")
+
+    // int _SymFree(int, MSV *); TODO stub - owner is batch-1 unit
+    // 28 (interp-sym.cpp::_SymFree); seat converts to a delegate
+    // when the unit lands.
+    fun SymFree(a: Int, sv: Msv): Int =
+        throw NotImplementedError("_SymFree: out-of-scope owner (interp-sym.cpp::_SymFree) batch-1 unit 28")
+
+    // int sql(int, struct MSV *, char *DataSourceName, char
+    // *Command, char *, const char *); owner is the interp SQL
+    // subprocess (not a roster unit).
+    fun sql(a: Int, sv: Msv, dsn: CharArray, command: CharArray,
+            e: CharArray, tail: String): Int =
+        throw NotImplementedError("sql: out-of-scope owner (interp SQL subprocess)")
+
+    // static void patrn1(short *, short *, struct MSV *); TODO
+    // stub - owner is batch-1 unit 30 (interp-parse.cpp::patrn1,
+    // prototype in the misc roster); seat converts to a delegate
+    // when the unit lands. NOTE (H-015): compiler-sys1.c::patrn1 is
+    // a DISTINCT batch-1 unit (26) - the two same-name vendors
+    // resolve by file-local render at unit 26, not by this seat.
+    fun patrn1(jpx: ShortArray, ernbr: ShortArray, svPtr: Msv): Unit =
+        throw NotImplementedError("patrn1: out-of-scope owner (interp-parse.cpp::patrn1) batch-1 unit 30")
+
+    // ------------------------------------------------------------------
+    // unit 14 (libmpscpp.cpp::global::TermCorrelate) keyed seats:
+    // the subscripted class-global operator family is not in the
+    // corpus; these named seats carry the keyed read-add-assign
+    // chain (H-014).
+
+    // B(k1,k2)+i: keyed global integer-plus operator result,
+    // returned as the new value string (owner: libmpscpp.cpp
+    // subscripted global operator+ family; not a roster unit).
+    fun globalPlusIntKeyed(g: GlobalRef, i: Int, k1: String, k2: String): String =
+        throw NotImplementedError("global keyed plus: out-of-scope owner (libmpscpp.cpp subscripted operator+ family)")
+
+    // B(...) = value: keyed global string assignment (owner:
+    // libmpscpp.cpp subscripted assignment operator family; not a
+    // roster unit).
+    fun globalSetKeyed(g: GlobalRef, v: String, vararg keys: String): Unit =
+        throw NotImplementedError("global keyed assignment: out-of-scope owner (libmpscpp.cpp subscripted operator= family)")
+
 }
