@@ -639,3 +639,61 @@ exact; row 309 global::Justify (loc 18, cr 0.053, ctrl 1, score
 - INFRA (2026-11-18): DOC C-005 tooling landed (ce63a8f): export_doc_events.R regenerates DOC_knowledge_events.csv from journal consult rows per the registered grammar/mapping; backfill_checks.R guarded stamping helper (report/verify-roster/set, C-002 discipline enforced); oracle_verify.sh wrapper; both frozen oracles manifest-verified (30 + 59 files); per-arm oracle runners remain the open B5 finish-line dependency.
 - INFRA (2026-11-18): date typo correction (logged, not silent): the three INFRA lines above and the registry C-004/C-005 entries were forward-dated 2026-12-04 by transcription error; corrected to 2026-11-18 (the actual registration and decision date, confirmed against commit timestamps dc9177d/c489d2d/ce63a8f). Registry fixed in 6543b11 (5 lines, blob-SHA gated). No outcome, grade, or registered decision text was changed - dates only.
 - INFRA (2026-11-18): events.csv integrity correction (logged, not silent): a single stray blank line at line 1034 of wp2/logs/PRO_knowledge_events.csv (h018 compiler-read.c row, 2026-11-21 batch-3-close append window) was excised; 1 byte removed, all 1856+ event rows verified uniform 4-column afterwards; no event row was added, dropped, or modified. Caught by the pre-cycle-1 fleet sweep strict CSV parse.
+
+## Batch 2 (DOC arm, units 32-62) - cycle-1 batch (DOC arm)
+
+DOC arm executes batch 2 at cycle 1 per the C-001 committed row
+order (B1 hoisted to pilot position 0; the DOC pilot B1 cells in
+PILOT_TRACKING are still todo at this writing). Tranches 1 and 2
+(units 32-51) were pushed 2026-11-18 (commits 7cfc6e2, 1e5187f;
+kotlinc 2.1.20 gate clean, 0 errors 0 warnings), WITHOUT the
+consult rows the pre-registered DOC workflow requires. Registry
+entry C-006 (2026-11-19) authorizes a one-time reconstruction of
+the evidenced consult rows from the pushed Kotlin annotations.
+Reconstructed rows are marked as such; units whose annotations
+evidence no consult (32, 33, 38, 48) emit no row and are flagged
+as unrecoverable in C-006, not silently dropped or invented.
+Timestamps are the tranche PUSH times (consult times were not
+recorded; the proxy is stated in C-006). Consequence registered:
+the reconstructed set only contains consults evidenced by
+annotation, so hit/miss counts for these units are partial and
+biased toward hits; C-006 carries the analysis-phase note.
+
+- INFRA (2026-11-19, C-006 backfill): consult rows below for
+  units 34-47 and 49-51 are reconstructed from the per-file Kotlin
+  annotations of the tranche-1/2 pushes; units 32 (global::Extract),
+  33 (global::Find), 38 (global::Piece) and 48 (getstr2) evidence no
+  entry consult in their annotations (their dispositions - carriers,
+  shared stub seats, sprintf collapses - are documented in the files
+  without entry ids) and are recorded as consult-unrecoverable per
+  C-006. Miss rows for units 40/41 are reconstructed from the
+  in-file notes: the preprocessor_conditional construct consulted
+  the closest family entry H-003 (stateful macro) and missed;
+  capture-candidate status is carried to the batch-2 close checklist
+  (DOC's T1 candidate, mirroring PRO's h018 capture).
+- DOC consult: unit libmpscpp.cpp::SQL_Table, entry H-015, outcome hit-reuse, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit compiler-abrtx.c::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit compiler-doty.c::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit libmpscpp.cpp::KiLL, entry H-015, outcome hit-reuse, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit libmpscpp.cpp::GlobalOrder, entry H-008, outcome hit-reuse, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit libmpscpp.cpp::GlobalOrder, entry H-013, outcome hit-adapt, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit libmpscpp.cpp::GlobalOrder, entry H-015, outcome hit-reuse, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit interp-arith.cpp::mps_exp, entry H-003, outcome miss, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit interp-arith.cpp::mps_exp10, entry H-003, outcome miss, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit libmpscpp.cpp::mstring::Fnumber, entry H-013, outcome hit-reuse, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit libmpscpp.cpp::mstring::Fnumber, entry H-014, outcome hit-reuse, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit libmpscpp.cpp::mstring::Fnumber, entry H-015, outcome hit-reuse, timestamp 2026-11-18T22:45:30Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-015, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit libmpscpp.cpp::global::Min, entry H-014, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit libmpscpp.cpp::prnt, entry H-007, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit libmpscpp.cpp::Multiply, entry H-013, outcome hit-adapt, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit libmpscpp.cpp::Multiply, entry H-014, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit compiler-copyright-notice.c::copyright_notice, entry H-001, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit compiler-copyright-notice.c::copyright_notice, entry H-002, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit compiler-copyright-notice.c::copyright_notice, entry H-009, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit libmpscpp.cpp::global::IDF, entry H-009, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit libmpscpp.cpp::global::IDF, entry H-010, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit libmpscpp.cpp::global::IDF, entry H-014, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit interp-native-btree.cpp::scanblocks, entry H-007, outcome hit-adapt, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit interp-native-btree.cpp::scanblocks, entry H-014, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z
+- DOC consult: unit interp-sql.cpp::embed, entry H-008, outcome hit-reuse, timestamp 2026-11-18T22:51:46Z

@@ -16,6 +16,7 @@ effect on the committed schedule, and the methodological consequences.
 | C-003 | 2026-11-16 | PRO early B2 execution | Active (deviation logged) |
 | C-004 | 2026-11-18 | Statistical Analysis Plan specified before pending-arm outcomes | Registered (SAP committed) |
 | C-005 | 2026-11-18 | DOC cookbook-consult event-log mapping | Registered (prospective) |
+| C-006 | 2026-11-19 | DOC batch-2 tranche 1-2 consult rows: one-time reconstruction | Registered (retrospective, bounded) |
 
 ---
 
@@ -272,3 +273,59 @@ hazard registered for the events log under C-004 contract 5. The
 check generator emits `roster_row` as the join key and `unit_id`
 as descriptive only. Registered before any export exists; no
 recorded value is reinterpreted.
+
+---
+
+## C-006 — DOC batch-2 tranches 1-2 consult rows: one-time reconstruction (registered 2026-11-19)
+
+**Observation.** The DOC arm's pre-registered workflow
+(wp2/arms/ARM_WORKING_NOTES.md, section 1) requires each cookbook
+consult (including misses) to be appended to the arm journal
+BEFORE consultation. The batch-2 tranches 1 and 2 (units 32-51;
+commits 7cfc6e2, 1e5187f, 2026-11-18) were pushed with
+cookbook-entry annotations inside the Kotlin files but with NO
+consult rows in the journal, so export_doc_events.R (C-005)
+would emit no events for those units at batch close.
+
+**Resolution (researcher decision, 2026-11-19).** One-time,
+bounded reconstruction of the EVIDENCED consult rows:
+
+1. Only consult rows evidenced by an explicit cookbook-entry
+   citation (H-0xx) in the pushed unit files are reconstructed;
+   nothing is inferred beyond the annotations. 26 rows land in
+   the batch-2 DOC journal section, typed hit-reuse/hit-adapt/
+   miss per the in-file outcome notes.
+2. Units whose annotations cite no entry — 32
+   (global::Extract), 33 (global::Find), 38 (global::Piece),
+   48 (getstr2) — are recorded as consult-unrecoverable and
+   emit no row; consults are not invented for them.
+3. Timestamps are the tranche PUSH times (2026-11-18T22:45:30Z,
+   2026-11-18T22:51:46Z), an explicitly stated proxy: actual
+   consult times were not recorded.
+4. The units 40/41 miss rows (preprocessor_conditional, closest
+   entry H-003) preserve the in-file miss notes; the construct
+   remains a DOC T1 capture candidate for the batch-2 close.
+5. The copyright_notice KDoc references entry "H-09" (one
+   digit); it is recorded as H-009 (the entry that exists); the
+   KDoc typo is corrected in the same push.
+
+**Effect on the committed schedule.** None. Batch 2 is still
+open (units 52-62 pending); the reconstruction lands before the
+batch-2 close export, so the close runs on the full journal.
+
+**Methodological consequences.** The reconstructed set only
+contains annotation-evidenced consults, so events for units
+32-51 undercount consultations and are biased toward hits
+(potential unrecorded misses are unrecoverable). The analysis
+phase must treat DOC batch-2 units 32-51 events as
+partial-evidence reconstructed data, per this entry; this is a
+recorded limitation, not a silent patch. From unit 52 onward,
+consult rows are appended before consultation per the original
+instrument, with true consult timestamps.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md
+(this entry), wp2/arms/ARM_WORKING_NOTES.md (batch-2 DOC
+section with the reconstructed consult rows), and the
+copyright_notice KDoc typo fix (H-09 -> H-009). No
+pre-registered instrument (cookbook content, capture criteria,
+order assignments, oracle manifests) is modified.

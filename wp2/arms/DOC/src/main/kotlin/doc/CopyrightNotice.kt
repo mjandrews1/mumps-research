@@ -59,7 +59,7 @@ fun copyrightNotice(Out: Writer) {
 }
 
 // ctime-style fixed timestamp ending in a newline, asctime layout
-// with locale-fixed English month and day names per cookbook H-09
+// with locale-fixed English month and day names per cookbook H-009
 // (vendor ctime text degree; UTC clock, documented divergence).
 internal fun ctime(t: Long): String {
     val cal = java.util.Calendar.getInstance(java.util.TimeZone.getTimeZone("UTC"))
