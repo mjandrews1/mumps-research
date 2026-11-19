@@ -25,8 +25,8 @@ fun numcomp(aa: CharArray, bb: CharArray): Int {
         if (fa == fb) return 0
         if (fa > fb) return 1 else return -1
     } else {
-        val fa = atoll(CstringOps.cstring(aa)).toInt()
-        val fb = atoll(CstringOps.cstring(bb)).toInt()
+        val fa = atollShared(CstringOps.cstring(aa)).toInt()
+        val fb = atollShared(CstringOps.cstring(bb)).toInt()
         if (fa == fb) return 0
         if (fa > fb) return 1 else return -1
     }
@@ -34,8 +34,9 @@ fun numcomp(aa: CharArray, bb: CharArray): Int {
 
 // C atoll leading-integer domain: optional sign then decimal digits,
 // stopping at the first non-digit; no overflow domain guard (the
-// vendor relies on atoll's unspecified saturation, noted).
-private fun atoll(s: String): Long {
+// vendor relies on atoll's unspecified saturation, noted). Shared
+// with the unit-29 numSetup render (below-roster helper seat).
+internal fun atollShared(s: String): Long {
     var i = 0
     while (i < s.length && (s[i] == ' ' || s[i] == '\t' ||
             s[i] == '\n' || s[i] == '\r')) i++

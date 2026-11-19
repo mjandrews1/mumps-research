@@ -11,6 +11,10 @@ package doc
 // idiom.
 
 object CompilerState {
+    // extern short ArgMax (compiler-globals.h:53); int seat per the
+    // H-010 promotion note (short ext carrier in Kotlin Int renders)
+    var ArgMax: Int = 0
+
     // extern FILE *Out (compiler-parse.c:166); the Writer is assigned by
     // the owning initialization units of later batches (H-001 FILE*
     // to Writer).

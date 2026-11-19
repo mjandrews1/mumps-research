@@ -344,11 +344,10 @@ object Stubs {
     fun DirectRead(a: Int, b: CharArray): Int =
         directRead(a, b)
 
-    // int _SymFree(int, MSV *); TODO stub - owner is batch-1 unit
-    // 28 (interp-sym.cpp::_SymFree); seat converts to a delegate
-    // when the unit lands.
-    fun SymFree(a: Int, sv: Msv): Int =
-        throw NotImplementedError("_SymFree: out-of-scope owner (interp-sym.cpp::_SymFree) batch-1 unit 28")
+    // int _SymFree(int, MSV *); the owning unit 28 landed
+    // (SymFree.kt); the seat is the delegate to that render
+    // (H-014 delegate precedent).
+    fun SymFree(a: Int, sv: Msv): Int = symFree(a, sv)
 
     // int sql(int, struct MSV *, char *DataSourceName, char
     // *Command, char *, const char *); owner is the interp SQL
@@ -357,14 +356,14 @@ object Stubs {
             e: CharArray, tail: String): Int =
         throw NotImplementedError("sql: out-of-scope owner (interp SQL subprocess)")
 
-    // static void patrn1(short *, short *, struct MSV *); TODO
-    // stub - owner is batch-1 unit 30 (interp-parse.cpp::patrn1,
-    // prototype in the misc roster); seat converts to a delegate
-    // when the unit lands. NOTE (H-015): compiler-sys1.c::patrn1 is
-    // a DISTINCT batch-1 unit (26) - the two same-name vendors
-    // resolve by file-local render at unit 26, not by this seat.
+    // static void patrn1(short *, short *, struct MSV *); the
+    // owning unit 30 landed (Patrn1Interp.kt); the seat is the
+    // delegate to that render (H-014 delegate precedent). NOTE
+    // (H-015): compiler-sys1.c::patrn1 is a DISTINCT batch-1 unit
+    // (26, Patrn1Sys1.kt two-arg render) - same-name units resolve
+    // by overload arity at the call sites.
     fun patrn1(jpx: ShortArray, ernbr: ShortArray, svPtr: Msv): Unit =
-        throw NotImplementedError("patrn1: out-of-scope owner (interp-parse.cpp::patrn1) batch-1 unit 30")
+        doc.patrn1(jpx, ernbr, svPtr)
 
     // ------------------------------------------------------------------
     // unit 14 (libmpscpp.cpp::global::TermCorrelate) keyed seats:
@@ -389,4 +388,26 @@ object Stubs {
     fun unpad(a: CharArray, sv: Msv): Unit =
         throw NotImplementedError("unpad: out-of-scope owner (interp-sysfunc.cpp::unpad) batch-10 unit")
 
+
+    // ------------------------------------------------------------------
+    // unit 31 carrier seats (H-014 stubs; owners below the roster or
+    // outside the pre-registered chunks):
+
+    // char *Extract1(char *); owner is compiler-parse.c:2119
+    // (below the roster cut); mirror of Extract2 (unit 15 owner).
+    fun Extract1(buf: CharArray): CharArray =
+        throw NotImplementedError("Extract1: out-of-scope owner (compiler-parse.c:2119, below the roster cut)")
+
+    // unsigned long lhash(char *); owner is libmpscpp.h:273 (hash
+    // driver below the roster). Returns unsigned long (H-012); the
+    // Long seat carries the domain, the sign bit is never set.
+    fun lhash(s: String): Long = 0L
+
+    // void global::MakeGlobal(int, const char *, const char *, ...);
+    // the class-global member builds the subscripted MUMPS reference
+    // (owner libmpscpp.cpp global::MakeGlobal, outside the unit 31
+    // chunk). fmt is the a,b,c... letter list, args the subscripts.
+    fun makeGlobal(g: GlobalRef, mode: Int, fmt: String,
+            vararg args: String): Unit =
+        throw NotImplementedError("makeGlobal: out-of-scope owner (libmpscpp.cpp::global::MakeGlobal)")
 }

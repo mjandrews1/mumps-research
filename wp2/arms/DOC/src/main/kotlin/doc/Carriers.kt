@@ -38,6 +38,8 @@ const val CodedComma = 208
 // unicode escapes below are textual (no raw bytes in this file).
 const val NUL: Char = '\u0000'
 const val CHAR_1: Char = '\u0001'
+// include/mumpsc/defines.h:218 SYM_MAX 200 (symbol table depth)
+const val SYM_MAX = 200
 
 // struct MSV state vector (include/mumpsc/stateVector.h:39-), fields added
 // per unit with the vendor line recorded: bd (stateVector.h:42),
@@ -48,6 +50,16 @@ class Msv {
     val bd = CharArray(STR_MAX)
     val v1d = CharArray(STR_MAX)
     var tpx: Long = 0
+    // stateVector.h:71 struct stab *start[SYM_MAX] (symbol table
+    // level heads; Stab carrier class rendered by unit 28)
+    val start = arrayOfNulls<Stab>(SYM_MAX)
+    // stateVector.h:65 int _Sym (current symbol table level; leading
+    // underscore kept verbatim per H-017 vendor-name fidelity)
+    var _Sym: Int = 0
+    // stateVector.h:45 unsigned char xd[STR_MAX] (source text buffer)
+    val xd = CharArray(STR_MAX)
+    // stateVector.h:56 int xpx (source index)
+    var xpx: Int = 0
     // stateVector.h FILE *in_file[10] carrier (unit 48: getstr2 binds
     // lun 5 to stdin); rendered as Readers indexed as in the vendor.
     val in_file = arrayOfNulls<java.io.Reader>(10)

@@ -1148,3 +1148,98 @@ Local gate 0 errors / 0 warnings (kotlinc 2.1.20, corretto
 17.0.21.1) after two fixes (a duplicated concatenation operator in
 LocalArray, the LINEFEED top-level collision in SysfuncMisc);
 pre-push scan clean after the ispunct backtick re-code.
+
+### DOC B1 tranche 5 (units 27-31), 2026-11-19
+
+Closes the DOC B1 translation phase (all 31 units translated; the
+per-unit check columns remain todo by design, as in batch 2).
+
+Unit 27 (compiler-sys1.c::MyFunc, MyFunc.kt): the built-in name
+table verbatim (18 names); branch-local vs caret-external emission;
+Quirks kept: the k>29 reset to k=9; the unused j scratch read; the
+dead strcpy(bd,"gtmp") kept with the dead-code note; the printf k
+with no conversion argument (ignored, noted). Extract1 rides the
+new H-014 seat (owner compiler-parse.c:2119, below the roster
+cut); Extract2 remains the unit-15 owner (no cross-unit seat).
+ArgMax rides CompilerState (compiler-globals.h:53 extern short,
+Int seat per the promotion note).
+
+Unit 28 (interp-sym.cpp::_SymFree, SymFree.kt): struct stab
+(sym.h:43) as the Stab carrier class; symbol-table scope release
+with the two-mode walk (pop with non-zero, variables-only with
+zero). free/delete render as referent nulling with the GC
+divergence note; the vendor comma-operator line kept as two
+statements; sym_ and sigint ride the H-014 seats (unit 26's
+compiler patrn1 note applies, distinct vendor). MSV carriers added
+to Carriers: start[SYM_MAX], _Sym (leading underscore kept
+verbatim), xd, xpx (stateVector.h:71/65/45/56; SYM_MAX 200,
+defines.h:218). Stubs.SymFree closed to the delegate.
+
+Unit 29 (include/mumpsc/numSetup.h::<misc>, NumSetupMisc.kt): the
+NS_ADD..NS_INTDIV opcode consts verbatim from numSetupDefines.h;
+the H-018 preprocessor-conditional selection renders as the runtime
+opcode dispatch (opcode seat is the consts, kept); the NS_DIV
+always-floating entry quirk kept; the fixed-point and live hardware
+FP arms live, the MPFR/GMP/BIGFLOAT arms ledgered (H-018). strtod
+shared from MpsExp; atollShared (Numcomp atoll rename) shared. The
+NS_INTDIV integer arm keeps the C truncating shape.
+
+Unit 30 (interp-parse.cpp::patrn1, Patrn1Interp.kt): the
+interpreter-side pattern parser over the MSV carriers; same-name
+unit 26 (compiler patrn1) resolves by overload arity (the
+compiler render is two-arg, this one three-arg with the Msv).
+Quirks kept: bd appends at offset 0 (the interpreter target); the
+a1281 block writes tmp1[0] before the nonzero test; no m-paren
+guard unlike the compiler unit. Stubs.patrn1 closed to the
+delegate (member delegates to the top-level render via the
+package-qualified call to avoid the same-name recursion).
+
+Unit 31 (libmpscpp.cpp::<misc-1>, LibMisc1.kt): the leading
+600-loc residue chunk. Chunker boundaries documented: begins at the
+banner, ends inside the unary operator- body (the closing return
+and braces are outside the chunk; noted). Content: GlobalClassStatic
+Eflg seat; the TEN-column mdh overload (arities 5/7/10 resolve the
+three same-name vendors); the file-backed Hash class (fopen to
+RandomAccessFile per H-001, the probe/replace/append algorithm with
+the zap-to-1's comment that writes the 2 byte kept verbatim, the
+byte-loop fwrite renders); Indirect; the global operator() family at
+one to ten keys (the vendor stops at ten; no eleventh seat), the
+zero- and long-key seats, and the vararg seat deriving the same
+letter list the vendor writes as literals (byte-identical format
+noted); the operator= seats renamed invoke2/invokeAssign (Kotlin
+has no operator= token; H-015); the T-op= global families over the
+eight primitives (named seats, the T& rides one-element arrays per
+H-006); globalConstruct; unary plus (unary minus body is cut at
+the chunk edge). The commented-out mstring global operator block
+kept as the dead-code ledger. makeGlobal and lhash ride new H-014
+seats (owners outside the chunk / below the roster); zfcn and the
+get seats reused.
+
+Consult rows for B1 units 27-31 (timestamped before the renders):
+
+- DOC consult: unit compiler-sys1.c::MyFunc, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit compiler-sys1.c::MyFunc, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit compiler-sys1.c::MyFunc, entry H-015, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit compiler-sys1.c::MyFunc, entry H-001, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit interp-sym.cpp::_SymFree, entry H-004, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit interp-sym.cpp::_SymFree, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit interp-sym.cpp::_SymFree, entry H-001, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit include/mumpsc/numSetup.h::<misc>, entry H-018, outcome hit-adapt, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit include/mumpsc/numSetup.h::<misc>, entry H-010, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit include/mumpsc/numSetup.h::<misc>, entry H-009, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit include/mumpsc/numSetup.h::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit interp-parse.cpp::patrn1, entry H-011, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit interp-parse.cpp::patrn1, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit interp-parse.cpp::patrn1, entry H-015, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit libmpscpp.cpp::<misc-1>, entry H-001, outcome hit-adapt, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit libmpscpp.cpp::<misc-1>, entry H-003, outcome hit-adapt, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit libmpscpp.cpp::<misc-1>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit libmpscpp.cpp::<misc-1>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+- DOC consult: unit libmpscpp.cpp::<misc-1>, entry H-015, outcome hit-reuse, timestamp 2026-11-19T02:02:56Z
+
+Local gate 0 errors / 0 warnings (kotlinc 2.1.20, corretto
+17.0.21.1) after the tranche fixes (the Hash CharArray index typing,
+the operator= seat names, the SymFree OrigName string accessor); the
+pre-push scan is clean on all nine touched files (dollar byte in the
+mdh comment rebuilt programmatically, the null-assertion
+alternatives as local non-null binding and checkNotNull).
