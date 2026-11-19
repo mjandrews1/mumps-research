@@ -1513,3 +1513,134 @@ First half of the complex tier, consult timestamp 2026-11-19T15:06:11Z captured 
 - DOC consult: unit compiler-sys1.c::errmod_, entry H-007, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
 - DOC consult: unit compiler-sys1.c::errmod_, entry H-009, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
 - DOC consult: unit compiler-sys1.c::errmod_, entry H-015, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+
+### DOC B3 tranche 3 / sub-push B (units 88-92), 2026-11-19
+
+Units 88-92 rendered and pushed together (the complex-tier tail of the
+tranche minus parse_, which rides alone in sub-push C as agreed). The
+tranche-wide consult timestamp 2026-11-19T15:06:11Z (captured before
+the first sub-push B render, per the working discipline; it serves the
+whole tranche).
+
+Narrative per unit:
+
+- Unit 88, compiler-sys1.c::patrn (PatrnSys1.kt): the compiler-side
+  pattern matcher over the bd scratch staged by patrn1. The parse loop
+  keeps the vendor 1-based bd walk with the paired-quote 210 coded
+  byte rewrite (the bd in-place mutation, H-007); the strlen(&bd[1])
+  loop bound is hoisted once with a ledger note (the vendor re-
+  evaluates per iteration but the loop cannot change the length).
+  The definite arm does one match call; the indefinite arm runs the
+  retry/retry1/recount odometer (H-011 first-landing flag, recount
+  ladder, k>lad tail as the retry continue) until a hit or exhaustion,
+  writing ierr1. iptr is assigned then never read (H-013 dead local,
+  ledgered not declared). substr calls carry the &bd[1] pointer shift
+  the CharArray seat cannot express - the shift is noted at the seat
+  contract (H-014 pointer-shift note). cannon is the direct call to
+  the landed u84 render; atoi reuses Find.kt; the five-argument
+  match call rides the NEW Stubs seat naming compiler-sys1.c::match
+  (batch-7 unit).
+- Unit 92, interp-parse.cpp::patrn (PatrnInterp.kt): the interpreter
+  twin of 88, reading svPtr.bd (Msv carrier, stateVector.h:42) and
+  passing it as the sixth argument of the six-argument match twin.
+  Same-name overload-arity resolution per H-015 (the patrn1 26/30
+  precedent): patrn(ad) owns the sys1 unit, patrn(ad, svPtr) this
+  one. Quirk kept and ledgered: the vendor loop bound is
+  strlen(&svPtr->bd[0]) - offset ZERO, unlike the &bd[1] of the sys1
+  twin - the parse walks the NUL tail byte; kept verbatim.
+- Unit 89, globalClass.h::<misc> (GlobalClassMisc.kt): declaration-
+  only ledger of the class header (June 5, 2022 banner, 2003/2015
+  copyright residue, GLOBAL_CLASS_H guard) - the roster kept by
+  family per the H-015 aggregate rule (the operator ()/=/ +=/<<
+  families alone run past a hundred per-type overloads). Landed DOC
+  owners named per row: Concat (u65 GlobalConcat, the mstring member
+  of seven), Fnumber (u72 GlobalFnumber, one-arg member of two), Max
+  (u68, the Stubs.globalMax seat names the class member), TermCorrel
+  (unit-14 keyed seats), MakeGlobal (Stubs.makeGlobal), DocCorrelate
+  default arg names the u85 Cosine render; Pattern and the remaining
+  declarations stay ledger rows (non-corpus).
+- Unit 90, interp-arith.cpp::<misc> (InterpArithMisc.kt): the leading
+  residue of the arithmetic library (June 16, 2025 arith.c-style
+  banner, GPL 2003-2025 O'Kane ledger, includes, intLong/NO/YES
+  defines, void sigint(int) prototype) up to the first function body
+  (Mltoa at vendor line 83 - the chunker cut). The GCVT arm ledger
+  resolves per H-018 (GCVT DEFINED, BIGFLOAT and MULTI_PRECISION
+  UNDEFINED in the reference build): the live gcvt_wrapper(x, a) =
+  gcvt(x, 8, a) shape is the Stubs.gcvtWrapper seat the tranche-1
+  mps renders already name. Post-cut owner ledger: Mltoa (u10
+  delegate), mps_sqrt (u67), mps_atan (u71), floatstring (Stubs seat,
+  interp-arith.cpp:597).
+- Unit 91, compiler-new.c::new_code (NewCode.kt): the three-arm NEW
+  compiler (no-argument form; push-locals-except paren list; push-
+  locals-inclusive default), emissions via CompilerState.emit (the
+  H-002/H-003 IfCode precedent; Sysout renders as emit). Quirk kept
+  and ledgered: SET is defined TWICE in compiler-macros.h (line 83
+  value 0, the entry-point table; line 91 value 115 = apostrophe-s,
+  the command table) - the preprocessor takes the LAST definition
+  without an undef, so every TU of this build passes SET = 115 to
+  set_code; the render passes that value and ledgers the first
+  define as dead. New CompilerState seats (H-004): exportflag
+  (compiler-globals-ext.h:126, def compiler-globals.h:125), ExecSym
+  (short[25]) and ExecX, retz, t0px, and vd (vendor vd[1024] carried
+  at STR_MAX with the sizing divergence ledgered at the carrier,
+  H-007). The exports: label is fall-through-only (H-013 dead label,
+  ledger). set_code rides the NEW Stubs seat (owner
+  compiler-set.c::set_code, batch-4 unit; snake name kept verbatim
+  per the sym_ H-017 precedent). The new2/new3 goto loops linearize
+  as H-011 while-true forms.
+- Carrier and seat edits: CompilerCarriers.kt gains the five unit-91
+  seats above; Stubs.kt gains the two same-name match seats (five-
+  and six-argument shapes, owners compiler-sys1.c::match and
+  interp-parse.cpp::match, both batch-7 units) and the set_code
+  seat; InterpParseMisc.kt prototype-roster note for patrn updated
+  (the declaration is now landed as the two-argument overload of
+  PatrnInterp.kt, no seat ever needed; the earlier not-yet-landed
+  seat claim was corrected, cosmetic, no runtime bytes touched).
+
+Gate: kotlinc 2.1.20, 0 errors / 0 warnings at close. Two red
+passes logged as data (the session discipline): the first full
+compilation failed on 14 errors - the patrn twins indexed the
+ShortArray stk table with Short values (Kotlin array indexing is
+Int-only; fixed by promoting stk to an IntArray with an H-010
+promotion note at both declarations) - and the second on one error,
+InterpArithMisc.kt declared its include ledger a const val List,
+which the Kotlin const rule forbids; it renders as a plain private
+val (no runtime shape change, residue ledger only). Scan-gate
+clean on all eight touched files after two KDoc de-escapes pre-gate
+(a stray backtick pair in the PatrnInterp bound note, and a
+mojibake byte caught in the InterpArithMisc banner line during
+authoring). Third pass: 0/0.
+
+Consult rows (sub-push B, tranche-wide timestamp):
+
+- DOC consult: unit compiler-sys1.c::patrn, entry H-006, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::patrn, entry H-007, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::patrn, entry H-010, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::patrn, entry H-011, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::patrn, entry H-013, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::patrn, entry H-014, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::patrn, entry H-015, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-sys1.c::patrn, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit include/mumpsc/globalClass.h::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit include/mumpsc/globalClass.h::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit include/mumpsc/globalClass.h::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit include/mumpsc/globalClass.h::<misc>, entry H-015, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit include/mumpsc/globalClass.h::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-arith.cpp::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-arith.cpp::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-arith.cpp::<misc>, entry H-018, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-new.c::new_code, entry H-002, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-new.c::new_code, entry H-004, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-new.c::new_code, entry H-007, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-new.c::new_code, entry H-011, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-new.c::new_code, entry H-013, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-new.c::new_code, entry H-014, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit compiler-new.c::new_code, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::patrn, entry H-006, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::patrn, entry H-007, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::patrn, entry H-011, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::patrn, entry H-013, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::patrn, entry H-014, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::patrn, entry H-015, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::patrn, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+- DOC consult: unit interp-parse.cpp::patrn, entry H-010, outcome hit-adapt, timestamp 2026-11-19T15:06:11Z

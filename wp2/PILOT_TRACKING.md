@@ -119,9 +119,9 @@ pilot. Checks use the same status vocabulary as the arm columns.
 | 85 | libmpscpp.cpp::Cosine | cpp | complex | todo | translated | todo | todo | todo | todo |
 | 86 | interp-bmgsubs.c::bmg_fsearch | c | complex | todo | translated | todo | todo | todo | todo |
 | 87 | compiler-sys1.c::errmod_ | c | complex | todo | translated | todo | todo | todo | todo |
-| 88 | compiler-sys1.c::patrn | c | complex | todo | todo | todo | todo | todo | todo |
-| 89 | include/mumpsc/globalClass.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
-| 90 | interp-arith.cpp::<misc> | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 91 | compiler-new.c::new_code | c | complex | todo | todo | todo | todo | todo | todo |
-| 92 | interp-parse.cpp::patrn | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 88 | compiler-sys1.c::patrn | c | complex | todo | translated | todo | todo | todo | todo |
+| 89 | include/mumpsc/globalClass.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
+| 90 | interp-arith.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 91 | compiler-new.c::new_code | c | complex | todo | translated | todo | todo | todo | todo |
+| 92 | interp-parse.cpp::patrn | cpp | complex | todo | translated | todo | todo | todo | todo |
 | 93 | interp-parse.cpp::parse_ | cpp | complex | todo | todo | todo | todo | todo | todo |

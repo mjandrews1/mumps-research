@@ -413,6 +413,40 @@ object Stubs {
     fun patrn1(jpx: ShortArray, ernbr: ShortArray, svPtr: Msv): Unit =
         doc.patrn1(jpx, ernbr, svPtr)
 
+    // TODO stub: unit 88 (compiler-sys1.c::patrn) and unit 92
+    // (interp-parse.cpp::patrn) definite/indefinite matcher seats.
+    // void match(short pts[3][20], short lx, short ct[], unsigned
+    // char *ad, short *rslt) - owner compiler-sys1.c::match, a
+    // batch-7 unit; H-014 pointer-shift note: the patrn call sites
+    // pass substr(&bd[1], ...) whose pointer shift cannot ride the
+    // CharArray contract - the substr seat names it; the pts
+    // short[3][20] renders as Array<ShortArray> (row 0 unused,
+    // vendor indexing); ShortArray ct carries the count/ct2 tables;
+    // the short* rslt out-param is the H-006 ShortArray(1) holder.
+    fun match(pts: Array<ShortArray>, lx: Int, ct: ShortArray,
+              ad: CharArray, rslt: ShortArray): Unit =
+        throw NotImplementedError("match: out-of-scope owner (compiler-sys1.c::match) batch-7 unit")
+
+    // Same-name twin (H-015 overload-arity rule):
+    // void match(short pts[][20], short lx, short ct[], unsigned
+    // char *ad, short *rslt, unsigned char bd[]) - owner
+    // interp-parse.cpp::match, batch-7 unit; the sixth argument
+    // hands the matcher the interpreter bd scratch
+    // (patrn(ad, svPtr) passes svPtr.bd, PatrnInterp.kt).
+    fun match(pts: Array<ShortArray>, lx: Int, ct: ShortArray,
+              ad: CharArray, rslt: ShortArray, bd: CharArray): Unit =
+        throw NotImplementedError("match: out-of-scope owner (interp-parse.cpp::match) batch-7 unit")
+
+    // int set_code(int entry_pt); owner compiler-set.c::set_code, a
+    // batch-4 unit (compiler-macros.h:31 prototype). Passenger of
+    // the unit-91 render (NewCode.kt): passed the SET set
+    // entry-point token (the last of the two compiler-macros.h SET
+    // defines - see the unit-91 quirk ledger) and returns the
+    // PARSE_ERROR..ABRTX cascade verbatim. H-017: the C-ABI snake
+    // name is kept verbatim (sym_ naming precedent).
+    fun set_code(entry_pt: Int): Int =
+        throw NotImplementedError("set_code: out-of-scope owner (compiler-set.c::set_code) batch-4 unit")
+
     // ------------------------------------------------------------------
     // unit 14 (libmpscpp.cpp::global::TermCorrelate) keyed seats:
     // the subscripted class-global operator family is not in the

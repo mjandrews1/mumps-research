@@ -97,6 +97,28 @@ object CompilerState {
     // compiler-globals-ext.h extern unsigned char bd[] (the pattern
     // argument scratch, appended at offset 1 by patrn1).
     val bd = CharArray(STR_MAX)
+    // compiler-globals-ext.h:126 extern short exportflag (def
+    // compiler-globals.h:125; unit 91 seat;
+    // set by the SET pass, read by the NEW mark-copy emission).
+    var exportflag: Int = 0
+    // compiler-globals-ext.h:130 extern short ExecSym[25] (the
+    // per-level Exec mark table of the command compilers; unit 91
+    // seat, H-010 promotion note: short array rides ShortArray).
+    val ExecSym = ShortArray(25)
+    // compiler-globals-ext.h:131 extern short ExecX (the Exec level
+    // index paired with ExecSym; unit 91 seat, H-010 Int).
+    var ExecX: Int = 0
+    // compiler-globals-ext.h:169 extern short retz (the set entry-point
+    // command token staged for the SET call; unit 91 seat, H-010 Int).
+    var retz: Int = 0
+    // compiler-globals-ext.h:39 extern short t0px (the set-call tail
+    // flag; unit 91 seat, H-010 Int).
+    var t0px: Int = 0
+    // compiler-globals-ext.h:170 extern unsigned char vd[1024] (the
+    // set-code variable-name buffer; H-007 sizing: carried at STR_MAX
+    // like bd/v1d, the vendor 1024 carries only fixed-name loads -
+    // divergence ledgered here, unit 91 seat).
+    val vd = CharArray(STR_MAX)
     // compiler output_file name carrier (the abrtx name surgery
     // drop-last-2 + suffix append renders over the String content).
     var output_file: String = ""

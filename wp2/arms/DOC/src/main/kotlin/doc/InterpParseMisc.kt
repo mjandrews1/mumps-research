@@ -60,5 +60,7 @@ var ierr1: Int = 0
 //   makeLock, cleanLocks - landed LockMisc renders (batch-2 units)
 //   static patrn1 - landed unit 30 (Patrn1Interp, Stubs delegate)
 //   void patrn(unsigned char *, struct MSV *) - unit 92 of THIS
-//     batch, not yet landed: the seat below (H-014, converts on
-//     landing per the Extract2 precedent)
+//     batch: LANDED as the two-argument fun patrn(ad, svPtr) of
+//     PatrnInterp.kt (sub-push B; declaration only here, no seat
+//     ever needed - the sys1 twin patrn(ad) is PatrnSys1.kt, the
+//     two same-name units resolve by overload arity at call sites)
