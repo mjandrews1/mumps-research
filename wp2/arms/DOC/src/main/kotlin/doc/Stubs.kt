@@ -315,12 +315,14 @@ object Stubs {
 
     // void ErrorMessage(const char *, long); owner
     // interp-parse.cpp::ErrorMessage (not a roster unit).
+    // ErrorMessage delegation: owned by interp-sysfunc.cpp
+    // (batch-1 unit 25 misc residue, landed in tranche 4).
     fun ErrorMessage(msg: String, ln: Long): Unit =
-        throw NotImplementedError("ErrorMessage: out-of-scope owner (interp error reporter)")
+        errorMessage(msg, ln)
 
     // char * sym_(int, unsigned char *, unsigned char *, MSV *);
     // owner is the interp symbol-table routing interface.
-    fun sym_(opcode: Int, name: CharArray, rslt: CharArray, sv: Msv): CharArray =
+    fun sym_(opcode: Int, name: CharArray, rslt: CharArray, sv: Msv): CharArray? =
         throw NotImplementedError("sym_: out-of-scope owner (interp symbol routing)")
 
     // int xindex(const unsigned char *, const unsigned char *,
@@ -337,11 +339,10 @@ object Stubs {
     fun TimeOut_getstr1(a: Int, b: CharArray, c: CharArray, d: Int): Int =
         throw NotImplementedError("TimeOut_getstr1: out-of-scope owner (interp timeout reader)")
 
-    // int DirectRead(int, unsigned char *); TODO stub - owner is
-    // batch-1 unit 24 (interp-sysfunc.cpp::DirectRead); the seat
-    // converts to a delegate when the unit lands.
+    // DirectRead delegation: owned by interp-sysfunc.cpp::DirectRead
+    // (batch-1 unit 24, landed in tranche 4).
     fun DirectRead(a: Int, b: CharArray): Int =
-        throw NotImplementedError("DirectRead: out-of-scope owner (interp-sysfunc.cpp::DirectRead) batch-1 unit 24")
+        directRead(a, b)
 
     // int _SymFree(int, MSV *); TODO stub - owner is batch-1 unit
     // 28 (interp-sym.cpp::_SymFree); seat converts to a delegate
@@ -382,5 +383,10 @@ object Stubs {
     // roster unit).
     fun globalSetKeyed(g: GlobalRef, v: String, vararg keys: String): Unit =
         throw NotImplementedError("global keyed assignment: out-of-scope owner (libmpscpp.cpp subscripted operator= family)")
+
+    // TODO stub: unpad owned by interp-sysfunc.cpp::unpad (batch-10
+    // unit, below tonight's stratum; fullUnpad call site).
+    fun unpad(a: CharArray, sv: Msv): Unit =
+        throw NotImplementedError("unpad: out-of-scope owner (interp-sysfunc.cpp::unpad) batch-10 unit")
 
 }

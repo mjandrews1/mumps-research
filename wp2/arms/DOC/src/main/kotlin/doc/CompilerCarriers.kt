@@ -84,6 +84,12 @@ object CompilerState {
     var ExitCode: Int = 0
     var ExecName: String = ""
     var pid: Int = 0
+    // compiler-globals-ext.h extern unsigned char v1d[] (the vendor
+    // extern scanned by LocalArray; global-array parsing buffer).
+    val v1d = CharArray(STR_MAX)
+    // compiler-globals-ext.h extern unsigned char bd[] (the pattern
+    // argument scratch, appended at offset 1 by patrn1).
+    val bd = CharArray(STR_MAX)
     // compiler output_file name carrier (the abrtx name surgery
     // drop-last-2 + suffix append renders over the String content).
     var output_file: String = ""

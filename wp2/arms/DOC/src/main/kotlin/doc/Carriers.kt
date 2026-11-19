@@ -22,6 +22,8 @@ const val RETRIEVE = 0
 const val STORE = 1
 const val GKILL = 3
 const val XNEXT = 8
+// include/mumpsc/defines.h:85 define NEXT (Mglobal code)
+const val NEXT = 2
 const val GLOBAL_NOT_FOUND = 2
 // libmpscpp.h:73 error code 4
 const val DATA_RANGE_ERROR = 4
@@ -65,6 +67,10 @@ class Msv {
     var LineNumber: Long = 0
     // stateVector.h:95 char ErrChar
     var ErrChar: Char = NUL
+    // stateVector.h:52 int symflg (symbol store/kill routing)
+    var symflg: Int = 0
+    // stateVector.h:77 int order (the order walk direction)
+    var order: Int = 0
 }
 
 // File-scope externs of libmpscpp.h:62 (GlobalExceptionCode) :210
@@ -194,6 +200,20 @@ object CstringOps {
             i++
         }
         dst[offset + i] = NUL
+    }
+
+    // strcat(&dst[offset], src) CharArray form (vendors patrn1
+    // append of the tmp1/cod210 carriers).
+    fun catAt(dst: CharArray, offset: Int, src: CharArray) {
+        var i = offset
+        while (i < dst.size && dst[i] != NUL) i++
+        var j = 0
+        while (j < src.size && src[j] != NUL && i < dst.size) {
+            dst[i] = src[j]
+            i++
+            j++
+        }
+        if (i < dst.size) dst[i] = NUL
     }
 
     // strncmp(&buf[offset], s, n): compare a NUL-terminated literal

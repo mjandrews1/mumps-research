@@ -1059,3 +1059,92 @@ Consult rows for B1 units 11-20 (timestamped before the renders):
 Local gate 0 errors / 0 warnings (kotlinc 2.1.20, corretto
 17.0.21.1); pre-push scan clean across the 17 touched files
 (10 tranche-3 unit files, 3 carrier files, 4 tranche-2 files).
+
+### DOC B1 tranche 4 (units 21-26), 2026-11-19
+
+Narrative per unit (timestamp 2026-11-19T01:58:51Z recorded before
+the renders; full instrument):
+
+- **u21 compiler-localarray.c::LocalArray (LocalArray.kt)**: LHS
+  local-array expander; goto has_array linearized (H-011); the
+  compiler extern v1d added to CompilerState; Set_flg is the
+  ShortArray(1) out-param seat (H-006); index seats route through
+  the real unit-15 Extract2; H-013: the vendor's unused local tmp
+  ledger dropped with the note; the k = vd[j] NUL-capture quirk and
+  the i = j-1 rewind kept verbatim.
+- **u22 interp-bstring.cpp::<misc> (BstringMisc.kt)**: Lockner
+  banner + bstrcat/banner ledger (its definition is below the
+  chunker cut, kept banner-only, no corpus call site); struct
+  bstring renders as the Bstring carrier class; checked_strlen's
+  i <= STR_MAX one-past walk kept in shape with the bounds guard
+  (H-007 note) and the dummy return kept; bcatchr's length ==
+  STR_MAX terminator-beyond-carrier write guarded with the
+  divergence note; sigint is the H-014 stub.
+- **u23 libmpscpp.cpp::Input (Input.kt)**: word reader; sym_ stub;
+  static tmp/scount holders (H-006); the static-return divergence
+  documented; inline.h:46 strcatx rendered as the shared internal
+  helper (H-003 note; the unit-25 seat reuses it); fgets renders as
+  the raw single-line reader (retained-newline divergence noted);
+  H-011 goto reread flag; the C ispunct domain rendered as byte
+  ranges (the backtick byte kept out of source text, scan-gate
+  note); the vendor double noword label quirk noted.
+- **u24 interp-sysfunc.cpp::DirectRead (DirectRead.kt)**: closes
+  the Stubs.DirectRead seat to the delegate; fstat/fileno have no
+  Reader-carrier analog - the H-001 divergences are ledgered
+  (terminal detect via the standard console; the FIFO arm falls to
+  the read path; the stty raw scouts run as OS subprocesses with
+  the vendor's argument orders); the vendor's inverted fstat==1
+  success test and the missing EOF test in the S_ISCHR arm are kept
+  verbatim in shape.
+- **u25 interp-sysfunc.cpp::<misc> (SysfuncMisc.kt)**: residue
+  ledger (LINEFEED define kept in the comment ledger after a
+  top-level const collision with the batch-2 carriers surfaced at
+  the gate - H-015); eight small bodies live (VariableNotFound,
+  VariableNotFound1, ErrorMessage closing the Stubs.ErrorMessage
+  seat to a delegate, LocalData, LocalOrder, LocalNext, GlobalNext,
+  LocalGet, GlobalGet, fullUnpad); sym_ returns the vendor NULL as
+  the Kotlin nullable carrier (seat type amended); strtok renders
+  as the manual in-order split with the stateful-tokenizer note;
+  unpad is a batch-10 unit carried as an H-014 stub; NEXT const
+  added to Carriers (defines.h:85).
+- **u26 compiler-sys1.c::patrn1 (Patrn1Sys1.kt)**: pattern-argument
+  parser; the a1285/a1283/a1281 goto web linearized as the outer
+  loop + string-walk break + the a1281 tail (H-011); the compiler
+  bd extern added to CompilerState (appends ride the new
+  CstringOps.catAt CharArray seat); the parser separator set kept
+  byte-verbatim; the paired-quote 210 coded byte and the m paren
+  nesting kept; H-015: the distinct same-named unit
+  interp-parse.cpp::patrn1 (unit 30) will resolve by overload
+  arity; xpx store widened per H-010.
+
+Consult rows for B1 units 21-26 (timestamped before the renders):
+
+- DOC consult: unit compiler-localarray.c::LocalArray, entry H-001, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit compiler-localarray.c::LocalArray, entry H-006, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit compiler-localarray.c::LocalArray, entry H-011, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit compiler-localarray.c::LocalArray, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-bstring.cpp::<misc>, entry H-001, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-bstring.cpp::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-bstring.cpp::<misc>, entry H-007, outcome hit-adapt, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-bstring.cpp::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit libmpscpp.cpp::Input, entry H-001, outcome hit-adapt, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit libmpscpp.cpp::Input, entry H-003, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit libmpscpp.cpp::Input, entry H-006, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit libmpscpp.cpp::Input, entry H-011, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-sysfunc.cpp::DirectRead, entry H-001, outcome hit-adapt, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-sysfunc.cpp::DirectRead, entry H-007, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-sysfunc.cpp::DirectRead, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-sysfunc.cpp::<misc>, entry H-001, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-sysfunc.cpp::<misc>, entry H-003, outcome hit-adapt, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-sysfunc.cpp::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit interp-sysfunc.cpp::<misc>, entry H-015, outcome hit-adapt, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit compiler-sys1.c::patrn1, entry H-006, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit compiler-sys1.c::patrn1, entry H-010, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit compiler-sys1.c::patrn1, entry H-011, outcome hit-adapt, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit compiler-sys1.c::patrn1, entry H-014, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+- DOC consult: unit compiler-sys1.c::patrn1, entry H-015, outcome hit-reuse, timestamp 2026-11-19T01:58:51Z
+
+Local gate 0 errors / 0 warnings (kotlinc 2.1.20, corretto
+17.0.21.1) after two fixes (a duplicated concatenation operator in
+LocalArray, the LINEFEED top-level collision in SysfuncMisc);
+pre-push scan clean after the ispunct backtick re-code.
