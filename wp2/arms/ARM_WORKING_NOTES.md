@@ -1819,3 +1819,19 @@ check columns stay todo per the C-001 cycle-10 backfill decision
 reference translation). PILOT_TRACKING's DOC column is already
 "translated" for rows 63-93; the "DOC B3 closed" prose line lands with
 the gate result.
+
+## DAF arm (opening, 2026-11-19)
+
+- Toolchain installed on m1-build: Dafny
+  4.11.0+fcb2042d6d043a2634f0854338c08feeaaaf4ae2 (self-contained
+  linux-x64, Z3 bundled; ~/dafny-4.11.0, symlinked ~/bin/dafny).
+  dafny --version gated by Mark at arm open.
+- Scaffolding committed (198b7aa): wp2/arms/DAF Gradle project
+  (kotlin 2.1.20, JVM 17, mirrors DOC), arm README (workflow +
+  toolchain anchor), spec/ dir conventions, smoke_test.dfy.
+- Gradle gate and smoke test: results appended after the run.
+- B1 opens at unit 1 (compiler-copyright-notice.c::<misc>) in the
+  fixed order; ad-hoc heuristic workflow per section 3 (BASE-log
+  consult rows logged here per unit); pure-logic spec candidates per
+  the section-3 heuristic: u15 Extract2, u17 gotamatch, u20 numcomp;
+  exemptions (pointer/IO-heavy units) journaled per unit.
