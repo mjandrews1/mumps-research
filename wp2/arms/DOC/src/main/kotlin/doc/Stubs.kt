@@ -368,10 +368,11 @@ object Stubs {
     // of the vendor signature). The stub seat is removed; no in-arm
     // call site binds it today.
 
-    // void GlobalQuery(unsigned char *, unsigned char *, char,
-    // MSV *); not a roster unit.
-    fun GlobalQuery(a: CharArray, b: CharArray, ch: Char, sv: Msv): Unit =
-        throw NotImplementedError("GlobalQuery: out-of-scope owner (interp query walker)")
+    // GlobalQuery RESOLVED: the seat's "not a roster unit" tag was
+    // a mis-tag (TAG CORRECTION) - interp-sym.cpp::GlobalQuery IS the
+    // batch-4 unit 119 (GlobalQuery.kt). The stub seat is removed;
+    // no in-arm call site binds it today (the query family binds
+    // through the Qsub/Qlength seats).
 
     // void Qsub(unsigned char *, unsigned char *, unsigned char
     // *, MSV *); not a roster unit.
@@ -465,8 +466,11 @@ object Stubs {
     // defines - see the unit-91 quirk ledger) and returns the
     // PARSE_ERROR..ABRTX cascade verbatim. H-017: the C-ABI snake
     // name is kept verbatim (sym_ naming precedent).
+    // LANDS as batch-4 unit 121 (SetCode.kt, same tranche): the
+    // seat converts to the delegate per the H-014 Extract2
+    // precedent; the lock_code/IfCode call sites bind unchanged.
     fun set_code(entry_pt: Int): Int =
-        throw NotImplementedError("set_code: out-of-scope owner (compiler-set.c::set_code) batch-4 unit")
+        throw NotImplementedError("set_code: out-of-scope owner (compiler-set.c::set_code) batch-4 unit (in-tranche, converts to delegate at the u121 landing)")
 
     // ------------------------------------------------------------------
     // unit 14 (libmpscpp.cpp::global::TermCorrelate) keyed seats:
@@ -633,4 +637,21 @@ object Stubs {
     // same owner family; not a roster unit.
     fun setGlobalDoubleKeyed(g: GlobalRef, v: Double, vararg keys: String): Unit =
         throw NotImplementedError("global keyed double assignment: out-of-scope owner (libmpscpp.cpp subscripted operator family)")
+    // ------------------------------------------------------------------
+    // unit 117 (compiler-doty.c::doty) H-014 seat
+
+    // int LevCheck(short ExecName, short DoRetX, short DoRet[]);
+    // owner compiler-mumps.c:1949 (the body's file); not a roster
+    // unit.
+    fun LevCheck(ExecName: Short, DoRetX: Short, DoRet: ShortArray): Int =
+        throw NotImplementedError("LevCheck: out-of-scope owner (compiler-mumps.c:1949)")
+
+    // ------------------------------------------------------------------
+    // unit 119 (interp-sym.cpp::GlobalQuery) H-014 seat
+
+    // struct MSV * AllocSV(void); owner
+    // interp-sysfunc.cpp::AllocSV - CORRECTLY TAGGED batch-8 roster
+    // row 219 (the state-vector push of the query walkers).
+    fun AllocSV(): Msv =
+        throw NotImplementedError("AllocSV: out-of-scope owner (interp-sysfunc.cpp::AllocSV) batch-8 unit")
 }

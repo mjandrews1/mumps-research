@@ -122,6 +122,13 @@ object CompilerState {
     // compiler output_file name carrier (the abrtx name surgery
     // drop-last-2 + suffix append renders over the String content).
     var output_file: String = ""
+    // compiler-globals.h:136 extern short LockFlag (set by the
+    // LOCK command compiler; unit-116 lock_code seat, H-010 Int).
+    var LockFlag: Int = 0
+    // compiler-globals.h:170 extern unsigned char dirflg (the
+    // directive direction flag; unit-116 lock_code seat, Char
+    // render of the byte domain)
+    var dirflg: Char = NUL
 }
 
 // sysparms.h:74-75 live PS/PS1 sizes (the memsize.h 4096 twins are the

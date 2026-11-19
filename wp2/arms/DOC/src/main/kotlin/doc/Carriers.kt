@@ -103,6 +103,12 @@ class Msv {
     var t2: Int = 0
     // stateVector.h:69 int ERROR (last interpretation error code)
     var ERROR: Int = 0
+    // stateVector.h:59 int symlen (the ZLOAD read bound; readf_
+    // unit-115 seat, EDIT-ONLY addition by that unit)
+    var symlen: Int = 0
+    // stateVector.h:96 char CurrentFile[512] (name of current
+    // file - see readf_; String render, unit-115 seat)
+    var CurrentFile: String = ""
 }
 
 // libmpscpp.h:75 define INPUT_ERROR 6 (bounded-read error code; the
