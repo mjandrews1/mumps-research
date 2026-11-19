@@ -135,3 +135,52 @@ rows -> 638 event rows (the B3 delta over the B1-close export is exactly
 | 91 | compiler-new.c::new_code | c | complex | todo | translated | todo | todo | todo | todo |
 | 92 | interp-parse.cpp::patrn | cpp | complex | todo | translated | todo | todo | todo | todo |
 | 93 | interp-parse.cpp::parse_ | cpp | complex | todo | translated | todo | todo | todo | todo |
+
+## Batch 4 (units 94-123, opened 2026-11-19; DOC follows the closed B3 in the committed row order, no inversion to log)
+
+**DOC B4 closed 2026-11-19**: 30/30 translated in tranches T1-T3. Coverage
+checklist in the arm journal: 147 consults, 127 hit-reuse / 20 hit-adapt /
+0 miss; 100.0% hit, 86.4% reuse; cookbook stays H-001..H-018 (no capture
+candidate under T1/T2/T3). Gradle gate on m1-build BUILD SUCCESSFUL
+(build only; the detekt rig is PRO-only). Events CSV regenerated under
+the C-008 export key: 467 consult rows -> 932 event rows (the B4 delta
+over the B3-close export is exactly 147 reuse+hit pairs). Close-sequence
+line repair recorded in the arm journal: the 146 bare-unit-number B4
+consult rows rewritten in place to the registered roster-id grammar
+(with the tranche timestamps each fragment already declared; one missing
+u119 H-018 row restored). Check columns track the BASE reference
+translation (C-002) and stay todo per the C-001 cycle-10 backfill
+decision.
+
+| # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
+| 94 | compiler-globalarray.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+| 95 | compiler-new.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+| 96 | interp-stem.cpp::escan | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 97 | libmpscpp.cpp::mstring::Fnumber | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 98 | libmpscpp.cpp::Count | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 99 | libmpscpp.cpp::Min | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 100 | libmpscpp.cpp::Transpose | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 101 | server.cpp::<misc> | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 102 | rdbms-if.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+| 103 | interp-arith.cpp::mps_asin | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 104 | libmpscpp.cpp::ScanAlnum | cpp | core | todo | translated | todo | todo | todo | todo |
+| 105 | interp-sysfunc.cpp::LocalName | cpp | core | todo | translated | todo | todo | todo | todo |
+| 106 | interp-native-btree.cpp::pb | cpp | core | todo | translated | todo | todo | todo | todo |
+| 107 | include/mumpsc/sysfunc.h::<misc> | c | core | todo | translated | todo | todo | todo | todo |
+| 108 | libmpscpp.cpp::init | cpp | core | todo | translated | todo | todo | todo | todo |
+| 109 | compiler-at-test.c::atTest | c | core | todo | translated | todo | todo | todo | todo |
+| 110 | interp-bifs.cpp::<misc> | cpp | core | todo | translated | todo | todo | todo | todo |
+| 111 | interp-fnumber.cpp::_fnumber | cpp | core | todo | translated | todo | todo | todo | todo |
+| 112 | libmpscpp.cpp::global::Centroid | cpp | core | todo | translated | todo | todo | todo | todo |
+| 113 | interp-rpm.cpp::parse_pattern_element | cpp | core | todo | translated | todo | todo | todo | todo |
+| 114 | interp-piece.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 115 | interp-parse.cpp::readf_ | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 116 | compiler-lock.c::lock_code | c | complex | todo | translated | todo | todo | todo | todo |
+| 117 | compiler-doty.c::doty | c | complex | todo | translated | todo | todo | todo | todo |
+| 118 | include/pcre.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
+| 119 | interp-sym.cpp::GlobalQuery | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 120 | libmpscpp.cpp::<misc-9> | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 121 | compiler-set.c::set_code | c | complex | todo | translated | todo | todo | todo | todo |
+| 122 | compiler-for.c::for_code | c | complex | todo | translated | todo | todo | todo | todo |
+| 123 | interp-fcn.cpp::fcn | cpp | complex | todo | translated | todo | todo | todo | todo |
