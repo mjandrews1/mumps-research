@@ -1885,51 +1885,51 @@ Units (batch_plan ascending order):
   library path).
 
 Consult rows (timestamp 2026-11-19T19:30:34Z, tranche-wide):
-- DOC consult: unit 94, entry H-004, outcome hit-reuse
-- DOC consult: unit 94, entry H-013, outcome hit-reuse
-- DOC consult: unit 94, entry H-014, outcome hit-reuse
-- DOC consult: unit 94, entry H-017, outcome hit-reuse
-- DOC consult: unit 95, entry H-004, outcome hit-reuse
-- DOC consult: unit 95, entry H-013, outcome hit-reuse
-- DOC consult: unit 95, entry H-014, outcome hit-reuse
-- DOC consult: unit 95, entry H-017, outcome hit-reuse
-- DOC consult: unit 96, entry H-007, outcome hit-adapt
-- DOC consult: unit 96, entry H-012, outcome hit-reuse
-- DOC consult: unit 96, entry H-014, outcome hit-reuse
-- DOC consult: unit 96, entry H-017, outcome hit-reuse
-- DOC consult: unit 97, entry H-012, outcome hit-reuse
-- DOC consult: unit 97, entry H-015, outcome hit-reuse
-- DOC consult: unit 97, entry H-017, outcome hit-reuse
-- DOC consult: unit 97, entry H-014, outcome hit-adapt
-- DOC consult: unit 98, entry H-008, outcome hit-reuse
-- DOC consult: unit 98, entry H-009, outcome hit-reuse
-- DOC consult: unit 98, entry H-013, outcome hit-reuse
-- DOC consult: unit 98, entry H-014, outcome hit-reuse
-- DOC consult: unit 98, entry H-017, outcome hit-reuse
-- DOC consult: unit 99, entry H-008, outcome hit-reuse
-- DOC consult: unit 99, entry H-009, outcome hit-reuse
-- DOC consult: unit 99, entry H-013, outcome hit-reuse
-- DOC consult: unit 99, entry H-017, outcome hit-reuse
-- DOC consult: unit 100, entry H-007, outcome hit-reuse
-- DOC consult: unit 100, entry H-013, outcome hit-reuse
-- DOC consult: unit 100, entry H-014, outcome hit-reuse
-- DOC consult: unit 100, entry H-017, outcome hit-reuse
-- DOC consult: unit 101, entry H-004, outcome hit-reuse
-- DOC consult: unit 101, entry H-008, outcome hit-reuse
-- DOC consult: unit 101, entry H-009, outcome hit-adapt
-- DOC consult: unit 101, entry H-013, outcome hit-reuse
-- DOC consult: unit 101, entry H-014, outcome hit-reuse
-- DOC consult: unit 101, entry H-017, outcome hit-reuse
-- DOC consult: unit 102, entry H-004, outcome hit-reuse
-- DOC consult: unit 102, entry H-013, outcome hit-reuse
-- DOC consult: unit 102, entry H-014, outcome hit-reuse
-- DOC consult: unit 102, entry H-017, outcome hit-reuse
-- DOC consult: unit 102, entry H-018, outcome hit-reuse
-- DOC consult: unit 103, entry H-009, outcome hit-reuse
-- DOC consult: unit 103, entry H-010, outcome hit-reuse
-- DOC consult: unit 103, entry H-014, outcome hit-reuse
-- DOC consult: unit 103, entry H-017, outcome hit-reuse
-- DOC consult: unit 103, entry H-018, outcome hit-reuse
+- DOC consult: unit compiler-globalarray.c::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit compiler-globalarray.c::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit compiler-globalarray.c::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit compiler-globalarray.c::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit compiler-new.c::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit compiler-new.c::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit compiler-new.c::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit compiler-new.c::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit interp-stem.cpp::escan, entry H-007, outcome hit-adapt, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit interp-stem.cpp::escan, entry H-012, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit interp-stem.cpp::escan, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit interp-stem.cpp::escan, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::mstring::Fnumber, entry H-012, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::mstring::Fnumber, entry H-015, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::mstring::Fnumber, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::mstring::Fnumber, entry H-014, outcome hit-adapt, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Count, entry H-008, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Count, entry H-009, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Count, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Count, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Count, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Min, entry H-008, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Min, entry H-009, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Min, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Min, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Transpose, entry H-007, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Transpose, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Transpose, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit libmpscpp.cpp::Transpose, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit server.cpp::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit server.cpp::<misc>, entry H-008, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit server.cpp::<misc>, entry H-009, outcome hit-adapt, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit server.cpp::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit server.cpp::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit server.cpp::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit rdbms-if.c::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit rdbms-if.c::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit rdbms-if.c::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit rdbms-if.c::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit rdbms-if.c::<misc>, entry H-018, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit interp-arith.cpp::mps_asin, entry H-009, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit interp-arith.cpp::mps_asin, entry H-010, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit interp-arith.cpp::mps_asin, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit interp-arith.cpp::mps_asin, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
+- DOC consult: unit interp-arith.cpp::mps_asin, entry H-018, outcome hit-reuse, timestamp 2026-11-19T19:30:34Z
 
 Tranche totals: 45 consults, 42 hit-reuse, 3 hit-adapt
 (u96 H-007, u97 H-014, u101 H-009), 0 miss. Hit rate 100.0%,
@@ -1999,52 +1999,52 @@ Units (batch_plan ascending order):
   quantized to clamp 0 (H-007).
 
 Consult rows (timestamp 2026-11-19T19:44:21Z, tranche-wide):
-- DOC consult: unit 104, entry H-001, outcome hit-reuse
-- DOC consult: unit 104, entry H-008, outcome hit-reuse
-- DOC consult: unit 104, entry H-011, outcome hit-reuse
-- DOC consult: unit 104, entry H-012, outcome hit-reuse
-- DOC consult: unit 104, entry H-017, outcome hit-reuse
-- DOC consult: unit 105, entry H-008, outcome hit-reuse
-- DOC consult: unit 105, entry H-012, outcome hit-reuse
-- DOC consult: unit 105, entry H-014, outcome hit-reuse
-- DOC consult: unit 105, entry H-017, outcome hit-reuse
-- DOC consult: unit 106, entry H-001, outcome hit-reuse
-- DOC consult: unit 106, entry H-012, outcome hit-reuse
-- DOC consult: unit 106, entry H-013, outcome hit-reuse
-- DOC consult: unit 106, entry H-017, outcome hit-reuse
-- DOC consult: unit 107, entry H-004, outcome hit-reuse
-- DOC consult: unit 107, entry H-013, outcome hit-reuse
-- DOC consult: unit 107, entry H-014, outcome hit-reuse
-- DOC consult: unit 107, entry H-017, outcome hit-reuse
-- DOC consult: unit 107, entry H-018, outcome hit-adapt
-- DOC consult: unit 108, entry H-001, outcome hit-reuse
-- DOC consult: unit 108, entry H-004, outcome hit-reuse
-- DOC consult: unit 108, entry H-013, outcome hit-reuse
-- DOC consult: unit 108, entry H-014, outcome hit-adapt
-- DOC consult: unit 108, entry H-017, outcome hit-reuse
-- DOC consult: unit 109, entry H-001, outcome hit-reuse
-- DOC consult: unit 109, entry H-006, outcome hit-reuse
-- DOC consult: unit 109, entry H-012, outcome hit-reuse
-- DOC consult: unit 109, entry H-014, outcome hit-adapt
-- DOC consult: unit 109, entry H-017, outcome hit-reuse
-- DOC consult: unit 110, entry H-004, outcome hit-reuse
-- DOC consult: unit 110, entry H-013, outcome hit-reuse
-- DOC consult: unit 110, entry H-014, outcome hit-reuse
-- DOC consult: unit 110, entry H-017, outcome hit-reuse
-- DOC consult: unit 110, entry H-018, outcome hit-reuse
-- DOC consult: unit 111, entry H-012, outcome hit-reuse
-- DOC consult: unit 111, entry H-014, outcome hit-reuse
-- DOC consult: unit 111, entry H-015, outcome hit-reuse
-- DOC consult: unit 111, entry H-017, outcome hit-reuse
-- DOC consult: unit 112, entry H-004, outcome hit-reuse
-- DOC consult: unit 112, entry H-013, outcome hit-reuse
-- DOC consult: unit 112, entry H-014, outcome hit-adapt
-- DOC consult: unit 112, entry H-017, outcome hit-reuse
-- DOC consult: unit 113, entry H-004, outcome hit-adapt
-- DOC consult: unit 113, entry H-007, outcome hit-reuse
-- DOC consult: unit 113, entry H-013, outcome hit-reuse
-- DOC consult: unit 113, entry H-014, outcome hit-adapt
-- DOC consult: unit 113, entry H-017, outcome hit-reuse
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-001, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-008, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-011, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-012, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-sysfunc.cpp::LocalName, entry H-008, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-sysfunc.cpp::LocalName, entry H-012, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-sysfunc.cpp::LocalName, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-sysfunc.cpp::LocalName, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-native-btree.cpp::pb, entry H-001, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-native-btree.cpp::pb, entry H-012, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-native-btree.cpp::pb, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-native-btree.cpp::pb, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit include/mumpsc/sysfunc.h::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit include/mumpsc/sysfunc.h::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit include/mumpsc/sysfunc.h::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit include/mumpsc/sysfunc.h::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit include/mumpsc/sysfunc.h::<misc>, entry H-018, outcome hit-adapt, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::init, entry H-001, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::init, entry H-004, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::init, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::init, entry H-014, outcome hit-adapt, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::init, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit compiler-at-test.c::atTest, entry H-001, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit compiler-at-test.c::atTest, entry H-006, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit compiler-at-test.c::atTest, entry H-012, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit compiler-at-test.c::atTest, entry H-014, outcome hit-adapt, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit compiler-at-test.c::atTest, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-bifs.cpp::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-bifs.cpp::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-bifs.cpp::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-bifs.cpp::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-bifs.cpp::<misc>, entry H-018, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-fnumber.cpp::_fnumber, entry H-012, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-fnumber.cpp::_fnumber, entry H-014, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-fnumber.cpp::_fnumber, entry H-015, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-fnumber.cpp::_fnumber, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::global::Centroid, entry H-004, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::global::Centroid, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::global::Centroid, entry H-014, outcome hit-adapt, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit libmpscpp.cpp::global::Centroid, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-rpm.cpp::parse_pattern_element, entry H-004, outcome hit-adapt, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-rpm.cpp::parse_pattern_element, entry H-007, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-rpm.cpp::parse_pattern_element, entry H-013, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-rpm.cpp::parse_pattern_element, entry H-014, outcome hit-adapt, timestamp 2026-11-19T19:44:21Z
+- DOC consult: unit interp-rpm.cpp::parse_pattern_element, entry H-017, outcome hit-reuse, timestamp 2026-11-19T19:44:21Z
 
 Tranche totals: 46 consults, 40 hit-reuse, 6 hit-adapt
 (u107 H-018, u108 H-014, u109 H-014, u112 H-014, u113 H-004
@@ -2185,61 +2185,62 @@ GlobalQuery/LockCode/LockMisc/Parse_/PieceMisc). None affect
 compilation or the emitted-byte gates; whole-arm kotlinc 0/0.
 
 Consult rows (timestamp 2026-11-19T20:53:08Z, tranche-wide):
-- DOC consult: unit 114, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 114, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 114, entry H-015, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 114, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 114, entry H-018, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 115, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 115, entry H-004, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 115, entry H-012, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 115, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 115, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 115, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 116, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 117, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 117, entry H-004, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 117, entry H-006, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 117, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 117, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 117, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 118, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 118, entry H-018, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 119, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 119, entry H-004, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 119, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 119, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 119, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 119, entry H-015, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 119, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 120, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 120, entry H-009, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 120, entry H-012, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 120, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 120, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 120, entry H-015, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 120, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 121, entry H-003, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 121, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 121, entry H-009, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 121, entry H-012, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 121, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 121, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 121, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 122, entry H-010, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 122, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 122, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 122, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 123, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 123, entry H-009, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 123, entry H-010, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 123, entry H-011, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 123, entry H-012, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 123, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 123, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 123, entry H-015, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 123, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
-- DOC consult: unit 123, entry H-018, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-piece.cpp::<misc>, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-piece.cpp::<misc>, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-piece.cpp::<misc>, entry H-015, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-piece.cpp::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-piece.cpp::<misc>, entry H-018, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-parse.cpp::readf_, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-parse.cpp::readf_, entry H-004, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-parse.cpp::readf_, entry H-012, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-parse.cpp::readf_, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-parse.cpp::readf_, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-parse.cpp::readf_, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-lock.c::lock_code, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-doty.c::doty, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-doty.c::doty, entry H-004, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-doty.c::doty, entry H-006, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-doty.c::doty, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-doty.c::doty, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-doty.c::doty, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit include/pcre.h::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit include/pcre.h::<misc>, entry H-018, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-sym.cpp::GlobalQuery, entry H-001, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-sym.cpp::GlobalQuery, entry H-004, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-sym.cpp::GlobalQuery, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-sym.cpp::GlobalQuery, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-sym.cpp::GlobalQuery, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-sym.cpp::GlobalQuery, entry H-015, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-sym.cpp::GlobalQuery, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-sym.cpp::GlobalQuery, entry H-018, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit libmpscpp.cpp::<misc-9>, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit libmpscpp.cpp::<misc-9>, entry H-009, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit libmpscpp.cpp::<misc-9>, entry H-012, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit libmpscpp.cpp::<misc-9>, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit libmpscpp.cpp::<misc-9>, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit libmpscpp.cpp::<misc-9>, entry H-015, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit libmpscpp.cpp::<misc-9>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-set.c::set_code, entry H-003, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-set.c::set_code, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-set.c::set_code, entry H-009, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-set.c::set_code, entry H-012, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-set.c::set_code, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-set.c::set_code, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-set.c::set_code, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-for.c::for_code, entry H-010, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-for.c::for_code, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-for.c::for_code, entry H-014, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit compiler-for.c::for_code, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-fcn.cpp::fcn, entry H-008, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-fcn.cpp::fcn, entry H-009, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-fcn.cpp::fcn, entry H-010, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-fcn.cpp::fcn, entry H-011, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-fcn.cpp::fcn, entry H-012, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-fcn.cpp::fcn, entry H-013, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-fcn.cpp::fcn, entry H-014, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-fcn.cpp::fcn, entry H-015, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-fcn.cpp::fcn, entry H-017, outcome hit-reuse, timestamp 2026-11-19T20:53:08Z
+- DOC consult: unit interp-fcn.cpp::fcn, entry H-018, outcome hit-adapt, timestamp 2026-11-19T20:53:08Z
 
 Tranche totals: 56 consults, 45 hit-reuse, 11 hit-adapt
 (u114 H-018, u115 H-012, u117 H-014, u118 H-018, u119 H-014
@@ -2251,3 +2252,43 @@ operator residue, set_code, for_code, fcn. With tranche 3
 landed, all 30 Batch 4 units (94-123) are rendered and gated;
 batch 4 is closed pending the tracking-table and events
 exports.
+
+### DOC B4 close (batch 4), 2026-11-19
+
+Batch 4 (units 94-123) CLOSED: 30/30 translated in tranches T1
+(units 94-103), T2 (units 104-113) and T3 (units 114-123, sub-
+pushes 0d18bfd / 8717ba0 / 266ce6d). Gradle gate on m1-build
+BUILD SUCCESSFUL at each sub-push and at the master close
+rebuild; whole-arm kotlinc 2.1.20 gate 0 errors / 0 warnings
+throughout (125 files). Coverage checklist totals: 147
+consults, 127 hit-reuse / 20 hit-adapt / 0 miss; 100.0% hit,
+86.4% reuse; cookbook stays H-001..H-018 (no capture candidate
+under T1/T2/T3). Per tranche: T1 45 consults (3 adapt), T2 46
+consults (6 adapt), T3 56 consults (11 adapt).
+
+LINE REPAIR (typo discipline, recorded per the B3 4b040e7
+precedent): the B4 consult rows had been logged with bare
+batch-unit numbers (e.g. "unit 94") instead of the registered
+roster-id grammar of wp2/analysis/README.md (C-005), and the
+91 T1/T2 rows omitted the per-row timestamp field. All 146
+such rows are rewritten in place to the roster id plus the
+tranche-wide timestamp already declared by each fragment
+(T1 2026-11-19T19:30:34Z, T2 2026-11-19T19:44:21Z, T3
+2026-11-19T20:53:08Z); entries, outcomes and row order are
+unchanged. Additionally the T3 fragment's totals counted a
+u119 H-018 hit-adapt consult that was not among its written
+rows; the missing row is restored in position. No other
+recorded value is touched. The repaired journal parses clean
+under the export grammar: 467 consult rows, 0 malformed, 0
+unknown unit ids, 0 duplicate keys.
+
+Events regenerated per the C-005 mapping: the new
+DOC_knowledge_events.csv is a pure append over the B3-close
+export (639 -> 933 lines; 467 consult rows -> 932 event rows;
+the B4 delta is exactly 147 reuse+hit pairs). The export ran
+via a line-for-line reproduction of export_doc_events.R in the
+translation sandbox (no R binary available there and package
+installs are forbidden), with every validation of the script
+applied and green; the R source remains the committed
+instrument and the run is idempotent against the repaired
+journal.
