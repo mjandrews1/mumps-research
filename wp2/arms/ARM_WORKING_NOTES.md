@@ -1736,8 +1736,8 @@ Consult rows (sub-push C, tranche-wide timestamp):
 Manual coverage checklist per the DOC batch-close discipline (section
 1: for each canonical construct in the batch, did at least one entry
 match?). Units 63-93 were translated 2026-11-19 in three tranches
-(T1 63-72; T2 73-82; T3 83-93 with sub-pushes A 88-92 order per tranche
-journal, B, C). Kotlinc 2.1.20 gate 0 errors / 0 warnings at every
+(T1 63-72; T2 73-82; T3 83-93 with sub-pushes A/B/C). Kotlinc 2.1.20 gate 0
+errors / 0 warnings at every
 tranche close after logged red passes (T2: one red pass, the LINEFEED
 const collision plus a val reassignment; T3: three red passes on the
 unit-93 parse_ render, OPERAND_93 table-name collision et al., all
