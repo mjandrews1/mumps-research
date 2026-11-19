@@ -1730,3 +1730,92 @@ Consult rows (sub-push C, tranche-wide timestamp):
 - DOC consult: unit interp-parse.cpp::parse_, entry H-015, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
 - DOC consult: unit interp-parse.cpp::parse_, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
 - DOC consult: unit interp-parse.cpp::parse_, entry H-018, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
+
+### DOC B3 close — coverage checklist (units 63-93), 2026-11-19
+
+Manual coverage checklist per the DOC batch-close discipline (section
+1: for each canonical construct in the batch, did at least one entry
+match?). Units 63-93 were translated 2026-11-19 in three tranches
+(T1 63-72; T2 73-82; T3 83-93 with sub-pushes A 88-92 order per tranche
+journal, B, C). Kotlinc 2.1.20 gate 0 errors / 0 warnings at every
+tranche close after logged red passes (T2: one red pass, the LINEFEED
+const collision plus a val reassignment; T3: three red passes on the
+unit-93 parse_ render, OPERAND_93 table-name collision et al., all
+logged as data). Red-build count for the batch: 4 passes, all green at
+close. Gradle gate on m1-build pending at this writing; events export
+regeneration via export_doc_events.R follows the gate per the C-008
+key.
+
+Entry-by-entry coverage across the 31 B3 unit journals (140 consults;
+none consulted an entry without applying it):
+
+- FILE star to Reader/Writer (H-001): matched in 4 B3 unit journal(s), 2 reuse / 2 adapt
+- H-002: matched in 1 B3 unit journal(s), 1 reuse
+- include-within-function table carrier (H-004): matched in 4 B3 unit journal(s), 3 reuse / 1 adapt
+- output-shape holder carrier (H-006): matched in 4 B3 unit journal(s), 4 reuse
+- string walk idiom (H-007): matched in 12 B3 unit journal(s), 10 reuse / 2 adapt
+- one-owner object seat (H-008): matched in 4 B3 unit journal(s), 4 reuse
+- sprintf/printf locale contract (H-009): matched in 5 B3 unit journal(s), 4 reuse / 1 adapt
+- numeric promotions/domains (H-010): matched in 6 B3 unit journal(s), 4 reuse / 2 adapt
+- goto linearization (H-011): matched in 5 B3 unit journal(s), 4 reuse / 1 adapt
+- H-012: matched in 6 B3 unit journal(s), 6 reuse
+- dead code/comment fossils (H-013): matched in 19 B3 unit journal(s), 19 reuse
+- out-of-scope stub seats (H-014): matched in 26 B3 unit journal(s), 22 reuse / 4 adapt
+- grammar collisions/byte-domain literals (H-015): matched in 10 B3 unit journal(s), 8 reuse / 2 adapt
+- camelCase naming (H-017): matched in 25 B3 unit journal(s), 25 reuse
+- preprocessor_conditional (H-018): matched in 9 B3 unit journal(s), 9 reuse
+
+H-003, H-005 and H-016 found no triggering situation in B3 (no consult
+row; state recorded so entry-for-entry parity with PRO's rule base is
+unaffected; no revision needed).
+
+Consult outcome totals for the batch: 125 hit-reuse, 15 hit-adapt,
+0 miss (140 consults, one per (unit, entry) per C-005/C-008). Hit rate
+140/140 = 100.0% (every consult matched an entry); reuse rate 125/140 =
+89.3% (adaptation, not failure, accounts for the remainder). No miss
+rows: the B3 canon was fully covered by cookbook v0 as it stood at
+batch open, so no capture candidate exists under T1/T2/T3; cookbook v0
+stays at H-001..H-018 and remains entry-for-entry parallel with PRO's
+rules_v0.pl (h001..h018).
+
+Per-unit consult coverage (unit -> entries consulted, B3 order):
+
+- compiler-epi.c::<misc>: H-013, H-014, H-018
+- compiler-read.c::<misc>: H-013, H-014, H-018
+- libmpscpp.cpp::global::Concat: H-012, H-013, H-014, H-017
+- libmpscpp.cpp::mdh_tree_level_add: H-014, H-015, H-017
+- interp-arith.cpp::mps_sqrt: H-009, H-010, H-014, H-015, H-017, H-018
+- libmpscpp.cpp::Max: H-008, H-009, H-013, H-014, H-017
+- libmpscpp.cpp::GlobalOrder: H-008, H-013, H-014, H-015, H-017
+- libmpscpp.cpp::GlobalData: H-013, H-014, H-015, H-017
+- interp-arith.cpp::mps_atan: H-009, H-010, H-014, H-017, H-018
+- libmpscpp.cpp::global::Fnumber: H-012, H-014, H-015, H-017
+- interp-arith.cpp::mps_justify: H-009, H-010, H-017, H-018
+- libmpscpp.cpp::Cost: H-012, H-013, H-014, H-017
+- libmpscpp.cpp::Scan: H-001, H-008, H-013
+- include/mumpsc/cppsysfunc.h::<misc>: H-013, H-014, H-017
+- libmpscpp.cpp::ScanAlnum: H-008, H-011, H-012, H-013, H-017
+- compiler-sys1.c::readf_: H-001, H-007, H-017, H-018
+- libmpscpp.cpp::mstring::Eval: H-007, H-013, H-014, H-017
+- compiler-parse.c::ExpandQS: H-001, H-007, H-012, H-014, H-017
+- interp-parse.cpp::<misc>: H-004, H-014, H-017, H-018
+- libmpscpp.cpp::RunMumps: H-007, H-014, H-017
+- interp-zfcns.cpp::GtkTreeAdd: H-006, H-013, H-014, H-017
+- compiler-sys1.c::cannon: H-007, H-014, H-017
+- libmpscpp.cpp::Cosine: H-007, H-010, H-013, H-014, H-017
+- interp-bmgsubs.c::bmg_fsearch: H-004, H-007, H-012, H-014
+- compiler-sys1.c::errmod_: H-001, H-007, H-009, H-015
+- compiler-sys1.c::patrn: H-006, H-007, H-010, H-011, H-013, H-014, H-015, H-017
+- include/mumpsc/globalClass.h::<misc>: H-004, H-013, H-014, H-015, H-017
+- interp-arith.cpp::<misc>: H-013, H-014, H-018
+- compiler-new.c::new_code: H-002, H-004, H-007, H-011, H-013, H-014, H-017
+- interp-parse.cpp::patrn: H-006, H-007, H-010, H-011, H-013, H-014, H-015, H-017
+- interp-parse.cpp::parse_: H-006, H-007, H-011, H-013, H-014, H-015, H-017, H-018
+
+Close decisions: none beyond the registered instruments - zero misses
+mean no capture candidate exists under T1/T2/T3, and the per-unit
+check columns stay todo per the C-001 cycle-10 backfill decision
+(C-002 discipline; the batch-3 table's check columns track the BASE
+reference translation). PILOT_TRACKING's DOC column is already
+"translated" for rows 63-93; the "DOC B3 closed" prose line lands with
+the gate result.
