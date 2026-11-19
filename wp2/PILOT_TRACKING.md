@@ -22,12 +22,12 @@ pilot. Checks use the same status vocabulary as the arm columns.
 
 | # | unit_id | lang | stratum | BASE | DOC | PRO | DAF | BOTH | code-check | output-check | runtime-check | target-check |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | compiler-copyright-notice.c::<misc> | c | simple | graded-ok | todo | translated | todo | todo | todo | todo | todo | todo |
-| 2 | compiler-if.c::<misc> | c | simple | graded-ok | todo | translated | todo | todo | todo | todo | todo | todo |
-| 3 | compiler-open.c::<misc> | c | simple | graded-ok | todo | translated | todo | todo | todo | todo | todo | todo |
-| 4 | interp-native-btree.cpp::btree | cpp | simple | graded-ok | todo | translated | todo | todo | todo | todo | todo | todo |
-| 5 | libmpscpp.cpp::EncodeHTML | cpp | simple | graded-ok | todo | translated | todo | todo | todo | todo | todo | todo |
-| 6 | interp-sym.cpp::_find | cpp | simple | graded-ok | todo | translated | todo | todo | todo | todo | todo | todo |
+| 1 | compiler-copyright-notice.c::<misc> | c | simple | graded-ok | translated | translated | todo | todo | todo | todo | todo | todo |
+| 2 | compiler-if.c::<misc> | c | simple | graded-ok | translated | translated | todo | todo | todo | todo | todo | todo |
+| 3 | compiler-open.c::<misc> | c | simple | graded-ok | translated | translated | todo | todo | todo | todo | todo | todo |
+| 4 | interp-native-btree.cpp::btree | cpp | simple | graded-ok | translated | translated | todo | todo | todo | todo | todo | todo |
+| 5 | libmpscpp.cpp::EncodeHTML | cpp | simple | graded-ok | translated | translated | todo | todo | todo | todo | todo | todo |
+| 6 | interp-sym.cpp::_find | cpp | simple | graded-ok | translated | translated | todo | todo | todo | todo | todo | todo |
 | 7 | compiler-parse.c::fixstr | c | simple | graded-ok | todo | translated | todo | todo | todo | todo | todo | todo |
 | 8 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | graded-ok | todo | translated | todo | todo | todo | todo | todo | todo |
 | 9 | include/mumpsc/libmpsrdbms.h::<misc> | c | simple | graded-ok | todo | translated | todo | todo | todo | todo | todo | todo |
