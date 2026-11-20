@@ -285,3 +285,15 @@ DOC B6 tranche 2 (units 165-175, the core stratum) translated 2026-11-21: eleven
 | 173 | compiler-parse.c::ExpandOrder | c | core | todo | translated | todo | todo | todo | todo |
 | 174 | interp-arith.cpp::modulo | cpp | core | todo | translated | todo | todo | todo | todo |
 | 175 | libmpscpp.cpp::Dice | cpp | core | todo | translated | todo | todo | todo | todo |
+
+DOC B6 tranche 3 (units 176-182, the complex stratum minus the big three) translated 2026-11-21: seven units pushed, whole-arm kotlinc gate 0/0 at 178 files; gradle gate on m1-build pending at tranche close. Rows follow the pre-registered batch_plan.md order. The tranche resolves the remaining raised H-014 seats (Stubs.shred, the 6-arg Stubs.match) and lands the generated-benchmark main (mpstime), the server transaction main, and the read/write compiler pair. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
+
+| # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
+| 176 | libmpscpp.cpp::Shred | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 177 | interp-stem.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 178 | compiler-write.c::write_code | c | complex | todo | translated | todo | todo | todo | todo |
+| 179 | server.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 180 | interp-parse.cpp::match | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 181 | compiler-read.c::read_code | c | complex | todo | translated | todo | todo | todo | todo |
+| 182 | mpstime.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo |
