@@ -233,3 +233,20 @@ DOC B5 tranche 1 (units 124-133, the simple stratum) translated 2026-11-20: ten 
 | 152 | interp-rpm.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo |
 | 153 | rdbms-if.c::sql | c | complex | todo | translated | todo | todo | todo | todo |
 | 154 | libmpscpp.cpp::<misc-5> | cpp | complex | todo | translated | todo | todo | todo | todo
+
+**DOC B5 closed 2026-11-20**: 31/31 translated in tranches T1-T3
+(simple/core/complex, batch_plan order). Coverage checklist in
+the arm journal: 129 consults, 109 hit-reuse / 20 hit-adapt /
+0 miss; 100.0% hit, 84.5% reuse (the complex stratum carries the
+heaviest adaptation load of the study so far: T3 75.5% reuse);
+cookbook stays H-001..H-018 (no capture candidate under
+T1/T2/T3). Gradle gate on m1-build BUILD SUCCESSFUL at every
+tranche (12s/15s/19s, all first-pull, zero fix rounds). Events
+CSV regenerated under the C-008 export key: 596 consult rows ->
+1190 event rows (the B5 delta over the B4-close export is
+exactly 129 reuse+hit pairs). The T3 journal-push truncation
+incident is repaired and ledgered in the arm journal (commits
+82651bd5 + 8197a54: fragment re-carry + restore from the
+pre-tranche blob). Check columns track the BASE reference
+translation (C-002) and stay todo per the C-001 cycle-10
+backfill decision. DOC B6 follows per the committed row order.
