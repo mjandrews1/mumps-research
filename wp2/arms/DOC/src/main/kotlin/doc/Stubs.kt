@@ -66,10 +66,16 @@ object Stubs {
     fun SymGet(name: CharArray): Mstring =
         SymGet(CstringOps.cstring(name))
 
-    // TODO stub: int Interpret(const char *, struct MSV *) declared
-    // libmpscpp.h:210-facing interp core; not a corpus unit.
+    // RESOLVED: int Interpret(const char *, struct MSV *) declared
+    // libmpscpp.h:210-facing interp core; TAG CORRECTION from the
+    // earlier "not a corpus unit" mis-tag: the owner IS a roster row
+    // (row 185, interp-interp.cpp::Interpret, physLOC 1581, rank
+    // 308), landed as the batch-6 big-three unit-185 render
+    // (Interpret.kt). The seat converts to the unit-185 delegate per
+    // the Mglobal precedent; the Fcn.kt, MumpsMainUnit150.kt,
+    // RunMumps.kt and SQLTable.kt call sites bind unchanged.
     fun Interpret(cmd: String, sv: Msv): Int =
-        throw NotImplementedError("Interpret: out-of-scope owner (interpreter core Interpret)")
+        doc.Interpret(cmd, sv)
 
     // RESOLVED: void fcn(MSV *) declared include/mumpsc/libmpscpp.h (fcn
     // dispatcher); owner landed as the batch-4 unit 123 render (Fcn.kt,
@@ -83,11 +89,19 @@ object Stubs {
     fun gcvtWrapper(a: Double, out: CharArray): Unit =
         throw NotImplementedError("gcvt_wrapper: out-of-scope owner (numSetup.h residue unit)")
 
-    // TODO stub: zfcn (unsigned char *, unsigned char *, MSV *) declared
-    // libmpscpp.h (zfcn interpreter dispatcher); owner is the interp zfcn
-    // corpus unit of a later batch; not a batch-2 unit.
+    // void zfcn(unsigned char *, unsigned char *, MSV *) declared
+    // libmpscpp.h (zfcn interpreter dispatcher); owner is unit 184
+    // (batch-6 big three, interp-zfcns.cpp::zfcn, physLOC 1662).
+    // TAG CORRECTION: the earlier note read "the interp zfcn
+    // corpus unit of a later batch"; the owning roster unit is
+    // 184, and the vendor Makefile reference build compiles
+    // interp-zfcns.o (NOT interp-bifs.o) into libmumps.a, so this
+    // unit owns the seat flip and the top-level fun zfcn name
+    // (H-017; the bifs twin renders as zfcnBifs, unit 183, the
+    // build-alternate TU). Delegate seat, the StopInit/Mglobal
+    // landing precedent:
     fun zfcn(tmp: CharArray, tmp2: CharArray, sv: Msv): Unit =
-        throw NotImplementedError("zfcn: out-of-scope owner (interp zfcn dispatcher)")
+        doc.zfcn(tmp, tmp2, sv)
 
     // TODO stub: void sigint(int) declared include/mumpsc/SYM.h:41;
     // owner is the interp SIGINT shutdown path; not a corpus unit.
@@ -419,6 +433,19 @@ object Stubs {
     fun sym_(opcode: Int, name: CharArray, rslt: CharArray, sv: Msv): CharArray? =
         throw NotImplementedError("sym_: out-of-scope owner (interp symbol routing)")
 
+    // void inout(char *, short, short, MSV *);
+    // owner interp-parse.cpp::inout at loc 38
+    // (batch-10 roster unit; the compiler-sys1.c::inout unit-59
+    // render is the DISTINCT landed twin of the same C body).
+    fun inout(text: CharArray, cmnd: Short, col: Short, sv: Msv): Unit =
+        throw NotImplementedError("inout: out-of-scope owner (interp-parse.cpp::inout) batch-10 roster unit")
+
+    // int Merge(unsigned char *, unsigned char *, MSV *);
+    // owner interp-sysfunc.cpp:650 Merge (batch-8 roster unit,
+    // loc 59 signature row).
+    fun Merge(a: CharArray, b: CharArray, sv: Msv): Int =
+        throw NotImplementedError("Merge: out-of-scope owner (interp-sysfunc.cpp::Merge) batch-8 roster unit")
+
     // int xindex(const unsigned char *, const unsigned char *,
     // short); not a roster unit.
     fun xindex(a: CharArray, b: CharArray, sh: Short): Int =
@@ -594,15 +621,18 @@ object Stubs {
 
     // TODO stub: BuildGlobal (batch-8 unit 150,
     // interp-parse.cpp:1836); rslt nullable because unit 93 passes
-    // NULL for the result pointer in one arm.
-    fun BuildGlobal(code: Int, g: Int, str: CharArray,
-            rslt: CharArray?, svPtr: Msv): Int =
+    // NULL for the result pointer in one arm; str/svPtr widened
+    // nullable (H-012) because the unit-185 Interpret stack-cleaner
+    // arm passes NULL str and NULL svPtr (Build (-1, 0, NULL,
+    // NULL, NULL) at the interp-interp.cpp MERGE cmd cleaner line).
+    fun BuildGlobal(code: Int, g: Int, str: CharArray?,
+            rslt: CharArray?, svPtr: Msv?): Int =
         throw NotImplementedError("BuildGlobal: out-of-scope owner (interp-parse.cpp::BuildGlobal) batch-8 unit")
 
     // TODO stub: BuildLocal (batch-8 unit 152, interp-sym.cpp:97),
-    // same shape as BuildGlobal.
-    fun BuildLocal(code: Int, g: Int, str: CharArray,
-            rslt: CharArray?, svPtr: Msv): Int =
+    // same shape as BuildGlobal, widened the same way (H-012).
+    fun BuildLocal(code: Int, g: Int, str: CharArray?,
+            rslt: CharArray?, svPtr: Msv?): Int =
         throw NotImplementedError("BuildLocal: out-of-scope owner (interp-sym.cpp::BuildLocal) batch-8 unit")
     // ------------------------------------------------------------------
     // unit 98 (B4 tranche 1): the class-global member Count over the
@@ -698,9 +728,10 @@ object Stubs {
     // struct MSV *); interp-side service entry declared by the
     // sym.h misc chunk of unit 144 - not a roster unit, no
     // in-arm call site today; seat raised per the unit-144
-    // ledger.
-    fun ServiceInterface(a: CharArray, b: CharArray, c: CharArray,
-            d: CharArray, e: CharArray, f: Char, sv: Msv): Unit =
+    // ledger. The c/d args are nullable (H-012): this TU's zcn callers
+    // pass NULL x3/x4 (the unit-183 ledger).
+    fun ServiceInterface(a: CharArray, b: CharArray, c: CharArray?,
+            d: CharArray?, e: CharArray, f: Char, sv: Msv): Unit =
         throw NotImplementedError("ServiceInterface: out-of-scope owner (interp service entry)")
 
     // ------------------------------------------------------------------
@@ -860,4 +891,134 @@ object Stubs {
     // format String and read the dst carrier back by the slice.
     fun strfmon(dst: CharArray, max: Int, format: String, x: Double): Int =
         throw NotImplementedError("strfmon: out-of-scope owner (POSIX monetary.h libc)")
+    // ------------------------------------------------------------------
+    // unit 183 (batch-6 big three) seat raises: the zcn GTK arms and
+    // the mps floor/ceil/trunc/log/cos/tan/exp2 arms of
+    // interp-bifs.cpp::zfcn. The GTK seats are owned by the GTK C
+    // library glue (NOT corpus units); the mps seats are owned by the
+    // batch-9/-10 interp-arith.cpp roster units (out of current
+    // batch scope). The same-family landed seats mpsLog2/ mpsLog10/
+    // mpsExp/ mpsExp10/ mpsAbs/ mpsSin/ mps_asin/ mps_acos/ mps_atan/
+    // mps_sqrt are the real unit renders and are called directly.
+    // ------------------------------------------------------------------
+
+    fun gtkDialogNewWithButtons(title: String, parent: String?, flags: Int,
+            buttons: kotlin.Array<kotlin.Pair<String, Int>>): String =
+        throw NotImplementedError("gtk_dialog_new_with_buttons: out-of-scope owner (GTK library glue)")
+
+    fun gtkWindowSetKeepAbove(w: String, b: Boolean): Unit =
+        throw NotImplementedError("gtk_window_set_keep_above: out-of-scope owner (GTK library glue)")
+
+    fun gtkDialogRun(d: String): Int =
+        throw NotImplementedError("gtk_dialog_run: out-of-scope owner (GTK library glue)")
+
+    fun gtkWidgetDestroy(w: String): Unit =
+        throw NotImplementedError("gtk_widget_destroy: out-of-scope owner (GTK library glue)")
+
+    fun gtkWidgetHide(w: String): Unit =
+        throw NotImplementedError("gtk_widget_hide: out-of-scope owner (GTK library glue)")
+
+    fun gtkWidgetShow(w: String): Unit =
+        throw NotImplementedError("gtk_widget_show: out-of-scope owner (GTK library glue)")
+
+    fun gtkSpinButtonGetValue(spin: String?): Double =
+        throw NotImplementedError("gtk_spin_button_get_value: out-of-scope owner (GTK library glue)")
+
+    fun gtkSpinButtonSetValue(spin: String?, v: Double): Unit =
+        throw NotImplementedError("gtk_spin_button_set_value: out-of-scope owner (GTK library glue)")
+
+    fun gtkTreeStoreClear(t: String?): Unit =
+        throw NotImplementedError("gtk_tree_store_clear: out-of-scope owner (GTK library glue)")
+
+    fun gtkTreeModelGet(m: String?, iter: IntArray, col: Int): String =
+        throw NotImplementedError("gtk_tree_model_get: out-of-scope owner (GTK library glue)")
+
+    fun gtkTreeSelectionGetSelected(s: String?, m: StrHolderZb,
+            iter: IntArray): Boolean =
+        throw NotImplementedError("gtk_tree_selection_get_selected: out-of-scope owner (GTK library glue)")
+
+    fun gtkTreeViewGetSelection(t: String?): String =
+        throw NotImplementedError("gtk_tree_view_get_selection: out-of-scope owner (GTK library glue)")
+
+    fun gtkLabelSetText(l: String, s: String): Unit =
+        throw NotImplementedError("gtk_label_set_text: out-of-scope owner (GTK library glue)")
+
+    fun gtkTextBufferSetText(b: String, s: String, n: Int): Unit =
+        throw NotImplementedError("gtk_text_buffer_set_text: out-of-scope owner (GTK library glue)")
+
+    fun gtkEntryGetText(e: String): String =
+        throw NotImplementedError("gtk_entry_get_text: out-of-scope owner (GTK library glue)")
+
+    fun gtkEntrySetText(e: String, s: String): Unit =
+        throw NotImplementedError("gtk_entry_set_text: out-of-scope owner (GTK library glue)")
+
+    fun gtkRangeGetAdjustment(e: String?): String =
+        throw NotImplementedError("gtk_range_get_adjustment: out-of-scope owner (GTK library glue)")
+
+    fun gtkAdjustmentGetValue(a: String?): Double =
+        throw NotImplementedError("gtk_adjustment_get_value: out-of-scope owner (GTK library glue)")
+
+    fun gtkFileChooserGetFilename(e: String?): String =
+        throw NotImplementedError("gtk_file_chooser_get_filename: out-of-scope owner (GTK library glue)")
+
+    fun gtkCalendarGetDate(e: String?, yr: IntArray, mn: IntArray,
+            dy: IntArray): Unit =
+        throw NotImplementedError("gtk_calendar_get_date: out-of-scope owner (GTK library glue)")
+
+    fun gtkFontChooserGetFont(e: String?): String =
+        throw NotImplementedError("gtk_font_chooser_get_font: out-of-scope owner (GTK library glue)")
+
+    fun gtkColorChooserGetRgba(c: String?, r: GdkRgbaZb): Unit =
+        throw NotImplementedError("gtk_color_chooser_get_rgba: out-of-scope owner (GTK library glue)")
+
+    fun gtkToggleButtonSetActive(t: String?, b: Boolean): Unit =
+        throw NotImplementedError("gtk_toggle_button_set_active: out-of-scope owner (GTK library glue)")
+
+    fun gtkToggleButtonGetActive(t: String?): Boolean =
+        throw NotImplementedError("gtk_toggle_button_get_active: out-of-scope owner (GTK library glue)")
+
+    fun gtkSwitchGetActive(t: String?): Boolean =
+        throw NotImplementedError("gtk_switch_get_active: out-of-scope owner (GTK library glue)")
+
+    fun mpsFloor(bd: CharArray, in_: String): Unit =
+        throw NotImplementedError("mps_floor: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+
+    fun mpsCeil(bd: CharArray, in_: String): Unit =
+        throw NotImplementedError("mps_ceil: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+
+    fun mpsTrunc(bd: CharArray, in_: String): Unit =
+        throw NotImplementedError("mps_trunc: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+
+    fun mpsLog(bd: CharArray, in_: String): Unit =
+        throw NotImplementedError("mps_log: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+
+    fun mpsCos(bd: CharArray, in_: String): Unit =
+        throw NotImplementedError("mps_cos: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+
+    fun mpsTan(bd: CharArray, in_: String): Unit =
+        throw NotImplementedError("mps_tan: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+
+    fun mpsExp2(bd: CharArray, in_: String): Unit =
+        throw NotImplementedError("mps_exp2: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+
+    // char *Replace(struct MSV *, const char *, const char *, const
+    // char *, const char *) declared builtin.h:40, API forward of
+    // the zReplace entry; NOT a corpus unit (builtin API seat owner,
+    // the Replace machinery of libmpscpp; raised per the unit-183
+    // zreplace-arm ledger).
+    fun Replace(sv: Msv, ep: String, arg1: String, arg2: String,
+            arg3: String): String =
+        throw NotImplementedError("Replace: out-of-scope owner (builtin.h:40 API entry, not a corpus unit)")
+}
+
+// vendor gchar* / GtkTreeModel* out-param holders for the unit-183
+// GTK seats (the C pointer out-arg holder idiom, H-006)
+class StrHolderZb(var value: String? = null)
+
+// vendor struct GdkRGBA (the gtk_color_chooser_get_rgba out-param)
+class GdkRgbaZb {
+    var red = 0.0
+    var green = 0.0
+    var blue = 0.0
+    var alpha = 0.0
 }

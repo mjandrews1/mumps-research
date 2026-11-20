@@ -3527,8 +3527,24 @@ linearization. Cookbook stays H-001..H-018: no new capture
 candidate (all tranche quirks resolve under H-004/H-011/
 H-012/H-013/H-014/H-015 bookkeeping).
 
-Batch 6 remainder: the big three (183 interp-bifs.cpp::zfcn, 184
-interp-zfcns.cpp::zfcn, 185 interp-interp.cpp::Interpret) stay
-deferred to a dedicated session per the PI decision; after that
-session the batch-close protocol (coverage checklist, events
-export, PILOT prose) follows.
+Batch 6 big-three session outcome (2026-11-21): all three giants
+rendered and whole-arm kotlinc gate 0/0 at 181 files (183
+interp-bifs.cpp::zfcn at physLOC 1622, 184 interp-zfcns.cpp::zfcn at
+1662, 185 interp-interp.cpp::Interpret at 1581, all dump-verified).
+Unit 183 renders as the build-alternate zfcnBifs (H-017: the Makefile
+compiles interp-zfcns.o, NOT interp-bifs.o). Unit 184 owns the
+top-level zfcn and the Stubs.zfcn seat flip with TAG CORRECTION.
+Unit 185 resolves the mis-tagged Stubs.Interpret seat to the
+unit-185 delegate, widens BuildGlobal/BuildLocal (H-012 all-null
+stack-cleaner arm), and raises the Stubs.inout (interp-parse.cpp:38,
+batch-10 roster unit; the compiler-sys1.c::inout unit-59 render is the
+DISTINCT landed twin) and Stubs.Merge (interp-sysfunc.cpp:650,
+batch-8 roster unit) seats. The batch-close protocol (coverage
+checklist, events export, PILOT prose) follows.
+
+DOC batch 6 big-three session (units 183-185) renders and
+consult ledger (each consult logged before applying):
+
+- DOC consult: unit 183, entry H-011, outcome hit-adapt, timestamp 2026-11-21T18:01:00Z
+- DOC consult: unit 184, entry H-011, outcome hit-reuse, timestamp 2026-11-21T18:02:00Z
+- DOC consult: unit 185, entry H-011, outcome hit-adapt, timestamp 2026-11-21T18:03:00Z

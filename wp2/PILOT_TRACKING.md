@@ -297,3 +297,20 @@ DOC B6 tranche 3 (units 176-182, the complex stratum minus the big three) transl
 | 180 | interp-parse.cpp::match | cpp | complex | todo | translated | todo | todo | todo | todo |
 | 181 | compiler-read.c::read_code | c | complex | todo | translated | todo | todo | todo | todo |
 | 182 | mpstime.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 183 | interp-bifs.cpp::zfcn | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 184 | interp-zfcns.cpp::zfcn | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 185 | interp-interp.cpp::Interpret | cpp | complex | todo | translated | todo | todo | todo | todo |
+
+DOC B6 big-three session (units 183-185) translated 2026-11-21: three
+units pushed, whole-arm kotlinc gate 0/0 at 181 files; gradle gate on
+m1-build pending at session close. Zfcns (unit 184) is the Makefile
+reference-build TU and owns the top-level zfcn plus the Stubs.zfcn
+seat flip; interp-bifs (unit 183) renders as the build-alternate
+zfcnBifs with the H-017 collision note (Makefile does NOT compile
+interp-bifs.o). Unit 185 resolves the mis-tagged Stubs.Interpret
+seat to the unit-185 delegate and widens the BuildGlobal/BuildLocal
+seats (the all-null stack-cleaner arm, H-012), plus new
+Stubs.inout/Stubs.Merge roster seats. Check columns track the BASE
+reference translation (C-002) and stay todo per the C-001 cycle-10
+backfill decision. After this session the batch-close protocol
+(coverage checklist, events export, PILOT prose) follows.
