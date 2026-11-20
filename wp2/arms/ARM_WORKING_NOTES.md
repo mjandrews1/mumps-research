@@ -3086,16 +3086,16 @@ form this batch, :3330 twin is batch-10).
 
 Renders and consult ledger (each consult logged before applying):
 
-- DOC consult: unit 155, entry H-004, outcome hit-reuse, timestamp 2026-11-20T19:05:00Z
-- DOC consult: unit 156, entry H-014, outcome hit-reuse, timestamp 2026-11-20T19:06:00Z
-- DOC consult: unit 157, entry H-012, outcome hit-adapt, timestamp 2026-11-20T19:07:00Z
-- DOC consult: unit 158, entry H-012, outcome hit-reuse, timestamp 2026-11-20T19:08:00Z
-- DOC consult: unit 159, entry H-014, outcome hit-reuse, timestamp 2026-11-20T19:09:00Z
-- DOC consult: unit 160, entry H-008, outcome hit-reuse, timestamp 2026-11-20T19:10:00Z
-- DOC consult: unit 161, entry H-001, outcome hit-adapt, timestamp 2026-11-20T19:11:00Z
-- DOC consult: unit 162, entry H-018, outcome hit-reuse, timestamp 2026-11-20T19:12:00Z
-- DOC consult: unit 163, entry H-018, outcome hit-reuse, timestamp 2026-11-20T19:13:00Z
-- DOC consult: unit 164, entry H-018, outcome hit-adapt, timestamp 2026-11-20T19:14:00Z
+- DOC consult: unit compiler-fcninit.c::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-20T19:05:00Z
+- DOC consult: unit libmpscpp.cpp::global::Find, entry H-014, outcome hit-reuse, timestamp 2026-11-20T19:06:00Z
+- DOC consult: unit interp-rpm.cpp::leaning_toothpickize, entry H-012, outcome hit-adapt, timestamp 2026-11-20T19:07:00Z
+- DOC consult: unit libmpscpp.cpp::SmithWaterman, entry H-012, outcome hit-reuse, timestamp 2026-11-20T19:08:00Z
+- DOC consult: unit libmpscpp.cpp::global::Length, entry H-014, outcome hit-reuse, timestamp 2026-11-20T19:09:00Z
+- DOC consult: unit libmpscpp.cpp::Sum, entry H-008, outcome hit-reuse, timestamp 2026-11-20T19:10:00Z
+- DOC consult: unit libmpscpp.cpp::ScanAlnum, entry H-001, outcome hit-adapt, timestamp 2026-11-20T19:11:00Z
+- DOC consult: unit interp-arith.cpp::mps_log2, entry H-018, outcome hit-reuse, timestamp 2026-11-20T19:12:00Z
+- DOC consult: unit interp-arith.cpp::mps_sin, entry H-018, outcome hit-reuse, timestamp 2026-11-20T19:13:00Z
+- DOC consult: unit include/mumpsc/memsize.h::<misc>, entry H-018, outcome hit-adapt, timestamp 2026-11-20T19:14:00Z
 
 Unit ledger notes:
 
@@ -3224,17 +3224,17 @@ score for every unit (165 34/11.6, 166 24/12.2, 167 17/12.3,
 
 Renders and consult ledger (each consult logged before applying):
 
-- DOC consult: unit 165, entry H-018, outcome hit-reuse, timestamp 2026-11-21T15:30:00Z
-- DOC consult: unit 166, entry H-001, outcome hit-adapt, timestamp 2026-11-21T15:31:00Z
-- DOC consult: unit 167, entry H-018, outcome hit-adapt, timestamp 2026-11-21T15:32:00Z
-- DOC consult: unit 168, entry H-012, outcome hit-reuse, timestamp 2026-11-21T15:33:00Z
-- DOC consult: unit 169, entry H-004, outcome hit-adapt, timestamp 2026-11-21T15:34:00Z
-- DOC consult: unit 170, entry H-001, outcome hit-adapt, timestamp 2026-11-21T15:35:00Z
-- DOC consult: unit 171, entry H-007, outcome hit-reuse, timestamp 2026-11-21T15:36:00Z
-- DOC consult: unit 172, entry H-004, outcome hit-reuse, timestamp 2026-11-21T15:37:00Z
-- DOC consult: unit 173, entry H-001, outcome hit-reuse, timestamp 2026-11-21T15:38:00Z
-- DOC consult: unit 174, entry H-018, outcome hit-adapt, timestamp 2026-11-21T15:39:00Z
-- DOC consult: unit 175, entry H-007, outcome hit-reuse, timestamp 2026-11-21T15:40:00Z
+- DOC consult: unit interp-arith.cpp::mps_abs, entry H-018, outcome hit-reuse, timestamp 2026-11-21T15:30:00Z
+- DOC consult: unit libmpscpp.cpp::StopInit, entry H-001, outcome hit-adapt, timestamp 2026-11-21T15:31:00Z
+- DOC consult: unit interp-globalb.cpp::Mglobal, entry H-018, outcome hit-adapt, timestamp 2026-11-21T15:32:00Z
+- DOC consult: unit interp-sym.cpp::_extract, entry H-012, outcome hit-reuse, timestamp 2026-11-21T15:33:00Z
+- DOC consult: unit include/mumpsc/interp.h::<misc>, entry H-004, outcome hit-adapt, timestamp 2026-11-21T15:34:00Z
+- DOC consult: unit interp-sysfunc.cpp::TimeOut_getstr1, entry H-001, outcome hit-adapt, timestamp 2026-11-21T15:35:00Z
+- DOC consult: unit libmpscpp.cpp::global::Max, entry H-007, outcome hit-reuse, timestamp 2026-11-21T15:36:00Z
+- DOC consult: unit include/mumpsc/stateVector.h::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-21T15:37:00Z
+- DOC consult: unit compiler-parse.c::ExpandOrder, entry H-001, outcome hit-reuse, timestamp 2026-11-21T15:38:00Z
+- DOC consult: unit interp-arith.cpp::modulo, entry H-018, outcome hit-adapt, timestamp 2026-11-21T15:39:00Z
+- DOC consult: unit libmpscpp.cpp::Dice, entry H-007, outcome hit-reuse, timestamp 2026-11-21T15:40:00Z
 
 Unit ledger notes:
 
@@ -3388,13 +3388,13 @@ pristine vendor source (loc match batch_plan: 176 40, 177 345,
 
 Renders and consult ledger (each consult logged before applying):
 
-- DOC consult: unit 176, entry H-008, outcome hit-reuse, timestamp 2026-11-21T17:00:00Z
-- DOC consult: unit 177, entry H-004, outcome hit-reuse, timestamp 2026-11-21T17:01:00Z
-- DOC consult: unit 178, entry H-011, outcome hit-adapt, timestamp 2026-11-21T17:02:00Z
-- DOC consult: unit 179, entry H-014, outcome hit-adapt, timestamp 2026-11-21T17:03:00Z
-- DOC consult: unit 180, entry H-015, outcome hit-adapt, timestamp 2026-11-21T17:04:00Z
-- DOC consult: unit 181, entry H-015, outcome hit-reuse, timestamp 2026-11-21T17:05:00Z
-- DOC consult: unit 182, entry H-013, outcome hit-reuse, timestamp 2026-11-21T17:06:00Z
+- DOC consult: unit libmpscpp.cpp::Shred, entry H-008, outcome hit-reuse, timestamp 2026-11-21T17:00:00Z
+- DOC consult: unit interp-stem.cpp::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-21T17:01:00Z
+- DOC consult: unit compiler-write.c::write_code, entry H-011, outcome hit-adapt, timestamp 2026-11-21T17:02:00Z
+- DOC consult: unit server.cpp::main, entry H-014, outcome hit-adapt, timestamp 2026-11-21T17:03:00Z
+- DOC consult: unit interp-parse.cpp::match, entry H-015, outcome hit-adapt, timestamp 2026-11-21T17:04:00Z
+- DOC consult: unit compiler-read.c::read_code, entry H-015, outcome hit-reuse, timestamp 2026-11-21T17:05:00Z
+- DOC consult: unit mpstime.cpp::main, entry H-013, outcome hit-reuse, timestamp 2026-11-21T17:06:00Z
 
 Unit ledger notes:
 
@@ -3545,9 +3545,10 @@ checklist, events export, PILOT prose) follows.
 DOC batch 6 big-three session (units 183-185) renders and
 consult ledger (each consult logged before applying):
 
-- DOC consult: unit 183, entry H-011, outcome hit-adapt, timestamp 2026-11-21T18:01:00Z
-- DOC consult: unit 184, entry H-011, outcome hit-reuse, timestamp 2026-11-21T18:02:00Z
-- DOC consult: unit 185, entry H-011, outcome hit-adapt, timestamp 2026-11-21T18:03:00Z
+- DOC consult: unit interp-bifs.cpp::zfcn, entry H-011, outcome hit-adapt, timestamp 2026-11-21T18:01:00Z
+- DOC consult: unit interp-zfcns.cpp::zfcn, entry H-011, outcome hit-reuse, timestamp 2026-11-21T18:02:00Z
+- DOC consult: unit interp-interp.cpp::Interpret, entry H-011, outcome hit-adapt, timestamp 2026-11-21T18:03:00Z
+
 # DOC B6 big-three journal fragment, 2026-11-21
 
 Units 183-185 of the DOC batch-6 complex stratum, per the dedicated
@@ -3555,9 +3556,9 @@ session PI decision recorded in PILOT_TRACKING.md.
 
 ## Consult ledger (logged before applying)
 
-- DOC consult: unit 183, entry H-011, outcome hit-adapt, timestamp 2026-11-21T18:01:00Z
-- DOC consult: unit 184, entry H-011, outcome hit-reuse, timestamp 2026-11-21T18:02:00Z
-- DOC consult: unit 185, entry H-011, outcome hit-adapt, timestamp 2026-11-21T18:03:00Z
+(dup-rows removed at splice repair: the consult rows live in the
+session ledger above; C-005/C-008 one-consult rule, identical triple
+repeats are duplicates)
 
 ## Unit 183 interp-bifs.cpp::zfcn (physLOC 1622, dump-verified)
 
@@ -3644,3 +3645,137 @@ session PI decision recorded in PILOT_TRACKING.md.
 - wp2/arms/ARM_WORKING_NOTES.md (ledger block)
 - wp2/PILOT_TRACKING.md (rows 183-185 translated, session prose)
 - wp2/arms/DOC_B6BIG3_journal_fragment_2026-11-21.md (this fragment)
+
+### DOC B6 close — coverage checklist (units 155-185), 2026-11-21
+
+Manual batch-close coverage checklist per the DOC batch-close
+discipline (section 1: for each canonical construct in the batch,
+did at least one entry match?). Batch 6 (units 155-185) CLOSED:
+31/31 translated 2026-11-20/21 in three tranches plus the
+dedicated big-three session per the pre-registered batch_plan.md
+stratification and the PI decision recorded in PILOT_TRACKING.md
+(T1 155-164 simple, code ee0bd410 with splice cac8a53; T2 165-175
+core, code 74264c1 with splice fe438e7; T3 176-182 complex minus
+the big three, code a89e8b5 with splice caf23fa; big-three session
+183-185, code 9240c8a with splice 6bca28d). Gates: whole-arm
+kotlinc 2.1.20 0 errors / 0 warnings at every tranche close
+(162 -> 171 -> 178 -> 181 files); gradle gate on m1-build BUILD
+SUCCESSFUL at every tranche (T2 15s, T3 14s, big-three 21s, T1
+green at its splice close) - one gradle invocation slip is logged
+as data (the first big-three gate run carried the PRO arm's
+detekt/jacocoTestReport task names; the DOC project exposes only
+test; rerun plain build, green).
+
+Events export: wp2/logs/DOC_knowledge_events.csv regenerated
+from this journal per the C-005/C-008 keys (627 consult rows ->
+1252 event rows plus header; the pre-B6 content verified as a
+byte-exact prefix of the regeneration). TOOLING NOTE (logged as
+data): the regeneration ran as a faithful Python port of
+export_doc_events.R this close because the sandbox environment
+reset wiped the R toolchain; the port replicates the script's
+every validation (strict grammar, roster membership, the
+(unit, entry, timestamp) duplicate-fail) and mapping verbatim.
+
+Repairs at this close (each logged as data; three found by the
+export's loud validations, the standing byte-verify discipline
+caught none in the pushed blobs):
+
+1. The big-three splice (6bca28d) appended the fragment's consult
+   ledger on top of the journal's own session ledger, duplicating
+   the three (unit, entry, timestamp) triples exactly; the
+   duplicate rows are removed at the fragment's ledger position
+   with an in-place note pointing to the session ledger.
+2. The batch-6 consult rows were journaled with numeric unit ids
+   (unit 155..unit 185), which the registered grammar validates
+   against roster id strings; all 31 rows are normalized to their
+   units.csv roster ids (the batch-6 PILOT table order is the
+   mapping authority; two ids corrected against the roster
+   itself, see repair 3).
+3. Two PILOT batch-6 table ids were display-wrong against the
+   roster: row 167 read libmpscpp.cpp::Mglobal but the roster id
+   is interp-globalb.cpp::Mglobal, and row 170 read
+   libmpscpp.cpp::TimeOut_getstr1 but the roster id is
+   interp-sysfunc.cpp::TimeOut_getstr1; both rows now read the
+   roster ids (the consult rows were normalized the same way).
+
+Entry-by-entry coverage across the 31 B6 unit consult rows (one
+single-line consult per unit; the per-tranche prose sections carry
+the unit-level quirk ledgers):
+
+- Canonical IO type (H-001): matched in 4 B6 unit consult(s); 4 consults, 1 reuse / 3 adapt
+- File-scope globals (H-004): matched in 4 B6 unit consult(s); 4 consults, 3 reuse / 1 adapt
+- Buffer role classification (H-007): matched in 2 B6 unit consult(s); 2 consults, 2 reuse
+- Shared static scratch buffer (H-008): matched in 2 B6 unit consult(s); 2 consults, 2 reuse
+- goto -> structured control (H-011): matched in 4 B6 unit consult(s); 4 consults, 1 reuse / 3 adapt
+- Unsigned char domain mapping (H-012): matched in 3 B6 unit consult(s); 3 consults, 2 reuse / 1 adapt
+- Dead store / dead parameter (H-013): matched in 1 B6 unit consult(s); 1 consult, 1 reuse
+- Out-of-scope C function -> stub (H-014): matched in 3 B6 unit consult(s); 3 consults, 2 reuse / 1 adapt
+- Kotlin grammar vs quoted C source (H-015): matched in 2 B6 unit consult(s); 2 consults, 1 reuse / 1 adapt
+- Preprocessor conditional arms (H-018): matched in 6 B6 unit consult(s); 6 consults, 3 reuse / 3 adapt
+
+H-002, H-003, H-005, H-006, H-009, H-010, H-016 and H-017 found
+no triggering situation in the B6 single-line consult rows (no
+consult row; state recorded so entry-for-entry parity with PRO's
+rule base is unaffected; no revision needed). Note for the
+record: the H-017 renames and the H-014 seat raises of the batch
+are journaled in the per-tranche prose sections (the T3 ledger
+tallies 45/46/56-style consult rows are the B5 pattern; B6's
+single-line ledger keeps one primary consult per unit and is the
+C-005 export source; the coverage relation of the prose quirks
+to the cookbook entries is unchanged by the ledger shape).
+
+Consult outcome totals for the batch: 18 hit-reuse, 13 hit-adapt,
+0 miss (31 consult rows). Hit rate 31/31 = 100.0%; reuse rate
+18/31 = 58.1% (the batch's heavy adaptation load rides the
+preprocessor-heavy arith family, the FILE-star seats, and the two
+giant machines). Per tranche: T1 10 consults (6 reuse / 4
+adapt), T2 11 consults (5 reuse / 6 adapt), T3 7 consults (4
+reuse / 3 adapt), big three 3 consults (1 reuse / 2 adapt). No
+miss rows: the B6 canon was fully covered by cookbook v0 as it
+stood at batch open, so no capture candidate exists under
+T1/T2/T3; cookbook v0 stays at H-001..H-018 and remains
+entry-for-entry parallel with PRO's rules_v0.pl (h001..h018).
+
+Per-unit consult coverage (unit -> entry consulted, batch_plan
+order):
+
+- compiler-fcninit.c::<misc>: H-004
+- libmpscpp.cpp::global::Find: H-014
+- interp-rpm.cpp::leaning_toothpickize: H-012
+- libmpscpp.cpp::SmithWaterman: H-012
+- libmpscpp.cpp::global::Length: H-014
+- libmpscpp.cpp::Sum: H-008
+- libmpscpp.cpp::ScanAlnum: H-001
+- interp-arith.cpp::mps_log2: H-018
+- interp-arith.cpp::mps_sin: H-018
+- include/mumpsc/memsize.h::<misc>: H-018
+- interp-arith.cpp::mps_abs: H-018
+- libmpscpp.cpp::StopInit: H-001
+- interp-globalb.cpp::Mglobal: H-018
+- interp-sym.cpp::_extract: H-012
+- include/mumpsc/interp.h::<misc>: H-004
+- interp-sysfunc.cpp::TimeOut_getstr1: H-001
+- libmpscpp.cpp::global::Max: H-007
+- include/mumpsc/stateVector.h::<misc>: H-004
+- compiler-parse.c::ExpandOrder: H-001
+- interp-arith.cpp::modulo: H-018
+- libmpscpp.cpp::Dice: H-007
+- libmpscpp.cpp::Shred: H-008
+- interp-stem.cpp::<misc>: H-004
+- compiler-write.c::write_code: H-011
+- server.cpp::main: H-014
+- interp-parse.cpp::match: H-015
+- compiler-read.c::read_code: H-015
+- mpstime.cpp::main: H-013
+- interp-bifs.cpp::zfcn: H-011
+- interp-zfcns.cpp::zfcn: H-011
+- interp-interp.cpp::Interpret: H-011
+
+Close decisions: none beyond the registered instruments - zero
+misses mean no capture candidate exists under T1/T2/T3, and the
+per-unit check columns stay todo per the C-001 cycle-10 backfill
+decision (C-002 discipline; the batch-6 table's check columns
+track the BASE reference translation). PILOT_TRACKING's DOC
+column is "translated" for rows 155-185; the "DOC B6 closed"
+prose line lands in the same commit as this checklist. Next
+protocol step: batch 7 per the committed row order.

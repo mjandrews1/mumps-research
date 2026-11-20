@@ -276,10 +276,10 @@ DOC B6 tranche 2 (units 165-175, the core stratum) translated 2026-11-21: eleven
 |---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
 | 165 | interp-arith.cpp::mps_abs | cpp | core | todo | translated | todo | todo | todo | todo |
 | 166 | libmpscpp.cpp::StopInit | cpp | core | todo | translated | todo | todo | todo | todo |
-| 167 | libmpscpp.cpp::Mglobal | cpp | core | todo | translated | todo | todo | todo | todo |
+| 167 | interp-globalb.cpp::Mglobal | cpp | core | todo | translated | todo | todo | todo | todo |
 | 168 | interp-sym.cpp::_extract | cpp | core | todo | translated | todo | todo | todo | todo |
 | 169 | include/mumpsc/interp.h::<misc> | c | core | todo | translated | todo | todo | todo | todo |
-| 170 | libmpscpp.cpp::TimeOut_getstr1 | cpp | core | todo | translated | todo | todo | todo | todo |
+| 170 | interp-sysfunc.cpp::TimeOut_getstr1 | cpp | core | todo | translated | todo | todo | todo | todo |
 | 171 | libmpscpp.cpp::global::Max | cpp | core | todo | translated | todo | todo | todo | todo |
 | 172 | include/mumpsc/stateVector.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
 | 173 | compiler-parse.c::ExpandOrder | c | core | todo | translated | todo | todo | todo | todo |
@@ -314,3 +314,17 @@ Stubs.inout/Stubs.Merge roster seats. Check columns track the BASE
 reference translation (C-002) and stay todo per the C-001 cycle-10
 backfill decision. After this session the batch-close protocol
 (coverage checklist, events export, PILOT prose) follows.
+
+**DOC B6 closed 2026-11-21**: 31/31 translated (T1 155-164 commit
+ee0bd410/splice cac8a53, T2 165-175 74264c1/fe438e7, T3 176-182
+a89e8b5/caf23fa, big-three session 183-185 9240c8a/6bca28d);
+whole-arm kotlinc gate 0/0 at every tranche (162 to 181 files);
+gradle gate BUILD SUCCESSFUL on m1-build at every tranche (T2
+15s, T3 14s, big three 21s, T1 green at its splice close).
+Coverage checklist and close repairs recorded in the arm journal
+(consult ledger normalized to roster ids; two batch-6 table ids
+display-fixed against units.csv, rows 167 and 170). Events CSV
+regenerated per the C-005/C-008 keys (627 consult rows -> 1252
+event rows; pre-B6 content verified as a byte-exact prefix).
+Check columns stay todo per the C-001 cycle-10 backfill decision.
+Next protocol step: batch 7 per the committed row order.
