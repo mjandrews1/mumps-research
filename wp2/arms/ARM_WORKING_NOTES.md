@@ -4073,3 +4073,67 @@ lesson).
 - wp2/logs/DOC_knowledge_events.csv (regenerated per C-005, +20
   event rows; the pre-tranche CSV verified as byte-exact prefix)
 - this fragment
+### DOC B7 tranche 3 (units 206-215, complex stratum) - 2026-11-20
+
+Ten complex-stratum units per the committed row order, the
+direct continuation of tranche 2 (branch master at the 3f26a71
+splice tip; vendor sources re-verified this session from the
+pristine tree, sha256 621deb...ffdbe, unit dumps re-cut with the
+fixed dump4.py, sub-15-LOC bodies folding into the residual).
+Adjudication notes: unit 212 is the five-arg compiler twin of the
+landed unit-180 Match.kt (the body is the vendor copy-paste of
+that walk, ONE semantic difference - bd binds the CompilerState
+extern, not the interp state field; the six-arg interp twin is
+already landed and Kotlin overloads resolve by arity per the
+H-015 same-name family rule); unit 206 keeps the vendor quirk
+that epi() and MAIN_flg=0 are UNCONDITIONAL (outside the if(flg)
+brace); unit 213 renders the emitted epilogue and the
+TxtEntry label/text table walks with the EPI_RULE banner; unit
+210 writes the z-command banner strings POST-fprintf-conversion
+(vendor percent-escapes reconverted, all ledgered) with dollars
+backslash-escaped per H-015; unit 211 is the SYM.h:41 signal
+relay with the const ladder and the inert fallback ledger.
+
+Seat ledger of the tranche: six long-standing H-014 seats flip
+RESOLVED (Stubs.sigint -> doc.sigint; the 5-arg Stubs.match ->
+doc.match and Stubs.freadx -> the ByteArray contract render; the
+Qsub seat family -> doc.Qsub with the copyMsvQsub adapter;
+fcninit/epi/EP/LevCheck -> the emitted-C prologue/epilogue renders
+with the linepad2 and corrected ExecName Int / pid Long seats;
+Stubs.ServiceInterface -> the unit-215 delegate), plus the
+Stubs.count seat raised by tranche 2 flips to doc.count (owner
+libmpscpp.cpp:2932 body rendered in the unit-214 chunk). NEW
+seats raised: Stubs.IDF (owner the FREE libmpscpp.cpp:10370
+wrapper, NOT the unit-49 member, batch-10 ledger) and the
+Stubs.Concat(x7) family (twelve overloads, owner bodies beyond
+the misc-6 chunk cut, batch-10 ledger; the thirteenth member, the
+global/global Concat, is the landed unit-65 render). Carrier
+edits: GlobalRef widens with gblFile RandomAccessFile sentinel
+seat in BtreeH.kt; CompilerState.tags correct ExecName Int and
+pid Long (compiler-globals-ext.h:128/158; Abrtx call sites
+already compatible).
+
+Gates: whole-arm kotlinc 2.1.20 0 errors / 0 warnings at tranche
+close, 206 files (196 + 10 new renders; Stubs/BtreeH/
+CompilerCarriers/CompilerGlobalsExtMisc edited; compile rounds
+in-session fixed the makeGlobal expression-body seat, the Qsub
+definite-assignment seat, the Epi non-null first binding, the
+ServiceInterface nullable tmp4/tmp5 backstops, and the misc-6
+stdin carrier reseat), first-pass green after those repairs;
+H-015 scan clean on all touched files (backticks reworded, raw
+dollars escaped, no double-bangs, no non-ASCII). gradle gate on
+m1-build pending at tranche close.
+
+Renders and consult ledger (each consult logged before applying;
+roster id strings per the batch-6 close repair 2 discipline):
+
+- DOC consult: unit compiler-mumps.c::<misc>, entry H-016, outcome hit-adapt, timestamp 2026-11-20T23:01:00Z
+- DOC consult: unit compiler-fcninit.c::fcninit, entry H-013, outcome hit-adapt, timestamp 2026-11-20T23:02:00Z
+- DOC consult: unit interp-sym.cpp::Qsub, entry H-014, outcome hit-reuse, timestamp 2026-11-20T23:03:00Z
+- DOC consult: unit interp-native-btree.cpp::freadx, entry H-018, outcome hit-adapt, timestamp 2026-11-20T23:04:00Z
+- DOC consult: unit compiler-zcommands.c::zcommands_code, entry H-015, outcome hit-adapt, timestamp 2026-11-20T23:05:00Z
+- DOC consult: unit interp-sysfunc.cpp::sigint, entry H-018, outcome hit-adapt, timestamp 2026-11-20T23:06:00Z
+- DOC consult: unit compiler-sys1.c::match, entry H-014, outcome hit-reuse, timestamp 2026-11-20T23:07:00Z
+- DOC consult: unit compiler-epi.c::epi, entry H-013, outcome hit-adapt, timestamp 2026-11-20T23:08:00Z
+- DOC consult: unit libmpscpp.cpp::<misc-6>, entry H-016, outcome hit-adapt, timestamp 2026-11-20T23:09:00Z
+- DOC consult: unit interp-service.cpp::ServiceInterface, entry H-013, outcome hit-adapt, timestamp 2026-11-20T23:10:00Z

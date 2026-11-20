@@ -89,8 +89,15 @@ object CompilerState {
     var FCN_flg: Int = 0
     var F_flg: Int = 0
     var ExitCode: Int = 0
-    var ExecName: String = ""
-    var pid: Int = 0
+    // compiler-globals-ext.h:128 extern short ExecName - TAG
+    // CORRECTION by the unit-206/213 tranche: the unit-18 render
+    // typed this seat String after the abrtx-local prototype
+    // guess; the vendor extern is short (executive-name level),
+    // the epi/EP owners read it Int.
+    var ExecName: Int = 0
+    // compiler-globals-ext.h:158 extern long pid - TAG CORRECTION
+    // by the unit-206/213 tranche (Int -> Long per the vendor).
+    var pid: Long = 0
     // compiler-globals-ext.h extern unsigned char v1d[] (the vendor
     // extern scanned by LocalArray; global-array parsing buffer).
     val v1d = CharArray(STR_MAX)

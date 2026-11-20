@@ -359,6 +359,20 @@ hit-adapt consults of the batch (199, 202, 203, 204). Check
 columns track the BASE reference-translation (C-002) and stay todo
 per the C-001 cycle-10 backfill decision.
 
+DOC B7 tranche 3 (units 206-215, the complex stratum) translated
+2026-11-20: ten units pushed, whole-arm kotlinc gate 0/0 at 206
+files, first-pass green; gradle gate on m1-build pending at
+tranche close. Rows follow the pre-registered batch_plan.md
+order (complex stratum). The tranche closes six long-standing
+H-014 seats (Stubs.sigint, the 5-arg Stubs.match, Stubs.freadx,
+the Qsub seat family, the compiler epi/EP/fcninit seats,
+Stubs.ServiceInterface) and resolves the Stubs.count seat seated
+by tranche 2; it raises the batch-10 Concat(x7) seat family and
+the Stubs.IDF seat, and carries one compiler tag correction
+(EP ExecName Int / pid Long). Check columns track the BASE
+reference-translation (C-002) and stay todo per the C-001
+cycle-10 backfill decision.
+
 | 186 | libmpscpp.cpp::global::Find | cpp | simple | todo | translated | todo | todo | todo | todo |
 | 187 | compiler-zcommands.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
 | 188 | libmpscpp.cpp::global::Piece | cpp | simple | todo | translated | todo | todo | todo | todo |
@@ -379,13 +393,13 @@ per the C-001 cycle-10 backfill decision.
 | 203 | compiler-parse.c::Extract | c | core | todo | translated | todo | todo | todo | todo |
 | 204 | libmpscpp.cpp::Sim1 | cpp | core | todo | translated | todo | todo | todo | todo |
 | 205 | libmpscpp.cpp::embed1 | cpp | core | todo | translated | todo | todo | todo | todo |
-| 206 | compiler-mumps.c::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
-| 207 | compiler-fcninit.c::fcninit | c | complex | todo | todo | todo | todo | todo | todo |
-| 208 | interp-sym.cpp::Qsub | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 209 | interp-native-btree.cpp::freadx | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 210 | compiler-zcommands.c::zcommands_code | c | complex | todo | todo | todo | todo | todo | todo |
-| 211 | interp-sysfunc.cpp::sigint | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 212 | compiler-sys1.c::match | c | complex | todo | todo | todo | todo | todo | todo |
-| 213 | compiler-epi.c::epi | c | complex | todo | todo | todo | todo | todo | todo |
-| 214 | libmpscpp.cpp::<misc-6> | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 215 | interp-service.cpp::ServiceInterface | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 206 | compiler-mumps.c::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
+| 207 | compiler-fcninit.c::fcninit | c | complex | todo | translated | todo | todo | todo | todo |
+| 208 | interp-sym.cpp::Qsub | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 209 | interp-native-btree.cpp::freadx | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 210 | compiler-zcommands.c::zcommands_code | c | complex | todo | translated | todo | todo | todo | todo |
+| 211 | interp-sysfunc.cpp::sigint | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 212 | compiler-sys1.c::match | c | complex | todo | translated | todo | todo | todo | todo |
+| 213 | compiler-epi.c::epi | c | complex | todo | translated | todo | todo | todo | todo |
+| 214 | libmpscpp.cpp::<misc-6> | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 215 | interp-service.cpp::ServiceInterface | cpp | complex | todo | translated | todo | todo | todo | todo |

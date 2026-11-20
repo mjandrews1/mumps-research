@@ -109,8 +109,12 @@ object Stubs {
 
     // TODO stub: void sigint(int) declared include/mumpsc/SYM.h:41;
     // owner is the interp SIGINT shutdown path; not a corpus unit.
+    // H-014 delegate (Extract2 seat-conversion precedent): sigint
+    // is unit 211 (interp-sysfunc.cpp::sigint), rendered in
+    // Sigint.kt (this tranche); the SYM.h:41 call sites bind to
+    // the real signal termination handler unchanged.
     fun sigint(i: Int): Unit =
-        throw NotImplementedError("sigint: out-of-scope owner (SYM.h:41 SIGINT path)")
+        doc.sigint(i)
 
     // ------------------------------------------------------------------
     // B3 tranche 3 / sub-push A seats (units 83/84/86):
@@ -181,10 +185,12 @@ object Stubs {
     fun set_global(key: CharArray, rslt: CharArray): Unit =
         throw NotImplementedError("set_global: out-of-scope owner (libmpscpp.cpp global member)")
 
-    // TODO stub: interp-native-btree.cpp block reader freadx; owner is
-    // the btree block-IO unit of a later batch; not a batch-2 unit.
+    // H-014 delegate (Extract2 seat-conversion precedent): freadx is
+    // unit 209 (interp-native-btree.cpp::freadx), rendered in
+    // Freadx.kt; this seat flips the batch-2 placeholder to the
+    // same-name owner resolved by arity at call sites.
     fun freadx(block: Int, mode: Int): ByteArray =
-        throw NotImplementedError("freadx: out-of-scope owner (interp-native-btree.cpp block reader)")
+        doc.freadx(block, mode)
 
     // ------------------------------------------------------------------
     // batch-2 tail stubs (units 52/53/54)
@@ -273,6 +279,12 @@ object Stubs {
     // roster min loc - not a corpus unit).
     fun linepad(n: Int, s: String): Unit =
         throw NotImplementedError("linepad: out-of-scope owner (compiler-sys1.c::linepad)")
+
+    // TODO stub: linepad2 owned by compiler-sys1.c:963; not a corpus
+    // unit (below roster min loc). Seat added by the unit-207 fcninit
+    // render (H-014 seat-conversion precedent).
+    fun linepad2(s: String): Unit =
+        throw NotImplementedError("linepad2: out-of-scope owner (compiler-sys1.c:963)")
 
     // ------------------------------------------------------------------
     // unit 60 (libmpscpp.cpp::global::TreePrint) member seats: the C++
@@ -365,16 +377,19 @@ object Stubs {
     // named per H-014; seats convert to delegates when the owning
     // batch-1 units land - the Extract2 precedent)
 
-    // TODO stub: epi(char *, int) declared compiler-abrtx.c family;
-    // owner is the compiler epilogue emitter; not a roster unit.
-    fun epi(name: String, pid: Int): Unit =
-        throw NotImplementedError("epi: out-of-scope owner (compiler epilogue emitter)")
+    // H-014 delegate (Extract2 seat-conversion precedent): epi is
+    // unit 213 (compiler-epi.c::epi, Epi.kt), this tranche; the
+    // seat's abrtx-era (String, Int) guess was a prototype
+    // mis-tag - the vendor signature is (short, long), the
+    // CompilerState.ExecName/pid seats carry the TAG CORRECTION.
+    fun epi(ExecName: Int, pid: Long): Unit =
+        doc.epi(ExecName, pid)
 
-    // TODO stub: EP(int, char *, int) declared compiler-abrtx.c
-    // family; owner is the compiler Zfunction epilogue emitter; not
-    // a roster unit.
-    fun EP(x: Int, name: String, pid: Int): Unit =
-        throw NotImplementedError("EP: out-of-scope owner (compiler Zfunction epilogue emitter)")
+    // H-014 delegate (Extract2 seat-conversion precedent): EP is
+    // unit 206 (compiler-mumps.c::<misc> EP, CompilerMumpsMisc.kt),
+    // this tranche; same TAG CORRECTION (int, short, long).
+    fun EP(x: Int, ExecName: Int, pid: Long): Unit =
+        doc.EP(x, ExecName, pid)
 
     // TODO stub: floatstring owned by interp-arith.cpp:597 (static
     // inline below-roster helper; numcomp branch selector).
@@ -512,9 +527,13 @@ object Stubs {
     // short[3][20] renders as Array<ShortArray> (row 0 unused,
     // vendor indexing); ShortArray ct carries the count/ct2 tables;
     // the short* rslt out-param is the H-006 ShortArray(1) holder.
+    // H-014 delegate (Extract2 seat-conversion precedent): the 5-arg
+    // compiler twin is unit 212 (compiler-sys1.c::match), rendered in
+    // CompilerMatch.kt (the 6-arg interp twin is Match.kt, unit 180);
+    // the same-name pair resolves by arity at call sites.
     fun match(pts: Array<ShortArray>, lx: Int, ct: ShortArray,
               ad: CharArray, rslt: ShortArray): Unit =
-        throw NotImplementedError("match: out-of-scope owner (compiler-sys1.c::match) batch-7 unit")
+        doc.match(pts, lx, ct, ad, rslt)
 
     // Same-name twin (H-015 overload-arity rule):
     // void match(short pts[][20], short lx, short ct[], unsigned
@@ -604,10 +623,63 @@ object Stubs {
     // key letter/comma tally of the global::MakeGlobal varargs walk
     // (raised by the unit-199 render of B7 tranche 2); not a
     // corpus unit (no units.csv row). H-017: the vendor name kept.
-    fun count(key: String): Int =
-        throw NotImplementedError("count: out-of-scope owner (libmpscpp.cpp:2932 MakeGlobal key tally)")
+    // H-017: the vendor name kept. RESOLVED by unit 214 (B7 T3,
+    // libmpscpp.cpp::<misc-6>): delegate to doc.count.
+    fun count(key: String): Int = doc.count(key)
 
-    // ---- seats raised by unit 93 (interp-parse.cpp::parse_) ----
+    // ------------------------------------------------------------------
+    // unit 214 (B7 T3, libmpscpp.cpp::<misc-6>) H-014 seats: the
+    // operator& forwards reach the Concat(x7) member family, whose
+    // bodies sit BEYOND the misc-6 chunk cut (batch-10 ledger). The
+    // global.global member is the landed unit-65 render (extension
+    // GlobalRef.concat) and needs no seat; the receiver-first args
+    // carry the member receiver (H-006 holder idiom).
+
+    // mstring global::Concat(double)/(long)/(int)/(char*)/
+    // (string)/(mstring) owners, libmpscpp.cpp (batch-10 ledger).
+    fun Concat(x: GlobalRef, b: Double): Mstring =
+        throw NotImplementedError("Concat(global,double): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+
+    fun Concat(x: GlobalRef, b: Long): Mstring =
+        throw NotImplementedError("Concat(global,long): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+
+    fun Concat(x: GlobalRef, b: Int): Mstring =
+        throw NotImplementedError("Concat(global,int): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+
+    fun Concat(x: GlobalRef, b: CharArray): Mstring =
+        throw NotImplementedError("Concat(global,char*): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+
+    fun Concat(x: GlobalRef, b: String): Mstring =
+        throw NotImplementedError("Concat(global,string): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+
+    fun Concat(x: GlobalRef, b: Mstring): Mstring =
+        throw NotImplementedError("Concat(global,mstring): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+
+    // mstring::Concat(global)/(double)/(long)/(int)/(mstring)/
+    // (char*)/(string) owners, libmpscpp.cpp (batch-10 ledger).
+    fun Concat(x: Mstring, b: GlobalRef): Mstring =
+        throw NotImplementedError("Concat(mstring,global): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+
+    fun Concat(x: Mstring, b: Double): Mstring =
+        throw NotImplementedError("Concat(mstring,double): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+
+    fun Concat(x: Mstring, b: Long): Mstring =
+        throw NotImplementedError("Concat(mstring,long): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+
+    fun Concat(x: Mstring, b: Int): Mstring =
+        throw NotImplementedError("Concat(mstring,int): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+
+    fun Concat(x: Mstring, b: Mstring): Mstring =
+        throw NotImplementedError("Concat(mstring,mstring): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+
+    fun Concat(x: Mstring, b: CharArray): Mstring =
+        throw NotImplementedError("Concat(mstring,char*): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+
+    fun Concat(x: Mstring, b: String): Mstring =
+        throw NotImplementedError("Concat(mstring,string): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+
+    // ------------------------------------------------------------------
+    // seats raised by unit 93 (interp-parse.cpp::parse_) ----
 
     // TODO stub: add(a, b, c) char-array string arithmetic family,
     // owner interp-arith.cpp:624 (not a roster unit); unit 93 calls
@@ -758,7 +830,16 @@ object Stubs {
     // pass NULL x3/x4 (the unit-183 ledger).
     fun ServiceInterface(a: CharArray, b: CharArray, c: CharArray?,
             d: CharArray?, e: CharArray, f: Char, sv: Msv): Unit =
-        throw NotImplementedError("ServiceInterface: out-of-scope owner (interp service entry)")
+        doc.ServiceInterface(a, b, c, d, e, f, sv)
+    // seat RESOLVED by unit 215 (B7 T3, interp-service.cpp::ServiceInterface).
+
+    // unsigned char *IDF(struct MSV *, unsigned char *, unsigned char *,
+    // unsigned char *); owner libmpscpp.cpp:10370 free IDF wrapper
+    // (NOT the unit-49 GlobalIDF member; the global::IDF member twin
+    // stays scoped) - declared by the unit-215 ServiceInterface INVDF
+    // arm; H-014 seat for the batch-10 misc chunk.
+    fun IDF(sv: Msv, ep: String, a: CharArray, b: CharArray): String =
+        throw NotImplementedError("IDF: out-of-scope owner (libmpscpp.cpp:10370 free wrapper) batch-10 unit")
 
     // ------------------------------------------------------------------
     // unit 112 (libmpscpp.cpp::global::Centroid) one-subscript double

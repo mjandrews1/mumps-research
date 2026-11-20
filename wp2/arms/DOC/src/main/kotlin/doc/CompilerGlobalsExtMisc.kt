@@ -92,16 +92,13 @@ class Dcs {
 // :92 void linepad(int, char*) - compiler-sys1.c:949 body; not
 //   yet a roster landing (emit-side right-pad helper).
 // :93 void linepad2(char*) - compiler-sys1.c:963 body; not yet
-//   a roster landing.
-// :94 void fcninit(char*, long) - compiler-fcninit.c:39 body;
-//   not yet a roster landing.
-// :95 void epi(short, long) - compiler-epi.c:39 body; not yet
-//   a roster landing.
-// :96 void EP(int, short, long) - compiler-mumps.c:1978 body;
-//   not yet a roster landing.
+//   a roster landing (seat: Stubs.linepad2, added by the
+//   unit-207 fcninit render).
+// :94 void fcninit(char*, long) - LANDED (Fcninit.kt).
+// :95 void epi(short, long) - LANDED (Epi.kt).
+// :96 void EP(int, short, long) - LANDED (CompilerMumpsMisc.kt).
 // :97 int getstr1(FILE*, char[]) - LANDED (Getstr1.kt).
-// :98 int LevCheck(...) - compiler-mumps.c:1949 body; not yet
-//   a roster landing.
+// :98 int LevCheck(...) - LANDED (CompilerMumpsMisc.kt).
 // :99-100 int doty(...) - LANDED (Doty.kt).
 // :101 void LocalArray(...) - LANDED (LocalArray.kt).
 // :102 void GlobalArray(...) - LANDED (GlobalArray.kt).

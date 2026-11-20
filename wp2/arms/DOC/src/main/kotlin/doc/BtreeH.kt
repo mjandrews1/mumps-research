@@ -60,6 +60,11 @@ object BtreeStatic {
     var gp5: BtreeBuffers? = null
     var gproot: BtreeBuffers? = null
     var gblfd: Int = -1
+    // gblfd's RandomAccessFile carrier (H-001 fd to RandomAccessFile;
+    // unit-209 freadx EDIT-ONLY seat: the readers/writers of the
+    // btree block file ride the null sentinel until the opening
+    // unit of a later batch assigns it).
+    var gblFile: java.io.RandomAccessFile? = null
     var gbldat: Int = -1
     var trx: Int = 0
     var ReadOnly: Int = 1
