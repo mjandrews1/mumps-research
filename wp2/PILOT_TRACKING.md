@@ -346,6 +346,19 @@ inout precedent. Check columns track the BASE reference
 translation (C-002) and stay todo per the C-001 cycle-10
 backfill decision.
 
+DOC B7 tranche 2 (units 196-205, the core stratum) translated
+2026-11-20: ten units pushed, whole-arm kotlinc gate 0/0 at 196
+files, first-pass green; gradle gate on m1-build pending at
+tranche close. Rows follow the pre-registered batch_plan.md order
+(core stratum, complexity rank ascending). The tranche closes two
+long-standing H-014 seats (Stubs.makeGlobal flips to the unit-199
+render with the new GlobalRef member-state carrier seats;
+Stubs.sim1 flips to the unit-204 render), raises one new seat
+(Stubs.count, libmpscpp.cpp:2932), and carries the first
+hit-adapt consults of the batch (199, 202, 203, 204). Check
+columns track the BASE reference-translation (C-002) and stay todo
+per the C-001 cycle-10 backfill decision.
+
 | 186 | libmpscpp.cpp::global::Find | cpp | simple | todo | translated | todo | todo | todo | todo |
 | 187 | compiler-zcommands.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
 | 188 | libmpscpp.cpp::global::Piece | cpp | simple | todo | translated | todo | todo | todo | todo |
@@ -356,16 +369,16 @@ backfill decision.
 | 193 | libmpscpp.cpp::global::Soundex | cpp | simple | todo | translated | todo | todo | todo | todo |
 | 194 | interp-sym.cpp::_justify | cpp | simple | todo | translated | todo | todo | todo | todo |
 | 195 | interp-sym.cpp::mkpt | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 196 | libmpscpp.cpp::global::Fnumber | cpp | core | todo | todo | todo | todo | todo | todo |
-| 197 | include/mumpsc/externs.h::<misc> | c | core | todo | todo | todo | todo | todo | todo |
-| 198 | interp-sysfunc.cpp::GlobalData | cpp | core | todo | todo | todo | todo | todo | todo |
-| 199 | libmpscpp.cpp::global::MakeGlobal | cpp | core | todo | todo | todo | todo | todo | todo |
-| 200 | interp-fcn.cpp::<misc> | cpp | core | todo | todo | todo | todo | todo | todo |
-| 201 | libmpscpp.cpp::Multiply | cpp | core | todo | todo | todo | todo | todo | todo |
-| 202 | interp-sql.cpp::rslt_callback | cpp | core | todo | todo | todo | todo | todo | todo |
-| 203 | compiler-parse.c::Extract | c | core | todo | todo | todo | todo | todo | todo |
-| 204 | libmpscpp.cpp::Sim1 | cpp | core | todo | todo | todo | todo | todo | todo |
-| 205 | libmpscpp.cpp::embed1 | cpp | core | todo | todo | todo | todo | todo | todo |
+| 196 | libmpscpp.cpp::global::Fnumber | cpp | core | todo | translated | todo | todo | todo | todo |
+| 197 | include/mumpsc/externs.h::<misc> | c | core | todo | translated | todo | todo | todo | todo |
+| 198 | interp-sysfunc.cpp::GlobalData | cpp | core | todo | translated | todo | todo | todo | todo |
+| 199 | libmpscpp.cpp::global::MakeGlobal | cpp | core | todo | translated | todo | todo | todo | todo |
+| 200 | interp-fcn.cpp::<misc> | cpp | core | todo | translated | todo | todo | todo | todo |
+| 201 | libmpscpp.cpp::Multiply | cpp | core | todo | translated | todo | todo | todo | todo |
+| 202 | interp-sql.cpp::rslt_callback | cpp | core | todo | translated | todo | todo | todo | todo |
+| 203 | compiler-parse.c::Extract | c | core | todo | translated | todo | todo | todo | todo |
+| 204 | libmpscpp.cpp::Sim1 | cpp | core | todo | translated | todo | todo | todo | todo |
+| 205 | libmpscpp.cpp::embed1 | cpp | core | todo | translated | todo | todo | todo | todo |
 | 206 | compiler-mumps.c::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
 | 207 | compiler-fcninit.c::fcninit | c | complex | todo | todo | todo | todo | todo | todo |
 | 208 | interp-sym.cpp::Qsub | cpp | complex | todo | todo | todo | todo | todo | todo |

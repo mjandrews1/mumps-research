@@ -265,7 +265,25 @@ class Mstring(content: String) {
 // The vendor private field ref (globalClass.h:536) becomes the Kotlin
 // constructor property; unit member functions are rendered as extensions
 // in their own unit files so each unit owns its file.
-class GlobalRef(val ref: String)
+//
+// UNIT-199 EDIT (B7 tranche 2, global::MakeGlobal): ref widens
+// val -> var for the member's strcpy(ref, buf) reference store (the
+// vendor overwrites the pristine name with the built subscripted
+// reference - the divergence from the earlier read-only usage is
+// this ledger note); the private members ArgCount (globalClass.h:
+// 534, int), Sref (:538, std::string - the quoted visible form)
+// and Sname (:540, std::string) open their per-instance seats here
+// (the -next batch readers of Sref ride them; H-004 member
+// ledger).
+class GlobalRef(var ref: String) {
+    // globalClass.h:534 int ArgCount (private member per vendor)
+    var ArgCount: Int = 0
+    // globalClass.h:538 std::string Sref (private; the quoted
+    // visible-reference builder seat)
+    var Sref: String = ""
+    // globalClass.h:540 std::string Sname (private)
+    var Sname: String = ""
+}
 
 // C string operations used by translated units (strcpy/strcat/strlen/
 // strncmp over CharArray carriers). Byte-domain semantics per the C

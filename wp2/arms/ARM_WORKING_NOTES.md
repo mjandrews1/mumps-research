@@ -3927,3 +3927,62 @@ lesson).
 - wp2/PILOT_TRACKING.md (batch-7 section, rows 186-195 translated)
 - wp2/arms/ARM_WORKING_NOTES.md (tranche section + consult rows)
 - this fragment
+
+### DOC B7 tranche 2 (units 196-205, core stratum) - 2026-11-20
+
+Ten core-stratum units per the committed row order, the direct
+continuation of tranche 1 (branch master at the 377302d splice
+tip; vendor sources re-verified this session from the pristine
+tree, sha256 621deb...ffdbe). Adjudication notes: unit 196 is the
+TWO-mstring global::Fnumber member (vendor :7415; the one-arg
+member is the batch-3 unit-72 render in the same file, the
+mstring pair are units 42/97 - arity resolves all four same-name
+bodies per the H-015 same-name family rule); unit 201 is the
+char-star third of the free Multiply family (vendor :2252; units
+46/138 hold the MSV wrapper and the string overload; the char-star
+body duplicates the unit-138 walk verbatim per the vendor
+copy-paste policy); unit 198 is the interp-sysfunc.cpp::GlobalData
+THREE-BUFFER Mglobal probe (vendor :733), distinct from the
+libmpscpp command-builder renders of units 70/192 that land in the
+same arm (same NAME, different C family, H-015 rule; the
+ByteArray-free CharArray,CharArray,Msv signature resolves the
+Kotlin overloads apart).
+
+Seat ledger of the tranche: Stubs.makeGlobal (raised by the batch-1
+unit-31 chunk) flips RESOLVED to the unit-199 MakeGlobal.kt
+delegate (the unit-31 invoke-family call sites bind unchanged);
+Stubs.sim1 (raised by the unit-120 wrapper) flips RESOLVED to the
+unit-204 Sim1.kt real; ONE new seat raised, Stubs.count (owner
+libmpscpp.cpp:2932, the key letter/comma tally of the MakeGlobal
+varargs walk; not a corpus unit). Carrier edits: GlobalRef gains
+the unit-199 member seats (ArgCount/Sref/Sname per globalClass.h:
+534/:537-540 and ref widens val->var for the member's reference
+store, divergence ledgered in Carriers.kt); MakeGlobalState holds
+the vendor function-static char buf[STR_MAX] (H-004); unit 202
+raises SqlCallbackState (interp-sql.cpp:69 rsltSpec + :886 static
+call_back, H-004 TU owner object, the later-batch sql-arm readers
+bind it when they land).
+
+Gates: whole-arm kotlinc 2.1.20 0 errors / 0 warnings at tranche
+close, 196 files (188 + 8 new renders; GlobalFnumber/Multiply/
+Stubs/Carriers edited; the first compile round caught one
+expression-body type mismatch on the makeGlobal flip, fixed
+in-session), first-pass green after that single repair; H-015 scan
+clean on all touched files (the pre-push scan caught and reworded
+one block-comment close-sequence risk in the unit-201 KDoc and
+removed the arm-unusual assertion operators from the unit-202
+render). gradle gate on m1-build pending at tranche close.
+
+Renders and consult ledger (each consult logged before applying;
+roster id strings per the batch-6 close repair 2 discipline):
+
+- DOC consult: unit libmpscpp.cpp::global::Fnumber, entry H-013, outcome hit-reuse, timestamp 2026-11-20T22:21:00Z
+- DOC consult: unit include/mumpsc/externs.h::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-20T22:22:00Z
+- DOC consult: unit interp-sysfunc.cpp::GlobalData, entry H-018, outcome hit-reuse, timestamp 2026-11-20T22:23:00Z
+- DOC consult: unit libmpscpp.cpp::global::MakeGlobal, entry H-014, outcome hit-adapt, timestamp 2026-11-20T22:24:00Z
+- DOC consult: unit interp-fcn.cpp::<misc>, entry H-018, outcome hit-reuse, timestamp 2026-11-20T22:25:00Z
+- DOC consult: unit libmpscpp.cpp::Multiply, entry H-014, outcome hit-reuse, timestamp 2026-11-20T22:26:00Z
+- DOC consult: unit interp-sql.cpp::rslt_callback, entry H-007, outcome hit-adapt, timestamp 2026-11-20T22:27:00Z
+- DOC consult: unit compiler-parse.c::Extract, entry H-007, outcome hit-adapt, timestamp 2026-11-20T22:28:00Z
+- DOC consult: unit libmpscpp.cpp::Sim1, entry H-014, outcome hit-adapt, timestamp 2026-11-20T22:29:00Z
+- DOC consult: unit libmpscpp.cpp::embed1, entry H-008, outcome hit-reuse, timestamp 2026-11-20T22:30:00Z

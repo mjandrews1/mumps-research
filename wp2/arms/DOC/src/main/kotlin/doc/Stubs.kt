@@ -591,9 +591,21 @@ object Stubs {
     // the class-global member builds the subscripted MUMPS reference
     // (owner libmpscpp.cpp global::MakeGlobal, outside the unit 31
     // chunk). fmt is the a,b,c... letter list, args the subscripts.
+    // RESOLVED with unit 199 (B7 tranche 2): delegates to the real
+    // MakeGlobal.kt render (the unit-31 invoke-family call sites
+    // bind unchanged; the receiver's ref carrier serves the
+    // vendor gblnme fold - the render's signature ledger).
     fun makeGlobal(g: GlobalRef, mode: Int, fmt: String,
-            vararg args: String): Unit =
-        throw NotImplementedError("makeGlobal: out-of-scope owner (libmpscpp.cpp::global::MakeGlobal)")
+            vararg args: String): Unit {
+        g.makeGlobal(mode, g.ref, fmt, *args)
+    }
+
+    // TODO stub: int count(char *); owner libmpscpp.cpp:2932 - the
+    // key letter/comma tally of the global::MakeGlobal varargs walk
+    // (raised by the unit-199 render of B7 tranche 2); not a
+    // corpus unit (no units.csv row). H-017: the vendor name kept.
+    fun count(key: String): Int =
+        throw NotImplementedError("count: out-of-scope owner (libmpscpp.cpp:2932 MakeGlobal key tally)")
 
     // ---- seats raised by unit 93 (interp-parse.cpp::parse_) ----
 
@@ -791,11 +803,16 @@ object Stubs {
     // globalTermCorrelate member, and the GlobalRef Centroid member).
 
     // double Sim1(global a, global b); owner
-    // libmpscpp.cpp::Sim1 - batch-7 roster row 199. The wrapper
-    // compares two document vectors; the double returns through
-    // the wrapper's sprintf percent-g render unchanged.
+    // libmpscpp.cpp::Sim1 - batch-7 roster row 199 of this seat's
+    // OLD numbering (the unit-204 render of tranche 2; MDH seat
+    // numbering kept in place per the u130 tag precedent). The
+    // wrapper compares two document vectors; the double returns
+    // through the wrapper's sprintf percent-g render unchanged.
+    // RESOLVED with unit 204 (B7 tranche 2): delegates to the real
+    // Sim1.kt render; the SymOpsMisc.kt unit-120 wrapper call
+    // sites bind unchanged.
     fun sim1(a: GlobalRef, b: GlobalRef): Double =
-        throw NotImplementedError("Sim1: out-of-scope owner (libmpscpp.cpp::Sim1) batch-7 unit")
+        doc.Sim1(a, b)
 
     // double Jaccard(global a, global b); owner
     // libmpscpp.cpp::Jaccard - batch-9 roster row 256.

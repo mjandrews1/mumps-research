@@ -120,3 +120,69 @@ fun Multiply(a: String, b: String, c: String) {
         }
     }
 }
+
+
+// Unit 201 (B7 tranche 2): libmpscpp.cpp::Multiply (batch 7, core
+// stratum; LOC 26, score 20.8, rank 169; vendor
+// libmpscpp.cpp:2252, physically verified this session; nonblank 26
+// matches the roster row) - the free CHAR-STAR overload, third of
+// the three same-named free functions (overload family ledger: the
+// unit-46 five-arg MSV wrapper and the unit-138 std::string
+// overload are the earlier rows; the char - star triple signature
+// resolves apart in Kotlin by the CharArray carriers). The body
+// duplicates the unit-138 string-overload walk verbatim (the
+// vendor's own copy-paste, kept per the copy-paste policy and the
+// batch-5 unit-138 journal note: the global reference construction
+// is the only delta - global A((char *) a) renders as the GlobalRef
+// over this function's CstringOps.cstring(a) domain seat).
+// Consult H-014 hit-reuse: every class-global member call
+// (Kill/Order x3/Data x2/double fetch/store) rides the SAME
+// existing member seats that units 53/138 bound; Stubs.sigint is
+// not reached from this overload. Naming per H-017.
+
+fun Multiply(a: CharArray, b: CharArray, c: CharArray) {
+    val A = GlobalRef(CstringOps.cstring(a))
+    val B = GlobalRef(CstringOps.cstring(b))
+    val C = GlobalRef(CstringOps.cstring(c))
+
+    Stubs.globalKill(C)
+    var i = ""
+
+    while (true) {
+
+        i = Stubs.globalOrder(A, i) // each row
+
+        if (i == "") break
+
+        var j = ""
+
+        while (true) {
+            j = Stubs.globalOrder2(A, i, j) // each column
+
+            if (j == "") break
+
+            val k = j
+
+            if (!Stubs.globalData(B, k)) continue
+
+            var m = ""
+
+            while (true) {
+                m = Stubs.globalOrderB(B, k, m)
+
+                if (m == "") break
+
+                if (!Stubs.globalData2(C, i, m)) {
+                    val x = Stubs.getGlobalDouble(A, i, j) *
+                            Stubs.getGlobalDouble(B, k, m)
+                    Stubs.setGlobalDouble(C, x, i, m)
+                } else {
+                    val x = Stubs.getGlobalDouble(C, i, m) +
+                            Stubs.getGlobalDouble(A, i, j) *
+                            Stubs.getGlobalDouble(B, k, m)
+                    Stubs.setGlobalDouble(C, x, i, m)
+                }
+            }
+        }
+    }
+}
