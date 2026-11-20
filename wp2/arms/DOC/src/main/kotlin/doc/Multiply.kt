@@ -61,3 +61,62 @@ fun Multiply(svptr: Msv?, ep: CharArray?, arg1: CharArray, arg2: CharArray,
 
     return ""
 }
+
+// Unit 138 (B5 tranche 2): libmpscpp.cpp::Multiply (vendor ~2211-2250,
+// physical 26 loc) - the free three-std::string overload. Unlike the
+// batch-2 five-argument MSV wrapper (unit 46, above), this overload
+// constructs the three class-global references directly from
+// std::string and then performs the full matrix-product walk inline,
+// which duplicates the member body of unit 53 (kept verbatim per the
+// copy-paste policy; ledger note in the journal). The class-global
+// seats (Kill/Order/Data plus the double fetch/store) are the same
+// H-014 out-of-scope stubs as unit 53, rendered through the arm
+// strtod decimal-prefix contract. No commented-out printf fossils in
+// this vendor body; nothing dropped. Naming per H-017.
+
+fun Multiply(a: String, b: String, c: String) {
+    val A = GlobalRef(a)
+    val B = GlobalRef(b)
+    val C = GlobalRef(c)
+
+    Stubs.globalKill(C)
+    var i = ""
+
+    while (true) {
+
+        i = Stubs.globalOrder(A, i) // each row
+
+        if (i == "") break
+
+        var j = ""
+
+        while (true) {
+            j = Stubs.globalOrder2(A, i, j) // each column
+
+            if (j == "") break
+
+            val k = j
+
+            if (!Stubs.globalData(B, k)) continue
+
+            var m = ""
+
+            while (true) {
+                m = Stubs.globalOrderB(B, k, m)
+
+                if (m == "") break
+
+                if (!Stubs.globalData2(C, i, m)) {
+                    val x = Stubs.getGlobalDouble(A, i, j) *
+                            Stubs.getGlobalDouble(B, k, m)
+                    Stubs.setGlobalDouble(C, x, i, m)
+                } else {
+                    val x = Stubs.getGlobalDouble(C, i, m) +
+                            Stubs.getGlobalDouble(A, i, j) *
+                            Stubs.getGlobalDouble(B, k, m)
+                    Stubs.setGlobalDouble(C, x, i, m)
+                }
+            }
+        }
+    }
+}

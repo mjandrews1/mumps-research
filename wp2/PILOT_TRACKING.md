@@ -102,6 +102,10 @@ rows -> 638 event rows (the B3 delta over the B1-close export is exactly
 140 reuse+hit pairs). Check columns track the BASE reference translation
 (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 
+DOC B5 tranche 2 (units 134-143, the core stratum) translated 2026-11-20:
+ten units, whole-arm kotlinc gate 0/0 at 144 files; the ten DOC rows
+below marked translated. Gradle gate on m1-build pending at batch close.
+
 | # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
 |---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
 | 63 | compiler-epi.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
@@ -201,16 +205,16 @@ DOC B5 tranche 1 (units 124-133, the simple stratum) translated 2026-11-20: ten 
 | 131 | libmpscpp.cpp::global::Translate | cpp | simple | todo | translated | todo | todo | todo | todo |
 | 132 | interp-arith.cpp::mps_log10 | cpp | simple | todo | translated | todo | todo | todo | todo |
 | 133 | libmpscpp.cpp::global::Length | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 134 | libmpscpp.cpp::GlobalQS | cpp | core | todo | todo | todo | todo | todo | todo |
-| 135 | compiler-parse.c::ExpandData | c | core | todo | todo | todo | todo | todo | todo |
-| 136 | libmpscpp.cpp::global::Sum | cpp | core | todo | todo | todo | todo | todo | todo |
-| 137 | libmpscpp.cpp::Transpose | cpp | core | todo | todo | todo | todo | todo | todo |
-| 138 | libmpscpp.cpp::Multiply | cpp | core | todo | todo | todo | todo | todo | todo |
-| 139 | interp-arith.cpp::expx | cpp | core | todo | todo | todo | todo | todo | todo |
-| 140 | interp-sysfunc.cpp::getstr1 | cpp | core | todo | todo | todo | todo | todo | todo |
-| 141 | interp-strmanip.cpp::<misc> | cpp | core | todo | todo | todo | todo | todo | todo |
-| 142 | interp-sym.cpp::SysDump | cpp | core | todo | todo | todo | todo | todo | todo |
-| 143 | interp-rpm.cpp::parse_count | cpp | core | todo | todo | todo | todo | todo | todo |
+| 134 | libmpscpp.cpp::GlobalQS | cpp | core | todo | translated | todo | todo | todo | todo |
+| 135 | compiler-parse.c::ExpandData | c | core | todo | translated | todo | todo | todo | todo |
+| 136 | libmpscpp.cpp::global::Sum | cpp | core | todo | translated | todo | todo | todo | todo |
+| 137 | libmpscpp.cpp::Transpose | cpp | core | todo | translated | todo | todo | todo | todo |
+| 138 | libmpscpp.cpp::Multiply | cpp | core | todo | translated | todo | todo | todo | todo |
+| 139 | interp-arith.cpp::expx | cpp | core | todo | translated | todo | todo | todo | todo |
+| 140 | interp-sysfunc.cpp::getstr1 | cpp | core | todo | translated | todo | todo | todo | todo |
+| 141 | interp-strmanip.cpp::<misc> | cpp | core | todo | translated | todo | todo | todo | todo |
+| 142 | interp-sym.cpp::SysDump | cpp | core | todo | translated | todo | todo | todo | todo |
+| 143 | interp-rpm.cpp::parse_count | cpp | core | todo | translated | todo | todo | todo | todo |
 | 144 | include/mumpsc/sym.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
 | 145 | interp-sym.cpp::Qlength | cpp | complex | todo | todo | todo | todo | todo | todo |
 | 146 | libmpscpp.cpp::SynInit | cpp | complex | todo | todo | todo | todo | todo | todo |

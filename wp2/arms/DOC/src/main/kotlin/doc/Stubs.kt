@@ -365,9 +365,16 @@ object Stubs {
     // unit 24, _SymFree = unit 28, patrn1 = unit 30); those seats
     // convert to delegates when the units land.
 
-    // void lpad(unsigned char *, unsigned char *, short)
-    fun lpad(a: CharArray, b: CharArray, sh: Short): Unit =
-        throw NotImplementedError("lpad: out-of-scope owner (interp pad helper)")
+    // lpad RESOLVED: the real body rendered by the batch-5 unit 141
+    // (interp-strmanip.cpp::<misc>); the Fcn unit-123 call site
+    // rebinds to the render. Stub seat removed.
+
+    // ------------------------------------------------------------------
+    // unit 137: the MSV Transpose wrapper hands off to the class member
+    // global::Transpose(global) (vendor ~libmpscpp.cpp:2164 family);
+    // not a corpus unit - owner-named H-014 seat raised by unit 137.
+    fun globalRefTranspose(a: GlobalRef, b: GlobalRef): Unit =
+        throw NotImplementedError("globalRefTranspose: out-of-scope owner (libmpscpp.cpp::global::Transpose, not a corpus unit)")
 
     // void substr(unsigned char *, unsigned char *, int, int)
     fun substr(a: CharArray, b: CharArray, i: Int, j: Int): Unit =

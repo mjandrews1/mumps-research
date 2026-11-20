@@ -678,7 +678,7 @@ fun fcn(svPtr: Msv) {
                     // lpad(&bd[1], &bd[1], l) - the in-place pad via the slice
                     val padS = svPtr.bd.copyOfRange(1, svPtr.bd.size)
                     val padD = padS.copyOf()
-                    Stubs.lpad(padD, padS, lJ.toShort())
+                    lpad(padD, padS, lJ.toShort())
                     CstringOps.copyAtS(svPtr.bd, 1, CstringOps.cstring(padD))
                     return@fcnRun FcnT.EX2
                 }
