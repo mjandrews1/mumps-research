@@ -269,3 +269,19 @@ DOC B6 tranche 1 (units 155-164, the simple stratum) translated 2026-11-20: ten 
 | 162 | interp-arith.cpp::mps_log2 | cpp | simple | todo | translated | todo | todo | todo | todo |
 | 163 | interp-arith.cpp::mps_sin | cpp | simple | todo | translated | todo | todo | todo | todo |
 | 164 | include/mumpsc/memsize.h::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+
+DOC B6 tranche 2 (units 165-175, the core stratum) translated 2026-11-21: eleven units pushed, whole-arm kotlinc gate 0/0 at 171 files; gradle gate on m1-build pending at tranche close. Rows follow the pre-registered batch_plan.md order (core stratum, complexity rank ascending). The tranche resolves four H-014 stub seats (Stubs.Mglobal CharArray overload, Stubs.Mextract, Stubs.globalMax, Stubs.dice) plus Stubs.stopInit, carries two TAG CORRECTIONS (the global::Max roster mis-read at units 68/171; the _extract batch-10 mis-tag at unit 168), and seats the unit-172 stateVector.h residual field roster into the Msv carrier. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
+
+| # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
+| 165 | interp-arith.cpp::mps_abs | cpp | core | todo | translated | todo | todo | todo | todo |
+| 166 | libmpscpp.cpp::StopInit | cpp | core | todo | translated | todo | todo | todo | todo |
+| 167 | libmpscpp.cpp::Mglobal | cpp | core | todo | translated | todo | todo | todo | todo |
+| 168 | interp-sym.cpp::_extract | cpp | core | todo | translated | todo | todo | todo | todo |
+| 169 | include/mumpsc/interp.h::<misc> | c | core | todo | translated | todo | todo | todo | todo |
+| 170 | libmpscpp.cpp::TimeOut_getstr1 | cpp | core | todo | translated | todo | todo | todo | todo |
+| 171 | libmpscpp.cpp::global::Max | cpp | core | todo | translated | todo | todo | todo | todo |
+| 172 | include/mumpsc/stateVector.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
+| 173 | compiler-parse.c::ExpandOrder | c | core | todo | translated | todo | todo | todo | todo |
+| 174 | interp-arith.cpp::modulo | cpp | core | todo | translated | todo | todo | todo | todo |
+| 175 | libmpscpp.cpp::Dice | cpp | core | todo | translated | todo | todo | todo | todo |

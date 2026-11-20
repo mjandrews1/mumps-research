@@ -142,6 +142,76 @@ class Msv {
     // EDIT-ONLY carrier addition of the unit-150 mumps.cpp::main
     // render with this single-owner note).
     val program = CharArray(512)
+
+    // ---------------------------------------------------------
+    // Unit 172 (B6 tranche 2): include/mumpsc/stateVector.h::<misc>
+    // residual field roster (batch 6, complex stratum; roster row
+    // 172: loc 76, score 18.4). The fields below are the struct
+    // members not carried by earlier units; vendor source line
+    // anchors in each comment. grslts/grsltsx (stateVector.h:97-98)
+    // are commented out in the vendor header itself - commented
+    // fossil, roster note only, not translated.
+
+    // stateVector.h:40 char cfgdata[256] (config data file name
+    // carrier; the mumps.cpp::main config scan seat)
+    val cfgdata = CharArray(256)
+    // stateVector.h:41 char cfgkey[256] (config key carrier)
+    val cfgkey = CharArray(256)
+    // stateVector.h:47 int LockDone (lock-completed flag)
+    var LockDone: Int = 0
+    // stateVector.h:53 int ITRAP (error trap activation flag)
+    var ITRAP: Int = 0
+    // stateVector.h:57 int ctrlc (interrupt flag; the u170
+    // TimeOut_getstr1 render reads it in the selectC carrier note)
+    var ctrlc: Int = 0
+    // stateVector.h:58 int iorg (origin 0/1 flag)
+    var iorg: Int = 0
+    // stateVector.h:68 int nflg (new flag)
+    var nflg: Int = 0
+    // stateVector.h:70 int gpad (global padding flag)
+    var gpad: Int = 0
+    // stateVector.h:73 char RefParm[10][16] (call-by-reference
+    // parameter name carrier)
+    val RefParm = Array(10) { CharArray(16) }
+    // stateVector.h:74 char Rargs[10][16] (routine argument names)
+    val Rargs = Array(10) { CharArray(16) }
+    // stateVector.h:75 int Rargsx (routine argument count)
+    var Rargsx: Int = 0
+    // stateVector.h:76 int _SymPush (symbol table push flag)
+    var _SymPush: Int = 0
+    // stateVector.h:78 unsigned long int hit,count (btree cache
+    // hit ratio counters)
+    var hit: Long = 0L
+    var count: Long = 0L
+    // stateVector.h:79 unsigned long long restoredata (restore-data
+    // flag/counter)
+    var restoredata: Long = 0L
+    // stateVector.h:80 int ScanMinWordSize; :81 ScanMaxWordSize
+    // (scan word bounds)
+    var ScanMinWordSize: Int = 0
+    var ScanMaxWordSize: Int = 0
+    // stateVector.h:83 char UKEY[1024]; :84 UDAT[1024] (order Prot
+    // UKEY/UDAT feature carriers)
+    val UKEY = CharArray(1024)
+    val UDAT = CharArray(1024)
+    // stateVector.h:86 char Table[256] (data base table name)
+    val Table = CharArray(256)
+    // stateVector.h:88 int ConOpen (connection open flag)
+    var ConOpen: Int = 0
+    // stateVector.h:89 char pgsql_msg[STR_MAX]; :90 Connection;
+    // :91 Col_Names (sql carriers)
+    val pgsql_msg = CharArray(STR_MAX)
+    val Connection = CharArray(STR_MAX)
+    val Col_Names = CharArray(STR_MAX)
+    // stateVector.h:92 int fdes[2] (pipe descriptors)
+    val fdes = IntArray(2)
+    // stateVector.h:93 int exec (exec pipeline flag)
+    var exec: Int = 0
+    // stateVector.h:94 char reference[1024] (call by ref underlying
+    // name carrier)
+    val reference = CharArray(1024)
+    // stateVector.h:97-98 grslts[22]/grsltsx: commented out in the
+    // vendor header itself (commented fossil, roster note only)
 }
 
 // libmpscpp.h:75 define INPUT_ERROR 6 (bounded-read error code; the

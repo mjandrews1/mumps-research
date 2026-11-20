@@ -10,9 +10,13 @@ package doc
 // trailing-trim precedent), the edge being observable only on a
 // degenerate 1-char control-prefixed call. The C static char
 // tmp[32] folds to a fresh String return per H-008 (no caller can
-// alias the old buffer). The class member global::Max
-// (libmpscpp.cpp:1651) is NOT a corpus unit: it rides the new
-// owner-named H-014 stub Stubs.globalMax (sibling of global::Min).
+// alias the old buffer). TAG CORRECTION with unit 171 (B6 tranche
+// 2): the class member global::Max (libmpscpp.cpp:1651) IS a
+// corpus unit after all - the batch-6 roster row (loc 26, score
+// 14.8); its GlobalMax.kt unit-171 render now carries the real
+// XNEXT walk and the Stubs.globalMax seat delegates to it. The
+// earlier "NOT a corpus unit" note was a roster mis-read,
+// journaled with the unit-171 render.
 // sprintf "%g" renders as String.format Locale.US (H-009: the JVM
 // %g shape is a documented adaptation - C exponent/trailing-zero
 // rendering differs).

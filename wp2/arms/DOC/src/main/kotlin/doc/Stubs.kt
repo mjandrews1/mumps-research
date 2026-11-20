@@ -5,12 +5,13 @@ package doc
 // units.csv. Delegation replaces a stub when its owner unit lands.
 
 object Stubs {
-    // TODO stub: owned by the libmpscpp.cpp Mglobal family; not a selected
-    // batch-2 unit (libmpscpp.cpp Mglobal helper is outside the corpus
-    // units of this batch). Signature mirrors vendor
+    // Unit 167 (B6 tranche 2): resolved - delegates to the real
+    // Mglobal render (libmpscpp.cpp Mglobal family; the Close/Close2
+    // early-out, the SQLITE arm as the live reference config, and
+    // the btree pass-through). Signature mirrors vendor
     // int Mglobal(int, unsigned char *, unsigned char *, struct MSV *).
     fun Mglobal(code: Int, key: CharArray, dest: CharArray, sv: Msv): Int =
-        throw NotImplementedError("Mglobal: out-of-scope owner (libmpscpp.cpp Mglobal family)")
+        doc.Mglobal(code, key, dest, sv)
 
     fun Mglobal(code: Int, key: String, dest: CharArray, sv: Msv): Int =
         Mglobal(code, key.toCharArray().copyOf(STR_MAX).also { it[key.length] = '\u0000' }, dest, sv)
@@ -20,9 +21,13 @@ object Stubs {
     fun Mltoa(value: Int, out: CharArray): Unit =
         throw NotImplementedError("Mltoa: out-of-scope owner (libmpscpp.h:120 macro)")
 
-    // TODO stub: owned by interp-sym.cpp _extract family (batch 10 corpus).
+    // Unit 168 (B6 tranche 2, resolved): Mextract delegates to the real
+    // _extract render (interp-sym.cpp _extract family). Original stub
+    // note, kept verbatim: TODO stub - owned by interp-sym.cpp _extract
+    // family (batch-10 mis-tag; the batch-6 roster carries the unit as
+    // roster row 168 - tag correction journaled with the render).
     fun Mextract(r: CharArray, tmp: CharArray, a: CharArray, b: CharArray): Unit =
-        throw NotImplementedError("_extract: out-of-scope owner (interp-sym.cpp) batch-10 unit")
+        doc._extract(r, tmp, a, b)
 
     // TODO stub: owned by interp-sym.cpp _find family (batch 10 corpus).
     fun Mfind(r: CharArray, tmp: CharArray, key: CharArray, a: CharArray): Int =
@@ -519,11 +524,13 @@ object Stubs {
 
     // ------------------------------------------------------------------
     // unit 68 (B3 tranche 1): the class-global member Max over the
-    // unsubscripted/subscripted reference (owner libmpscpp.cpp:1651
-    // global::Max) is not a corpus unit; owner-named seat raised by
-    // unit 68 (sibling of global::Min, unit 44's real render).
-    fun globalMax(g: GlobalRef): Double =
-        throw NotImplementedError("globalMax: out-of-scope class member (libmpscpp.cpp::global::Max, not a corpus unit)")
+    // unsubscripted/subscripted reference raised this seat. TAG
+    // CORRECTION with unit 171 (B6 tranche 2): the roster row
+    // libmpscpp.cpp::global::Max (loc 26) is a batch-6 corpus unit
+    // after all (the earlier "not a corpus unit" note was a roster
+    // mis-read, journaled); the seat now delegates to the real
+    // GlobalMax.kt unit-171 render (the XNEXT walk Cosine family).
+    fun globalMax(g: GlobalRef): Double = g.max()
 
     // ------------------------------------------------------------------
     // unit 31 carrier seats (H-014 stubs; owners below the roster or
@@ -751,9 +758,8 @@ object Stubs {
         throw NotImplementedError("Jaccard: out-of-scope owner (libmpscpp.cpp::Jaccard) batch-9 unit")
 
     // double Dice(global a, global b); owner
-    // libmpscpp.cpp::Dice - batch-6 roster row 166.
-    fun dice(a: GlobalRef, b: GlobalRef): Double =
-        throw NotImplementedError("Dice: out-of-scope owner (libmpscpp.cpp::Dice) batch-6 unit")
+    // libmpscpp.cpp::Dice - batch-6 roster row 166 (MDH numbering).
+    fun dice(a: GlobalRef, b: GlobalRef): Double = Dice(a, b)
 
     // void global::DocCorrelate(global B, char * fcn, double
     // threshold); owner libmpscpp.cpp::global::DocCorrelate - batch-10
@@ -770,9 +776,10 @@ object Stubs {
         throw NotImplementedError("global::DocCorrelate: out-of-scope owner (libmpscpp.cpp::global::DocCorrelate) batch-10 unit")
 
     // void StopInit(char * file); owner libmpscpp.cpp::StopInit -
-    // batch-6 roster row 175 (the stopword table loader).
-    fun stopInit(file: String): Unit =
-        throw NotImplementedError("StopInit: out-of-scope owner (libmpscpp.cpp::StopInit) batch-6 unit")
+    // batch-6 roster row 175 (the stopword table loader). Resolved
+    // with unit 166 (B6 tranche 2): delegates to the real StopInit.kt
+    // render, which loads the mutable stopWords carrier.
+    fun stopInit(file: String): Unit = doc.stopInit(file)
 
     // int StopLookup(char * str); owner libmpscpp.cpp:7777 - not a
     // corpus unit (the stopword membership test).
