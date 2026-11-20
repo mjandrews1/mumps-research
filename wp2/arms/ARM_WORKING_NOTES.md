@@ -2431,3 +2431,194 @@ global::Translate, mps_log10, global::Length. Mark's gradle gate
 per-unit-stamp discipline note above applies only to the shared-id
 trio. Batch-5 tracking table opened in PILOT_TRACKING.md with the
 10 tranche-1 rows marked translated.
+
+
+### DOC B5 tranche 2 (units 134-143), 2026-11-20
+
+Tranche 2 = the batch-5 core stratum, ten units, all rendered from
+the pristine vendor tarball (sha256 re-verified this session; exact
+physical-LOC matches against units.csv for every unit via the
+study's own chunker-faithful extractor). Whole-arm kotlinc 2.1.20
+local gate: 144 files, 0 errors, 0 warnings (compile gate caught
+and fixed mid-render slips before the push: a missing
+kotlin.math.pow import, a val reassignment in parse_count, Short
+indexing in lpad, a redundant String() wrap in SysDump). Mark's
+m1-build gradle gate runs at tranche close.
+
+Per-unit ledger (vendor line anchors from the pristine source):
+- u134 GlobalQS (vendor 2514-2536, 19 loc): GlobalQS.kt - the
+  dollar-qs quoted-subscript wrapper, the unit-39 GlobalOrder family
+  shape; xecute/SymGet on the H-014 seats; percent-qs command built
+  in the tmp buffer with the dollar byte escaped (H-015 unit-39
+  escape); unsigned-char params on the H-012 byte domain; the vendor
+  static char r[STR_MAX] is DEAD (never read or written) - dropped
+  per H-013 with the ledger note; tpx flag kept verbatim; the void
+  return maps to Unit.
+- u135 compiler-parse.c::ExpandData (vendor ~524, 24 loc):
+  ExpandData.kt - the unit-11 ExpandNext sibling; reads the coded
+  #G#/#S# payload after the position in the v1d carrier and emits
+  the runtime GlobalData/LocalData call; fprintf(Out,...) maps to
+  CompilerState.emit per H-001; strncmpAt is the offset strncmp seat
+  (unit-11 precedent); neither-marker fallthrough leaves bp
+  untouched (vendor shape kept).
+- u136 global::Sum (vendor 2881, 21 loc): GlobalSum.kt - GlobalRef
+  extension, the unit-37 KiLL XNEXT walk family (Mglobal code 8):
+  fetch-and-accumulate while the next sibling matches this global's
+  name prefix (strncmpC prefix break kept); get_global on the H-014
+  seat; the !tpx arm throws MumpsGlobalException GLOBAL_NOT_FOUND=2;
+  strtod accumulate per the H-010 unit-40 decimal-prefix contract.
+  VENDOR QUIRK kept verbatim: the trailing-delimiter trim reads
+  tmp[i-1] AND tmp[i-2] after i=strlen - a delimiter-terminated key
+  can lose its final delimiter when a low control byte precedes
+  (documented, not fixed).
+- u137 Transpose (vendor 10316-10347, 23 loc - the MSV intrinsic
+  WRAPPER; units.csv disambiguates from the batch-4 unit-100
+  std::string overload at loc 15): TransposeMsv.kt - dead ep kept
+  (H-013); VENDOR COPY-PASTE BUG kept: the second top-level guard
+  tests arg2 at index i (the first argument's scan index), not j;
+  both guards write the NUL one past the scan index, then hand the
+  bytes after the caret carrier SOH to the global ctor/invoke pair;
+  printf divergence via println (H-001); sigint on the H-014 seat;
+  the global::Transpose(global) class member is NOT a roster unit -
+  new owner-named H-014 seat Stubs.globalRefTranspose raised
+  (libmpscpp.cpp owner); the vendor empty-string return is a fresh
+  constant per call (H-008).
+- u138 Multiply (vendor 2211-2250, 26 loc - the FREE (string,string,
+  string) overload; NOT the batch-2 unit-46 five-arg MSV wrapper):
+  append to Multiply.kt - the GlobalRefs A/B/C built directly from
+  the string params, then the matrix-product walk INLINE; the body
+  DUPLICATES the unit-53 global::Multiply member verbatim (vendor
+  copy-paste, kept per policy; ledger note); the same H-014
+  Kill/Order/Data/double-fetch/double-store seat family as u53;
+  no printf fossils in this vendor body, nothing dropped.
+- u139 expx (vendor 1166, 48 loc): MpsExpx.kt - the general power
+  a-to-the-b runtime; H-018 trichotomy resolved against the
+  reference config: the plain-double arm live (Kotlin pow), the
+  BIGFLOAT strtold/powl arm and the MULTI_PRECISION MPFR/GMP arms
+  documentary (kept as comments, the excluded-arm structure
+  verbatim); gcvt_wrapper on the H-014 seat; strtod per H-010; the
+  H-008 note carries the excluded statics disappearing with the
+  arm.
+- u140 getstr1 (vendor interp-sysfunc.cpp, 30 loc): Getstr1.kt -
+  the std::string-accumulating line reader (NOT the batch-6
+  TimeOut_getstr1 sibling, NOT the unit-48 getstr2 CharArray
+  family); FILE* renders as java.io.Reader per H-001 with the C EOF
+  -1 contract; the unsigned char** out-param renders as the caller
+  CharArray written once on the return path (H-006 API-shape
+  survival); chr widened Int with the byte filter comparisons kept
+  (H-010); VENDOR QUIRK kept: the length-error drain loop
+  assignment-in-condition ALSO exits on a NUL byte (the falsy chr==0
+  test) - kept as the vendor shape; DEAD TAIL dropped per H-013
+  after the MumpsGlobalException throw (area[i]=0, return, sigint,
+  return(-1) unreachable; INPUT_LENGTH=10 const added file-private).
+- u141 interp-strmanip.cpp::<misc> (36 physLOC): StrmanipMisc.kt -
+  the LGPL banner block (license text DIFFERS from the GPL compiler
+  banners - vendor fact kept) plus three entry residues: rindex
+  (the vendor plain definition shadowing libc rindex; the empty
+  MSVC ifdef pair above it resolves to NOTHING live per H-018;
+  pointer-return folded to found-index offset per H-007, NULL to
+  -1); strcatx (DUPLICATE-DEF LEDGER NOTE: identical semantics to
+  the inline.h:46 helper already rendered as the internal strcatx
+  seat in Input.kt unit-23 - the live seat stays, no second
+  definition); lpad REAL BODY (RESOLVES the Stubs.lpad H-014 stub -
+  removed; the Fcn.kt:678 unit-123 call site rebinds to the real
+  body, offset-carrier signature kept so the site binds unchanged;
+  j/k arithmetic on Int carriers per the compile gate).
+- u142 SysDump (vendor 925, 18 loc): SysDump.kt - the pid-named
+  symbol-table dump; PrintWriter over FileWriter at the program
+  edge per H-001 with close in all paths; VENDOR UB QUANTIZED
+  (H-001 divergence ledgered): the vendor fopen-NULL arm calls
+  ErrorMessage and CONTINUES into fprintf(NULL,...) - rendered as
+  the IllegalStateException edge carrier after the ErrorMessage
+  call (sigint aborts first; the tail was unreachable in practice);
+  Mltoa on the H-014 seat with the long-pid Int narrowing
+  documented per H-010; the stab chain walk on the unit-28 Stab
+  carrier with the local-capture null guard (the vendor
+  (*p1->data).c_str() deref is unguarded - Kotlin nullable data
+  requires the guard, adaptation noted) and the empty-string
+  fallback; the unused p2/p3 declarations dropped per H-013.
+- u143 parse_count (interp-rpm.cpp 360-401, 40 loc):
+  ParseCount.kt - the pattern quantifier arm on the
+  ParsePatternElement.kt carriers (parser/token/token_type,
+  unit-104 file); the INT head takes lowerbound, accept_it, the DOT
+  range arm ({lower,upper} / {lower,}) or bare {lower}, closed by
+  bcatchr-'}'; the vendor else arm is the "Must have been a DOT."
+  comment KEPT VERBATIM - accept, then {0,upper} on INT else the
+  star quantifier; bstrcat on the H-014 stub (interp-bstring.cpp
+  batch-9 owner); newBstring/bcatchr real seats; accept_it on the
+  H-014 rpm-misc stub; the result carrier is a var per the vendor
+  reassignment shape.
+
+Sub-push boundary: one tranche; the ferry push lands as TWO commits
+(code+tracking first, then the journal) because the transport size
+limit rejects a single code-plus-journal payload - same tranche
+boundary, no scope change. New files: GlobalQS,
+ExpandData, GlobalSum, TransposeMsv, MpsExpx, Getstr1,
+StrmanipMisc, SysDump, ParseCount (nine). Edits: Multiply.kt
+(append +56 lines), Stubs.kt (-lpad resolved, +globalRefTranspose
+seat), Fcn.kt (lpad rebind). Carriers.kt and all other files
+untouched.
+
+Pre-push scan (H-015 gate) on every new/changed file: no backticks,
+no double-bang, no raw dollar outside carrier escapes, comment-
+closes end their lines. Cross-file top-level name scan: all new
+top-levels are overload- or arity-distinct from existing package
+top-levels (Multiply joins the u46 wrapper by arity;
+parse_count joins the pattern family); the whole-arm compile is
+the decisive check and passed 0/0 at 144 files.
+
+Consult rows (tranche-wide timestamp 2026-11-20T00:43:24Z; no
+shared roster ids in this tranche, so a single stamp holds the
+C-008 duplicate-key rule):
+- DOC consult: unit libmpscpp.cpp::GlobalQS, entry H-012, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::GlobalQS, entry H-013, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::GlobalQS, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::GlobalQS, entry H-015, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::GlobalQS, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit compiler-parse.c::ExpandData, entry H-001, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit compiler-parse.c::ExpandData, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::global::Sum, entry H-010, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::global::Sum, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::global::Sum, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::Transpose, entry H-001, outcome hit-adapt, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::Transpose, entry H-008, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::Transpose, entry H-013, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::Transpose, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::Transpose, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::Multiply, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit libmpscpp.cpp::Multiply, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-arith.cpp::expx, entry H-008, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-arith.cpp::expx, entry H-010, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-arith.cpp::expx, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-arith.cpp::expx, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-arith.cpp::expx, entry H-018, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sysfunc.cpp::getstr1, entry H-001, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sysfunc.cpp::getstr1, entry H-006, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sysfunc.cpp::getstr1, entry H-007, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sysfunc.cpp::getstr1, entry H-010, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sysfunc.cpp::getstr1, entry H-013, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sysfunc.cpp::getstr1, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-strmanip.cpp::<misc>, entry H-007, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-strmanip.cpp::<misc>, entry H-010, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-strmanip.cpp::<misc>, entry H-013, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-strmanip.cpp::<misc>, entry H-014, outcome hit-adapt, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-strmanip.cpp::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-strmanip.cpp::<misc>, entry H-018, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sym.cpp::SysDump, entry H-001, outcome hit-adapt, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sym.cpp::SysDump, entry H-010, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sym.cpp::SysDump, entry H-013, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sym.cpp::SysDump, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-sym.cpp::SysDump, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-rpm.cpp::parse_count, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+- DOC consult: unit interp-rpm.cpp::parse_count, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:43:24Z
+
+Tranche totals: 41 consults, 38 hit-reuse / 3 hit-adapt (u137
+Transpose H-001 println divergence, u141 strmanip H-014 lpad stub
+resolution plus the strcatx duplicate-def fold, u142 SysDump
+H-001 fopen-UB quantization), 0 miss. Hit rate 100.0%, reuse rate
+92.7%. TRANCHE 2 (units 134-143, 10 units) COMPLETE: the core
+stratum - GlobalQS, ExpandData, global::Sum, the MSV Transpose
+wrapper, the string-triple Multiply, expx, getstr1, the strmanip
+residue, SysDump, parse_count. Mark's gradle gate (wp2/arms/DOC,
+build) is the pending close step. Batch-5 tracking table: the ten
+tranche-2 DOC rows marked translated in PILOT_TRACKING.md.
