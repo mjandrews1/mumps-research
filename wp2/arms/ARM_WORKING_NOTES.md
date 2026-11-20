@@ -3779,3 +3779,93 @@ track the BASE reference translation). PILOT_TRACKING's DOC
 column is "translated" for rows 155-185; the "DOC B6 closed"
 prose line lands in the same commit as this checklist. Next
 protocol step: batch 7 per the committed row order.
+
+### DOC B7 tranche 1 (units 186-195, simple stratum) - 2026-11-20
+
+Batch 7 opened per the committed row order (batch_plan.md B7, 30
+units; DOC rows 186-215). Sandbox rebuilt from the rebuild recipe
+this session (vendor sha256 621deb...ffdbe, kotlinc 2.1.20, JDK17
+corretto; baseline whole-arm gate 0/0 at 181 files before the
+first render). Tranche 1 renders the 10 simple rows in
+batch_plan order, each from the pristine vendor tree with
+physical-LOC verification at the roster-declared sites:
+
+- compiler-sys1.c::substr (unit 189, vendor :396 with the K&R
+  header lines): the SHORT-domain compiler twin; len 0 empty,
+  negative clamp 255, >255 clamp 255, 1-based walk, NUL cap.
+  DISTINCT-TWIN resolution (the unit-59 inout precedent): the
+  interpreter twin shares the C symbol name; the Kotlin seats
+  stay distinct by the vendor parameter domains (short here, int
+  at the interp twin). The landed compiler-side call sites
+  (Match.kt unit 180, PatrnSys1.kt unit 26) REBIND from
+  Stubs.substr to this real this push, the int expressions
+  narrowing at the call exactly as the C call sites do.
+- interp-strmanip.cpp::substr (unit 190, vendor :59): the
+  INT-domain interpreter twin; negative clamp only, and the
+  STR_MAX overrun arm reallocs the out pointer (H-001 quantize
+  note: the fixed CharArray carrier has no realloc; no-op with
+  the note, the walk unchanged). Stubs.substr FLIPS to this
+  real (the past "interp substr helper" tag was owner-correct);
+  PatrnInterp/InterpParse-side call sites bind through the
+  stub unchanged.
+- interp-sym.cpp::mkpt (unit 195, vendor :970): one-pass
+  printable filter over the 2048 static; the fall-through
+  overwrite order kept (0x1f/0x1e/0x01 take hyphen then their
+  own byte); bytes above 128 leave the stale buffer byte
+  untouched (H-013 note, no invented fill); the static rides
+  MkptState per H-004 and the return aliases the same carrier.
+- interp-sym.cpp::_justify (unit 194, vendor :1328): the
+  left-pad text arm (strcmp p "-1", strlen k, the 255 clamp,
+  the REAL lpad direct call per the Fcn.kt unit-123 precedent)
+  and the numeric arm (sprintf format build, atof, the H-009
+  String.format Locale.US fold per the Avg.kt %g precedent; the
+  file-private atofJ parses the leading double, 0.0 otherwise).
+- libmpscpp.cpp::global::Find (unit 186, vendor :7566): the
+  CHAR-STAR needle overload; renders as the CharArray-key fold
+  delegate to the unit-33 String body (the unit-156 ledger fold
+  decision extended; cstring carrier conversion per the SymGet
+  CharArray-overload precedent).
+- compiler-zcommands.c::<misc> (unit 187): banner-ledger chunk
+  (license block, May 10 2024 date line, four includes) per the
+  unit-155 CompilerFcninitMisc shape; zcommands_code itself is
+  the batch-7 T3 row.
+- libmpscpp.cpp::global::Piece (unit 188, vendor :7236): the
+  STRING needle member; single RETRIEVE, jj<0 collapse quirk,
+  _piece on the unit-114 REAL (H-014) - and the Stubs.Mpiece
+  seat FLIPS with TAG CORRECTION (the past "not a corpus unit"
+  tag was a MIS-TAG: the owner is the landed unit-114 _piece;
+  the unit-38 call site binds through the flip unchanged).
+- libmpscpp.cpp::mstring::Translate (unit 191, vendor :4226):
+  the TWO-ARG mstring member; the unit-131 Concat-fold command
+  build (dollar-translate, ce open, data, d0, a1, d0, a2, cf
+  close), fcn stub, offset-1 v1d/bd convention.
+- libmpscpp.cpp::GlobalData (unit 192, vendor :2616): the
+  MSTRING needle; roster adjudication of the same-file
+  same-score twin rows (8.7 ranks 78/79 across batches 7/8):
+  file-order tie-break, mstring :2616 here, string :2636 is
+  the batch-8 row (the fold note in the KDoc); xecute/SymGet
+  stubs, tpx semantics, atoi tail per unit 70.
+- libmpscpp.cpp::global::Soundex (unit 193, vendor :4200): the
+  GLOBAL member; unit-131 fold (dollar-z-z-soundex, ce/cf
+  frame), Mglobal RETRIEVE with the GLOBAL_NOT_FOUND throw, fcn
+  stub offset-1 read.
+
+Gates: whole-arm kotlinc 2.1.20 0 errors / 0 warnings at tranche
+close, 188 files (181 + 7 new renders; Find/GlobalPiece/
+GlobalData/Stubs/Match/PatrnSys1 edited), first-pass green;
+gradle gate on m1-build pending at tranche close. H-015 scan
+clean on all touched files.
+
+Renders and consult ledger (each consult logged before applying;
+roster id strings per the batch-6 close repair 2 discipline):
+
+- DOC consult: unit libmpscpp.cpp::global::Find, entry H-014, outcome hit-reuse, timestamp 2026-11-20T21:35:00Z
+- DOC consult: unit compiler-zcommands.c::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-20T21:36:00Z
+- DOC consult: unit libmpscpp.cpp::global::Piece, entry H-014, outcome hit-reuse, timestamp 2026-11-20T21:37:00Z
+- DOC consult: unit compiler-sys1.c::substr, entry H-010, outcome hit-adapt, timestamp 2026-11-20T21:38:00Z
+- DOC consult: unit interp-strmanip.cpp::substr, entry H-014, outcome hit-reuse, timestamp 2026-11-20T21:39:00Z
+- DOC consult: unit libmpscpp.cpp::mstring::Translate, entry H-014, outcome hit-reuse, timestamp 2026-11-20T21:40:00Z
+- DOC consult: unit libmpscpp.cpp::GlobalData, entry H-014, outcome hit-reuse, timestamp 2026-11-20T21:41:00Z
+- DOC consult: unit libmpscpp.cpp::global::Soundex, entry H-014, outcome hit-reuse, timestamp 2026-11-20T21:42:00Z
+- DOC consult: unit interp-sym.cpp::_justify, entry H-009, outcome hit-reuse, timestamp 2026-11-20T21:43:00Z
+- DOC consult: unit interp-sym.cpp::mkpt, entry H-004, outcome hit-reuse, timestamp 2026-11-20T21:44:00Z

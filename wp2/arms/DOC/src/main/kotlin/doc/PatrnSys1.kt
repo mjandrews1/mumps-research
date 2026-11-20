@@ -75,14 +75,14 @@ fun patrn(ad: CharArray) {
             if (bd[i] >= '0' && bd[i] <= '9') {
                 var j = i
                 while (bd[i] >= '0' && bd[i] <= '9') i++
-                Stubs.substr(bd, tmp, j, i - j)
+                substr(bd, tmp, j.toShort(), (i - j).toShort())
                 cannon(tmp)
                 high[lx] = atoi(CstringOps.cstring(tmp)).toShort()
             }
         } else {
             var j = i
             while (bd[i] >= '0' && bd[i] <= '9') i++
-            Stubs.substr(bd, tmp, j, i - j)
+            substr(bd, tmp, j.toShort(), (i - j).toShort())
             cannon(tmp)
             count[lx] = atoi(CstringOps.cstring(tmp)).toShort()
             if (bd[i] == '"') {
@@ -93,7 +93,7 @@ fun patrn(ad: CharArray) {
                 if (bd[i] >= '0' && bd[i] <= '9') {
                     j = i
                     while (bd[i] >= '0' && bd[i] <= '9') i++
-                    Stubs.substr(bd, tmp, j, i - j)
+                    substr(bd, tmp, j.toShort(), (i - j).toShort())
                     cannon(tmp)
                     high[lx] = atoi(CstringOps.cstring(tmp)).toShort()
                 }

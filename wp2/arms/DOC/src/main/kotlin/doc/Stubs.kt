@@ -41,12 +41,16 @@ object Stubs {
     fun strmove(dst: CharArray, src: CharArray): Unit =
         throw NotImplementedError("strmove: out-of-scope owner (inline.h:38 inline)")
 
-    // TODO stub: owned by the interp-piece.cpp _piece family
-    // (vendor interp-piece.cpp:97); not a corpus unit.
+    // RESOLVED + TAG CORRECTION: the prior seat tag called Mpiece
+    // "not a corpus unit"; the _piece body OWNER is the landed
+    // batch-4 unit 114 render (PieceMisc.kt, interp-piece.cpp
+    // misc chunk carrying the _piece body; the strmove sibling
+    // seats stay). This seat delegates to that real; the
+    // unit-38 GlobalPiece call site binds through here unchanged.
     fun Mpiece(
         tmp: CharArray, gtmp: CharArray, gtmp1: CharArray,
         cc1: CharArray, cc2: CharArray, wild: Int, modes: CharArray, sv: Msv
-    ): Unit = throw NotImplementedError("_piece: out-of-scope owner (interp-piece.cpp:97)")
+    ): Unit = doc._piece(tmp, gtmp, gtmp1, cc1, cc2, wild, modes, sv)
 
     // TODO stub: owned by the interpreter core xecute helper
     // (libmpscpp.h:121 Xecute macro over __command__); not a corpus unit.
@@ -395,9 +399,19 @@ object Stubs {
     fun globalRefTranspose(a: GlobalRef, b: GlobalRef): Unit =
         a.Transpose(b)
 
-    // void substr(unsigned char *, unsigned char *, int, int)
+    // RESOLVED: void substr(unsigned char *, unsigned char *, int,
+    // int) - the owner is the batch-7 unit 190 render
+    // (interp-strmanip.cpp twin aside: the owner row is
+    // interp-strmanip.cpp::substr, StrmanipSubstr.kt). The past
+    // "interp substr helper" tag was owner-correct; this seat now
+    // delegates to the unit-190 real per the inout precedent; the
+    // PatrnInterp/InterpParse call sites bind through here. The
+    // compiler-sys1.c short-domain twin (batch-7 unit 189,
+    // CompilerSubstr.kt) is the DISTINCT landed render; the
+    // compiler-side call sites (Match.kt, PatrnSys1.kt) rebind
+    // directly to it in the same push.
     fun substr(a: CharArray, b: CharArray, i: Int, j: Int): Unit =
-        throw NotImplementedError("substr: out-of-scope owner (interp substr helper)")
+        doc.substr(a, b, i, j)
 
     // LocalName RESOLVED: the seat's "not a roster unit" tag was a
     // mis-tag (TAG CORRECTION) - interp-sysfunc.cpp::LocalName IS the

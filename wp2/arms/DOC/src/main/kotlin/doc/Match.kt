@@ -193,9 +193,9 @@ fun match(
                     ptr++
                     // substr(&ad[ptr], tmp1, 1, pts[2][i]-1): the
                     // ampersand-offset rides the slice carrier
-                    Stubs.substr(sliceTailMT(ad, ptr), tmp1, 1, pts[2][i].toInt() - 1)
-                    Stubs.substr(sliceTailMT(bd, 1), tmp2, pts[1][i].toInt() + 1,
-                            pts[2][i].toInt() - 1)
+                    substr(sliceTailMT(ad, ptr), tmp1, 1.toShort(), (pts[2][i].toInt() - 1).toShort())
+                    substr(sliceTailMT(bd, 1), tmp2, (pts[1][i].toInt() + 1).toShort(),
+                            (pts[2][i].toInt() - 1).toShort())
                     if (strcmpC(tmp2, tmp1) != 0) return
                     ptr = ptr + CstringOps.strlenC(tmp1) - 1
                     j++

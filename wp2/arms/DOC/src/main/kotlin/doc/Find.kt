@@ -80,3 +80,20 @@ fun GlobalRef.find(key: GlobalRef, st: Int): Int {
     val rr = atoi(CstringOps.cstring(r))
     return rr
 }
+
+// Unit 186 (B7 tranche 1): libmpscpp.cpp::global::Find (batch 7,
+// simple stratum; LOC 16, nonblank 12, score 4.0, rank 4, the
+// lowest-score row of the batch) - the CHAR-STAR needle overload
+// (vendor libmpscpp.cpp:7566, physically verified this session).
+// Fold note (the unit-156 ledger update of the unit-33 fold
+// decision): the vendor char-star, mstring and string non-global
+// needles share the identical Mltoa/_find/atoi tail - the
+// unit-33 String render already folds the mstring/string forms
+// (its KDoc tag correction), so this seat renders the C carrier
+// edge only: CharArray key converted to its C string per the
+// SymGet CharArray-overload precedent (H-012), delegating to the
+// unit-33 body unchanged. The unit-156 GlobalRef needle stays the
+// sibling seat above. Naming per H-017 (Find -> find).
+
+fun GlobalRef.find(key: CharArray, st: Int): Int =
+    find(CstringOps.cstring(key), st)

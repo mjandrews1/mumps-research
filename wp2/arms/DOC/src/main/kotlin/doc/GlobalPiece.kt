@@ -36,3 +36,45 @@ fun GlobalRef.piece(pat: GlobalRef, ii: Int, jjIn: Int): Mstring {
     val tmp1 = Mstring(CstringOps.cstring(tmp))
     return tmp1
 }
+
+// Unit 188 (B7 tranche 1): libmpscpp.cpp::global::Piece (batch 7,
+// simple stratum; LOC 17, score 5.5, rank 32) - the STRING-needle
+// member overload (vendor libmpscpp.cpp:7236, physically verified
+// this session; roster adc clue: pointer_marks 0 - the B8/B10
+// sibling rows carry the pointer-bearing char-star/mstring needles,
+// and the B8 row pointer_marks 1 is the mstring-ref form; this row
+// is the pat.c_str() string form). Single Mglobal(RETRIEVE) over
+// the GLOBAL'S OWN ref only (the unit-38 two-retrieve GlobalRef
+// needle sibling is the landed seat above), GLOBAL_NOT_FOUND
+// throw, the jj<0 collapse to ii kept as the unit-38 local-val
+// quirk, sprintf decimals via strcpyS, empty "modes" CharArray,
+// _piece on the unit-114 real (H-014; the Stubs.Mpiece seat flips
+// to this real in this push - the vendor calls _piece directly).
+// Naming per H-017 (Piece -> piece); fold: the Kotlin String
+// parameter is the C string form verbatim (no carrier conversion).
+
+fun GlobalRef.piece(pat: String, ii: Int, jjIn: Int): Mstring {
+    val tmp = CharArray(STR_MAX)
+    val cc1 = CharArray(65)
+    val cc2 = CharArray(64)
+    val gtmp = CharArray(STR_MAX)
+    val patC = CharArray(STR_MAX)
+    CstringOps.strcpyS(patC, pat)
+
+    val f = Stubs.Mglobal(RETRIEVE, ref, gtmp, Globals.svPtr)
+
+    if (f == 0) {
+        Globals.GlobalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
+    }
+
+    val jj = if (jjIn < 0) ii else jjIn
+
+    // sprintf(cc1, "%d", ii) and sprintf(cc2, "%d", jj): plain decimals.
+    CstringOps.strcpyS(cc1, ii.toString())
+    CstringOps.strcpyS(cc2, jj.toString())
+
+    _piece(tmp, gtmp, patC, cc1, cc2, 0, CharArray(0), Globals.svPtr)
+    val tmp1 = Mstring(CstringOps.cstring(tmp))
+    return tmp1
+}

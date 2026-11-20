@@ -328,3 +328,51 @@ regenerated per the C-005/C-008 keys (627 consult rows -> 1252
 event rows; pre-B6 content verified as a byte-exact prefix).
 Check columns stay todo per the C-001 cycle-10 backfill decision.
 Next protocol step: batch 7 per the committed row order.
+
+## Batch 7 (units 186-215, opened 2026-11-20; DOC follows the closed B6 in the committed row order)
+
+Shaping per the PRO precedent: T1 simple (186-195), T2 core (196-205), T3 complex (206-215).
+
+DOC B7 tranche 1 (units 186-195, the simple stratum) translated
+2026-11-20: ten units pushed, whole-arm kotlinc gate 0/0 at 188
+files; gradle gate on m1-build pending at tranche close. Rows
+follow the pre-registered batch_plan.md order (simple stratum,
+complexity rank ascending). The tranche resolves two H-014 stub
+seats (Stubs.substr flips to the unit-190 render; Stubs.Mpiece
+flips with TAG CORRECTION to the landed unit-114 _piece) and
+rebinds the compiler-side substr call sites (Match.kt,
+PatrnSys1.kt) to the unit-189 short-domain twin per the unit-59
+inout precedent. Check columns track the BASE reference
+translation (C-002) and stay todo per the C-001 cycle-10
+backfill decision.
+
+| 186 | libmpscpp.cpp::global::Find | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 187 | compiler-zcommands.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+| 188 | libmpscpp.cpp::global::Piece | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 189 | compiler-sys1.c::substr | c | simple | todo | translated | todo | todo | todo | todo |
+| 190 | interp-strmanip.cpp::substr | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 191 | libmpscpp.cpp::mstring::Translate | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 192 | libmpscpp.cpp::GlobalData | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 193 | libmpscpp.cpp::global::Soundex | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 194 | interp-sym.cpp::_justify | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 195 | interp-sym.cpp::mkpt | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 196 | libmpscpp.cpp::global::Fnumber | cpp | core | todo | todo | todo | todo | todo | todo |
+| 197 | include/mumpsc/externs.h::<misc> | c | core | todo | todo | todo | todo | todo | todo |
+| 198 | interp-sysfunc.cpp::GlobalData | cpp | core | todo | todo | todo | todo | todo | todo |
+| 199 | libmpscpp.cpp::global::MakeGlobal | cpp | core | todo | todo | todo | todo | todo | todo |
+| 200 | interp-fcn.cpp::<misc> | cpp | core | todo | todo | todo | todo | todo | todo |
+| 201 | libmpscpp.cpp::Multiply | cpp | core | todo | todo | todo | todo | todo | todo |
+| 202 | interp-sql.cpp::rslt_callback | cpp | core | todo | todo | todo | todo | todo | todo |
+| 203 | compiler-parse.c::Extract | c | core | todo | todo | todo | todo | todo | todo |
+| 204 | libmpscpp.cpp::Sim1 | cpp | core | todo | todo | todo | todo | todo | todo |
+| 205 | libmpscpp.cpp::embed1 | cpp | core | todo | todo | todo | todo | todo | todo |
+| 206 | compiler-mumps.c::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
+| 207 | compiler-fcninit.c::fcninit | c | complex | todo | todo | todo | todo | todo | todo |
+| 208 | interp-sym.cpp::Qsub | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 209 | interp-native-btree.cpp::freadx | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 210 | compiler-zcommands.c::zcommands_code | c | complex | todo | todo | todo | todo | todo | todo |
+| 211 | interp-sysfunc.cpp::sigint | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 212 | compiler-sys1.c::match | c | complex | todo | todo | todo | todo | todo | todo |
+| 213 | compiler-epi.c::epi | c | complex | todo | todo | todo | todo | todo | todo |
+| 214 | libmpscpp.cpp::<misc-6> | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 215 | interp-service.cpp::ServiceInterface | cpp | complex | todo | todo | todo | todo | todo | todo |
