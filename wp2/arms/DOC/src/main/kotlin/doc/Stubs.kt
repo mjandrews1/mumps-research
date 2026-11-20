@@ -626,9 +626,9 @@ object Stubs {
 
     // struct bstring leaning_toothpickize(const struct bstring);
     // owner interp-rpm.cpp::leaning_toothpickize - batch-6 roster
-    // row of the same vendor file. Resolves at batch 6.
+    // row of the same vendor file. Landed (unit 157): delegate.
     fun leaning_toothpickize(text: Bstring): Bstring =
-        throw NotImplementedError("leaning_toothpickize: out-of-scope owner (interp-rpm.cpp::leaning_toothpickize) batch-6 unit")
+        doc.leaning_toothpickize(text)
 
     // struct bstring parse_pattern_atom_list(struct parser*);
     // sub-min-loc function of interp-rpm.cpp - owned by the batch-5

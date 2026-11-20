@@ -250,3 +250,22 @@ incident is repaired and ledgered in the arm journal (commits
 pre-tranche blob). Check columns track the BASE reference
 translation (C-002) and stay todo per the C-001 cycle-10
 backfill decision. DOC B6 follows per the committed row order.
+
+## Batch 6 (units 155-185, opened 2026-11-20; DOC follows the closed B5 in the committed row order)
+
+Shaping per the PRO B6 precedent: T1 simple (155-164), T2 core (165-175), T3 complex minus the big three (176-182), and the three ~1600-LOC giants deferred to a dedicated session PI decision (183 interp-bifs.cpp::zfcn, 184 interp-zfcns.cpp::zfcn, 185 interp-interp.cpp::Interpret).
+
+DOC B6 tranche 1 (units 155-164, the simple stratum) translated 2026-11-20: ten units pushed, whole-arm kotlinc gate 0/0 at 162 files; gradle gate on m1-build pending at tranche close. Rows follow the pre-registered batch_plan.md order (simple stratum, complexity rank ascending). The tranche also carries the unit-164 memsize.h config-correction edit to the unit-129 readf render (NOTABS live, TAB-to-space arm restored - vendor compiler-sys1.c includes memsize.h) and the Stubs.leaning_toothpickize flip to delegate. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
+
+| # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
+| 155 | compiler-fcninit.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+| 156 | libmpscpp.cpp::global::Find | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 157 | interp-rpm.cpp::leaning_toothpickize | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 158 | libmpscpp.cpp::SmithWaterman | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 159 | libmpscpp.cpp::global::Length | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 160 | libmpscpp.cpp::Sum | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 161 | libmpscpp.cpp::ScanAlnum | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 162 | interp-arith.cpp::mps_log2 | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 163 | interp-arith.cpp::mps_sin | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 164 | include/mumpsc/memsize.h::<misc> | c | simple | todo | translated | todo | todo | todo | todo |

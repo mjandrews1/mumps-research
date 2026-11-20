@@ -51,3 +51,45 @@ fun GlobalRef.length(needle: GlobalRef): Int {
         p1 = p1.substring(hit + needleText.length)
     }
 }
+
+// Unit 159 (B6 tranche 1): libmpscpp.cpp::global::Length (batch
+// 6, simple stratum; LOC 17, score 8.1) - the mstring-needle
+// overload (vendor at libmpscpp.cpp:3306): SINGLE Mglobal
+// (RETRIEVE) walk of this global's value only (the needle is
+// read directly as a string - no second retrieval; the contrast
+// with the unit-133 GlobalRef-needle double walk of this same
+// file is the overload pair's own quirk ledger), then the
+// strstr piece-count walk verbatim from the unit-133 shape.
+// Overload disambiguation by needle parameter type (H-004:
+// GlobalRef vs Mstring). The empty-haystack early return and
+// the empty-needle infinite-descent quirk keep their unit-133
+// notes. Naming per H-017 (Length -> length).
+
+fun GlobalRef.length(needle: Mstring): Int {
+    val gtmp = CharArray(STR_MAX)
+
+    val f = Stubs.Mglobal(RETRIEVE, ref, gtmp, Globals.svPtr)
+
+    if (f == 0) {
+        Globals.GlobalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
+    }
+
+    val needleText = needle.c_str()
+
+    // char * p1 = (char *) gtmp;
+    var p1 = CstringOps.cstring(gtmp)
+
+    var i = 1
+
+    if (p1.isEmpty()) return 0
+
+    while (true) {
+        // if ((p1=strstr(p1,needle.c_str()))==NULL) return i;
+        val hit = p1.indexOf(needleText)
+        if (hit == -1) return i
+
+        i++
+        p1 = p1.substring(hit + needleText.length)
+    }
+}

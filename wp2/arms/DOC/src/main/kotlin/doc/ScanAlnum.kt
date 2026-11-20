@@ -141,3 +141,45 @@ private fun toLower8(c: Char): Char =
     if (c.code in 65..90) (c.code + 32).toChar() else c
 
 private fun isDigit8(c: Char): Boolean = c.code in 48..57
+
+// Unit 161 (B6 tranche 1): libmpscpp.cpp::ScanAlnum (batch 6,
+// simple stratum; LOC 18, score 8.4) - the istream overload
+// (vendor at libmpscpp.cpp:10086), rendering the C plus-sign
+// stream-extract stream-pull carrier as java.util.Scanner (the
+// PRO-arm Scanner precedent keeps the overload set unambiguous;
+// the istream-by-value fossil - a copied stream - is a quirk of
+// the vendor signature, noted: the Scanner seat reads the live
+// stream). The u >> word extract renders as hasNext/next (the
+// fail arm of the C extract is the hasNext miss); the max > 511
+// guard, the alnum lowercase fold and the restart filter reuse
+// this file's unit-77/unit-104 shapes and private helpers
+// verbatim (one-owner rule keeps them here). The C static
+// buffers fold per H-008; the byte filters per H-012 (the
+// signed-char UB note of the unit-104 KDoc applies). Naming per
+// H-017 (ScanAlnum overloads by parameter type).
+
+fun ScanAlnum(u: java.util.Scanner, min: Int, max: Int): Mstring {
+    val tmp1 = CharArray(8192)
+
+    while (true) { // repeat:
+        // if (! (u >> word) || max > 511) -> empty mstring
+        val tok = if (u.hasNext()) u.next() else null
+        if (tok == null || max > 511) {
+            return Mstring("")
+        }
+
+        var j = 0
+        val word = tok.toCharArray()
+        var i = 0
+        while (i < word.size) {
+            if (isAlnum8(i, word)) tmp1[j++] = toLower8(word[i])
+            i++
+        }
+
+        // j == 0 || j < min || j > max || isdigit(tmp1[0]) -> goto repeat
+        if (j == 0 || j < min || j > max || isDigit8(tmp1[0])) continue
+
+        tmp1[j] = NUL
+        return Mstring(CstringOps.cstring(tmp1))
+    }
+}

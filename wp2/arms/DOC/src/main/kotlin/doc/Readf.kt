@@ -11,8 +11,9 @@ package doc
 // the FILE* infile maps to the java.io.Reader carrier of the input
 // direction (input-side precedent; Writer for the output direction
 // per the entry text). H-018 application: the reference build leaves
-// NOTABS undefined, so the TAB-to-space arm is compiled out and
-// ledgered here; the k>200 byte filter (dropping every byte above
+// NOTABS defined (memsize.h, per the unit-164 ledger; amended
+// from the initial compiled-out misread), the TAB-to-space arm
+// is live here; the k>200 byte filter (dropping every byte above
 // 200, kept verbatim), the CRTN 13 and CTRLZ 26 skips, and the long
 // i/k/n locals with the Int getc reads follow the vendor verbatim
 // (H-010 promotions: n Long seat per the vendor long int n). Bounds
@@ -37,9 +38,11 @@ fun readf_(infile: java.io.Reader): Int {
 
         if (k > 200) continue
 
-        // H-018: NOTABS undefined in the reference build config - the
-        // "if (k=='\\t') k=' ';" TAB-to-space line is compiled out.
-
+        // H-018 correction (the unit-164 memsize.h render ledger):
+        // memsize.h defines NOTABS unconditionally and
+        // compiler-sys1.c includes it, so this arm is LIVE - the
+        // earlier compiled-out note here was a config misread.
+        if (k == 9) k = 32 // vendor: if (k=='\t') k=' ';
         if (k == CRTN || k == CTRLZ) continue
 
         if (k == LINEFEED.code) {

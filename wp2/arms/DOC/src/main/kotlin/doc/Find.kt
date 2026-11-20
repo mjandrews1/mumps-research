@@ -38,3 +38,45 @@ fun atoi(s: String): Int {
     }
     return sign * v
 }
+
+// Unit 156 (B6 tranche 1): libmpscpp.cpp::global::Find (batch 6,
+// simple stratum; LOC 22, score 6.2) - the GLOBAL-key overload
+// (vendor at libmpscpp.cpp:7587): double Mglobal(RETRIEVE)
+// walk - this global's value, then the key global's - with the
+// MumpsGlobalException throw on GLOBAL_NOT_FOUND at either
+// retrieval (H-014; the unit-33 single-retrieve shape applies
+// twice), then the Mltoa/Mfind/atoi tail of the unit-33 render
+// verbatim. Tag correction ledger: the unit-33 KDoc tagged its
+// row the char-star overload; the batch-2 roster row (score
+// 4.2) is the mstring-key form at :7617 - both non-global
+// needle forms fold into the unit-33 String render (the String
+// parameter covers either carrier); this unit is the GlobalRef
+// needle twin and the overload disambiguation is by parameter
+// type (H-004; both renders keep their roster seats). Naming
+// per H-017 (Find -> find).
+
+fun GlobalRef.find(key: GlobalRef, st: Int): Int {
+    val a = CharArray(40)
+    val r = CharArray(20)
+    val tmp = CharArray(STR_MAX)
+    val tmp1 = CharArray(STR_MAX)
+
+    var f = Stubs.Mglobal(RETRIEVE, ref, tmp, Globals.svPtr)
+
+    if (f == 0) {
+        Globals.GlobalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
+    }
+
+    f = Stubs.Mglobal(RETRIEVE, key.ref, tmp1, Globals.svPtr)
+
+    if (f == 0) {
+        Globals.GlobalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
+    }
+
+    Stubs.Mltoa(st, a)
+    Stubs.Mfind(r, tmp, tmp1, a)
+    val rr = atoi(CstringOps.cstring(r))
+    return rr
+}
