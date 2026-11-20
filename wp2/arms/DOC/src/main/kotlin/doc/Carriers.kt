@@ -138,6 +138,10 @@ class Msv {
     // String render per the CurrentFile H-008 precedent, unit
     // 123 seat)
     var sqloutput: String = ""
+    // stateVector.h:100 char program[512] (current program name;
+    // EDIT-ONLY carrier addition of the unit-150 mumps.cpp::main
+    // render with this single-owner note).
+    val program = CharArray(512)
 }
 
 // libmpscpp.h:75 define INPUT_ERROR 6 (bounded-read error code; the
@@ -169,6 +173,11 @@ class MumpsGlobalException(msg: String = "Global reference not found") :
 // Only members observed by translated units are rendered.
 class Mstring(content: String) {
     var str: String = content
+
+    // mstringClass.h private: string name (the private-name seat;
+    // EDIT-ONLY carrier addition of the batch-5 unit 149 header
+    // render - MstringClassMisc.kt - with this single-owner note).
+    var name: String = ""
 
     constructor() : this("")
 

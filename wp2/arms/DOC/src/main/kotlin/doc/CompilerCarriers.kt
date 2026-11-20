@@ -176,6 +176,128 @@ object CompilerState {
     val forv = CharArray(256)
     // compiler-globals.h:150 extern int FOR_limit (unit-122 seat).
     var FOR_limit: Int = 0
+
+    // ------- compiler-globals-ext.h batch-5 unit 151 additions
+    // (EDIT-ONLY seat additions; the header's extern roster is
+    // closed here per the H-004 single-owner rule, one carrier
+    // per C symbol; see CompilerGlobalsExtMisc.kt for the
+    // header's struct/prototype ledger).
+
+    // compiler-globals-ext.h:31 extern short setpiece - the
+    // compiler-set.c file-scope twin of the Msv.setpiece
+    // member (stateVector.h:54, distinct C symbols in the
+    // vendor; both keep their own carriers here, idem partner
+    // noted).
+    var setpiece: Int = 0
+    // compiler-globals-ext.h:37 extern short iorg
+    var iorg: Int = 0
+    // compiler-globals-ext.h:41 extern short symlen - the
+    // compiler- set/ assignment scanner length; idem partner of
+    // Msv.symlen (stateVector.h:59, a distinct C symbol; both
+    // keep their own carriers).
+    var symlen: Int = 0
+    // compiler-globals-ext.h:46 extern short int ctrlc
+    var ctrlc: Int = 0
+    // compiler-globals-ext.h:47 extern int gpad
+    var gpad: Int = 0
+    // compiler-globals-ext.h:48 extern short ierr1 - landed
+    // earlier as the top-level carrier of InterpParseMisc
+    // (H-004 owner; cross-referenced, not duplicated).
+    // compiler-globals-ext.h:49 extern struct nmes *nstart -
+    // the Msv.nstart seat (stateVector.h:72) is the idem
+    // partner; the nmes type lands in
+    // CompilerGlobalsExtMisc.kt.
+    // compiler-globals-ext.h:50 extern short Jflg
+    var Jflg: Int = 0
+    // compiler-globals-ext.h:52 extern char FunctionName[256]
+    val FunctionName = CharArray(256)
+    // compiler-globals-ext.h:54 extern char ErrChar - the
+    // Msv.ErrChar seat (stateVector.h:95) is the owner for
+    // the SAME state; cross-referenced, not duplicated.
+    // compiler-globals-ext.h:61-65 struct txt extern
+    // *LabelsStart, *TextStart, *p1, *p3
+    var LabelsStart: TxtEntry? = null
+    var TextStart: TxtEntry? = null
+    var p1: TxtEntry? = null
+    var p3: TxtEntry? = null
+    // compiler-globals-ext.h:73-76 struct dcs cvars + :78
+    // extern int cvarx (CVARMAX :71 define; Dcs type in
+    // CompilerGlobalsExtMisc.kt).
+    val cvars = Array(100) { Dcs() }
+    var cvarx: Int = 0
+    // compiler-globals-ext.h:106 extern FILE *Final (the
+    // function-emission destination twin of Out; H-001
+    // FILE* to Writer diverge, nullable until fcninit binds
+    // it - unit-151 seat).
+    var Final: java.io.Writer? = null
+    // compiler-globals-ext.h:108 extern short MaxTmp
+    var MaxTmp: Int = 0
+    // compiler-globals-ext.h:113 extern int IF_flg_max
+    var IF_flg_max: Int = 0
+    // compiler-globals-ext.h:121 extern short pd1cur, i, j, k
+    var pd1cur: Int = 0
+    var i: Int = 0
+    var j: Int = 0
+    var k: Int = 0
+    // compiler-globals-ext.h:122 extern short l
+    var l: Int = 0
+    // compiler-globals-ext.h:124 extern short cmdx
+    var cmdx: Int = 0
+    // compiler-globals-ext.h:127 extern short ExecLevel
+    var ExecLevel: Int = 0
+    // compiler-globals-ext.h:129 extern short ExecStack[25]
+    val ExecStack = ShortArray(25)
+    // compiler-globals-ext.h:132 extern short DoRet[1000]
+    val DoRet = ShortArray(1000)
+    // compiler-globals-ext.h:133 extern short DoRetX
+    var DoRetX: Int = 0
+    // compiler-globals-ext.h:134 extern short CX, EmitLabel
+    var CX: Int = 0
+    var EmitLabel: Int = 0
+    // compiler-globals-ext.h:135 extern short JOB_flg
+    var JOB_flg: Int = 0
+    // compiler-globals-ext.h:138 extern short SubFlag
+    var SubFlag: Int = 0
+    // compiler-globals-ext.h:139 extern short SymIncrFlg
+    var SymIncrFlg: Int = 0
+    // compiler-globals-ext.h:145/146 extern int TryFlg, CatchFlg
+    var TryFlg: Int = 0
+    var CatchFlg: Int = 0
+    // compiler-globals-ext.h:148 extern FILE *opnfile[7] -
+    // the Z- command open-file slots (H-001 FILE* to Writer;
+    // null until the owning command opens).
+    val opnfile = arrayOfNulls<java.io.Writer>(7)
+    // compiler-globals-ext.h:149 extern FILE *in - the ZLOAD
+    // source slot; the in keyword is a Kotlin keyword, rendered in_
+    // (H-017 keyword rename ledger).
+    var in_: java.io.Writer? = null
+    // compiler-globals-ext.h:152 extern unsigned char dosave[64]
+    val dosave = CharArray(64)
+    // compiler-globals-ext.h:153 extern char cur_line[512]
+    val cur_line = CharArray(512)
+    // compiler-globals-ext.h:169 extern short retz, icmnd,
+    // p2px, ernbr (retz already seated above, batch-1 unit 91)
+    var icmnd: Int = 0
+    var p2px: Int = 0
+    var ernbr: Int = 0
+    // compiler-globals-ext.h:170 extern unsigned char
+    // tmp2[1024], tmp3[1024] (output_file/dirflg/vd already
+    // seated; output note: the String output_file seat of the
+    // batch-2 opening stands - H-004 keep-first owner)
+    val tmp2 = CharArray(1024)
+    val tmp3 = CharArray(1024)
+    // compiler-globals-ext.h:171 extern int pl
+    var pl: Int = 0
+    // compiler-globals-ext.h:172 extern char *p2 (the
+    // post-conditional set name carrier next to the p1 label
+    // pointer; H-008 malloc-domain String seat)
+    var p2: String? = null
+    // compiler-globals-ext.h:174 extern char *except[] -
+    // the Ztrap exception message table; slots stay null
+    // until the owning roster unit table-fills.
+    val except = arrayOfNulls<String>(20)
+    // compiler-globals-ext.h:176 extern int flg
+    var flg: Int = 0
 }
 
 // sysparms.h:74-75 live PS/PS1 sizes (the memsize.h 4096 twins are the

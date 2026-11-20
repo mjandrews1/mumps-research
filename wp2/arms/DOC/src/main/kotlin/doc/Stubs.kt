@@ -374,7 +374,7 @@ object Stubs {
     // global::Transpose(global) (vendor ~libmpscpp.cpp:2164 family);
     // not a corpus unit - owner-named H-014 seat raised by unit 137.
     fun globalRefTranspose(a: GlobalRef, b: GlobalRef): Unit =
-        throw NotImplementedError("globalRefTranspose: out-of-scope owner (libmpscpp.cpp::global::Transpose, not a corpus unit)")
+        a.Transpose(b)
 
     // void substr(unsigned char *, unsigned char *, int, int)
     fun substr(a: CharArray, b: CharArray, i: Int, j: Int): Unit =
@@ -398,8 +398,9 @@ object Stubs {
         throw NotImplementedError("Qsub: out-of-scope owner (interp Qsub helper)")
 
     // void Qlength(unsigned char *, unsigned char *, MSV *);
+    // RESOLVED by the batch-5 unit 145 render (Qlength.kt).
     fun Qlength(a: CharArray, b: CharArray, sv: Msv): Unit =
-        throw NotImplementedError("Qlength: out-of-scope owner (interp Qlength helper)")
+        doc.Qlength(a, b, sv)
 
     // void ErrorMessage(const char *, long); owner
     // interp-parse.cpp::ErrorMessage (not a roster unit).
@@ -536,7 +537,7 @@ object Stubs {
     // unsigned long lhash(char *); owner is libmpscpp.h:273 (hash
     // driver below the roster). Returns unsigned long (H-012); the
     // Long seat carries the domain, the sign bit is never set.
-    fun lhash(s: String): Long = 0L
+    fun lhash(s: String): Long = doc.lhash(s)
 
     // void global::MakeGlobal(int, const char *, const char *, ...);
     // the class-global member builds the subscripted MUMPS reference
@@ -582,7 +583,7 @@ object Stubs {
     // leaning_toothpickize); raised because the vendor forward-declares
     // rpm mid-switch at interp-parse.cpp:1190 (H-014 seat).
     fun rpm(string_: CharArray, pattern: CharArray, svPtr: Msv): Int =
-        throw NotImplementedError("rpm: out-of-scope owner (interp-rpm.cpp::rpm)")
+        doc.rpm(string_, pattern, svPtr)
 
     // TODO stub: BuildGlobal (batch-8 unit 150,
     // interp-parse.cpp:1836); rslt nullable because unit 93 passes
@@ -603,7 +604,7 @@ object Stubs {
     // unit 98 (sibling of globalMax unit 68; note the REAL unit-44
     // GlobalRef.Min render needs no seat).
     fun globalCount(g: GlobalRef): Double =
-        throw NotImplementedError("globalCount: out-of-scope class member (libmpscpp.cpp::global::Count, not a corpus unit)")
+        g.Count()
 
     // ------------------------------------------------------------------
     // unit 130: the avg-intrinsic unsubscripted/subscripted reference
@@ -633,22 +634,67 @@ object Stubs {
     // sub-min-loc function of interp-rpm.cpp - owned by the batch-5
     // interp-rpm.cpp::<misc> chunk.
     fun parse_pattern_atom_list(p: parser): Bstring =
-        throw NotImplementedError("parse_pattern_atom_list: out-of-scope owner (interp-rpm.cpp::<misc>) batch-5 unit")
+        doc.parse_pattern_atom_list(p)
 
     // void accept_it(struct parser*); sub-min-loc function of
     // interp-rpm.cpp - batch-5 misc chunk owner.
     fun accept_it(p: parser): Unit =
-        throw NotImplementedError("accept_it: out-of-scope owner (interp-rpm.cpp::<misc>) batch-5 unit")
+        doc.accept_it(p)
 
     // void accept(struct parser*, const enum token_type); the
     // expectation-checking accept; batch-5 misc chunk owner.
     fun accept(p: parser, expected: token_type): Unit =
-        throw NotImplementedError("accept: out-of-scope owner (interp-rpm.cpp::<misc>) batch-5 unit")
+        doc.accept(p, expected)
 
     // static void syntax_error(const char[], const char[], const
-    // int); batch-5 misc chunk owner.
+    // int); RESOLVED by the batch-5 unit 152 render.
     fun syntax_error(msg: String, input: String, offset: Int): Unit =
-        throw NotImplementedError("syntax_error: out-of-scope owner (interp-rpm.cpp::<misc>) batch-5 unit")
+        doc.syntax_error(msg, input, offset)
+
+    // static void take_char(struct scanner *s); seat raised by
+    // unit 147 (scan_token) and RESOLVED by its unit-152
+    // same-tranche render.
+    fun take_char(s: scanner): Unit =
+        doc.take_char(s)
+
+    // int perl_pm(const char[], const char[], const int, struct
+    // MSV *); owner interp-rpm.cpp::perl_pm - batch-9 roster
+    // row 257 (the reges conversion of the PCRE original). The
+    // rpm/perlmatch/perlcpp drivers of the batch-5 unit-152
+    // render bind this seat (H-014).
+    fun perlPm(string_: String, pattern: String, mode: Int,
+            svPtr: Msv): Int =
+        throw NotImplementedError("perl_pm: out-of-scope owner (interp-rpm.cpp::perl_pm) batch-9 unit")
+
+    // int pm(char *, char *, struct MSV *); owner
+    // interp-pm.cpp::pm (the '?' pattern-match motor) - not a
+    // roster unit; raised by the batch-5 unit 154 pmw wrappers.
+    fun pm(a: CharArray, b: CharArray, svPtr: Msv): Int =
+        throw NotImplementedError("pm: out-of-scope owner (interp-pm.cpp::pm)")
+
+    // int wstem(char *, int); owner libmpscpp.cpp::wstem (the
+    // Porter-stemmer straddler) - not a roster unit; raised by
+    // the batch-5 unit 154 Stem/stem renders.
+    fun wstem(a: CharArray, len: Int): Int =
+        throw NotImplementedError("wstem: out-of-scope owner (libmpscpp.cpp::wstem)")
+
+    // char *strsep(char **, char *); libc strsep split helper
+    // (declared by the sym.h misc chunk of unit 144) - not a
+    // roster unit, no in-arm call site today; seat raised per
+    // the unit-144 ledger. The char** stringp in-place holder
+    // renders the Array<String> carrier (H-006 holder idiom).
+    fun strsep(stringp: kotlin.Array<kotlin.String>, delim: String): String? =
+        throw NotImplementedError("strsep: out-of-scope owner (libc string.h)")
+
+    // void ServiceInterface(unsigned char *, unsigned char *,
+    // unsigned char *, unsigned char *, unsigned char *, char,
+    // struct MSV *); interp-side service entry declared by the
+    // sym.h misc chunk of unit 144 - not a roster unit, no
+    // in-arm call site today; seat raised per the unit-144
+    // ledger.
+    fun ServiceInterface(a: CharArray, b: CharArray, c: CharArray,
+            d: CharArray, e: CharArray, f: Char, sv: Msv): Unit =
+        throw NotImplementedError("ServiceInterface: out-of-scope owner (interp service entry)")
 
     // ------------------------------------------------------------------
     // unit 112 (libmpscpp.cpp::global::Centroid) one-subscript double
@@ -711,8 +757,10 @@ object Stubs {
 
     // void global::DocCorrelate(global B, char * fcn, double
     // threshold); owner libmpscpp.cpp::global::DocCorrelate - batch-10
-    // roster row 288 (the char* overload of the three-twin member;
-    // the mstring and string twins fold onto the same seat).
+    // roster row 288 (the string twin carries the working body; the
+    // char* / mstring twins landed with the batch-5 unit 154 render
+    // and delegate into this seat - front-run ledger, seat NOT
+    // flipped to avoid the delegation circle).
     fun globalDocCorrelate(
         a: GlobalRef,
         b: GlobalRef,
@@ -732,9 +780,10 @@ object Stubs {
         throw NotImplementedError("StopLookup: out-of-scope owner (libmpscpp.cpp:7777 stopword table)")
 
     // int SynInit(char * file); owner libmpscpp.cpp::SynInit -
-    // batch-5 roster row 133 (the synonym table loader).
+    // batch-5 roster row 133; RESOLVED by the batch-5 unit 146
+    // render (SynInit.kt).
     fun synInit(file: String): Int =
-        throw NotImplementedError("SynInit: out-of-scope owner (libmpscpp.cpp::SynInit) batch-5 unit")
+        doc.synInit(file)
 
     // char * SYN(char * word); owner libmpscpp.cpp:7788 - not a
     // corpus unit (the synonym lookup).

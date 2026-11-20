@@ -106,6 +106,13 @@ DOC B5 tranche 2 (units 134-143, the core stratum) translated 2026-11-20:
 ten units, whole-arm kotlinc gate 0/0 at 144 files; the ten DOC rows
 below marked translated. Gradle gate on m1-build pending at batch close.
 
+DOC B5 tranche 3 (units 144-154, the complex stratum, batch close) translated
+2026-11-20: eleven units pushed (sym.h misc, Qlength, SynInit, scan_token,
+bmg_search, mstringClass misc, mumps main, compiler-globals-ext misc, rpm
+misc, sql, libmpscpp misc-5), whole-arm kotlinc gate 0/0 at 155 files; the
+eleven DOC rows below marked translated and batch 5 is complete
+(31/31 translated). Gradle gate on m1-build pending at batch close review.
+
 | # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
 |---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
 | 63 | compiler-epi.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
@@ -215,14 +222,14 @@ DOC B5 tranche 1 (units 124-133, the simple stratum) translated 2026-11-20: ten 
 | 141 | interp-strmanip.cpp::<misc> | cpp | core | todo | translated | todo | todo | todo | todo |
 | 142 | interp-sym.cpp::SysDump | cpp | core | todo | translated | todo | todo | todo | todo |
 | 143 | interp-rpm.cpp::parse_count | cpp | core | todo | translated | todo | todo | todo | todo |
-| 144 | include/mumpsc/sym.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
-| 145 | interp-sym.cpp::Qlength | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 146 | libmpscpp.cpp::SynInit | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 147 | interp-rpm.cpp::scan_token | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 148 | interp-bmgsubs.c::bmg_search | c | complex | todo | todo | todo | todo | todo | todo |
-| 149 | include/mumpsc/mstringClass.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
-| 150 | mumps.cpp::main | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 151 | include/mumpsc/compiler-globals-ext.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
-| 152 | interp-rpm.cpp::<misc> | cpp | complex | todo | todo | todo | todo | todo | todo |
-| 153 | rdbms-if.c::sql | c | complex | todo | todo | todo | todo | todo | todo |
-| 154 | libmpscpp.cpp::<misc-5> | cpp | complex | todo | todo | todo | todo | todo | todo
+| 144 | include/mumpsc/sym.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
+| 145 | interp-sym.cpp::Qlength | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 146 | libmpscpp.cpp::SynInit | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 147 | interp-rpm.cpp::scan_token | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 148 | interp-bmgsubs.c::bmg_search | c | complex | todo | translated | todo | todo | todo | todo |
+| 149 | include/mumpsc/mstringClass.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
+| 150 | mumps.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 151 | include/mumpsc/compiler-globals-ext.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
+| 152 | interp-rpm.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 153 | rdbms-if.c::sql | c | complex | todo | translated | todo | todo | todo | todo |
+| 154 | libmpscpp.cpp::<misc-5> | cpp | complex | todo | translated | todo | todo | todo | todo
