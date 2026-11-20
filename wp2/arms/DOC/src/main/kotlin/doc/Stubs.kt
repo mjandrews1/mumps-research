@@ -599,6 +599,14 @@ object Stubs {
         throw NotImplementedError("globalCount: out-of-scope class member (libmpscpp.cpp::global::Count, not a corpus unit)")
 
     // ------------------------------------------------------------------
+    // unit 130: the avg-intrinsic unsubscripted/subscripted reference
+    // (owner libmpscpp.cpp::global::Avg, vendor :10251) IS a corpus
+    // unit (roster row 262, batch 9); owner-named seat raised by unit
+    // 130, delegate to the real render when batch 9 lands.
+    fun globalAvg(g: GlobalRef): Double =
+        throw NotImplementedError("globalAvg: out-of-scope owner (libmpscpp.cpp::global::Avg, batch-9 corpus unit)")
+
+    // ------------------------------------------------------------------
     // unit 113 (interp-rpm.cpp::parse_pattern_element) H-014 seats
 
     // struct bstring bstrcat(struct bstring, struct bstring); owner

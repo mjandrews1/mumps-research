@@ -2292,3 +2292,142 @@ installs are forbidden), with every validation of the script
 applied and green; the R source remains the committed
 instrument and the run is idempotent against the repaired
 journal.
+
+### DOC B5 tranche 1 (units 124-133), 2026-11-20
+
+Batch 5 opened in committed row order (DOC follows the closed B4 per
+the cycle map; no inversion to log). Tranche 1 = the batch-5 simple
+stratum, ten units, all rendered from the pristine vendor tarball
+(sha256 621deb...ffdbe verified this session; unit boundaries re-run
+with the study's own extractor logic in function mode, exact
+physical-LOC matches against units.csv for every unit). Whole-arm
+kotlinc 2.1.20 local gate: 135 files, 0 errors, 0 warnings. Mark's
+m1-build gradle gate (build) pending at tranche close.
+
+Per-unit ledger (vendor line anchors from the pristine source):
+- u124 compiler-for.c::<misc>: ForMisc.kt. Residual banner + include
+  set of compiler-for.c (the June 16 2024 date line kept verbatim);
+  function body for_code is the batch-4 unit 122. Declaration-only
+  ledger per the unit-35/36 precedent; includes mapped to existing
+  carriers, no property added, no executable code.
+- u125 compiler-localarray.c::<misc>: LocalArrayMisc.kt. Same ledger
+  shape (May 12 2024 date line kept); LocalArray is the batch-1 unit
+  21 render.
+- u126 mdh_tree_level_add (15 LOC): MdhTreeLevelAdd1.kt - the
+  ONE-column overload (vendor 175-200; carried the family's marker
+  banner comment). Family idiom per the unit-8/66/43 renders; Kotlin
+  overload by arity (3 params).
+- u127 mdh_tree_level_add (17 LOC): MdhTreeLevelAdd2.kt - the
+  TWO-column overload (vendor 202-230), same family render; the
+  second column emits the commerce-d-zero separator before the
+  commerce-f close, byte order verbatim.
+- u128 mdh_tree_level_add (21 LOC): MdhTreeLevelAdd4.kt - the
+  FOUR-column overload (vendor 265-299); columns one-to-three each
+  emit the separator, fourth closes. NOTE (unlike PRO's B5, where the
+  same roster rows landed as verification units against a single
+  family impl): DOC renders each overload in its own roster-row file,
+  per the DOC unit-66 precedent; the three new arities complete the
+  family's overload set already carrying the 3/5/7-column renders.
+- u129 mstring::Length (vendor 3406-3427): MstringLength.kt - the
+  GLOBAL-needle mstring member (char-star/string/mstring siblings
+  are later-batch rows); Mglobal(RETRIEVE) with the
+  MumpsGlobalException throw; strstr walk over the member content
+  rendered as the offset/substring walk per H-007; the empty-needle
+  descent-forever quirk kept verbatim (vendor expression).
+- u130 Avg (vendor 10235-10257): Avg.kt - the Count/Max free-wrapper
+  sibling; dead svptr/ep params kept for call-shape fidelity; the
+  i==1 edge reads arg1[-1] in C (family quirk kept with a note);
+  static char tmp[32] folds per H-008; sprintf percent-g via
+  String.format Locale.US per H-009. The class member global::Avg IS
+  a roster unit (row 262, batch 9): the owner-named H-014 seat
+  Stubs.globalAvg raised this tranche with the real-owner tag (not a
+  mis-tag), delegating when batch 9 lands.
+- u131 global::Translate (vendor 4292-4316): GlobalTranslate.kt -
+  the ONE-mstring member (the two-mstring sibling is roster row 270,
+  batch 9), rendered as a GlobalRef extension per the unit-72
+  precedent; Mglobal retrieve + throw; the vendor mstring Concat
+  chain folds onto the CharArray command build (H-014 hit-adapt: the
+  mstring::Concat members are out-of-roster class bodies, each a pure
+  string append, rendered inline rather than raised as a stub; the
+  fold is the adaptation note); dollar byte via the DOLLAR_131
+  carrier per H-015/ unit-72 precedent; fcn dispatch on the H-014
+  seat; v1d[1]/bd[1] offset-1 result convention.
+- u132 mps_log10 (interp-arith.cpp:162-186): MpsLog10.kt - the
+  mps_exp family shape; H-018 trichotomy resolved against the
+  reference config (plain-double arm live; the log10l/strtold and
+  MPFR arms documentary); gcvt_wrapper on the H-014 stub seat;
+  strtod fold reused from the unit-40 render.
+- u133 global::Length (vendor 3274-3304): GlobalLength.kt - the
+  GLOBAL-needle global member (the no-arg/mstring/string/char-star
+  siblings are other-batch rows), GlobalRef extension; the double
+  Mglobal retrieve walk with the vendor's same-error-code second
+  throw (unit-65 Concat quirk family, noted); the strstr walk and
+  empty-haystack early return per H-007; the family empty-needle
+  descent-forever quirk kept verbatim.
+
+Sub-push boundary: one push, this tranche. New files: ForMisc,
+LocalArrayMisc, MdhTreeLevelAdd1/2/4, MstringLength, Avg,
+GlobalTranslate, MpsLog10, GlobalLength (ten). Stubs.kt edit-only:
++globalAvg seat (+10 lines). Carriers.kt and all other files
+untouched.
+
+Pre-push scan (H-015 gate) on every new file: no backticks, no
+double-bang, no raw dollar outside the DOLLAR_131 Char-literal
+declaration (the Fnumber-precedent exception), comment-closes end
+their lines, no for-loop shadowing; cross-file top-level name scan
+clean (new top-levels: the three overloads, mpsLog10, Avg,
+Mstring.length, GlobalRef.length, GlobalRef.translate - arity or
+receiver distinct from every existing package top-level).
+
+Consult rows (tranche-wide timestamp 2026-11-20T00:22:13Z; the three
+mdh_tree_level_add rows carry per-unit timestamps 00:23:13Z and
+00:24:13Z on the middle and last unit per the C-008 triple key - the
+three rows share one roster id, so a tranche-wide single stamp would
+collide on (unit, entry, timestamp)):
+- DOC consult: unit compiler-for.c::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit compiler-for.c::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit compiler-localarray.c::<misc>, entry H-004, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit compiler-localarray.c::<misc>, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-015, outcome hit-adapt, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:23:13Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-015, outcome hit-adapt, timestamp 2026-11-20T00:23:13Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:23:13Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:24:13Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-015, outcome hit-adapt, timestamp 2026-11-20T00:24:13Z
+- DOC consult: unit libmpscpp.cpp::mdh_tree_level_add, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:24:13Z
+- DOC consult: unit libmpscpp.cpp::mstring::Length, entry H-007, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::mstring::Length, entry H-012, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::mstring::Length, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::mstring::Length, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::Avg, entry H-008, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::Avg, entry H-009, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::Avg, entry H-013, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::Avg, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::Avg, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::global::Translate, entry H-012, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::global::Translate, entry H-014, outcome hit-adapt, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::global::Translate, entry H-015, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::global::Translate, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit interp-arith.cpp::mps_log10, entry H-009, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit interp-arith.cpp::mps_log10, entry H-010, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit interp-arith.cpp::mps_log10, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit interp-arith.cpp::mps_log10, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit interp-arith.cpp::mps_log10, entry H-018, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::global::Length, entry H-007, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::global::Length, entry H-012, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::global::Length, entry H-014, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+- DOC consult: unit libmpscpp.cpp::global::Length, entry H-017, outcome hit-reuse, timestamp 2026-11-20T00:22:13Z
+
+Tranche totals: 35 consults, 31 hit-reuse / 4 hit-adapt (the three
+mdh_tree_level_add H-015 identity-hash/dollar carriers per the
+family precedent, and u131 H-014 Concat fold), 0 miss. Hit rate
+100.0%, reuse rate 88.6%. TRANCHE 1 (units 124-133, 10 units)
+COMPLETE: the two compiler banner ledgers, the three
+mdh_tree_level_add overload renders, mstring::Length, Avg,
+global::Translate, mps_log10, global::Length. Mark's gradle gate
+(wp2/arms/DOC, build) is the pending close step; the B2-B4
+per-unit-stamp discipline note above applies only to the shared-id
+trio. Batch-5 tracking table opened in PILOT_TRACKING.md with the
+10 tranche-1 rows marked translated.
