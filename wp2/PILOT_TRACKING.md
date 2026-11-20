@@ -187,38 +187,38 @@ decision.
 
 ## Batch 5 (units 124-154, opened 2026-11-20; DOC follows the closed B4 in the committed row order, no inversion to log)
 
-DOC B5 tranche 1 (units 124-133, the simple stratum) translated 2026-11-20: ten units pushed, whole-arm kotlinc gate 0/0 at 135 files; gradle gate on m1-build pending at tranche close. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
+DOC B5 tranche 1 (units 124-133, the simple stratum) translated 2026-11-20: ten units pushed, whole-arm kotlinc gate 0/0 at 135 files; gradle gate on m1-build pending at tranche close. Rows follow the pre-registered batch_plan.md order (simple, core, complex; complexity rank ascending within each stratum; the commit-02aff5f first push of this table had listed the rows in units.csv line order - repaired in place in this commit, values unchanged apart from the corrected row order and the DOC column carrying the tranche-1 translated marks). Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 
 | # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
 |---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
-| 124 | libmpscpp.cpp::<misc-5> | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 125 | rdbms-if.c::sql | c | complex | todo | translated | todo | todo | todo | todo |
-| 126 | interp-rpm.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 127 | include/mumpsc/compiler-globals-ext.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
-| 128 | mumps.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 129 | include/mumpsc/mstringClass.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
-| 130 | interp-bmgsubs.c::bmg_search | c | complex | todo | translated | todo | todo | todo | todo |
-| 131 | interp-rpm.cpp::scan_token | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 132 | libmpscpp.cpp::SynInit | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 133 | interp-sym.cpp::Qlength | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 134 | include/mumpsc/sym.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
-| 135 | interp-rpm.cpp::parse_count | cpp | core | todo | todo | todo | todo | todo | todo |
-| 136 | interp-strmanip.cpp::<misc> | cpp | core | todo | todo | todo | todo | todo | todo |
-| 137 | interp-sym.cpp::SysDump | cpp | core | todo | todo | todo | todo | todo | todo |
-| 138 | interp-sysfunc.cpp::getstr1 | cpp | core | todo | todo | todo | todo | todo | todo |
+| 124 | compiler-for.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+| 125 | compiler-localarray.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+| 126 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 127 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 128 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 129 | libmpscpp.cpp::mstring::Length | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 130 | libmpscpp.cpp::Avg | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 131 | libmpscpp.cpp::global::Translate | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 132 | interp-arith.cpp::mps_log10 | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 133 | libmpscpp.cpp::global::Length | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 134 | libmpscpp.cpp::GlobalQS | cpp | core | todo | todo | todo | todo | todo | todo |
+| 135 | compiler-parse.c::ExpandData | c | core | todo | todo | todo | todo | todo | todo |
+| 136 | libmpscpp.cpp::global::Sum | cpp | core | todo | todo | todo | todo | todo | todo |
+| 137 | libmpscpp.cpp::Transpose | cpp | core | todo | todo | todo | todo | todo | todo |
+| 138 | libmpscpp.cpp::Multiply | cpp | core | todo | todo | todo | todo | todo | todo |
 | 139 | interp-arith.cpp::expx | cpp | core | todo | todo | todo | todo | todo | todo |
-| 140 | libmpscpp.cpp::Multiply | cpp | core | todo | todo | todo | todo | todo | todo |
-| 141 | libmpscpp.cpp::Transpose | cpp | core | todo | todo | todo | todo | todo | todo |
-| 142 | libmpscpp.cpp::global::Sum | cpp | core | todo | todo | todo | todo | todo | todo |
-| 143 | compiler-parse.c::ExpandData | c | core | todo | todo | todo | todo | todo | todo |
-| 144 | libmpscpp.cpp::GlobalQS | cpp | core | todo | todo | todo | todo | todo | todo |
-| 145 | libmpscpp.cpp::global::Length | cpp | simple | todo | todo | todo | todo | todo | todo |
-| 146 | interp-arith.cpp::mps_log10 | cpp | simple | todo | todo | todo | todo | todo | todo |
-| 147 | libmpscpp.cpp::global::Translate | cpp | simple | todo | todo | todo | todo | todo | todo |
-| 148 | libmpscpp.cpp::Avg | cpp | simple | todo | todo | todo | todo | todo | todo |
-| 149 | libmpscpp.cpp::mstring::Length | cpp | simple | todo | todo | todo | todo | todo | todo |
-| 150 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | todo | todo | todo | todo | todo | todo |
-| 151 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | todo | todo | todo | todo | todo | todo |
-| 152 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | todo | todo | todo | todo | todo | todo |
-| 153 | compiler-for.c::<misc> | c | simple | todo | todo | todo | todo | todo | todo |
-| 154 | compiler-localarray.c::<misc> | c | simple | todo | todo | todo | todo | todo | todo |
+| 140 | interp-sysfunc.cpp::getstr1 | cpp | core | todo | todo | todo | todo | todo | todo |
+| 141 | interp-strmanip.cpp::<misc> | cpp | core | todo | todo | todo | todo | todo | todo |
+| 142 | interp-sym.cpp::SysDump | cpp | core | todo | todo | todo | todo | todo | todo |
+| 143 | interp-rpm.cpp::parse_count | cpp | core | todo | todo | todo | todo | todo | todo |
+| 144 | include/mumpsc/sym.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
+| 145 | interp-sym.cpp::Qlength | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 146 | libmpscpp.cpp::SynInit | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 147 | interp-rpm.cpp::scan_token | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 148 | interp-bmgsubs.c::bmg_search | c | complex | todo | todo | todo | todo | todo | todo |
+| 149 | include/mumpsc/mstringClass.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
+| 150 | mumps.cpp::main | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 151 | include/mumpsc/compiler-globals-ext.h::<misc> | c | complex | todo | todo | todo | todo | todo | todo |
+| 152 | interp-rpm.cpp::<misc> | cpp | complex | todo | todo | todo | todo | todo | todo |
+| 153 | rdbms-if.c::sql | c | complex | todo | todo | todo | todo | todo | todo |
+| 154 | libmpscpp.cpp::<misc-5> | cpp | complex | todo | todo | todo | todo | todo | todo
