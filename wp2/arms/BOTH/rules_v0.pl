@@ -154,3 +154,4 @@ rule(h018, trigger(preprocessor_conditional),
      action('resolve #ifdef/#ifndef arms against the reference build config (SQLITE, HAVE_HARDWARE_MATH, GCVT defined; NATIVE/NATIVE_SHARED/BIGFLOAT/MULTI_PRECISION undefined); translate only the live arm; document the excluded arms and any @VAR@ build-substitution macro as comments'),
      example('interp-arith.cpp'),
      provenance(pro, b1, '2026-11-15'), verification(unit_tested)).
+
