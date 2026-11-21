@@ -45,3 +45,51 @@ internal operator fun GlobalRef.invoke(sub: String): GlobalNode {
     // it stays with the owner unit when it lands.
     return GlobalNode()
 }
+
+// -------------------------------------------------------------------------
+// Batch-5 tranche-2 seats (core units 134-143), added 2026-11-21.
+//
+// T2 consults (rule base wp2/arms/BOTH/rules_v0.pl):
+//   h014 out_of_scope_call - reused: the transpose/multiply member
+//     seats and the Transpose multiply both name their owners
+//     (libmpscpp.cpp::global::Multiply roster 213 batch 2; the
+//     global-class Transpose member is not itself a corpus unit - its
+//     file-level wrappers are roster 75 batch 4 and roster 136 batch 5,
+//     both pending in this arm).
+//   MISS struct_carrier (unit 142): the struct stab chain
+//     (include/mumpsc/sym.h:43-51) has no base rule for typed heap
+//     chains; the Stab carrier below is filed as a new miss family
+//     (capture candidate at batch close, T1 recurrence 1).
+//   MISS class_member_carrier recurrence: units 137/138 ride the
+//     GlobalRef/GlobalNode member seats below; owners not yet in
+//     this arm (T1 recurrence grows: see events CSV).
+//   h017 naming - reused: stab/next/OrigName fields keep vendor case.
+
+// struct stab - include/mumpsc/sym.h:43-51. Layout owner:
+// include/mumpsc/sym.h::<misc>, a batch-5 complex unit pending in
+// this arm. Only the fields the batch-5 tranche-2 units touch carry
+// TODO bodies; the rest are the vendor declaration order (name,
+// next, data, OrigName, size, copy, exec).
+internal class Stab {
+    var name: String? = null
+    var next: Stab? = null
+    var data: String? = null
+    var OrigName: String? = null
+    var size: Int = 0
+    var copy: Int = 0
+    var exec: Int = 0
+}
+
+// global-class member Transpose(b) - vendor call at libmpscpp.cpp
+// file Transpose wrapper (unit 137 of this batch); the member body is
+// not a corpus unit (layout owner globalClass.h::<misc> roster 89).
+internal fun GlobalNode.transpose(other: GlobalNode): Unit {
+    TODO("stub: global-class Transpose member (layout owner roster 89; not a corpus unit)")
+}
+
+// global-class member Multiply(b,c) - owner: libmpscpp.cpp::global::
+// Multiply, roster unit 213, batch 2. TODO-stub (h014); the caller
+// passes the three file-level wrappers' carriers.
+internal fun GlobalRef.multiply(b: GlobalRef, c: GlobalRef) {
+    TODO("stub: owner libmpscpp.cpp::global::Multiply (roster unit 213, batch 2)")
+}

@@ -39,13 +39,20 @@ internal var GlobalExceptionCode = 0
 // owner lands.
 internal class MumpsGlobalException : Exception()
 
-// struct MSV minimal carrier: only the members the batch-5 tranche-1
-// units touch (bd, v1d - unsigned char[STR_MAX] each,
-// include/mumpsc/stateVector.h:42,44; owner: stateVector.h::<misc>,
-// roster unit 172). TODO-stub per h014.
+// struct MSV minimal carrier: only the members the batch-5 units
+// touch (bd, v1d - unsigned char[STR_MAX] each,
+// include/mumpsc/stateVector.h:42,44; tpx :64, _Sym :65, LineNumber
+// :63, start[SYM_MAX] :71; owner: stateVector.h::<misc>,
+// roster unit 172). TODO-stub per h014. start resolves the Stab
+// carrier (see BothStubs.kt); every pin verified against
+// stateVector.h in the pristine vendor tree.
 internal class Msv {
     val bd = CharArray(STR_MAX)
     val v1d = CharArray(STR_MAX)
+    var tpx: Long = 0 // stateVector.h:64 (execution status)
+    var _Sym: Int = 0 // stateVector.h:65 (current symtab frame)
+    var LineNumber: Long = 0 // stateVector.h:63
+    val start: Array<Stab?> = arrayOfNulls(SYM_MAX) // stateVector.h:71
 }
 
 internal val svPtr = Msv() // vendor file-scope svPtr (libmpscpp.cpp TU)
@@ -91,4 +98,118 @@ internal fun mglobalRetrieve(key: String): String {
 internal fun cStringOf(buf: CharArray): String {
     val end = buf.indexOf(0.toChar())
     return if (end == -1) String(buf) else String(buf, 0, end)
+}
+
+// -------------------------------------------------------------------------
+// Batch-5 tranche-2 seats (core units 134-143), added 2026-11-21.
+//
+// T2 consults (rule base wp2/arms/BOTH/rules_v0.pl):
+//   h014 out_of_scope_call - reused: every seat below is a TODO stub
+//     naming its units.csv owner (sigint roster unit 254 batch 7;
+//     Mltoa roster unit 292 batch 10) or its non-unit file provenance
+//     (xecute: libmpscpp.h:277 + libmpscpp.cpp:7053 overload family,
+//     not a corpus unit; SymGet: libmpscpp.h:179, non-unit member).
+//   h004 globals_ext - reused: stateVector.h members added to the Msv
+//     carrier below, each with its header source line.
+//   h012 unsigned_byte_domain - reused: XNEXT/INPUT_LENGTH are plain
+//     Int codes compared exactly (defines.h:88, libmpscpp.h:79).
+//   h017 naming - reused: C names kept (Mltoa, xecute, SymGet keep
+//     vendor case; errorMessage stays snake-shaped only where vendor
+//     spells it so: ErrorMessage is kept as errorMessage-per-arm camel
+//     and journaled).
+//
+// T2 constants verified in the vendor tree (2026-11-21):
+//   XNEXT 8                include/mumpsc/defines.h:88 (compiler-macros.h:58)
+//   INPUT_LENGTH 10        include/mumpsc/libmpscpp.h:79
+//   SYM_MAX 200            include/mumpsc/defines.h:218
+
+internal const val XNEXT = 8 // defines.h:88; the Mglobal order-walk op
+internal const val INPUT_LENGTH = 10 // libmpscpp.h:79
+internal const val SYM_MAX = 200 // defines.h:218; symbol table stack depth
+
+// void sigint(int) - include/mumpsc/fcns.h family. Owner:
+// interp-sysfunc.cpp::sigint, roster unit 254, batch 7. TODO-stub
+// (h014): the vendor body aborts the process via signals; the
+// arm-local contract is that the stub never returns normally.
+internal fun sigint(i: Int) {
+    TODO("stub: owner interp-sysfunc.cpp::sigint (roster unit 254, batch 7)")
+}
+
+// void ErrorMessage(const char *, long) - include/mumpsc/cppsysfunc.h:31,
+// body interp-sysfunc.cpp:251. Non-unit vendor helper: rendered here,
+// not stubbed (h014 names roster owners only). The printf is the
+// exact h009 fold ("\\n*** %s in or near line %ld\\n"); sigint rides
+// its stub, so the vendor's never-return shape is kept as TODO-throws.
+internal fun errorMessage(msg: String, lineNumber: Long) {
+    System.out.print("\n*** " + msg + " in or near line " + lineNumber + "\n")
+    sigint(100) // vendor: aborts; stub throws until roster unit 254 lands
+}
+
+// void Mltoa(long, unsigned char *) - include/mumpsc/arith.h:46, body
+// interp-arith.cpp:84. Owner: interp-arith.cpp::Mltoa, roster unit
+// 292, batch 10. TODO-stub (h014).
+internal fun Mltoa(i: Long, p: CharArray) {
+    TODO("stub: owner interp-arith.cpp::Mltoa (roster unit 292, batch 10)")
+}
+
+// int xecute(char *) - include/mumpsc/libmpscpp.h:277, overload family
+// libmpscpp.cpp:7053-7073. Not a corpus unit (file-local overload set);
+// seat stays a TODO stub naming the vendor provenance.
+internal fun xecute(exp: String): Int {
+    TODO("stub: vendor xecute family, libmpscpp.cpp:7053 (not a corpus unit)")
+}
+
+// mstring SymGet(char *) - include/mumpsc/libmpscpp.h:179. Not a
+// corpus unit; the mstring return folds to String per h007 (the
+// mstring-class layout owner, mstringClass.h::<misc> roster 149, has
+// not landed in this arm; class_member_carrier miss, T1 recurrence).
+internal fun SymGet(s: String): String {
+    TODO("stub: vendor SymGet, libmpscpp.h:179 (not a corpus unit)")
+}
+
+// C fgetc contract at the Java Reader edge (h001: FILE* input ->
+// java.io.Reader, io exceptions surfaced like C's error return).
+// EOF is -1 everywhere; a read error quantizes to EOF exactly as
+// the vendor's fgetc does.
+internal fun fgetcC(file: java.io.Reader): Int {
+    return try {
+        file.read()
+    } catch (e: java.io.IOException) {
+        -1
+    }
+}
+
+// C strcpy: writes src's bytes plus the NUL. The vendor does no
+// bounds check (overflow is silent UB in C); the Kotlin fold is
+// unbounded too and throws IndexOutOfBounds past the buffer size,
+// which is the deterministic quantization of that UB.
+internal fun writeC(dst: CharArray, src: String) {
+    for (j in src.indices) dst[j] = src[j]
+    dst[src.length] = 0.toChar()
+}
+
+// C strncpy(dst, src, n): copies at most n bytes, stopping right
+// after the NUL if src ends first (no tail padding folded in: no
+// T2 call site reads past the copied NUL; journaled).
+internal fun strncpyC(dst: CharArray, src: String, n: Int) {
+    var j = 0
+    while (j < n && j < src.length) {
+        dst[j] = src[j]
+        j++
+    }
+    if (j < n) dst[j] = 0.toChar()
+}
+
+// C strncmp(a, b, n): NUL-stop comparison, sign result. First
+// difference in the first n bytes decides; 0 otherwise.
+internal fun strncmpC(a: String, b: String, n: Int): Int {
+    var j = 0
+    while (j < n) {
+        val ca = if (j < a.length) a[j].code else 0
+        val cb = if (j < b.length) b[j].code else 0
+        if (ca != cb) return ca - cb
+        if (ca == 0) return 0
+        j++
+    }
+    return 0
 }
