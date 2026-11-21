@@ -163,38 +163,38 @@ u119 H-018 row restored). Check columns track the BASE reference
 translation (C-002) and stay todo per the C-001 cycle-10 backfill
 decision.
 
-| # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
-|---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
-| 94 | compiler-globalarray.c::<misc> | c | simple | todo | translated | todo | translated | todo | todo |
-| 95 | compiler-new.c::<misc> | c | simple | todo | translated | todo | translated | todo | todo |
-| 96 | interp-stem.cpp::escan | cpp | simple | todo | translated | todo | translated | todo | todo |
-| 97 | libmpscpp.cpp::mstring::Fnumber | cpp | simple | todo | translated | todo | translated | todo | todo |
-| 98 | libmpscpp.cpp::Count | cpp | simple | todo | translated | todo | translated | todo | todo |
-| 99 | libmpscpp.cpp::Min | cpp | simple | todo | translated | todo | translated | todo | todo |
-| 100 | libmpscpp.cpp::Transpose | cpp | simple | todo | translated | todo | translated | todo | todo |
-| 101 | server.cpp::<misc> | cpp | simple | todo | translated | todo | translated | todo | todo |
-| 102 | rdbms-if.c::<misc> | c | simple | todo | translated | todo | translated | todo | todo |
-| 103 | interp-arith.cpp::mps_asin | cpp | simple | todo | translated | todo | translated | todo | todo |
-| 104 | libmpscpp.cpp::ScanAlnum | cpp | core | todo | translated | todo | todo | todo | todo |
-| 105 | interp-sysfunc.cpp::LocalName | cpp | core | todo | translated | todo | todo | todo | todo |
-| 106 | interp-native-btree.cpp::pb | cpp | core | todo | translated | todo | todo | todo | todo |
-| 107 | include/mumpsc/sysfunc.h::<misc> | c | core | todo | translated | todo | todo | todo | todo |
-| 108 | libmpscpp.cpp::init | cpp | core | todo | translated | todo | todo | todo | todo |
-| 109 | compiler-at-test.c::atTest | c | core | todo | translated | todo | todo | todo | todo |
-| 110 | interp-bifs.cpp::<misc> | cpp | core | todo | translated | todo | todo | todo | todo |
-| 111 | interp-fnumber.cpp::_fnumber | cpp | core | todo | translated | todo | todo | todo | todo |
-| 112 | libmpscpp.cpp::global::Centroid | cpp | core | todo | translated | todo | todo | todo | todo |
-| 113 | interp-rpm.cpp::parse_pattern_element | cpp | core | todo | translated | todo | todo | todo | todo |
-| 114 | interp-piece.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 115 | interp-parse.cpp::readf_ | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 116 | compiler-lock.c::lock_code | c | complex | todo | translated | todo | todo | todo | todo |
-| 117 | compiler-doty.c::doty | c | complex | todo | translated | todo | todo | todo | todo |
-| 118 | include/pcre.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
-| 119 | interp-sym.cpp::GlobalQuery | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 120 | libmpscpp.cpp::<misc-9> | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 121 | compiler-set.c::set_code | c | complex | todo | translated | todo | todo | todo | todo |
-| 122 | compiler-for.c::for_code | c | complex | todo | translated | todo | todo | todo | todo |
-| 123 | interp-fcn.cpp::fcn | cpp | complex | todo | translated | todo | todo | todo | todo |
+| # | Unit | Lang | Class | Status | DOC | DAF | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-----|-----|-------------|--------------|---------------|--------------|
+| 94 | compiler-globalarray.c::<misc> | c | simple | todo | translated | translated | todo | translated | todo | todo |
+| 95 | compiler-new.c::<misc> | c | simple | todo | translated | translated | todo | translated | todo | todo |
+| 96 | interp-stem.cpp::escan | cpp | simple | todo | translated | translated | todo | translated | todo | todo |
+| 97 | libmpscpp.cpp::mstring::Fnumber | cpp | simple | todo | translated | translated | todo | translated | todo | todo |
+| 98 | libmpscpp.cpp::Count | cpp | simple | todo | translated | translated | todo | translated | todo | todo |
+| 99 | libmpscpp.cpp::Min | cpp | simple | todo | translated | translated | todo | translated | todo | todo |
+| 100 | libmpscpp.cpp::Transpose | cpp | simple | todo | translated | translated | todo | translated | todo | todo |
+| 101 | server.cpp::<misc> | cpp | simple | todo | translated | translated | todo | translated | todo | todo |
+| 102 | rdbms-if.c::<misc> | c | simple | todo | translated | translated | todo | translated | todo | todo |
+| 103 | interp-arith.cpp::mps_asin | cpp | simple | todo | translated | translated | todo | translated | todo | todo |
+| 104 | libmpscpp.cpp::ScanAlnum | cpp | core | todo | translated | translated | todo | todo | todo | todo |
+| 105 | interp-sysfunc.cpp::LocalName | cpp | core | todo | translated | translated | todo | todo | todo | todo |
+| 106 | interp-native-btree.cpp::pb | cpp | core | todo | translated | translated | todo | todo | todo | todo |
+| 107 | include/mumpsc/sysfunc.h::<misc> | c | core | todo | translated | translated | todo | todo | todo | todo |
+| 108 | libmpscpp.cpp::init | cpp | core | todo | translated | translated | todo | todo | todo | todo |
+| 109 | compiler-at-test.c::atTest | c | core | todo | translated | translated | todo | todo | todo | todo |
+| 110 | interp-bifs.cpp::<misc> | cpp | core | todo | translated | translated | todo | todo | todo | todo |
+| 111 | interp-fnumber.cpp::_fnumber | cpp | core | todo | translated | translated | todo | todo | todo | todo |
+| 112 | libmpscpp.cpp::global::Centroid | cpp | core | todo | translated | translated | todo | todo | todo | todo |
+| 113 | interp-rpm.cpp::parse_pattern_element | cpp | core | todo | translated | translated | todo | todo | todo | todo |
+| 114 | interp-piece.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 115 | interp-parse.cpp::readf_ | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 116 | compiler-lock.c::lock_code | c | complex | todo | translated | todo | todo | todo | todo | todo |
+| 117 | compiler-doty.c::doty | c | complex | todo | translated | todo | todo | todo | todo | todo |
+| 118 | include/pcre.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo | todo |
+| 119 | interp-sym.cpp::GlobalQuery | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 120 | libmpscpp.cpp::<misc-9> | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 121 | compiler-set.c::set_code | c | complex | todo | translated | todo | todo | todo | todo | todo |
+| 122 | compiler-for.c::for_code | c | complex | todo | translated | todo | todo | todo | todo | todo |
+| 123 | interp-fcn.cpp::fcn | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
 
 ## Batch 5 (units 124-154, opened 2026-11-20; DOC follows the closed B4 in the committed row order, no inversion to log)
 

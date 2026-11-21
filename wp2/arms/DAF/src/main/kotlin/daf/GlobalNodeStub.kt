@@ -36,6 +36,47 @@ class MpsGlobalNode(val ref: String) {
         throw NotImplementedError(
             "global.Transpose member: out-of-scope owner (libmpscpp.cpp global class)")
     }
+
+    // -- T2 seat additions (raised by the Centroid render, unit 112) --
+
+    // Node data payload (BASE-log row 54 hit-reuse: "var value covers
+    // operator="); the assignment forms B(bb)=X render as value stores.
+    var value: String = ""
+
+    // global() - the no-arg operator() fold (the B() of B().Kill()):
+    // returns the receiver's bare sub-node shape; owner is the global
+    // class ctor/invoke family (out of scope as for invoke(sub)).
+    operator fun invoke(): MpsGlobalNode =
+        throw NotImplementedError(
+            "global node invoke (no-arg): out-of-scope owner (libmpscpp.cpp global class)")
+
+    // Two-subscript invoke (Centroid's (*this)(aa,bb) form): the C++
+    // multi-argument global ref; owner as above.
+    operator fun invoke(a: String, b: String): MpsGlobalNode =
+        throw NotImplementedError(
+            "global node invoke (two-subscript): out-of-scope owner (libmpscpp.cpp global class)")
+
+    // Order(dir) - the $ORDER walk member; the (string) cast of the C++
+    // call site is absorbed by the String return. Owner: the
+    // libmpscpp.cpp global-class Order member (kin of the roster unit
+    // libmpscpp.cpp::GlobalOrder, BASE-log row 98 overloads-collapse
+    // precedent).
+    fun order(dir: Int): String =
+        throw NotImplementedError(
+            "global.Order member: out-of-scope owner (libmpscpp.cpp global class Order; kin of roster unit GlobalOrder)")
+
+    // Data() - the has-data probe member. Owner: the libmpscpp.cpp
+    // global-class Data member.
+    fun data(): Boolean =
+        throw NotImplementedError(
+            "global.Data member: out-of-scope owner (libmpscpp.cpp global class)")
+
+    // Kill() - the kill member. Owner: the libmpscpp.cpp global-class
+    // Kill member.
+    fun kill() {
+        throw NotImplementedError(
+            "global.Kill member: out-of-scope owner (libmpscpp.cpp global class)")
+    }
 }
 
 // sigint(int) - owner interp-sysfunc.cpp::sigint (roster batch-7 unit for
