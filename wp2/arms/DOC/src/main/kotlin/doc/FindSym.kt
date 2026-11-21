@@ -32,6 +32,22 @@ import java.util.Locale
 // rendered by this row (same-name overload family, distinct
 // vendor site; batch 10 will own it). Consult H-010 hit-reuse:
 // the C short/equality carrier idiom over the CharArray domain.
+// VERIFICATION ADDENDUM (B10 tranche 2, units.csv row 297):
+// the batch-10 roster row compiler-sys1.c::xindex (loc 21,
+// score 10.9, rank 107, core stratum; physically verified at
+// vendor compiler-sys1.c:249-274 this session - the IDENTICAL
+// TWIN of this body: goto-label spelling (mismatch goto outer)
+// where this seat uses the flg-flag spelling, same probe
+// algorithm, same return 0/k+1 contract. The row is
+// VERIFICATION-ONLY (H-014 hit-reuse adjudication): no new
+// seat for row 297 - the row folds onto this u264 render
+// whose algorithm covers the compiler twin statement-for-
+// statement; the vendor operates on the COMPILER domain here,
+// which the H-015 same-name collision rule discloses; treated
+// as the identical twin of this seat (both vendor bodies
+// physically verified this session). Consult row 297: entry
+// H-014, outcome hit-reuse, timestamp 2026-11-22T06:19:00Z.
+
 fun xindex(a: CharArray, b: CharArray, i: Short): Int {
     var flg = 0
     // for (i = 0; ptrn[i] != 0; i++); --i; (pattern last index)

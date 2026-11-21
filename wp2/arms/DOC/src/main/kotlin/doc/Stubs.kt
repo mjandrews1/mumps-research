@@ -19,7 +19,10 @@ object Stubs {
     // TODO stub: owned by include/mumpsc/libmpscpp.h inline ltoa-style macro
     // (libmpscpp.h:120); not a corpus unit.
     fun Mltoa(value: Int, out: CharArray): Unit =
-        throw NotImplementedError("Mltoa: out-of-scope owner (libmpscpp.h:120 macro)")
+        doc.Mltoa(value.toLong(), out) // B10 T2 FLIP: batch-10
+        // roster row 292 landed (Mltoa.kt, the interp-arith.cpp
+        // corpus body); the raised batch-2 seat delegates with
+        // the Int-to-long widening per the house seat contract.
 
     // Unit 168 (B6 tranche 2, resolved): Mextract delegates to the real
     // _extract render (interp-sym.cpp _extract family). Original stub
@@ -596,10 +599,11 @@ object Stubs {
     fun globalSetKeyed(g: GlobalRef, v: String, vararg keys: String): Unit =
         throw NotImplementedError("global keyed assignment: out-of-scope owner (libmpscpp.cpp subscripted operator= family)")
 
-    // TODO stub: unpad owned by interp-sysfunc.cpp::unpad (batch-10
-    // unit, below tonight's stratum; fullUnpad call site).
-    fun unpad(a: CharArray, sv: Msv): Unit =
-        throw NotImplementedError("unpad: out-of-scope owner (interp-sysfunc.cpp::unpad) batch-10 unit")
+    // TODO stub: unpad owned by interp-sysfunc.cpp::unpad
+    // (batch-10 roster row 289). B10 T2 FLIP: DELEGATES to the
+    // unit-289 render (Unpad.kt); the SysfuncMisc fullUnpad
+    // call sites bind unchanged.
+    fun unpad(a: CharArray, sv: Msv): Unit = doc.unpad(a, sv)
 
 
     // ------------------------------------------------------------------
@@ -856,11 +860,15 @@ object Stubs {
     fun pm(a: CharArray, b: CharArray, svPtr: Msv): Int =
         throw NotImplementedError("pm: out-of-scope owner (interp-pm.cpp::pm)")
 
-    // int wstem(char *, int); owner libmpscpp.cpp::wstem (the
-    // Porter-stemmer straddler) - not a roster unit; raised by
-    // the batch-5 unit 154 Stem/stem renders.
-    fun wstem(a: CharArray, len: Int): Int =
-        throw NotImplementedError("wstem: out-of-scope owner (libmpscpp.cpp::wstem)")
+    // int wstem(char *, int); TAG CORRECTED + FLIPPED (B10
+    // tranche 2, the xindex/FindSym precedent): the earlier
+    // raise named the owner "libmpscpp.cpp::wstem; not a
+    // roster unit" - WRONG on both counts; the body lives at
+    // interp-stem.cpp:418 and units.csv row 293 IS the batch-10
+    // roster unit (the Wstem.kt render owns the even lands);
+    // the batch-5 pmw Stem/stem call sites bind unchanged to
+    // this now-delegating seat.
+    fun wstem(a: CharArray, len: Int): Int = doc.wstem(a, len)
 
     // char *strsep(char **, char *); libc strsep split helper
     // (declared by the sym.h misc chunk of unit 144) - not a
