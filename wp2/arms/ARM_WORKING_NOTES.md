@@ -4,25 +4,25 @@ Operational guide for pilot step 3: translating B1 in the four remaining
 arms. BASE is complete (31/31 graded-ok) and its heuristic log has seeded
 cookbook v0 (DOC) and rule base v0 (PRO), entry-for-entry identical.
 Grading rules, order, and instrumentation are FIXED (wp2/README.md,
-wp1/capture_criteria.md, wp1/order_assignments.json) — deviations are
+wp1/capture_criteria.md, wp1/order_assignments.json) â deviations are
 logged as data, never silently applied.
 
 ## 0. Common discipline (all arms)
 
-1. **Unit order**: B1 units 1–31, complexity_rank ascending
+1. **Unit order**: B1 units 1â31, complexity_rank ascending
    (PILOT_TRACKING.md order). Do not reorder within a batch.
-2. **Grading**: interpreter-side units → frozen interpreter oracle
-   (wp1/oracle/expected/); translator-side units → frozen translator
+2. **Grading**: interpreter-side units â frozen interpreter oracle
+   (wp1/oracle/expected/); translator-side units â frozen translator
    oracle (wp2/translator-oracle/expected/), byte-equivalence required.
    Intentional non-equivalence = logged protocol deviation BEFORE
    proceeding.
-3. **Build loop**: translate → build → fix → grade. Record every red
+3. **Build loop**: translate â build â fix â grade. Record every red
    build in the heuristic log (build-failure-fix rows, BASE precedent).
 4. **Tooling lessons from BASE (binding)**:
    - never round-trip repo files through paged fetchers (the CSV clobber
      incident, unit 31); md5-verify any pushed blob;
    - pre-push scan before EVERY push: Kotlin grammar collisions (`*/` in
-     comments, `$` in strings — H-015), escape bytes, `for (x in ...)`
+     comments, `$` in strings â H-015), escape bytes, `for (x in ...)`
      shadowing;
    - new-file-first: avoid rewrites of existing tracked files when a
      targeted edit will do.
@@ -32,28 +32,28 @@ logged as data, never silently applied.
 6. **Oracles are read-only**: any change under wp1/oracle/expected/ or
    wp2/translator-oracle/expected/ is a hard stop.
 
-## 1. Arm DOC — cookbook, manually consulted
+## 1. Arm DOC â cookbook, manually consulted
 
 - **Artifact**: `wp2/arms/DOC/cookbook_v0.md` (H-001..H-017).
 - **Per unit, in this order**:
   1. Before editing, scan the C/C++ unit for canonical constructs
-     (§2.4 normalization first). List what you find.
+     (Â§2.4 normalization first). List what you find.
   2. **Lookup logging BEFORE consultation**: append a row to
-     `wp2/logs/DOC_cookbook_journal.csv` (kind,target,unit,timestamp —
+     `wp2/logs/DOC_cookbook_journal.csv` (kind,target,unit,timestamp â
      same CSV schema as the PRO tooling) for each entry consulted,
      including the attempt that found nothing (kind=miss).
   3. Consult the cookbook. Apply the entry's action verbatim = record
      reuse (kind=reuse + kind=hit); with modification = kind=hit and a
      one-line adaptation note in the row.
   4. New resolution not covered (or failing a gate): stay as a journal
-     note. Capture into the cookbook ONLY under T1/T2/T3 and gates G1–G4
+     note. Capture into the cookbook ONLY under T1/T2/T3 and gates G1âG4
      (id `H-0xx` next; revise existing ids in place with a version
      bump instead of adding duplicates).
-- **Batch close**: manual coverage checklist in the journal — for each
-  canonical construct in the batch, did ≥1 entry match? (This is the
+- **Batch close**: manual coverage checklist in the journal â for each
+  canonical construct in the batch, did â¥1 entry match? (This is the
   DOC equivalent of PRO's `coverage_report/0`; both are recorded.)
 
-## 2. Arm PRO — Prolog rules, machine-queried
+## 2. Arm PRO â Prolog rules, machine-queried
 
 - **Artifacts**: `wp2/arms/PRO/rules_v0.pl` (h001..h017) +
   `wp2/arms/PRO/knowledge_tooling.pl` (find_rule/1, record_hit/2,
@@ -65,37 +65,37 @@ logged as data, never silently applied.
   bash wp2/arms/PRO/smoke_test.sh
   ```
   Smoke-test FIRST (the script checks all 17 trigger families resolve,
-  a bogus family finds nothing, coverage_report runs on an empty log —
+  a bogus family finds nothing, coverage_report runs on an empty log â
   without recording events). Pitfall: Prolog paths must be QUOTED atoms;
   bare [wp2/arms/PRO/rules_v0] parses the uppercase PRO as a VARIABLE
   and consult fails with an instantiation error.
 - **Per unit**: run from the repo root so the CSV path resolves:
-  1. normalize constructs (same §2.4 as DOC);
-  2. `find_rule(<family>).` for each construct found — the query itself
+  1. normalize constructs (same Â§2.4 as DOC);
+  2. `find_rule(<family>).` for each construct found â the query itself
      is the lookup; if nothing matches, `record_miss(<family>, <unit>)`;
   3. on applying: `record_reuse(hNNN, <unit>).` (unmodified) or
      `record_hit(hNNN, <unit>).` (adapted, + journal note);
   4. capture new rules in rules_v0.pl under T1/T2/T3 + gates, id
      `hNNN` next, mirroring the entry schema fields exactly.
-- **Batch close**: `coverage_report.` — save its output verbatim in the
-  arm journal (it computes hit/reuse rates per §5 from the event CSV).
+- **Batch close**: `coverage_report.` â save its output verbatim in the
+  arm journal (it computes hit/reuse rates per Â§5 from the event CSV).
 
-## 3. Arm DAF — Dafny-verified translation
+## 3. Arm DAF â Dafny-verified translation
 
 - **Additional toolchain**: Dafny 4.x + Z3 (e.g. via dotnet tool or the
   release binary; verify `dafny --version` on m1-build before starting).
-- **Per unit** (ad hoc heuristics are logged like BASE — no cookbook/rules):
+- **Per unit** (ad hoc heuristics are logged like BASE â no cookbook/rules):
   1. translate with the BASE heuristic log available as background (its
      rows may be consulted; log consultations as hits against `BASE-log`
-     in the DAF journal — ad-hoc handling is the factor level here);
+     in the DAF journal â ad-hoc handling is the factor level here);
   2. for units with **pure, decidable logic** (arithmetic helpers,
-     comparison and scan functions — B1 has several, e.g. numcomp,
+     comparison and scan functions â B1 has several, e.g. numcomp,
      gotamatch, Extract2): write the Kotlin translation FIRST as a
      plain function, then write a **Dafny method** specifying its
      behavior (pre/post-conditions, loop invariants) and verify:
      `dafny verify unit.dfy` must report 0 errors/0 timeouts;
   3. units with pointer-heavy, IO-heavy, or state-machine behavior
-     (buffer walkers, output emitters) are **exempt** — Dafny-verify
+     (buffer walkers, output emitters) are **exempt** â Dafny-verify
      only what is genuinely verifiable and list exemptions in the unit
      journal (exemption rate is itself a measured outcome);
   4. the Dafny method is a SPEC of the Kotlin function, kept in
@@ -104,10 +104,10 @@ logged as data, never silently applied.
 - **Scoring**: same oracles as BASE. Verification failures do NOT block
   grading, but every failed/exempted unit is logged.
 
-## 4. Arm BOTH — Prolog rules + Dafny
+## 4. Arm BOTH â Prolog rules + Dafny
 
 - Factor levels combined: run the PRO workflow (rules + tooling, same
-  events CSV under `wp2/logs/BOTH_knowledge_events.csv` — set the log
+  events CSV under `wp2/logs/BOTH_knowledge_events.csv` â set the log
   path in knowledge_tooling via the `default_log_path/1` fact copied to
   a BOTH-local tooling consult, or pass the path when recording) AND
   the DAF workflow (specs in `wp2/arms/BOTH/spec/`).
@@ -126,28 +126,28 @@ pilot deliverable of M2's "instrumentation calibrated" criterion.
 ## PRO adaptation journal (per knowledge_tooling.pl semantics: adapt = record_hit + note)
 
 - 2026-11-15, libmpscpp.cpp::EncodeHTML (B1 unit 5): h007 char_buffer
-  adapted — mutable scratch implemented as explicit CharArray instead of
+  adapted â mutable scratch implemented as explicit CharArray instead of
   the rule's StringBuilder default, to preserve byte-domain fidelity
   (chars >= 0x80, NUL-terminated in-place C-string surgery). Logged as
   hit, not reuse. (wp2/logs/PRO_knowledge_events.csv)
 - 2026-11-15, red build #1 (units 1-6, first PRO compile on m1-build,
-  Gradle 9.9.1 / Kotlin 2.4.21): two fixes. (1) IfCode.kt:55 — Kotlin
+  Gradle 9.9.1 / Kotlin 2.4.21): two fixes. (1) IfCode.kt:55 â Kotlin
   rejects Short == Int equality (EQUALITY_NOT_APPLICABLE); h010
-  promotion made explicit: at_flg == (-1).toShort(). (2) Find.kt:25 —
+  promotion made explicit: at_flg == (-1).toShort(). (2) Find.kt:25 â
   root cause was a push-script bug: the backticked keyword parameter
   was written without its CharArray type annotation (no missing-rule
   trigger). Fix renames the C parameter "in" to in_ (trailing-underscore
   convention, vendor parse_ precedent); h015 grammar-collision family.
   Build-failure events logged as hits in wp2/logs/PRO_knowledge_events.csv.
 - 2026-11-15, include/mumpsc/libmpsrdbms.h (B1 unit 9): h003 state_macro
-  adapted — the vendor SELECT/PRINT/... macros splice in the file-scope
+  adapted â the vendor SELECT/PRINT/... macros splice in the file-scope
   svPtr; Kotlin has no capture-by-name macros and svPtr is a pointer
   value, so the shims take svPtr as an explicit leading parameter
   instead of singleton members. Logged hit, not reuse.
 - 2026-11-15, interp-arith.cpp::mps_acos (B1 unit 10): second
   preprocessor_conditional miss (3-way #ifdef; reference build selects
   the plain-double branch). T1 (recurrence >= 2) now met for this
-  family — capture candidate for the batch-close rule revision.
+  family â capture candidate for the batch-close rule revision.
 
 ### PRO adaptation journal (append-only)
 
@@ -694,14 +694,14 @@ biased toward hits; C-006 carries the analysis-phase note.
 - DOC consult: unit compiler-if.c::if_code, entry H-015, outcome hit-reuse, timestamp 2026-11-19T00:42:00Z
 - DOC consult: unit compiler-if.c::if_code, entry H-017, outcome hit-reuse, timestamp 2026-11-19T00:42:00Z
 
-### Tranche 2 (DOC arm, units 55-59) — pushed with this tranche
+### Tranche 2 (DOC arm, units 55-59) â pushed with this tranche
 
 Narrative per unit (all timestamps true; recon and renders in-session):
 
 - **u55 btree.h misc (BtreeH.kt)**: whole-header declaration ledger. Preprocessor pairs resolved against the reference build: ADSIZE 8 owned by BtreeExterns.kt (u50, not redeclared); MSVC twin arms excluded; GMP/MPFR off the reference path. Quirks kept as ledger notes: ADZIZE spelling typo, dead gp1/gp2 seat declarations, gblfd/gbldat -1 sentinels, ReadOnly 1. GBLPERMIT 438 = 0666 octal.
 - **u56 interp-lock misc (LockMisc.kt)**: cleanLocks/makeLock rendered as a RandomAccessFile record walk over /tmp/Mumps.Locks, 528-byte records (pid[16]+ref[512]). Vendor dead tail after makeLock's final return kept as comment per H-013; blank-padded wipe (spaces then NUL) kept in both services; O_EXCL/O_CREAT ladder quantized to read/write with create-fallback.
 - **u57 arith.h misc (ArithH.kt)**: whole-header residual: FLT_PRECISION=72 define plus owner-annotated prototype roster; GMP/MPFR conditional pair excluded per reference build and journaled; commented ltoa fossil kept as ledger note.
-- **u58 prnterr (Prnterr.kt)**: full message ladder; codes 21/22/28 absent kept; Nx back-walk double-step quirk kept; case 27 raw dollar byte built via DOLLAR (H-015); stderr → System.err per H-001; pd1/LineNumber/NOERR/ErrChar ride new Msv carriers (stateVector.h:43/63/60/95).
+- **u58 prnterr (Prnterr.kt)**: full message ladder; codes 21/22/28 absent kept; Nx back-walk double-step quirk kept; case 27 raw dollar byte built via DOLLAR (H-015); stderr â System.err per H-001; pd1/LineNumber/NOERR/ErrChar ride new Msv carriers (stateVector.h:43/63/60/95).
 - **u59 inout (Inout.kt)**: compiler-side emission switch, cases 1-4; emitted C text byte-identical per H-015; case-3 dead block after return kept as comment per H-013; Extract2 rides the batch stub (H-014, owner compiler-parse.c). Carriers.kt extended: Msv out_file[10] Writers (:61), pd1[PS1] (:43), io (:49), NOERR (:60), hor/ver[10] (:62), LineNumber long (:63), ErrChar (:95).
 
 Consult rows for units 55-59 (true timestamps, in-session):
@@ -724,7 +724,7 @@ Consult rows for units 55-59 (true timestamps, in-session):
 - DOC consult: unit compiler-sys1.c::inout, entry H-014, outcome hit-reuse, timestamp 2026-11-19T00:44:00Z
 - DOC consult: unit compiler-sys1.c::inout, entry H-015, outcome hit-reuse, timestamp 2026-11-19T00:44:00Z
 
-### Tranche 3 (DOC arm, units 60-62, batch-2 tail close) — pushed with this tranche
+### Tranche 3 (DOC arm, units 60-62, batch-2 tail close) â pushed with this tranche
 
 Narrative per unit (timestamps true and recorded before the renders):
 
@@ -750,7 +750,7 @@ Consult rows for units 60-62 (true timestamps; logged before the renders, 2026-1
 - DOC consult: unit libmpscpp.cpp::<misc-2>, entry H-017, outcome hit-reuse, timestamp 2026-11-19T00:46:00Z
 
 
-### DOC batch 2 close — coverage checklist (units 32-62) and events export
+### DOC batch 2 close â coverage checklist (units 32-62) and events export
 
 Manual batch-close coverage checklist per the DOC arm discipline
 (construct list from the batch-2 unit texts, normalized per section 2.4;
@@ -818,7 +818,7 @@ on the container/m1-build and confirm the regenerated CSV is byte-identical
 log any divergence as a protocol deviation.
 
 
-### DOC batch 2 close — Rscript verification outcome (2026-11-19, m1-build)
+### DOC batch 2 close â Rscript verification outcome (2026-11-19, m1-build)
 
 The registered R instrument re-ran clean: 75 consult row(s) -> 148 event
 row(s), all validations passing. VERIFICATION RESULT: the Python-port CSV
@@ -835,7 +835,7 @@ Side note: the stray untracked CSV that blocked the first pull was a
 header-only file from an earlier zero-consult-instrument run (the
 script's documented empty-journal contract), not stale data.
 
-### DOC section 5 instrumentation calibration — batch-2 snapshot (2026-11-19, B2-only scope per C-007)
+### DOC section 5 instrumentation calibration â batch-2 snapshot (2026-11-19, B2-only scope per C-007)
 
 Per the section-5 criterion, the DOC arm's instrumentation state at
 B2 close (B1 open as of 2026-11-19, snapshot taken so the calibration
@@ -846,14 +846,14 @@ baseline exists before B1 renders begin):
   miss), instrument-stable under export_doc_events.R on m1-build.
 - Cookbook entries: 18 (v0 H-001..H-017 unchanged since seeding;
   H-018 preprocessor_conditional captured at B2 close, mirroring
-  PRO's h018 — artifacts at entry parity before the interleaved
+  PRO's h018 â artifacts at entry parity before the interleaved
   cycles). No version bumps; no G4 duplicates.
 - Red-build count: 0 (B2 renders gated locally at kotlinc 0 errors /
   0 warnings per tranche; m1-build gradle BUILD SUCCESSFUL on the
   full 39-file diff).
 - Grading outcome: B2 31/31 translated and gate-green; per-unit
   checks (code/output/runtime/target, PER_UNIT_CHECKS.md) remain
-  todo across B2 for DOC as for the other arms — the four columns
+  todo across B2 for DOC as for the other arms â the four columns
   track the BASE reference translation per C-003.2.
 - Evidence limitation carried per C-006: B2 units 32-51 consults are
   partial-evidence reconstructed data (hit-biased); units 52-62 are
@@ -1244,7 +1244,7 @@ pre-push scan is clean on all nine touched files (dollar byte in the
 mdh comment rebuilt programmatically, the null-assertion
 alternatives as local non-null binding and checkNotNull).
 
-### DOC B1 close — export instrument fix (C-008), 2026-11-19
+### DOC B1 close â export instrument fix (C-008), 2026-11-19
 
 The first post-tranche-5 Rscript of export_doc_events.R on m1-build
 halted: "duplicate consult for (unit, entry)" on
@@ -1264,7 +1264,7 @@ README amended in the same push; the C-007 table row backfill is
 noted there). The CSV export re-runs on the same journal after this
 push.
 
-### DOC B1 close — coverage checklist (units 1-31), 2026-11-19
+### DOC B1 close â coverage checklist (units 1-31), 2026-11-19
 
 Manual coverage checklist per the DOC batch-close discipline (section
 1: for each canonical construct in the batch, did at least one entry
@@ -1731,7 +1731,7 @@ Consult rows (sub-push C, tranche-wide timestamp):
 - DOC consult: unit interp-parse.cpp::parse_, entry H-017, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
 - DOC consult: unit interp-parse.cpp::parse_, entry H-018, outcome hit-reuse, timestamp 2026-11-19T15:06:11Z
 
-### DOC B3 close — coverage checklist (units 63-93), 2026-11-19
+### DOC B3 close â coverage checklist (units 63-93), 2026-11-19
 
 Manual coverage checklist per the DOC batch-close discipline (section
 1: for each canonical construct in the batch, did at least one entry
@@ -2957,7 +2957,7 @@ tracking table now shows 31/31 DOC translated across the
 three 2026-11-20 tranches; the batch-5 close review (gradle
 gate, coverage checklist, events export at batch close) is
 the next protocol step.
-### DOC B5 close — coverage checklist (units 124-154), 2026-11-20
+### DOC B5 close â coverage checklist (units 124-154), 2026-11-20
 
 Manual batch-close coverage checklist per the DOC batch-close
 discipline (section 1: for each canonical construct in the batch,
@@ -3646,7 +3646,7 @@ repeats are duplicates)
 - wp2/PILOT_TRACKING.md (rows 183-185 translated, session prose)
 - wp2/arms/DOC_B6BIG3_journal_fragment_2026-11-21.md (this fragment)
 
-### DOC B6 close — coverage checklist (units 155-185), 2026-11-21
+### DOC B6 close â coverage checklist (units 155-185), 2026-11-21
 
 Manual batch-close coverage checklist per the DOC batch-close
 discipline (section 1: for each canonical construct in the batch,
@@ -4137,3 +4137,114 @@ roster id strings per the batch-6 close repair 2 discipline):
 - DOC consult: unit compiler-epi.c::epi, entry H-013, outcome hit-adapt, timestamp 2026-11-20T23:08:00Z
 - DOC consult: unit libmpscpp.cpp::<misc-6>, entry H-016, outcome hit-adapt, timestamp 2026-11-20T23:09:00Z
 - DOC consult: unit interp-service.cpp::ServiceInterface, entry H-013, outcome hit-adapt, timestamp 2026-11-20T23:10:00Z
+
+### DAF B4 tranche 1 (units 94-103, simple stratum) - 2026-11-21
+
+Fresh-attention rotation cycle 4 opens the DAF arm per the binding
+Latin-square order in wp1/order_assignments.json (DAF cycles B4-B6;
+working literal B1-B3 would be a logged deviation, NOT taken - row
+order within B4 is the committed simple/core/complex rank order within
+the stratum-blocked batch plan, units 94-103 here being the simple
+tranche). Sandbox rebuilt from scratch this session: vendor tree
+sha256 621deb...ffdbe verified, JDK17 + kotlinc 2.1.20 (sha
+a118197... verified), Dafny 4.11.0+fcb2042d (version string matches
+m1-build; DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 required in-sandbox),
+dump4.py re-created with the sub-15-LOC fold (all 10 unit dumps verified
+at exact physical LOC). Arm independence kept: rendered from pristine
+vendor sources + BASE-heuristic-log consultations only; no DOC/PRO
+Kotlin consulted; DAF package gate independent at wp2/arms/DAF (carriers
+DafCRuntime.kt: cstring/strtod/fmt8g/fmtG with Locale.US per row 26 and
+no appended decimal point per rows 41/43, DafMsv, DafInterpState
+singleton per rows 6/22).
+
+Adjudication notes: units 94/95 are banner/include residues (KDoc-only
+ledger objects per the unit-152/153 DOC precedent - the wrapped bodies
+land in later units; owners named in KDoc per protocol); unit 96 escan
+keeps the vendor quirks (wl - offset > 3 strict, i=0 restart when
+next==0, empty-ending sentinel terminator; strmove in-place through
+ EndsEntry data class per stem.h:31 fields); unit 97 is the one-arg
+mstring::Fnumber overload rendered as explicit-params per row 101 with
+the coded service string backslash-escaped per H-015; units 98/99
+Count/Min keep the trailing "1,1" pair-strip quirk and the fresh-String
+return (rows 56/112 family adapted: value-return with the vendor %g
+kept verbatim per row 26); unit 100 Transpose preserves the vendor
+arg2[i]-vs-[j] index quirk verbatim (logged manual-decision - no BASE
+anchor for the anomaly; quirk-comment flagged, divergence ledgered
+here); unit 101 server misc renders SERVERBUF_D/SocketDataD/MyMsgBufD
+carriers with logtime via SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy")
++ Locale.US (row 3 adapted to the seconds-epoch input signature);
+unit 102 rdbms-if misc resolves the RDBMS config lattice to the
+reference set as documented consts (rows 37/78 family via the row-39
+pattern); unit 103 mps_asin resolves the interp-arith.cpp ifdef web to
+the reference arm (MULTI_PRECISION false, BIGFLOAT false; row 39
+reuse, family confirmation rows 99/100) with strtod per row 40 and
+the gcvt family per rows 41/43 (no appended decimal point).
+
+Seats raised for later tranches: dafFcn (owner interp-fcn.cpp::fcn,
+roster B4-T3 unit 123 - seat cited from MstringFnumber.kt), sigintDaf
+(owner SYM.h:41 relay), MpsGlobalNode class members (invoke/count/
+min/transpose per the libmpscpp.cpp global class; global::Min is a
+B2 roster unit). No pre-existing DAF seats flipped this tranche (arm
+gate green first pass).
+
+Dafny ledger: exemptions (coded-service/call-shaping units out of
+pure-logic spec scope): Fnumber, Count, Min, Transpose, logtime, both
+include residues (94/95), server/rdbms carriers (101/102 beyond the
+logtime string format); spec candidates rendered and verified
+(DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 dafny verify, 0 errors/0
+timeouts): spec/Escan.dfy (9 verified: escanSpec termination is
+CONDITIONAL on the wl-monotonicity table assumption, logged as a
+spec-assumption divergence - vendor C can loop forever on adversarial
+tables; the replen==strlen(replace) accounting keeps the vendor NUL
+landing at index wl' and the wl += replen - offset arithmetic
+verbatim) and spec/mps_asin.dfy (3 verified: asin range stated as a
+declared assumption bodyless function; the %.8g text format is out
+of scope per row 26 - the decimal-string round-trip is not claimed).
+
+Gates: whole-arm kotlinc 2.1.20 silent pass first shot after the
+escape-seat repairs (unicode escape seats re-written from the
+double-backslash write artifacts: NUL_D/'\u0001' family in
+Escan/Count/Min/Transpose/Fnumber plus the Transpose "\n*** Arg"
+message strings and the MstringFnumber "\$fnumber" literal); H-015
+scan clean on all 12 files (backticks reworded to quotes, raw dollars
+escaped wholesale incl. comment seats $count/$min/$ZASIN/$fnumber/
+$transpose, no double-bangs, no non-ASCII, no raw NUL bytes). gradle
+gate on m1-build pending at tranche close (Mark).
+
+Renders and consult ledger (each consult logged before applying;
+BASE-log rows per the section-3 ad-hoc workflow):
+
+- DAF consult: unit compiler-globalarray.c::<misc>, entry BASE-log:37, outcome hit-adapt, timestamp 2026-11-21T21:05:00Z
+- DAF consult: unit compiler-new.c::<misc>, entry BASE-log:37, outcome hit-reuse, timestamp 2026-11-21T21:06:00Z
+- DAF consult: unit interp-stem.cpp::escan, entry BASE-log:31, outcome hit-adapt, timestamp 2026-11-21T21:07:00Z
+- DAF consult: unit interp-stem.cpp::escan, entry BASE-log:15, outcome hit-reuse, timestamp 2026-11-21T21:07:30Z
+- DAF consult: unit interp-stem.cpp::escan, entry BASE-log:81, outcome hit-adapt, timestamp 2026-11-21T21:08:00Z
+- DAF consult: unit libmpscpp.cpp::mstring::Fnumber, entry BASE-log:101, outcome hit-reuse, timestamp 2026-11-21T21:09:00Z
+- DAF consult: unit libmpscpp.cpp::Count, entry BASE-log:56, outcome hit-adapt, timestamp 2026-11-21T21:10:00Z
+- DAF consult: unit libmpscpp.cpp::Count, entry BASE-log:26, outcome hit-reuse, timestamp 2026-11-21T21:10:30Z
+- DAF consult: unit libmpscpp.cpp::Min, entry BASE-log:56, outcome hit-reuse, timestamp 2026-11-21T21:11:00Z
+- DAF consult: unit libmpscpp.cpp::Transpose, entry BASE-log:-, outcome miss, timestamp 2026-11-21T21:12:00Z
+- DAF consult: unit libmpscpp.cpp::Transpose, entry BASE-log:-, outcome miss, timestamp 2026-11-21T21:12:30Z
+- DAF consult: unit server.cpp::<misc>, entry BASE-log:3, outcome hit-adapt, timestamp 2026-11-21T21:13:00Z
+- DAF consult: unit server.cpp::<misc>, entry BASE-log:6, outcome hit-reuse, timestamp 2026-11-21T21:13:30Z
+- DAF consult: unit rdbms-if.c::<misc>, entry BASE-log:37, outcome hit-adapt, timestamp 2026-11-21T21:14:00Z
+- DAF consult: unit interp-arith.cpp::mps_asin, entry BASE-log:39, outcome hit-reuse, timestamp 2026-11-21T21:15:00Z
+- DAF consult: unit interp-arith.cpp::mps_asin, entry BASE-log:40, outcome hit-reuse, timestamp 2026-11-21T21:15:30Z
+- DAF consult: unit interp-arith.cpp::mps_asin, entry BASE-log:41, outcome hit-reuse, timestamp 2026-11-21T21:16:00Z
+
+Coverage: 17 consults, 9 hit-reuse / 6 hit-adapt / 2 miss.
+
+Files pushed (one commit):
+- 12 new under wp2/arms/DAF/src/main/kotlin/daf/: DafCRuntime.kt,
+  CompilerGlobalArrayMisc.kt, CompilerNewMisc.kt, Escan.kt,
+  MstringFnumber.kt, Count.kt, Min.kt, Transpose.kt, ServerMisc.kt,
+  RdbmsIfMisc.kt, MpsAsin.kt, GlobalNodeStub.kt (all
+  gate-verified; H-015 scanned at render)
+- 2 new specs under wp2/arms/DAF/spec/: Escan.dfy, mps_asin.dfy
+  (both verified 0 errors)
+- wp2/logs/DAF_heuristic_log.csv (17 rows, schema per
+  heuristic_log_TEMPLATE.csv; BASE-log hits carry source=BASE-log +
+  reused_from row ids, misses manual-decision)
+- wp2/PILOT_TRACKING.md (batch-4 section, rows 94-103 DAF column
+  translated)
+- wp2/arms/ARM_WORKING_NOTES.md (this section)

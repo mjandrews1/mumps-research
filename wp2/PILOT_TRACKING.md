@@ -7,7 +7,7 @@ introduced with batch 2 (code-check, output-check, runtime-check,
 target-check) apply to the B1 table from this date as well, so both batches
 share one tracking schema and cross-batch comparisons remain like-for-like.
 The columns were added retroactively: at B1 close (2026-11-15) no per-unit
-check pass had been executed, so all B1 entries are initialized `todo` —
+check pass had been executed, so all B1 entries are initialized `todo` â
 nothing is backfilled. The four checks are
 defined in `wp2/PER_UNIT_CHECKS.md` (registry entry C-002,
 `wp2/PROTOCOL_CLARIFICATIONS.md`).
@@ -165,16 +165,16 @@ decision.
 
 | # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
 |---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
-| 94 | compiler-globalarray.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
-| 95 | compiler-new.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
-| 96 | interp-stem.cpp::escan | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 97 | libmpscpp.cpp::mstring::Fnumber | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 98 | libmpscpp.cpp::Count | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 99 | libmpscpp.cpp::Min | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 100 | libmpscpp.cpp::Transpose | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 101 | server.cpp::<misc> | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 102 | rdbms-if.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
-| 103 | interp-arith.cpp::mps_asin | cpp | simple | todo | translated | todo | todo | todo | todo |
+| 94 | compiler-globalarray.c::<misc> | c | simple | todo | translated | todo | translated | todo | todo |
+| 95 | compiler-new.c::<misc> | c | simple | todo | translated | todo | translated | todo | todo |
+| 96 | interp-stem.cpp::escan | cpp | simple | todo | translated | todo | translated | todo | todo |
+| 97 | libmpscpp.cpp::mstring::Fnumber | cpp | simple | todo | translated | todo | translated | todo | todo |
+| 98 | libmpscpp.cpp::Count | cpp | simple | todo | translated | todo | translated | todo | todo |
+| 99 | libmpscpp.cpp::Min | cpp | simple | todo | translated | todo | translated | todo | todo |
+| 100 | libmpscpp.cpp::Transpose | cpp | simple | todo | translated | todo | translated | todo | todo |
+| 101 | server.cpp::<misc> | cpp | simple | todo | translated | todo | translated | todo | todo |
+| 102 | rdbms-if.c::<misc> | c | simple | todo | translated | todo | translated | todo | todo |
+| 103 | interp-arith.cpp::mps_asin | cpp | simple | todo | translated | todo | translated | todo | todo |
 | 104 | libmpscpp.cpp::ScanAlnum | cpp | core | todo | translated | todo | todo | todo | todo |
 | 105 | interp-sysfunc.cpp::LocalName | cpp | core | todo | translated | todo | todo | todo | todo |
 | 106 | interp-native-btree.cpp::pb | cpp | core | todo | translated | todo | todo | todo | todo |
