@@ -1,6 +1,6 @@
 package doc
 
-// Unit 229 (B8 tranche 2): compiler-sys1.c::getstr1 (batch 8, core
+// Unit 234 (B8 tranche 2): compiler-sys1.c::getstr1 (batch 8, core
 // stratum; LOC 37, score 19.3, rank 165; units.csv row 229; vendor
 // compiler-sys1.c:351, physically verified this session: the
 // dump asserts physical loc 37 = the roster row, the six K&R

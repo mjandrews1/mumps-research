@@ -1,6 +1,6 @@
 package doc
 
-// Unit 227 (B8 tranche 2): include/mumpsc/compiler-macros.h::<misc>
+// Unit 236 (B8 tranche 2): include/mumpsc/compiler-macros.h::<misc>
 // (batch 8, core stratum; LOC 104, score 24.8, rank 190; units.csv
 // row 227). The compiler emitter macro header recomputed with the
 // study-subset chunker this session (physical loc 104 = the

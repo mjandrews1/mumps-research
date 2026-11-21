@@ -1,6 +1,6 @@
 package doc
 
-// Unit 228 (B8 tranche 2): interp-sql.cpp::<misc> (batch 8, core
+// Unit 235 (B8 tranche 2): interp-sql.cpp::<misc> (batch 8, core
 // stratum; LOC 50, score 23.6, rank 183; units.csv row 228). The
 // sql-btree library file residue recomputed with the study-subset
 // chunker this session (physical loc 50 = the roster row: the

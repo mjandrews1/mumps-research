@@ -1,8 +1,9 @@
 # DOC arm journal - 2026-11-21 (batch 8, tranche 2)
 
 DOC batch 8 tranche 2: the core stratum, 10 roster rows, DOC
-units 227-236 (units.csv rows 248 through 257 in score order
-10.7 up to 24.8). All bodies derived from the pristine vendor
+units 227-236 (the units.csv rows are the FILE LINES 236 for
+ReadLine down to 227 for the macros header; score order 10.7 up
+to 24.8). All bodies derived from the pristine vendor
 source this session (vendor tarball sha256 621deb...ffdbe); every
 vendor anchor physically verified line-for-line before rendering.
 Consult ledger (one row per unit per C-008; the events CSV append
@@ -104,6 +105,19 @@ hit pairs; 678 consult rows -> 1354 event rows total at this
 push, 90211 bytes). The regenerated-CSV byte-identity
 verification runs at batch close per the B7-close instrument
 precedent.
+
+Push hygiene and repair notes: the tranche-2 push first landed at
+repo-ROOT paths (commit 013be4c created stray arms/ and logs/
+copies; the intended wp2 paths were untouched), then the corrected
+db210e6 push carried the same payloads at the proper wp2 paths, and
+a follow-up commit renormalized the KDoc Unit numbering to the DOC
+arm sequence (T1 continued: units 227-236 in committed batch
+order) - the pre-repair headers had conflated the Unit id with the
+units.csv file line (the units.csv row IS the file line: 236
+ReadLine down to 227 macros). LESSON (the T1 lesson extended):
+Unit NNN is the DOC sequential arm id; units.csv row is the file
+line; never conflate. The stray root copies are removed by the
+journal-splice cleanup (git rm of the two stray dirs, one commit).
 
 DOC consult grammar rows (timestamps identical to the events CSV
 append of this push; per the T1 repair lesson the rows live here

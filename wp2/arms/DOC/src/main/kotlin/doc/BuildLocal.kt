@@ -1,10 +1,10 @@
 package doc
 
-// Unit 232 (B8 tranche 2): interp-sym.cpp::BuildLocal (batch 8,
+// Unit 231 (B8 tranche 2): interp-sym.cpp::BuildLocal (batch 8,
 // core stratum; LOC 29, score 16.7, rank 152; units.csv row 232;
 // vendor interp-sym.cpp:97, physically verified this session:
 // the dump asserts physical loc 29 = the roster row). The
-// local-symbol build-stack sibling of the unit-233 BuildGlobal
+// local-symbol build-stack sibling of the unit-230 BuildGlobal
 // render: identical three-arm code dispatch over its OWN
 // function-static TSTACK x STR_MAX scratch and stk counter (the
 // vendor keeps two independent static stacks; separate H-004

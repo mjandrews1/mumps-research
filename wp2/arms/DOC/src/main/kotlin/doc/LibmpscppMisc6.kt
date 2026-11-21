@@ -740,7 +740,7 @@ fun Mstring.amp(b: String): Mstring = Stubs.Concat(this, b)
 //
 // Unit 227 (B8 tranche 2): libmpscpp.cpp::global::ReadLine(istream &u1)
 // (batch 8, core stratum; LOC 21, score 10.7, rank 106; units.csv
-// row 227) is a VERIFICATION-ONLY row against the landed
+// row 236) is a VERIFICATION-ONLY row against the landed
 // GlobalRef.Reader(Reader) overload above (the u-family reader
 // seat, :157 fold). Line-for-line against the vendor body at
 // libmpscpp.cpp :3039 (istream & overload, dump b4):

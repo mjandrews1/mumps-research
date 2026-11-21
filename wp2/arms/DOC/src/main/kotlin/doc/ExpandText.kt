@@ -1,6 +1,6 @@
 package doc
 
-// Unit 235 (B8 tranche 2): compiler-parse.c::ExpandText (batch 8,
+// Unit 228 (B8 tranche 2): compiler-parse.c::ExpandText (batch 8,
 // core stratum; LOC 23, score 12.1, rank 117; units.csv row 235;
 // vendor compiler-parse.c:2374, physically verified this session:
 // the dump asserts physical loc 23 = the roster row). The

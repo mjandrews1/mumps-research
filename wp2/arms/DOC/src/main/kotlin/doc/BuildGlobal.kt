@@ -1,6 +1,6 @@
 package doc
 
-// Unit 233 (B8 tranche 2): interp-parse.cpp::BuildGlobal (batch 8,
+// Unit 230 (B8 tranche 2): interp-parse.cpp::BuildGlobal (batch 8,
 // core stratum; LOC 27, score 16.1, rank 150; units.csv row 233;
 // vendor interp-parse.cpp:1836, physically verified this session:
 // the dump asserts physical loc 27 = the roster row). The global
@@ -17,7 +17,7 @@ package doc
 // one; other g values return 0 per vendor). The function-statics
 // render as the H-004 holder object BuildGlobalState (the
 // MakeGlobalState/MakeGlobal precedent; separate state from the
-// unit-232 BuildLocal twin - the vendor keeps two independent
+// unit-231 BuildLocal twin - the vendor keeps two independent
 // static stacks). str/rslt/svPtr stay nullable per the widened
 // H-012 stub seat being resolved (the unit-185 Interpret cleaner
 // passes NULLs down the code<0 arm); the deref arms keep callers

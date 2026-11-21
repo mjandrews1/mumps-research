@@ -1,6 +1,6 @@
 package doc
 
-// Unit 231 (B8 tranche 2): compiler-parse.c::Extract2a (batch 8,
+// Unit 232 (B8 tranche 2): compiler-parse.c::Extract2a (batch 8,
 // core stratum; LOC 21, score 18.3, rank 158; units.csv row 231;
 // vendor compiler-parse.c:2129, physically verified this session:
 // the dump asserts physical loc 21 = the roster row). The 'a'

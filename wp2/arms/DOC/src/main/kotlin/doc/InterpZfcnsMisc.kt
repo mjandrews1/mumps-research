@@ -1,6 +1,6 @@
 package doc
 
-// Unit 230 (B8 tranche 2): interp-zfcns.cpp::<misc> (batch 8,
+// Unit 233 (B8 tranche 2): interp-zfcns.cpp::<misc> (batch 8,
 // core stratum; LOC 60, score 18.4, rank 160; units.csv row 230).
 // The interpreter zfcns library file residue recomputed with the
 // study-subset chunker this session (physical loc 60 = the roster

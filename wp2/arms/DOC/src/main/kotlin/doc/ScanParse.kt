@@ -1,6 +1,6 @@
 package doc
 
-// Unit 234 (B8 tranche 2): interp-sym.cpp::ScanParse (batch 8, core
+// Unit 229 (B8 tranche 2): interp-sym.cpp::ScanParse (batch 8, core
 // stratum; LOC 25, score 14.7, rank 142; units.csv row 234; vendor
 // interp-sym.cpp:81 prototype, :1410 body, physically verified this
 // session: the dump asserts physical loc 25 = the roster row). The
