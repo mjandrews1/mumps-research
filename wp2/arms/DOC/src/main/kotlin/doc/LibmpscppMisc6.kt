@@ -735,3 +735,31 @@ fun Mstring.amp(b: CharArray): Mstring = Stubs.Concat(this, b)
 fun Mstring.amp(b: GlobalRef): Mstring = Stubs.Concat(this, b)
 
 fun Mstring.amp(b: String): Mstring = Stubs.Concat(this, b)
+
+// ---------------- Unit 227 row-note (B8 tranche 2) -------------
+//
+// Unit 227 (B8 tranche 2): libmpscpp.cpp::global::ReadLine(istream &u1)
+// (batch 8, core stratum; LOC 21, score 10.7, rank 106; units.csv
+// row 227) is a VERIFICATION-ONLY row against the landed
+// GlobalRef.Reader(Reader) overload above (the u-family reader
+// seat, :157 fold). Line-for-line against the vendor body at
+// libmpscpp.cpp :3039 (istream & overload, dump b4):
+// - the getline(tmp,STR_MAX,'\n') call is the BufferedReader
+//   readLine of the fold (STR_MAX scratch = the CharArray seat);
+// - the CR-LF strip (tmp[strlen-1] < ' ' -> 0) is the
+//   fgetsTrimM6 double-trim, byte-equivalent;
+// - the non-EOF Mglobal(STORE, ref, tmp, svPtr) with the f==0 ->
+//   GlobalExceptionCode = GLOBAL_NOT_FOUND -> MumpsGlobalException
+//   throw is verbatim the fold body.
+// The ONE divergence is the EOF arm: the vendor istream body (and
+// its FILE*/zero-arg twins) zeroes tmp[0] and then RUNS the
+// Mglobal(STORE) over the empty scratch before returning false,
+// whereas the landed fold returns false at the null readLine,
+// BEFORE the store. That store-on-EOF divergence is pre-existing
+// across the whole landed Reader fold and is hereby DISCLOSED as
+// a protocol deviation candidate: the fold is retained unchanged
+// (single-reader-seat rule, H-016; the graded landed render is
+// not regraded). Consult H-016 hit-adapt: verification-only
+// row-note, disposition ledger only, no new body (the u186 fold
+// precedent; also GlobalData u70/u192 and the Mget fold). Naming
+// per H-017.

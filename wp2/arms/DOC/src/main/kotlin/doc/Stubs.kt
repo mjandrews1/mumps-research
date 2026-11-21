@@ -724,21 +724,45 @@ object Stubs {
     fun rpm(string_: CharArray, pattern: CharArray, svPtr: Msv): Int =
         doc.rpm(string_, pattern, svPtr)
 
-    // TODO stub: BuildGlobal (batch-8 unit 150,
-    // interp-parse.cpp:1836); rslt nullable because unit 93 passes
-    // NULL for the result pointer in one arm; str/svPtr widened
-    // nullable (H-012) because the unit-185 Interpret stack-cleaner
-    // arm passes NULL str and NULL svPtr (Build (-1, 0, NULL,
-    // NULL, NULL) at the interp-interp.cpp MERGE cmd cleaner line).
+    // Unit 233 (B8 tranche 2) RESOLVES this seat: delegates to the
+    // real BuildGlobal.kt render (the three-arm build-stack dispatch
+    // plus the four-arg GlobalOrder walk tail; the nullability of
+    // the original widening kept; original stub note: batch-8
+    // unit 150, interp-parse.cpp:1836; rslt nullable because unit
+    // 93 passes NULL for the result pointer in one arm; str/svPtr
+    // widened nullable (H-012) because the unit-185 Interpret
+    // stack-cleaner arm passes NULL str and NULL svPtr (Build
+    // (-1, 0, NULL, NULL, NULL) at the interp-interp.cpp MERGE cmd
+    // cleaner line)). The unit-70/93 call sites bind unchanged.
     fun BuildGlobal(code: Int, g: Int, str: CharArray?,
             rslt: CharArray?, svPtr: Msv?): Int =
-        throw NotImplementedError("BuildGlobal: out-of-scope owner (interp-parse.cpp::BuildGlobal) batch-8 unit")
+        doc.BuildGlobal(code, g, str, rslt, svPtr)
 
-    // TODO stub: BuildLocal (batch-8 unit 152, interp-sym.cpp:97),
-    // same shape as BuildGlobal, widened the same way (H-012).
+    // Unit 232 (B8 tranche 2) RESOLVES this seat: delegates to
+    // the real BuildLocal.kt render (same shape as BuildGlobal,
+    // widened the same way (H-012)); the code-1 tail walks the
+    // LOCAL order through the LocalOrder seat raised below.
     fun BuildLocal(code: Int, g: Int, str: CharArray?,
             rslt: CharArray?, svPtr: Msv?): Int =
-        throw NotImplementedError("BuildLocal: out-of-scope owner (interp-sym.cpp::BuildLocal) batch-8 unit")
+        doc.BuildLocal(code, g, str, rslt, svPtr)
+
+    // void LocalOrder(unsigned char *, unsigned char *, char *,
+    // struct MSV *); owner interp-sym.cpp::LocalOrder, NOT a corpus
+    // unit (no roster row) - raised this push by the unit-232
+    // BuildLocal render's code-1 walk tail (H-014).
+    fun LocalOrder(a: CharArray, rslt: CharArray, dir: String,
+            svPtr: Msv?): Unit =
+        throw NotImplementedError("LocalOrder: out-of-scope owner (interp-sym.cpp::LocalOrder, not a corpus unit)")
+
+    // POSIX read/write over the exec-pipe fd pairs of the compiler
+    // READ transport (popn[lun][1]/[2] of compiler-sys1.c getstr1,
+    // unit 229); out-of-scope POSIX, not corpus units (H-014;
+    // raised by the unit-229 render's opnflg==3 arm).
+    fun posixWrite(fd: Int, buf: CharArray, len: Int): Unit =
+        throw NotImplementedError("write: out-of-scope owner (POSIX pipe transport, not a corpus unit)")
+
+    fun posixRead(fd: Int, buf: CharArray, max: Int): Int =
+        throw NotImplementedError("read: out-of-scope owner (POSIX pipe transport, not a corpus unit)")
     // ------------------------------------------------------------------
     // unit 98 (B4 tranche 1): the class-global member Count over the
     // unsubscripted/subscripted reference (owner libmpscpp.cpp:2257
@@ -980,8 +1004,11 @@ object Stubs {
     // int ScanParse(char *); owner interp-sym.cpp::ScanParse
     // (batch-8 roster row 234, interp-sym.cpp:81 prototype,
     // :1410 body). The call site passes the xd offset slice.
+    // Unit 234 (B8 tranche 2) RESOLVES this seat: delegate per
+    // the H-014 Extract2 precedent; the parse render binds
+    // unchanged.
     fun ScanParse(s: CharArray): Int =
-        throw NotImplementedError("ScanParse: out-of-scope owner (interp-sym.cpp::ScanParse) batch-8 unit")
+        doc.ScanParse(s)
 
     // int Eval(unsigned char *, unsigned char *, struct MSV *);
     // owner interp-sym.cpp::Eval (batch-9 roster row 261,
