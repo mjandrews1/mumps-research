@@ -84,6 +84,18 @@ class MpsGlobalNode(val ref: String) {
     // TermCorrelate(b) - the term-correlate member (row 105 node model).
     // Owner: libmpscpp.cpp global class TermCorrelate (kin of roster unit
     // libmpscpp.cpp::global::TermCorrelate, batch-1 core).
+
+    // -- T1 seat addition (raised by the unit-130 libmpscpp.cpp::Avg
+    // render, DAF B5) --
+
+    // Avg(sub) - the average member (row 54/105 node model). The C++
+    // a(sub).Avg() invoke folds onto the node + subscript shape.
+    // Owner: libmpscpp.cpp global-class member Avg (not a corpus
+    // unit; permanent stub unless a later batch renders it).
+    fun avg(sub: String): Double =
+        throw NotImplementedError(
+            "global.Avg member: out-of-scope owner (libmpscpp.cpp global class Avg)")
+
     fun termCorrelate(b: MpsGlobalNode) {
         throw NotImplementedError(
             "global.TermCorrelate member: out-of-scope owner (libmpscpp.cpp global class TermCorrelate; kin of roster unit TermCorrelate)")
