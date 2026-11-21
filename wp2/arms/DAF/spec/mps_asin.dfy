@@ -17,7 +17,9 @@
 // asin maps [-1, 1] into [-pi/2, pi/2].
 const PI_2: real := 1.570796326794896619231321691639751442
 
-function Asin(x: real): real
+// Bodyless + {:axiom}: the postcondition below is the DECLARED
+// assumption recorded in the journal; it is assumed, not proved here.
+function {:axiom} Asin(x: real): real
   requires -1.0 <= x <= 1.0
   ensures -PI_2 <= Asin(x) <= PI_2
 

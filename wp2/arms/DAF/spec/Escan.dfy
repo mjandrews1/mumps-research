@@ -33,10 +33,11 @@ ghost predicate live(e: End) { |e.ending| > 0 }
 
 ghost predicate tableWellFormed(endings: seq<End>)
 {
-  forall i :: 0 <= i < |endings| ==> noNUL(endings[i].ending)
-    && noNUL(endings[i].replace)
-    && (live(endings[i]) ==>
-      (endings[i].offset > 0 && endings[i].replen == |endings[i].replace|))
+  forall i :: 0 <= i < |endings| ==>
+    (noNUL(endings[i].ending)
+      && noNUL(endings[i].replace)
+      && (live(endings[i]) ==>
+        (endings[i].offset > 0 && endings[i].replen == |endings[i].replace|)))
 }
 
 // The word is a NUL-terminated C string of current length wl.
