@@ -255,10 +255,17 @@ object Stubs {
                lines: Int, xpx: Long): Int =
         doc.atTest(xd, pd1, pd1Last, lines, xpx)
 
-    // TODO stub: atCopy (compiler-globals.h:104 declaration; no
-    // definition is a roster unit).
+    // Unit 222 (B8 tranche 1) RESOLVES this seat with a TAG
+    // CORRECTION: the earlier comment tagged the owner a
+    // compiler-at-test.c helper with no roster row; the physical
+    // owner is compiler-mumps.c:1956 and IS a roster unit
+    // (units.csv row 241, the batch-8 atCopy render,
+    // CompilerAtCopy.kt). The compiler-globals.h:104 declaration
+    // above stands as the prototype anchor. Delegate per the
+    // H-014 Extract2 precedent; IfCode SetCode and WriteCode
+    // bind unchanged.
     fun atCopy(at_flg: Int, tmp: CharArray): Unit =
-        throw NotImplementedError("atCopy: out-of-scope owner (compiler-at-test.c helper)")
+        doc.atCopy(at_flg, tmp)
 
     // TODO stub: parse_() TAG CORRECTION (u160-Interpret mis-tag family
     // precedent): the zero-arg seat is the compiler twin

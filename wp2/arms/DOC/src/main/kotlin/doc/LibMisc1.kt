@@ -352,6 +352,19 @@ operator fun GlobalRef.invoke(a: Indirect): GlobalRef {
     return this
 }
 
+// Unit 223 (B8 tranche 1) carrier addition: the vendor
+// global::operator() (const char * a) single-subscript overload
+// (libmpscpp.cpp:10381-family: MakeGlobal(0, myname, "a", a)),
+// the ARITY MISSING from the unit-31 family below (which renders
+// the Mstring-typed arities only). Same MakeGlobal fold: the
+// batch-8 IDF wrapper (Idf.kt) binds a char* subscript through
+// this seat; the String parameter is the C string form verbatim
+// (the unit-186 fold convention). Naming per H-017.
+operator fun GlobalRef.invoke(a: String): GlobalRef {
+    Stubs.makeGlobal(this, 0, "a", a)
+    return this
+}
+
 operator fun GlobalRef.invoke(): GlobalRef {
     Stubs.makeGlobal(this, 0, "")
     return this

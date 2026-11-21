@@ -67,3 +67,21 @@ fun GlobalData(a: Mstring): Int {
 
     return i
 }
+
+// Unit 225 (B8 tranche 1): libmpscpp.cpp::GlobalData (batch 8,
+// simple stratum; LOC 17, score 8.7, rank 78; units.csv row 238;
+// vendor libmpscpp.cpp:2636, physically verified this session) -
+// the STRING-needle overload, the batch-8 row the unit-192 KDoc
+// pre-adjudicated (the mstring form at :2616 landed there; this
+// is the string twin). Consult H-004 hit-adapt: VERIFICATION row
+// per the unit-186 KDoc-fold precedent (Find.kt: the carrier-twin
+// row whose body is byte-equivalent to a landed seat renders as
+// this ledger note, each roster row keeping its seat) - the vendor string body verified
+// line-for-line against the landed unit-70 String seat above
+// (strcat(tmp,a) in the char-star form and strcat(tmp,a.c_str())
+// here fold to the same Kotlin += over the String needle; the
+// xecute/SymGet/tpx/atoi seats and both dead-local ledgers match
+// exactly), so this row renders NO new body: the unit-70 seat
+// carries both renders and each roster row keeps its seat. The
+// two same-name-twin caution of the batch plan (C-string twins)
+// is discharged by this verification, not by a new signature.
