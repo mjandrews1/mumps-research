@@ -77,6 +77,15 @@ replications bound the claims.
 5. **Oracle construction.** Each subject needs its own frozen
    characterization-test oracle built from its runtime behavior.
 
+A concrete pre-registration skeleton now exists at
+docs/REPLICATION_PREREG_SKELETON.md (2026-11-21). It operationalizes
+these open decisions as slots D-1 through D-7 and adds the design
+simplifications under review: fractional arm coverage with mixed-model
+inference, seed-committed stratified randomization, the cross-arm
+Latin-square schedule, cycle-index modeling, and a single-source-of-truth
+ledger pipeline. Decisions remain open until each pre-registration is
+frozen; this roadmap stays the planning home.
+
 ## Existing groundwork
 
 - **m-semantics** — Dafny semantics core for the RSM porting track
