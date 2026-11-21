@@ -58,3 +58,45 @@ fun globalOrderString(a: String, i: Int): String {
 
     return rr
 }
+
+
+// Unit 252 (B9 tranche 1): libmpscpp.cpp::GlobalOrder (batch 9,
+// simple stratum; units.csv row 274: loc 15, ptr 2, ctl 1, score
+// 5.5, rank 63; vendor libmpscpp.cpp:2558) - the MSTRING
+// overload, third corpus row of the file (the unit-39 char* and
+// the unit-69 std::string overloads above; the units.csv overload
+// disambiguation is by physical LOC, 15 here, the .c.txt dump
+// pair asserted). Same kernel as the landed pair: the command
+// build "s percent equals dollar-order(...)" per the unit-39 fold,
+// the empty-on-failure arm (H-008 fresh String per call), tpx
+// set per the vendor, the xecute H-014 stub seat and the
+// CharArray-name surface of SymGet (the batch-2 mis-tag repair
+// seat). VENDOR DIVERGENCE from the unit-69 body: this overload
+// has NO char r[STR_MAX] dead scratch (the unit-69 dead-store
+// note does not apply here) and NO static rr (a plain mstring
+// return). The int parameter i is again a dead parameter (H-013,
+// signature kept). Naming per H-017 (GlobalOrder stays; the
+// Mstring carrier disambiguates the overload).
+
+fun GlobalOrder(a: Mstring, i: Int): Mstring {
+    // mstring rr - H-008 fold: fresh Mstring per call
+
+    // char tmp[STR_MAX] = "s %=$order("; strcat(tmp, a.c_str());
+    // strcat(tmp, ")") - the C locals fold to one Scheme command
+    // String carrier (unit-39 fold); the dollar byte per H-015
+    // is escaped in the literal below programmatically
+    var cmd = "s %=\u0024order("
+    cmd += a.c_str()
+    cmd += ")"
+
+    val rr: Mstring
+    if (Stubs.xecute(cmd.toCharArray()) == 0) {
+        Globals.svPtr.tpx = 1
+        rr = Stubs.SymGet("%".toCharArray())
+    } else {
+        Globals.svPtr.tpx = 0
+        rr = Mstring("")
+    }
+
+    return rr
+}

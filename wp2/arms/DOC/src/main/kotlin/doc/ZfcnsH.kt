@@ -14,8 +14,11 @@ package doc
 // Prototype ledger (disposition per line):
 // - void _ascii(unsigned char *, unsigned char *, unsigned char
 //   *): not yet rendered; the batch-10 roster rows own it.
-// - void _horolog(unsigned char *): not yet rendered; the
-//   batch-10 roster row owns it.
+// - void _horolog(unsigned char *): RENDERED as the unit-256
+//   seat (batch 9 tranche 1; Horolog.kt). FORWARD-TAG CORRECTION
+//   (B9 T1, the Concat precedent): this ledger earlier wrote
+//   "batch-10 roster row" - the units.csv row is 278, batch
+//   column 9; the forward-tag is superseded by this render.
 // - void _justify(unsigned char *, ...): RENDERED as the unit-194
 //   InterpJustify seat (batch 7).
 // - void _length(unsigned char *, ...): not yet rendered; the
@@ -23,8 +26,9 @@ package doc
 // - void _piece(..., struct MSV *): RENDERED as the unit-114 real
 //   (batch 4; the Stubs.Mpiece delegate names this owner since
 //   the batch-7 push).
-// - void _random(unsigned char *, unsigned char *): not yet
-//   rendered; the batch-9 row owns it.
+// - void _random(unsigned char *, unsigned char *): RENDERED as
+//   the unit-253 seat (batch 9 tranche 1; Random.kt); the
+//   forward-tag stands, the owner note flips to rendered.
 // - zfcn: the include guard pair is the _INTERP_ arm - the
 //   compiler build (NOT the interpreter build, hence #ifndef
 //   _INTERP_) declares zfcn(unsigned char *, unsigned char *,

@@ -338,16 +338,22 @@ fun Mstring.Length(needle: Mstring): Int = Length(needle.str)
 
 // ---------------- Horolog (free fn) ---------------------------
 
-// mstring Horolog() - _horolog has no corpus owner; the body is
-// the Fcn.kt zhorolog intrinsic math (H-018 inline precedent,
-// 47116 epoch ladder): day,seconds.
+// mstring Horolog() - CALL-SITE REBIND (B9 tranche 1, the
+// delegate-when-owner-lands mechanism): the vendor body calls
+// _horolog((unsigned char *) t) (libmpscpp.cpp:3446); the unit
+// now lands as the batch-9 roster row 278 (interp-sym.cpp::
+// _horolog, Horolog.kt) and this free function delegates to it.
+// FIDELITY CORRECTION disclosed at the rebind (H-013 vendor-
+// truth): the pre-rebind render inlined the 47116+1 epoch ladder
+// of the Fcn.kt case-14 arm, but the vendor _horolog body uses
+// the 47122 day ladder - the two vendor epochs differ (the
+// helper vs the inline zhorolog arm, both vendor-truth, journal
+// ledger at the Horolog.kt row-note); the delegate restores the
+// vendor Horolog() body byte-for-shape.
 fun Horolog(): Mstring {
-    var timex = System.currentTimeMillis() / 1000L
-    var dayH = timex / 86400
-    timex -= dayH * 86400
-    dayH = 47116 + dayH
-    val fdH = dayH + 1
-    return Mstring(fdH.toString() + "," + timex.toString())
+    val t = CharArray(64)
+    _horolog(t)
+    return Mstring(CstringOps.cstring(t))
 }
 
 // char * global::get()

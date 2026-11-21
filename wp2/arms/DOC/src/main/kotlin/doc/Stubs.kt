@@ -780,9 +780,10 @@ object Stubs {
     // struct bstring bstrcat(struct bstring, struct bstring); owner
     // interp-bstring.cpp::bstrcat - CORRECTLY TAGGED batch-9 roster
     // row (the body sits below the unit-22 chunk cut, banner-only
-    // there). Resolves at batch 9.
+    // there). RESOLVED at batch 9 tranche 1 (unit 255, Bstrcat.kt):
+    // delegate below.
     fun bstrcat(a: Bstring, b: Bstring): Bstring =
-        throw NotImplementedError("bstrcat: out-of-scope owner (interp-bstring.cpp::bstrcat) batch-9 unit")
+        doc.bstrcat(a, b)
 
     // struct bstring leaning_toothpickize(const struct bstring);
     // owner interp-rpm.cpp::leaning_toothpickize - batch-6 roster
@@ -1118,26 +1119,32 @@ object Stubs {
     fun gtkSwitchGetActive(t: String?): Boolean =
         throw NotImplementedError("gtk_switch_get_active: out-of-scope owner (GTK library glue)")
 
+    // captured rule (unit-83 era repair). BATCH-9 FLIP (B9 T1):
+    // mpsLog/mpsCos/mpsTan/mpsExp2 now DELEGATE to the unit
+    // 249/250/251/247 renders (this tranche); mpsFloor flips at
+    // the batch-9 core tranche (units.csv row 268), mpsCeil/
+    // mpsTrunc stay throwing (batch-10 roster rows).
+
     fun mpsFloor(bd: CharArray, in_: String): Unit =
-        throw NotImplementedError("mps_floor: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+        throw NotImplementedError("mps_floor: out-of-scope owner (interp-arith.cpp batch-9 core roster unit)")
 
     fun mpsCeil(bd: CharArray, in_: String): Unit =
-        throw NotImplementedError("mps_ceil: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+        throw NotImplementedError("mps_ceil: out-of-scope owner (interp-arith.cpp batch-10 roster unit)")
 
     fun mpsTrunc(bd: CharArray, in_: String): Unit =
-        throw NotImplementedError("mps_trunc: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+        throw NotImplementedError("mps_trunc: out-of-scope owner (interp-arith.cpp batch-10 roster unit)")
 
     fun mpsLog(bd: CharArray, in_: String): Unit =
-        throw NotImplementedError("mps_log: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+        doc.mpsLog(bd, in_)
 
     fun mpsCos(bd: CharArray, in_: String): Unit =
-        throw NotImplementedError("mps_cos: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+        doc.mpsCos(bd, in_)
 
     fun mpsTan(bd: CharArray, in_: String): Unit =
-        throw NotImplementedError("mps_tan: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+        doc.mpsTan(bd, in_)
 
     fun mpsExp2(bd: CharArray, in_: String): Unit =
-        throw NotImplementedError("mps_exp2: out-of-scope owner (interp-arith.cpp batch-9/-10 roster unit)")
+        doc.mpsExp2(bd, in_)
 
     // char *Replace(struct MSV *, const char *, const char *, const
     // char *, const char *) declared builtin.h:40, API forward of
