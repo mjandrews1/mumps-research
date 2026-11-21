@@ -25,8 +25,12 @@ package doc
 //   Ascii(int start=1) / Ascii()
 //   zBlanks(), Query(), Qlength(), Reverse(), Qsubscript(int)
 //   Pattern(mstring&) / Pattern(string) / Pattern(global) /
-//     Pattern(const char*) - no owner unit in the corpus, ledger
-//   Justify(int, int=-1)
+//     Pattern(const char*) - the(global) member IS the landed
+//     unit-286 render (GlobalPattern.kt, batch 10 tranche 1);
+//     the other three overloads have no owner unit in the
+//     corpus, ledger
+//   Justify(int, int=-1) - the two-arg member IS the landed
+//     unit-288 render (GlobalJustify.kt, batch 10 tranche 1)
 //   Length() / Length(char*) / Length(mstring) / Length(global) /
 //     Length(string)
 //   Piece(const char*, int, int=-1) and three more overloads

@@ -82,10 +82,19 @@ fun GlobalRef.piece(pat: String, ii: Int, jjIn: Int): Mstring {
 // Unit 224 (B8 tranche 1): libmpscpp.cpp::global::Piece (batch 8,
 // simple stratum; LOC 17, score 7.3, rank 48; units.csv row 239;
 // vendor libmpscpp.cpp:7259, physically verified this session) -
-// the MSTRING-needle member overload (mstring & pat; the
-// unit-188 roster-pointer adjudication holds: the batch-8 row's
-// pointer_marks 1 is this mstring-ref form, the char-star twin at
-// :7181 stays a future-batch row). Consult H-007 hit-reuse: the
+// the MSTRING-needle member overload (mstring & pat).
+// B10 T1 TAG CORRECTION (the u141/u148/u169/u172 family): the
+// original header adjudicated THIS mstring-ref form as the
+// row-239 (7.3, ptr-1) row - WRONG; the row-239 metrics (score
+// 7.3, pointer_marks 1) are UNIQUELY the :7181 const-char-star
+// twin, and the row-304 form (loc 17, score 5.5, ptr 0, rank
+// 33) is THIS mstring-ref body. The physical render below is
+// UNCHANGED (it is the :7259 verbatim body); its roster row is
+// 304 (B10 T1, verification-only fold). The row-239 char-star
+// twin at :7181 FOLDS onto the unit-188 String seat (:7236 and
+// :7181 differ only in the needle carrier - the u188 String
+// parameter is both forms' fold, the u214 carrier-fold
+// convention). Consult H-007 hit-reuse: the
 // body is the unit-188 String render verbatim with the needle
 // carrier swapped - pat.data.c_str() rides the Mstring str
 // carrier into the same CharArray needle seat, single

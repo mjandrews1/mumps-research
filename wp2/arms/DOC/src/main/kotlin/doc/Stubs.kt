@@ -474,7 +474,10 @@ object Stubs {
         errorMessage(msg, ln)
 
     // char * sym_(int, unsigned char *, unsigned char *, MSV *);
-    // owner is the interp symbol-table routing interface.
+    // owner is the interp symbol-table routing interface
+    // (interp-sym.cpp::sym_ - the batch-10 complex roster row
+    // 280; flips at tranche 3; the B10 T1 sysLoad render calls
+    // this seat with the row-280 owner tag).
     fun sym_(opcode: Int, name: CharArray, rslt: CharArray, sv: Msv): CharArray? =
         throw NotImplementedError("sym_: out-of-scope owner (interp symbol routing)")
 
@@ -1155,14 +1158,18 @@ object Stubs {
     // mpsTrunc stay throwing (batch-10 roster rows). B9 T2 FLIP:
     // the unit-267 render landed (MpsFloor.kt) - mpsFloor now
     // DELEGATES; mpsCeil/mpsTrunc stay throwing (batch-10 rows).
+    // B10 T1 FLIP: mpsCeil/mpsTrunc now DELEGATE to the unit
+    // 282/281 renders (MpsCeil.kt/MpsTrunc.kt, batch-10 rows
+    // 303/302; the throwing-seat window is CLOSED for the
+    // mps fam).
     fun mpsFloor(bd: CharArray, in_: String): Unit =
         doc.mpsFloor(bd, in_)
 
     fun mpsCeil(bd: CharArray, in_: String): Unit =
-        throw NotImplementedError("mps_ceil: out-of-scope owner (interp-arith.cpp batch-10 roster unit)")
+        doc.mpsCeil(bd, in_)
 
     fun mpsTrunc(bd: CharArray, in_: String): Unit =
-        throw NotImplementedError("mps_trunc: out-of-scope owner (interp-arith.cpp batch-10 roster unit)")
+        doc.mpsTrunc(bd, in_)
 
     fun mpsLog(bd: CharArray, in_: String): Unit =
         doc.mpsLog(bd, in_)

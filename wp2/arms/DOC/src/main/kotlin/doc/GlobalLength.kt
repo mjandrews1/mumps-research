@@ -93,3 +93,14 @@ fun GlobalRef.length(needle: Mstring): Int {
         p1 = p1.substring(hit + needleText.length)
     }
 }
+
+// Unit 278/280 (B10 tranche 1, verification-only folds):
+// units.csv rows 299 (loc 17, score 8.1, rank 64) and 301 (loc
+// 17, score 7.7, rank 56) are the std::string (:3330) and
+// const-char-star (:3354) needle twins of the unit-159 mstring
+// render above (:3306) - the three bodies are byte-identical
+// modulo the needle access expression (needle.c_str() for the
+// string twin, the bare needle for the char-star twin; the
+// walk and both GLOBAL_NOT_FOUND semantics verbatim), so the
+// u159 seat serves all three roster rows (the unit-133 header
+// "other-batch rows" anticipation resolves here; no new code).
