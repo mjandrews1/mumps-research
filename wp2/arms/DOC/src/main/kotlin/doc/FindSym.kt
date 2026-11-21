@@ -14,9 +14,58 @@ import java.util.Locale
 // (not a roster unit). Naming per H-017: _find kept verbatim (valid Kotlin id, 'find' not used)
 // (leading underscore preserved, KeyWordsClean).
 
-// TODO stub: xindex owned by interp-sym.cpp::xindex; not a roster unit.
-fun xindex(a: CharArray, b: CharArray, i: Short): Int =
-    throw NotImplementedError("xindex: out-of-scope owner (interp-sym.cpp::xindex)")
+// UNIT 264 (B9 tranche 2, units.csv row 265: loc 25, ptr 0,
+// ctl 7, score 11.5, rank 114, core stratum; physLOC 25
+// physically verified this session): interp-strmanip.cpp::
+// xindex - the substring probe of the dollar-FIND walk. TAG
+// CORRECTION (u243 Concat precedent): the batch-1 stub below
+// named the owner "interp-sym.cpp::xindex; not a roster unit" -
+// WRONG on both counts; interp-sym.cpp only CALLS xindex (its
+// :1291/:1371 call sites), the body lives at interp-strmanip.
+// cpp:87 and its units.csv row 265 IS a batch-9 roster unit -
+// so the stub flips to the landed body this push (no separate
+// unit file: the same-name top-level fun lives here since
+// batch 1; the H-015 same-name collision rule). TWIN NOTE: the
+// compiler-sys1.c::xindex body (units.csv row 297, batch-10
+// roster row) is the same-name sibling of this interpreter
+// helper - it belongs to the COMPILER xindex family and is NOT
+// rendered by this row (same-name overload family, distinct
+// vendor site; batch 10 will own it). Consult H-010 hit-reuse:
+// the C short/equality carrier idiom over the CharArray domain.
+fun xindex(a: CharArray, b: CharArray, i: Short): Int {
+    var flg = 0
+    // for (i = 0; ptrn[i] != 0; i++); --i; (pattern last index)
+    var ii = 0
+    while (b[ii] != NUL) ii++
+    ii--
+    // for (j = 0; source[j] != 0; j++); --j; (source last index)
+    var j = 0
+    while (a[j] != NUL) j++
+    j--
+    var istrt = i - 1
+    if (i <= 1) istrt = 0
+
+    var k = istrt
+    while (k <= j) {
+        var l = 0
+        while (l <= ii) {
+            if (b[l] != a[k + l]) {
+                flg = 1
+                break
+            }
+            l++
+        }
+
+        if (flg == 1) {
+            flg = 0
+            k++
+            continue
+        }
+
+        return k + 1
+    }
+    return 0
+}
 
 // atoi(begin): decimal-prefix parse per the C contract (no failure
 // signal; garbage yields 0; kept local to the unit's render)

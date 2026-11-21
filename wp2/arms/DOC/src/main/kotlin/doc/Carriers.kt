@@ -22,6 +22,11 @@ const val RETRIEVE = 0
 const val STORE = 1
 const val GKILL = 3
 const val XNEXT = 8
+// include/mumpsc/defines.h:170-171: ORDERNEXT 12 / ORDERPREV 13
+// (the \u0024order direction codes of the globalOrder.h:8 inline;
+// raised by the unit-265 batch-9 B9-T2 render, GlobalOrderH.kt)
+const val ORDERNEXT = 12
+const val ORDERPREV = 13
 // include/mumpsc/defines.h:85 define NEXT (Mglobal code)
 const val NEXT = 2
 const val GLOBAL_NOT_FOUND = 2
@@ -232,6 +237,14 @@ const val CTRLZ: Int = 26
 object Globals {
     var GlobalExceptionCode: Int = 0
     val svPtr = Msv()
+
+    // extern int ctrlc - the PLAIN RUNTIME flag of the signal
+    // family (compiler-sys1.c sigc handler :804 writes 1; NOT
+    // the Msv.ctrlc field, which is the per-state-vector twin
+    // of the Sigint unit-211 ladder). EDIT-ADDED by the unit-
+    // 257 batch-9 B9-T2 render (CompilerSys1Misc.kt), the
+    // GlobalExceptionCode per-entity raise precedent (H-014).
+    var ctrlc: Int = 0
 }
 
 // libmpscpp.h:332 class MumpsGlobalException: message accessor kept verbatim.

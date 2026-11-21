@@ -140,12 +140,16 @@ object Stubs {
         throw NotImplementedError("mult: out-of-scope owner (compiler-sys1.c::mult)")
 
     // TODO stub: mult(char a[], char b[], char c[]) - the CHAR-ARRAY
-    // OVERLOAD of the seat above (same-name resolution by arity/types);
-    // owner interp-arith.cpp:624 (add-family multiply, batch-7 land);
-    // unit 93 calls it with whole-array seats so its pointer-shift
-    // shifts are zero in this render (H-014 ledger note).
+    // OVERLOAD of the seat above (same-name resolution by arity/types).
+    // B9 T2 FLIP: the u257 compiler-sys1.c::<misc> ledger render landed
+    // the BODY (CompilerSys1Misc.kt - the K&R float-precision decimal-
+    // string multiply, gcvt(7) quirk); the earlier interp-arith.cpp:624
+    // batch-7 tag was a boundary misconstruction (the roster row is the
+    // <misc> row 258); unit 93 calls bind unchanged; this seat now
+    // DELEGATES. The String-arg overload above STAYS a stub for its own
+    // emission call sites (Cannon.kt "10"/".1" exponent seats).
     fun mult(a: CharArray, b: CharArray, c: CharArray): Unit =
-        throw NotImplementedError("mult: out-of-scope owner (interp-arith.cpp::mult)")
+        doc.mult(a, b, c)
 
     // TODO stub: the POSIX read(2) raw file-descriptor entry; the JVM
     // carries no raw fd domain. fd 0 (stdin) routes to the arm
@@ -282,15 +286,21 @@ object Stubs {
     fun parse_(svPtr: Msv): Int = doc.parse_(svPtr)
 
     // TODO stub: linepad owned by compiler-sys1.c::linepad (loc 5, below
-    // roster min loc - not a corpus unit).
+    // roster min loc - not a corpus unit). B9 T2 FLIP: the u257
+    // compiler-sys1.c::<misc> ledger render landed the BODY
+    // (CompilerSys1Misc.kt - the banner-comment emitter); Epi.kt/
+    // ForCode.kt call sites bind unchanged; this seat now DELEGATES.
     fun linepad(n: Int, s: String): Unit =
-        throw NotImplementedError("linepad: out-of-scope owner (compiler-sys1.c::linepad)")
+        doc.linepad(n, s)
 
     // TODO stub: linepad2 owned by compiler-sys1.c:963; not a corpus
     // unit (below roster min loc). Seat added by the unit-207 fcninit
-    // render (H-014 seat-conversion precedent).
+    // render (H-014 seat-conversion precedent). B9 T2 FLIP: the u257
+    // compiler-sys1.c::<misc> ledger render landed the BODY
+    // (CompilerSys1Misc.kt - the epigraph rule emitter); the fcninit
+    // call sites bind unchanged; this seat now DELEGATES.
     fun linepad2(s: String): Unit =
-        throw NotImplementedError("linepad2: out-of-scope owner (compiler-sys1.c:963)")
+        doc.linepad2(s)
 
     // ------------------------------------------------------------------
     // unit 60 (libmpscpp.cpp::global::TreePrint) member seats: the C++
@@ -481,9 +491,11 @@ object Stubs {
     fun Merge(a: CharArray, b: CharArray, sv: Msv): Int = doc.Merge(a, b, sv)
 
     // int xindex(const unsigned char *, const unsigned char *,
-    // short); not a roster unit.
+    // short) - DELEGATE (unit 264 of batch 9 has landed; the
+    // batch-1 "not a roster unit" tag was the u243-precedent
+    // tag correction - owner interp-strmanip.cpp:87, row 265).
     fun xindex(a: CharArray, b: CharArray, sh: Short): Int =
-        throw NotImplementedError("xindex: out-of-scope owner (interp xindex helper)")
+        doc.xindex(a, b, sh)
 
     // int TimeOut(int, unsigned char *, char *, int); not a roster
     // unit.
@@ -676,8 +688,12 @@ object Stubs {
     // of the unit-149 header ledger; owner libmpscpp.cpp::FixGblRef
     // (declared mstringClass.h, no roster row). Raised by unit 238
     // (B8 T3): the mstring qlength/query members substrate it.
+    // B9 T2 FLIP: the roster row 263 lands the body this tranche
+    // (MstringFixGblRef.kt, the u262 render) - the earlier "no
+    // roster row" note was the ZfcnsH-batch-10 misconstruction
+    // (the units.csv row 263 IS the row); this seat now DELEGATES.
     fun fixGblRef(a: Mstring): Mstring =
-        throw NotImplementedError("fixGblRef: out-of-scope owner (libmpscpp.cpp::FixGblRef)")
+        a.FixGblRef()
 
     // ------------------------------------------------------------------
     // seats raised by unit 93 (interp-parse.cpp::parse_) ----
@@ -770,9 +786,11 @@ object Stubs {
     // unit 130: the avg-intrinsic unsubscripted/subscripted reference
     // (owner libmpscpp.cpp::global::Avg, vendor :10251) IS a corpus
     // unit (roster row 262, batch 9); owner-named seat raised by unit
-    // 130, delegate to the real render when batch 9 lands.
+    // 130, delegate to the real render when batch 9 lands. B9 T2 FLIP:
+    // the unit-261 render landed (GlobalAvg.kt) - this seat now
+    // DELEGATES to it.
     fun globalAvg(g: GlobalRef): Double =
-        throw NotImplementedError("globalAvg: out-of-scope owner (libmpscpp.cpp::global::Avg, batch-9 corpus unit)")
+        g.Avg()
 
     // ------------------------------------------------------------------
     // unit 113 (interp-rpm.cpp::parse_pattern_element) H-014 seats
@@ -1008,9 +1026,10 @@ object Stubs {
     // interp-sym.cpp:82 prototype, :1192 body). The vendor
     // in-place aliasing of the two \u0024qlength/\u0024qsubscript
     // operand carriers is kept by the call site passing the same
-    // array twice (H-014 alias ledger).
+    // array twice (H-014 alias ledger). B9 T2 FLIP: the unit-260
+    // render landed (Eval.kt) - this seat now DELEGATES.
     fun Eval(a: CharArray, b: CharArray, sv: Msv): Int =
-        throw NotImplementedError("Eval: out-of-scope owner (interp-sym.cpp::Eval) batch-9 unit")
+        doc.Eval(a, b, sv)
 
     // inline void GlobalOrder(unsigned char *, unsigned char *,
     // unsigned char *, struct MSV *); globalOrder.h:8 - the
@@ -1018,10 +1037,14 @@ object Stubs {
     // (include/mumpsc/globalOrder.h; ints distinct from the landed
     // unit-39/69 libmpscpp GlobalOrder renders per the same-name
     // H-015 overload-family rule). tmp2 is the direction carrier
-    // ("1" / "-1" literals of the \u0024order walk).
-    fun GlobalOrder(tmp0: CharArray, tmp1: CharArray, tmp2: String,
+    // ("1" / "-1" literals of the \u0024order walk). B9 T2 FLIP:
+    // the u265 render landed (GlobalOrderH.kt) - this seat now
+    // DELEGATES; the tmp2 carrier widens NULLABLE (String?) per
+    // the vendor NULL direction-argument arm (call sites all pass
+    // non-null, so the widening is source-compatible).
+    fun GlobalOrder(tmp0: CharArray, tmp1: CharArray, tmp2: String?,
             svPtr: Msv): Unit =
-        throw NotImplementedError("GlobalOrder: out-of-scope owner (globalOrder.h::GlobalOrder) batch-9 unit")
+        doc.GlobalOrder(tmp0, tmp1, tmp2, svPtr)
 
     // int strfmon(char *s, size_t max, const char *format, double);
     // the POSIX monetary.h libc entry (no roster unit can own it -
@@ -1123,10 +1146,11 @@ object Stubs {
     // mpsLog/mpsCos/mpsTan/mpsExp2 now DELEGATE to the unit
     // 249/250/251/247 renders (this tranche); mpsFloor flips at
     // the batch-9 core tranche (units.csv row 268), mpsCeil/
-    // mpsTrunc stay throwing (batch-10 roster rows).
-
+    // mpsTrunc stay throwing (batch-10 roster rows). B9 T2 FLIP:
+    // the unit-267 render landed (MpsFloor.kt) - mpsFloor now
+    // DELEGATES; mpsCeil/mpsTrunc stay throwing (batch-10 rows).
     fun mpsFloor(bd: CharArray, in_: String): Unit =
-        throw NotImplementedError("mps_floor: out-of-scope owner (interp-arith.cpp batch-9 core roster unit)")
+        doc.mpsFloor(bd, in_)
 
     fun mpsCeil(bd: CharArray, in_: String): Unit =
         throw NotImplementedError("mps_ceil: out-of-scope owner (interp-arith.cpp batch-10 roster unit)")

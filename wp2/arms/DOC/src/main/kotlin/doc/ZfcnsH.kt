@@ -13,7 +13,14 @@ package doc
 //
 // Prototype ledger (disposition per line):
 // - void _ascii(unsigned char *, unsigned char *, unsigned char
-//   *): not yet rendered; the batch-10 roster rows own it.
+//   *): RENDERED as the body of the u258 interp-sym.cpp::<misc>
+//   ledger row (batch 9 tranche 2; InterpSymMisc.kt). FORWARD-TAG
+//   CORRECTION (B9 T2, the _horolog/Concat precedent): this
+//   ledger earlier wrote "the batch-10 roster rows own it" -
+//   WRONG on both counts; NO units.csv _ascii row exists
+//   (grep-verified this session) and the single body rides the
+//   <misc> ledger row 259 of THIS batch; the forward-tag is
+//   superseded by this render.
 // - void _horolog(unsigned char *): RENDERED as the unit-256
 //   seat (batch 9 tranche 1; Horolog.kt). FORWARD-TAG CORRECTION
 //   (B9 T1, the Concat precedent): this ledger earlier wrote
