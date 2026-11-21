@@ -142,3 +142,28 @@ fun cannon(a: CharArray) {
         }
     }
 }
+
+// ---------------- Unit 243 row-note (B8 tranche 3) -----------
+//
+// Unit 243 (B8 tranche 3): interp-parse.cpp::cannon (batch 8,
+// complex stratum; LOC 35, score 37.3, rank 220; units.csv row
+// 223) is a VERIFICATION-ONLY row against THIS render. The two
+// vendor bodies are STATEMENT-IDENTICAL modulo formatting and
+// spacing: compiler-sys1.c:cannon (the 71-LOC astyle-expanded
+// form this unit-84 render translates) and interp-parse.cpp:
+// cannon at :215 (the 35-LOC compact form) implement the same
+// canonicalizer walk-for-walk (the sign fold + j toggle, the
+// i==0 zero-out early return, the '.' index capture, the
+// E-check, the trailing-zero trim + bare-dot strip + zero
+// collapse of the a[a[i]==0] arm, the leading-zero strip, the
+// exponent gather into tmp[25], the atoi(tmp) fold with the
+// mult(a,"10",a) / mult(a,".1",a) loop pair). The seat
+// adjudication precedes this row: the unit-83-family PatrnInterp
+// render (the interp-parse.cpp::patrn owner) already binds its
+// three cannon call sites to THIS landed render (the PatrnSys1
+// twin does likewise), single-name seat per H-014 and H-017; this
+// row CLOSES the roster claim by verifying the interpreter-file
+// twin body is the same function, so the cross-file seat is
+// correct, no regrade and no new body per the unit-186
+// verification-row precedent. Consult H-014 hit-reuse: the
+// landed render covers both vendor twins; row-note only.

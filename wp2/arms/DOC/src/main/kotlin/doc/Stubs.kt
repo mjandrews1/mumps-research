@@ -197,8 +197,7 @@ object Stubs {
 
     // TODO stub: memcheck owned by compiler-parse.c:2068; below roster
     // min loc - not a corpus unit.
-    fun memcheck(iiitmp: Int): Unit =
-        throw NotImplementedError("memcheck: out-of-scope owner (compiler-parse.c:2068)")
+    fun memcheck(iiitmp: Int): Unit = doc.memcheck(iiitmp)
 
     // Extract2 delegation: owned by compiler-parse.c::Extract2
     // (batch-1 unit 15, landed in tranche 3 - the unit-52 call in
@@ -479,8 +478,7 @@ object Stubs {
     // int Merge(unsigned char *, unsigned char *, MSV *);
     // owner interp-sysfunc.cpp:650 Merge (batch-8 roster unit,
     // loc 59 signature row).
-    fun Merge(a: CharArray, b: CharArray, sv: Msv): Int =
-        throw NotImplementedError("Merge: out-of-scope owner (interp-sysfunc.cpp::Merge) batch-8 roster unit")
+    fun Merge(a: CharArray, b: CharArray, sv: Msv): Int = doc.Merge(a, b, sv)
 
     // int xindex(const unsigned char *, const unsigned char *,
     // short); not a roster unit.
@@ -605,8 +603,7 @@ object Stubs {
 
     // char *Extract1(char *); owner is compiler-parse.c:2119
     // (below the roster cut); mirror of Extract2 (unit 15 owner).
-    fun Extract1(buf: CharArray): CharArray =
-        throw NotImplementedError("Extract1: out-of-scope owner (compiler-parse.c:2119, below the roster cut)")
+    fun Extract1(buf: CharArray): CharArray = doc.Extract1(buf)
 
     // unsigned long lhash(char *); owner is libmpscpp.h:273 (hash
     // driver below the roster). Returns unsigned long (H-012); the
@@ -635,55 +632,52 @@ object Stubs {
     fun count(key: String): Int = doc.count(key)
 
     // ------------------------------------------------------------------
-    // unit 214 (B7 T3, libmpscpp.cpp::<misc-6>) H-014 seats: the
-    // operator& forwards reach the Concat(x7) member family, whose
-    // bodies sit BEYOND the misc-6 chunk cut (batch-10 ledger). The
-    // global.global member is the landed unit-65 render (extension
-    // GlobalRef.concat) and needs no seat; the receiver-first args
-    // carry the member receiver (H-006 holder idiom).
+    // unit 214 (B7 T3, libmpscpp.cpp::<misc-6>) H-014 seats, the
+    // operator& forwards reach the Concat(x7) members. RESOLVED by
+    // unit 238 (B8 tranche 3, libmpscpp.cpp::<misc-7>): TAG
+    // CORRECTION per the unit-119 precedent - the "batch-10" owner
+    // tags below were forward-tags; the member bodies ARE the
+    // misc-7 roster text, and every seat flips to its render below
+    // (LibmpscppMisc7.kt). The global.global member stays the
+    // landed unit-65 render (extension GlobalRef.concat; no seat);
+    // the receiver-first args carry the member receiver (H-006 idiom).
 
     // mstring global::Concat(double)/(long)/(int)/(char*)/
-    // (string)/(mstring) owners, libmpscpp.cpp (batch-10 ledger).
-    fun Concat(x: GlobalRef, b: Double): Mstring =
-        throw NotImplementedError("Concat(global,double): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+    // (string)/(mstring) - unit 238 renders (misc-7).
+    fun Concat(x: GlobalRef, b: Double): Mstring = x.concat(b)
 
-    fun Concat(x: GlobalRef, b: Long): Mstring =
-        throw NotImplementedError("Concat(global,long): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+    fun Concat(x: GlobalRef, b: Long): Mstring = x.concat(b)
 
-    fun Concat(x: GlobalRef, b: Int): Mstring =
-        throw NotImplementedError("Concat(global,int): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+    fun Concat(x: GlobalRef, b: Int): Mstring = x.concat(b)
 
-    fun Concat(x: GlobalRef, b: CharArray): Mstring =
-        throw NotImplementedError("Concat(global,char*): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+    fun Concat(x: GlobalRef, b: CharArray): Mstring = x.concat(b)
 
-    fun Concat(x: GlobalRef, b: String): Mstring =
-        throw NotImplementedError("Concat(global,string): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+    fun Concat(x: GlobalRef, b: String): Mstring = x.concat(b)
 
-    fun Concat(x: GlobalRef, b: Mstring): Mstring =
-        throw NotImplementedError("Concat(global,mstring): out-of-scope owner (libmpscpp.cpp::global::Concat) batch-10 unit")
+    fun Concat(x: GlobalRef, b: Mstring): Mstring = x.concat(b)
 
     // mstring::Concat(global)/(double)/(long)/(int)/(mstring)/
-    // (char*)/(string) owners, libmpscpp.cpp (batch-10 ledger).
-    fun Concat(x: Mstring, b: GlobalRef): Mstring =
-        throw NotImplementedError("Concat(mstring,global): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+    // (char*)/(string) - unit 238 renders (misc-7).
+    fun Concat(x: Mstring, b: GlobalRef): Mstring = x.concat(b)
 
-    fun Concat(x: Mstring, b: Double): Mstring =
-        throw NotImplementedError("Concat(mstring,double): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+    fun Concat(x: Mstring, b: Double): Mstring = x.concat(b)
 
-    fun Concat(x: Mstring, b: Long): Mstring =
-        throw NotImplementedError("Concat(mstring,long): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+    fun Concat(x: Mstring, b: Long): Mstring = x.concat(b)
 
-    fun Concat(x: Mstring, b: Int): Mstring =
-        throw NotImplementedError("Concat(mstring,int): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+    fun Concat(x: Mstring, b: Int): Mstring = x.concat(b)
 
-    fun Concat(x: Mstring, b: Mstring): Mstring =
-        throw NotImplementedError("Concat(mstring,mstring): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+    fun Concat(x: Mstring, b: Mstring): Mstring = x.concat(b)
 
-    fun Concat(x: Mstring, b: CharArray): Mstring =
-        throw NotImplementedError("Concat(mstring,char*): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+    fun Concat(x: Mstring, b: CharArray): Mstring = x.concat(b)
 
-    fun Concat(x: Mstring, b: String): Mstring =
-        throw NotImplementedError("Concat(mstring,string): out-of-scope owner (libmpscpp.cpp::mstring::Concat) batch-10 unit")
+    fun Concat(x: Mstring, b: String): Mstring = x.concat(b)
+
+    // TODO stub: mstring::FixGblRef() - the quoted-reference fixer
+    // of the unit-149 header ledger; owner libmpscpp.cpp::FixGblRef
+    // (declared mstringClass.h, no roster row). Raised by unit 238
+    // (B8 T3): the mstring qlength/query members substrate it.
+    fun fixGblRef(a: Mstring): Mstring =
+        throw NotImplementedError("fixGblRef: out-of-scope owner (libmpscpp.cpp::FixGblRef)")
 
     // ------------------------------------------------------------------
     // seats raised by unit 93 (interp-parse.cpp::parse_) ----
@@ -902,8 +896,7 @@ object Stubs {
     // struct MSV * AllocSV(void); owner
     // interp-sysfunc.cpp::AllocSV - CORRECTLY TAGGED batch-8 roster
     // row 219 (the state-vector push of the query walkers).
-    fun AllocSV(): Msv =
-        throw NotImplementedError("AllocSV: out-of-scope owner (interp-sysfunc.cpp::AllocSV) batch-8 unit")
+    fun AllocSV(): Msv = doc.AllocSV()
 
     // ------------------------------------------------------------------
     // unit 120 (libmpscpp.cpp::<misc-9>) H-014 seats: the MSV-intrinsic
@@ -994,8 +987,7 @@ object Stubs {
     // int cvar(char * str); owner compiler-parse.c:2074 (the
     // named-variable test of the LHS store) - not a corpus unit
     // (no units.csv row). H-017: the snake name kept verbatim.
-    fun cvar(str: String): Int =
-        throw NotImplementedError("cvar: out-of-scope owner (compiler-parse.c:2074)")
+    fun cvar(str: String): Int = doc.cvar(str)
 
     // ------------------------------------------------------------------
     // unit 123 (B4 tranche 3 tail) H-014 seats: the fcn dispatcher

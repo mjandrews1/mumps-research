@@ -83,3 +83,21 @@ fun GtkTreeAdd(
     // vendor guards nothing here (function ends); kept verbatim
     if (nargs == 13.toShort()) return
 }
+
+// ---------------- Unit 245 row-note (B8 tranche 3) -----------
+//
+// Unit 245 (B8 tranche 3): interp-bifs.cpp::GtkTreeAdd (batch 8,
+// complex stratum; LOC 30, score 30.8, rank 207; units.csv row
+// 225) is a VERIFICATION-ONLY row against THIS render (the unit-83
+// interp-zfcns.cpp::GtkTreeAdd owner). The two vendor bodies are
+// BYTE-IDENTICAL: interp-bifs.cpp carries the same 30-line
+// function text as interp-zfcns.cpp at the source anchors (the
+// vendor duplicated the gtree row appender across the bifs and
+// zfcns twist files; byte-diff verified this session), so the
+// landed unit-83 render covers both owner files. The landed
+// InterpZfcnsMisc (batch-8 tranche 2) already holds the bifs/
+// zfcns cross-file fold rulings of that family; this row CLOSES
+// the batch-8 roster claim with no regrade and no new body per
+// the unit-186 verification-row precedent (the GlobalData / Mget
+// / ReadLine folds). Consult H-014 hit-reuse: byte-identical
+// twin, single vendor-name seat per H-014/H-017; row-note only.
