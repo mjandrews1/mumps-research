@@ -403,3 +403,25 @@ cycle-10 backfill decision.
 | 213 | compiler-epi.c::epi | c | complex | todo | translated | todo | todo | todo | todo |
 | 214 | libmpscpp.cpp::<misc-6> | cpp | complex | todo | translated | todo | todo | todo | todo |
 | 215 | interp-service.cpp::ServiceInterface | cpp | complex | todo | translated | todo | todo | todo | todo |
+
+**DOC B7 closed 2026-11-21**: 30/30 translated in tranches T1-T3
+(journal splices 377302d, 3f26a71, b909dc3; whole-arm kotlinc gate
+0 errors / 0 warnings at 188, 196 and 206 files at the tranche
+closes, first-pass green). Coverage checklist and events
+verification recorded in the arm journal close fragment (consult
+ledger: 30 consults, one per unit per C-008: 17 hit-reuse,
+13 hit-adapt, 0 miss; events CSV regenerated under the
+C-005/C-008 keys from 657 consult rows -> 1312 event rows,
+byte-identical to the tracked file, 87355 bytes - the R
+instrument re-verification runs with the m1-build gate round).
+Batch-7 stub ledger: eleven resolutions (substr compiler twin
+rebind + interp flip, Mpiece with tag correction, makeGlobal,
+sim1, sigint, the 5-arg match, freadx, the Qsub family,
+fcninit/epi with EP/LevCheck and the ExecName Int / pid Long
+corrections, ServiceInterface, count raised-and-resolved); new
+batch-10 seats raised: IDF and the Concat twelve-overload family.
+Gradle gate on m1-build pending at this close (the gate round
+journal entry follows). Check columns track the BASE reference
+translation (C-002) and stay todo per the C-001 cycle-10 backfill
+decision. Next protocol step: DOC batch 8 per the committed row
+order (cycle 7).
