@@ -25,3 +25,12 @@ var BigKeyParent = 0
 var BigKeyParentOffset = 0
 var BigKeyLower = 0
 var BigKeyData: Long = 0
+
+// B9 T3 (unit 272) ADDITION - the remaining extern triple of
+// the interp-native-btree.cpp:69-79 block: unsigned int
+// FoundBlock; unsigned int Reinsert; int FoundOffset (the Int
+// seat per H-010; the owning units of later batches assign
+// them through the search).
+var FoundBlock = 0
+var Reinsert = 0
+var FoundOffset = 0

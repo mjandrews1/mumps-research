@@ -37,10 +37,11 @@ fun SyncClock() {
     MumpsRunStatic.DBSem = 1
 }
 
-// set_alarm(seconds): wraps setitimer(ITIMER_REAL,...) and returns the
-// seconds remaining on the previous timer. The OS itimer service is
-// outside the corpus (H-014 owner: OS libc itimer service, named
-// because no corpus unit defines it); rendered as a TODO stub.
-// Unsigned domain per H-012 (unsigned int seconds).
-fun setAlarm(seconds: UInt): UInt =
-    throw NotImplementedError("set_alarm: out-of-scope owner (OS setitimer/ITIMER_REAL service)")
+// set_alarm(seconds) SEAT-MOVED (B9 T3, the xindex tag-correction
+// precedent): the former stub here tagged the owner "OS libc
+// itimer service", a misconstruction - the corpus DOES define the
+// body: mpstime.cpp::<misc> (batch-9 unit 273, roster row 253)
+// renders setAlarm in MpstimeMisc.kt (unsigned/inert H-018 fold
+// returning 0, per that dump's #ifdef-duel adjudication). This
+// file keeps NO second definition; call sites bind the
+// MpstimeMisc.kt render.

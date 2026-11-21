@@ -14,10 +14,12 @@ package doc
 // interp-native-btree.cpp:319). Naming per H-017: btree kept verbatim
 // (single lowercase word).
 
-// TODO stub: btreeX owned by interp-native-btree.cpp::btreeX; not a
-// roster unit.
-fun btreeX(g: Int, key: CharArray, bd: CharArray, sv: Msv): Int =
-    throw NotImplementedError("btreeX: out-of-scope owner (interp-native-btree.cpp::btreeX)")
+// btreeX seat (B9 T3 tag correction + FLIP, C-008 consult
+// 2026-11-22T05:33:00Z, H-014 hit-adapt): the former TODO stub
+// here tagged the owner "not a roster unit" - batch 9 row
+// 250 lands the real body (BtreeX.kt, unit 270); this file
+// keeps the dispatcher and cross-references the render, no
+// second definition.
 
 fun btree(g: Int, key: CharArray, bd: CharArray, sv: Msv): Int {
     val i = btreeX(g, key, bd, sv)

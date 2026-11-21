@@ -270,14 +270,14 @@ object Stubs {
     fun atCopy(at_flg: Int, tmp: CharArray): Unit =
         doc.atCopy(at_flg, tmp)
 
-    // TODO stub: parse_() TAG CORRECTION (u160-Interpret mis-tag family
-    // precedent): the zero-arg seat is the compiler twin
-    // compiler-parse.c::parse_ (batch-9 unit 302, signature
-    // int parse_()); the one-arg interp twin renders as unit 93.
-    // IfCode.kt binds this zero-arg seat at its
-    // CompilerState.ierr = Stubs.parse_() call site.
-    fun parse_(): Int =
-        throw NotImplementedError("parse_: out-of-scope owner (compiler-parse.c::parse_) batch-9 unit")
+    // B9 T3 FLIP (H-014 hit-adapt, consult 2026-11-22T05:30:00Z;
+    // unit 268 compiler-parse.c::parse_, roster row 248, the
+    // COURSE ARM monster loc 1201): the zero-arg seat converts
+    // from the TODO throw (the u160 tag-correction note retained
+    // above) to the CompilerParseMain.kt render delegate; the one-arg
+    // interp twin of Parse_.kt is unaffected (overload by arity);
+    // the IfCode.kt call site binds unchanged.
+    fun parse_(): Int = doc.parse_()
 
     // H-014 delegate (Extract2 seat-conversion precedent): the interp
     // twin int parse_(struct MSV *) is unit 93, rendered in Parse_.kt;
@@ -838,12 +838,14 @@ object Stubs {
 
     // int perl_pm(const char[], const char[], const int, struct
     // MSV *); owner interp-rpm.cpp::perl_pm - batch-9 roster
-    // row 257 (the reges conversion of the PCRE original). The
-    // rpm/perlmatch/perlcpp drivers of the batch-5 unit-152
-    // render bind this seat (H-014).
+    // row 257 (the reges conversion of the PCRE original). B9
+    // T3 FLIP (C-008 consult 2026-11-22T05:39:00Z, H-015
+    // hit-adapt): the unit-277 render landed the body
+    // (PerlPm.kt, kotlin Regex over java PatternSyntaxException
+    // per H-018); the rpm/perlmatch/perlcpp drivers of the
+    // batch-5 unit-152 render bind unchanged.
     fun perlPm(string_: String, pattern: String, mode: Int,
-            svPtr: Msv): Int =
-        throw NotImplementedError("perl_pm: out-of-scope owner (interp-rpm.cpp::perl_pm) batch-9 unit")
+            svPtr: Msv): Int = doc.perl_pm(string_, pattern, mode, svPtr)
 
     // int pm(char *, char *, struct MSV *); owner
     // interp-pm.cpp::pm (the '?' pattern-match motor) - not a
@@ -939,9 +941,13 @@ object Stubs {
         doc.Sim1(a, b)
 
     // double Jaccard(global a, global b); owner
-    // libmpscpp.cpp::Jaccard - batch-9 roster row 256.
+    // libmpscpp.cpp::Jaccard - batch-9 roster row 256. B9 T3
+    // FLIP (C-008 consult 2026-11-22T05:38:00Z, H-015
+    // hit-adapt): the unit-276 render landed the body
+    // (Jaccard.kt, the Sim1.kt two-walk template twin); the
+    // unit-120 wrapper call sites bind unchanged.
     fun jaccard(a: GlobalRef, b: GlobalRef): Double =
-        throw NotImplementedError("Jaccard: out-of-scope owner (libmpscpp.cpp::Jaccard) batch-9 unit")
+        doc.Jaccard(a, b)
 
     // double Dice(global a, global b); owner
     // libmpscpp.cpp::Dice - batch-6 roster row 166 (MDH numbering).
@@ -1178,6 +1184,85 @@ object Stubs {
     fun Replace(sv: Msv, ep: String, arg1: String, arg2: String,
             arg3: String): String =
         throw NotImplementedError("Replace: out-of-scope owner (builtin.h:40 API entry, not a corpus unit)")
+
+    // H-014 seats raised in the B9 tranche-3 unit-269 render
+    // (LibmpscppMisc8.kt): the mstring binary backends operator+/
+    // -/*///% owned by libmpscpp.cpp (batch-10 roster rows per the
+    // MstringClassMisc.kt header ledger). SEATS STAY THROWING until
+    // the owner rows land (the unit-154 globalDocCorrelate front-run
+    // precedent); the +=/-=/*=///=/%= assign families of unit 269
+    // route through them by signature. The char* twins fold onto
+    // the String seat (the mstring.lt ladder precedent, H-015).
+    fun mstringPlus(a: Mstring, b: Mstring): Mstring =
+        throw NotImplementedError("mstringPlus: out-of-scope owner (libmpscpp.cpp operator+ backend, batch-10 roster row)")
+    fun mstringPlus(a: Mstring, b: Int): Mstring =
+        throw NotImplementedError("mstringPlus: out-of-scope owner (libmpscpp.cpp operator+ backend, batch-10 roster row)")
+    fun mstringPlus(a: Mstring, b: Long): Mstring =
+        throw NotImplementedError("mstringPlus: out-of-scope owner (libmpscpp.cpp operator+ backend, batch-10 roster row)")
+    fun mstringPlus(a: Mstring, b: String): Mstring =
+        throw NotImplementedError("mstringPlus: out-of-scope owner (libmpscpp.cpp operator+ backend, batch-10 roster row)")
+    fun mstringPlus(a: Mstring, b: GlobalRef): Mstring =
+        throw NotImplementedError("mstringPlus: out-of-scope owner (libmpscpp.cpp operator+ backend, batch-10 roster row)")
+    fun mstringPlus(a: Mstring, b: Double): Mstring =
+        throw NotImplementedError("mstringPlus: out-of-scope owner (libmpscpp.cpp operator+ backend, batch-10 roster row)")
+    fun mstringPlus(a: Mstring, b: Float): Mstring =
+        throw NotImplementedError("mstringPlus: out-of-scope owner (libmpscpp.cpp operator+ backend, batch-10 roster row)")
+
+    fun mstringMinus(a: Mstring, b: Mstring): Mstring =
+        throw NotImplementedError("mstringMinus: out-of-scope owner (libmpscpp.cpp operator- backend, batch-10 roster row)")
+    fun mstringMinus(a: Mstring, b: Int): Mstring =
+        throw NotImplementedError("mstringMinus: out-of-scope owner (libmpscpp.cpp operator- backend, batch-10 roster row)")
+    fun mstringMinus(a: Mstring, b: Long): Mstring =
+        throw NotImplementedError("mstringMinus: out-of-scope owner (libmpscpp.cpp operator- backend, batch-10 roster row)")
+    fun mstringMinus(a: Mstring, b: String): Mstring =
+        throw NotImplementedError("mstringMinus: out-of-scope owner (libmpscpp.cpp operator- backend, batch-10 roster row)")
+    fun mstringMinus(a: Mstring, b: GlobalRef): Mstring =
+        throw NotImplementedError("mstringMinus: out-of-scope owner (libmpscpp.cpp operator- backend, batch-10 roster row)")
+    fun mstringMinus(a: Mstring, b: Double): Mstring =
+        throw NotImplementedError("mstringMinus: out-of-scope owner (libmpscpp.cpp operator- backend, batch-10 roster row)")
+    fun mstringMinus(a: Mstring, b: Float): Mstring =
+        throw NotImplementedError("mstringMinus: out-of-scope owner (libmpscpp.cpp operator- backend, batch-10 roster row)")
+
+    fun mstringTimes(a: Mstring, b: Mstring): Mstring =
+        throw NotImplementedError("mstringTimes: out-of-scope owner (libmpscpp.cpp operator* backend, batch-10 roster row)")
+    fun mstringTimes(a: Mstring, b: Int): Mstring =
+        throw NotImplementedError("mstringTimes: out-of-scope owner (libmpscpp.cpp operator* backend, batch-10 roster row)")
+    fun mstringTimes(a: Mstring, b: Long): Mstring =
+        throw NotImplementedError("mstringTimes: out-of-scope owner (libmpscpp.cpp operator* backend, batch-10 roster row)")
+    fun mstringTimes(a: Mstring, b: String): Mstring =
+        throw NotImplementedError("mstringTimes: out-of-scope owner (libmpscpp.cpp operator* backend, batch-10 roster row)")
+    fun mstringTimes(a: Mstring, b: GlobalRef): Mstring =
+        throw NotImplementedError("mstringTimes: out-of-scope owner (libmpscpp.cpp operator* backend, batch-10 roster row)")
+    fun mstringTimes(a: Mstring, b: Double): Mstring =
+        throw NotImplementedError("mstringTimes: out-of-scope owner (libmpscpp.cpp operator* backend, batch-10 roster row)")
+    fun mstringTimes(a: Mstring, b: Float): Mstring =
+        throw NotImplementedError("mstringTimes: out-of-scope owner (libmpscpp.cpp operator* backend, batch-10 roster row)")
+
+    fun mstringDiv(a: Mstring, b: Mstring): Mstring =
+        throw NotImplementedError("mstringDiv: out-of-scope owner (libmpscpp.cpp operator/ backend, batch-10 roster row)")
+    fun mstringDiv(a: Mstring, b: Int): Mstring =
+        throw NotImplementedError("mstringDiv: out-of-scope owner (libmpscpp.cpp operator/ backend, batch-10 roster row)")
+    fun mstringDiv(a: Mstring, b: Long): Mstring =
+        throw NotImplementedError("mstringDiv: out-of-scope owner (libmpscpp.cpp operator/ backend, batch-10 roster row)")
+    fun mstringDiv(a: Mstring, b: String): Mstring =
+        throw NotImplementedError("mstringDiv: out-of-scope owner (libmpscpp.cpp operator/ backend, batch-10 roster row)")
+    fun mstringDiv(a: Mstring, b: GlobalRef): Mstring =
+        throw NotImplementedError("mstringDiv: out-of-scope owner (libmpscpp.cpp operator/ backend, batch-10 roster row)")
+    fun mstringDiv(a: Mstring, b: Double): Mstring =
+        throw NotImplementedError("mstringDiv: out-of-scope owner (libmpscpp.cpp operator/ backend, batch-10 roster row)")
+    fun mstringDiv(a: Mstring, b: Float): Mstring =
+        throw NotImplementedError("mstringDiv: out-of-scope owner (libmpscpp.cpp operator/ backend, batch-10 roster row)")
+
+    fun mstringRem(a: Mstring, b: Mstring): Mstring =
+        throw NotImplementedError("mstringRem: out-of-scope owner (libmpscpp.cpp operator% backend, batch-10 roster row)")
+    fun mstringRem(a: Mstring, b: Int): Mstring =
+        throw NotImplementedError("mstringRem: out-of-scope owner (libmpscpp.cpp operator% backend, batch-10 roster row)")
+    fun mstringRem(a: Mstring, b: Long): Mstring =
+        throw NotImplementedError("mstringRem: out-of-scope owner (libmpscpp.cpp operator% backend, batch-10 roster row)")
+    fun mstringRem(a: Mstring, b: String): Mstring =
+        throw NotImplementedError("mstringRem: out-of-scope owner (libmpscpp.cpp operator% backend, batch-10 roster row)")
+    fun mstringRem(a: Mstring, b: GlobalRef): Mstring =
+        throw NotImplementedError("mstringRem: out-of-scope owner (libmpscpp.cpp operator% backend, batch-10 roster row)")
 }
 
 // vendor gchar* / GtkTreeModel* out-param holders for the unit-183

@@ -65,6 +65,12 @@ object BtreeStatic {
     // btree block file ride the null sentinel until the opening
     // unit of a later batch assigns it).
     var gblFile: java.io.RandomAccessFile? = null
+
+    // gbldat's RandomAccessFile carrier (the gblFile twin; B9
+    // T3 unit-270 btreeX EDIT-ONLY seat: the data-file readers/
+    // writers ride the null sentinel until the opening unit
+    // assigns it)
+    var gblDataFile: java.io.RandomAccessFile? = null
     var gbldat: Int = -1
     var trx: Int = 0
     var ReadOnly: Int = 1
