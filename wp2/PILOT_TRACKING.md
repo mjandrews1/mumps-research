@@ -185,16 +185,16 @@ decision.
 | 111 | interp-fnumber.cpp::_fnumber | cpp | core | todo | translated | translated | todo | todo | todo | todo |
 | 112 | libmpscpp.cpp::global::Centroid | cpp | core | todo | translated | translated | todo | todo | todo | todo |
 | 113 | interp-rpm.cpp::parse_pattern_element | cpp | core | todo | translated | translated | todo | todo | todo | todo |
-| 114 | interp-piece.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
-| 115 | interp-parse.cpp::readf_ | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
-| 116 | compiler-lock.c::lock_code | c | complex | todo | translated | todo | todo | todo | todo | todo |
-| 117 | compiler-doty.c::doty | c | complex | todo | translated | todo | todo | todo | todo | todo |
-| 118 | include/pcre.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo | todo |
-| 119 | interp-sym.cpp::GlobalQuery | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
-| 120 | libmpscpp.cpp::<misc-9> | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
-| 121 | compiler-set.c::set_code | c | complex | todo | translated | todo | todo | todo | todo | todo |
-| 122 | compiler-for.c::for_code | c | complex | todo | translated | todo | todo | todo | todo | todo |
-| 123 | interp-fcn.cpp::fcn | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 114 | interp-piece.cpp::<misc> | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+| 115 | interp-parse.cpp::readf_ | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+| 116 | compiler-lock.c::lock_code | c | complex | todo | translated | translated | todo | todo | todo | todo |
+| 117 | compiler-doty.c::doty | c | complex | todo | translated | translated | todo | todo | todo | todo |
+| 118 | include/pcre.h::<misc> | c | complex | todo | translated | translated | todo | todo | todo | todo |
+| 119 | interp-sym.cpp::GlobalQuery | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+| 120 | libmpscpp.cpp::<misc-9> | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+| 121 | compiler-set.c::set_code | c | complex | todo | translated | translated | todo | todo | todo | todo |
+| 122 | compiler-for.c::for_code | c | complex | todo | translated | translated | todo | todo | todo | todo |
+| 123 | interp-fcn.cpp::fcn | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
 
 ## Batch 5 (units 124-154, opened 2026-11-20; DOC follows the closed B4 in the committed row order, no inversion to log)
 

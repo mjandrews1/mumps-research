@@ -91,6 +91,34 @@ object DafCRuntime {
 class DafMsv {
     val v1d = CharArray(STR_MAX_DAF)
     val bd = CharArray(STR_MAX_DAF)
+
+    // T3 seat extension (units 114-123; fields pinned from struct MSV of
+    // mumpsc/stateVector.h; carrier fold per BASE-log rows 18/22):
+    val xd = CharArray(STR_MAX_DAF)      // unsigned char *xd
+    val pd1 = CharArray(STR_MAX_DAF * 2) // interpreter program buffer
+    val args = CharArray(STR_MAX_DAF)    // runtime arg register
+    val CurrentFile = CharArray(STR_MAX_DAF) // FILE *name carrier
+    val setname = CharArray(STR_MAX_DAF)// \$set LHS name
+    val sqloutput = CharArray(STR_MAX_DAF)
+    val start = IntArray(SYM_MAX_D)      // symbol-table layer stack
+    var xpx = 0
+    var pd1len = 0
+    var sdlim = 0
+    var symlen = 0
+    var setpiece = 0
+    var tpx = 0
+    var t0px = 0
+    var t2 = 0
+    var ierr = 0
+    var LineNumber = 0
+    var io = 0
+    var NOERR = 0
+    var PD1 = 0
+    var TabSize = 0
+    var nstart = 0
+    var _Sym = 0
+    val hor = IntArray(32)               // \$x cursor table
+    val ver = IntArray(32)               // \$y cursor table
 }
 
 object DafInterpState {

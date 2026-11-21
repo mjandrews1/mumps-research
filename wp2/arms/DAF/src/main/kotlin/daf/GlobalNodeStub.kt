@@ -77,6 +77,17 @@ class MpsGlobalNode(val ref: String) {
         throw NotImplementedError(
             "global.Kill member: out-of-scope owner (libmpscpp.cpp global class)")
     }
+
+    // -- T3 seat addition (raised by the unit-120 libmpscpp.cpp::<misc-9>
+    // TermCorrelate wrapper render) --
+
+    // TermCorrelate(b) - the term-correlate member (row 105 node model).
+    // Owner: libmpscpp.cpp global class TermCorrelate (kin of roster unit
+    // libmpscpp.cpp::global::TermCorrelate, batch-1 core).
+    fun termCorrelate(b: MpsGlobalNode) {
+        throw NotImplementedError(
+            "global.TermCorrelate member: out-of-scope owner (libmpscpp.cpp global class TermCorrelate; kin of roster unit TermCorrelate)")
+    }
 }
 
 // sigint(int) - owner interp-sysfunc.cpp::sigint (roster batch-7 unit for

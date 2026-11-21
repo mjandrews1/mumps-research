@@ -42,7 +42,6 @@ fun mstringFnumber(data: String, a: String): String {
 }
 
 // struct MSV *fcn(struct MSV *) - owner interp-fcn.cpp::fcn (roster
-// batch-4 unit 123; named-owner stub until that render lands).
-fun dafFcn(sv: DafMsv): Unit =
-    throw NotImplementedError(
-        "fcn: out-of-scope owner (interp-fcn.cpp::fcn, roster batch-4 unit 123)")
+// batch-4 unit 123): RESOLVED by the T3 Fcn.kt render (seat flip; the
+// stub previously declared here was deleted when Fcn.kt landed the
+// real dafFcn body).
