@@ -6449,7 +6449,8 @@ CSV append of this push):
 - DOC consult: unit interp-sql.cpp::sql, entry H-018, outcome hit-adapt, timestamp 2026-11-22T05:31:00Z
 - DOC consult: unit include/mumpsc/cgi.h::<misc>, entry H-014, outcome hit-adapt, timestamp 2026-11-22T05:37:00Z
 - DOC consult: unit libmpscpp.cpp::Jaccard, entry H-015, outcome hit-adapt, timestamp 2026-11-22T05:38:00Z
-- DOC consult: unit interp-rpm.cpp::perl_pm, entry H-015, outcome hit-adapt, timestamp 2026-11-22T05:39:00Z# DOC B9 close journal fragment, 2026-11-22
+- DOC consult: unit interp-rpm.cpp::perl_pm, entry H-015, outcome hit-adapt, timestamp 2026-11-22T05:39:00Z
+# DOC B9 close journal fragment, 2026-11-22
 
 ### DOC B9 close - coverage checklist (units 247-277) and events verification
 
