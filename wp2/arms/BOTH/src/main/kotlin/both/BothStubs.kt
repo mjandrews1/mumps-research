@@ -340,3 +340,69 @@ internal fun _find(out: CharArray, in_: CharArray, key: CharArray,
                    begin: CharArray) {
     TODO("stub: owner interp-sym.cpp::_find (roster 6, batch 1)")
 }
+
+// -------------------------------------------------------------------------
+// B6 T2 seat additions (2026-11-22, units 165-175).
+//
+// Consults (rule base wp2/arms/BOTH/rules_v0.pl, 21 rules):
+//   h014 out_of_scope_call - reused and hit: each seat below names
+//     its units.csv owner and releases per the contract when the
+//     owner lands.
+//   h001 io_stream_param - reused and hit: the selectStdinC seat
+//     is the stdin readiness edge (POSIX fd 0, the unit-170
+//     platform fold).
+//   h015 hygiene - hit: all seats ASCII, no backtick escapes, no
+//     tab bytes, trailing newline.
+
+// int btree(int g, unsigned char key[], unsigned char bd[],
+// struct MSV * svPtr) - owner: interp-native-btree.cpp::btree,
+// roster 29 (batch 1, pending; the 18-LOC wrapper over btreeX,
+// the Mglobal SQLITE routing's only callee). TODO-stub (h014).
+// The btreeX engine rewrites the key buffer in place on the
+// XNEXT walk (the unit-136/171 renders document the carrier
+// contract: the caller's CharArray is the mutated scratch).
+internal fun btreeC(g: Int, key: CharArray, bd: CharArray, sv: Msv): Int {
+    TODO("stub: owner interp-native-btree.cpp::btree (roster 29, batch 1)")
+}
+
+// char * Extract2(char * s) - owner: compiler-parse.c::Extract2,
+// roster 171 (batch 1, pending; unit 173 ExpandOrder's coded
+// third-argument expander). The slice-index adaptation is
+// journaled: the vendor callee receives the address past the
+// CodedComma separator, which the Kotlin seat passes as the
+// CharArray plus the scan index. TODO-stub (h014).
+internal fun extract2C(v1d: CharArray, i: Int): String {
+    TODO("stub: owner compiler-parse.c::Extract2 (roster 171, batch 1)")
+}
+
+// int GlobalData(unsigned char *, unsigned char *, struct MSV *) -
+// owner: libmpscpp.cpp::GlobalData, roster rows 76 (batch 3),
+// 78 (batch 7), 79 (batch 8) all pending; the global-class
+// Data() member's engine (vendor libmpscpp.cpp:3669 folds
+// GlobalData(ref,tmp,svPtr) then atol(tmp)). The seat returns
+// the atol-folded data value, 0 when the node carries no data
+// (the unit-175 Dice B.Data() existence gate rides it).
+// TODO-stub (h014).
+internal fun globalDataC(key: String, sv: Msv): Int {
+    TODO("stub: owner libmpscpp.cpp::GlobalData (roster 76/78/79, batches 3/7/8)")
+}
+
+// int selectStdinC(int seconds) - POSIX platform edge, NOT a
+// corpus unit (the vendor unit 170 calls select(1,&rfds,NULL,
+// NULL,&tv) on fd 0). The Int return contract is select's:
+// 0 = timeout expired, positive = data ready, negative = error.
+// Platform stub (h001/h014).
+internal fun selectStdinC(seconds: Int): Int {
+    TODO("stub: POSIX select on fd 0 platform edge (unit 170 fold)")
+}
+
+// void sttyRaw() / void sttyRawOff() - POSIX platform edges,
+// NOT corpus units (the vendor unit 170 calls system("stty
+// raw") / system("stty -raw")). Platform stubs (h014).
+internal fun sttyRaw() {
+    TODO("stub: POSIX stty raw platform edge (unit 170 fold)")
+}
+
+internal fun sttyRawOff() {
+    TODO("stub: POSIX stty -raw platform edge (unit 170 fold)")
+}

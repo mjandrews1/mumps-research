@@ -65,17 +65,162 @@ internal class Msv {
     var xpx: Int = 0 // stateVector.h:56
     var t2: Int = 0 // stateVector.h:67
     val program = CharArray(512) // stateVector.h:100
+
+    // ------------------------------------------------------------------
+    // B6 T2 residual field universe (unit 172,
+    // include/mumpsc/stateVector.h::<misc>, vendor lines 39-100).
+    // The unit-172 render: the full struct MSV member set in vendor
+    // declaration order (fields already seated from B5/T1 are
+    // elided here; the pins are stateVector.h line numbers).
+    //   Excluded arms (vendor comment lines 97-98, on the record
+    //   only): char *grslts[22] and int grsltsx (the commented-out
+    //   sql result roster, dead in the pristine tree).
+    //   h020 fold: FILE *in_file[10]/out_file[10] :61 seat on
+    //   java.io.RandomAccessFile handles (the B5 ZSeek/Ztell FILE*
+    //   fold; Array of 10 nullable handles each).
+    //   h004 reuse: the struct at file scope names its header;
+    //   the AllocSV decl (:104) and the StateVector typedef (:106)
+    //   have no observable behavior (the typedef is a spelling
+    //   macro; svPtr is the B5 singleton above), journaled.
+    //   h021 FIRST CONSULTS-AS-RULE (struct_carrier, promoted at
+    //   the B5 close): the residual member shapes follow the
+    //   vendor declaration order and widths exactly; fixed
+    //   buffers ride CharArray, ints ride Int, longs ride Long.
+    //   Collision note (h017): pd1 uses the LITERAL 32001 here -
+    //   stateVector.h:43 references sysparms.h PS1 (PS 32000 + 1),
+    //   while the compiler-side package const PS1 (memsize.h:33,
+    //   4097) is a different corpus pin; the literal keeps the
+    //   interpreter-side width exact.
+    val cfgdata = CharArray(256) // stateVector.h:40
+    val cfgkey = CharArray(256) // stateVector.h:41
+    val pd1 = CharArray(32001) // stateVector.h:43 (sysparms.h:74-75 PS 32000)
+    val setname = CharArray(STR_MAX) // stateVector.h:46
+    var LockDone: Int = 0 // stateVector.h:47
+    var kflg: Int = 0 // stateVector.h:48
+    var io: Int = 0 // stateVector.h:49
+    var ierr: Int = 0 // stateVector.h:50
+    var sdlim: Int = 0 // stateVector.h:51
+    var symflg: Int = 0 // stateVector.h:52
+    var ITRAP: Int = 0 // stateVector.h:53
+    var setpiece: Int = 0 // stateVector.h:54
+    var ctrlc: Int = 0 // stateVector.h:57
+    var iorg: Int = 0 // stateVector.h:58
+    var symlen: Int = 0 // stateVector.h:59
+    var NOERR: Int = 0 // stateVector.h:60
+    val in_file = arrayOfNulls<java.io.RandomAccessFile>(10) // :61 (h020)
+    val out_file = arrayOfNulls<java.io.RandomAccessFile>(10) // :61 (h020)
+    val hor = IntArray(10) // stateVector.h:62
+    val ver = IntArray(10) // stateVector.h:62
+    var pd1len: Long = 0 // stateVector.h:66
+    var nflg: Int = 0 // stateVector.h:68
+    var ERROR: Int = 0 // stateVector.h:69
+    var gpad: Int = 0 // stateVector.h:70
+    var nstart: Nmes? = null // stateVector.h:72 (CompilerGlobalsExt carrier)
+    val RefParm = Array(10) { CharArray(16) } // stateVector.h:73
+    val Rargs = Array(10) { CharArray(16) } // stateVector.h:74
+    var Rargsx: Int = 0 // stateVector.h:75
+    var _SymPush: Int = 0 // stateVector.h:76
+    var order: Int = 0 // stateVector.h:77
+    var hit: Long = 0 // stateVector.h:78 (btree cache hit ratio)
+    var count: Long = 0 // stateVector.h:78
+    var restoredata: Long = 0 // stateVector.h:79 (unsigned long long cap)
+    var ScanMinWordSize: Int = 0 // stateVector.h:80
+    var ScanMaxWordSize: Int = 0 // stateVector.h:81
+    var PD1: Int = 0 // stateVector.h:82
+    val UKEY = CharArray(1024) // stateVector.h:83
+    val UDAT = CharArray(1024) // stateVector.h:84
+    val args = CharArray(STR_MAX) // stateVector.h:85
+    val Table = CharArray(256) // stateVector.h:86 (data base table)
+    var TabSize: Int = 0 // stateVector.h:87
+    var ConOpen: Int = 0 // stateVector.h:88
+    val pgsql_msg = CharArray(STR_MAX) // stateVector.h:89
+    val Connection = CharArray(STR_MAX) // stateVector.h:90
+    val Col_Names = CharArray(STR_MAX) // stateVector.h:91
+    val fdes = IntArray(2) // stateVector.h:92
+    var exec: Int = 0 // stateVector.h:93 (one variant; both members below)
+    val reference = CharArray(1024) // stateVector.h:94 (call by ref name)
+    var ErrChar: Char = 0.toChar() // stateVector.h:95
+    val CurrentFile = CharArray(512) // stateVector.h:96 (readf_ name)
+    val sqloutput = CharArray(512) // stateVector.h:99 (sql output file)
+    // program :100 seated above (T3)
 }
 
 internal val svPtr = Msv() // vendor file-scope svPtr (libmpscpp.cpp TU)
 
 // int Mglobal(const int g, unsigned char key[], unsigned char bd[],
-//             struct MSV*) - include/mumpsc/global.h:78. Owner:
-// interp-globalb.cpp::Mglobal, roster unit 167. TODO-stub (h014):
-// signature and Int result contract only; the retrieval body lands
-// with its owner.
+//             struct MSV*) - include/mumpsc/global.h:78. UNIT 167
+// FLIP (B6 T2): the h014 TODO stub (owner interp-globalb.cpp::
+// Mglobal, roster unit 167, batch 6) is replaced by the real
+// SQLITE-arm routing below - the owner unit lands with this
+// tranche (the accepting-the-seat flip precedent).
+//
+// Vendor behavior (interp-globalb.cpp:70-101... see the live arm):
+// the TU arm-selector at interp-globalb.cpp:45 is "#define SQLITE"
+// (the h018 reference build config: SQLITE defined), so the LIVE
+// arm is the #if defined(SQLITE) block: CLOSE returns 1 (the
+// SQLITE backend closes nothing here); RETRIEVE and STORE run
+// keyfix over the key (the leading caret strip + high-bit marker
+// collapse, keyfix.h:7, seated REAL below - a same-include static
+// inline header body, not another TU's unit; the xecute/SymGet
+// stub precedent applied only to cross-TU bodies, journaled);
+// every op then delegates to btree(g, key, bd, svPtr) (declared
+// include/mumpsc/btree.h:112; owner interp-native-btree.cpp::btree,
+// roster 29, batch 1 pending - stub raised in BothStubs.kt, h014).
+//
+// Excluded arm (#else native section, translated only for the
+// record as comments): the RETRIEVE/STORE keyfix twins, the
+// ORDERNEXT/ORDERPREV/NEXT/PREVIOUS prepare-block with the
+// unsigned char hold[STR_MAX] rewrite and the CLOSE-arm
+// CloseFlg static, per interp-globalb.cpp:107-190.
+//
+// Quirks kept (ledgered):
+//   - CLOSE returns 1 BEFORE any key touching: a CLOSE with a
+//     garbage key stays benign, kept verbatim.
+//   - non-RETRIEVE/STORE ops (XNEXT and the rest) SKIP keyfix:
+//     the walk keys are already fixed, kept verbatim.
+//   - keyfix mutates the key IN PLACE over the CharArray byte
+//     domain (the 0x80 high-bit bytes collapse to 1; the leading
+//     caret shifts the string left by one inside the same
+//     condition, with the trailing byte washed), byte-faithful
+//     via the cStringOf/writeC seats.
+
 internal fun Mglobal(op: Int, key: CharArray, out: CharArray, sv: Msv): Int {
-    TODO("stub: owner interp-globalb.cpp::Mglobal (roster unit 167)")
+    if (op == CLOSE) return 1 // SQLITE arm: CLOSE is a no-op return
+
+    if (op == RETRIEVE || op == STORE) {
+        keyfixC(key)
+    }
+    return btreeC(op, key, out, sv)
+}
+
+// void keyfix(unsigned char *) - static inline body at
+// include/mumpsc/keyfix.h:7-35 (not a corpus unit; same-include
+// residue of the Mglobal live arm, seated real per the ledger
+// above). Remove the leading caret; collapse high-bit bytes to 1;
+// in the caret arm the shift leaves the final byte washed by the
+// same &0x80 test (byte-faithful trace kept).
+internal fun keyfixC(vxd: CharArray) {
+    if (vxd.isEmpty()) return
+    if (vxd[0] == '^') {
+        // while (*vxd) { *vxd = *(vxd+1)&0x80 ? 1 : *(vxd+1); vxd++; }
+        var i = 0
+        while (vxd[i] != '\u0000') {
+            val next = if (i + 1 < vxd.size) vxd[i + 1] else '\u0000'
+            val washed = if (next.code and 0x80 != 0) '\u0001' else next
+            // the C loop advances vxd and NOTHING writes the byte
+            // past the shifted NUL: the vector keeps trailing
+            // residue; the observable key (up to NUL) is the same.
+            vxd[i] = washed
+            i++
+        }
+        return
+    }
+    // while (*vxd) { if (*vxd & 0x80) *vxd = 1; vxd++; }
+    var i = 0
+    while (vxd[i] != '\u0000') {
+        if (vxd[i].code and 0x80 != 0) vxd[i] = '\u0001'
+        i++
+    }
 }
 
 // void zfcn(unsigned char*, unsigned char*, struct MSV*) -
@@ -94,8 +239,8 @@ internal fun fcn(sv: Msv) {
 // Mglobal(RETRIEVE, key, out, svPtr) + the fail-throw idiom shared by
 // the batch-5 tranche-1 global reads (vendor: if (f==0) {
 // GlobalExceptionCode=GLOBAL_NOT_FOUND; throw MumpsGlobalException(); }).
-// Blocked on the Mglobal stub (owner roster unit 167): the TODO
-// propagates until the owner lands, which is the h014 stub contract.
+// The Mglobal seat flipped REAL at B6 T2 (unit 167, the SQLITE-arm
+// routing above); this fold's behavior is unchanged.
 internal fun mglobalRetrieve(key: String): String {
     val out = CharArray(STR_MAX)
     val f = Mglobal(RETRIEVE, key.toCharArray(), out, svPtr)
@@ -136,6 +281,7 @@ internal fun cStringOf(buf: CharArray): String {
 //   SYM_MAX 200            include/mumpsc/defines.h:218
 
 internal const val XNEXT = 8 // defines.h:88; the Mglobal order-walk op
+internal const val STORE = 1 // defines.h:84 (T2-add; the Mglobal SQLITE routing seat)
 internal const val INPUT_LENGTH = 10 // libmpscpp.h:79
 internal const val SYM_MAX = 200 // defines.h:218; symbol table stack depth
 internal const val CLOSE = 4 // defines.h:87 (T3-add; the GlobalClose macro seat)
