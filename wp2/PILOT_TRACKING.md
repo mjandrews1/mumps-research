@@ -299,18 +299,20 @@ DOC B6 tranche 3 (units 176-182, the complex stratum minus the big three) transl
 
 DAF B6 tranche 3 (units 176-182, the complex stratum minus the big three) translated 2026-11-22: seven units pushed, whole-arm kotlinc gate 0/0 at 93 files (both the gate copy and the fresh repo-copy submission, 86 post-T2 base + 7 tranche renders); DAF consults ledgered in the DAF heuristic log ids 175-183; dafny suite 70 verified 0 errors (unchanged; all T3 units EXEMPT). The tranche releases the shredD stub of LibmpscppMisc9 (the prior selftext.cpp blame was wrong: the batch-6 roster row 176 IS the libmpscpp.cpp Shred overload; real body at the unit-176 Shred.kt render), carries the wstemD TAG CORRECTION at LibmpscppMisc5 (owner interp-stem.cpp::wstem at 418, a roster batch-10 cell; the stub STAYS until b10 owns the body), raises inoutDaf (compiler-sys1.c::inout at 292, roster b2), substrDaf (interp-strmanip.cpp::substr, roster b7), zfcnDaf (interp-zfcns.cpp::zfcn, the roster b6 big-three unit 184 that stays queued), numcompDaf/addDaf/subDaf (interp-arith.cpp), strxcatDaf (mpstime.cpp:102 this-TU inline), the variableNotFound family (interp-sysfunc.cpp), and the POSIX platform seats of the server transaction loop (ftokDaf/msggetDaf/msgrcvDaf/socketDaf/sendtoDaf/closeDaf). The mpstime main folds the setjmp/longjmp for-loop state machine onto structured iteration and keeps the M3701 coded bytes (CE, CF comma, 01 mark) as seated Char literals; the queue order stands per the PI decision logged at tranche 1: the 183-185 big-three PI session next, then BOTH B5 T2. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 
-| # | Unit | Lang | Class | Status | DOC | DAF | code-check | output-check | runtime-check | target-check |
-|---|------|------|-------|--------|-----|-----|-------------|--------------|---------------|--------------|
-| 176 | libmpscpp.cpp::Shred | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
-| 177 | interp-stem.cpp::<misc> | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
-| 178 | compiler-write.c::write_code | c | complex | todo | translated | translated | todo | todo | todo | todo |
-| 179 | server.cpp::main | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
-| 180 | interp-parse.cpp::match | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
-| 181 | compiler-read.c::read_code | c | complex | todo | translated | translated | todo | todo | todo | todo |
-| 182 | mpstime.cpp::main | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
-| 183 | interp-bifs.cpp::zfcn | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
-| 184 | interp-zfcns.cpp::zfcn | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
-| 185 | interp-interp.cpp::Interpret | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+BOTH B6 tranche 3 (units 176-182, the complex stratum minus the big three) translated 2026-11-22: seven units pushed, whole-arm kotlinc gate SILENT EXIT=0 at 57 files (50 post-T2 base + 7 tranche renders); dafny suite 40 verified 0 errors (unchanged; all T3 units EXEMPT, journaled - the DAF B6 T3 precedent applies and no new spec was added). Rows follow the pre-registered batch_plan.md order. The tranche lands the generated-benchmark main (mpstime), the server transaction main (the POSIX edges ftok/msgget/msgrcv/socket/sendto/perror seat as named-owner platform stubs, the msgrcv type-passed-uninitialized UB seats at 0, the argv[i+i] index bug kept byte-faithful), the read/write compiler pair, the stem-engine residual, the pattern-match classifier (the P-class punctuation literal kept byte-faithful through the escape seats, the short* rslt out-param folds to the Int return), and the stateful fragment iterator (the h008 static-scratch first consults-as-family at BOTH: the file-scope statics persist across calls as top-level private vars per the DOC ScanScratch precedent shape; the xindex/substr named-owner stubs raised at the match render; the isalnum/tolower C-locale byte-domain helpers seated per-file). Events +118 rows (band 23:30:00-23:31:57, 59 consults each reuse+hit; the complete per-render consult ledger in the journal fragment). Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision. Next per the committed order: the 183-185 big-three PI session (render-only), then the batch-6 close.
+
+| # | Unit | Lang | Class | Status | DOC | DAF | BOTH | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-----|-----|------|-------------|--------------|---------------|--------------|
+| 176 | libmpscpp.cpp::Shred | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 177 | interp-stem.cpp::<misc> | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 178 | compiler-write.c::write_code | c | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 179 | server.cpp::main | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 180 | interp-parse.cpp::match | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 181 | compiler-read.c::read_code | c | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 182 | mpstime.cpp::main | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 183 | interp-bifs.cpp::zfcn | cpp | complex | todo | translated | translated | todo | todo | todo | todo | todo |
+| 184 | interp-zfcns.cpp::zfcn | cpp | complex | todo | translated | translated | todo | todo | todo | todo | todo |
+| 185 | interp-interp.cpp::Interpret | cpp | complex | todo | translated | translated | todo | todo | todo | todo | todo |
 
 DOC B6 big-three session (units 183-185) translated 2026-11-21: three
 units pushed, whole-arm kotlinc gate 0/0 at 181 files; gradle gate on
