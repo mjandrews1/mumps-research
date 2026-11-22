@@ -78,9 +78,9 @@ fun strxcatDaf(a: CharArray, b: CharArray): String =
     throw NotImplementedError(
         "strxcat: out-of-scope owner (mpstime.cpp::strxcat local inline at 102; this-TU misc cell)")
 
-fun zfcnDaf(to: CharArray, out: CharArray, svPtr: DafMsv): Unit =
-    throw NotImplementedError(
-        "zfcn: out-of-scope owner (interp-zfcns.cpp::zfcn, roster b6 big-three unit 184)")
+// SEAT RELEASED (big-three session 2026-11-22): the zfcnDaf stub
+// deleted here; the unit-184 render Zfcns.kt owns the vendor C
+// symbol zfcn (the call sites above resolve to it - same shape).
 
 fun variableNotFoundDaf(line: Int, name: String): Unit =
     throw NotImplementedError(

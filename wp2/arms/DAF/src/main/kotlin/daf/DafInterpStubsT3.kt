@@ -116,9 +116,9 @@ fun symRetDaf(symflg: Int, a: CharArray, aOff: Int, out: CharArray, outOff: Int,
     throw NotImplementedError(
         "sym_: out-of-scope owner (interp-sym.cpp::sym_, not a roster unit; permanent named-owner stub)")
 
-fun InterpretDaf(text: String, sv: DafMsv): Int =
-    throw NotImplementedError(
-        "Interpret: out-of-scope owner (interp-interp.cpp::Interpret, roster b6)")
+// SEAT RELEASED (big-three session 2026-11-22): the InterpretDaf
+// stub deleted here; the unit-185 render Interpret.kt owns the
+// vendor C symbol Interpret (same shape; call sites resolve).
 
 fun scanParseDaf(xd: CharArray): Int =
     throw NotImplementedError(

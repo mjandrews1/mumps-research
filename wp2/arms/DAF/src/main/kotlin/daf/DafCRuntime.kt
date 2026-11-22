@@ -115,6 +115,7 @@ class DafMsv {
     var NOERR = 0
     var PD1 = 0
     var TabSize = 0
+    var nflg = 0                        // char nflg (NEW command flag; B6 big-three ext)
     var nstart = 0
     var _Sym = 0
     val hor = IntArray(32)               // \$x cursor table

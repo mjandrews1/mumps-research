@@ -304,9 +304,9 @@ DAF B6 tranche 3 (units 176-182, the complex stratum minus the big three) transl
 | 180 | interp-parse.cpp::match | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
 | 181 | compiler-read.c::read_code | c | complex | todo | translated | translated | todo | todo | todo | todo |
 | 182 | mpstime.cpp::main | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
-| 183 | interp-bifs.cpp::zfcn | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
-| 184 | interp-zfcns.cpp::zfcn | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
-| 185 | interp-interp.cpp::Interpret | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 183 | interp-bifs.cpp::zfcn | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+| 184 | interp-zfcns.cpp::zfcn | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+| 185 | interp-interp.cpp::Interpret | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
 
 DOC B6 big-three session (units 183-185) translated 2026-11-21: three
 units pushed, whole-arm kotlinc gate 0/0 at 181 files; gradle gate on
@@ -321,6 +321,36 @@ Stubs.inout/Stubs.Merge roster seats. Check columns track the BASE
 reference translation (C-002) and stay todo per the C-001 cycle-10
 backfill decision. After this session the batch-close protocol
 (coverage checklist, events export, PILOT prose) follows.
+
+DAF B6 big-three session (units 183-185) translated 2026-11-22:
+three units pushed, whole-arm kotlinc gate 0/0 at 96 files (both
+the gate copy and the fresh repo-copy submission, 93 post-T3 base
++ 3 session renders); DAF consults ledgered in the DAF heuristic
+log ids 184-188; dafny suite 70 verified 0 errors (unchanged; all
+three EXEMPT, no new spec). The session transplants the DOC
+big-three scaffold of 2026-11-21 onto the DAF gate seats: Zfcns
+(unit 184) is the LIVE reference-build TU rendering the vendor
+symbol as fun zfcnDaf (releasing the zfcnDaf seat raised at unit
+182) and raising serviceInterfaceDaf with a TAG CORRECTION
+(interp-service.cpp::ServiceInterface at 87 IS units.csv row 187
+batch 7 - the SymHMisc not-a-roster-unit blame was wrong) plus
+gtkTreeAddD (row 83) and the gtk/mps raise families; ZfcnBifs
+(unit 183) renders the DEAD build-alternate twin as zfcnBifsDaf
+with the zreplace arm (replaceDaf raised at the render, a
+bifs-only seat) and resolves its recursion to the live twin;
+Interpret (unit 185) releases the InterpretDaf seat of
+DafInterpStubsT3, pins the InterpHMisc ledgered interp.h
+command-char lattice, raises inoutInterpDaf (the interp-parse.cpp
+4-arg b10 sibling; the WriteCode inoutDaf is the b2 3-arg twin),
+symFreeDaf (row 28), mergeDaf (row 226), directReadDaf (row 24),
+getstr2Daf and prnterrDaf, folds the in/out_file Reader/Writer
+carriers onto the T2 IntArray handle domain, folds the NEW/KILL
+except-list chain onto the render state, and extends the DafMsv
+carrier with nflg. Queue after this session: BOTH B5 T2 stays
+first in the queue per the PI instruction that DAF finishes
+first; the batch-close protocol follows. Check columns track the
+BASE reference translation (C-002) and stay todo per the C-001
+cycle-10 backfill decision.
 
 **DOC B6 closed 2026-11-21**: 31/31 translated (T1 155-164 commit
 ee0bd410/splice cac8a53, T2 165-175 74264c1/fe438e7, T3 176-182
