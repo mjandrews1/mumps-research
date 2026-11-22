@@ -9962,3 +9962,25 @@ push: the seven new Kotlin renders 4683 (Shred.kt) through
 oracles) were touched by the injection attempt, which
 content-limited itself to the fragment file and the reply
 channel.
+### BOTH B6 T3 MacBook gradle gate - 2026-11-22
+
+The tranche-side MacBook gate after the splice is RUN AND
+GREEN, run by the PI immediately after the pull (fast-forward
+845215f..dee3a2c, 10 files changed, 2389 insertions):
+
+- gradle --no-daemon build in wp2/arms/BOTH: BUILD SUCCESSFUL
+  in 9s, 5 actionable tasks, zero fix rounds (Gradle 9.9.1,
+  single-use daemon per the flag; the deprecation notice is
+  the standing Gradle-10 incompatibility banner, not a
+  regression).
+- Post-splice verification at the PI terminal: journal
+  9964 lines (9759 + the 181-line fragment + the 27-line
+  incident note), the incident section present at line 9942,
+  the three-commit chain 86e2521 -> 08e3cd1 -> dee3a2c.
+
+Both tranche-level gates for B6 T3 are now green (in-sandbox
+kotlinc 57 files SILENT EXIT=0 at the push; MacBook gradle
+here). The m1-build gradle round rides the batch-6 close (the
+B5close pattern). The 183-185 big-three PI session follows
+next per the committed order, pending a fresh a fresh ~/b4 sandbox
+rebuild from the recipe.
