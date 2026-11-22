@@ -9982,5 +9982,5 @@ Both tranche-level gates for B6 T3 are now green (in-sandbox
 kotlinc 57 files SILENT EXIT=0 at the push; MacBook gradle
 here). The m1-build gradle round rides the batch-6 close (the
 B5close pattern). The 183-185 big-three PI session follows
-next per the committed order, pending a fresh a fresh ~/b4 sandbox
+next per the committed order, pending a fresh ~/b4 sandbox
 rebuild from the recipe.
