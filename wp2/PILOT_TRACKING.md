@@ -379,8 +379,11 @@ platform and GTK glue families, the non-roster families) stay
 as the honest UNRESOLVED stub record per the H-014 discipline -
 their owners live in the other arms' drawings. Check columns
 stay todo per the C-001 cycle-10 backfill decision. Next
-protocol step per the committed order and the PI queue decision:
-BOTH B5 T2 (core 134-143).
+protocol step per the committed order: BOTH B5 T3 (complex
+144-154) - BOTH B5 T2 had already closed 2026-11-21 (push
+eb6d33c, splice 85caa1a) before this close prose was written;
+the queue-note staleness is repaired in the arm journal repair
+note of the same date.
 
 **DOC B6 closed 2026-11-21**: 31/31 translated (T1 155-164 commit
 ee0bd410/splice cac8a53, T2 165-175 74264c1/fe438e7, T3 176-182
