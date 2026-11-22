@@ -155,3 +155,36 @@ rule(h018, trigger(preprocessor_conditional),
      example('interp-arith.cpp'),
      provenance(pro, b1, '2026-11-15'), verification(unit_tested)).
 
+%
+% Captured at BOTH B5 batch close 2026-11-22 from the miss-family
+% promotion review (PI decision of 2026-11-22, all three families
+% at T1 recurrence >= 2 per wp1/capture_criteria.md):
+%   class_member_carrier x9 (units 129/131/133/134/136/137/138/
+%     149/154), pointer_handle x3 (the mdh_tree_level_add overload
+%     set, units 126-128), struct_carrier x2 (units 142/144).
+% G1: each applies to any construct of its family, not any single
+% unit. G4 dedup: no prior rule carries these triggers. G3: no
+% oracle outputs embedded. The units above followed these actions
+% throughout B5 (every render build-green at the tranche gates);
+% the miss rows are pre-capture history and remain as misses per
+% the append-only log. First consults-as-rule land with BOTH B6;
+% upgrade untested -> unit_tested at the next close per the h018
+% precedent.
+
+rule(h019, trigger(class_member_carrier),
+     condition(member_unit_of_class_whose_layout_owner_is_not_yet_translated_in_this_arm),
+     action('member -> package-level or extension function passing the receiver state explicitly (data String / GlobalRef.ref); reuse an existing carrier class where one exists, otherwise raise the minimal carrier seats in Stubs naming the layout owner roster id; keep the vendor member name in the fold name (mstringLength precedent); journal the recurrence and the carrier chosen'),
+     example('libmpscpp.cpp::mstring::Length'),
+     provenance(both, b5, '2026-11-22'), verification(untested)).
+
+rule(h020, trigger(pointer_handle),
+     condition(c_pointer_domain_with_no_jvm_counterpart_and_no_observable_address_semantics),
+     action('typed pointer param/return -> String handle carrier naming the vendor pointer type; stdio FILE* seats on the arm RandomAccessFile fold instead; sprintf pointer formats stay as the handle passthrough; journal each handle family with its vendor type'),
+     example('libmpscpp.cpp::mdh_tree_level_add'),
+     provenance(both, b5, '2026-11-22'), verification(untested)).
+
+rule(h021, trigger(struct_carrier),
+     condition(typed_struct_or_heap_chain_whose_layout_owner_is_not_in_this_batch),
+     action('struct -> minimal Kotlin carrier class keeping vendor field order and names; only fields touched by in-batch units carry TODO seats naming the layout owner unit; journal the declaration source line; never balloon the carrier past the touched surface'),
+     example('interp-sym.cpp::SysDump'),
+     provenance(both, b5, '2026-11-22'), verification(untested)).
