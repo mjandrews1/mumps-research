@@ -257,49 +257,51 @@ Shaping per the PRO B6 precedent: T1 simple (155-164), T2 core (165-175), T3 com
 
 DOC B6 tranche 1 (units 155-164, the simple stratum) translated 2026-11-20: ten units pushed, whole-arm kotlinc gate 0/0 at 162 files; gradle gate on m1-build pending at tranche close. Rows follow the pre-registered batch_plan.md order (simple stratum, complexity rank ascending). The tranche also carries the unit-164 memsize.h config-correction edit to the unit-129 readf render (NOTABS live, TAB-to-space arm restored - vendor compiler-sys1.c includes memsize.h) and the Stubs.leaning_toothpickize flip to delegate. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 
-| # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
-|---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
-| 155 | compiler-fcninit.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
-| 156 | libmpscpp.cpp::global::Find | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 157 | interp-rpm.cpp::leaning_toothpickize | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 158 | libmpscpp.cpp::SmithWaterman | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 159 | libmpscpp.cpp::global::Length | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 160 | libmpscpp.cpp::Sum | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 161 | libmpscpp.cpp::ScanAlnum | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 162 | interp-arith.cpp::mps_log2 | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 163 | interp-arith.cpp::mps_sin | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 164 | include/mumpsc/memsize.h::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
+DAF B6 tranche 1 (units 155-164, the simple stratum) translated 2026-11-22: ten units pushed, whole-arm kotlinc gate 0/0 at 75 files (both the gate copy and the fresh repo-copy submission); DAF consults ledgered in the DAF heuristic log ids 148-160; dafny suite 55 verified 0 errors (50 baseline + the new spec/mps_log2.dfy at 5). QUEUE NOTE (PI decision of 2026-11-22, logged against the committed order): DAF runs ahead of BOTH per the PI instruction to finish all of the DAF tranches before proceeding to BOTH; BOTH B5 T2 stays queued next after the DAF B6 tranches and the 183-185 big-three PI session. The tranche resolves the leaning_toothpickize stub seat (the unit-157 render releases it; the prior not-a-roster-unit header blame was a TAG CORRECTION to units.csv batch-6 row 157), disambiguates the unit-161 ScanAlnum overload against the vendor source (the istream overload, not the unit-104 FILE* body the dump4 first-loc extraction returned), and seats the memsize.h Linux lattice at the unit-164 ledger. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
+
+| # | Unit | Lang | Class | Status | DOC | DAF | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-----|-----|-------------|--------------|---------------|--------------|
+| 155 | compiler-fcninit.c::<misc> | c | simple | todo | translated | translated | todo | todo | todo | todo |
+| 156 | libmpscpp.cpp::global::Find | cpp | simple | todo | translated | translated | todo | todo | todo | todo |
+| 157 | interp-rpm.cpp::leaning_toothpickize | cpp | simple | todo | translated | translated | todo | todo | todo | todo |
+| 158 | libmpscpp.cpp::SmithWaterman | cpp | simple | todo | translated | translated | todo | todo | todo | todo |
+| 159 | libmpscpp.cpp::global::Length | cpp | simple | todo | translated | translated | todo | todo | todo | todo |
+| 160 | libmpscpp.cpp::Sum | cpp | simple | todo | translated | translated | todo | todo | todo | todo |
+| 161 | libmpscpp.cpp::ScanAlnum | cpp | simple | todo | translated | translated | todo | todo | todo | todo |
+| 162 | interp-arith.cpp::mps_log2 | cpp | simple | todo | translated | translated | todo | todo | todo | todo |
+| 163 | interp-arith.cpp::mps_sin | cpp | simple | todo | translated | translated | todo | todo | todo | todo |
+| 164 | include/mumpsc/memsize.h::<misc> | c | simple | todo | translated | translated | todo | todo | todo | todo |
 
 DOC B6 tranche 2 (units 165-175, the core stratum) translated 2026-11-21: eleven units pushed, whole-arm kotlinc gate 0/0 at 171 files; gradle gate on m1-build pending at tranche close. Rows follow the pre-registered batch_plan.md order (core stratum, complexity rank ascending). The tranche resolves four H-014 stub seats (Stubs.Mglobal CharArray overload, Stubs.Mextract, Stubs.globalMax, Stubs.dice) plus Stubs.stopInit, carries two TAG CORRECTIONS (the global::Max roster mis-read at units 68/171; the _extract batch-10 mis-tag at unit 168), and seats the unit-172 stateVector.h residual field roster into the Msv carrier. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 
-| # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
-|---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
-| 165 | interp-arith.cpp::mps_abs | cpp | core | todo | translated | todo | todo | todo | todo |
-| 166 | libmpscpp.cpp::StopInit | cpp | core | todo | translated | todo | todo | todo | todo |
-| 167 | interp-globalb.cpp::Mglobal | cpp | core | todo | translated | todo | todo | todo | todo |
-| 168 | interp-sym.cpp::_extract | cpp | core | todo | translated | todo | todo | todo | todo |
-| 169 | include/mumpsc/interp.h::<misc> | c | core | todo | translated | todo | todo | todo | todo |
-| 170 | interp-sysfunc.cpp::TimeOut_getstr1 | cpp | core | todo | translated | todo | todo | todo | todo |
-| 171 | libmpscpp.cpp::global::Max | cpp | core | todo | translated | todo | todo | todo | todo |
-| 172 | include/mumpsc/stateVector.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
-| 173 | compiler-parse.c::ExpandOrder | c | core | todo | translated | todo | todo | todo | todo |
-| 174 | interp-arith.cpp::modulo | cpp | core | todo | translated | todo | todo | todo | todo |
-| 175 | libmpscpp.cpp::Dice | cpp | core | todo | translated | todo | todo | todo | todo |
+| # | Unit | Lang | Class | Status | DOC | DAF | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-----|-----|-------------|--------------|---------------|--------------|
+| 165 | interp-arith.cpp::mps_abs | cpp | core | todo | translated | todo | todo | todo | todo | todo |
+| 166 | libmpscpp.cpp::StopInit | cpp | core | todo | translated | todo | todo | todo | todo | todo |
+| 167 | interp-globalb.cpp::Mglobal | cpp | core | todo | translated | todo | todo | todo | todo | todo |
+| 168 | interp-sym.cpp::_extract | cpp | core | todo | translated | todo | todo | todo | todo | todo |
+| 169 | include/mumpsc/interp.h::<misc> | c | core | todo | translated | todo | todo | todo | todo | todo |
+| 170 | interp-sysfunc.cpp::TimeOut_getstr1 | cpp | core | todo | translated | todo | todo | todo | todo | todo |
+| 171 | libmpscpp.cpp::global::Max | cpp | core | todo | translated | todo | todo | todo | todo | todo |
+| 172 | include/mumpsc/stateVector.h::<misc> | c | complex | todo | translated | todo | todo | todo | todo | todo |
+| 173 | compiler-parse.c::ExpandOrder | c | core | todo | translated | todo | todo | todo | todo | todo |
+| 174 | interp-arith.cpp::modulo | cpp | core | todo | translated | todo | todo | todo | todo | todo |
+| 175 | libmpscpp.cpp::Dice | cpp | core | todo | translated | todo | todo | todo | todo | todo |
 
 DOC B6 tranche 3 (units 176-182, the complex stratum minus the big three) translated 2026-11-21: seven units pushed, whole-arm kotlinc gate 0/0 at 178 files; gradle gate on m1-build pending at tranche close. Rows follow the pre-registered batch_plan.md order. The tranche resolves the remaining raised H-014 seats (Stubs.shred, the 6-arg Stubs.match) and lands the generated-benchmark main (mpstime), the server transaction main, and the read/write compiler pair. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 
-| # | Unit | Lang | Class | Status | DOC | code-check | output-check | runtime-check | target-check |
-|---|------|------|-------|--------|-----|-------------|--------------|---------------|--------------|
-| 176 | libmpscpp.cpp::Shred | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 177 | interp-stem.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 178 | compiler-write.c::write_code | c | complex | todo | translated | todo | todo | todo | todo |
-| 179 | server.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 180 | interp-parse.cpp::match | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 181 | compiler-read.c::read_code | c | complex | todo | translated | todo | todo | todo | todo |
-| 182 | mpstime.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 183 | interp-bifs.cpp::zfcn | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 184 | interp-zfcns.cpp::zfcn | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 185 | interp-interp.cpp::Interpret | cpp | complex | todo | translated | todo | todo | todo | todo |
+| # | Unit | Lang | Class | Status | DOC | DAF | code-check | output-check | runtime-check | target-check |
+|---|------|------|-------|--------|-----|-----|-------------|--------------|---------------|--------------|
+| 176 | libmpscpp.cpp::Shred | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 177 | interp-stem.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 178 | compiler-write.c::write_code | c | complex | todo | translated | todo | todo | todo | todo | todo |
+| 179 | server.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 180 | interp-parse.cpp::match | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 181 | compiler-read.c::read_code | c | complex | todo | translated | todo | todo | todo | todo | todo |
+| 182 | mpstime.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 183 | interp-bifs.cpp::zfcn | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 184 | interp-zfcns.cpp::zfcn | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 185 | interp-interp.cpp::Interpret | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
 
 DOC B6 big-three session (units 183-185) translated 2026-11-21: three
 units pushed, whole-arm kotlinc gate 0/0 at 181 files; gradle gate on
