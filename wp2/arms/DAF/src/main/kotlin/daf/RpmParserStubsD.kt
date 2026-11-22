@@ -8,12 +8,12 @@ package daf
 //   bstring ops (new_bstring/bstrcat/bcatchr) - owner interp-bstring.cpp::<misc>
 //                  (roster unit 22, complex; rendered when the DAF cycle
 //                  reaches its batch cell)
-//   accept_it/accept - the interp-parse.cpp token-advance helpers
-//                  (same-TU framework for the rpm parser; not roster units)
-//   syntax_error    - the interp-rpm.cpp local diagnostic (same TU, static,
-//                  not a roster unit)
-//   leaning_toothpickize / parse_pattern_atom_list - interp-rpm.cpp
-//                  same-TU helpers (not roster units)
+//   leaning_toothpickize    - interp-rpm.cpp same-TU helper (not a
+//                  roster unit)
+// accept_it/accept/syntax_error/parse_pattern_atom_list were SEAT-
+// RELEASED by the unit-152 RpmMisc.kt render (DAF B5 T3): their real
+// bodies live there and the ParseCount.kt/ParsePatternElement.kt/
+// ScanToken.kt callers bind unchanged.
 // Token-kind values mirror the interp-rpm.cpp enum order
 // (INT, STRING, LPAREN, RPAREN, ...); the pattern_codes/char_classes
 // carriers carry the vendor tables verbatim.
@@ -67,28 +67,7 @@ fun bcatchrD(a: DafBstring, ch: Char): Unit =
     throw NotImplementedError(
         "bcatchr: out-of-scope owner (interp-bstring.cpp::<misc>, roster unit 22)")
 
-// void accept_it(struct parser*) - the token advance helper.
-fun acceptItD(p: DafParser): Unit =
-    throw NotImplementedError(
-        "accept_it: out-of-scope owner (interp-parse.cpp/interp-rpm.cpp parser framework)")
-
-// void accept(struct parser*, enum token_type) - the expect-and-advance.
-fun acceptD(p: DafParser, expected: Int): Unit =
-    throw NotImplementedError(
-        "accept: out-of-scope owner (interp-parse.cpp/interp-rpm.cpp parser framework)")
-
-// static void syntax_error(const char[], const char[], int)
-fun syntaxErrorD(msg: String, input: CharArray, offset: Int): Unit =
-    throw NotImplementedError(
-        "syntax_error: out-of-scope owner (interp-rpm.cpp local diagnostic)")
-
 // static struct bstring leaning_toothpickize(const struct bstring)
 fun leaningToothpickizeD(unmangled: DafBstring): DafBstring =
     throw NotImplementedError(
-        "leaning_toothpickize: out-of-scope owner (interp-rpm.cpp same-TU helper)")
-
-// struct bstring parse_pattern_atom_list(struct parser*) - the sibling
-// rule of this unit's grammar.
-fun parsePatternAtomListD(p: DafParser): DafBstring =
-    throw NotImplementedError(
-        "parse_pattern_atom_list: out-of-scope owner (interp-rpm.cpp same-TU helper)")
+        "leaning_toothpickize: out-of-scope owner (interp-rpm.cpp same-TU helper; roster row 182)")

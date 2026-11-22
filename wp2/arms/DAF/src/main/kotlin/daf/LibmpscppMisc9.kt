@@ -35,8 +35,11 @@ package daf
 // discipline), row 28 (Shred/ShredQuery atoi).
 // Seats: symRetDaf (permanent sym_ dispatcher stub), MglobalDaf
 // (FLUSH), sigintDaf not used here; free-function seats: StopInit/
-// StopLookup/SYN/SynInit/bmg_fullsearch/Shred/ShredQuery owners named
-// below (non-roster libmpscpp.cpp/selftext.cpp families); the bsv
+// StopLookup/SYN/bmg_fullsearch/Shred/ShredQuery owners named below
+// (non-roster families); SynInit was RELEASED at B5 T3 (unit 146:
+// the roster body libmpscpp.cpp::SynInit rendered as synInitD in
+// SynInit.kt; the selftext.cpp attribution was a tag error);
+// SYN tag-corrected alongside (grep-verified libmpscpp.cpp:7788). the bsv
 // wrapper names themselves are the corpus bodies of THIS unit, so they
 // are rendered as the real functions and the inner C++ free functions
 // they call become named-owner stubs.
@@ -314,11 +317,10 @@ private fun globalASeat(buf: CharArray, unused: CharArray, off: Int): MpsGlobalN
 // invoke shapes a(&arg[i+1]) folded onto the two-step seat)
 private fun NodeASeat(n: MpsGlobalNode): MpsGlobalNode = n
 
-// global member DocCorrelate(b, arg3, x) - member-call seat on the node
-// model (owner: libmpscpp.cpp global class DocCorrelate)
-fun docCorrelateD(a: MpsGlobalNode, b: MpsGlobalNode, arg3: String, x: Double): Unit =
-    throw NotImplementedError(
-        "global.DocCorrelate member: out-of-scope owner (libmpscpp.cpp global class DocCorrelate; wrapper target of roster unit DocCorrelate)")
+// global member DocCorrelate(b, arg3, x) - SEAT RELEASED at B5 T3
+// (unit 154: the roster body global::DocCorrelate rendered as
+// docCorrelateD in LibmpscppMisc5.kt; its free-function relay is
+// the named stub docCorrelateFreeD there).
 
 // double Cosine(global,global) free function (selftext family)
 fun nodeCosineD(a: MpsGlobalNode, b: MpsGlobalNode): Double =
@@ -345,13 +347,14 @@ fun stopLookupD(a: String): Boolean =
     throw NotImplementedError(
         "StopLookup(char *): out-of-scope owner (selftext.cpp StopLookup; not a roster unit)")
 
-fun synInitD(a: String): Unit =
-    throw NotImplementedError(
-        "SynInit(char *): out-of-scope owner (selftext.cpp SynInit; not a roster unit)")
-
+// TAG CORRECTION at B5 T3 (unit 146): SYN's body is grep-verified at
+// libmpscpp.cpp:7788 (not selftext.cpp - the b4-T3 raise mis-tagged
+// it); the bsearch-over-syn kin of the unit-146 SynInit render (same
+// file-scope DafSyn table). Still NOT a corpus unit; the permanent
+// named-owner stub discipline stands.
 fun synD(a: String): String =
     throw NotImplementedError(
-        "SYN(char *): out-of-scope owner (selftext.cpp SYN; not a roster unit)")
+        "SYN(char *): out-of-scope owner (libmpscpp.cpp SYN (grep-verified :7788); not a roster unit)")
 
 fun bmgFullsearchD(a: String, b: String): Int =
     throw NotImplementedError(

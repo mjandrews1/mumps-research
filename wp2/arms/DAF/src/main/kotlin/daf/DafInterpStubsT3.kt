@@ -27,10 +27,14 @@ package daf
 //   globalQueryDaf flip: the unit-119 render in this same tranche
 //   globalNameDaf      <- interp-sysfunc.cpp::GlobalName (b1)
 //   qsubDaf            <- interp-sym.cpp::Qsub (b7)
-//   qlengthDaf         <- interp-sym.cpp::Qlength (b5)
+//   qlengthDaf RELEASED <- interp-sym.cpp::Qlength (b5 body rendered
+//                        as qlengthDaf in Qlength.kt at B5 T3; stub
+//                        deleted, signature kept)
 //   evalDaf            <- interp-sym.cpp::Eval (b9)
 //   mpsJustifyDaf      <- interp-arith.cpp::mps_justify (b3)
-//   sqlDaf             <- interp-sql.cpp::sql (b9) / rdbms-if.c::sql (b5)
+//   sqlDaf             <- interp-sql.cpp::sql (b9, op session seat;
+//                        the rdbms-if.c::sql b5 co-owner was RELEASED
+//                        by the unit-153 sqlRdbmsDaf render at B5 T3)
 //   extract2Daf        <- compiler-parse.c::Extract2 (b1)
 //   extract1Daf        <- compiler-parse.c::Extract1 (kernel of the
 //                         Extract2 family; same TU owner)
@@ -147,10 +151,6 @@ fun qsubDaf(name: CharArray, res: CharArray, sub: CharArray, sv: DafMsv): Unit =
     throw NotImplementedError(
         "Qsub: out-of-scope owner (interp-sym.cpp::Qsub, roster b7)")
 
-fun qlengthDaf(name: CharArray, res: CharArray, sv: DafMsv): Unit =
-    throw NotImplementedError(
-        "Qlength: out-of-scope owner (interp-sym.cpp::Qlength, roster b5)")
-
 fun evalDaf(a: CharArray, out: CharArray, sv: DafMsv): Int =
     throw NotImplementedError(
         "Eval: out-of-scope owner (interp-sym.cpp::Eval, roster b9)")
@@ -161,7 +161,7 @@ fun mpsJustifyDaf(fmt: String, res: CharArray, valS: CharArray): Unit =
 
 fun sqlDaf(op: Int, sv: DafMsv, a: String?, b: String?, c: String?, d: String?): Int =
     throw NotImplementedError(
-        "sql: out-of-scope owner (interp-sql.cpp::sql, roster b9; rdbms-if.c::sql roster b5)")
+        "sql: out-of-scope owner (interp-sql.cpp::sql, roster b9; the rdbms-if.c::sql b5 body is rendered as sqlRdbmsDaf at B5 T3)")
 
 // char *Extract2(char *) - roster b1 (compiler TU). The char* side of
 // the compiler seat renders as String (row 56 family value fold).
