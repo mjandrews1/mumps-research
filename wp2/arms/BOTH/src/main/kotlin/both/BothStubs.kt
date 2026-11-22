@@ -306,3 +306,37 @@ internal fun mdh_spin_button_get_value(s: String): Double {
 internal fun mdh_spin_button_set_value(s: String, v: Double) {
     TODO("stub: GTK platform edge, mdh_spin_button_set_value (libmpscpp.cpp glue; not a corpus unit)")
 }
+
+// -------------------------------------------------------------------------
+// B6 T1 seat additions (2026-11-22, units 155-164).
+//
+// Consults (rule base wp2/arms/BOTH/rules_v0.pl, 21 rules):
+//   h014 out_of_scope_call - reused and hit: both seats below name
+//     their units.csv owners and release per the contract when the
+//     owner lands.
+//   h019 class_member_carrier - first consults-as-rule land with the
+//     unit-156/159/160 renders (promotion of 2026-11-22, B5 close);
+//     this file adds no carriers in T1.
+//   h020 pointer_handle / h021 struct_carrier - no T1 carrier hits;
+//     unit-161 consults h020 against the Reader handle seat (the
+//     ScanAlnum.kt render), not here.
+
+// int sw(char *s, char *t, int ShowAlign, int ShowMatrix, int gap,
+// int mismatch, int match) - owner: libmpscpp.cpp::sw, roster 287
+// (batch 2, pending; the alignment engine behind unit 158). The
+// parameter names are the vendor's (the SmithWaterman caller passes
+// its five parsed values by position; the seat-name mismatch is
+// journaled at the unit-158 render). TODO-stub (h014).
+internal fun sw(s: String, t: String, showAlign: Int, showMatrix: Int,
+                gap: Int, mismatch: Int, match: Int): Int {
+    TODO("stub: owner libmpscpp.cpp::sw (roster 287, batch 2)")
+}
+
+// void _find(unsigned char * out, unsigned char * in,
+// unsigned char * key, unsigned char * begin) - owner:
+// interp-sym.cpp::_find, roster 6 (batch 1, pending; the word find
+// service behind unit 156). TODO-stub (h014).
+internal fun _find(out: CharArray, in_: CharArray, key: CharArray,
+                   begin: CharArray) {
+    TODO("stub: owner interp-sym.cpp::_find (roster 6, batch 1)")
+}

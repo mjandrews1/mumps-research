@@ -137,7 +137,10 @@ internal fun String.mstringNotEquals(i: GlobalRef): Boolean {
 
 // atol(str) - stdlib fold (not a corpus unit): optional leading
 // sign + digits; junk quantizes to 0 (vendor atol contract).
-private fun atolC(s0: String): Long {
+// atolC promoted internal at B6 T1 (2026-11-22): the atoi/atol
+// quiet-parse seats of the unit-156 (globalFind) and unit-158
+// (SmithWaterman) renders ride this fold; the body is unchanged.
+internal fun atolC(s0: String): Long {
     var s = s0.trim { it == ' ' }
     var sign = 1L
     if (s.startsWith("-")) { sign = -1L; s = s.substring(1) }

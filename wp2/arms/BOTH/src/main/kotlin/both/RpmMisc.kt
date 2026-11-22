@@ -203,9 +203,56 @@ internal fun parse_pattern_element(p: Parser): Bstring {
 
 // struct bstring leaning_toothpickize(const struct bstring) -
 // owner: interp-rpm.cpp::leaning_toothpickize, roster 157 (batch
-// 6, pending). TODO-stub (h014).
-internal fun leaning_toothpickize(b: Bstring): Bstring {
-    TODO("stub: owner interp-rpm.cpp::leaning_toothpickize (roster 157, batch 6)")
+// 6). UNIT 157 FLIP (B6 T1): the h014 stub above is replaced by
+// the real body - the owner unit lands with this tranche (the
+// acceptIt h014 delegate flip precedent).
+//
+// Vendor behavior (interp-rpm.cpp:479-497): the perl-pattern
+// text mangler walks the input bstring; the embedded-quote byte
+// DOUBLE_QUOTE (interp-rpm.cpp:58, the \xd2 h015 domain seat
+// RPM_DOUBLE_QUOTE in this file) maps to the double-quote char;
+// any OTHER punct char (the C ispunct locale) is prefixed with a
+// backslash; alnum/space/quote bytes pass through unchanged.
+//
+// Quirks kept (ledgered):
+//   - the backslash escaping is the perl-regex toothpick style
+//     (the rpm/perlmatch seats mangle the same lattice).
+//   - the NOT-vendor-arm subtlety: a raw double-quote char in
+//     the input is DROPPED silently (the != '" check), while the
+//     DOUBLE_QUOTE marker byte unescapes to one; kept verbatim.
+//   - locale quantization: the C ispunct over the signed char
+//     domain folds to the ASCII print-non-alnum-non-space set;
+//     high bytes (the 210-marker family) that are not the
+//     DOUBLE_QUOTE byte pass through unpunctuated (the
+//     negative-char C behavior is UB; quantized, journaled).
+//
+// Consults (unit 157, events logged): h015 reuse+hit
+//   (DOUBLE_QUOTE domain, RpmMisc seat); h017 reuse+hit (vendor
+//   name kept, snake multiword kept per the always-document
+//   rule).
+internal fun leaning_toothpickize(unmangled: Bstring): Bstring {
+    var result = newBstring("")
+    for (i in 0 until unmangled.length) {
+        val c = unmangled.string[i]
+        if (c == RPM_DOUBLE_QUOTE) {
+            result = bcatchr(result, '"')
+            continue
+        }
+        if (c != '"') {
+            if (isPunctC(c)) {
+                result = bcatchr(result, '\\')
+            }
+            result = bcatchr(result, c)
+        }
+    }
+    return result
+}
+
+// C ispunct seat (the locale quantization ledgered above):
+// printable ASCII that is not alnum and not space.
+private fun isPunctC(c: Char): Boolean {
+    if (c.code < 33 || c.code > 126) return false
+    return !((c in 'a'..'z') || (c in 'A'..'Z') || (c in '0'..'9'))
 }
 
 // void make_cstring(char *, const struct bstring) - owner: the
