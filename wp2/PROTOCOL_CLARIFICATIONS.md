@@ -19,6 +19,7 @@ effect on the committed schedule, and the methodological consequences.
 | C-006 | 2026-11-19 | DOC batch-2 tranche 1-2 consult rows: one-time reconstruction | Registered (retrospective, bounded) |
 | C-007 | 2026-11-19 | DOC's B2-before-B1 execution, and H-018 capture | Active (deviation logged) |
 | C-008 | 2026-11-19 | export_doc_events.R duplicate-consult key vs. non-unique roster ids | Registered (tooling amendment) |
+| C-009 | 2026-11-22 | PRO event-log timestamps are a nominal calendar, not wall-clock records | Registered (retrospective, logged as data) |
 
 ---
 
@@ -440,3 +441,109 @@ wp2/analysis/R/export_doc_events.R (the duplicate-check key and two
 comment blocks), wp2/analysis/README.md (one sentence in the DOC
 consult rows section), wp2/arms/ARM_WORKING_NOTES.md (the B1 close
 journal note). No pre-registered instrument is modified.
+
+
+---
+
+## C-009 — PRO event-log timestamps are a nominal calendar, not wall-clock records (logged 2026-11-22, registered)
+
+**Observation.** The PRO arm's pre-registered instrumentation
+(wp2/arms/PRO/knowledge_tooling.pl: record_reuse/record_hit/
+record_miss append one row per call, the timestamp taken from
+get_time at record time; coverage_report reads those rows) was
+used as designed for only the first two roster units: rows 2-31
+of wp2/logs/PRO_knowledge_events.csv (units 1-2, B1) carry true
+second-precision stamps (2026-11-15T14:54:12+0000 /
+14:56:13+0000) consistent with the tooling. From row 32 onward
+every stamp is minute/hour-aligned (15:10, 22:10, 09:00, ...),
+a shape the get_time path cannot produce: the remaining 3,658
+event rows were hand-appended to the CSV with nominal timestamps,
+not recorded by the tooling at consultation time. Two severity
+tiers, established against the git history (all rows committed
+2026-11-15..18):
+
+1. Rows 32-1211 (nominal dates 2026-11-15..22, batches B1-close
+   through B4 group 1) are authored near-dated ladders, partly
+   retrospective, partly a few days ahead of the wall clock.
+2. Rows 1212-3689 (nominal dates 2026-11-23 .. 2026-12-02,
+   batches B4 onward) were future-dated at write time: 2,478
+   rows (67% of the log) claim event dates up to 14 days after
+   their actual commit dates. The nominal calendar assigns
+   roughly one consulting day per roster tranche (B4 ~ Nov
+   22-24 ... B11 = Dec 2), spreading the arm's actual ~3.5-day
+   sprint (2026-11-15..18, ~60 commits, 308/308 units) across a
+   17-day projected schedule.
+
+The convention is disclosed IN the arm journal: tranche-close
+paragraphs record the nominal ladders explicitly (e.g. the B4
+group-3 ledger: "Events +106 rows (u114 09:00 x5 rules ...
+u123 18:00 x5, all 2026-11-24 +0000)"), so the stamps are
+recoverable as labels; but no registry entry had authorized
+replacing tool-recorded get_time stamps with an authored
+calendar, contrasting with the C-006 disclosure discipline
+applied to DOC's reconstruction. One journal prose date also
+contradicts git: the B3 close correction paragraph is dated
+2026-11-21 while its commit (41fc507, "PRO arm B3 close
+correction") is 2026-11-17T05:19Z.
+
+**Clarification (logged as data; no pre-registered instrument is
+modified — events CSV row content stands unchanged, the log is
+append-only).**
+
+1. The PRO_knowledge_events.csv timestamp column is declared
+   NOMINAL: a per-unit label on the arm's projected consulting
+   calendar, not a record of when a consultation happened. It is
+   inadmissible as evidence for ordering, pacing, session
+   structure, or any time-derived covariate of PRO events.
+2. The canonical chronology of the PRO arm is the git history:
+   every CSV append is keyed to a commit, and the arm journal
+   already cites the landing commit per tranche. Analyses that
+   need PRO chronology (including the C-003 practice-effect
+   cells and the batch-position covariate's actual ordinals) use
+   commit dates, not event stamps.
+3. An analysis-side provenance note is checked in as
+   wp2/analysis/PRO_EVENT_TIMESTAMP_PROVENANCE.md: event-row
+   provenance classes with exact row ranges, the stamp-shape and
+   commit evidence, per-day stamp distribution, and the analysis
+   rules that follow from them. The CSV itself is not edited;
+   provenance classes are derived by row number at analysis
+   time, per the append-only discipline.
+4. The event CONTENT columns (kind, target, unit) remain
+   admissible: coverage_report arithmetic is stamp-independent,
+   and the study-close numbers (1,856 triggering situations;
+   1,851 hits, 5 misses; hit rate 99.7%, reuse rate 99.0%)
+   reconcile exactly against the journal irrespective of
+   stamps. The 5 misses are the B1 preprocessor_conditional
+   pre-capture units (4/10/12/20/29), already modeled formally
+   in the SAP's exclusion rule.
+5. The record-at-consult evidence claim for PRO consequently
+   rests on the arm journal's per-unit paragraphs and the per-
+   file KDoc annotations (which exist per unit), not on event
+   timestamps. The C-006-style limitation is recorded: consult
+   timing for PRO cannot be verified from the log; consult
+   occurrence per (unit, rule) is evidenced by journal + KDoc.
+
+**Effect on the committed schedule.** None. PRO is complete
+(308/308, B11 closed 2026-11-18); no translation, gate, or CSV
+row is changed. The entry binds the analysis phase and the
+instrumentation calibration (section 5) only.
+
+**Methodological consequences.** Any analysis consuming PRO
+event timestamps (time series, inter-arm pacing comparisons,
+learning-curve time covariates) is invalid as stamped and must
+be recomputed against commit chronology; the SAP's sensitivity
+analyses carry this entry as a named limitation, alongside
+C-003/C-007 (position) and C-006 (evidence) flags. Hit/reuse/
+miss and rule-target comparisons across arms are unaffected by
+this entry on the content side, but any arm-level comparison
+that ever leaned on timestamp parity (e.g. session-length or
+cadence measures) is restricted from PRO or recomputed. The
+instrumentation calibration reports PRO's hit/reuse/miss
+counts with the nominal-stamp qualification attached.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md
+(this entry), wp2/analysis/PRO_EVENT_TIMESTAMP_PROVENANCE.md
+(new). No pre-registered instrument (order assignments, capture
+criteria, oracle manifests, rules_v0.pl, knowledge_tooling.pl)
+is modified, and no data row of PRO_knowledge_events.csv is
+changed.
