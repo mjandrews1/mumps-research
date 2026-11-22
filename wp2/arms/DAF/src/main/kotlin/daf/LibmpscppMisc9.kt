@@ -360,9 +360,10 @@ fun bmgFullsearchD(a: String, b: String): Int =
     throw NotImplementedError(
         "bmg_fullsearch: out-of-scope owner (selftext.cpp bmg_fullsearch; not a roster unit)")
 
-fun shredD(a: String, i: Int): String =
-    throw NotImplementedError(
-        "Shred(char *, int): out-of-scope owner (selftext.cpp Shred; not a roster unit)")
+// shredD released: the batch-6 roster row 176 IS the libmpscpp.cpp
+// Shred(char *, int) string overload (the prior selftext.cpp blame was
+// wrong; ShredQuery above stays a b4 residue cell). Real body at
+// Shred.kt unit-176 render.
 
 fun shredQueryD(a: String, i: Int): String =
     throw NotImplementedError(

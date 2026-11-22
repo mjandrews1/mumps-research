@@ -200,6 +200,7 @@ decision.
 
 DOC B5 tranche 1 (units 124-133, the simple stratum) translated 2026-11-20: ten units pushed, whole-arm kotlinc gate 0/0 at 135 files; gradle gate on m1-build pending at tranche close. Rows follow the pre-registered batch_plan.md order (simple, core, complex; complexity rank ascending within each stratum; the commit-02aff5f first push of this table had listed the rows in units.csv line order - repaired in place in this commit, values unchanged apart from the corrected row order and the DOC column carrying the tranche-1 translated marks). Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 
+
 | # | Unit | Lang | Class | Status | DOC | DAF | BOTH | code-check | output-check | runtime-check | target-check |
 |---|------|------|-------|--------|-----|-----|------|-------------|--------------|---------------|--------------|
 | 124 | compiler-for.c::<misc> | c | simple | todo | translated | translated | translated | todo | todo | todo | todo |
@@ -292,15 +293,17 @@ DAF B6 tranche 2 (units 165-175, the core stratum) translated 2026-11-22: eleven
 
 DOC B6 tranche 3 (units 176-182, the complex stratum minus the big three) translated 2026-11-21: seven units pushed, whole-arm kotlinc gate 0/0 at 178 files; gradle gate on m1-build pending at tranche close. Rows follow the pre-registered batch_plan.md order. The tranche resolves the remaining raised H-014 seats (Stubs.shred, the 6-arg Stubs.match) and lands the generated-benchmark main (mpstime), the server transaction main, and the read/write compiler pair. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 
+DAF B6 tranche 3 (units 176-182, the complex stratum minus the big three) translated 2026-11-22: seven units pushed, whole-arm kotlinc gate 0/0 at 93 files (both the gate copy and the fresh repo-copy submission, 86 post-T2 base + 7 tranche renders); DAF consults ledgered in the DAF heuristic log ids 175-183; dafny suite 70 verified 0 errors (unchanged; all T3 units EXEMPT). The tranche releases the shredD stub of LibmpscppMisc9 (the prior selftext.cpp blame was wrong: the batch-6 roster row 176 IS the libmpscpp.cpp Shred overload; real body at the unit-176 Shred.kt render), carries the wstemD TAG CORRECTION at LibmpscppMisc5 (owner interp-stem.cpp::wstem at 418, a roster batch-10 cell; the stub STAYS until b10 owns the body), raises inoutDaf (compiler-sys1.c::inout at 292, roster b2), substrDaf (interp-strmanip.cpp::substr, roster b7), zfcnDaf (interp-zfcns.cpp::zfcn, the roster b6 big-three unit 184 that stays queued), numcompDaf/addDaf/subDaf (interp-arith.cpp), strxcatDaf (mpstime.cpp:102 this-TU inline), the variableNotFound family (interp-sysfunc.cpp), and the POSIX platform seats of the server transaction loop (ftokDaf/msggetDaf/msgrcvDaf/socketDaf/sendtoDaf/closeDaf). The mpstime main folds the setjmp/longjmp for-loop state machine onto structured iteration and keeps the M3701 coded bytes (CE, CF comma, 01 mark) as seated Char literals; the queue order stands per the PI decision logged at tranche 1: the 183-185 big-three PI session next, then BOTH B5 T2. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
+
 | # | Unit | Lang | Class | Status | DOC | DAF | code-check | output-check | runtime-check | target-check |
 |---|------|------|-------|--------|-----|-----|-------------|--------------|---------------|--------------|
-| 176 | libmpscpp.cpp::Shred | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
-| 177 | interp-stem.cpp::<misc> | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
-| 178 | compiler-write.c::write_code | c | complex | todo | translated | todo | todo | todo | todo | todo |
-| 179 | server.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
-| 180 | interp-parse.cpp::match | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
-| 181 | compiler-read.c::read_code | c | complex | todo | translated | todo | todo | todo | todo | todo |
-| 182 | mpstime.cpp::main | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
+| 176 | libmpscpp.cpp::Shred | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+| 177 | interp-stem.cpp::<misc> | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+| 178 | compiler-write.c::write_code | c | complex | todo | translated | translated | todo | todo | todo | todo |
+| 179 | server.cpp::main | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+| 180 | interp-parse.cpp::match | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
+| 181 | compiler-read.c::read_code | c | complex | todo | translated | translated | todo | todo | todo | todo |
+| 182 | mpstime.cpp::main | cpp | complex | todo | translated | translated | todo | todo | todo | todo |
 | 183 | interp-bifs.cpp::zfcn | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
 | 184 | interp-zfcns.cpp::zfcn | cpp | complex | todo | translated | todo | todo | todo | todo | todo |
 | 185 | interp-interp.cpp::Interpret | cpp | complex | todo | translated | todo | todo | todo | todo | todo |

@@ -181,12 +181,12 @@ fun globalCharD(n: MpsGlobalNode, i: CharArray, max: Int): CharArray {
 
 // ---- Stem/TokenInit/Token/Dump/Restore service families ----
 
-// int wstem(char *, int) - the stemming entry (interp-bifs.cpp
+// int wstem(char *, int) - the stemming entry (interp-stem.cpp:
 // family; InterpBifsMisc keeps it prototype-only) - named-owner
 // stub, MUMPS runtime sibling of the shred seats.
 fun wstemD(word: CharArray, len: Int): Int =
     throw NotImplementedError(
-        "wstem: out-of-scope owner (interp-bifs.cpp wstem family; not a corpus unit)")
+        "wstem: out-of-scope owner (interp-stem.cpp::wstem at 418; roster b10 cell, 28 loc)")
 
 // mstring Stem(mstring &arg): wstem over the arg, readback fold
 // (rows 101/6: the buffer plumb is str strcpy -> wstem -> mstring).
