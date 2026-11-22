@@ -352,6 +352,36 @@ first; the batch-close protocol follows. Check columns track the
 BASE reference translation (C-002) and stay todo per the C-001
 cycle-10 backfill decision.
 
+**DAF B6 closed 2026-11-22**: 31/31 translated (T1 155-164 push
+f467a08/splice 84b53df, T2 165-175 d9aa0be with the 1306b2d
+push-repair/splice 66045d6, T3 176-182 69cba05/splice 04cf3c0
+with fragment removal b58f99f, big-three session 183-185
+8639236/splice b14103a with removal cadb7cf); whole-arm kotlinc
+gate SILENT EXIT=0 at every close (75 -> 86 -> 93 -> 96 files,
+gate copy plus fresh repo-copy submission each time); gradle
+gate BUILD SUCCESSFUL at every close (m1-build for T1-T3; the
+MacBook splice close carried the six accepted always-true/false
+condition warnings of Interpret.kt, vendor-lattice faithful);
+dafny suite 70 verified 0 errors final (the new mps_log2 spec
+at +5 in T1 and extract spec at +15 in T2; every other unit
+EXEMPT). The DAF arm carries no cookbook, rules base or events
+CSV - the heuristic log is the arm's instrument - so the batch
+close records instrument-row tallies instead of an events
+regeneration: batch rows 148-188 (31 unit rows, outcome totals
+17 hit-reuse / 14 hit-adapt / 0 miss, hit rate 100.0%, reuse
+rate 54.8%; 4 seats rows, 2 spec rows, 4 gate rows), 0 red
+gate builds for the batch, and the arm-close seat ledger, all
+in the arm journal close section. With this close the DAF arm
+is COMPLETE: batches 4-6, units 94-185, 92/92 translated and
+gate-green; the named-owner seats raised against roster cells
+outside the arm's drawing (b1/b2/b7/b8/b9/b10 owners, the POSIX
+platform and GTK glue families, the non-roster families) stay
+as the honest UNRESOLVED stub record per the H-014 discipline -
+their owners live in the other arms' drawings. Check columns
+stay todo per the C-001 cycle-10 backfill decision. Next
+protocol step per the committed order and the PI queue decision:
+BOTH B5 T2 (core 134-143).
+
 **DOC B6 closed 2026-11-21**: 31/31 translated (T1 155-164 commit
 ee0bd410/splice cac8a53, T2 165-175 74264c1/fe438e7, T3 176-182
 a89e8b5/caf23fa, big-three session 183-185 9240c8a/6bca28d);
