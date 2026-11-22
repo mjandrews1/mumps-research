@@ -80,11 +80,28 @@ internal class Stab {
     var exec: Int = 0
 }
 
-// global-class member Transpose(b) - vendor call at libmpscpp.cpp
-// file Transpose wrapper (unit 137 of this batch); the member body is
-// not a corpus unit (layout owner globalClass.h::<misc> roster 89).
-internal fun GlobalNode.transpose(other: GlobalNode): Unit {
-    TODO("stub: global-class Transpose member (layout owner roster 89; not a corpus unit)")
+// global-class member Transpose(b) - vendor body:
+// libmpscpp.cpp::global::Transpose (landed by the unit 154
+// render, the batch-5 tranche-3 complex chunk; the T2 seat above
+// flipped per the standing h014 seat protocol - this edit). The
+// real loop body rides the order/kill/valuation carrier seats
+// below (layout owner roster 259, pending).
+internal fun GlobalNode.transpose(other: GlobalNode) {
+    other.kill() // B().Kill()
+
+    var aa = ""
+    while (true) {
+        aa = invoke(aa).order(1) // aa = (string) (*this)(aa).Order(1)
+        if (aa == "") break
+
+        var bb = ""
+        while (true) {
+            bb = invoke(aa, bb).order(1) // (*this)(aa,bb).Order(1)
+            if (bb == "") break
+            // B(bb,aa) = (*this)(aa,bb)
+            other.invoke(bb, aa).setValue(invoke(aa, bb).value())
+        }
+    }
 }
 
 // global-class member Multiply(b,c) - owner: libmpscpp.cpp::global::
@@ -92,4 +109,200 @@ internal fun GlobalNode.transpose(other: GlobalNode): Unit {
 // passes the three file-level wrappers' carriers.
 internal fun GlobalRef.multiply(b: GlobalRef, c: GlobalRef) {
     TODO("stub: owner libmpscpp.cpp::global::Multiply (roster unit 213, batch 2)")
+}
+
+// -------------------------------------------------------------------------
+// Batch-5 tranche-3 seats (complex units 144-154), added 2026-11-22.
+//
+// T3 consults (rule base wp2/arms/BOTH/rules_v0.pl):
+//   h014 out_of_scope_call - reused: every seat below names its
+//     roster owner; the global-class member seats name the
+//     include/mumpsc/globalClass.h::<misc> layout owner.
+//   h017 naming - reused: vendor names kept (SYNMAX, wstem, pm,
+//     parse_, AllocSV, Indirect.reference per struct indirect).
+//   PIN CORRECTION (journaled): the T1 header above cites the
+//     global-class layout owner as roster 89; units.csv pins it
+//     include/mumpsc/globalClass.h::<misc> rank 259 batch 3. The
+//     new seats cite 259; the stale note above stays untouched
+//     for history.
+//   MISS class_member_carrier recurrence: the GlobalNode
+//     order/kill/valuation seats below extend the carrier
+//     pattern (T1/T2 recurrence; see events CSV).
+
+// const SYNMAX - libmpscpp.h:385; the SynInit syn[] table cap
+// (unit 146 render seat; TU-dimension pin, no owner unit).
+internal const val SYNMAX = 20000 // libmpscpp.h:385
+
+// struct MSV *AllocSV() - owner: interp-sysfunc.cpp::AllocSV,
+// roster 285, batch 8. TODO-stub (h014); the Qlength push seat.
+internal fun allocSV(): Msv {
+    TODO("stub: owner interp-sysfunc.cpp::AllocSV (roster 285, batch 8)")
+}
+
+// int parse_(struct MSV *) - owner: interp-parse.cpp::parse_, roster
+// 303, batch 3. TODO-stub (h014); the Qlength parse seat (vendor
+// name parse_ kept; h015 note: trailing-underscore identifiers do
+// not collide with Kotlin keywords, no rename needed).
+internal fun parse_(sv: Msv): Int {
+    TODO("stub: owner interp-parse.cpp::parse_ (roster 303, batch 3)")
+}
+
+// int wstem(char *, int) - owner: interp-stem.cpp::wstem, roster
+// 164, batch 10. TODO-stub (h014); the Stem/stem family seats.
+internal fun wstem(buf: CharArray, len: Int): Int {
+    TODO("stub: owner interp-stem.cpp::wstem (roster 164, batch 10)")
+}
+
+// int pm(const unsigned char *, const unsigned char *, struct MSV *)
+// - include/mumpsc/libmpscpp.h:237; the body sits in interp-pm.cpp
+// (non-unit provenance). TODO-stub (h014); the pmw wrappers seat.
+internal fun pm(a: CharArray, b: CharArray, sv: Msv): Int {
+    TODO("stub: owner interp-pm.cpp::pm (libmpscpp.h:237; not a corpus unit)")
+}
+
+// struct indirect (include/mumpsc/globalClass.h): the operator*
+// result carrier. MISS class_member_carrier (recurrence): the
+// layout owner is not yet in this arm; only the reference field
+// the misc-5 render touches is carried.
+internal class Indirect(var reference: String)
+
+// global extract seat: the vendor i >> t / (*this) >> t family
+// (globalClass.h operator>>). Layout owner:
+// include/mumpsc/globalClass.h::<misc>, roster 259, batch 3
+// (pending in this arm). TODO-stub (h014); the global::Int/
+// Double/Mstring/Char members and the mstring global-comparison
+// arms seat through it.
+internal fun GlobalRef.extractValue(): String {
+    TODO("stub: owner include/mumpsc/globalClass.h::<misc> (roster 259, batch 3)")
+}
+
+// global::DocCorrelate(global, string, double) - the string-arm
+// member the misc-5 overloads delegate to; layout owner
+// globalClass.h::<misc> roster 259 (pending). TODO-stub (h014).
+internal fun GlobalRef.docCorrelate(B: GlobalRef, fcn: String, threshold: Double) {
+    TODO("stub: owner globalClass.h::<misc> DocCorrelate string arm (roster 259, batch 3)")
+}
+
+// global-node carrier extensions: the global::Order / global::
+// Kill / valuation and assignment members the Transpose member
+// body and the wrappers ride. Layout owner:
+// include/mumpsc/globalClass.h::<misc>, roster 259, batch 3
+// (pending in this arm). TODO-stubs (h014); the Transpose member
+// renders its real loop body over them (the T2 transpose stub
+// flips in the unit 154 render - see there).
+internal fun GlobalNode.order(dir: Int): String {
+    TODO("stub: owner globalClass.h::<misc> global::Order (roster 259, batch 3)")
+}
+
+internal fun GlobalNode.kill() {
+    TODO("stub: owner globalClass.h::<misc> global::Kill (roster 259, batch 3)")
+}
+
+// The valuation/assignment pair: B(bb,aa) = (*this)(aa,bb) reads
+// the right node and stores into the left.
+internal fun GlobalNode.value(): String {
+    TODO("stub: owner globalClass.h::<misc> valuation (roster 259, batch 3)")
+}
+
+internal fun GlobalNode.setValue(v: String) {
+    TODO("stub: owner globalClass.h::<misc> assignment (roster 259, batch 3)")
+}
+
+// Global-value assignment seat (Ztell global arm writes the
+// caller's global object). Layout owner globalClass.h::<misc>
+// roster 259 (pending). TODO-stub (h014).
+internal fun GlobalRef.assignValue(v: String) {
+    TODO("stub: owner globalClass.h::<misc> global assignment (roster 259, batch 3)")
+}
+
+// Node-invoke seats (further-subscript walk on the carrier):
+// layout owner globalClass.h::<misc> roster 259 (pending).
+internal operator fun GlobalNode.invoke(sub: String): GlobalNode {
+    return GlobalNode()
+}
+
+internal operator fun GlobalNode.invoke(sub1: String, sub2: String): GlobalNode {
+    return GlobalNode()
+}
+
+// The two-subscript invoke arm the Transpose member uses
+// ((*this)(aa,bb)); the one-subscript T1 seat stays above.
+internal operator fun GlobalRef.invoke(sub1: String, sub2: String): GlobalNode {
+    // vendor appends both coded subscripts; concrete key build
+    // stays with the layout owner (roster 259, pending).
+    return GlobalNode()
+}
+
+// GTK platform seats (mdh_* family, libmpscpp.cpp TU glue): every
+// non-corpus helper below rides the GTK platform edge; owners are
+// the vendor GTK binding family (not corpus units). The mdh_dialog_
+// new_with_buttons arm is REAL (zfcn-based) in the unit 154 render;
+// the direct gtk_* wrappers stay stubs (h014 platform provenance).
+internal fun mdh_toggle_button_get_active(b: String): Int {
+    TODO("stub: GTK platform edge, mdh_toggle_button_get_active (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_switch_get_active(b: String): Int {
+    TODO("stub: GTK platform edge, mdh_switch_get_active (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_toggle_button_set_active(b: String, v: Int) {
+    TODO("stub: GTK platform edge, mdh_toggle_button_set_active (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_entry_get_text(e: String, txt: CharArray): CharArray {
+    TODO("stub: GTK platform edge, mdh_entry_get_text (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_range_get_adjustment(e: String): Double {
+    TODO("stub: GTK platform edge, mdh_range_get_adjustment (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_calendar_get_date(e: String): String {
+    // static char tmp[256] in the vendor folds per h008 (fresh).
+    TODO("stub: GTK platform edge, mdh_calendar_get_date (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_entry_set_text(e: String, txt: String) {
+    TODO("stub: GTK platform edge, mdh_entry_set_text (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_text_buffer_set_text(t: String, txt: String) {
+    TODO("stub: GTK platform edge, mdh_text_buffer_set_text (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_font_chooser_get_font(b: String): String {
+    TODO("stub: GTK platform edge, mdh_font_chooser_get_font (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_color_chooser_get_rgba(c: String): String {
+    TODO("stub: GTK platform edge, mdh_color_chooser_get_rgba (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_label_set_text(l: String, txt: String) {
+    TODO("stub: GTK platform edge, mdh_label_set_text (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_widget_hide(w: String) {
+    TODO("stub: GTK platform edge, mdh_widget_hide (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_widget_show(w: String) {
+    TODO("stub: GTK platform edge, mdh_widget_show (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_tree_selection_get_selected(t: String, col: Int, txt: CharArray): CharArray {
+    TODO("stub: GTK platform edge, mdh_tree_selection_get_selected (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_tree_store_clear(t: String) {
+    TODO("stub: GTK platform edge, mdh_tree_store_clear (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_spin_button_get_value(s: String): Double {
+    TODO("stub: GTK platform edge, mdh_spin_button_get_value (libmpscpp.cpp glue; not a corpus unit)")
+}
+
+internal fun mdh_spin_button_set_value(s: String, v: Double) {
+    TODO("stub: GTK platform edge, mdh_spin_button_set_value (libmpscpp.cpp glue; not a corpus unit)")
 }

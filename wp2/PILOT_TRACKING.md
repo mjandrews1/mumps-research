@@ -223,17 +223,17 @@ DOC B5 tranche 1 (units 124-133, the simple stratum) translated 2026-11-20: ten 
 | 141 | interp-strmanip.cpp::<misc> | cpp | core | todo | translated | translated | translated | todo | todo | todo | todo |
 | 142 | interp-sym.cpp::SysDump | cpp | core | todo | translated | translated | translated | todo | todo | todo | todo |
 | 143 | interp-rpm.cpp::parse_count | cpp | core | todo | translated | translated | translated | todo | todo | todo | todo |
-| 144 | include/mumpsc/sym.h::<misc> | c | complex | todo | translated | translated | todo | todo | todo | todo | todo |
-| 145 | interp-sym.cpp::Qlength | cpp | complex | todo | translated | translated | todo | todo | todo | todo | todo |
-| 146 | libmpscpp.cpp::SynInit | cpp | complex | todo | translated | translated | todo | todo | todo | todo | todo |
-| 147 | interp-rpm.cpp::scan_token | cpp | complex | todo | translated | translated | todo | todo | todo | todo | todo |
-| 148 | interp-bmgsubs.c::bmg_search | c | complex | todo | translated | translated | todo | todo | todo | todo | todo |
-| 149 | include/mumpsc/mstringClass.h::<misc> | c | complex | todo | translated | translated | todo | todo | todo | todo | todo |
-| 150 | mumps.cpp::main | cpp | complex | todo | translated | translated | todo | todo | todo | todo | todo |
-| 151 | include/mumpsc/compiler-globals-ext.h::<misc> | c | complex | todo | translated | translated | todo | todo | todo | todo | todo |
-| 152 | interp-rpm.cpp::<misc> | cpp | complex | todo | translated | translated | todo | todo | todo | todo | todo |
-| 153 | rdbms-if.c::sql | c | complex | todo | translated | translated | todo | todo | todo | todo | todo |
-| 154 | libmpscpp.cpp::<misc-5> | cpp | complex | todo | translated | translated | todo | todo | todo | todo | todo | todo
+| 144 | include/mumpsc/sym.h::<misc> | c | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 145 | interp-sym.cpp::Qlength | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 146 | libmpscpp.cpp::SynInit | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 147 | interp-rpm.cpp::scan_token | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 148 | interp-bmgsubs.c::bmg_search | c | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 149 | include/mumpsc/mstringClass.h::<misc> | c | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 150 | mumps.cpp::main | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 151 | include/mumpsc/compiler-globals-ext.h::<misc> | c | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 152 | interp-rpm.cpp::<misc> | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 153 | rdbms-if.c::sql | c | complex | todo | translated | translated | translated | todo | todo | todo | todo |
+| 154 | libmpscpp.cpp::<misc-5> | cpp | complex | todo | translated | translated | translated | todo | todo | todo | todo | todo
 
 **DOC B5 closed 2026-11-20**: 31/31 translated in tranches T1-T3
 (simple/core/complex, batch_plan order). Coverage checklist in
@@ -495,3 +495,5 @@ journal entry follows). Check columns track the BASE reference
 translation (C-002) and stay todo per the C-001 cycle-10 backfill
 decision. Next protocol step: DOC batch 8 per the committed row
 order (cycle 7).
+
+BOTH B5 tranche 3 (units 144-154, the complex stratum, batch close) translated 2026-11-22: eleven units pushed (sym.h misc, Qlength, SynInit, scan_token, bmg_search, mstringClass misc, mumps main, compiler-globals-ext misc, rpm misc, sql, libmpscpp misc-5), whole-arm kotlinc gate SILENT EXIT=0 at 32 files (gate copy plus the fresh repo-copy submission); dafny suite 30 verified 0 errors unchanged (all T3 units EXEMPT, no new spec); the eleven BOTH rows below marked translated and batch 5 is complete for the BOTH arm (31/31 translated). BOTH consults ledgered in the events CSV at the 19:05:00-19:05:52 band (53 event rows: 34 reuse, 16 hit, 3 miss). The tranche resolves the acceptIt seat (the roster-271 rpm misc render releases the T2 parse_count stub flip), lands the global-class Transpose member (the T2 transpose stub flip; both carried over the GlobalNode order/kill/valuation seats against the globalClass.h layout owner roster 259 - the T1 roster-89 blame is corrected in the seat header), extends the Msv carrier with the tranche-3 stateVector.h fields (xd/t0px/xpx/t2/program), and seats the GTK platform family plus the CLOSE/INVALID_CONVERSION/SYNMAX pins. OPEN ITEM: the m1-build gradle gate round and the MacBook gate (gradle build from wp2/arms/BOTH) follow the splice at batch close review; the BATCH-CLOSE protocol (coverage checklist, C-008 events export, journal close prose) runs next per the committed order. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.

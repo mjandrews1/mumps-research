@@ -50,13 +50,19 @@ internal class Bstring(val length: Int, val string: CharArray)
 // struct token (interp-rpm.cpp:74-77).
 internal class RpmToken(val kind: TokenType, val text: Bstring)
 
-// struct parser (interp-rpm.cpp:85-88): current_token only here.
-internal class Parser(var currentToken: RpmToken)
+// struct parser (interp-rpm.cpp:85-88): current_token plus the
+// scanner seat; the scanner field seats at the T3 flip (the
+// interp-rpm.cpp::<misc> render of the same batch extends this
+// carrier: Parser.s; the T2 declaration carried current_token
+// only because no parser body existed yet - journaled there).
+internal class Parser(var currentToken: RpmToken, var s: Scanner? = null)
 
 // void accept_it(struct parser*) - owner: interp-rpm.cpp::<misc>,
-// roster 271 (batch-5 complex, pending in this arm). TODO-stub.
+// roster 271 (the T3 render of the same batch; the h014
+// delegate-when-owner-lands flip: this T2 seat now delegates to
+// the scan cycle).
 internal fun acceptIt(p: Parser) {
-    TODO("stub: owner interp-rpm.cpp::<misc> (roster 271)")
+    p.currentToken = scan(p.s!!) // p->current_token = scan(&p->s)
 }
 
 // struct bstring new_bstring(const char[]) - owner:

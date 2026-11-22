@@ -28,6 +28,7 @@ package both
 internal const val STR_MAX = 32000 // strmax.h:3; file-private (collision lesson)
 internal const val RETRIEVE = 0 // defines.h: RETRIEVE 0
 internal const val GLOBAL_NOT_FOUND = 2 // libmpscpp.h:71
+internal const val INVALID_CONVERSION = 1 // libmpscpp.h:70 (T3-add; thrownMessage seat)
 
 // libmpscpp.h:62 extern int GlobalExceptionCode (owner: the
 // libmpscpp.h::<misc> residue unit, roster unit 305).
@@ -53,6 +54,17 @@ internal class Msv {
     var _Sym: Int = 0 // stateVector.h:65 (current symtab frame)
     var LineNumber: Long = 0 // stateVector.h:63
     val start: Array<Stab?> = arrayOfNulls(SYM_MAX) // stateVector.h:71
+
+    // T3-add extension fields (tranche-3 pins, stateVector.h):
+    //   xd :45 (Qlength input arena), t0px :55 / xpx :56 (the
+    //   Qlength walk pair), t2 :67, program :100 (the mumps main
+    //  _argv seat, 512). No collisions with the existing fields
+    //   (checked against the T1/T2 set above).
+    val xd = CharArray(STR_MAX) // stateVector.h:45
+    var t0px: Int = 0 // stateVector.h:55
+    var xpx: Int = 0 // stateVector.h:56
+    var t2: Int = 0 // stateVector.h:67
+    val program = CharArray(512) // stateVector.h:100
 }
 
 internal val svPtr = Msv() // vendor file-scope svPtr (libmpscpp.cpp TU)
@@ -126,6 +138,7 @@ internal fun cStringOf(buf: CharArray): String {
 internal const val XNEXT = 8 // defines.h:88; the Mglobal order-walk op
 internal const val INPUT_LENGTH = 10 // libmpscpp.h:79
 internal const val SYM_MAX = 200 // defines.h:218; symbol table stack depth
+internal const val CLOSE = 4 // defines.h:87 (T3-add; the GlobalClose macro seat)
 
 // void sigint(int) - include/mumpsc/fcns.h family. Owner:
 // interp-sysfunc.cpp::sigint, roster unit 254, batch 7. TODO-stub
