@@ -54,3 +54,15 @@ fun Transpose(svptr: DafMsv?, ep: CharArray, arg1: CharArray,
 
     return ""
 }
+
+// ---------------------------------------------------------------------
+// DAF B5 T2 ROW-142 VERIFICATION ADDENDUM (logged with the B5 T2
+// tranche section; see TransposeAb.kt for the B4-T1 mapping repair
+// disclosure): this render (the 23-LOC MSV service wrapper at
+// vendor :10316) is the corpus libmpscpp.cpp::Transpose ROW-142
+// body (units.csv row 142: loc 23, ptr 0, score 14.1, rank 136,
+// core, batch 5 - the row THIS arm reaches at B5 T2). Verified
+// line-for-line against the row-142 dump at B5 T2 with the
+// per-row study metrics (the same-id adjudication of the corpus
+// pair rows 118/142; no new code, verification-only column).
+// ---------------------------------------------------------------------

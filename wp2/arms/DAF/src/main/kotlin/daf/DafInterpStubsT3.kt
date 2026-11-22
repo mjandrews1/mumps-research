@@ -246,11 +246,17 @@ fun timeD(): Long =
 fun getcwdD(): String? =
     System.getProperty("user.dir")
 
-// lpad(unsigned char *, unsigned char *, short) - roster
-// interp-arith.cpp family; named-owner stub.
+// lpad(unsigned char *, unsigned char *, short) - TAG CORRECTION +
+// FLIP at B5 T2 (unit 137): the raise above said owner
+// interp-arith.cpp (the B4-T3 misconstruction; grep-verified: no
+// lpad body exists in interp-arith.cpp). The owner is
+// interp-strmanip.cpp::<misc> (roster row 137, rendered at B5 T2 as
+// StrmanipMisc.kt lpadStrmanipD); the seat now delegates. The seat
+// signature maps (dst, src, l) onto the vendor order (strin=src,
+// strout=dst, l) - the sole in-batch call site (Fcn.kt) passes the
+// same array twice, so the mapping is alias-safe either way.
 fun lpadDaf(dst: CharArray, src: CharArray, l: Int): Unit =
-    throw NotImplementedError(
-        "lpad: out-of-scope owner (interp-arith.cpp lpad; not a roster unit of this batch)")
+    lpadStrmanipD(src, dst, l)
 
 // isalpha() - ASCII-only fold of the libc ctype (BASE-log row 25 family)
 fun isAlphaAscii(c: Char): Boolean =
