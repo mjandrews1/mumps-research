@@ -15,10 +15,19 @@ var a: Array<IntArray>? = null
 // libmpscpp.cpp:8032 std::string S_RESULT
 var S_RESULT = ""
 
-// TODO stub: inline int Score(char, char) at libmpscpp.cpp:8049 is owned
-// by the sequence-alignment Score unit of a later batch; out-of-scope.
-fun Score(a: Char, b: Char): Int =
-    throw NotImplementedError("Score: out-of-scope owner (libmpscpp.cpp:8049)")
+// inline int Score(char a, char b) at libmpscpp.cpp:8049. B10 T3
+// FLIP (2026-11-22T06:21:00Z consult, hit-reuse): the raised
+// forward-tag stub resolves onto the unit-301 LibmpscppMisc10.kt
+// owner - the misc-8 chunk IS the sequence-alignment Score unit
+// it waited for. The body rides the GAP/MATCH/MISMATCH file
+// scope below.
+fun Score(a: Char, b: Char): Int {
+    if (a == '-' || b == '-') return GAP
+
+    if (a == b) return MATCH
+
+    return MISMATCH
+}
 
 
 // Same libmpscpp.cpp sequence-alignment file scope as EMPTY_CELL/__a/
