@@ -335,17 +335,17 @@ fun jaccardD(a: MpsGlobalNode, b: MpsGlobalNode): Double =
     throw NotImplementedError(
         "Jaccard(global,global): out-of-scope owner (libmpscpp.cpp free-function Jaccard; called by the wrapper of roster unit Jaccard)")
 
-fun diceD(a: MpsGlobalNode, b: MpsGlobalNode): Double =
-    throw NotImplementedError(
-        "Dice(global,global): out-of-scope owner (libmpscpp.cpp free-function Dice; called by the wrapper of roster unit Dice)")
-
-fun stopInitD(a: String): Unit =
-    throw NotImplementedError(
-        "StopInit(char *): out-of-scope owner (libmpscpp.cpp/selftext.cpp StopInit; not a roster unit)")
-
+// TAG CORRECTION at B6 T2 (units 166/175): the deleted stopInitD
+// stub blamed the owner "libmpscpp.cpp/selftext.cpp StopInit; not
+// a roster unit" - WRONG blame unit family, RIGHT release: units.csv
+// batch-6 row 166 IS the string overload at libmpscpp.cpp:7729 (the
+// real body now renders in StopInit.kt; the StopList stop set
+// carrier at 7718). The diceD stub deleted above was correctly
+// blamed: roster unit 175 releases it (Dice.kt keeps the two-arg
+// wrapper signature the DiceW call uses).
 fun stopLookupD(a: String): Boolean =
     throw NotImplementedError(
-        "StopLookup(char *): out-of-scope owner (selftext.cpp StopLookup; not a roster unit)")
+        "StopLookup(char *): out-of-scope owner (selftext.cpp StopLookup; not a corpus unit; a future body would read the DafStop carrier of the unit-166 StopInit.kt render)")
 
 // TAG CORRECTION at B5 T3 (unit 146): SYN's body is grep-verified at
 // libmpscpp.cpp:7788 (not selftext.cpp - the b4-T3 raise mis-tagged

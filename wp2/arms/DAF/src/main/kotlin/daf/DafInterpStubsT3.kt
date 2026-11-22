@@ -11,7 +11,9 @@ package daf
 // Named-owner roster homes (units.csv batches in parentheses):
 //   xindexDaf          <- interp-strmanip.cpp::xindex (b9) /
 //                         compiler-sys1.c::xindex (b10)
-//   MglobalDaf         <- interp-globalb.cpp::Mglobal (b6)
+//   MglobalDaf RELEASED <- interp-globalb.cpp::Mglobal (b6 body
+//                         rendered by the unit-167 Mglobal.kt of
+//                         the batch-6 tranche 2; real dispatcher)
 //   parseDaf           <- interp-parse.cpp::parse_ (b9)
 //   symRetDaf          <- interp-sym.cpp::sym_ (no roster unit for the
 //                         dispatcher; permanent named-owner stub, nullable
@@ -103,10 +105,6 @@ var GlobalExceptionCodeD = 0
 fun xindexDaf(s: CharArray, sOff: Int, pat: CharArray, patOff: Int, from: Int): Int =
     throw NotImplementedError(
         "xindex: out-of-scope owner (interp-strmanip.cpp::xindex, roster b9; compiler-sys1.c::xindex, roster b10)")
-
-fun MglobalDaf(op: Int, name: CharArray, res: CharArray, sv: DafMsv): Int =
-    throw NotImplementedError(
-        "Mglobal: out-of-scope owner (interp-globalb.cpp::Mglobal, roster b6)")
 
 fun parseDaf(sv: DafMsv): Int =
     throw NotImplementedError(

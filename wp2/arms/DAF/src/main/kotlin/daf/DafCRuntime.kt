@@ -119,6 +119,44 @@ class DafMsv {
     var _Sym = 0
     val hor = IntArray(32)               // \$x cursor table
     val ver = IntArray(32)               // \$y cursor table
+
+    // B6 T2 seat extension (unit 172; the residual struct MSV roster
+    // of mumpsc/stateVector.h; values pinned from the vendor struct
+    // in vendor order; fold per BASE-log rows 18/22):
+    val cfgdata = CharArray(256)         // char cfgdata[256]
+    val cfgkey = CharArray(256)          // char cfgkey[256]
+    var LockDone = 0                     // int LockDone
+    var kflg = 0                         // int kflg
+    var symflg = 0                       // int symflg
+    var ITRAP = 0                        // int ITRAP
+    var ctrlc = 0                        // int ctrlc
+    var iorg = 0                         // int iorg
+    var ERROR = 0                         // int ERROR
+    var gpad = 0                          // int gpad
+    val in_file = IntArray(10)            // FILE *in_file[10] (handle domain)
+    val out_file = IntArray(10)          // FILE *out_file[10] (handle domain)
+    val RefParm = Array(10) { CharArray(16) } // call-by-ref names
+    val Rargs = Array(10) { CharArray(16) }   // call-by-ref args
+    var Rargsx = 0                       // int Rargsx
+    var _SymPush = 0                     // int _SymPush
+    var order = 0                        // int order
+    var hit = 0L                         // unsigned long hit (btree cache)
+    var count = 0L                       // unsigned long count (btree cache)
+    var restoredata = 0L                 // unsigned long long restoredata
+    var ScanMinWordSize = 0              // int ScanMinWordSize
+    var ScanMaxWordSize = 0              // int ScanMaxWordSize
+    val UKEY = CharArray(1024)           // char UKEY[1024]
+    val UDAT = CharArray(1024)           // char UDAT[1024]
+    val Table = CharArray(256)           // char Table[256] (data base table)
+    var ConOpen = 0                      // int ConOpen
+    val pgsql_msg = CharArray(STR_MAX_DAF) // char pgsql_msg[STR_MAX]
+    val Connection = CharArray(STR_MAX_DAF) // char Connection[STR_MAX]
+    val Col_Names = CharArray(STR_MAX_DAF)  // char Col_Names[STR_MAX]
+    val fdes = IntArray(2)               // int fdes[2] (exec pipe pair)
+    var exec = 0                         // int exec
+    val reference = CharArray(1024)       // char reference[1024] (by-ref name)
+    var ErrChar = ' '                    // char ErrChar
+    val program = CharArray(512)         // char program[512] (current program)
 }
 
 object DafInterpState {

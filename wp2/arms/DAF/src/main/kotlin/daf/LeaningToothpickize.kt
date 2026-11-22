@@ -9,7 +9,7 @@ package daf
 // hit-reuse (struct bstring by-value -> the DafBstring class bag; the
 // vendor .length member folds to the builder length), rows 25 family
 // hit-adapt (ispunct -> the ASCII-only isPunctAsciiD local of the
-// row-25 ctype fold: the four punt ranges over (char)0..127), rows
+// row-25 ctype fold: the four punct ranges over (char)0..127), rows
 // 37/90 hit-reuse (the bstring ops new_bstring/bcatchr keep their
 // named-owner stub seats: owner interp-bstring.cpp::<misc> roster
 // unit 22; the render calls the stubs unmodified so the real bodies,
@@ -55,7 +55,7 @@ fun leaningToothpickizeD(unmangled: DafBstring): DafBstring {
 
 // ispunct (row 25 family, ASCII-only explicit ranges; the 91..96
 // code range is the backtick-diacritic range kept as an explicit
-// Char-code check. NOT Kotlin
-// isLetterOrDigit-style predicates).
+// Char-code check; NOT Kotlin isLetterOrDigit-style
+// predicates.
 private fun isPunctAsciiD(c: Char): Boolean =
     c in '!'..'/' || c in ':'..'@' || c.code in 91..96 || c in '{'..'~'

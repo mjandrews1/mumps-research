@@ -16,7 +16,7 @@ package daf
 // String return; kotlin.math.log2 reproduces the C library log2 on
 // the hardware-double path).
 // Vendor quirk kept: log2 of a nonpositive parsed input is the C
-// library's -inf NaN pathology; the render does not guard it (the
+// library's -inf-or-NaN pathology; the render does not guard it (the
 // domain pathology is the vendor shape, ledgered per the log10
 // precedent).
 // Dafny spec: spec/mps_log2.dfy (mirrors spec/mps_log10.dfy: the

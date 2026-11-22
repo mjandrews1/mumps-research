@@ -18,7 +18,7 @@ package daf
 // row 37 hit-reuse (include residue -> the KDoc disposition ledger
 // of the SymHMisc.kt unit-144 precedent).
 // Disposition per define (nothing emitted; the values are recorded
-// here as the arm config cents):
+// here as the arm config constants):
 //   PS 4096, PS1 PS+1 - the memory page constants (no DAF seat
 //   reads them today).
 //   SHOW_CODE 1, VERSION 1000, FORPARM 32, NOTABS - build switches
