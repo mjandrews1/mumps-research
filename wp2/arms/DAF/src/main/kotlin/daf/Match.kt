@@ -36,9 +36,14 @@ private fun matchLenD(buf: CharArray): Int {
     return n
 }
 
-fun substrDaf(src: CharArray, srcOff: Int, out: CharArray, from: Int, len: Int): Unit =
-    throw NotImplementedError(
-        "substr(char *, char *, int, int): out-of-scope owner (interp-strmanip.cpp::substr at 345, roster b7; compiler-sys1.c::substr roster b7 cousin)")
+// substrDaf seat RELEASED at the unit-190 render (B7 T1): the stub
+// body below is DELETED; the real body lives at StrmanipSubstr.kt
+// (owner interp-strmanip.cpp::substr, roster b7-190). The two call
+// sites of this file (compiler-sys1.c::match, the b7-212 batch row)
+// REBIND to compilerSubstrD - the TU-local compiler-sys1.c::substr
+// twin (roster b7-189) per the DOC unit-59 inout precedent: the
+// vendor match calls the substr of its OWN TU (the short-domain
+// 255-clamp body, short i), not the strmanip service.
 
 fun matchD(pts: Array<IntArray>, lx: Int, ct: IntArray, ad: CharArray,
            rslt: IntCellD, bd: CharArray): Unit {
@@ -116,8 +121,8 @@ fun matchD(pts: Array<IntArray>, lx: Int, ct: IntArray, ad: CharArray,
                     if (pts[2][i] == 0) continue
                     if (ptr + pts[2][i] - 1 > matchLenD(ad)) return
                     ptr++
-                    substrDaf(ad, ptr, tmp1, 1, pts[2][i] - 1)
-                    substrDaf(bd, 1, tmp2, pts[1][i] + 1, pts[2][i] - 1) // &bd[1] quirk
+                    compilerSubstrD(ad, ptr, tmp1, 1, pts[2][i] - 1)
+                    compilerSubstrD(bd, 1, tmp2, pts[1][i] + 1, pts[2][i] - 1) // &bd[1] quirk
                     if (DafCRuntime.cstring(tmp2) != DafCRuntime.cstring(tmp1)) return
                     ptr = ptr + matchLenD(tmp1) - 1
                 }

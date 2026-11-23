@@ -451,16 +451,33 @@ the Stubs.IDF seat, and carries one compiler tag correction
 reference-translation (C-002) and stay todo per the C-001
 cycle-10 backfill decision.
 
-| 186 | libmpscpp.cpp::global::Find | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 187 | compiler-zcommands.c::<misc> | c | simple | todo | translated | todo | todo | todo | todo |
-| 188 | libmpscpp.cpp::global::Piece | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 189 | compiler-sys1.c::substr | c | simple | todo | translated | todo | todo | todo | todo |
-| 190 | interp-strmanip.cpp::substr | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 191 | libmpscpp.cpp::mstring::Translate | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 192 | libmpscpp.cpp::GlobalData | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 193 | libmpscpp.cpp::global::Soundex | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 194 | interp-sym.cpp::_justify | cpp | simple | todo | translated | todo | todo | todo | todo |
-| 195 | interp-sym.cpp::mkpt | cpp | simple | todo | translated | todo | todo | todo | todo |
+DAF B7 tranche 1 (units 186-195, the simple stratum) translated
+2026-11-23: ten units pushed, whole-arm kotlinc gate SILENT EXIT=0 at
+106 files (the gate copy; the fresh repo-copy submission rides this
+push); DAF consults ledgered in the DAF heuristic log ids 189-200;
+dafny suite 70 verified 0 errors (unchanged; all ten T1 units EXEMPT
+or residue). Rows follow the pre-registered batch_plan.md order
+(simple stratum, complexity rank ascending). The tranche releases the
+substrDaf seat (the B6 T3 raise) at the unit-190 render with the
+compiler-side Match.kt call sites REBOUND to the unit-189 TU-local
+sys1 twin per the DOC unit-59 inout precedent, carries same-family
+overload adjudications (the unit-186 Find char*-key twin; the
+unit-192 GlobalData mstring needle at libmpscpp.cpp:2616, dump
+loc-verified), and notes the SymHMisc/StrmanipMisc tag corrections
+for the T3 sigint/serviceInterface renders. Check columns track the
+BASE reference translation (C-002) and stay todo per the C-001
+cycle-10 backfill decision.
+
+| 186 | libmpscpp.cpp::global::Find | cpp | simple | todo | translated | translated | todo | todo | todo |
+| 187 | compiler-zcommands.c::<misc> | c | simple | todo | translated | translated | todo | todo | todo |
+| 188 | libmpscpp.cpp::global::Piece | cpp | simple | todo | translated | translated | todo | todo | todo |
+| 189 | compiler-sys1.c::substr | c | simple | todo | translated | translated | todo | todo | todo |
+| 190 | interp-strmanip.cpp::substr | cpp | simple | todo | translated | translated | todo | todo | todo |
+| 191 | libmpscpp.cpp::mstring::Translate | cpp | simple | todo | translated | translated | todo | todo | todo |
+| 192 | libmpscpp.cpp::GlobalData | cpp | simple | todo | translated | translated | todo | todo | todo |
+| 193 | libmpscpp.cpp::global::Soundex | cpp | simple | todo | translated | translated | todo | todo | todo |
+| 194 | interp-sym.cpp::_justify | cpp | simple | todo | translated | translated | todo | todo | todo |
+| 195 | interp-sym.cpp::mkpt | cpp | simple | todo | translated | translated | todo | todo | todo |
 | 196 | libmpscpp.cpp::global::Fnumber | cpp | core | todo | translated | todo | todo | todo | todo |
 | 197 | include/mumpsc/externs.h::<misc> | c | core | todo | translated | todo | todo | todo | todo |
 | 198 | interp-sysfunc.cpp::GlobalData | cpp | core | todo | translated | todo | todo | todo | todo |
