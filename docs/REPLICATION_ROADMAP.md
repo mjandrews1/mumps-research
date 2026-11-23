@@ -51,6 +51,37 @@ replications bound the claims.
   the replication program; wp2/PRACTICE_NOTES.md remains reserved for
   refinements to current-study practice.
 
+## Translator capability drift (2026-11-23)
+
+The five-arm effects are conditional on a "translator still needs the
+instrument" regime: as machine-assistant capability grows, consult
+density and miss firing drop, and the instrument arms are expected to
+converge behaviorally (contrast attenuation) even where instrument
+value is unchanged. Standing rules for the replication program:
+
+- Stack freeze: each study pins its machine-assistant stack
+  (models, versions, harness) at registration like an oracle manifest
+  and holds it for the whole data-collection window
+  (REPLICATION_PREREG_SKELETON.md section 1).
+- Epoch as covariate, not confound: cross-study comparisons lean on
+  mechanism claims (capture convergence, instrument classification);
+  capability-sensitive absolute rates are reported stratified by
+  stack epoch.
+- Registered drift instrument: the capability-epoch re-observation
+  (one already-translated corpus re-translated cold-start under a
+  later stack, fresh randomization) is the direct measure of drift;
+  candidate follow-on after the target-lattice L1/L2 cells answer
+  the impedance question (docs/TARGET_LATTICE_ROADMAP.md).
+- Arm asymmetry noted for planning: the verified-spec arm (DAF
+  lineage) carries the most drift-resistant claims (verification is
+  independent of translator competence); the memory-instrument arms
+  (DOC/PRO lineage) depend on the translator having gaps. Feed into
+  the D-8 capability-epoch policy before the RSM freeze.
+- The BASE arm's role strengthens under drift: it is the
+  capability-anchored control arm, so BASE variance and pass rates
+  must be power-parameterized from study 1 (D-6) before any
+  replication margin is fixed.
+
 ## Decisions
 
 - **GT.M, not YottaDB (2026-11-16).** The second replication subject is

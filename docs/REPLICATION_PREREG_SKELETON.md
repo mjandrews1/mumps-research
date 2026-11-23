@@ -32,6 +32,15 @@ Target: freeze RSM pre-registration by `[Q4 2027]`; GT.M by `[Q4 2028]`.
   timestamped deposit of this document plus the instruments in
   sections 4-6. Amendments after freeze go in an append-only
   deviations log, never edited in place.
+- Translator-stack freeze (2026-11-23): the machine-assistant stack
+  used for translation `(models + versions + harness configuration)`
+  is recorded at freeze with the same rigor as the oracle sha256s and
+  held fixed for the study's entire data-collection window. A stack
+  change mid-collection is a logged deviation, never silently
+  absorbed. Rationale: the defensive arms are executed with machine
+  assistance, so translator capability is a hidden factor in every
+  cell; capability-sensitive absolute rates are interpretable only
+  against a frozen stack.
 
 ## 2. Research questions and estimands
 
@@ -148,6 +157,12 @@ Five arms, fractional unit coverage:
 - E3: survival analysis (Cox / AFT) on time-to-green with arm and
   cycle covariates; hazard ratios reported.
 - E6 (descriptive): learning-curve slopes per arm from cycle index.
+  Interpretation pre-specification (2026-11-23): the within-study
+  batch-position slope is INSTRUMENT learning, holding translator
+  capability fixed (the stack is frozen at section 1); any
+  cross-study slope comparison across capability epochs is excluded,
+  and capability-sensitive absolute rates are reported stratified by
+  stack epoch.
 - Missing data: abandoned units count as gate failures
   (conservative), never dropped.
 - E5: run only after study 3 closes.
@@ -173,8 +188,21 @@ Five arms, fractional unit coverage:
   variance once its analysis closes; target detection of
   `[risk difference]` at `[alpha]` / `[power]`).
 - D-7: annotation budget and personnel for the E2 IRR sample.
+- D-8 (2026-11-23): capability-epoch policy - what the frozen stack is
+  for each study, and whether the capability-epoch re-observation
+  study (same corpus re-translated cold-start under a later stack,
+  fresh randomization; cf. docs/TARGET_LATTICE_ROADMAP.md
+  "Translator-stack freeze") is registered now as a follow-on or
+  deferred.
 
 ## 11. Changelog
 
 - 2026-11-21: initial skeleton drafted from the same-day design
   review; the running O'Kane study is unchanged and unaffected.
+- 2026-11-23: translator-stack freeze added to study identity; E6
+  instrument-learning interpretation pre-specified; open decision
+  D-8 (capability-epoch policy) added. Planning-level only; the
+  running O'Kane study and its pre-registered instruments are
+  untouched (RESEARCH_DESIGN_C_To_Kotlin.md is NOT amended; if the
+  current study ever needs the same pre-specification it enters as a
+  registry entry in wp2/PROTOCOL_CLARIFICATIONS.md, not here).
