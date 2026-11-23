@@ -225,10 +225,8 @@ internal fun keyfixC(vxd: CharArray) {
 
 // void zfcn(unsigned char*, unsigned char*, struct MSV*) -
 // include/mumpsc/zfcns.h:48. Owner: interp-zfcns.cpp::zfcn,
-// roster unit 184. TODO-stub (h014).
-internal fun zfcn(input: CharArray, output: CharArray, sv: Msv) {
-    TODO("stub: owner interp-zfcns.cpp::zfcn (roster unit 184)")
-}
+// roster unit 184. RENDERED (batch-6 big three): the live seat now
+// lives in ZfcnsZfcn.kt (this stub face removed from this file).
 
 // void fcn(MSV*) - include/mumpsc/libmpscpp.h:431. Owner:
 // interp-fcn.cpp::fcn, roster unit 123. TODO-stub (h014).

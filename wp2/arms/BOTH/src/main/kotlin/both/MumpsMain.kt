@@ -239,8 +239,9 @@ internal fun __symput(name: String, value: String) {
 }
 
 // int Interpret(const char *, struct MSV *) - owner:
-// interp-interp.cpp::Interpret, roster 308 (batch 6, pending in
-// this arm). TODO-stub (h014).
-internal fun interpret(cmd: String, sv: Msv): Int {
-    TODO("stub: owner interp-interp.cpp::Interpret (roster 308, batch 6)")
-}
+// interp-interp.cpp::Interpret, roster 308 (batch 6). RENDERED
+// (B6 T3 big-three close): the live seat now lives in
+// Interpret.kt (this lowercase UI face keeps its name; the
+// call sites are unchanged - they call this face).
+internal fun interpret(cmd: String, sv: Msv): Int =
+    Interpret(cmd, sv)
