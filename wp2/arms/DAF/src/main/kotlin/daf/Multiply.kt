@@ -75,3 +75,21 @@ fun multiplyD(a: String, b: String, c: String) {
         }
     }
 }
+
+// ------------------------------------------------------------------
+// Unit 201 (DAF B7 T2, core): libmpscpp.cpp::Multiply (units.csv
+// row 201: loc 26, score 20.8) - the CHAR-STAR twin of the landed
+// unit-141 string-overload body above (vendor :2252, physically
+// verified this session: the body is line-for-line identical to
+// the :2211 string form modulo the (char *) a/b/c ctor carriers
+// the String params already fold). Per the DOC unit-225 carrier-
+// twin precedent this row renders NO new body: the multiplyD seat
+// carries both renders and each roster row keeps its seat. The
+// three-Multiply family ledger now stands complete in this arm:
+// rows 49 (MSV dispatcher) / 141 (string, rendered) / 201 (char*,
+// this row, verified ride-along); the row-49 dispatcher belongs to
+// a batch this arm's cycle has not drawn.
+// Consult (2026-11-24T16:12:30Z, nominal): BASE-log row 105
+// hit-reuse (the node-model walk the landed body already seats);
+// the verification is this ledger note, same as the DOC discharge
+// of its carrier twin.

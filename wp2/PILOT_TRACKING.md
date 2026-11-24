@@ -468,6 +468,25 @@ for the T3 sigint/serviceInterface renders. Check columns track the
 BASE reference translation (C-002) and stay todo per the C-001
 cycle-10 backfill decision.
 
+DAF B7 tranche 2 (units 196-205, the core stratum) translated
+2026-11-24: ten units pushed, whole-arm kotlinc gate SILENT EXIT=0 at
+116 files (the gate copy plus the fresh repo-copy submission, both
+green with only the accepted Interpret.kt vendor-lattice warning set);
+DAF consults ledgered in the DAF heuristic log ids 201-212; dafny
+suite 70 verified 0 errors (unchanged; all ten T2 units EXEMPT or
+residue). Rows follow the pre-registered batch_plan.md order (core
+stratum). The tranche carries the unit-201 Multiply carrier-twin
+adjudication (the char* body at :2252 verified line-for-line equal
+to the landed unit-141 string form; no new body per the DOC unit-225
+precedent), the in-file countDaf named-owner raise (owner
+libmpscpp.cpp:2932), the rsltSpecD/callBackD top-level state raise,
+the unit-198 interp-sysfunc SQLITE both-arms lattice (SQLITE_D gate,
+GlobalQuery precedent), and the SSS/TTT in-place compaction fold of
+the unit-203 compiler emitter. The SymHMisc/StrmanipMisc tag
+corrections remain queued for the T3 sigint/serviceInterface
+renders. Check columns track the BASE reference translation (C-002)
+and stay todo per the C-001 cycle-10 backfill decision.
+
 | 186 | libmpscpp.cpp::global::Find | cpp | simple | todo | translated | translated | todo | todo | todo |
 | 187 | compiler-zcommands.c::<misc> | c | simple | todo | translated | translated | todo | todo | todo |
 | 188 | libmpscpp.cpp::global::Piece | cpp | simple | todo | translated | translated | todo | todo | todo |
@@ -478,16 +497,16 @@ cycle-10 backfill decision.
 | 193 | libmpscpp.cpp::global::Soundex | cpp | simple | todo | translated | translated | todo | todo | todo |
 | 194 | interp-sym.cpp::_justify | cpp | simple | todo | translated | translated | todo | todo | todo |
 | 195 | interp-sym.cpp::mkpt | cpp | simple | todo | translated | translated | todo | todo | todo |
-| 196 | libmpscpp.cpp::global::Fnumber | cpp | core | todo | translated | todo | todo | todo | todo |
-| 197 | include/mumpsc/externs.h::<misc> | c | core | todo | translated | todo | todo | todo | todo |
-| 198 | interp-sysfunc.cpp::GlobalData | cpp | core | todo | translated | todo | todo | todo | todo |
-| 199 | libmpscpp.cpp::global::MakeGlobal | cpp | core | todo | translated | todo | todo | todo | todo |
-| 200 | interp-fcn.cpp::<misc> | cpp | core | todo | translated | todo | todo | todo | todo |
-| 201 | libmpscpp.cpp::Multiply | cpp | core | todo | translated | todo | todo | todo | todo |
-| 202 | interp-sql.cpp::rslt_callback | cpp | core | todo | translated | todo | todo | todo | todo |
-| 203 | compiler-parse.c::Extract | c | core | todo | translated | todo | todo | todo | todo |
-| 204 | libmpscpp.cpp::Sim1 | cpp | core | todo | translated | todo | todo | todo | todo |
-| 205 | libmpscpp.cpp::embed1 | cpp | core | todo | translated | todo | todo | todo | todo |
+| 196 | libmpscpp.cpp::global::Fnumber | cpp | core | todo | translated | translated | todo | todo | todo |
+| 197 | include/mumpsc/externs.h::<misc> | c | core | todo | translated | translated | todo | todo | todo |
+| 198 | interp-sysfunc.cpp::GlobalData | cpp | core | todo | translated | translated | todo | todo | todo |
+| 199 | libmpscpp.cpp::global::MakeGlobal | cpp | core | todo | translated | translated | todo | todo | todo |
+| 200 | interp-fcn.cpp::<misc> | cpp | core | todo | translated | translated | todo | todo | todo |
+| 201 | libmpscpp.cpp::Multiply | cpp | core | todo | translated | translated | todo | todo | todo |
+| 202 | interp-sql.cpp::rslt_callback | cpp | core | todo | translated | translated | todo | todo | todo |
+| 203 | compiler-parse.c::Extract | c | core | todo | translated | translated | todo | todo | todo |
+| 204 | libmpscpp.cpp::Sim1 | cpp | core | todo | translated | translated | todo | todo | todo |
+| 205 | libmpscpp.cpp::embed1 | cpp | core | todo | translated | translated | todo | todo | todo |
 | 206 | compiler-mumps.c::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
 | 207 | compiler-fcninit.c::fcninit | c | complex | todo | translated | todo | todo | todo | todo |
 | 208 | interp-sym.cpp::Qsub | cpp | complex | todo | translated | todo | todo | todo | todo |
