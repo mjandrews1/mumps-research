@@ -125,12 +125,10 @@ fun cannonD(a: CharArray) {
     }
 }
 
-// mult(char a[], char b[], char c[]) - raised named stub (owner
-// compiler-sys1.c::mult, the decimal string multiplier; not a
-// corpus unit).
-fun multDaf(a: CharArray, b: CharArray, c: CharArray): Unit =
-    throw NotImplementedError(
-        "mult: out-of-scope owner (compiler-sys1.c::mult; not a corpus unit)")
+// mult(char a[], char b[], char c[]) - stub RELEASED batch 9
+// unit 267 (real body at CompilerSys1Misc.kt; the owner IS a
+// roster unit: compiler-sys1.c::<misc> row 267; TAG CORRECTION
+// note there - the "not a corpus unit" blame is superseded).
 
 // strcpy(&a[dst], &a[srcOff]) - file-local in-place copy
 private fun copyFromCannonD(a: CharArray, dst: Int, srcOff: Int) {

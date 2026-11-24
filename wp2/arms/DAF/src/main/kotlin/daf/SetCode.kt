@@ -3,7 +3,7 @@ package daf
 // Unit 121 (DAF B4 T3, complex): compiler-set.c::set_code (256 LOC):
 // the SET/NEW/KILL/READ/LOCK LHS+RHS emitter: parses the LHS list,
 // stacks lhs[] targets, then emits the stores (Mglobal global stores,
-// the \\$piece/\\$extract LHS Interpret rebuilds, and the sym_
+// the \\\u0024piece/\\\u0024extract LHS Interpret rebuilds, and the sym_
 // SYMSTORE local stores), with the Merge rhs splice and the @-indirect
 // READ/SET shortcuts.
 // Consults: BASE-log rows 10/73 hit-adapt (goto set/set_store/nxt_lhs/
@@ -227,7 +227,7 @@ private fun setStoreDaf(): Int {
             }
         } else if (C.vd[0] == '$' &&
                    (toLowerAscii(C.vd[1]) == 'p' || toLowerAscii(C.vd[1]) == 'e')) {
-            // Process LHS \\$PIECE / \\$EXTRACT
+            // Process LHS \\\u0024PIECE / \\\u0024EXTRACT
             setCodePieceExtractDaf()
         } else {
 
@@ -252,7 +252,7 @@ private fun setStoreDaf(): Int {
     return rhs1Daf()
 }
 
-// the \\$piece/\\$extract LHS rebuild block. Vendor coded-marker walks
+// the \\\u0024piece/\\\u0024extract LHS rebuild block. Vendor coded-marker walks
 // (for (i=0; vd[i]<128; i++); etc.) and the Extract1/Extract2 call
 // results are kept verbatim; the <128 tests render as Char code
 // compares exactly as the C char compares. NOTE (row 26 verbatim
@@ -400,7 +400,7 @@ private fun setCodePieceExtractDaf() {
     }
 }
 
-// the vendor fprintf tail shared by both \\$p and \\$e LHS blocks
+// the vendor fprintf tail shared by both \\\u0024p and \\\u0024e LHS blocks
 // (compiler-macros.h INTERPRET pin; row 26 verbatim)
 private fun emitInterpretTailDaf() {
     val C = DafCompilerState
@@ -413,7 +413,7 @@ private fun emitInterpretTailDaf() {
 }
 
 // INTERPRET macro emit over the @-indirect tmp (compiler-macros.h:39)
-private fun emitInterpretDaf(tmp: String) {
+fun emitInterpretDaf(tmp: String) {
     val C = DafCompilerState
     C.emit("\t_jj = Interpret( (CCHR) ${tmp}, svPtr); \n")
     C.emit("\tsvPtr->ERROR = _jj; \n")

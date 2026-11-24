@@ -48,11 +48,39 @@ package daf
 const val PM_DEBUG_D = 0 // #define PM_DEBUG 0 (pm.h:25)
 
 // int perl_pm(const char[], const char[], const int, struct MSV *)
-// - roster row 256 b9 (outside the DAF batch assignment);
-// named-owner stub (row 37 discipline).
-fun perlPmD(string: String, pattern: String, flag: Int, svPtr: DafMsv): Int =
-    throw NotImplementedError(
-        "perl_pm: out-of-scope owner (interp-rpm.cpp::perl_pm, roster row 256)")
+// - RELEASED batch 9 unit 268 (roster row 268; interp-rpm.cpp::
+// perl_pm, core, LOC 51): TAG CORRECTION - the raised stub's
+// blame read "roster row 256"; the b9 roster cell is row 268.
+// Vendor shape kept: reg <- "^" + pattern + "\u0024" (the anchor wrap
+// over the char reg[512] carrier - a bounds-checked copy, the
+// DOCUMENTED DIVERGENCE for patterns over 509 bytes), the
+// regcomp ladder of POSIX error codes folds onto the JVM regex:
+// POSIX ERE -> java.util.regex.Pattern (the PatternSyntaxException
+// arm prints the regcomp parse-error banner then the
+// sigint(100) exit fold of the syntax_error precedent), regexec
+// over the anchored string, regfree the GC no-op (row 22), and
+// the vendor return inversion kept verbatim: no-match
+// (REG_NOMATCH 1) returns 0, match returns 1; allow_partial
+// stays the vendor's dead param (H-013, never read).
+fun perlPmD(string: String, pattern: String, flag: Int, svPtr: DafMsv): Int {
+    val reg = StringBuilder("^")
+    for (q in pattern.indices) {
+        if (reg.length >= 511) break
+        reg.append(pattern[q])
+    }
+    if (reg.length < 512) reg.append('$')
+
+    val p: java.util.regex.Pattern
+    try {
+        p = java.util.regex.Pattern.compile(reg.toString())
+    } catch (e: java.util.regex.PatternSyntaxException) {
+        println("\n*** regcomp() parse error on regex")
+        sigintD(100)
+        return 0 // unreachable in the vendor: sigint exits; JVM keep
+    }
+
+    return if (p.matcher(string).matches()) 1 else 0
+}
 
 // void make_cstring(char *, struct bstring) - bstring-family TU
 // helper outside this unit's dump; named-owner stub (roster

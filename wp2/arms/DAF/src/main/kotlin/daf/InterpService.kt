@@ -149,7 +149,7 @@ fun serviceInterfaceD(tmp0: CharArray, tmp1: CharArray, tmp4: CharArray?,
     // vector - inefficient */ - the copyState carrier (unit-119/
     // Qsub fold); the LineNumber re-set is the vendor line after
     // the memcpy, kept verbatim.
-    siCopyState(svPtr, svPtrX)
+    copyStateDaf(svPtr, svPtrX)
     svPtr.LineNumber = i
 
     if (tok == COSINE_SI_D.toChar()) {
@@ -484,8 +484,12 @@ private fun siStrlen(buf: CharArray): Int {
 }
 
 // copyState carrier (the unit-119/Qsub fold; bounded to the MSV
-// field surface of the DafMsv class declaration).
-private fun siCopyState(dst: DafMsv, src: DafMsv) {
+// field surface of the DafMsv class declaration). Shared seat
+// rename batch 9 unit 264: the private siCopyState promotes to
+// the package-level copyStateDaf so the interp-sym Eval release
+// (InterpSymEval.kt) reuses the same memcpy fold; the call site
+// here binds unchanged.
+fun copyStateDaf(dst: DafMsv, src: DafMsv) {
     var q = 0
     while (src.v1d[q] != NUL_D) { dst.v1d[q] = src.v1d[q]; q++ }
     dst.v1d[q] = NUL_D

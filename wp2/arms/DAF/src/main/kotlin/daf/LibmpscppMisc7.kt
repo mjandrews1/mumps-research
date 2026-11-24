@@ -201,12 +201,33 @@ fun globalQsubscriptD(n: MpsGlobalNode, j: Int, sv: DafMsv): String {
     return evalStrD("\u0024qsubscript(" + n.ref + "," + i + ")", sv)
 }
 
-// (*this).FixGblRef() - RAISED here as the named-owner stub of the
-// two FixGblRef arms below (owner libmpscpp.cpp::FixGblRef, not a
-// corpus unit; the MstringClassHMisc unit-150 owner-named ledger).
-fun fixGblRefD(ms: String): String =
-    throw NotImplementedError(
-        "FixGblRef: out-of-scope owner (libmpscpp.cpp::FixGblRef; not a corpus unit)")
+// (*this).FixGblRef() - RELEASED batch 9 unit 262 (roster row 262;
+// libmpscpp.cpp::mstring::FixGblRef, core, LOC 25): TAG
+// CORRECTION - the raised stub's blame read "not a corpus unit";
+// the chunker's row 262 owns it (b9), so the release resolves the
+// seat to this real body and the blame line is corrected here.
+// Vendor shape kept: caret-headed ref whose name run breaks at
+// the first non-alpha and whose tail is exactly "()" has the
+// empty parens rewritten to ("") - the ^gbl() -> ^gbl("")
+// special case; every other shape returns the empty mstring b
+// (vendor returns "" / the DIFFERENT self-return only in the
+// tmp[i+1] != ')' case, kept below).
+fun fixGblRefD(ms: String): String {
+    if (ms.isEmpty()) return ""
+    if (ms[0] != '^') return ""
+    var i = 1
+    while (i < ms.length && isalphaD(ms[i])) i++
+    // i is the first non-alpha index (or end/cleared); the vendor
+    // reads tmp[i]/tmp[i+1] which clear to 0 past the terminator.
+    val atI = if (i < ms.length) ms[i] else NUL_D
+    val atI1 = if (i + 1 < ms.length) ms[i + 1] else NUL_D
+    if (atI != '(') return ""
+    if (atI1 != ')') return ms // return (*this): ref unchanged
+    return ms.substring(0, i + 1) + "\"\")" // tmp[i+1..+3] rewrite
+}
+
+private fun isalphaD(c: Char): Boolean =
+    c in 'a'..'z' || c in 'A'..'Z'
 
 // int mstring::Qlength() - the FixGblRef route (the m & chain
 // rides the String + fold, H-010).

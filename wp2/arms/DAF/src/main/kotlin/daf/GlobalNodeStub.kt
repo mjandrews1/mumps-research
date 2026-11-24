@@ -90,11 +90,12 @@ class MpsGlobalNode(val ref: String) {
 
     // Avg(sub) - the average member (row 54/105 node model). The C++
     // a(sub).Avg() invoke folds onto the node + subscript shape.
-    // Owner: libmpscpp.cpp global-class member Avg (not a corpus
-    // unit; permanent stub unless a later batch renders it).
-    fun avg(sub: String): Double =
-        throw NotImplementedError(
-            "global.Avg member: out-of-scope owner (libmpscpp.cpp global class Avg)")
+    // RELEASED batch 9 unit 263 (roster row 263; libmpscpp.cpp::
+    // global::Avg): real body in LibmpscppGlobalAvg.kt (the TAG
+    // CORRECTION note there; the "not a corpus unit" blame is
+    // superseded); the member walks the receiver ref, the sub
+    // argument keeps the unit-130 ctor/invoke binding.
+    fun avg(sub: String): Double = globalAvgD(this)
 
     fun termCorrelate(b: MpsGlobalNode) {
         throw NotImplementedError(

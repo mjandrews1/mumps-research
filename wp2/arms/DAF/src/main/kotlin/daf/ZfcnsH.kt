@@ -13,13 +13,12 @@ package daf
 //
 // Prototype ledger (disposition per line):
 // - void _ascii(unsigned char *, unsigned char *, unsigned char *):
-//   no DAF seat yet; the owner body rides the batch-9
-//   interp-sym.cpp chunk family on this arm's cycle (forward-tag,
-//   the owner note flips when it lands).
+//   RELEASED batch 9 unit 266 (asciiDaf at InterpSymMisc.kt; the
+//   interp-sym.cpp file-prelude residue chunk owns the body).
 // - void _horolog(unsigned char *): named stub seat horologDaf
 //   (LibmpscppMisc6.kt; owner libmpscpp.cpp:3446; the mstring
-//   Horolog relays through it). Forward-tag: a later-cycle roster
-//   row owns the body.
+//   Horolog relays through it). RELEASED batch 9 unit 247 (the
+//   _horolog roster row body landed at the seat; real body).
 // - void _justify(...): RENDERED as the unit-194 seat
 //   (InterpJustify.kt, interp-sym.cpp::_justify).
 // - void _length(...): not yet rendered; the owner body rides a

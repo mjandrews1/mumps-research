@@ -113,3 +113,30 @@ fun mdhTreeLevelAddD(tree: Int, depth: Int,
     val tmp2 = CharArray(STR_MAX_DAF)
     zfcnDaf(msg, tmp2, DafInterpState.svPtr) // zfcn(tmp, tmp2, svPtr)
 }
+
+// unit 258 (DAF B9, core): the SIX-column overload (26 LOC, score
+// 11.0; loc-asserted roster occurrence, physically verified this
+// session). The family arity ladder now covers 1 (unit 128), 2
+// (unit 127), 4 (unit 126), 6 (this row) and 9 (unit 226); the
+// vendor's other arities (3, 5, 7, 8, 10) are roster rows of
+// later cycles or non-roster kins, each keeping its own seat.
+// Same build shape as the landed overloads: the coded
+// \u0024z~mdh~tree~level~add relay through buildZCallD, the
+// handle/depth decimal carriers, the zfcnDaf dispatch (H-016
+// single-seat rule: this file's private stub stays shadowed).
+// Consults (2026-11-24T22:36:00Z, nominal): the unit-126/127/128/
+// 226 family consult set applies verbatim (row 98 overload-set,
+// row 33 pointer-hex divergence fold, row 26 depth decimal, rows
+// 6/22 implicit svPtr via DafInterpState.svPtr, row 30 tmp2
+// write-only carrier).
+// Dafny: EXEMPT (service-call shaping over the zfcn seat; journal
+// row).
+
+fun mdhTreeLevelAddD(tree: Int, depth: Int,
+                     col1: String, col2: String, col3: String,
+                     col4: String, col5: String, col6: String) {
+    val msg = buildZCallD(tree, depth,
+        listOf(col1, col2, col3, col4, col5, col6))
+    val tmp2 = CharArray(STR_MAX_DAF)
+    zfcnDaf(msg, tmp2, DafInterpState.svPtr) // zfcn(tmp, tmp2, svPtr)
+}

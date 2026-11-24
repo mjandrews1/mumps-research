@@ -41,11 +41,11 @@ package daf
 // char *FunctionName - compiler-globals pending carrier, resolved
 var functionNameD = ""
 
-// void linepad2(char *) - named-owner stub (owner compiler-read.c
-// linepad2; the CompilerGlobalsExtMisc ledger row; linepadDaf kin)
-fun linepad2Daf(text: String): Unit =
-    throw NotImplementedError(
-        "linepad2: out-of-scope owner (compiler-read.c linepad2; not a corpus unit)")
+// void linepad2(char *) - stub RELEASED batch 9 unit 267 (real
+// body at CompilerSys1Misc.kt; the owner body is
+// compiler-sys1.c::linepad2, TAG CORRECTION superseding the
+// compiler-read.c blame; this fcninit call site binds
+// unchanged).
 
 // void fcninit (char *output_file, long pid)
 fun fcninitDaf(outputFile: String, pid: Long) { // output_file unused (vendor-verbatim signature)

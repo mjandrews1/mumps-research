@@ -3,7 +3,7 @@ package daf
 // Unit 120 (DAF B4 T3, complex): libmpscpp.cpp::<misc-9> (342 LOC): the
 // C++ wrapper-cluster residue: the mstring operator* family, the
 // mstring operator< / operator> overload sets, SymGet/SymPut/__symput,
-// global::Flush, and the bsv char* wrappers that bridge \\$z-sqlite
+// global::Flush, and the bsv char* wrappers that bridge \\\u0024z-sqlite
 // service calls onto the global class members (Cosine/TermCorrelate/
 // DocCorrelate/Sim1/Jaccard/Dice/StopInit/StopLookup/SynInit/
 // SynLookup/Centroid/BMGSearch/Shred/ShredQuery).
@@ -28,7 +28,7 @@ package daf
 // exactly as vendor), row 56 hit-adapt (static char tmp[32] returns
 // fold onto fresh Strings; the shared static buffer hazard ledgered),
 // row 54 hit-reuse (the global class node model: MpsGlobalNode seats
-// carry the wrapper \\$-subscript invokes; the new cosine/
+// carry the wrapper \\\u0024-subscript invokes; the new cosine/
 // termCorrelate/docCorrelate/sim1/jaccard/dice member seats raised
 // here in GlobalNodeStub.kt are named-owner stubs of the libmpscpp.cpp
 // global class callers of this file, riding rows 105/37 seat
@@ -331,9 +331,9 @@ fun sim1D(a: MpsGlobalNode, b: MpsGlobalNode): Double =
     throw NotImplementedError(
         "Sim1(global,global): out-of-scope owner (libmpscpp.cpp free-function Sim1; called by the wrapper of roster unit Sim1)")
 
-fun jaccardD(a: MpsGlobalNode, b: MpsGlobalNode): Double =
-    throw NotImplementedError(
-        "Jaccard(global,global): out-of-scope owner (libmpscpp.cpp free-function Jaccard; called by the wrapper of roster unit Jaccard)")
+// jaccardD stub RELEASED batch 9 unit 269 (real body at
+// LibmpscppJaccard.kt; roster row 269; release note there; the
+// JaccardW wrapper call site binds unchanged).
 
 // TAG CORRECTION at B6 T2 (units 166/175): the deleted stopInitD
 // stub blamed the owner "libmpscpp.cpp/selftext.cpp StopInit; not

@@ -3,8 +3,8 @@ package daf
 // Unit 182 (DAF B6 T3, complex): mpstime.cpp::main (units.csv row:
 // loc 176, complex): the compiler-generated benchmark entry point -
 // a runtime-body render of the emitted-C output for the benchmark
-// program (s t=$ZD1 for i=1:1:10000 s ^a(i)=i for i... s k=^a(i) w
-// $ZD1-t,!). This is EXECUTED emitted code, not an emitter: every
+// program (s t=\u0024ZD1 for i=1:1:10000 s ^a(i)=i for i... s k=^a(i) w
+// \u0024ZD1-t,!). This is EXECUTED emitted code, not an emitter: every
 // seat below is a RUNTIME seat.
 // Consults (2026-11-22T16:23:00Z, nominal): BASE-log rows 6/22
 // hit-reuse (the runtime MSV singleton rides DafInterpState.svPtr
@@ -31,7 +31,7 @@ package daf
 // (for1J/for2J with the _i == 100 exit signal) folds onto structured
 // while loops - the KDoc ledger at each loop head pins the
 // for-init/incr/limit triple and the for1F direction ternary;
-// (2) argv loop starts at i=0 so $SymPut("%", argv[0]) is
+// (2) argv loop starts at i=0 so \u0024SymPut("%", argv[0]) is
 // immediately overwritten by the %0 entry - kept verbatim order;
 // (3) the M3701 coded-subscript bytes ride Char literals: \xCE at
 // tmp1 tail of the STORE key (a\u00CE fold: the M3701 comment idioms
@@ -74,9 +74,10 @@ fun subDaf(a: String, b: String, c: CharArray): Unit =
     throw NotImplementedError(
         "sub: out-of-scope owner (interp-arith.cpp::sub at 658 via arith.h:51; not a roster cell)")
 
-fun strxcatDaf(a: CharArray, b: CharArray): String =
-    throw NotImplementedError(
-        "strxcat: out-of-scope owner (mpstime.cpp::strxcat local inline at 102; this-TU misc cell)")
+// strxcat stub RELEASED batch 9 unit 272 (real body at
+// MpstimeMisc.kt; the mpstime.cpp::<misc> roster row owns the
+// this-TU inline; the catx call at line 205 above binds
+// unchanged).
 
 // SEAT RELEASED (big-three session 2026-11-22): the zfcnDaf stub
 // deleted here; the unit-184 render Zfcns.kt owns the vendor C
@@ -137,21 +138,21 @@ fun mpstimeMainDaf(args: Array<String>): Int {
     // __label_lookup = _label_lookup; __text_function =
     // _text_function; - comment-only (quirk (5))
 
-    // $SymPut("%",argv[0]);
+    // \u0024SymPut("%",argv[0]);
     SymPutD("%", if (args.isNotEmpty()) args[0] else "")
 
     // if (argc > 0) { for (int i = 0; i < argc; i++) { sprintf(t,
-    // "%%%d", i); $SymPut(t, argv[i]); } }
+    // "%%%d", i); \u0024SymPut(t, argv[i]); } }
     for (i in args.indices) { // quirk (2): starts at 0, %0 overwrite
         SymPutD("%" + i, args[i])
     }
 
     try {
 
-        // LineNumber=4; s t=$zd1
+        // LineNumber=4; s t=\u0024zd1
         sv.LineNumber = 4
 
-        // strcpy((char *) &gtmp[1], "$zd1");
+        // strcpy((char *) &gtmp[1], "\u0024zd1");
         val zd1 = "\$zd1"
         for (t in zd1.indices) gtmp[1 + t] = zd1[t]
         // zfcn(gtmp,tmp1,svPtr);
@@ -275,7 +276,7 @@ fun mpstimeMainDaf(args: Array<String>): Int {
             symRetDaf(SYMSTORE_D, "i".toCharArray(), 0, dummy, 0, sv)
         } // FOR loop 2 close (longjmp fold)
 
-        // LineNumber=7; w $zd1-t,!
+        // LineNumber=7; w \u0024zd1-t,!
         sv.LineNumber = 7
 
         // if (svPtr->out_file[svPtr->io]==NULL)
@@ -283,7 +284,7 @@ fun mpstimeMainDaf(args: Array<String>): Int {
         if (sv.out_file[sv.io] == 0)
             errorMessageDaf("Write to input file", sv.LineNumber) // m1944
 
-        // strcpy((char *) &gtmp[1], "$zd1"); zfcn(gtmp,tmp0,svPtr);
+        // strcpy((char *) &gtmp[1], "\u0024zd1"); zfcn(gtmp,tmp0,svPtr);
         for (t in zd1.indices) gtmp[1 + t] = zd1[t]
         zfcnDaf(gtmp, tmp0, sv)
 

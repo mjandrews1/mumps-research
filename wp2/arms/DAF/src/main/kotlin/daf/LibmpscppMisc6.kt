@@ -377,11 +377,31 @@ fun globalLenD(n: MpsGlobalNode, sv: DafMsv): Int {
 // ---------------- Horolog (free fn) ----------------------------
 
 // mstring Horolog() - the _horolog((unsigned char*)t) relay at
-// libmpscpp.cpp:3446; the helper is a DOC-arm roster row (DOC b9
-// row 278) not yet drawn here: named stub seat.
-fun horologDaf(t: CharArray): Unit =
-    throw NotImplementedError(
-        "_horolog: out-of-scope owner (libmpscpp.cpp:3446; DOC roster b9 row 278 kin, not yet drawn on the DAF arm)")
+// libmpscpp.cpp:3446. SEAT RELEASED at the DAF batch-9 unit-247
+// render (roster row 247, interp-sym.cpp::_horolog, consult
+// 2026-11-24T22:30:00Z). Release note: the named stub is deleted
+// and the real body lands with the same name/signature; callers
+// (horologD) unchanged. The "DOC b9 row 278" blame in the deleted
+// stub was front-noting the DOC kin; this arm owns the body from
+// this batch.
+fun horologDaf(t: CharArray): Unit {
+    // vendor: timex = time(&timex); day = timex/86400;
+    // timex -= day*86400; day = 47122 + day; fd=day -> %ld,
+    // ",", fd=timex -> %ld. Kotlin: epoch second via the
+    // DafCRuntime clock seat (System.currentTimeMillis()/1000,
+    // the vendor time() truth, not java.time).
+    val timex0 = System.currentTimeMillis() / 1000
+    var day = timex0 / 86400
+    val timex = timex0 - day * 86400
+    day += 47122
+    val s0 = day.toString()
+    val s1 = timex.toString()
+    var i = 0
+    for (c in s0) t[i++] = c
+    t[i++] = ','
+    for (c in s1) t[i++] = c
+    t[i] = '\u0000'
+}
 
 fun horologD(): String {
     val t = CharArray(64)

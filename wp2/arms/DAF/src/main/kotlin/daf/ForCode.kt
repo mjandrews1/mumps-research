@@ -3,7 +3,7 @@ package daf
 // Unit 122 (DAF B4 T3, complex): compiler-for.c::for_code (232 LOC):
 // the FOR command emitter: the argumentless while(1) shortcut, the
 // index-variable init/increment/limit parse-and-emit chain, the
-// function-increment (\\$-case) group form, the singles/multi-block
+// function-increment (\\\u0024-case) group form, the singles/multi-block
 // setjmp bookkeeping, and the do{ loop-body entry emit.
 // Consults: BASE-log rows 10/73 manual-decision (the goto for_again/
 // for_again2/while01/one_arg/singles mesh is a FORWARD-branching gotos
@@ -280,7 +280,7 @@ fun forCodeDaf(): Int {
                         "goto For${C.forx}; \n")
 
                 // --------------------------------------------------------
-                // \\$order optimization hack: reusing the tmp-variable
+                // \\\u0024order optimization hack: reusing the tmp-variable
                 // names of the initial GlobalOrder() call permits the
                 // returned value to feed the next GlobalOrder() without
                 // rebuilding the global array reference (vendor comment).
@@ -367,8 +367,7 @@ private fun forvSetDaf(s: String) {
 
 private fun forvGetDaf(): String = DafCRuntime.cstring(DafCompilerState.forv)
 
-// linepad - the compiler-TU line-pad helper that flushes the emitted
-// fragment and pads the trailing comment tag; named-owner stub.
-fun linepadDaf(C: DafCompilerState, text: String, tag: String): Unit =
-    throw NotImplementedError(
-        "linepad: out-of-scope owner (compiler TU pad helper; macros family)")
+// linepad - the compiler-TU line-pad helper: stub RELEASED
+// batch 9 unit 267 (real body at CompilerSys1Misc.kt;
+// compiler-sys1.c::<misc> roster row; the TAG CORRECTION note
+// there - the owner is not the macros family).

@@ -82,9 +82,11 @@ private val bdxDelBT = CharArray(128)
 // the vendor btree arms pass the bd/bdx OUT carriers, which the
 // all-String stub signature of the T3 seat cannot carry): same
 // owner blame, same release discipline as the String seat.
-fun sqlDaf(op: Int, sv: DafMsv, a: String?, cmd: String, bdOut: CharArray, mark: String): Int =
-    throw NotImplementedError(
-        "sql: out-of-scope owner (interp-sql.cpp::sql, roster b9; the rdbms-if.c::sql b5 body is rendered as sqlRdbmsDaf at B5 T3; CharArray-out overload seat of the B8 T3 unit-246 render)")
+// sqlDaf CharArray OVERLOAD SEAT RELEASED batch 9 unit 271: real
+// body at InterpSqlSql.kt (roster row 271, interp-sql.cpp::sql;
+// the unit-246 raise note above is superseded - same owner, same
+// release discipline as the String seat; the bd/bdx OUT carriers
+// bind through the shared sqlCoreD core).
 
 // char* embed(char*) - the single-quote-doubling escaper of the
 // SQL TU (quote probe + doubling loop; NOT the embed1 twin of

@@ -65,6 +65,14 @@ class BfrBlockD {
 // the sparse bfr[] cache (divergence (1))
 private val bfrD = HashMap<Int, BfrBlockD>()
 
+// batch-9 unit-273 flush/allocblk additions (package-visible
+// accessors over the sparse cache; the vendor bfr[] lattice):
+fun bfrGetD(slot: Int): BfrBlockD = bfrD.getOrPut(slot) { BfrBlockD() }
+
+fun bfrEachD(action: (BfrBlockD) -> Unit) {
+    for (s in bfrD.values) action(s)
+}
+
 // int gblfd - the native global file descriptor. Named-owner seat:
 // the open() site and the close/refcount path are out of scope
 // (btree TU init, not a corpus unit); the RandomAccessFile seat is
@@ -135,7 +143,7 @@ private fun readBlockD(raf: java.io.RandomAccessFile, buf: CharArray) {
 }
 
 // write(fd, buf, MBLOCK): 0..255 Char -> byte assembly
-private fun writeBlockD(raf: java.io.RandomAccessFile, buf: CharArray) {
+fun writeBlockD(raf: java.io.RandomAccessFile, buf: CharArray) {
     val bytes = ByteArray(MBLOCK_D)
     var i = 0
     while (i < MBLOCK_D) {

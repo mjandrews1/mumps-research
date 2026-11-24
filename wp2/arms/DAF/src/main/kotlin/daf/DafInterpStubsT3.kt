@@ -9,12 +9,23 @@ package daf
 // singleton).
 //
 // Named-owner roster homes (units.csv batches in parentheses):
-//   xindexDaf          <- interp-strmanip.cpp::xindex (b9) /
-//                         compiler-sys1.c::xindex (b10)
+//   xindexDaf RELEASED <- interp-strmanip.cpp::xindex (b9; unit-260
+//                         body in InterpStrmanipXindex.kt; b10
+//                         compiler-sys1.c::xindex twin keeps its own
+//                         row/seat)
 //   MglobalDaf RELEASED <- interp-globalb.cpp::Mglobal (b6 body
 //                         rendered by the unit-167 Mglobal.kt of
 //                         the batch-6 tranche 2; real dispatcher)
-//   parseDaf           <- interp-parse.cpp::parse_ (b9)
+//   parseDaf           <- interp-parse.cpp::parse_ (b3; TAG
+//                         CORRECTION batch 9: the header blame
+//                         read b9, but interp-parse.cpp::parse_
+//                         (584 LOC) is the batch-3 row; the b9
+//                         roster's parse_ is the DIFFERENT
+//                         compiler-parse.c::parse_ body (1201 LOC,
+//                         unit 277) which renders on its own seat
+//                         parseCDaf over DafCompilerState)
+//   evalDaf RELEASED   <- interp-sym.cpp::Eval (b9; unit-264 body
+//                         in InterpSymEval.kt; stub deleted)
 //   symRetDaf          <- interp-sym.cpp::sym_ (no roster unit for the
 //                         dispatcher; permanent named-owner stub, nullable
 //                         seat for the BASE-log row 92 retrieve-then-throw
@@ -116,13 +127,16 @@ var GlobalExceptionCodeD = 0
 
 // ---- named-owner stubs (throw; owners in the header above) ----
 
-fun xindexDaf(s: CharArray, sOff: Int, pat: CharArray, patOff: Int, from: Int): Int =
-    throw NotImplementedError(
-        "xindex: out-of-scope owner (interp-strmanip.cpp::xindex, roster b9; compiler-sys1.c::xindex, roster b10)")
+// xindexDaf stub RELEASED batch 9 unit 260 (real body in
+// InterpStrmanipXindex.kt; release note there; the b10
+// compiler-sys1.c::xindex twin keeps its own roster row/seat).
 
+// TAG CORRECTION batch 9: interp-parse.cpp::parse_, roster b3
+// (not b9; the b9 parse_ row is compiler-parse.c::parse_, unit
+// 277, seat parseCDaf in CompilerParseC.kt).
 fun parseDaf(sv: DafMsv): Int =
     throw NotImplementedError(
-        "parse_: out-of-scope owner (interp-parse.cpp::parse_, roster b9)")
+        "parse_: out-of-scope owner (interp-parse.cpp::parse_, roster b3)")
 
 // char *sym_(int,...): nullable return is the C NULL of the dispatcher;
 // the caller checks (BASE-log row 92 retrieve-then-throw fold).
@@ -163,17 +177,18 @@ fun qsubDaf(name: CharArray, res: CharArray, sub: CharArray, sv: DafMsv): Unit =
     throw NotImplementedError(
         "Qsub: out-of-scope owner (interp-sym.cpp::Qsub, roster b7)")
 
-fun evalDaf(a: CharArray, out: CharArray, sv: DafMsv): Int =
-    throw NotImplementedError(
-        "Eval: out-of-scope owner (interp-sym.cpp::Eval, roster b9)")
+// evalDaf stub RELEASED batch 9 unit 264 (real body in
+// InterpSymEval.kt; release note there; the Fcn/Misc6/Misc7 Eval
+// call sites resolve unchanged).
 
 fun mpsJustifyDaf(fmt: String, res: CharArray, valS: CharArray): Unit =
     throw NotImplementedError(
         "mps_justify: out-of-scope owner (interp-arith.cpp::mps_justify, roster b3)")
 
-fun sqlDaf(op: Int, sv: DafMsv, a: String?, b: String?, c: String?, d: String?): Int =
-    throw NotImplementedError(
-        "sql: out-of-scope owner (interp-sql.cpp::sql, roster b9; the rdbms-if.c::sql b5 body is rendered as sqlRdbmsDaf at B5 T3)")
+// sqlDaf (String-tail T3 seat) stub RELEASED batch 9 unit 271:
+// real body at InterpSqlSql.kt (roster row 271; both overloads,
+// the String seat here and the CharArray-out seat of the B8
+// unit-246 raise; release notes there).
 
 // char *Extract2(char *) - roster b1 (compiler TU). The char* side of
 // the compiler seat renders as String (row 56 family value fold).
