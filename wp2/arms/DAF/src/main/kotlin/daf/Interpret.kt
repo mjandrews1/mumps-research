@@ -26,7 +26,7 @@ package daf
 // 4-arg, roster b10; the DAF WriteCode inoutDaf names the b2
 // 3-arg twin), symFreeDaf (interp-sym.cpp::_SymFree, roster b1
 // row 28, not drawn by DAF), mergeDaf (interp-sysfunc.cpp::Merge,
-// roster b8 row 226, not drawn by DAF - the DOC arm renders it).
+// roster b8 row 226 - RELEASED at unit 237, real at Merge.kt).
 //
 // Consult: units.csv roster 185 (2026-11-22T16:31:00Z), the
 // big-three session band.
@@ -2746,9 +2746,8 @@ fun symFreeDaf(i: Int, svPtr: DafMsv): Int =
 // int Merge(unsigned char *, unsigned char *, struct MSV *);
 // owner interp-sysfunc.cpp::Merge, units.csv roster b8 row 226
 // (not drawn by the DAF arm; the DOC arm renders it as unit 246).
-fun mergeDaf(left: CharArray, right: CharArray, svPtr: DafMsv): Int =
-    throw NotImplementedError(
-        "Merge: out-of-scope owner (interp-sysfunc.cpp::Merge, roster b8 row 226)")
+// mergeDaf RELEASED at unit 237 (B8): real body at Merge.kt (same
+// name and signature; the stub deletion is the release note).
 
 // --- private CstringOps-family helper copies of this file ---
 // (H-017 same-name private fun precedent; the gate DafCRuntime

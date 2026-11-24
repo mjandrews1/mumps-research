@@ -6,7 +6,7 @@ package daf
 // pattern, the two integer bounds sprintf'd into C-string carriages
 // and setpiece 0 (pure read); the out value returns as the mstring.
 // Consults (2026-11-23T18:31:00Z, nominal): BASE-log row 97
-// hit-reuse (the \$piece service-call shape over the _piece kernel
+// hit-reuse (the \u0024piece service-call shape over the _piece kernel
 // with setpiece 0: the out-buffer of the read path folds onto the
 // returned String per the row-97 BASE fold; the kernel seat is the
 // unit-114 T3 pieceDaf already live - this render is the first
@@ -61,3 +61,24 @@ private fun piece186Name(src: String): CharArray {
     out[i] = NUL_D
     return out
 }
+
+// ---------------- Unit 224 row-note (DAF B8 T1) -----------------
+//
+// Unit 224 (DAF B8 T1, simple): libmpscpp.cpp::global::Piece
+// (17 LOC, score 7.3; units.csv row 239; vendor :7181, physically
+// verified this session) - the CONST-CHAR-STAR needle overload.
+// VERIFICATION row (the unit-214 carrier-fold convention): the
+// :7181 body verified line-for-line against the landed unit-188
+// globalPieceD String seat above - single Mglobal(RETRIEVE) over
+// the global's own ref, GLOBAL_NOT_FOUND retrieve-then-throw, the
+// jj<0 collapse to ii BEFORE the sprintf carriages, sprintf %d
+// decimals, the _piece setpiece-0 read path with the empty modes
+// string, the mstring return fold. The ONLY difference is the
+// needle carrier ((const char *)pat direct vs the string/mstring
+// c_str() forms); the landed String parameter is the fold of all
+// the C++ needle carriers (the same audit the DOC arm recorded for
+// its row-239/u214 family). THIS ROW RENDERS NO NEW BODY: the
+// unit-188 seat carries it, each roster row keeps its seat.
+// Consults (2026-11-24T21:14:00Z, nominal): verification-only
+// ledger append (the u186 fold precedent of the Find family).
+// Dafny: EXEMPT (verification row; journal row).

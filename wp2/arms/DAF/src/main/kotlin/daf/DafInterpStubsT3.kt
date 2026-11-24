@@ -20,10 +20,18 @@ package daf
 //                         seat for the BASE-log row 92 retrieve-then-throw
 //                         pattern)
 //   InterpretDaf       <- interp-interp.cpp::Interpret (b6)
-//   scanParseDaf       <- interp-sym.cpp::ScanParse (b8)
-//   allocSVDaf         <- interp-sysfunc.cpp::AllocSV (b8)
-//   buildLocalDaf      <- interp-sym.cpp::BuildLocal (b8)
-//   buildGlobalDaf     <- interp-parse.cpp::BuildGlobal (b8)
+//   scanParseDaf RELEASED <- interp-sym.cpp::ScanParse (b8; the
+//                          unit-229 body rendered as scanParseDaf
+//                          in ScanParse.kt; stub deleted)
+//   allocSVDaf         <- RELEASED at unit 244 (B8): real body at
+//                         InterpSysfuncAllocsv.kt (roster-b8 seat)
+//   buildLocalDaf RELEASED <- interp-sym.cpp::BuildLocal (b8; the
+//                          unit-231 body rendered as buildLocalDaf
+//                          in BuildLocal.kt; stub deleted)
+//   buildGlobalDaf RELEASED <- interp-parse.cpp::BuildGlobal (b8;
+//                          the unit-230 body rendered as
+//                          buildGlobalDaf in BuildGlobal.kt;
+//                          stub deleted)
 //   globalOrderDaf     <- libmpscpp.cpp::GlobalOrder (b2/b3/b9; the
 //                         include/mumpsc/globalOrder.h::<misc> unit b9)
 //   globalQueryDaf flip: the unit-119 render in this same tranche
@@ -38,8 +46,9 @@ package daf
 //                        the rdbms-if.c::sql b5 co-owner was RELEASED
 //                        by the unit-153 sqlRdbmsDaf render at B5 T3)
 //   extract2Daf        <- compiler-parse.c::Extract2 (b1)
-//   extract1Daf        <- compiler-parse.c::Extract1 (kernel of the
-//                         Extract2 family; same TU owner)
+//   extract1Daf        <- RELEASED at unit 243 (B8): compiler-parse.c::
+//                         Extract1 was a residual cell of the <misc>
+//                         chunk; real body at CompilerParseMisc.kt
 //   localArrayDaf      <- compiler-localarray.c::LocalArray (b1)
 //   globalArrayDaf     <- compiler-globalarray.c::GlobalArray (b2)
 // Non-roster permanent stubs (interpreter/library TU helpers):
@@ -48,9 +57,14 @@ package daf
 //   keyfixDaf          <- mumpsc/keyfix.h family
 //   makeLockDaf, cleanLocksDaf <-lock service helpers
 //   levCheckDaf        <- compiler dotted-line helper (LevCheck)
-//   cvarDaf            <- compiler-parse.c::cvar (declared-variable test)
-//   atCopyDaf          <- compiler at-text copy helper
-//   memcheckDaf        <- compiler temp-var budget check helper
+//   cvarDaf            <- RELEASED at unit 243 (B8): residual cell of
+//                         the compiler-parse.c::<misc> chunk; real
+//                         body at CompilerParseMisc.kt
+//   atCopyDaf          <- RELEASED at unit 222 (B8): the real body
+//                         landed at CompilerAtCopy.kt; the stub is
+//                         deleted, call sites resolve unchanged
+//   memcheckDaf        <- RELEASED at unit 243 (B8): same <misc>
+//                         chunk; real body at CompilerParseMisc.kt
 //   bsv wrappers        <- libmpscpp bio library (StopLookup/SYN/Shred/
 //                         ShredQuery/bmg_fullsearch): non-roster library
 //                         functions reachable via the unit-120 wrappers
@@ -120,21 +134,21 @@ fun symRetDaf(symflg: Int, a: CharArray, aOff: Int, out: CharArray, outOff: Int,
 // stub deleted here; the unit-185 render Interpret.kt owns the
 // vendor C symbol Interpret (same shape; call sites resolve).
 
-fun scanParseDaf(xd: CharArray): Int =
-    throw NotImplementedError(
-        "ScanParse: out-of-scope owner (interp-sym.cpp::ScanParse, roster b8)")
+// scanParseDaf RELEASED at unit 229 (B8): real body at
+// ScanParse.kt (same name and signature; the stub deletion is the
+// release note - the levCheck precedent).
 
-fun allocSVDaf(): DafMsv =
-    throw NotImplementedError(
-        "AllocSV: out-of-scope owner (interp-sysfunc.cpp::AllocSV, roster b8)")
+// allocSVDaf RELEASED at unit 244 (B8): the state-vector
+// constructor rendered real at InterpSysfuncAllocsv.kt (same
+// name and signature; the stub deletion is the release note - the
+// levCheck precedent).
 
-fun buildLocalDaf(flga: Int, op: Int, a: CharArray, out: CharArray, sv: DafMsv): Int =
-    throw NotImplementedError(
-        "BuildLocal: out-of-scope owner (interp-sym.cpp::BuildLocal, roster b8)")
+// buildLocalDaf RELEASED at unit 231 (B8): real body at
+// BuildLocal.kt (same name and signature).
 
-fun buildGlobalDaf(flga: Int, op: Int, a: CharArray, out: CharArray, sv: DafMsv): Int =
-    throw NotImplementedError(
-        "BuildGlobal: out-of-scope owner (interp-parse.cpp::BuildGlobal, roster b8)")
+// buildGlobalDaf RELEASED at unit 230 (B8): real body at
+// BuildGlobal.kt (same name and signature).
+
 
 // unsigned char *GlobalOrder(gb, prior, dir, svPtr) - roster b2/b3/b9
 fun globalOrderDaf(gb: CharArray, prior: CharArray, dir: CharArray, sv: DafMsv): Int =
@@ -167,9 +181,10 @@ fun extract2Daf(s: String): String =
     throw NotImplementedError(
         "Extract2: out-of-scope owner (compiler-parse.c::Extract2, roster b1)")
 
-fun extract1Daf(a: CharArray, aOff: Int): String =
-    throw NotImplementedError(
-        "Extract1: out-of-scope owner (compiler-parse.c::Extract1, compiler TU kernel)")
+// extract1Daf SEAT RELEASED (DAF B8, unit 243): the real body
+// landed at CompilerParseMisc.kt (compiler-parse.c::Extract1 was
+// a residual cell of the unit-243 <misc> chunk, not a
+// non-corpus helper); SetCode call sites resolve there.
 
 // the &flag out-param carrier (row 30 pointer fold): LocalArray/
 // GlobalArray write Set_flg/GBL_flg through the C pointer; the render
@@ -206,17 +221,19 @@ fun cleanLocksDaf(a: String): Unit =
 // compiler-mumps.c::<misc> roster row 206); call sites resolve to
 // the real body there.
 
-fun cvarDaf(s: String): Boolean =
-    throw NotImplementedError(
-        "cvar: out-of-scope owner (compiler-parse.c::cvar, not a corpus unit)")
+// cvarDaf SEAT RELEASED (DAF B8, unit 243): the declared-variable
+// test rendered real at CompilerParseMisc.kt (residual cell of
+// the compiler-parse.c::<misc> chunk); ForCode/SetCode resolve.
 
-fun atCopyDaf(atFlg: Int, tmp: CharArray): Unit =
-    throw NotImplementedError(
-        "atCopy: out-of-scope owner (compiler at-text copy helper, not a corpus unit)")
+// atCopyDaf RELEASED at unit 222 (B8): the real body landed at
+// CompilerAtCopy.kt (the tag correction there is recorded in its
+// KDoc; this stub deletion is the release note - the levCheck
+// precedent).
 
-fun memcheckDaf(n: Int): Unit =
-    throw NotImplementedError(
-        "memcheck: out-of-scope owner (compiler temp-var budget helper, not a corpus unit)")
+// memcheckDaf SEAT RELEASED (DAF B8, unit 243): the temp-var
+// budget check rendered real at CompilerParseMisc.kt (residual
+// cell of the compiler-parse.c::<misc> chunk); the iiitmp
+// walkers resolve there.
 
 // strfmon(3): NOT modeled on the DAF arm (the u0024-style fnumber monetary format
 // path seat; named-owner stub over libc).

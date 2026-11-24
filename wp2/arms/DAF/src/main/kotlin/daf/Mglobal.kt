@@ -32,13 +32,15 @@ package daf
 // (the native arm has no CLOSE case at all - dead-lattice note).
 // Dafny: EXEMPT (stub-mediated global dispatcher; journal row).
 
-// int btree(int g, unsigned char key[], unsigned char bd[],
-//          struct MSV * svPtr) - named-owner stub (owner
-// interp-native-btree.cpp::btree at line 293; the native global
-// backend; not a batch T2 cell).
-fun btreeDaf(op: Int, key: CharArray, bd: CharArray, sv: DafMsv): Int =
-    throw NotImplementedError(
-        "btree: out-of-scope owner (interp-native-btree.cpp::btree at line 293; not a batch T2 cell)")
+// btreeDaf SEAT RELEASED (DAF B8, unit 246): the real body landed
+// at InterpSqlBtree.kt, same name and signature. TAG CORRECTION:
+// the stub blame below said "interp-native-btree.cpp::btree at
+// line 293; the native global backend; not a batch T2 cell" - the
+// reference build (SQLITE) binds the btree symbol to the
+// interp-sql.cpp body, which IS a corpus roster row (DAF B8 unit
+// 246); the native twin is another arm's drawn unit and is NOT
+// brought in here. Every MglobalDaf/Interpret caller binds to the
+// released body unchanged.
 
 fun MglobalDaf(op: Int, key: CharArray, bd: CharArray, sv: DafMsv): Int {
 

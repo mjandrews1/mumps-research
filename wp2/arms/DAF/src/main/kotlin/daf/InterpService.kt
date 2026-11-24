@@ -28,8 +28,9 @@ package daf
 // carriers are nullable in the seat (the zcn NULL x3/x4 callers):
 // the DOCCORRELATE arm dereferences both in the vendor, so the
 // render raises the missing-array case (the T2 RsltCallback
-// name0 backstop-binding precedent). MMULTIPLY/IDF/MAX wrappers
-// are rows not drawn on this arm: named stub seats. The INVDF arm
+// name0 backstop-binding precedent). MMULTIPLY/MAX wrappers
+// are rows not drawn on this arm: named stub seats; the IDF
+// wrapper seat was RELEASED at unit 223 (B8, Idf.kt) The INVDF arm
 // keeps the vendor quirk verbatim: tmpA[strlen(tmpA)+1]=0 writes
 // the second NUL one PAST the terminator (the strlen+1 index quirk
 // ledgered, not fixed), and tmpB takes tmp1 UNPARSED (no parse/
@@ -93,15 +94,15 @@ fun inputSvDaf(svPtrX: DafMsv, ep: CharSequence, name: CharArray): String =
     throw NotImplementedError(
         "Input (SV-bound wrapper): out-of-scope owner (interp-io.cpp::Input; roster row of a later cycle)")
 
-// Wrapper rows not drawn on this arm (MMULTIPLY x3-form, IDF, MAX)
+// Wrapper rows not drawn on this arm (MMULTIPLY x3-form, MAX);
+// idfW RELEASED at unit 223 (B8): the real body landed at Idf.kt
+// under this same name and signature; the stub is deleted and the
+// dispatcher call site below resolves unchanged (the levCheck
+// delegate precedent).
 fun multiplyW(svptr: DafMsv, ep: CharArray, arg1: CharArray, arg2: CharArray,
         arg3: CharArray): String =
     throw NotImplementedError(
         "Multiply (SV-bound wrapper): out-of-scope owner (libmpscpp.cpp::Multiply x3 wrapper; kin of the landed unit-141/201 bodies; roster row of a later cycle)")
-
-fun idfW(svptr: DafMsv, ep: CharArray, arg1: CharArray, arg2: CharArray): String =
-    throw NotImplementedError(
-        "IDF (SV-bound wrapper): out-of-scope owner (libmpscpp.cpp::IDF wrapper, the :10370 free fn kin; roster row of a later cycle)")
 
 fun maxW(svptr: DafMsv, ep: CharArray, arg1: CharArray): String =
     throw NotImplementedError(

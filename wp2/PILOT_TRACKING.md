@@ -577,6 +577,82 @@ translation (C-002) and stay todo per the C-001 cycle-10 backfill
 decision. Next protocol step: DOC batch 8 per the committed row
 order (cycle 7).
 
+## Batch 8 (units 216-246, opened 2026-11-24; DAF runs the batch in ONE session per the C-011 protocol change)
+
+DAF batch 8 (units 216-246) translated 2026-11-24 in ONE session per
+C-011: thirty-one units pushed, whole-arm kotlinc gate exit 0 at 151
+kt files (gate + repo copies, only the accepted Interpret.kt
+vendor-lattice warning set of 6 warnings) under the scripted 4-stage
+gate driver (C-010). DAF consults ledgered in the DAF heuristic log
+ids 225-257 (roster rows 216-246, seats row 256, gate row 257);
+dafny suite 70 verified 0 errors UNCHANGED (all 31 batch-8 units
+EXEMPT or residue; no new spec). Rows follow the pre-registered
+batch_plan.md order. Seat releases this batch: atCopyDaf (222, the
+unit-215 raise resolves), idfW (223), scanParseDaf (229),
+buildGlobalDaf (230), buildLocalDaf (231), mergeDaf (237, the
+unit-214 raise resolves), gtkTreeAddDaf (238), allocSVDaf (244),
+concatDaf (245, the collapsed stub DELETED; the twelve Misc6 amp
+relays resolve to real bodies; no external callers existed),
+btreeDaf (246, Mglobal stub removed; TAG CORRECTION: the
+interp-native-btree blame was wrong), and the unit-243 fold-in
+releases memcheckDaf/cvarDaf/extract1Daf. New raises: extract2Daf
+(241, named stub), fixGblRefD (245), sprintfInt228D (228),
+conCheckD/strcasecmpD/strncasecmpD (243),
+copyFromCannonD/shiftLeftCannonD (240). Hygiene probe refinements of
+the gate: the Kotlin keyword escape System.`in` is exempt from the
+backtick probe (CompilerGetstr1 via the Interpret.kt precedent) and
+the dollar probe is comment-dollars only; pre-existing comment
+dollars normalized: GlobalPiece.kt:9, GlobalData.kt:4/34,
+MdhTreeLevelAdd.kt:5/26/47 (compile-identical). ADJUDICATION
+DISCLOSED for the PI: the CODED lattice (all four vendor defines.h
+copies set CodedClose 207 / CodedComma 208; DAF's
+MstringFnumber.kt:17-19 inverts the two NAMES but keeps the vendor
+values and is arm-internal and symmetric) - no code change pending
+ruling; and the DOC-vs-DAF fresh tail-id divergence of batch 8
+(DAF 237=Merge / 240=cannon / 241=mumps_open / 243=compiler-parse
+misc / 244=AllocSV / 245=libmpscpp misc-7 / 246=interp-sql btree);
+DOC numbers its own batch-8 tail differently per its committed
+order. ENV RESET DISCLOSURE: the sandbox wiped mid-close after the
+first green scripted run; the gate re-ran clean from the knowledge
+checkpoints with identical counts (151 files, dafny 70/0, hygiene
+clean on the 37 rendered/edited files), and the heuristic append
+ids 225-257 was rebuilt from the session ledger after the reset.
+Check columns track the BASE reference translation (C-002) and stay
+todo per the C-001 cycle-10 backfill decision. Next protocol step:
+DAF batch 9 per the committed row order (one session per C-011).
+
+| 216 | include/mumpsc/builtinTable.h::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
+| 217 | libmpscpp.cpp::mstring::Find | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 218 | compiler-kill.c::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
+| 219 | compiler-lock.c::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
+| 220 | compiler-set.c::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
+| 221 | include/mumpsc/zfcns.h::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
+| 222 | compiler-mumps.c::atCopy | c | simple | todo | todo | translated | todo | todo | todo |
+| 223 | libmpscpp.cpp::IDF | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 224 | libmpscpp.cpp::global::Piece | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 225 | libmpscpp.cpp::GlobalData | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 226 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 227 | libmpscpp.cpp::global::ReadLine | cpp | core | todo | todo | translated | todo | todo | todo |
+| 228 | compiler-parse.c::ExpandText | c | core | todo | todo | translated | todo | todo | todo |
+| 229 | interp-sym.cpp::ScanParse | cpp | core | todo | todo | translated | todo | todo | todo |
+| 230 | interp-parse.cpp::BuildGlobal | cpp | core | todo | todo | translated | todo | todo | todo |
+| 231 | interp-sym.cpp::BuildLocal | cpp | core | todo | todo | translated | todo | todo | todo |
+| 232 | compiler-parse.c::Extract2a | c | core | todo | todo | translated | todo | todo | todo |
+| 233 | interp-zfcns.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | todo |
+| 234 | compiler-sys1.c::getstr1 | c | core | todo | todo | translated | todo | todo | todo |
+| 235 | interp-sql.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | todo |
+| 236 | include/mumpsc/compiler-macros.h::<misc> | c | core | todo | todo | translated | todo | todo | todo |
+| 237 | interp-sysfunc.cpp::Merge | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 238 | interp-bifs.cpp::GtkTreeAdd | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 239 | include/mumpsc/builtin.h::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
+| 240 | interp-parse.cpp::cannon | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 241 | compiler-open.c::mumps_open | c | complex | todo | todo | translated | todo | todo | todo |
+| 242 | include/mumpsc/compiler-globals.h::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
+| 243 | compiler-parse.c::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
+| 244 | interp-sysfunc.cpp::AllocSV | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 245 | libmpscpp.cpp::<misc-7> | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 246 | interp-sql.cpp::btree | cpp | complex | todo | todo | translated | todo | todo | todo |
+
 BOTH B5 tranche 3 (units 144-154, the complex stratum, batch close) translated 2026-11-22: eleven units pushed (sym.h misc, Qlength, SynInit, scan_token, bmg_search, mstringClass misc, mumps main, compiler-globals-ext misc, rpm misc, sql, libmpscpp misc-5), whole-arm kotlinc gate SILENT EXIT=0 at 32 files (gate copy plus the fresh repo-copy submission); dafny suite 30 verified 0 errors unchanged (all T3 units EXEMPT, no new spec); the eleven BOTH rows below marked translated and batch 5 is complete for the BOTH arm (31/31 translated). BOTH consults ledgered in the events CSV at the 19:05:00-19:05:52 band (53 event rows: 34 reuse, 16 hit, 3 miss). The tranche resolves the acceptIt seat (the roster-271 rpm misc render releases the T2 parse_count stub flip), lands the global-class Transpose member (the T2 transpose stub flip; both carried over the GlobalNode order/kill/valuation seats against the globalClass.h layout owner roster 259 - the T1 roster-89 blame is corrected in the seat header), extends the Msv carrier with the tranche-3 stateVector.h fields (xd/t0px/xpx/t2/program), and seats the GTK platform family plus the CLOSE/INVALID_CONVERSION/SYNMAX pins. OPEN ITEM: the m1-build gradle gate round and the MacBook gate (gradle build from wp2/arms/BOTH) follow the splice at batch close review; the BATCH-CLOSE protocol (coverage checklist, C-008 events export, journal close prose) runs next per the committed order. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 
 **BOTH B5 closed 2026-11-22**: 31/31 translated (arm opened + T1 124-133 push 9184cea0d with newline fixups 00a0643a5/6e0e7dd20, T2 134-143 push eb6d33c9a, T3 144-154 push c306b0c2c); whole-arm kotlinc gate SILENT EXIT=0 at every tranche close (15 -> 32 -> 32 files, gate copy plus fresh repo-copy each time); dafny suite 30 verified 0 errors (smoke 2 + length_count 5 + mps_log10 5 + expx 4 + parse_count 2 + strmanip 12); gradle gate BUILD SUCCESSFUL on Mark's MacBook at the T3 splice close (4s). Coverage checklist and events verification recorded in the arm journal close section: 210 events rows (98 reuse / 98 hit / 14 miss; 196/210 answered, 93.3%; 50.0% reuse of answered; the 14 miss rows ride three families). RULE-BASE PROMOTIONS at this close per the PI decision of 2026-11-22 (T1 recurrence met, G1/G3/G4 cleared, verified(untested) at capture): h019 class_member_carrier, h020 pointer_handle, h021 struct_carrier - BOTH rules_v0.pl now 21 rules. The m1-build gradle round is pending the PI (journal note to follow) with the deferred swipl coverage_report verification. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision. Next protocol step: BOTH B6 per the committed row order.

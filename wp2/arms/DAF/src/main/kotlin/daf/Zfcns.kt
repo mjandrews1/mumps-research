@@ -50,8 +50,7 @@ package daf
 // batch 7 - the SymHMisc.kt "not a roster unit" blame is WRONG,
 // TAG CORRECTION carried by this release), the gtk library glue
 // family (gtk*D, external GTK C library owners), gtkTreeAddD
-// (units.csv row 83 batch 3, NOT rendered in the DAF arm - the
-// DAF MdhTreeLevelAdd.kt render covers mdh_tree_level_add only),
+// (RELEASED at unit 238 B8 - real body at GtkTreeAdd.kt),
 // and the mps decimal family not drawn by DAF batches
 // (mpsFloorD/mpsCeilD/mpsTruncD roster b9/b10 rows;
 // mpsLogD/mpsCosD/mpsTanD/mpsExp2D b9 rows; mpsExpD/mpsExp10D/
@@ -2222,17 +2221,13 @@ fun serviceInterfaceDaf(a: CharArray, b: CharArray, c: CharArray?,
         d: CharArray?, e: CharArray, f: Char, sv: DafMsv): Unit =
     serviceInterfaceD(a, b, c, d, e, f, sv)
 
-// GtkTreeAdd seat - owner interp-zfcns.cpp::GtkTreeAdd, units.csv
-// roster row 83 (batch 3), NOT rendered in this arm (the DAF
-// MdhTreeLevelAdd.kt render covers mdh_tree_level_add only). The
-// DOC arm's unit-83 render owns the upstream body; shapes mirror
-// the DOC render (H-014 delegate-cite precedent).
-fun gtkTreeAddD(
-    itera: IntArray, iterb: IntArray?, treestore: CharArray,
-    v1d: CharArray, iargs: ShortArray, nargs: Short
-): Unit =
-    throw NotImplementedError(
-        "GtkTreeAdd: out-of-scope owner (interp-zfcns.cpp::GtkTreeAdd, roster row 83 batch 3)")
+// gtkTreeAddD RELEASED at unit 238 (B8): the real body landed at
+// GtkTreeAdd.kt under this same name and signature; the stub is
+// deleted and everydispatcher call site resolves unchanged (the
+// levCheck delegate precedent). The release note there carries
+// the tag correction: the roster row is units.csv row 225
+// (interp-bifs.cpp::GtkTreeAdd, batch 8); the row-74 zfcns twin
+// folds onto the same byte-identical vendor body.
 
 // GTK library glue family (external C library owners; the DOC arm
 // seats the same family at its Stubs.kt, H-012 String-typed opaque

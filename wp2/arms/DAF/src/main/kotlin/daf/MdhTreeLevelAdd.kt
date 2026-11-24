@@ -2,7 +2,7 @@ package daf
 
 // Units 126/127/128 (DAF B5 T1, simple): libmpscpp.cpp::
 // mdh_tree_level_add, the THREE same-named overloads by arity (21/17/
-// 15 LOC): each builds the \$z~mdh~tree~level~add coded service call
+// 15 LOC): each builds the \u0024z~mdh~tree~level~add coded service call
 // (xce open paren, xd0 comma, xcf close paren) over the GTK
 // tree-store handle, the depth, and 1-4 column strings, then relays
 // through zfcn.
@@ -23,7 +23,7 @@ package daf
 // out-buffer carrier: CharArray seat, the seat writes only).
 // Seats: zfcnDaf (owner: interp-zfcns.cpp::zfcn, roster b6 - the
 // named-owner stub is raised at the bottom of this file; the
-// \$z~mdh~tree~level~add consumer GtkTreeAdd is roster unit
+// \u0024z~mdh~tree~level~add consumer GtkTreeAdd is roster unit
 // interp-zfcns.cpp::GtkTreeAdd, batch 3).
 // The tmp writes start at &tmp[1] (the caret-bypass carriage of the
 // row-101 v1d family adapted: the builder carries the same
@@ -44,7 +44,7 @@ private fun fmtPointerD(handle: Int): String =
 // strcpy/strcat walk onto the tmp carriage (row 8 fold): the vendor
 // builds at &tmp[1] and passes (unsigned char *) tmp downstream.
 private fun buildZCallD(tree: Int, depth: Int, cols: List<String>): String {
-    val sb = StringBuilder("\$z~mdh~tree~level~add")
+    val sb = StringBuilder("\u0024z~mdh~tree~level~add")
     sb.append(XCE_D)
     sb.append(fmtPointerD(tree))
     sb.append(XD0_D)
@@ -83,4 +83,33 @@ fun mdhTreeLevelAddD(tree: Int, depth: Int, col1: String) {
     val msg = buildZCallD(tree, depth, listOf(col1))
     val tmp2 = CharArray(STR_MAX_DAF)
     zfcnDaf(msg, tmp2, DafInterpState.svPtr)
+}
+
+// unit 226 (DAF B8 T1, simple): the NINE-column overload
+// (33 LOC, score 10.3; vendor libmpscpp.cpp:534, physically
+// verified this session - the loc-asserted roster occurrence). The
+// family arity ladder now covers 1 (unit 128), 2 (unit 127), 4
+// (unit 126) and 9 (this row); the vendor's other arities (3, 5-8,
+// 10) are roster rows of later cycles or non-roster kins, each
+// keeping its own seat. Same build shape as the landed overloads:
+// the coded \u0024z~mdh~tree~level~add relay through buildZCallD,
+// the handle/depth decimal carriers, and the zfcnDaf dispatch (the
+// public Zfcns.kt real resolves; this file's private stub predates
+// the real and stays shadowed, H-016 single-seat rule).
+// Consults (2026-11-24T21:15:00Z, nominal): the unit-126/127/128
+// family consult set applies verbatim (row 98 overload-set, row 33
+// pointer-hex divergence fold, row 26 depth decimal, rows 6/22
+// implicit svPtr via DafInterpState.svPtr, row 30 tmp2 write-only
+// carrier).
+// Dafny: EXEMPT (service-call shaping over the zfcn seat; journal
+// row).
+
+fun mdhTreeLevelAddD(tree: Int, depth: Int,
+                     col1: String, col2: String, col3: String,
+                     col4: String, col5: String, col6: String,
+                     col7: String, col8: String, col9: String) {
+    val msg = buildZCallD(tree, depth,
+        listOf(col1, col2, col3, col4, col5, col6, col7, col8, col9))
+    val tmp2 = CharArray(STR_MAX_DAF)
+    zfcnDaf(msg, tmp2, DafInterpState.svPtr) // zfcn(tmp, tmp2, svPtr)
 }

@@ -1,7 +1,7 @@
 package daf
 
 // Unit 192 (DAF B7 T1, simple): libmpscpp.cpp::GlobalData (17 LOC,
-// score 8.7): the MSTRING-needle overload of the \$data intrinsic
+// score 8.7): the MSTRING-needle overload of the \u0024data intrinsic
 // wrapper family (vendor libmpscpp.cpp:2616). Same-file family
 // adjudication (the family the DOC arm already ledgered): the
 // char*-needle form is the batch-3 row (unit 70 there; outside this
@@ -31,7 +31,7 @@ package daf
 
 fun globalDataD(a: String, sv: DafMsv): Int {
 
-    // char tmp[STR_MAX] = "s %=$data(" ... strcat(tmp, a) ... ")"
+    // char tmp[STR_MAX] = "s %=\u0024data(" ... strcat(tmp, a) ... ")"
     var tmp = "s %=\u0024data("
     tmp += a
     tmp += ")"
@@ -48,3 +48,23 @@ fun globalDataD(a: String, sv: DafMsv): Int {
 
     return i
 }
+
+// ---------------- Unit 225 row-note (DAF B8 T1) -----------------
+//
+// Unit 225 (DAF B8 T1, simple): libmpscpp.cpp::GlobalData
+// (17 LOC, score 8.7; units.csv row 238; vendor :2636, physically
+// verified this session) - the STRING-needle overload, the row the
+// unit-192 KDoc above pre-adjudicated. VERIFICATION row (the
+// unit-186 fold precedent): the :2636 body verified line-for-line
+// against the landed unit-192 globalDataD seat - the
+// s-percent-equals-dollar-data command build (strcat(tmp,a.c_str())
+// here and strcat(tmp,a) on the char-star kin fold to the same
+// Kotlin String += over the needle), the xecute execution gate
+// with tpx 1/0, the SymGet("%") read, the atoi tail, -1 on
+// failure; the mstring t/i local ledgers match exactly. THIS ROW
+// RENDERS NO NEW BODY: the unit-192 seat carries it, each roster
+// row keeps its seat.
+// Consults (2026-11-24T21:14:30Z, nominal): verification-only
+// ledger append (the u186 carrier-twin precedent of the Find
+// family; the DOC arm recorded the same fold for its row).
+// Dafny: EXEMPT (verification row; journal row).

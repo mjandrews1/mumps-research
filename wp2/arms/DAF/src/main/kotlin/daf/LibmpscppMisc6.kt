@@ -13,6 +13,14 @@ package daf
 // mstring::Assign family, the SQL_* relay family, and the
 // operator& Concat forwards.
 //
+// TAG CORRECTION (unit 245, DAF B8): the CHUNK BOUNDARY TAIL tag
+// below says the Concat(x7) member bodies sit in the batch-10
+// ledger - the member bodies are the misc-7 chunk of THIS batch
+// (unit 245, LibmpscppMisc7.kt, rendered; the u119 tag-correction
+// precedent). The collapsed concatDaf stub is DELETED and the amp
+// relays below resolve to the member real bodies (release note in
+// place).
+//
 // CHUNK BOUNDARY (row 83 hit-adapt, the misc-5 disclosed cut):
 // the dump HEAD is the orphan tail "tmp = i; return i; }" of the
 // mstring mcvt(char *) body that OPENS in the misc-5 chunk (that
@@ -392,8 +400,8 @@ fun globalGetD(n: MpsGlobalNode): String = n.ref
 // ---------------- global::Merge --------------------------------
 
 // int global::Merge(global rhs) - the 128-quirk tail walks of the
-// two caret-prefixed refs; ::Merge is the mergeDaf stub seat
-// (Interpret.kt, roster b8 row 226).
+// two caret-prefixed refs; ::Merge relays to the mergeDaf seat
+// (RELEASED at unit 237 B8; real body at Merge.kt).
 fun globalMergeD(n: MpsGlobalNode, rhs: MpsGlobalNode, sv: DafMsv): Int {
     val tmp0 = CharArray(STR_MAX_DAF)
     val tmp1 = CharArray(STR_MAX_DAF)
@@ -758,33 +766,62 @@ fun sqlTableXDaf(s: String, c: Int, sv: DafMsv): String =
 
 // ---------------- operator& forwards (Concat family) -----------
 // Kotlin has no operator& (H-016): ampD names the vendor one-line
-// (*this).Concat(b) relays; the Concat(x7) member bodies sit
-// beyond the dump tail cut (batch-10 ledger): one named stub
-// collapses the twelve overload seats (H-015 seat collapse; the
-// landed global-global kin is the DOC-arm unit-65 render).
+// (*this).Concat(b) relays. concatDaf seat RELEASED at unit 245
+// (B8): the twelve overload seats resolve to the member bodies in
+// LibmpscppMisc7.kt (the misc-6 batch-10 tag was a forward-tag;
+// the u119 tag-correction precedent); the relays below gained the
+// sv carrier where the vendor member retrievs (global relays and
+// the mstring-node relay) - no external callers, the reshape is
+// this unit's cell, ledger here.
 
-fun concatDaf(a: String, b: Any): String =
-    throw NotImplementedError(
-        "Concat: out-of-scope owner (libmpscpp.cpp global/mstring Concat member family; beyond the misc-6 tail cut)")
+fun globalAmpDblD(a: MpsGlobalNode, b: Double, sv: DafMsv): String =
+    globalConcatDblD(a.ref, b, sv)
 
-fun globalAmpDblD(a: MpsGlobalNode, b: Double): String = concatDaf(a.ref, b)
+fun globalAmpLngD(a: MpsGlobalNode, b: Long, sv: DafMsv): String =
+    globalConcatLngD(a.ref, b, sv)
 
-fun globalAmpLngD(a: MpsGlobalNode, b: Long): String = concatDaf(a.ref, b)
+fun globalAmpIntD(a: MpsGlobalNode, b: Int, sv: DafMsv): String =
+    globalConcatIntD(a.ref, b, sv)
 
-fun globalAmpIntD(a: MpsGlobalNode, b: Int): String = concatDaf(a.ref, b)
+fun globalAmpNodeD(a: MpsGlobalNode, b: MpsGlobalNode, sv: DafMsv): String =
+    globalConcatStrD(a.ref, b.ref, sv)
 
-fun globalAmpNodeD(a: MpsGlobalNode, b: MpsGlobalNode): String =
-    concatDaf(a.ref, b.ref)
+fun globalAmpStrD(a: MpsGlobalNode, b: String, sv: DafMsv): String =
+    globalConcatStrD(a.ref, b, sv)
 
-fun globalAmpStrD(a: MpsGlobalNode, b: String): String = concatDaf(a.ref, b)
+fun mstringAmpDblD(a: String, b: Double): String = mstringConcatDblD(a, b)
 
-fun mstringAmpDblD(a: String, b: Double): String = concatDaf(a, b)
+fun mstringAmpLngD(a: String, b: Long): String = mstringConcatLngD(a, b)
 
-fun mstringAmpLngD(a: String, b: Long): String = concatDaf(a, b)
+fun mstringAmpIntD(a: String, b: Int): String = mstringConcatIntD(a, b)
 
-fun mstringAmpIntD(a: String, b: Int): String = concatDaf(a, b)
+fun mstringAmpStrD(a: String, b: String): String = mstringConcatStrD(a, b)
 
-fun mstringAmpStrD(a: String, b: String): String = concatDaf(a, b)
+fun mstringAmpNodeD(a: String, b: MpsGlobalNode, sv: DafMsv): String =
+    mstringConcatNodeD(a, b, sv)
 
-fun mstringAmpNodeD(a: String, b: MpsGlobalNode): String =
-    concatDaf(a, b.ref)
+// ---------------- Unit 227 row-note (DAF B8 T1) -----------------
+//
+// Unit 227 (DAF B8 T1, core): libmpscpp.cpp::global::ReadLine(
+// istream &u1) (21 LOC, score 10.7; units.csv row 236; vendor
+// :3039 per the DOC arm's ledger, the istream overload of the
+// family this file renders) is a VERIFICATION-ONLY row against the
+// landed globalReadLineRD (Reader) twin above. Line-for-line
+// against the vendor istream body: the getline(tmp,STR_MAX,'\n')
+// call is the BufferedReader readLine of the fold (the STR_MAX
+// scratch is the CharArray seat), the CR-LF strip
+// (tmp[strlen-1] < ' ' -> 0) is the fold's < ' ' trim,
+// byte-equivalent, and the Mglobal(STORE) with the f==0 ->
+// GLOBAL_NOT_FOUND throw is verbatim the fold body. The EOF arm:
+// the vendor zeroes tmp[0] and RUNS the Mglobal(STORE) over the
+// empty scratch before returning false - the landed fold stores
+// the empty buffer too (i = tmp ?: "", the store runs, the return
+// is i != null), so the DAF fold MATCHES the vendor EOF arm with
+// NO divergence to disclose (the DOC arm disclosed a pre-store
+// return divergence on its own fold; the DAF fold has none).
+// THIS ROW RENDERS NO NEW BODY: the globalReadLineRD seat carries
+// it, each roster row keeps its seat.
+// Consults (2026-11-24T21:15:30Z, nominal): verification-only
+// ledger append (the u186 fold precedent; the u214 file's own
+// FILE*/istream twin note above anticipated this fold).
+// Dafny: EXEMPT (verification row; journal row).
