@@ -20,6 +20,10 @@ effect on the committed schedule, and the methodological consequences.
 | C-007 | 2026-11-19 | DOC's B2-before-B1 execution, and H-018 capture | Active (deviation logged) |
 | C-008 | 2026-11-19 | export_doc_events.R duplicate-consult key vs. non-unique roster ids | Registered (tooling amendment) |
 | C-009 | 2026-11-22 | PRO event-log timestamps are a nominal calendar, not wall-clock records | Registered (retrospective, logged as data) |
+| C-010 | 2026-11-24 | Translator gate and push-verification steps are script-driven | Registered (C-010 entry) |
+| C-011 | 2026-11-24 | One-session-per-batch for batches 8-10 | Registered (C-011 entry) |
+| C-012 | 2026-11-24 | DAF CODED-lattice const-name inversion (unit 243 fold-in) | Pending (PI adjudication requested) |
+| C-013 | 2026-11-24 | Batch-8 fresh tail-id divergence across arms (DOC vs DAF) | Pending (PI adjudication requested) |
 
 ---
 
@@ -600,6 +604,106 @@ any reason reverts to per-tranche gate rows for the split
 portions (the batch-7 pattern), so no gate cycle ever mixes files
 that were not compiled together. The C-001 cycle-10 backfill
 decision and the per-unit check columns are unaffected.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
+entry). No pre-registered instrument is modified.
+
+
+## C-012 - DAF CODED-lattice const-name inversion at the unit-243 fold-in (logged 2026-11-24, pending PI ruling)
+
+**Observation.** At the DAF batch-8 unit-243 render
+(compiler-parse.c::<misc>, the parser file-head residue), the
+vendor define lattice was adjudicated across all four defines.h
+copies in the vendor tree: every copy sets CodedClose 207 and
+CodedComma 208 (defines.h lines 38-41). The DAF arm's landed const
+pair in MstringFnumber.kt:17-19 (seated at the unit-196 render,
+batch 7) reads CODED_COMMA_D=207 and CODED_CLOSE_D=208: the two
+NUMERIC values are the vendor values, but the two NAMES are
+inverted relative to the vendor macro names. The inversion is
+arm-internal and symmetric: the arm's consumers (Zfcns.kt /
+ZfcnBifs.kt CLOSE_ZB=207 / COMMA_ZB=208) align with the vendor
+values, and the batch-1 LocalName.kt coded-command decode table
+(row 101 anchor family) consumes the same numeric code points, so
+runtime behavior is unaffected; no cross-arm consumer exists.
+
+**Clarification (logged as data; disclosed at the batch-8 close in
+the heuristic seats row 256, the gate row 257, the PILOT batch-8
+note, and the journal fragment).**
+
+1. No code change is made pending the ruling; the batch-8 push
+   lands the fold-in with the existing const pair and this
+   disclosure.
+2. If the PI rules the names must match the vendor macros, the
+   rename is a one-file, compile-identical two-line edit plus its
+   in-file release note, ridden on the next DAF push (batch 9) and
+   recorded here as resolved-named.
+3. If the PI rules the arm-internal symmetric naming stands, the
+   divergence is recorded as accepted-arm-internal and the SAP's
+   code-equivalence checks for the affected units cite this entry;
+   the analysis phase treats the name pair as semantically neutral
+   (identical numeric decode table).
+
+**Effect on the committed schedule.** None. The ruling rides the
+next DAF push either way; no gate, batch, or per-unit check value
+changes.
+
+**Methodological consequences.** The unit-level outcome is not
+affected: the code points 207/208 decode identically in every arm.
+What is adjudicated is a code-equivalence bookkeeping question
+(vendor macro-name fidelity), which the SAP's per-unit
+code-review discipline records but does not grade against.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
+entry). No pre-registered instrument is modified.
+
+## C-013 - Batch-8 fresh tail-id divergence across arms (logged 2026-11-24, pending PI ruling)
+
+**Observation.** The batch-8 roster rows are keyed by numeric
+PILOT/table ids derived from each arm's committed batch_plan.md
+row order, per C-001's relative-order preservation. At the batch-8
+close, the fresh batch-8 units (units whose first render lands in
+batch 8: Merge, cannon, mumps_open, the compiler-parse
+file-head residue, AllocSV, the libmpscpp misc-7 chunk, the
+interp-sql btree body) carry DIFFERENT numeric tail ids per arm:
+the DAF arm numbers them 237=Merge / 240=cannon / 241=mumps_open
+/ 243=compiler-parse misc / 244=AllocSV / 245=libmpscpp misc-7 /
+246=interp-sql btree, per the pre-registered batch_plan.md; the
+DOC arm numbers its own batch-8 tail differently per its committed
+row order. The tail units are the same vendor bodies in both arms;
+only the numeric table ids differ, and both orders are the
+pre-registered ones for their arm (no arm deviated from its
+committed plan).
+
+**Clarification (logged as data; no pre-registered instrument is
+modified).**
+
+1. Both arms' orders are their committed pre-registered orders;
+   neither is a deviation under design 7.4. The divergence is a
+   numbering fact of the two committed plans, not an error; it is
+   flagged so cross-arm batch-8 comparisons do not silently assume
+   row-id correspondence.
+2. Cross-arm joins for batch-8 units must key on the unit_id
+   string (vendor file :: name) plus batch, per the analysis
+   README's roster-row contract (C-005 unit-key registration
+   precedent: ids are descriptive, joins carry roster_row or
+   unit_id + arm), never on the bare numeric table id.
+3. Requested PI ruling: whether to record a canonical cross-walk
+   table (numeric id -> unit_id per arm for the overlapping tail
+   units) checked in as analysis tooling, or to leave the join
+   discipline of item 2 as the only instrument. Default if no
+   ruling lands before analysis: item 2 discipline applies and
+   this entry is the disclosed reason.
+
+**Effect on the committed schedule.** None. No arm's batch work
+changes; the entry binds the analysis phase and the batch-8 close
+books only.
+
+**Methodological consequences.** Any arm-level batch-8 metric
+that groups by numeric row id would mis-pair units across arms;
+the entry forbids that join and names the correct one. The
+pre-registered per-arm batching (C-001) is untouched: each arm
+still translates each batch exactly once in its committed
+relative order.
 
 **Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
 entry). No pre-registered instrument is modified.
