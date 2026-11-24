@@ -32,11 +32,10 @@ var srefD = ""     // mstring Sref class-static
 var snameD = ""    // mstring Sname class-static
 var argCountD = 0  // extern int ArgCount
 
-// int count(char * key) - named-owner stub (owner
-// libmpscpp.cpp:2932; the comma/quote-aware subscript counter).
-fun countDaf(key: CharArray): Int =
-    throw NotImplementedError(
-        "count: out-of-scope owner (libmpscpp.cpp count at 2932; not among this arm's drawn rows)")
+// countDaf SEAT RELEASED (DAF B7 T3, unit 214): the real body
+// (the comma/quote-aware subscript counter of libmpscpp.cpp:2932)
+// landed in LibmpscppMisc6.kt as the residual cell of the
+// <misc-6> roster row; the call site below resolves there.
 
 fun makeGlobalD(flgIn: Int, gblnme: String, key: String, vararg rest: Any): MpsGlobalNode {
 

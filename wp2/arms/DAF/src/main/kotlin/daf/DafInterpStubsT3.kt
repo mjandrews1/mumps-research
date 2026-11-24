@@ -200,9 +200,11 @@ fun cleanLocksDaf(a: String): Unit =
     throw NotImplementedError(
         "cleanLocks: out-of-scope owner (lock service helper, not a corpus unit)")
 
-fun levCheckDaf(execName: Int, doRetX: Int, doRet: IntArray): Boolean =
-    throw NotImplementedError(
-        "LevCheck: out-of-scope owner (compiler dotted-line helper, not a corpus unit)")
+// levCheckDaf SEAT RELEASED (DAF B7 T3, unit 206): the body moved
+// to CompilerMumpsMisc.kt (levCheckD; the "not a corpus unit"
+// blame was wrong - the body is the residual cell of the
+// compiler-mumps.c::<misc> roster row 206); call sites resolve to
+// the real body there.
 
 fun cvarDaf(s: String): Boolean =
     throw NotImplementedError(
@@ -216,7 +218,7 @@ fun memcheckDaf(n: Int): Unit =
     throw NotImplementedError(
         "memcheck: out-of-scope owner (compiler temp-var budget helper, not a corpus unit)")
 
-// strfmon(3): NOT modeled on the DAF arm (the \$fnumber monetary format
+// strfmon(3): NOT modeled on the DAF arm (the u0024-style fnumber monetary format
 // path seat; named-owner stub over libc).
 fun strfmonD(fmt: String, x: Double): String =
     throw NotImplementedError(

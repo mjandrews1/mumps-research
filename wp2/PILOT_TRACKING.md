@@ -487,6 +487,43 @@ corrections remain queued for the T3 sigint/serviceInterface
 renders. Check columns track the BASE reference translation (C-002)
 and stay todo per the C-001 cycle-10 backfill decision.
 
+DAF B7 tranche 3 (units 206-215, the complex stratum) translated
+2026-11-24: ten units pushed, whole-arm kotlinc gate exit 0 at 124 kt
+files (the gate copy plus the fresh repo-copy submission, both green
+with only the accepted Interpret.kt vendor-lattice warning set of 6
+warnings) under the NEW scripted 4-stage gate driver gate.sh (the
+C-010 protocol change adopted by the PI this session: gate kotlinc +
+repo-copy recompile + dafny per-spec loop with expected-count +
+H-015 hygiene, all scripted; the scripted run caught 1 authored
+string backtick + 2 authored comment backticks + 2 pre-existing
+comment dollars in touched files, all normalized before the green
+run). DAF consults ledgered in the DAF heuristic log ids 213-224;
+dafny suite 70 verified 0 errors (unchanged; all ten T3 units EXEMPT
+or residue). Rows follow the pre-registered batch_plan.md order
+(complex stratum). The tranche closes batch 7 for the DAF arm (30/30
+batch-7 units across T1/T2/T3). Seat releases this tranche:
+levCheckDaf (unit 206, the not-a-corpus-unit blame corrected),
+epiDaf (raised then released at the unit-213 epi render),
+sigintDaf (unit 211), countDaf (unit 214, the T2 raise now owned
+by the misc-6 residual cell), serviceInterfaceDaf (unit 215, the
+SymHMisc not-a-roster-unit TAG CORRECTION; the StrmanipMisc:30-32
+tag correction rode the unit-211 render). The unit-212 match twin
+is a LEDGER APPEND discharge (the sys1 body verified line-for-line
+identical to the landed unit-180 modulo casts and the bd
+global-vs-param fold); the unit-214 misc-6 chunk keeps both
+chunk-boundary orphans ledgered (the mcvt char* twin stays the
+Misc-5 carry stub; the Concat x7 bodies beyond the tail cut ride
+the concatDaf named stub). CORRECTION of the T2 close prose: the
+T2 paragraph below says 116 files; the true post-T2 kt count was
+115 (9 new files on the 106 of T1); no CSV cell carries the error
+(prose-only); the 124-file post-T3 count of this paragraph is the
+corrected arithmetic (115 pre-batch + 10 new T3 files minus the
+Match.kt append = 9 new files). Check columns track the BASE
+reference translation (C-002) and stay todo per the C-001 cycle-10
+backfill decision. Next protocol step: DAF batch 8 per the
+committed row order (one session per batch for batches 8-10 per
+the C-011 protocol change).
+
 | 186 | libmpscpp.cpp::global::Find | cpp | simple | todo | translated | translated | todo | todo | todo |
 | 187 | compiler-zcommands.c::<misc> | c | simple | todo | translated | translated | todo | todo | todo |
 | 188 | libmpscpp.cpp::global::Piece | cpp | simple | todo | translated | translated | todo | todo | todo |
@@ -507,16 +544,16 @@ and stay todo per the C-001 cycle-10 backfill decision.
 | 203 | compiler-parse.c::Extract | c | core | todo | translated | translated | todo | todo | todo |
 | 204 | libmpscpp.cpp::Sim1 | cpp | core | todo | translated | translated | todo | todo | todo |
 | 205 | libmpscpp.cpp::embed1 | cpp | core | todo | translated | translated | todo | todo | todo |
-| 206 | compiler-mumps.c::<misc> | c | complex | todo | translated | todo | todo | todo | todo |
-| 207 | compiler-fcninit.c::fcninit | c | complex | todo | translated | todo | todo | todo | todo |
-| 208 | interp-sym.cpp::Qsub | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 209 | interp-native-btree.cpp::freadx | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 210 | compiler-zcommands.c::zcommands_code | c | complex | todo | translated | todo | todo | todo | todo |
-| 211 | interp-sysfunc.cpp::sigint | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 212 | compiler-sys1.c::match | c | complex | todo | translated | todo | todo | todo | todo |
-| 213 | compiler-epi.c::epi | c | complex | todo | translated | todo | todo | todo | todo |
-| 214 | libmpscpp.cpp::<misc-6> | cpp | complex | todo | translated | todo | todo | todo | todo |
-| 215 | interp-service.cpp::ServiceInterface | cpp | complex | todo | translated | todo | todo | todo | todo |
+| 206 | compiler-mumps.c::<misc> | c | complex | todo | translated | translated | todo | todo | todo |
+| 207 | compiler-fcninit.c::fcninit | c | complex | todo | translated | translated | todo | todo | todo |
+| 208 | interp-sym.cpp::Qsub | cpp | complex | todo | translated | translated | todo | todo | todo |
+| 209 | interp-native-btree.cpp::freadx | cpp | complex | todo | translated | translated | todo | todo | todo |
+| 210 | compiler-zcommands.c::zcommands_code | c | complex | todo | translated | translated | todo | todo | todo |
+| 211 | interp-sysfunc.cpp::sigint | cpp | complex | todo | translated | translated | todo | todo | todo |
+| 212 | compiler-sys1.c::match | c | complex | todo | translated | translated | todo | todo | todo |
+| 213 | compiler-epi.c::epi | c | complex | todo | translated | translated | todo | todo | todo |
+| 214 | libmpscpp.cpp::<misc-6> | cpp | complex | todo | translated | translated | todo | todo | todo |
+| 215 | interp-service.cpp::ServiceInterface | cpp | complex | todo | translated | translated | todo | todo | todo |
 
 **DOC B7 closed 2026-11-21**: 30/30 translated in tranches T1-T3
 (journal splices 377302d, 3f26a71, b909dc3; whole-arm kotlinc gate
@@ -545,3 +582,5 @@ BOTH B5 tranche 3 (units 144-154, the complex stratum, batch close) translated 2
 **BOTH B5 closed 2026-11-22**: 31/31 translated (arm opened + T1 124-133 push 9184cea0d with newline fixups 00a0643a5/6e0e7dd20, T2 134-143 push eb6d33c9a, T3 144-154 push c306b0c2c); whole-arm kotlinc gate SILENT EXIT=0 at every tranche close (15 -> 32 -> 32 files, gate copy plus fresh repo-copy each time); dafny suite 30 verified 0 errors (smoke 2 + length_count 5 + mps_log10 5 + expx 4 + parse_count 2 + strmanip 12); gradle gate BUILD SUCCESSFUL on Mark's MacBook at the T3 splice close (4s). Coverage checklist and events verification recorded in the arm journal close section: 210 events rows (98 reuse / 98 hit / 14 miss; 196/210 answered, 93.3%; 50.0% reuse of answered; the 14 miss rows ride three families). RULE-BASE PROMOTIONS at this close per the PI decision of 2026-11-22 (T1 recurrence met, G1/G3/G4 cleared, verified(untested) at capture): h019 class_member_carrier, h020 pointer_handle, h021 struct_carrier - BOTH rules_v0.pl now 21 rules. The m1-build gradle round is pending the PI (journal note to follow) with the deferred swipl coverage_report verification. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision. Next protocol step: BOTH B6 per the committed row order.
 
 **BOTH B6 closed 2026-11-23**: 31/31 translated (T1 155-164 push d05f736/splice a7a84e7, T2 165-175 push e20bab8c/splice e2a521e, T3 176-182 push 86e2521/splice 08e3cd1, big-three session 183-185 push 6595c3d/splice ae548cf); whole-arm kotlinc gate SILENT EXIT=0 at every tranche (41 -> 50 -> 57 -> 60 files, gate copy plus fresh repo-copy each time); dafny suite 35 -> 40 verified 0 errors (mps_log2.dfy and extract.dfy added; T3 and the big three EXEMPT per the DAF B6 T3 precedent); gradle gate BUILD SUCCESSFUL on Mark's MacBook at every splice close (8s T1, 1s T2, 9s T3, 13s big three). Coverage checklist and events verification recorded in the arm journal close section: 292 batch-6 events rows (146 reuse / 146 hit / 0 miss; 292/292 answered, 100.0%; 146/146 reuse of answered, 100.0%; zero miss units - the first close with a fully-covered batch). The T1 prose miscount (26/26 for the 21:40 band; the CSV of record carries 28 consults / 56 rows) is corrected by the close note. NO rule-base promotions (zero miss families); ANNOTATION UPGRADES per the PI decision of 2026-11-23: h019/h020/h021 untested -> unit_tested in rules_v0.pl (first consults-as-rule landed across B6, all reuse+hit, every render build-green; the h018 precedent; h008/h017/h018 were already unit_tested). The 31/31 batch-6 PILOT table ids verified against the roster units.csv (the DOC B6 repair-3 lesson applied, zero mismatches). Splice-chain hygiene logged at close: the ab83779 stray (empty root ARM_WORKING_NOTES.md, removed in ae548cf) and the still-tracked T3 big-three fragment whose removal was never git-recorded at splice (its content is spliced in the journal; the git rm rides the close-splice commit). The m1-build gradle round with the swipl coverage_report verification rides this close (journal note to follow). Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision. Next protocol step: BOTH batch 7 per the committed row order.
+
+

@@ -547,3 +547,59 @@ counts with the nominal-stamp qualification attached.
 criteria, oracle manifests, rules_v0.pl, knowledge_tooling.pl)
 is modified, and no data row of PRO_knowledge_events.csv is
 changed.
+
+## C-010 - Translator gate and push-verification steps are script-driven from DAF B7 T3 (logged 2026-11-24, registered; PI decision same day)
+
+**Decision.** The hand-run tranche-gate sequence (whole-arm
+kotlinc on the gate copy, kotlinc on the fresh repo-copy
+submission, the dafny per-spec verification loop with the
+expected-count check, the H-015 hygiene scan) and the local
+push-verification sha computation are executed by scripts
+persisted in the translator's Personal Knowledge
+(mumps-render-sandbox/scripts: gate.sh, sha-stage.sh) rather than
+as individually typed shell commands.
+
+**Methodological neutrality.** The scripts perform the SAME
+checks in the SAME order with the SAME acceptance criteria
+(accepted Interpret.kt vendor-lattice warning set only; dafny
+expected-verified count compared; hygiene failure aborts the
+gate). No check is added, removed, or relaxed; the fail order is
+the hand-run order. The sha recipe remains validated against a
+known remote blob before every push. Renders, KDoc consult bands,
+PILOT/fragment prose, and heuristic TRACE cells remain
+individually authored; the consult-band stamping discipline is
+unchanged.
+
+**Motivation.** Three of the five pre-push fixes at the B7 T2
+close were shell-quoting artifacts of the hand-run gate, not
+render defects; scripting removes that failure class without
+touching what the gate measures.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
+entry). No pre-registered instrument is modified.
+
+## C-011 - One-session-per-batch for batches 8-10 (logged 2026-11-24, registered; PI decision same day)
+
+**Decision.** For the remaining pilot batches 8-10, each arm's
+batch may be completed in a single working session (all three
+strata rendered, one gate cycle, one protocol push, one journal
+splice) instead of the batch-7 tranche-at-a-time cadence, at the
+translator's discretion per batch.
+
+**Effect on pre-registration.** The pre-registered batching and
+strata are unchanged: same units, same batch assignment, same
+per-unit instruments. What changes is session granularity only.
+The tranche-gate row of the heuristic log records ONE gate row
+per session-gate cycle; when a batch is completed in one session
+the gate row states the whole-batch file count and the strata
+covered, and the PILOT note paragraph records the one-session
+choice for that batch.
+
+**Continuity constraints.** A batch split across sessions for
+any reason reverts to per-tranche gate rows for the split
+portions (the batch-7 pattern), so no gate cycle ever mixes files
+that were not compiled together. The C-001 cycle-10 backfill
+decision and the per-unit check columns are unaffected.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
+entry). No pre-registered instrument is modified.

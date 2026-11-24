@@ -29,7 +29,7 @@ fun dotyDaf(j: Int): Int {
 
     if (C.ExecLevel == j - 1) { // indenting
 
-        if (levCheckDaf(C.ExecName, C.DoRetX, C.DoRet)) {
+        if (levCheckD(C.ExecName, C.DoRetX, C.DoRet)) {
 
             print("\n*** Indentation without preceeding Do\n")
             C.pd1Last = C.pd1cur // *pd1Last = pd1cur (caller TU global fold)

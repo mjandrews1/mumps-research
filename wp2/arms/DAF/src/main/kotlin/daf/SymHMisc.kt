@@ -35,8 +35,10 @@ package daf
 //   BuildGlobal   - stub: buildGlobalDaf (DafInterpStubsT3.kt)
 //   Qsub          - stub: qsubDaf (DafInterpStubsT3.kt)
 //   GlobalQuery   - rendered: GlobalQuery.kt (unit 119, b4 T3)
-//   ServiceInterface - not a roster unit; library service family
-//                   (libmpsrdbms.h kin, unit-9 seat); owner-named
+//   ServiceInterface - rendered: InterpService.kt (unit 215, b7
+//                   T3) - TAG CORRECTION (b7 T3): the "not a
+//                   roster unit" blame above was WRONG; row 187
+//                   (units.csv row 215) owns this seat
 //   xindex        - stub: xindexDaf (DafInterpStubsT3.kt, b9/b10)
 //   substr        - vendor canonical string service; library family
 //                   seat rendered by its call sites (not a corpus

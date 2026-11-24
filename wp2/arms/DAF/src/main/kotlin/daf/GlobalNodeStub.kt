@@ -56,7 +56,7 @@ class MpsGlobalNode(val ref: String) {
         throw NotImplementedError(
             "global node invoke (two-subscript): out-of-scope owner (libmpscpp.cpp global class)")
 
-    // Order(dir) - the $ORDER walk member; the (string) cast of the C++
+    // Order(dir) - the \u0024ORDER walk member; the (string) cast of the C++
     // call site is absorbed by the String return. Owner: the
     // libmpscpp.cpp global-class Order member (kin of the roster unit
     // libmpscpp.cpp::GlobalOrder, BASE-log row 98 overloads-collapse
@@ -104,6 +104,11 @@ class MpsGlobalNode(val ref: String) {
 
 // sigint(int) - owner interp-sysfunc.cpp::sigint (roster batch-7 unit for
 // the DOC cycle; named owner stub; Transpose calls it with code 100).
-fun sigintDaf(code: Int): Unit =
-    throw NotImplementedError(
-        "sigint: out-of-scope owner (interp-sysfunc.cpp::sigint, roster unit 211)")
+// sigintDaf SEAT RELEASED (DAF B7 T3, unit 211): delegates to
+// the real body at InterpSysfuncSigint.kt (sigintD); owner
+// interp-sysfunc.cpp::sigint = roster unit 211 of THIS batch (the
+// earlier DOC-cycle note and the StrmanipMisc ledger tag that
+// read "batch 10" were wrong; StrmanipMisc corrected in the same
+// push). Call sites resolve with the same (Int) code shape.
+fun sigintDaf(code: Int): Unit = sigintD(code)
+

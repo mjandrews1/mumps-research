@@ -2213,11 +2213,14 @@ fun zfcnDaf(v1d: CharArray, bd: CharArray, svPtr: DafMsv) {
 // blame is wrong - row 187 owns this seat. The c/d args are nullable
 // (H-012): this TU's callers pass NULL x3/x4 (the vendor zcn call).
 // RELEASED from the unit-184 zglobal GBLNME (20) relay arms, held
-// UNRESOLVED until the b7-187 render lands.
+// UNRESOLVED until the b7-187 render lands. SEAT RELEASE (DAF B7
+// T3, unit 215): the real body is the InterpService.kt render
+// (serviceInterfaceD, roster row 187 = units.csv row 215); this
+// delegate keeps the call sites bound unchanged (the levCheck
+// precedent).
 fun serviceInterfaceDaf(a: CharArray, b: CharArray, c: CharArray?,
         d: CharArray?, e: CharArray, f: Char, sv: DafMsv): Unit =
-    throw NotImplementedError(
-        "ServiceInterface: out-of-scope owner (interp-service.cpp::ServiceInterface:87, roster row 187 batch 7)")
+    serviceInterfaceD(a, b, c, d, e, f, sv)
 
 // GtkTreeAdd seat - owner interp-zfcns.cpp::GtkTreeAdd, units.csv
 // roster row 83 (batch 3), NOT rendered in this arm (the DAF

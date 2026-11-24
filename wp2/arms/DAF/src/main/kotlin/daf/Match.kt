@@ -134,3 +134,30 @@ fun matchD(pts: Array<IntArray>, lx: Int, ct: IntArray, ad: CharArray,
     rslt.v = 1
     return
 } // match()
+
+// ------------------------------------------------------------------
+// Unit 212 (DAF B7 T3, complex): compiler-sys1.c::match (units.csv
+// row 212: loc 95, score 78.9) - the COMPILER-TU twin of the
+// landed unit-180 interp-parse.cpp body above (K&R-style
+// declaration, same vendor). Physically verified this session:
+// the body is line-for-line identical to the interp-parse form
+// modulo (a) formatting/casts ((const unsigned char *) drops,
+// (char *) drops - the B6 render already noted these), and (b)
+// THE BD BINDING: the sys1 twin reads the FILE-SCOPE bd global
+// where the parse twin takes bd as a parameter; the landed
+// matchD signature takes the bd CharArray carrier param, which is
+// the same fold the compiler-side call sites bind (the pattern
+// text drive - rows 6/22; the global-scope fold onto the param
+// carrier is the adjudicated divergence, same discipline as the
+// row-62 state folds). The xindex punctuation tables are
+// byte-identical in both twins (verified: the leading-space
+// form). Per the unit-201 Multiply / DOC unit-225 carrier-twin
+// precedent this row renders NO new body: the matchD seat
+// carries both renders and each roster row keeps its seat. The
+// two compiler-side rebinds of this file (B7 T1, the 190/189
+// substr release chain) apply to this twin unchanged (the
+// compilerSubstrD calls fall inside the shared body).
+// Consult (2026-11-24T20:13:00Z, nominal): BASE-log row 105
+// hit-reuse (the carrier-twin discharge discipline; the node
+// model of the sibling precedent); the verification is this
+// ledger note, same as the DOC discharge of ITS carrier twin.

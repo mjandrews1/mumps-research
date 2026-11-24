@@ -27,9 +27,10 @@ package daf
 //                    (interp-strmanip.cpp), so the seat lpadDaf
 //                    flips to delegate below-render with the
 //                    signature mapping noted at the seat.
-// sigint prototype row: owner stays with the named-owner seat
-// rideGlobalNodeStub carries (sigintDaf, owner
-// interp-sysfunc.cpp::sigint, a roster row of batch 10).
+// sigint prototype row: TAG CORRECTED (DAF B7 T3, unit 211):
+// sigint is roster unit 211 of batch 7 (NOT batch 10); the seat
+// sigintDaf at GlobalNodeStub.kt delegates to the unit-211 render
+// (InterpSysfuncSigint.kt sigintD) since the B7 T3 push.
 // Dafny: EXEMPT (raw-buffer surgery seats; journal row).
 
 // char *rindex(char *s, int c) - vendor-local highest-index scan;
