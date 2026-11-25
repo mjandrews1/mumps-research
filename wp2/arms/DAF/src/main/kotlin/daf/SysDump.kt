@@ -30,6 +30,14 @@ class DafStabNode {
     var name = ""
     var data = ""
     var next: DafStabNode? = null
+    // the vendor struct stab carriers extended at the unit-279
+    // release (interp-sym.cpp writes OrigName/exec/copy onto the
+    // node; the arrays-size cell of the vendor struct kept as the
+    // Int seat - grep-verified unconsumed on this arm, ledgered)
+    var origName = ""
+    var size = 0
+    var copy = 0
+    var exec = 0
 }
 
 // Side carrier of the layer chains: DafMsv.start models the layer
@@ -39,12 +47,10 @@ object DafSymChains {
     val start = arrayOfNulls<DafStabNode?>(SYM_MAX_D)
 }
 
-// char *Mltoa(long, unsigned char *) - named-owner stub seat
-// (owner interp-arith.cpp::Mltoa, a roster row of the batch-10
-// block; rendered when the DAF cycle reaches that cell).
-fun mltoaDaf(pid: Long, p: CharArray): Unit =
-    throw NotImplementedError(
-        "Mltoa: out-of-scope owner (interp-arith.cpp::Mltoa, roster batch-10 row)")
+// mltoaDaf SEAT RELEASED (unit 291, batch 10): the real body
+// lands at InterpArithMltoa.kt (roster row 291,
+// interp-arith.cpp::Mltoa; the stub is deleted with this release
+// note).
 
 fun SysDumpD(pid: Long, svPtr: DafMsv) {
 

@@ -21,8 +21,9 @@ package daf
 //   _horolog roster row body landed at the seat; real body).
 // - void _justify(...): RENDERED as the unit-194 seat
 //   (InterpJustify.kt, interp-sym.cpp::_justify).
-// - void _length(...): not yet rendered; the owner body rides a
-//   later-cycle roster row.
+// - void _length(...): RENDERED as the unit-305 seat
+//   (InterpSymLength.kt, lengthSymD; the sym_-native length
+//   counter over the xindexDaf walk; release record this row).
 // - void _piece(..., struct MSV *): RENDERED as the unit-114 real
 //   (InterpPieceMisc.kt; the pieceDaf seat).
 // - void _random(unsigned char *, unsigned char *): not yet

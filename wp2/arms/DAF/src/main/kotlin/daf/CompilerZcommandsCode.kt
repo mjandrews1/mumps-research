@@ -179,7 +179,10 @@ fun zcommandsCodeD(): Int {
 
     if (at(C.xd, p2pxD) == 's') { // zseek
         C.t2 = 1
-        val r = parseDaf(DafInterpState.svPtr) // parse_() sv-drive fold
+        val r = parseCDaf(C, DafInterpState.svPtr)
+            // zseek rebind (PI-ruled, C-011): the b2 svPtr-drive
+            // fold routes through the b7 parseCDaf gate seat
+            // (compiler-parse.c::parse_ owns the kernel)
         C.ierr = r
         if (C.ierr != 0) return PARSE_ERROR_D
         // long i = atol(&pd1[sdlim]); - the vendor computes a value

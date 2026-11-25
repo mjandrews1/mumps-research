@@ -51,8 +51,13 @@ object DafCompilerState {
     // the extra vendor compiler-TU FOR globals (units 122/123 carrier)
     var forLine = 0
     var forxFLG = 0
-    val ForBlocks = IntArray(64)
-    val Blocks = IntArray(64)
+    // vendor compiler-globals.h:115-116: short ForBlocks[FBMAX] /
+    // Blocks[FBMAX]. Resized FBMAX_D (4000) at the row-278 render:
+    // the unit-213 epi -1 fill walks FBMAX_D cells over the old
+    // 64-cell carrier (bounds fault); the vendor FBMAX walk is now
+    // in-bounds (disclosed divergence FIX, ledgered this session).
+    val ForBlocks = IntArray(FBMAX_D)
+    val Blocks = IntArray(FBMAX_D)
 
     // SET LHS store (lhs[25] char* array; malloc storage folds onto the
     // JVM heap rows - the MEM_ERROR malloc-NULL branch is unreachable on

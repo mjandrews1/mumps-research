@@ -104,6 +104,25 @@ fun epDaf(flg: Int, execName: Int, pid: Long) {
     mainFlgD = 0                     //* not in main function
 }
 
+// row-278 release-of-access: the unit-278 compiler-mumps.c::main
+// render owns the LabelsStart/TextStart malloc-prepend walks of the
+// vendor label/text chains; the private-set heads above stay
+// unit-206-owned, the prepend bodies land here (GC ledger: the
+// vendor malloc-NULL arms are unreachable on the JVM).
+fun pushLabelTxtD(name: String, lnbr: Int) {
+    labelsStartD = TxtNodeD(name, lnbr, labelsStartD)
+}
+
+fun pushTextTxtD(name: String, lnbr: Int) {
+    textStartD = TxtNodeD(name, lnbr, textStartD)
+}
+
+// row-278: the vendor head init (TextStart=NULL) needs the clear;
+// private-set head, so the body rides here with the prepends.
+fun clearTextStartD() {
+    textStartD = null
+}
+
 // The levCheckDaf SEAT RELEASE (DafInterpStubsT3:203): the real
 // body. int LevCheck(short ExecName, short DoRetX, short DoRet[])
 fun levCheckD(execName: Int, doRetX: Int, doRet: IntArray): Boolean {

@@ -182,11 +182,11 @@ fun globalCharD(n: MpsGlobalNode, i: CharArray, max: Int): CharArray {
 // ---- Stem/TokenInit/Token/Dump/Restore service families ----
 
 // int wstem(char *, int) - the stemming entry (interp-stem.cpp:
-// family; InterpBifsMisc keeps it prototype-only) - named-owner
-// stub, MUMPS runtime sibling of the shred seats.
-fun wstemD(word: CharArray, len: Int): Int =
-    throw NotImplementedError(
-        "wstem: out-of-scope owner (interp-stem.cpp::wstem at 418; roster b10 cell, 28 loc)")
+// family; InterpBifsMisc keeps it prototype-only) - the MUMPS
+// runtime sibling of the shred seats.
+// wstemD SEAT RELEASED (row 292, batch 10): the real body lands
+// at InterpStemWstem.kt (roster row 292, interp-stem.cpp::wstem; the
+// stub body is deleted with this release note).
 
 // mstring Stem(mstring &arg): wstem over the arg, readback fold
 // (rows 101/6: the buffer plumb is str strcpy -> wstem -> mstring).
@@ -402,10 +402,10 @@ fun perlD(a: String, b: String): Int {
 // (B, s, threshold) - the member receiver drops out of the call
 // shape (kept verbatim; ledger). ----
 
-fun docCorrelateFreeD(b: MpsGlobalNode, s: String, threshold: Double):
-    Unit =
-    throw NotImplementedError(
-        "DocCorrelate(global,string,double) free function: out-of-scope owner (libmpscpp.cpp DocCorrelate family)")
+// docCorrelateFreeD SEAT RELEASED (row 287, batch 10): the real
+// body lands at LibmpscppDocCorrelate.kt (roster row 287,
+// libmpscpp.cpp::global::DocCorrelate string-threshold member; the
+// stub body is deleted with this release note).
 
 // void global::DocCorrelate(global B, char *fcn, double threshold)
 fun docCorrelateD(a: MpsGlobalNode, b: MpsGlobalNode, fcn: String,

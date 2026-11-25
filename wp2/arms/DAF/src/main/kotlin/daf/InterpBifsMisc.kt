@@ -37,11 +37,26 @@ const val YES_D = 1
 fun gcvtWrapperD(x: Double): String = DafCRuntime.fmtG(x)
 
 // char *sym_(int, unsigned char*, unsigned char*, struct MSV *) -
-// owner: interp-sym.cpp::sym_ (no roster unit for the dispatcher;
-// permanent named-owner stub).
-fun symDaf(symflg: Int, a: String, b: String): String =
-    throw NotImplementedError(
-        "sym_: out-of-scope owner (interp-sym.cpp::sym_, not a roster unit)")
+// the 3-arg String adapter seat: STUB CORRECTION at the unit-279
+// release (row 279 owns interp-sym.cpp::sym_; the b5 "not a roster
+// unit" tag was wrong). The raise is deleted; the adapter binds
+// the real symRetDaf gate seat (InterpSym.kt): a onto the CharArray
+// name buffer, out seeded from b (the store value), the C NULL
+// return folding to the out content of the miss paths (empty),
+// value otherwise.
+fun symDaf(symflg: Int, a: String, b: String): String {
+    val svPtr = DafInterpState.svPtr
+    val aB = CharArray(STR_MAX_DAF)
+    var q = 0
+    while (q < a.length && q < aB.size - 1) { aB[q] = a[q]; q++ }
+    aB[q] = NUL_D
+    val outB = CharArray(STR_MAX_DAF)
+    q = 0
+    while (q < b.length && q < outB.size - 1) { outB[q] = b[q]; q++ }
+    outB[q] = NUL_D
+    val r = symRetDaf(symflg, aB, 0, outB, 0, svPtr)
+    return r ?: DafCRuntime.cstringAt(outB, 0)
+}
 
 // unsigned char * Mget(unsigned char * s, struct MSV * svPtr)
 fun Mget(s: String): String {

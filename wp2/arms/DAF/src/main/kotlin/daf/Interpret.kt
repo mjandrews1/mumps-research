@@ -13,8 +13,8 @@ package daf
 // H-011: the goto ladder renders as the ILblI enum state machine
 // (label per goto target, one when-arm per vendor label, one
 // continue@machine per goto, plain return per C return); the C
-// statics render as InterpretState (H-004); NmesI carries the
-// vendor Nmes name-chain struct.
+// statics render as InterpretState (H-004); NmesI is the private
+// alias of the shared DafNmesD carrier (the unit-279 rename).
 //
 // H-014 DAF seat map: gate delegations - symRetDaf (via the
 // per-file symSeatI shape adapter below: the DAF gate seat
@@ -50,11 +50,9 @@ private const val SYM_RETRIEVE_I = 1 // defines.h:44 SymRetrieve
 
 // vendor statics, H-004 notes in the file header
 private object InterpretState {
-    // the NEW/KILL except-list chain (the DOC opaque svPtr.nstart
-    // seat; the DAF DafMsv.nstart is the Int domain field the
-    // GlobalQuery/Qlength state copies bind - the chain folds
-    // here, ledgered)
-    var nmesChain: NmesI? = null
+    // the NEW/KILL except-list chain renamed onto the shared
+    // DafNmesState carrier at the unit-279 release (InterpSym.kt
+    // owner); the assignments bind DafNmesState.chain directly
     // static char *swp[SWAP] (the DO-swap arena; restart frees it late)
     val swp = arrayOfNulls<CharArray>(SWAP_I)
 
@@ -65,7 +63,10 @@ private object InterpretState {
 
 // vendor struct nmes carrier of the NEW/KILL except lists (the
 // stateVector nstart opaque seat; Fcn.kt copies it opaquely)
-private class NmesI(val name: String, val next: NmesI?)
+// struct nmes node: renamed onto the shared carrier at the
+// unit-279 release (the InterpSym.kt DafNmesD class; kept as the
+// private alias so the walk sites below stay verbatim)
+private typealias NmesI = DafNmesD
 
 // vendor goto labels and command cases, H-011 machine states
 private enum class ILblI {
@@ -866,21 +867,30 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                     // papering transports no stream through this
                     // arm - downstream reads raise at their seats)
                     fopenWriteI(DafCRuntime.cstring(tmp2), false)
-                        ?.let { svPtr.out_file[k] = 1 } ?: run { svPtr.out_file[k] = 0 }
+                        ?.let { svPtr.out_file[k] = 1
+                                if (k in 0..9) DafFileHandles.outW[k] = it }
+                        ?: run { svPtr.out_file[k] = 0
+                                 if (k in 0..9) DafFileHandles.outW[k] = null }
                     if (svPtr.out_file[k] == 0) svPtr.tpx = 0 else svPtr.tpx = 1
                     lab = ILblI.OPN1
                     continue@machine
                 }
                 if (New == 2) { /* output append */
                     fopenWriteI(DafCRuntime.cstring(tmp2), true)
-                        ?.let { svPtr.out_file[k] = 1 } ?: run { svPtr.out_file[k] = 0 }
+                        ?.let { svPtr.out_file[k] = 1
+                                if (k in 0..9) DafFileHandles.outW[k] = it }
+                        ?: run { svPtr.out_file[k] = 0
+                                 if (k in 0..9) DafFileHandles.outW[k] = null }
                     if (svPtr.out_file[k] == 0) svPtr.tpx = 0 else svPtr.tpx = 1
                     lab = ILblI.OPN1
                     continue@machine
                 }
                 // same handle-domain fold (note above)
                 fopenReadI(DafCRuntime.cstring(tmp2))
-                    ?.let { svPtr.in_file[k] = 1 } ?: run { svPtr.in_file[k] = 0 }
+                    ?.let { svPtr.in_file[k] = 1
+                            if (k in 0..9) DafFileHandles.inR[k] = it }
+                    ?: run { svPtr.in_file[k] = 0
+                             if (k in 0..9) DafFileHandles.inR[k] = null }
                 if (svPtr.in_file[k] == 0) svPtr.tpx = 0 else svPtr.tpx = 1
                 lab = ILblI.OPN1
                 continue@machine
@@ -1189,10 +1199,16 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                     // popen carrier folds the same way (the pipe
                     // handle quantizes to the open flag)
                     popenReadI(DafCRuntime.cstring(bufI))
-                        ?.let { svPtr.in_file[6] = 1 } ?: run { svPtr.in_file[6] = 0 }
+                        ?.let { svPtr.in_file[6] = 1
+                                DafFileHandles.inR[6] = it }
+                        ?: run { svPtr.in_file[6] = 0
+                                 DafFileHandles.inR[6] = null }
                 } else { // SHELL/G
                     popenWriteI(DafCRuntime.cstring(bufI))
-                        ?.let { svPtr.out_file[6] = 1 } ?: run { svPtr.out_file[6] = 0 }
+                        ?.let { svPtr.out_file[6] = 1
+                                DafFileHandles.outW[6] = it }
+                        ?: run { svPtr.out_file[6] = 0
+                                 DafFileHandles.outW[6] = null }
                     if (svPtr.out_file[6] == 0) svPtr.tpx = 0 else svPtr.tpx = 1
                 }
                 lab = ILblI.NEXT_LINE
@@ -1927,9 +1943,9 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                         svPtr.xd[svPtr.xpx] == TAB_D) {
                     /* new except none */
                     svPtr.symflg = 7
-                    InterpretState.nmesChain = null /* list freed in sym_() */
+                    DafNmesState.chain = null /* list freed in sym_() */
                     symSeatI(7, charArrayOf(NUL_D), charArrayOf(NUL_D), svPtr)
-                    InterpretState.nmesChain = null /* list freed in sym_() */
+                    DafNmesState.chain = null /* list freed in sym_() */
                     ExecLevNew[ExecLevel] = 1
                     lab = ILblI.NEXT_CMND
                     continue@machine
@@ -1958,7 +1974,7 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                     /* New all locals except: linked list of var
                        names not to be newed (the malloc-NULL OOM
                        arms drop per the file-header H-013 note) */
-                    InterpretState.nmesChain = null
+                    DafNmesState.chain = null
                     svPtr.xpx++
                     lab = ILblI.NEW2
                     continue@machine
@@ -1982,7 +1998,7 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                 }
                 keyfixDaf(sliceAtI(svPtr.v1d, 1)) /* in case its an array */
                 val nmI = DafCRuntime.cstringAt(svPtr.v1d, 1)
-                InterpretState.nmesChain = NmesI(nmI, InterpretState.nmesChain)
+                DafNmesState.chain = NmesI(nmI, DafNmesState.chain)
                 svPtr.xpx++
                 if (svPtr.xd[svPtr.xpx] != ')' && svPtr.xd[svPtr.xpx] != NUL_D) {
                     svPtr.xpx++
@@ -1992,7 +2008,7 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                 svPtr.symflg = 7
                 /* new except */
                 symSeatI(7, charArrayOf(NUL_D), charArrayOf(NUL_D), svPtr)
-                InterpretState.nmesChain = null /* list freed in sym_() */
+                DafNmesState.chain = null /* list freed in sym_() */
                 ExecLevNew[ExecLevel] = 1
                 svPtr.xpx++
                 if (svPtr.xd[svPtr.xpx] == ',') {
@@ -2059,7 +2075,7 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                     }
                 } else {
                     // Kill all locals except: the except-list
-                    InterpretState.nmesChain = null
+                    DafNmesState.chain = null
                     svPtr.xpx++
                     lab = ILblI.KILL2
                     continue@machine
@@ -2083,7 +2099,7 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                 }
                 keyfixDaf(sliceAtI(svPtr.v1d, 1)) /* in case its an array */
                 val nmI = DafCRuntime.cstringAt(svPtr.v1d, 1)
-                InterpretState.nmesChain = NmesI(nmI, InterpretState.nmesChain)
+                DafNmesState.chain = NmesI(nmI, DafNmesState.chain)
                 svPtr.xpx++
                 if (svPtr.xd[svPtr.xpx] != ')' && svPtr.xd[svPtr.xpx] != NUL_D) {
                     svPtr.xpx++
@@ -2092,7 +2108,7 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                 }
                 svPtr.symflg = 5
                 symSeatI(5, charArrayOf(NUL_D), charArrayOf(NUL_D), svPtr)
-                InterpretState.nmesChain = null
+                DafNmesState.chain = null
                 svPtr.xpx++
                 if (svPtr.xd[svPtr.xpx] == ',') {
                     svPtr.xpx++
@@ -2131,6 +2147,12 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                 }
                 svPtr.in_file[i] = 0
                 svPtr.out_file[i] = 0
+                // the unit-285 fold: the JVM stream carriers ride
+                // DafFileHandles; CLOSE closes and clears them
+                if (i in 0..9) {
+                    DafFileHandles.inR[i]?.close(); DafFileHandles.inR[i] = null
+                    DafFileHandles.outW[i]?.close(); DafFileHandles.outW[i] = null
+                }
                 if (svPtr.xd[svPtr.xpx] != ',') {
                     lab = ILblI.NEXT_CMND
                     continue@machine
@@ -2731,10 +2753,10 @@ private fun symSeatI(opcode: Int, name: CharArray, rslt: CharArray,
 // 4-arg sibling - owner interp-parse.cpp::inout, roster b10; the
 // DAF WriteCode.kt inoutDaf names the b2 3-arg twin
 // (compiler-sys1.c::inout at 292).
-fun inoutInterpDaf(text: CharArray, cmnd: Short, col: Short,
-        sv: DafMsv): Unit =
-    throw NotImplementedError(
-        "inout: out-of-scope owner (interp-parse.cpp::inout 4-arg, roster b10)")
+// inoutInterpDaf SEAT RELEASED (unit 285, batch 10): the real
+// 4-arg body lands at InterpParseInout.kt (roster row 285,
+// interp-parse.cpp::inout; the raise is deleted with this release
+// note; the three machine call sites above stay verbatim).
 
 // int _SymFree(int, struct MSV *); owner interp-sym.cpp::_SymFree,
 // units.csv roster b1 row 28 (not drawn by the DAF arm; the DOC arm

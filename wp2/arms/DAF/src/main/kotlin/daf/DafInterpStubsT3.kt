@@ -138,11 +138,12 @@ fun parseDaf(sv: DafMsv): Int =
     throw NotImplementedError(
         "parse_: out-of-scope owner (interp-parse.cpp::parse_, roster b3)")
 
-// char *sym_(int,...): nullable return is the C NULL of the dispatcher;
-// the caller checks (BASE-log row 92 retrieve-then-throw fold).
-fun symRetDaf(symflg: Int, a: CharArray, aOff: Int, out: CharArray, outOff: Int, sv: DafMsv): String? =
-    throw NotImplementedError(
-        "sym_: out-of-scope owner (interp-sym.cpp::sym_, not a roster unit; permanent named-owner stub)")
+// symRetDaf SEAT RELEASED (DAF B10, unit 279): the real dispatcher
+// body landed at InterpSym.kt (interp-sym.cpp::sym_, roster row
+// 279; the earlier "not a roster unit" tag was WRONG - see the
+// release header there); the Interpret symSeatI adapter, the Fcn/
+// MpstimeMain/InterpPieceMisc call sites and the 3-arg symDaf
+// String seat of InterpBifsMisc resolve to the real body.
 
 // SEAT RELEASED (big-three session 2026-11-22): the InterpretDaf
 // stub deleted here; the unit-185 render Interpret.kt owns the
@@ -296,3 +297,34 @@ fun isAlphaAscii(c: Char): Boolean =
 
 // sql session opcode (defines.h:169 #define OPEN 206)
 const val SQL_OPEN_D = 206
+
+// ---------------------------------------------------------------------
+// row-278 raised named stubs (compiler-mumps.c::main call sites).
+// Owners named per the unit-245 macros ledger (never opened on the
+// DAF arm; stub-mediated honesty at the main render call sites).
+// ---------------------------------------------------------------------
+
+// int if_code() - owner compiler-if.c::if_code (roster row 41,
+// batch-2 Latin cell; no DAF render to date).
+fun ifCodeDaf(): Int =
+    throw NotImplementedError(
+        "if_code: out-of-scope owner (compiler-if.c::if_code, roster b2)")
+
+// int new_code() - owner compiler-new.c::new_code (roster row 65,
+// no DAF render to date).
+fun newCodeDaf(): Int =
+    throw NotImplementedError(
+        "new_code: out-of-scope owner (compiler-new.c::new_code, roster b3)")
+
+// int abrtx() - owner compiler-abrtx.c::abrtx (the output-file
+// close/conversion cell; roster family not drawn on this arm).
+fun abrtxDaf(): Int =
+    throw NotImplementedError(
+        "abrtx: out-of-scope owner (compiler-abrtx.c::abrtx, no DAF row)")
+
+// void copyright_notice(FILE *) - owner
+// compiler-copyright-notice.c::copyright_notice (roster row 47).
+fun copyrightNoticeDaf(): Unit =
+    throw NotImplementedError(
+        "copyright_notice: out-of-scope owner (compiler-copyright-notice.c::copyright_notice, roster b2)")
+
