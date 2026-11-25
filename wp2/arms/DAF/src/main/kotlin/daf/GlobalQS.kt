@@ -2,7 +2,7 @@ package daf
 
 // Unit 145 (DAF B5 T2, core): libmpscpp.cpp::GlobalQS
 // (units.csv row 145: loc 19, ptr 3, ctrl 1, score 11.3, rank 112,
-// core): the \$qs built-in wrapper: the coded service string
+// core): the \u0024qs built-in wrapper: the coded service string
 // "s %=\u0024qs(<a>,<c>)" is built into the tmp carrier, xecuted,
 // and on the success arm the % symbol's value is fetched with
 // SymGet and copied into b; on the failure arm b gets the empty
@@ -25,13 +25,11 @@ package daf
 // Dafny: EXEMPT (coded-service relay over stub seats; journal
 // row).
 
-// int xecute(char *) - the libmpscpp.cpp TU interpret-service
-// wrapper (vendor :7073; the string/mstring twins at :7053/:7063
-// collapse onto this seat per BASE-log row 98); named-owner stub
-// per the row 37 prototype discipline (not a corpus unit).
-fun xecuteDaf(exp: String): Int =
-    throw NotImplementedError(
-        "xecute: out-of-scope owner (libmpscpp.cpp xecute TU service; not a corpus unit)")
+// RELEASED at B10 T3 (row 280): the real xecuteDaf body renders in
+// LibmpscppMisc8.kt (units.csv row 280 = libmpscpp.cpp::<misc-8>,
+// the stream/relay chunk carrying the xecute triple; the b4 blame
+// "not a corpus unit" was wrong - the vendor :7073 seat is a
+// row-280 cell). This stub deleted; signature unchanged.
 
 fun GlobalQSD(a: String, b: CharArray, c: String, svPtr: DafMsv) {
 

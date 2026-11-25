@@ -733,3 +733,74 @@ BOTH B5 tranche 3 (units 144-154, the complex stratum, batch close) translated 2
 **BOTH B6 closed 2026-11-23**: 31/31 translated (T1 155-164 push d05f736/splice a7a84e7, T2 165-175 push e20bab8c/splice e2a521e, T3 176-182 push 86e2521/splice 08e3cd1, big-three session 183-185 push 6595c3d/splice ae548cf); whole-arm kotlinc gate SILENT EXIT=0 at every tranche (41 -> 50 -> 57 -> 60 files, gate copy plus fresh repo-copy each time); dafny suite 35 -> 40 verified 0 errors (mps_log2.dfy and extract.dfy added; T3 and the big three EXEMPT per the DAF B6 T3 precedent); gradle gate BUILD SUCCESSFUL on Mark's MacBook at every splice close (8s T1, 1s T2, 9s T3, 13s big three). Coverage checklist and events verification recorded in the arm journal close section: 292 batch-6 events rows (146 reuse / 146 hit / 0 miss; 292/292 answered, 100.0%; 146/146 reuse of answered, 100.0%; zero miss units - the first close with a fully-covered batch). The T1 prose miscount (26/26 for the 21:40 band; the CSV of record carries 28 consults / 56 rows) is corrected by the close note. NO rule-base promotions (zero miss families); ANNOTATION UPGRADES per the PI decision of 2026-11-23: h019/h020/h021 untested -> unit_tested in rules_v0.pl (first consults-as-rule landed across B6, all reuse+hit, every render build-green; the h018 precedent; h008/h017/h018 were already unit_tested). The 31/31 batch-6 PILOT table ids verified against the roster units.csv (the DOC B6 repair-3 lesson applied, zero mismatches). Splice-chain hygiene logged at close: the ab83779 stray (empty root ARM_WORKING_NOTES.md, removed in ae548cf) and the still-tracked T3 big-three fragment whose removal was never git-recorded at splice (its content is spliced in the journal; the git rm rides the close-splice commit). The m1-build gradle round with the swipl coverage_report verification rides this close (journal note to follow). Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision. Next protocol step: BOTH batch 7 per the committed row order.
 
 
+
+## Batch 10 (units 278-308, opened 2026-11-25; DAF runs the batch in ONE session per the C-011 protocol)
+
+DAF batch 10 (units 278-308) translated 2026-11-25 in ONE session per
+C-011: thirty-one units rendered and ledgered (the pre-session rows
+279/285/288/291/296/299/301/302/304/305/306/308 + the 278/287/292
+big rows landed with the mid-batch safety push, then this session's
+280/282/283/284/286/290 + the 281/289/293/294/295/307 ledger files),
+whole-arm kotlinc gate exit 0 at every stage (gate + repo copies, only
+the accepted Interpret.kt warnings), with a MID-BATCH SAFETY PUSH (B9
+repair precedent, Mark-approved): commit 08d37a0 with the 278/287/292
+renders + the 23-file batch-10 in-flight state landed after the FIFTH
+env reset wiped the sandbox, so the rebuild rode on master state
+directly. Seats released this batch: xecuteDaf (GlobalQS)/
+stopLookupD/synD/shredQueryD (Misc9, all four row 280 cells, the b4
+selftext and not-a-corpus blames superseded), bmgFullsearchD (row 284
+TAG CORRECTION: vendor owner interp-bmgsubs.c:117, not selftext.cpp),
+docCorrelateFreeD + wstemD (rows 287/292 deleted from Misc5), the
+zseek rebind to parseCDaf (row 277, PI-ruled per C-012). Raised this
+batch: add1Daf/add3Daf/divxDaf (row 282, owners interp-arith.cpp:
+632/647/682), bmgSearchD (row 284, owner interp-bmgsubs.c:134),
+ifCodeDaf/newCodeDaf/abrtxDaf/copyrightNoticeDaf (row 278; four
+unrendered roster rows on the b10 driver, PI adjudication flags),
+DafHashFile (row 290, the ctor open owner :959) and DafSwScore (row
+280, the GAP/MATCH/MISMATCH mutable ints) carriers, plus the
+mglobalNativeD verbatim-dead render of the native Mglobal arm (row
+286, SQLITE_D lattice) and the DafBmg/selectDaf/hashOpConstCharD
+first bindings. PI adjudication flags this batch: the Sim1W
+dual-seat anomaly (Misc9 Sim1W binds the raised sim1D), the
+nodeCosineD batch-3 raise, the killDaf raise + B().Kill myname-fold
+divergence in DocCorrelate, the row-300 needle-collapse ledger, the
+NOERR short-vs-int header quirk (compiler-globals-ext.h:122), the
+sym_ stub tag correction (row 279 owns sym_), the 302 u-short "-4"
+latitude(2) vendor ODDBALL, the ForBlocks 64->FBMAX_D bounds fix, and
+the env-reset recovery ledger (six wipes this session, no data loss
+to pushed state; renders recovered via the knowledge b10-kit +
+re-application). Check columns track the BASE reference translation
+(C-002) and stay todo per the C-001 cycle-10 backfill decision.
+Next protocol step: DAF batch 11 per the committed row order (one
+session per C-011).
+| 278 | compiler-mumps.c::main | c | complex | todo | todo | translated | todo | todo | todo |
+| 279 | interp-sym.cpp::sym_ | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 280 | libmpscpp.cpp::<misc-8> | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 281 | include/mumpsc/libmpscpp.h::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
+| 282 | libmpscpp.cpp::<misc-4> | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 283 | interp-select.cpp::<misc> | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 284 | interp-bmgsubs.c::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
+| 285 | interp-parse.cpp::inout | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 286 | interp-globalb.cpp::<misc> | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 287 | libmpscpp.cpp::global::DocCorrelate | cpp | complex | todo | todo | translated | todo | todo | todo |
+| 288 | interp-sysfunc.cpp::unpad | cpp | core | todo | todo | translated | todo | todo | todo |
+| 289 | include/mumpsc/defines.h::<misc> | c | core | todo | todo | translated | todo | todo | todo |
+| 290 | libmpscpp.cpp::line1149 | cpp | core | todo | todo | translated | todo | todo | todo |
+| 291 | interp-arith.cpp::Mltoa | cpp | core | todo | todo | translated | todo | todo | todo |
+| 292 | interp-stem.cpp::wstem | cpp | core | todo | todo | translated | todo | todo | todo |
+| 293 | include/mumpsc/sysparms.h::<misc> | c | core | todo | todo | translated | todo | todo | todo |
+| 294 | interp-fnumber.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | todo |
+| 295 | include/mumpsc/errors.h::<misc> | c | core | todo | todo | translated | todo | todo | todo |
+| 296 | compiler-sys1.c::xindex | c | core | todo | todo | translated | todo | todo | todo |
+| 297 | libmpscpp.cpp::mdh_tree_level_add | cpp | core | todo | todo | translated | todo | todo | todo |
+| 298 | libmpscpp.cpp::global::Length | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 299 | interp-sym.cpp::SysLoad | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 300 | libmpscpp.cpp::global::Length | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 301 | interp-arith.cpp::mps_trunc | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 302 | interp-arith.cpp::mps_ceil | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 303 | libmpscpp.cpp::global::Piece | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 304 | libmpscpp.cpp::mstring::Piece | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 305 | interp-sym.cpp::_length | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 306 | libmpscpp.cpp::global::Pattern | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 307 | compiler-at-test.c::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
+| 308 | libmpscpp.cpp::global::Justify | cpp | simple | todo | todo | translated | todo | todo | todo |

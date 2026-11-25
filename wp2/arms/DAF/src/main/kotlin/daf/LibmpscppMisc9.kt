@@ -343,28 +343,34 @@ fun sim1D(a: MpsGlobalNode, b: MpsGlobalNode): Double =
 // carrier at 7718). The diceD stub deleted above was correctly
 // blamed: roster unit 175 releases it (Dice.kt keeps the two-arg
 // wrapper signature the DiceW call uses).
-fun stopLookupD(a: String): Boolean =
-    throw NotImplementedError(
-        "StopLookup(char *): out-of-scope owner (selftext.cpp StopLookup; not a corpus unit; a future body would read the DafStop carrier of the unit-166 StopInit.kt render)")
+// RELEASED at B10 T3 (row 280): the real stopLookupD body renders
+// in LibmpscppMisc8.kt over the DafStop.stop carrier of the
+// unit-166 StopInit.kt render (units.csv row 280 carries the
+// char* StopLookup cell; the b4 selftext blame was wrong).
+// Stub deleted; signature unchanged.
 
 // TAG CORRECTION at B5 T3 (unit 146): SYN's body is grep-verified at
 // libmpscpp.cpp:7788 (not selftext.cpp - the b4-T3 raise mis-tagged
 // it); the bsearch-over-syn kin of the unit-146 SynInit render (same
 // file-scope DafSyn table). Still NOT a corpus unit; the permanent
 // named-owner stub discipline stands.
-fun synD(a: String): String =
-    throw NotImplementedError(
-        "SYN(char *): out-of-scope owner (libmpscpp.cpp SYN (grep-verified :7788); not a roster unit)")
+// RELEASED at B10 T3 (row 280): the real synD body renders in
+// LibmpscppMisc8.kt: bsearch fold over the sorted DafSyn table
+// of the unit-146 SynInit.kt render (units.csv row 280 carries
+// the char* SYN cell). Stub deleted; signature unchanged.
 
-fun bmgFullsearchD(a: String, b: String): Int =
-    throw NotImplementedError(
-        "bmg_fullsearch: out-of-scope owner (selftext.cpp bmg_fullsearch; not a roster unit)")
+// RELEASED at B10 T3 (row 284): the real bmgFullsearchD body
+// renders in InterpBmgsubs.kt - TAG CORRECTION: the vendor owner
+// is interp-bmgsubs.c:117 (bmg_fullsearch, KO'Kane's BMG search
+// driver), a units.csv row-284 cell, not selftext.cpp. Stub
+// deleted; signature unchanged.
 
 // shredD released: the batch-6 roster row 176 IS the libmpscpp.cpp
 // Shred(char *, int) string overload (the prior selftext.cpp blame was
 // wrong; ShredQuery above stays a b4 residue cell). Real body at
 // Shred.kt unit-176 render.
 
-fun shredQueryD(a: String, i: Int): String =
-    throw NotImplementedError(
-        "ShredQuery(char *, int): out-of-scope owner (selftext.cpp ShredQuery; not a roster unit)")
+// RELEASED at B10 T3 (row 280): the real shredQueryD body renders
+// in LibmpscppMisc8.kt (the static-i rescue walker over shredD
+// of the unit-176 render; units.csv row 280 carries the char*
+// ShredQuery cell). Stub deleted; signature unchanged.
