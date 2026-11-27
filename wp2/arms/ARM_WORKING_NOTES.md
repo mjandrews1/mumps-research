@@ -11461,3 +11461,91 @@ DAF arm: 308/308 rendered; 304 prior + 4 supplementary; nothing
 DAF-side pending except the C-001 cycle-10 check backfill and
 grading (study-wide). Next protocol step: BOTH batch 8 (units
 216-246) per the committed row order.
+
+# BOTH B8 close (2026-11-27)
+
+BOTH batch 8 (units 216-246, 31 units) translated 2026-11-27 in
+ONE session per the C-011 protocol change: thirty-one units
+pushed, whole-arm kotlinc gate EXIT=0 at 116 files (90 master
+baseline + 26 new/edited render files), 0 errors, 0 warnings,
+hygiene clean (no tabs, ASCII only, no backticks, comment
+dollars escaped as \u0024). Rows follow the BOTH committed
+units.csv record order; the PILOT B8 table is DOC's committed
+order, the reverse, and flips matched BY ID STRING per the B7
+lesson.
+
+Seat releases with notes: allocSV (218, the BothStubs raise
+resolves; roster-285 pin was a complexity rank, corrected),
+atCopy (240, the WriteCode raise resolves; roster-241 pin was a
+grep line, corrected), parse_ zero-arg duplicate raise removed at
+gate (221; the WriteCode:274 seat was already called direct),
+memcheck/cvar/Extract1 (243, verification fold onto
+ExtractCompiler.kt:53 plus new renders), rsltSpec and call_back
+(227, verification folds onto the SqlRuntime object,
+RsltCallback.kt:50-51), the 220 initializer completion (ErrChar,
+MaxTmp, for_mult, flg and the except literals seated in
+CompilerGlobalsExtMisc), and the 234 CodedOpen/CodedClose hex
+emission splice to Extract2a direct.
+
+New TODO stubs raised: GlobalNode.IDF (239), mult (222, owner
+interp-arith roster 67), Extract2 (221, owner
+compiler-parse.c::Extract2, batch 2/3 pending), LocalOrder
+(231, owner interp-sysfunc.cpp::LocalOrder), GlobalOrder (232,
+owner libmpscpp.cpp::GlobalOrder; separate static stack from
+231), GTK platform edge (224, the mdh stub family), embed (216),
+sql 6-arg (216, the interp-sql.cpp engine face, distinct from
+the libmpscpp 5-string-arg Sql.kt face), mstringEvalZb (217),
+mstringFixGblRefZb (217, record 262 batch 9 pending).
+
+COVERAGE FINDINGS for PI adjudication: record 43
+(interp-sql.cpp::embed, batch 3) and record 77
+(libmpscpp.cpp::mstring::Eval, batch 3) have NO renders on BOTH
+master and NO events-CSV rows; both now have named stubs raised
+at their owners (embed at Btree.kt, mstringEvalZb at
+LibmpscppMisc7.kt). embed1 is the distinct double-quote twin
+and IS rendered. The InterpService stub pins cite ranks (Scan
+75, ScanAlnum 77, IDF 45), extending the rank-vs-ordinal
+mislabel family.
+
+Verification twins confirmed line-for-line, no new code: 235
+global::ReadLine (readLineG, LibmpscppMisc6:178), 236
+mdh_tree_level_add (MdhTreeLevelAdd.kt), 237 GlobalData
+(GlobalDataMstring.kt, header pre-adjudicated), 238
+global::Piece(pat,ii,jj) (the Piece.kt GlobalRef overload,
+distinct from the 214/213 seats).
+
+Quantizations and quirks disclosed: getstr1 opnflg==3 raw-fd
+dance h020 with the dead newline branch and area[1000]
+off-by-one kept, ScanParse paren-depth unclamped, Merge >127
+backward terminator scan with SOH fallback and the FIX macro
+drops, btree ORDER tokens==1 p1+=12 off-by-one, XNEXT a8-skip
+typo, GKILL tokens=0 shadow, STORE xMaximum typo, dead keybak
+strcpy and dead printf quantized h013, the 14==14 preprocessor
+ladder, misc-7 unsigned/short/float arms folded onto
+Int/Long/Double seats h021 with the vendor literal-d typo kept.
+
+Mislabel family, NOT renumbered pending PI note: allocSV roster
+285 = complexity rank (true ordinal 218), atCopy roster 241 =
+grep line (true ordinal 240), idfSvcZb 45 = rank pin.
+
+Session-span disclosure: the sandbox wiped three times
+mid-session (one during a parallel-download burst, redone
+serially); every rebuild restored the gate from the knowledge
+stage (90 baseline files, vendor tgz sha 621deb25, JDK 17.0.21.1,
+kotlinc 2.1.20 sha a118197 re-verified) and re-ran green before
+rendering resumed. All 31 units and their consult rows are ONE
+C-011 session. Consult band: the nominal 2026-11-27T16:00:00Z
+band was consumed by the DAF supplementary continuation rows,
+so the B8 band opens at 2026-11-27T18:30:00Z, +30 s/row.
+
+Events CSV: 130 consult rows append (rows 630-759; 4 twin
+consult-sets hardcoded, the rest parsed from render KDoc
+headers), file 629 -> 759 lines at push, csv-validated 758 data
+rows 0 bad.
+
+Both coverage findings (records 43 and 77) await PI
+adjudication. Study-wide owed: C-001 cycle-10 check backfill;
+the DAF README dafny-command fix (per-file loop, single-program
+form collides on per-file NUL consts). Next protocol step: BOTH
+batch 9 per the committed row order (one session per C-011),
+93 units remaining to arm completion.
