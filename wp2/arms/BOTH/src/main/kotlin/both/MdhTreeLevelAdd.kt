@@ -90,20 +90,56 @@ private fun mdhTreeLevelAddImpl(tree: Long, depth: Int, cols: List<String>) {
 // %p seat: C prints a non-null pointer as 0x + lowercase hex.
 private fun ptrHex(p: Long): String = "0x" + java.lang.Long.toHexString(p)
 
-// Unit 258 (BOTH B9, core): libmpscpp.cpp::mdh_tree_level_add
-// (26 LOC, batch_plan ordinal 258; units.csv row 266) - the
-// NINE-COLUMN overload of the units-126-128 family above (the
-// 7th roster appearance of the unit_id string across batches;
-// this batch-9 entry is the distinct col1..col9 face, NOT the
-// batch-8 unit-236 twin). Same coded-argument carriage:
-// z~mdh~tree~level~add + xce + tree + xd0 + depth + xd0 +
-// col1..col8 (xd0 between) + col9 + xcf, then zfcn.
+// Unit 258 (BOTH B9, core; FACE CORRECTED at the B10 close):
+// libmpscpp.cpp::mdh_tree_level_add (26 LOC, batch_plan
+// ordinal 258; units.csv row 266) - the SIX-COLUMN overload
+// of the units-126-128 family above (the 7th roster
+// appearance of the unit_id string across batches). The B9
+// render mislabeled this entry NINE-COLUMN and emitted the
+// col1..col9 signature; the file-stable score sort (the
+// unit-159 precedent) proves the batch-9 26-LOC row is the
+// six-column body at libmpscpp.cpp:341 (26 physical LOC,
+// ptr 2) and the batch-10 33-LOC row the nine-column body at
+// :481 (unit 290, rendered below). COVERAGE FINDING disclosed
+// for PI: the nine-column face rendered one batch early
+// under the wrong pin (the correction is signature-only; the
+// impl delegate is column-count agnostic). Same coded-
+// argument carriage: z~mdh~tree~level~add + xce + tree + xd0 +
+// depth + xd0 + col1..col5 (xd0 between) + col6 + xcf, then
+// zfcn.
 //
 // Consults: the units-126-128 set above carries the family
 // rulings (h007/h009/h015/h014/h017, the pointer_handle miss);
 // this overload adds no new rule surface, so the family
 // consults ride unchanged (events rows cite the unit-258
 // application of each).
+internal fun mdhTreeLevelAdd(
+    tree: Long,
+    depth: Int,
+    col1: String,
+    col2: String,
+    col3: String,
+    col4: String,
+    col5: String,
+    col6: String,
+) = mdhTreeLevelAddImpl(tree, depth, listOf(col1, col2, col3, col4, col5, col6))
+
+// Unit 290 (BOTH B10, core): libmpscpp.cpp::mdh_tree_level_add
+// (33 LOC, batch_plan ordinal 290; units.csv row 290) - the
+// NINE-COLUMN overload at libmpscpp.cpp:481 (33 physical LOC,
+// ptr 1), the 8th roster appearance of the unit_id string.
+// The Kotlin seat below is the signature the B9 session
+// emitted under the mislabeled unit-258 pin; the B10 close
+// re-pins it here (its true owner) unchanged - same coded-
+// argument carriage: z~mdh~tree~level~add + xce + tree + xd0 +
+// depth + xd0 + col1..col8 (xd0 between) + col9 + xcf, then
+// zfcn.
+//
+// Consults: the units-126-128 set carries the family rulings
+// (h007/h009/h015/h014/h017, the pointer_handle miss); this
+// overload adds no new rule surface, so the family consults
+// ride unchanged (events rows cite the unit-290 application
+// of each).
 internal fun mdhTreeLevelAdd(
     tree: Long,
     depth: Int,

@@ -764,9 +764,16 @@ internal fun replaceZb(sv: Msv, cmd: String, s: String, pat: String,
     rep: String): String {
     TODO("stub: owner libmpscpp.cpp::Replace (non-roster cross-TU helper)")
 }
-// int StopLookup(char*) - libmpscpp.cpp non-rost helper.
+// int StopLookup(char*) - BODY OWNER FLIP (B10, roster 306): the
+// StopLookup bodies (7763/7767/7777) are the libmpscpp.cpp::
+// <misc-8> residue; the old pin said "non-roster cross-TU
+// helper" - corrected at this flip (C-015 family, the h014
+// delegate-when-owner-lands precedent). The zfcn call shape
+// passes the word buffer at an offset; the substring fold carries
+// the &word[off] edge, the real membership face is stopLookupC
+// (LibmpscppMisc8.kt).
 internal fun stopLookupZb(word: CharArray, off: Int): Boolean {
-    TODO("stub: owner libmpscpp.cpp::StopLookup (non-roster cross-TU helper)")
+    return stopLookupC(cStringOf(word).substring(off))
 }
 // char SynLookup(struct MSV*,char*,char*,char*) - libmpscpp.cpp non-rost.
 internal fun synLookupZb(sv: Msv, cmd: String, w: CharArray, off: Int): String {
@@ -1080,10 +1087,13 @@ private fun zsyninitZb(
 }
 
 // zbmgsearch - the real libmpscpp.cpp BMGSearch wrapper fold over
-// the bmg_fullsearch face (non-roster cross-TU; owner-pinned stub)
-internal fun bmgFullsearchZb(pattern: String, buffer: String): Int {
-    TODO("stub: owner interp-bmgsubs.c::bmg_fullsearch (non-roster cross-TU helper)")
-}
+// the bmg_fullsearch face. Owner: interp-bmgsubs.c::<misc>,
+// roster 302, batch 10 - RELEASED at the BOTH B10 close (the
+// h014 delegate-when-owner-lands flip; the old pin said
+// "non-roster cross-TU helper", a MISLABEL - the body sits in
+// the rostered residue unit, C-015-family correction).
+internal fun bmgFullsearchZb(pattern: String, buffer: String): Int =
+    bmgFullsearch(pattern, buffer)
 private fun zbmgsearchZb(
     v1d: CharArray, bd: CharArray, sv: Msv, iargs: IntArray, nargs: Int
 ): Int {

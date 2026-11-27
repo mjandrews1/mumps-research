@@ -301,16 +301,111 @@ internal fun errorMessage(msg: String, lineNumber: Long) {
 
 // void Mltoa(long, unsigned char *) - include/mumpsc/arith.h:46, body
 // interp-arith.cpp:84. Owner: interp-arith.cpp::Mltoa, roster unit
-// 292, batch 10. TODO-stub (h014).
+// 295, batch 10 - RELEASED at the BOTH B10 close (the h014
+// delegate-when-owner-lands flip; the seat above was the TODO
+// stub). Long-to-decimal: the negative sign is stripped first
+// (Long.MIN_VALUE negation stays negative - the vendor's
+// second i<0 overflow check catches it), the overflow band
+// checks print and sigint(100), i<10 short-circuits through
+// the digits table, and the general path builds the digits
+// backward from s[S_SIZE-2] then copies from the most
+// significant digit (prepending '-' when the flag is set).
+//
+// Consults (unit 295, events logged):
+//   h008 static_scratch - reused and hit: the static digits
+//     table t[] rides a const val; s[] is LOCAL scratch
+//     (per-call), kept as the CharArray carrier.
+//   h009 format_string - consulted, NO RULE SURFACE (ledger):
+//     the vendor hand-rolls the decimal conversion (no
+//     sprintf); the digit build is the C idiom, rendered
+//     verbatim rather than folded to toString (the %ld face
+//     is NOT what the vendor does here).
+//   h010 numeric_promotion - reused: long i/m/f stay Long;
+//     the t[m] index is the C long-used-as-index promotion -
+//     Kotlin Int index on the in-range digit remainder.
+//   h014 out_of_scope_call - reused: cout << and sigint(100)
+//     ride the System.out print and sigint seats (roster 254
+//     released, Sigint.kt).
+//   h017 naming - reused: Mltoa keeps the vendor name; i/j/m/
+//     f/x/p1 keep vendor names.
+//   Dafny: EXEMPT (the digit build is the itoa family
+//     envelope, spec/builtin_wrappers.dfy; no new spec).
 internal fun Mltoa(i: Long, p: CharArray) {
-    TODO("stub: owner interp-arith.cpp::Mltoa (roster unit 295, batch 10 - the old pin said roster 292, C-015)")
+    var i = i
+    var f = 0
+
+    if (i < 0) {
+        f = 1
+        i = -i
+        if (i < 0) {
+            // cout << "Integer overflow\n"; sigint(100)
+            System.out.print("Integer overflow\n")
+            sigint(100) // vendor: overflow (never returns)
+        }
+    }
+
+    if (i <= java.lang.Long.MIN_VALUE || i >= java.lang.Long.MAX_VALUE) {
+        System.out.print("Integer overflow\n")
+        sigint(100) // vendor: overflow (never returns)
+    }
+
+    if (i < 10) {
+        var n = 0
+        if (f != 0) p[n++] = '-'
+        p[n++] = DIGITS[i.toInt()]
+        p[n] = 0.toChar()
+        return
+    }
+
+    // char s[S_SIZE]; s[S_SIZE-1]='\0';
+    val s = CharArray(S_SIZE)
+    s[S_SIZE - 1] = 0.toChar()
+
+    // for (p1=s+S_SIZE-2; p1!=s; p1--) { m=i%10; i=i/10;
+    //   *p1=t[m]; if (!i) break; }
+    var p1 = S_SIZE - 2
+    while (p1 != 0) {
+        val m = (i % 10).toInt()
+        i /= 10
+        s[p1] = DIGITS[m]
+        if (i == 0L) break
+        p1--
+    }
+
+    // if (f) *(--p1)='-';
+    if (f != 0) {
+        p1--
+        s[p1] = '-'
+    }
+
+    // strcpy(p, p1) - the tail from the most significant digit
+    var n = 0
+    while (s[p1] != 0.toChar()) {
+        p[n++] = s[p1]
+        p1++
+    }
+    p[n] = 0.toChar()
 }
 
-// int xecute(char *) - include/mumpsc/libmpscpp.h:277, overload family
-// libmpscpp.cpp:7053-7073. Not a corpus unit (file-local overload set);
-// seat stays a TODO stub naming the vendor provenance.
+// static char t[] = "0123456789" - the Mltoa digits table (h008).
+private val DIGITS = "0123456789".toCharArray()
+
+// #define S_SIZE 128 - the Mltoa scratch bound (vendor macro).
+private const val S_SIZE = 128
+
+// int xecute(string) 7053 / xecute(mstring) 7063 / xecute(char *)
+// 7073 - the overload family of libmpscpp.cpp::<misc-8>, roster
+// 306, batch B10 (the old pin said "not a corpus unit" - WRONG,
+// the family is that unit's residue; corrected at this flip, the
+// h014 delegate-when-owner-lands precedent; the fold ledger and
+// the WriteMumps1 twin live in LibmpscppMisc8.kt). Body: the
+// char tmp[STR_MAX] strcpy choreography quantizes onto the String
+// carrier (the STR_MAX cap is the h020 note).
 internal fun xecute(exp: String): Int {
-    TODO("stub: vendor xecute family, libmpscpp.cpp:7053 (not a corpus unit)")
+    svPtr.NOERR = 1
+    val k = Interpret(exp, svPtr)
+    svPtr.ERROR = k
+    return k
 }
 
 // mstring SymGet(char *) - include/mumpsc/libmpscpp.h:179. Not a

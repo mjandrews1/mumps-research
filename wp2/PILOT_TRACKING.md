@@ -953,34 +953,98 @@ rows 324-329. Check columns track the BASE reference translation
 Next protocol step: BOTH batch 8 per the committed row order
 (DAF batch 11 does not exist - the arm is study-complete pending
 the C-001 backfill and grading).
-| 278 | compiler-mumps.c::main | c | complex | todo | todo | translated | todo | todo | todo |
-| 279 | interp-sym.cpp::sym_ | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 280 | libmpscpp.cpp::<misc-8> | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 281 | include/mumpsc/libmpscpp.h::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
-| 282 | libmpscpp.cpp::<misc-4> | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 283 | interp-select.cpp::<misc> | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 284 | interp-bmgsubs.c::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
-| 285 | interp-parse.cpp::inout | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 286 | interp-globalb.cpp::<misc> | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 287 | libmpscpp.cpp::global::DocCorrelate | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 288 | interp-sysfunc.cpp::unpad | cpp | core | todo | todo | translated | todo | todo | todo |
-| 289 | include/mumpsc/defines.h::<misc> | c | core | todo | todo | translated | todo | todo | todo |
-| 290 | libmpscpp.cpp::line1149 | cpp | core | todo | todo | translated | todo | todo | todo |
-| 291 | interp-arith.cpp::Mltoa | cpp | core | todo | todo | translated | todo | todo | todo |
-| 292 | interp-stem.cpp::wstem | cpp | core | todo | todo | translated | todo | todo | todo |
-| 293 | include/mumpsc/sysparms.h::<misc> | c | core | todo | todo | translated | todo | todo | todo |
-| 294 | interp-fnumber.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | todo |
-| 295 | include/mumpsc/errors.h::<misc> | c | core | todo | todo | translated | todo | todo | todo |
-| 296 | compiler-sys1.c::xindex | c | core | todo | todo | translated | todo | todo | todo |
-| 297 | libmpscpp.cpp::mdh_tree_level_add | cpp | core | todo | todo | translated | todo | todo | todo |
-| 298 | libmpscpp.cpp::global::Length | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 299 | interp-sym.cpp::SysLoad | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 300 | libmpscpp.cpp::global::Length | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 301 | interp-arith.cpp::mps_trunc | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 302 | interp-arith.cpp::mps_ceil | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 303 | libmpscpp.cpp::global::Piece | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 304 | libmpscpp.cpp::mstring::Piece | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 305 | interp-sym.cpp::_length | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 306 | libmpscpp.cpp::global::Pattern | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 307 | compiler-at-test.c::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
-| 308 | libmpscpp.cpp::global::Justify | cpp | simple | todo | todo | translated | todo | todo | todo |
+| 278 | compiler-mumps.c::main | c | complex | todo | todo | translated | todo | todo | translated |
+| 279 | interp-sym.cpp::sym_ | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 280 | libmpscpp.cpp::<misc-8> | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 281 | include/mumpsc/libmpscpp.h::<misc> | c | complex | todo | todo | translated | todo | todo | translated |
+| 282 | libmpscpp.cpp::<misc-4> | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 283 | interp-select.cpp::<misc> | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 284 | interp-bmgsubs.c::<misc> | c | complex | todo | todo | translated | todo | todo | translated |
+| 285 | interp-parse.cpp::inout | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 286 | interp-globalb.cpp::<misc> | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 287 | libmpscpp.cpp::global::DocCorrelate | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 288 | interp-sysfunc.cpp::unpad | cpp | core | todo | todo | translated | todo | todo | translated |
+| 289 | include/mumpsc/defines.h::<misc> | c | core | todo | todo | translated | todo | todo | translated |
+| 290 | libmpscpp.cpp::line1149 | cpp | core | todo | todo | translated | todo | todo | translated |
+| 291 | interp-arith.cpp::Mltoa | cpp | core | todo | todo | translated | todo | todo | translated |
+| 292 | interp-stem.cpp::wstem | cpp | core | todo | todo | translated | todo | todo | translated |
+| 293 | include/mumpsc/sysparms.h::<misc> | c | core | todo | todo | translated | todo | todo | translated |
+| 294 | interp-fnumber.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | translated |
+| 295 | include/mumpsc/errors.h::<misc> | c | core | todo | todo | translated | todo | todo | translated |
+| 296 | compiler-sys1.c::xindex | c | core | todo | todo | translated | todo | todo | translated |
+| 297 | libmpscpp.cpp::mdh_tree_level_add | cpp | core | todo | todo | translated | todo | todo | translated |
+| 298 | libmpscpp.cpp::global::Length | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 299 | interp-sym.cpp::SysLoad | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 300 | libmpscpp.cpp::global::Length | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 301 | interp-arith.cpp::mps_trunc | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 302 | interp-arith.cpp::mps_ceil | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 303 | libmpscpp.cpp::global::Piece | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 304 | libmpscpp.cpp::mstring::Piece | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 305 | interp-sym.cpp::_length | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 306 | libmpscpp.cpp::global::Pattern | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 307 | compiler-at-test.c::<misc> | c | simple | todo | todo | translated | todo | todo | translated |
+| 308 | libmpscpp.cpp::global::Justify | cpp | simple | todo | todo | translated | todo | todo | translated |
+
+BOTH batch 10 (units 278-308) translated 2026-11-27 in ONE session
+per C-011: thirty-one units rendered, whole-arm kotlinc gate EXIT=0
+at 171 files after the final unit (0 errors, 0 warnings, hygiene
+clean: no tabs, ASCII only, no backticks, comment dollars
+escaped). Flips matched BY ID STRING against the table above (the
+PILOT rows keyed by units_csv_row; roster 278-308 map reversed,
+e.g. roster 308 -> row 278). The roster's final unit closes the
+arm's committed order: compiler-mumps.c::main (308, 1372 loc,
+score 1125.2) rendered as CompilerMain.kt (the when-state machine
+fold of the next_line/next_cmnd label lattice: prologue emission,
+plus-define scan, label/entry-point processing, doty indents, the
+full command switch and the error-label family); eight NEW TODO
+stubs raised for its pending owners (new_code 91 b3, lock_code 116
+b4, if_code 54 b2, for_code 122 b4, errmod_ 87 b3, doty 117 b4,
+copyright_notice 47 b2, abrtx 18 b1, all crosswalk-true pins).
+Three giants this batch: main (308, 1372 loc), sym_ (307, vendor
+144-627, the full dispatcher as InterpSym.kt with the runOrderNext
+private fold of the 3/33 goto lattice, the fullUnpadZb stub raised
+for the non-roster owner, and the MpstimeMain sym_ stub block
+replaced with the owner-landed comment), and libmpscpp misc-8
+(306, the shl/shr lattice, WriteMumps1, Piece/Justify/Extract/
+Find, commandZb/stopLookupC/synC/shredQueryC/nodashC, the GAP/
+MISMATCH/MATCH carriers, the ctor family and the mstringTimes
+lattice). SEAT RELEASES this batch: wstem (294, the endings
+dispatcher released in BothStubs, escan rides its roster-122 stub
+- COVERAGE FINDING for the PI: the unit is ahead of the committed
+order), Mltoa (295, released in BothCRuntime), docCorrelate (299,
+the string-arm member released in BothStubs, Cosine rides its
+roster-85 stub - same coverage-finding family; the B().Kill
+myname-fold divergence adjudicated), extractValue (BothStubs stub
+-> real body, owner 306, the roster-89 layout-owner mislabel
+corrected), xecute (BothCRuntime stub -> real body, owner 306),
+stopLookupZb (BifsZfcn stub -> delegate, owner 306), and the
+mstringPlusZb/MinusZb/TimesZb/DivZb/RemZb stubs flipped to
+delegates (LibmpscppMisc3, owners 304/306). OWNERSHIP CROSSWALK
+CORRECTION (304): the initial misc-4 render wrongly carried the
+star and less/greater families; dump re-verification proved misc-4
+does NOT contain them - star -> misc-8 (306, this batch) and the
+angle families -> misc-9 (roster 120, batch 4 pending, DEFERRED -
+not rendered this batch); LibmpscppMisc4.kt rewritten with the
+ledger. CROSS-BATCH DIVERGENCE FLAGGED (no silent change): B9
+mstringFromDouble folds %g but the vendor operator=(double) is
+%lf - journaled at the 306 render for PI adjudication. The mdh
+258/290 nine-column mislabel correction (MdhTreeLevelAdd header)
+landed earlier in the session. EVENTS CSV: 933 -> 1065 lines (132
+B10 rows, csv-validated 1064/1064; band 2026-11-27T23:30:00Z
+onward at +30s per row, the gap after B9's last row 21:56:30Z
+disclosed; consult rows parsed from the render KDoc headers).
+DAFNY GATE at close: fresh 4.11.0 rebuild, 11 spec files, 70
+verified 0 errors (all B10 units EXEMPT per the DAF B6 T3
+precedent). SESSION-SPAN DISCLOSURE: the Vibe sandbox wiped ~/b4
+mid-session (the env-reset family, seventh wipe); the rebuild rode
+the knowledge recipe (repo at master 77d5444 post-splice, vendor
+sha 621deb25, JDK 17.0.21.1, kotlinc 2.1.20 sha a118197) and the
+gate re-ran green from the b10-both-stage mirror overlays; the
+CompilerMain.kt render was re-emitted after the wipe and the gate
+verified identical counts. Check columns track the BASE reference
+translation (C-002) and stay todo per the C-001 cycle-10 backfill
+decision. THE BOTH ARM IS STUDY-COMPLETE at 308/308 roster units
+translated (the committed order is exhausted; the pending-owner
+stubs - escan 122, Cosine 85, pm, _find 6, IDF 49, Count 98, the
+misc-9 angle families 120, and the B10-raised compiler owners -
+carry crosswalk-true pins for the C-001 backfill decision).

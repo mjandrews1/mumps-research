@@ -152,9 +152,50 @@ internal fun parse_(sv: Msv): Int {
 }
 
 // int wstem(char *, int) - owner: interp-stem.cpp::wstem, roster
-// 164, batch 10. TODO-stub (h014); the Stem/stem family seats.
+// 294, batch 10 - RELEASED at the BOTH B10 close (the h014
+// delegate-when-owner-lands flip; the seat above was the TODO
+// stub). The stem-endings dispatcher: check the LAST byte of
+// the word and route to the matching endings family (the
+// eleven escan scan tables seated at InterpStemMisc, units
+// 177); any other tail byte returns wl unchanged.
+//
+// Consults (unit 294, events logged):
+//   h007 char_buffer - reused: word stays the caller's
+//     CharArray (scan-only here; escan mutates in place).
+//   h014 out_of_scope_call - reused and hit: escan rides its
+//     NEW named-owner TODO stub below (owner
+//     interp-stem.cpp::escan, roster 122, batch 4 - the
+//     BOTH-arm committed order has not reached the unit; the
+//     stub seats it, h014); the endings tables ride their
+//     unit-177 seats (InterpStemMisc).
+//   h017 naming - reused: wstem keeps the vendor name; i/wl
+//     keep vendor names.
+//   Dafny: EXEMPT (dispatch-only face over the escan stub; no
+//     decidable core - the unit-177 family record).
 internal fun wstem(buf: CharArray, len: Int): Int {
-    TODO("stub: owner interp-stem.cpp::wstem (roster 294, batch 10 - the old pin said roster 164, C-015)")
+    // i = wl - 1; switch (word[i]) { ... default: return wl; }
+    val c = buf[len - 1]
+    return when (c) {
+        'd' -> escan(buf, len, dEndings)
+        's' -> escan(buf, len, sEndings)
+        'g' -> escan(buf, len, gEndings)
+        'n' -> escan(buf, len, nEndings)
+        'e' -> escan(buf, len, eEndings)
+        'l' -> escan(buf, len, lEndings)
+        'y' -> escan(buf, len, yEndings)
+        'v' -> escan(buf, len, vEndings)
+        't' -> escan(buf, len, tEndings)
+        'r' -> escan(buf, len, rEndings)
+        else -> len
+    }
+}
+
+// int escan(char *, int, struct endings *) - interp-stem.cpp:472.
+// Owner: interp-stem.cpp::escan, roster 122, batch 4. TODO-stub
+// (h014, raised at the B10 unit-294 close); the wstem
+// dispatcher routes the ten endings families here.
+internal fun escan(word: CharArray, wl: Int, endings: List<StemEnds>): Int {
+    TODO("stub: owner interp-stem.cpp::escan (roster 122, batch 4)")
 }
 
 // int pm(const unsigned char *, const unsigned char *, struct MSV *)
@@ -171,20 +212,120 @@ internal fun pm(a: CharArray, b: CharArray, sv: Msv): Int {
 internal class Indirect(var reference: String)
 
 // global extract seat: the vendor i >> t / (*this) >> t family
-// (globalClass.h operator>>). Layout owner:
-// include/mumpsc/globalClass.h::<misc>, roster 259, batch 3
-// (pending in this arm). TODO-stub (h014); the global::Int/
-// Double/Mstring/Char members and the mstring global-comparison
-// arms seat through it.
+// (globalClass.h operator>>). BODY OWNER FLIP (B10, roster 306,
+// the h014 delegate-when-owner-lands precedent): the operator>>
+// BODIES are the libmpscpp.cpp::<misc-8> residue (vendor 6699
+// char*/6859 string/6872 mstring variants, all the get_global +
+// GLOBAL_NOT_FOUND fail-throw shape); the old pin named
+// globalClass.h::<misc> roster 89 - the LAYOUT-owner mislabel,
+// C-015 family - and the old body was a TODO-stub. The real
+// render lands in LibmpscppMisc8.kt (the typed globalShr*
+// readers share this kernel); this seat keeps the i >> t1 call
+// shape the arm's global-comparison and lattice faces use.
 internal fun GlobalRef.extractValue(): String {
-    TODO("stub: owner include/mumpsc/globalClass.h::<misc> (roster 89, batch 3 - the old pin said roster 259, a both_seq number, C-015)")
+    val s = CharArray(STR_MAX)
+    val f = getGlobalC(ref, s, svPtr)
+    if (f == 0) {
+        GlobalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
+    }
+    return cStringOf(s)
 }
 
 // global::DocCorrelate(global, string, double) - the string-arm
-// member the misc-5 overloads delegate to; layout owner
-// globalClass.h::<misc> roster 259 (pending). TODO-stub (h014).
+// member the misc-5 overloads delegate to. Owner:
+// libmpscpp.cpp::global::DocCorrelate, roster 299, batch 10 -
+// RELEASED at the BOTH B10 close (the h014
+// delegate-when-owner-lands flip; the pin above named
+// globalClass.h::<misc> roster 89, the layout-owner mislabel -
+// the BODY is the libmpscpp.cpp member, C-015-family
+// correction). The double walk: order the own global's first
+// subscript repeatedly (doc1), and for each doc1 order the
+// second (doc2); compute the requested similarity measure
+// (Cosine/Sim1/Dice/Jaccard, default Cosine) over the two
+// subscripted nodes and, above the threshold, store the
+// score into the B global under BOTH (doc1,doc2) and
+// (doc2,doc1).
+//
+// Consults (unit 299, events logged):
+//   h007 char_buffer - reused: doc1/doc2 fold to the String
+//     order-walk carriers (the GlobalOrderH precedent).
+//   h014 out_of_scope_call - reused: Order/Kill/setValue ride
+//     the GlobalNode seats above (layout owner roster 89
+//     pending, h014); Sim1/Dice/Jaccard ride their unit seats
+//     (Sim1.kt 197, Dice.kt 175, Jaccard.kt 269); Cosine rides
+//     the NEW named-owner TODO stub below (owner
+//     libmpscpp.cpp::Cosine, roster 85, batch 3 - COVERAGE
+//     FINDING disclosed for PI: the unit is ahead of the
+//     BOTH-arm committed order and unrendered).
+//   h017 naming - reused: the member face keeps the docCorrelate
+//     seat name; doc1/doc2/c/s/fcn/threshold keep vendor
+//     names.
+//   h019 class_member_carrier - reused: member of the global
+//     class (layout owner roster 89, untranslated); the
+//     receiver state passes explicitly (the GlobalRef ref).
+//   Dafny: EXEMPT (the Mglobal order/store walk and the
+//     measure-stub seats; no decidable core - the Jaccard
+//     family record).
+//
+// Vendor quirks kept (ledgered):
+//   - the B(doc1,doc2)=c double assignment renders through the
+//     %g seat (fmtG) on the setValue stub (the vendor
+//     operator=(double) format; the seat is a String carrier).
+//   - the vendor switch leaves c UNINITIALIZED if s missed
+//     every case (unreachable: s is 1-4 by construction);
+//     the fold initializes 0.0 - journaled quantization.
 internal fun GlobalRef.docCorrelate(B: GlobalRef, fcn: String, threshold: Double) {
-    TODO("stub: owner globalClass.h::<misc> DocCorrelate string arm (roster 89, batch 3 - C-015 renumber)")
+    // if (fcn=="Cosine") s=1; else if Sim1 2; Dice 3; Jaccard 4; else 1
+    val s = when (fcn) {
+        "Cosine" -> 1
+        "Sim1" -> 2
+        "Dice" -> 3
+        "Jaccard" -> 4
+        else -> 1
+    }
+
+    // B().Kill();
+    B.invoke("").kill()
+
+    // while (1) { doc1 = (*this)(doc1).Order(1); if empty break; ... }
+    var doc1 = ""
+    while (true) {
+        doc1 = this.invoke(doc1).order(1)
+        if (doc1 == "") break
+
+        var doc2 = doc1
+        while (true) {
+            doc2 = this.invoke(doc2).order(1)
+            if (doc2 == "") break
+
+            var c = 0.0 // vendor: uninitialized on switch miss (unreachable)
+            // (*this)(doc1) composes the coded reference name(sub)
+            val g1 = GlobalRef(this.ref + "(" + doc1 + ")")
+            val g2 = GlobalRef(this.ref + "(" + doc2 + ")")
+            when (s) {
+                1 -> c = Cosine(g1, g2)
+                2 -> c = Sim1(g1, g2)
+                3 -> c = Dice(g1, g2)
+                4 -> c = Jaccard(g1, g2)
+            }
+
+            if (c > threshold) {
+                // B(doc1,doc2)=c; B(doc2,doc1)=c;
+                B.invoke(doc1, doc2).setValue(fmtG(c))
+                B.invoke(doc2, doc1).setValue(fmtG(c))
+            }
+        }
+    }
+}
+
+// double Cosine(global, global) - libmpscpp.cpp. Owner:
+// libmpscpp.cpp::Cosine, roster 85, batch 3 (the B3 coverage
+// finding disclosed at the B10 close; the BOTH-arm committed
+// order has not reached it). TODO-stub (h014, raised at the
+// unit-299 close).
+internal fun Cosine(A: GlobalRef, B: GlobalRef): Double {
+    TODO("stub: owner libmpscpp.cpp::Cosine (roster 85, batch 3)")
 }
 
 // global-node carrier extensions: the global::Order / global::

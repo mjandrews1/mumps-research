@@ -17,7 +17,7 @@ package both
 // Consults (rule base wp2/arms/BOTH/rules_v0.pl):
 //   h014 out_of_scope_call - reused: Mglobal RETRIEVE direct;
 //     NEW TODO stub _pieceZb (owner interp-piece.cpp::<misc>,
-//     roster 103, batch 4 pending - the \u0024piece engine,
+//     roster 114, batch 4 pending - the OLD pin said roster 103, its units.csv row (C-015-family renumber at the B10 close) - the \u0024piece engine,
 //     interp-piece.cpp:97); cStringOf/writeC direct.
 //   h015 grammar-collision - reused: ASCII only, no backticks,
 //     no raw comment dollars, trailing newline.
@@ -38,7 +38,7 @@ package both
 //             unsigned char end[], int setpiece,
 //             unsigned char lhs[], struct MSV *svPtr) -
 // interp-piece.cpp:97. Owner: interp-piece.cpp::<misc>, roster
-// 103 (batch 4, pending). TODO-stub (h014).
+// 114 (batch 4, pending; the old pin said roster 103, its units.csv row - C-015-family renumber at the B10 close). TODO-stub (h014).
 internal fun _pieceZb(
     out: CharArray,
     ind: CharArray,
@@ -49,7 +49,7 @@ internal fun _pieceZb(
     lhs: String,
     sv: Msv,
 ) {
-    TODO("stub: owner interp-piece.cpp::_piece (via <misc>, roster 103, batch 4)")
+    TODO("stub: owner interp-piece.cpp::_piece (via <misc>, roster 114, batch 4 - the old pin said roster 103, its units.csv row, C-015)")
 }
 
 // mstring global::Piece(const char *pat, int ii, int jj) -

@@ -392,27 +392,28 @@ internal fun String.mstringBracket(x: String): String {
     return this
 }
 
-// the mstring binary backend stubs (h014; raised this render):
-// the +=/-=/*=///=/%= families route through them; owners are
-// the batch-10 misc-8/misc-4 chunks (see header).
+// the mstring binary backends (h014 DELEGATE FLIP at the B10
+// close: the owner units 304/306 landed; these seats now route to
+// the real renders in LibmpscppMisc4.kt / LibmpscppMisc8.kt):
+// the +=/-=/*=///=/%= families seat through them.
 internal fun mstringPlusZb(a: String, b: String): String {
-    TODO("stub: owner libmpscpp.cpp mstring::operator+ (misc-4, unit 304, batch 10)")
+    return mstringPlus(a, b) // owner roster 304 (LibmpscppMisc4.kt)
 }
 
 internal fun mstringMinusZb(a: String, b: String): String {
-    TODO("stub: owner libmpscpp.cpp mstring::operator- (misc-4, unit 304, batch 10)")
+    return mstringMinus(a, b) // owner roster 304 (LibmpscppMisc4.kt)
 }
 
 internal fun mstringTimesZb(a: String, b: String): String {
-    TODO("stub: owner libmpscpp.cpp mstring::operator* (misc-8, unit 306, batch 10)")
+    return mstringTimes(a, b) // owner roster 306 (LibmpscppMisc8.kt)
 }
 
 internal fun mstringDivZb(a: String, b: String): String {
-    TODO("stub: owner libmpscpp.cpp mstring::operator/ (misc-4, unit 304, batch 10)")
+    return mstringDiv(a, b) // owner roster 304 (LibmpscppMisc4.kt)
 }
 
 internal fun mstringRemZb(a: String, b: String): String {
-    TODO("stub: owner libmpscpp.cpp mstring::operator% (misc-4, unit 304, batch 10)")
+    return mstringMod(a, b) // owner roster 304 (LibmpscppMisc4.kt)
 }
 
 // mstring mstring::operator+=(mstring i) - VENDOR QUIRK: the

@@ -332,17 +332,10 @@ private fun numcomp2(a: CharArray): Int {
 }
 
 // char * sym_(int, unsigned char *, unsigned char *, struct MSV *)
-// - include/mumpsc/sym.h (SYMSTORE 0 / SYMGET 1 / SYMGET_NOLBL 11;
-// defines.h:200-202). Owner: interp-sym.cpp::sym_, roster unit
-// 280 (batch 10, pending). TODO-stub (h014).
-internal fun sym_(
-    op: Int,
-    name: String,
-    data: CharArray,
-    sv: Msv,
-): CharArray? {
-    TODO("stub: owner interp-sym.cpp::sym_ (roster 307, batch 10 - the old pin said roster 280, C-015)")
-}
+// - include/mumpsc/sym.h. OWNER LANDED (B10): the real render is
+// InterpSym.kt (roster 307); this stub block is REMOVED at that
+// render (the redeclaration rule). The SYMSTORE/SYMGET_NOLBL
+// consts above keep their defines.h pins.
 
 // unsigned char * VariableNotFound(long, char *) /
 // VariableNotFound1(long, unsigned char *) - the interp-sysfunc
