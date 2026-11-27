@@ -981,3 +981,38 @@ S1 (code-check pass) remains fully paused. The PI is asked to rule on the dispos
 
 The audit takes no position; all three are recorded here so the ruling can cite this registry entry.
 
+# C-019: PI RULING ON DAF/BOTH GAP DISPOSITION (2026-11-27)
+
+Date: 2026-11-27
+References: C-018 registry entry (coverage audit ledger), SAP Amendment 2
+Ruling (PI, Mark, 2026-11-27, recorded from chat):
+
+1. OPTION A is ruled: dedicated render sessions close all coverage
+   gaps per C-011 discipline. No gap units are declared missing
+   outcomes; the missing-outcome-rows mechanism stays unused.
+2. BOTH roster row 169 (include/mumpsc/stateVector.h::<misc>,
+   rendered as the minimal Msv carrier in BothCRuntime.kt) counts as
+   FRONT-RUN COVERAGE: rendered. The ledger row was amended in the
+   same commit as this fragment (classification front-run ->
+   rendered, note cites this ruling).
+
+Final audited counts after the ruling:
+  - DAF: 268 rendered / 16 stub-only / 24 no-render. Gap 40.
+  - BOTH: 246 rendered / 25 stub-only / 37 no-render. Gap 62.
+
+Disposition of the gaps (all to be RENDERED, none dropped):
+  - DAF 16 stub-only rows: stub seats get real bodies at their own
+    seats (stub-only means the seat exists; the render completes it).
+  - DAF 24 no-render rows, BOTH 37 no-render rows: new renders per
+    the C-011 batch discipline, including residue seat files where
+    the unit is a TU residue.
+  - BOTH 25 stub-only rows: as DAF, body completion at existing seats.
+
+S1 (code-check pass) REMAINS PAUSED in full until all render sessions
+above are closed and a re-audit confirms DAF 308/308 and BOTH 308/308
+rendered against the roster. The per-unit checks CSV stays all-todo
+until then. The render-close plan and session sequencing are recorded
+in wp2/arms/RENDER-CLOSE-PLAN-2026-11-27.md (committed with this
+fragment). Study machine m1-build runs the gradle gates at each
+render push.
+

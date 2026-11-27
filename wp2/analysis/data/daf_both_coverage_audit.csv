@@ -166,7 +166,7 @@ roster_row,unit_id,arm,classification,evidence_file,note
 166,libmpscpp.cpp::Dice,BOTH,rendered,Dice.kt:Dice;LibmpscppMisc9.kt:diceFaceZb,
 167,interp-arith.cpp::modulo,BOTH,rendered,Modulo.kt:modulo,
 168,compiler-parse.c::ExpandOrder,BOTH,rendered,ExpandOrder.kt:ExpandOrder,
-169,include/mumpsc/stateVector.h::<misc>,BOTH,front-run,BothCRuntime.kt,stateVector.h residue as Msv minimal carrier; ledger note says TODO-stub per h014; PI to adjudicate
+169,include/mumpsc/stateVector.h::<misc>,BOTH,rendered,BothCRuntime.kt,PI ruling 2026-11-27 (C-019): front-run coverage counts as rendered; minimal Msv carrier accepted
 170,libmpscpp.cpp::global::Max,BOTH,rendered,GlobalMax.kt:globalMax;ZfcnsZfcn.kt:zindexmaxZb,
 171,interp-sysfunc.cpp::TimeOut_getstr1,BOTH,rendered,Getstr1.kt:getstr1;TimeOutGetstr1.kt:TimeOut_getstr1,
 172,include/mumpsc/interp.h::<misc>,BOTH,rendered,InterpHMisc.kt,
