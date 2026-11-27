@@ -47,15 +47,24 @@ package both
 //   comparator families (9504-9615) belong to roster 120
 //   (libmpscpp.cpp::<misc-9>, batch 4 pending).
 //
-// COVERAGE FINDING for the PI (cross-batch observation): the B9
-// misc-3 render seated mstring::operator=(double) (vendor 8731,
-// sprintf percent-lf) as mstringFromDouble via the cFormatG
-// percent-g fold. THIS unit's mstring ctor(double) at 8457 uses
-// the same percent-lf format; it renders verbatim as the %f
-// String.format idiom. The two vendor sites share a format; the
-// two arm seats differ (percent-g vs percent-f). Journaled for
-// the PI's cross-batch consistency review, no silent change made
-// to the closed B9 seat.
+// COVERAGE FINDING ADJUDICATED + MIS-CLAIM CORRECTED (PI ruling
+// 2026-11-27, item 2 parked): the original note here claimed
+// the B9 misc-3 seat mstring::operator=(double) (vendor 8731)
+// was "sprintf percent-lf" - a MIS-READ of the vendor source.
+// Vendor truth (libmpscpp.cpp verified 2026-11-27): the
+// operator= family is PERCENT-G (8731 double, 8738 float;
+// the B9 mstringFromDouble cFormatG fold is SPEC-CORRECT and
+// stays); only the CTOR family is percent-lf (mstring(double)
+// 8457 percent-lf, mstring(float) 8465 percent-f; THIS unit's
+// ctor(double) %f render is correct). The genuine ctor-family
+// divergence sits at the ctor-SUGAR fold sites (vendor
+// rslt = b through the percent-lf ctor, e.g. global::Concat
+// (double) 3936: DOC folds via mcvt percent-g, BOTH folds via
+// Kotlin Double.toString) - PARKED by the PI with the
+// operator= family; the DOC Java-percent-g trailing-zero shape
+// divergence (Java keeps them, C99 strips; cFormatG is the
+// byte-faithful carrier) is FLAGGED for the cycle-10 backfill
+// decision. No seat changed in this correction (comment-only).
 //
 // Fold ledgers (cross-cited seats, no new Kotlin):
 // - StopInit(char *) 7720 / StopInit(mstring) 7725 fold to the

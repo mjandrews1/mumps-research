@@ -412,8 +412,11 @@ internal fun xecute(exp: String): Int {
 // corpus unit; the mstring return folds to String per h007 (the
 // mstring-class layout owner, mstringClass.h::<misc> roster 149, has
 // not landed in this arm; class_member_carrier miss, T1 recurrence).
+// SEAT RELEASED at the roster-120 render (LibmpscppMisc9.kt, the
+// 2026-11-27 PI adjudication ruling 3): the 9844/9858 bodies are
+// rendered there as symGetM9; this seat delegates.
 internal fun SymGet(s: String): String {
-    TODO("stub: vendor SymGet, libmpscpp.h:179 (not a corpus unit)")
+    return symGetM9(s) // owner roster 120 (LibmpscppMisc9.kt)
 }
 
 // void ErrorMessage(const char *, long) - interp-sysfunc.cpp:251

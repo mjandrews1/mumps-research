@@ -1048,3 +1048,54 @@ translated (the committed order is exhausted; the pending-owner
 stubs - escan 122, Cosine 85, pm, _find 6, IDF 49, Count 98, the
 misc-9 angle families 120, and the B10-raised compiler owners -
 carry crosswalk-true pins for the C-001 backfill decision).
+
+B10-close PI ADJUDICATION + MIS-CLAIM CORRECTION (2026-11-27):
+the three standing items left open at the B10 close were
+adjudicated by the PI. Ruling 1 (DOC BtreeX STORE-section
+coverage finding): DOC remediation tranche SCHEDULED and
+landed (push 1e173f8, DOC BtreeX.kt 906 -> 1153 lines, the
+vendor 997-1201 insert/split region rendered, whole-arm DOC
+gate 288 kt EXIT=0 0/0). Ruling 2 (%g vs %lf divergence):
+PARKED after a vendor-source verification CONTRADICTED the B10
+flag's premise - the flag claimed "the vendor operator=(double)
+is %lf" but libmpscpp.cpp 8731 (operator= double) and 8738
+(operator= float) are PERCENT-G; only the ctor family is
+percent-lf/percent-f (mstring(double) 8457 percent-lf,
+mstring(float) 8465 percent-f). The B9 mstringFromDouble
+percent-g fold is therefore SPEC-CORRECT and stays seated; the
+genuine ctor-sugar divergence (vendor rslt = b through the
+percent-lf ctor, e.g. global::Concat(double) 3936, folded by
+DOC via mcvt percent-g and by BOTH via Kotlin Double.toString)
+is PARKED with it; the LibmpscppMisc8 header mis-claim is
+CORRECTED in the same push (comment-only, no seat changed);
+the DOC Java-percent-g trailing-zero shape divergence (Java
+keeps trailing zeros, C99 strips; BOTH's cFormatG is the
+byte-faithful carrier) is FLAGGED ONLY, decided at the C-001
+cycle-10 backfill. Ruling 3 (misc-9 angle families, roster
+120): rendered in a follow-up BOTH tranche per the committed
+crosswalk pins (the close paragraph's "DEFERRED" note above is
+superseded by this ruling).
+
+RULING-3 TRANSCHE CLOSE (2026-11-28): BOTH roster 120
+(libmpscpp.cpp::<misc-9>, row 97; the angle families and the
+rest of the ninth libmpscpp residual chunk) RENDERED as
+LibmpscppMisc9.kt per the 2026-11-27 PI adjudication: the
+operator* friend family (mstringTimesRev String/GlobalRef
+twins, the const-char fold), the < and > comparator families
+(mstringLt/mstringGt x9 each, the mstringGe precedent), the
+operator const char*() carrier identity, SymGet x3 (symGetM9;
+the BothCRuntime SymGet stub RELEASED to a delegate), SymPut
+x9 + __symput (four carrier-shape folds), global::Flush()
+(flushZb), and the builtin-table faces (cosineFaceZb /
+termCorrelateFaceZb / docCorrelateFaceZb / jaccardFaceZb /
+diceFaceZb / stopInitFaceZb / stopLookupFaceZb / synInitFaceZb
+/ centroidFaceZb / bmgSearchFaceZb / shredFaceZb; sim1FaceZb,
+ShredQuery and the SynLookup stub ledgered covered-elsewhere).
+Two NEW named-owner TODO stubs raised with crosswalk-true
+pins: global::TermCorrelate (roster 14, batch 1) and
+global::Centroid (roster 112, batch 4) - both join the C-001
+backfill population. No PILOT column flip (the batch-4 table
+predates the BOTH arm's column). Whole-arm BOTH gate 172 kt
+EXIT=0 0/0, hygiene clean; events CSV 1065 -> 1073 (8 consult
+rows, the 01:00:00Z band, +30s/row, gap after the B10 close
+row 00:35:30 disclosed). Dafny EXEMPT (B4 precedent).
