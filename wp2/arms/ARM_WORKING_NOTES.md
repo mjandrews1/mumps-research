@@ -11995,3 +11995,43 @@ corrected 60/99 gap set (ruled in session, 2026-11-27); R1 proceeds.
 Lesson recorded for the close-out classifier: name matching is not
 evidence; claims plus body reads are.
 
+R1 tranche 2 (2026-11-27, C-020 erratum session): four more DAF
+stub-completions rendered, compile-gated clean. Rows 26 (fixstr,
+Fixstr.kt, in-place CharArray escape fold, signature unchanged),
+77 (ExpandQS, ExpandQS.kt), 16 (ExpandGet, ExpandGet.kt) and 6
+(MyFunc, MyFunc.kt, compiler-sys1.c::MyFunc 89 LOC physical).
+ExpandQS/ExpandGet follow the unit-173 ExpandOrder fold exactly
+(String? return, call sites in CompilerParseC.kt now do the
+putAt(bp,0,r) conditional write; emitted text VERBATIM via
+DafCompilerState.emit). MyFunc keeps the (String, Int) seat shape:
+the call site at CompilerParseC.kt:1431 passes strAt(C.v1d,3), the
+String fold of the vendor &v1d[3] carrier; the seat slices the
+name (scan stops at space or a char >= 127, the coded-marker
+domain), checks BuiltInTableD, emits the __ArgN setup lines
+(Extract1 relay for builtins, Extract2 relay otherwise - Extract2
+is still the raised roster-b1 seat, called exactly as the landed
+Expand* siblings call it), tracks argMaxD, then emits the local-DO
+jump lines or the Interpret external lines. Emission byte-shapes
+verified by a sandbox smoke harness (od-level): the D1002 setup
+line, _ArgCount, Interpret("x \"do ^N\"",svPtr) with the escaped
+inner quotes, and the !NOERR check line with NO trailing newline
+(vendor shape kept); the #S# arm of ExpandQS emits GlobalQS (the
+vendor copy-paste quirk, disclosed in the KDoc), and the #S# arm
+of ExpandGet tests the #S# marker twice (vendor bug kept: a
+nested #G# arg3 takes the byte-run path). fixstr verified in
+place: quote/single-quote/backslash escaping onto the carrier
+with the NUL truncation fold. Stubs fixstrDaf/expandQSDaf/
+expandGetDaf/myFuncDaf deleted with release notes in
+CompilerParseC.kt; expandNextDaf stays raised (roster row 22, a
+C-020 demotion, next tranches). Gate: kotlinc 2.1.20 + corretto
+JDK17, whole-arm directory compile, zero errors. Sandbox note:
+the ~/b4 environment was wiped twice by env resets this session
+and rebuilt from the recipe (repo.zip at master 096e457, vendor
+sha verified, jdk/kcd restored); the server repo mirror is master
+WITHOUT the unpushed tranche-1 Mps files, so this tranche's gate
+proves master+tranche-2 compiles; tranche-1 (already gate-passed)
+touches only Zfcns/ZfcnBifs/Fcn/DafInterpStubsT3 and the four new
+Mps files, disjoint from this tranche's CompilerParseC edits, so
+the combined tree carries no interaction. R1 progress: 8 of 32
+rows complete (23, 55, 84, 90, 26, 77, 16, 6); 24 rows remain.
+

@@ -75,13 +75,13 @@ package daf
 // precedent; all throw at call sites inside parseCDaf):
 // - patrn1Daf (vendor patrn1(&jpx,&ernbr); owner the patrn
 //   family roster seat, no corpus cell rendered yet)
-// - fixstrDaf (vendor fixstr(&bd[1]); Doty.kt-family fold, no
-//   landed seat)
-// - expandQSDaf / expandNextDaf / expandGetDaf (vendor ExpandQS/
-//   ExpandNext/ExpandGet; no landed seat - the ExpandText/
-//   Order/Data/Name four have landed, these three have not)
-// - myFuncDaf (vendor MyFunc(&v1d[3],iiitmp) compile-time
-//   user-function fold; no corpus cell rendered)
+// - expandNextDaf (vendor ExpandNext; the Expand* ladder
+//   sibling - ExpandQS/ExpandGet released 2026-11-27 R1 tranche
+//   2 at ExpandQS.kt/ExpandGet.kt, ExpandNext still raised)
+// fixstrDaf, expandQSDaf, expandGetDaf and myFuncDaf were raised
+// seats RELEASED 2026-11-27 (R1 tranche 2): real bodies at
+// Fixstr.kt (row 26), ExpandQS.kt (row 77), ExpandGet.kt (row
+// 16), MyFunc.kt (row 6); the call sites below resolve there.
 // Dafny: EXEMPT (emit-side compiler parser plumbing; journal
 // row; suite stays 70/0).
 
@@ -146,27 +146,22 @@ fun patrn1Daf(jpx: Int, ernbr: Int): Int =
     throw NotImplementedError(
         "patrn1: out-of-scope owner (patrn pattern family, no corpus cell rendered)")
 
-// void fixstr(unsigned char *); Doty.kt-family fold; no landed seat.
-fun fixstrDaf(b: CharArray): Unit =
-    throw NotImplementedError(
-        "fixstr: out-of-scope owner (Doty-family pattern string fixer, no landed seat)")
-
-// void ExpandQS/ExpandNext/ExpandGet(unsigned char *, int, unsigned
-// char *); compiler-parse extern ladder; no landed seats.
-fun expandQSDaf(v1d: CharArray, i0: Int, bp: CharArray): Unit =
-    throw NotImplementedError(
-        "ExpandQS: out-of-scope owner (compiler-parse Expand* ladder, no landed seat)")
+// void fixstr(unsigned char *); SEAT RELEASED (R1 stub-completion
+// 2026-11-27): the real body landed at Fixstr.kt (roster row 26;
+// signature unchanged, the two fixstr(&bd[1]) call sites below
+// resolve there).
+// void ExpandQS/ExpandGet(unsigned char *, int, unsigned
+// char *); SEATS RELEASED (R1 stub-completion 2026-11-27): the real
+// bodies landed at ExpandQS.kt (row 77) and ExpandGet.kt (row 16)
+// with the ExpandOrder String? fold - the call sites below now do
+// the putAt(bp, 0, r) conditional write.
 fun expandNextDaf(v1d: CharArray, i0: Int, bp: CharArray): Unit =
     throw NotImplementedError(
         "ExpandNext: out-of-scope owner (compiler-parse Expand* ladder, no landed seat)")
-fun expandGetDaf(v1d: CharArray, i0: Int, bp: CharArray): Unit =
-    throw NotImplementedError(
-        "ExpandGet: out-of-scope owner (compiler-parse Expand* ladder, no landed seat)")
 
-// int MyFunc(char *, int); compile-time user-function fold.
-fun myFuncDaf(name: String, iiitmp: Int): Int =
-    throw NotImplementedError(
-        "MyFunc: out-of-scope owner (compiler user-function fold, no corpus cell)")
+// int MyFunc(char *, int); SEAT RELEASED (R1 stub-completion
+// 2026-11-27): the real body landed at MyFunc.kt (roster row 6;
+// signature unchanged, the call site below resolves there).
 
 // ---- the parse_ tables (verbatim; the /*N*/ row markers kept) ----
 
@@ -1251,7 +1246,8 @@ fun parseCDaf(C: DafCompilerState, svPtr: DafMsv): Int {
 
                     if (c1 == 'q' &&
                         Character.toLowerCase(t[2]) == 's') { // \u0024qsubscript()
-                        expandQSDaf(C.v1d, ii, bp) // raised seat
+                        val rQS = expandQSDaf(C.v1d, ii) // ExpandQS - released seat
+                        if (rQS != null) putAt(bp, 0, rQS)
                         label = L_FCN_PROC_DONE; break@othPC
                     }
 
@@ -1261,7 +1257,8 @@ fun parseCDaf(C: DafCompilerState, svPtr: DafMsv): Int {
                     }
 
                     if (c1 == 'g') { // \u0024get() function
-                        expandGetDaf(C.v1d, ii, bp) // raised seat
+                        val rGET = expandGetDaf(C.v1d, ii) // ExpandGet - released seat
+                        if (rGET != null) putAt(bp, 0, rGET)
                         label = L_FCN_PROC_DONE; break@othPC
                     }
 
