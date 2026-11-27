@@ -182,18 +182,12 @@ internal fun xindex(patternSet: String, s: CharArray, start: Int): Int {
 }
 
 // void substr(unsigned char *, unsigned char *, int, int) - the
-// 1-based substring extract. Owner: interp-strmanip.cpp::substr,
-// roster unit 212 (batch 7, pending). The input offset pairs
-// seat the &ad[ptr] / &bd[1] call shapes. TODO-stub (h014).
-internal fun substr(
-    input: CharArray,
-    inOff: Int,
-    out: CharArray,
-    start: Int,
-    len: Int,
-) {
-    TODO("stub: owner interp-strmanip.cpp::substr (roster 212, batch 7)")
-}
+// 1-based substring extract. RELEASED at the roster-211 render
+// (SubstrStrmanip.kt, interp-strmanip.cpp::substr; this stub's
+// 5-arg slice-index signature is KEPT - the two call sites
+// above ride it). The old stub pin said "roster unit 212" -
+// off by one (this row is unit 211, rank 45; unit 212 is the
+// DISTINCT compiler-sys1.c::substr).
 
 // int strcmp(char *, char *) - the fold of the vendor strcmp
 // over the NUL-terminated CharArray seats (the strcmpC seat of

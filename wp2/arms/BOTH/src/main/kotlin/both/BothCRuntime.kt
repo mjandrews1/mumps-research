@@ -284,13 +284,10 @@ internal const val INPUT_LENGTH = 10 // libmpscpp.h:79
 internal const val SYM_MAX = 200 // defines.h:218; symbol table stack depth
 internal const val CLOSE = 4 // defines.h:87 (T3-add; the GlobalClose macro seat)
 
-// void sigint(int) - include/mumpsc/fcns.h family. Owner:
-// interp-sysfunc.cpp::sigint, roster unit 254, batch 7. TODO-stub
-// (h014): the vendor body aborts the process via signals; the
-// arm-local contract is that the stub never returns normally.
-internal fun sigint(i: Int) {
-    TODO("stub: owner interp-sysfunc.cpp::sigint (roster unit 254, batch 7)")
-}
+// void sigint(int) - RELEASED at the roster-190 render (unit
+// interp-sysfunc.cpp::sigint, Sigint.kt; the earlier stub here
+// pinned "roster unit 254", which is the units.csv RANK column
+// - the roster unit is 190; pin corrected in this release note).
 
 // void ErrorMessage(const char *, long) - include/mumpsc/cppsysfunc.h:31,
 // body interp-sysfunc.cpp:251. Non-unit vendor helper: rendered here,

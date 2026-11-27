@@ -375,16 +375,19 @@ internal fun extract2C(v1d: CharArray, i: Int): String {
     TODO("stub: owner compiler-parse.c::Extract2 (roster 171, batch 1)")
 }
 
-// int GlobalData(unsigned char *, unsigned char *, struct MSV *) -
-// owner: libmpscpp.cpp::GlobalData, roster rows 76 (batch 3),
-// 78 (batch 7), 79 (batch 8) all pending; the global-class
-// Data() member's engine (vendor libmpscpp.cpp:3669 folds
-// GlobalData(ref,tmp,svPtr) then atol(tmp)). The seat returns
-// the atol-folded data value, 0 when the node carries no data
-// (the unit-175 Dice B.Data() existence gate rides it).
-// TODO-stub (h014).
+// int globalDataC(String, Msv) - RELEASED at the roster-203
+// render (GlobalData.kt, interp-sysfunc.cpp::GlobalData :733;
+// the global::Data() member engine fold: GlobalData(ref,tmp,
+// svPtr) then atol(tmp) - the Dice/Sim1/Multiply existence
+// gates ride it). The old stub pin cited "roster 76/78/79" -
+// RANKS of the libmpscpp.cpp::GlobalData Interpret wrappers
+// (units 86/237/208); the engine row is unit 203.
 internal fun globalDataC(key: String, sv: Msv): Int {
-    TODO("stub: owner libmpscpp.cpp::GlobalData (roster 76/78/79, batches 3/7/8)")
+    val tmp0 = CharArray(STR_MAX)
+    writeC(tmp0, key)
+    val tmp2 = CharArray(STR_MAX)
+    GlobalData(tmp0, tmp2, sv)
+    return atolC(cStringOf(tmp2)).toInt()
 }
 
 // int selectStdinC(int seconds) - POSIX platform edge, NOT a

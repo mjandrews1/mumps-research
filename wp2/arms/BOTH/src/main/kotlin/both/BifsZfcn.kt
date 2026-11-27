@@ -716,15 +716,10 @@ private fun gtkSwitchGetActiveZb(
 // atof seat (C strtod fold on the plain ASCII decimal shape)
 private fun atofZb(s: String): Double = s.toDoubleOrNull() ?: 0.0
 
-// int ServiceInterface(...) - interp-service.cpp roster 187 b7.
-// Seated TODO stub (h014: roster owner pin); the zz_* wrappers
-// below are the real thin folds over this seat.
-internal fun ServiceInterface(
-    tmp1: CharArray, tmp2: CharArray, tmp2a: CharArray?,
-    tmp2b: CharArray?, tmp3: CharArray, code: Int, sv: Msv
-): Int {
-    TODO("stub: owner interp-service.cpp::ServiceInterface (roster 187, batch 7)")
-}
+// int ServiceInterface(...) - interp-service.cpp roster 186 b7.
+// RENDERED (batch 7): the live seat now lives in InterpService.kt
+// (this stub face removed at the render, h014 release-at-render);
+// the zz_* wrappers below are the real thin folds over that seat.
 
 // void sql(int, struct MSV*, char*, char*, char*, const char*) -
 // the SQLITE arm forwards through the libmpscpp.cpp face (the
