@@ -11944,3 +11944,27 @@ audit + translation phase close spliced (journal append)"; git
 push; rm wp2/arms/PRO-CLOSE-AUDIT_fragment_2026-11-27.md. No
 gate round needed: no code changed (journal-only append; the
 BOTH/DOC gradle gates stand green from the d0f69fe round).
+## S1 open paused: DAF/BOTH coverage findings (2026-11-27)
+
+The per-unit check pass (S1) opened per wp2/CHECK_PASS_PLAN.md
+and paused the same day on PI ruling (registry entry C-017). At
+the opener, coverage verification contradicted the DAF and BOTH
+study-complete claims: roster rows 9 (DirectRead), 2
+(libmpscpp.cpp::<misc-1>), 5 (_SymFree, BOTH), 6 (MyFunc, BOTH)
+are stub-only or untraced in those arms; the C-014-scheduled
+renders (embed 43, mstring::Eval 77) never landed; the journal
+carries no DAF B1/B2/B3 or BOTH B1-complete/B2/B3/B4 batch
+records; mechanical no-trace upper bounds are DAF ~47 / BOTH ~41
+roster units. DOC and PRO verified 308/308 (PRO per the
+2026-11-27 audit; DOC per its complete B1-B10 journal records).
+PI rulings: a dedicated DAF/BOTH coverage-audit session runs
+next and produces the committed per-unit ledger; S1 is paused
+entirely until the gaps are ruled; the 308/308 record is
+corrected for DAF/BOTH by C-017 (the PRO/DOC completion record
+stands). The S1 opener's completed DirectRead reviews are held
+for re-grade at resume: BASE graded-deviation candidate
+(unaccounted space-for-NUL write on the failure arms), DOC and
+PRO graded-ok candidates (dead fstat==1 branch preserved as
+comment; the terminal arm's unconditional return-1 kept
+verbatim; FIFO divergence documented in all three).
+

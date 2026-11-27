@@ -865,3 +865,81 @@ entry), STATISTICAL_ANALYSIS_PLAN.md (Amendment 2),
 analysis/data/per_unit_checks.csv (three arm blocks appended),
 CHECK_PASS_PLAN.md (new).
 
+
+## C-017 - DAF/BOTH study-complete claims contradicted by S1-open coverage findings; S1 paused pending audit (logged 2026-11-27, PI-ruled same day)
+
+**Context.** The per-unit check pass (S1, wp2/CHECK_PASS_PLAN.md,
+C-016) opened 2026-11-27. Its opener verification found that the
+DAF and BOTH "308/308 study-complete" claims (journal: "DAF arm:
+308/308 rendered; 304 prior + 4 supplementary"; "BOTH ARM
+STUDY-COMPLETE: 308/308 units translated") are contradicted by
+concrete evidence in the arm trees. DOC and PRO hold: PRO was
+verified 308/308 by the 2026-11-27 completion audit; DOC carries
+complete B1-B10 batch records with 287 render files.
+
+**Findings (all verified in source this session).**
+
+1. Roster row 9 (interp-sysfunc.cpp::DirectRead): DAF carries
+   only a NotImplementedError stub ("not drawn by the DAF arm");
+   BOTH carries only a TODO stub mis-pinned as a "non-roster
+   reader" - DirectRead is units.csv row 9, a batch-1 unit.
+2. Roster row 2 (libmpscpp.cpp::<misc-1>, the 600-physical-LOC
+   residue chunk): no id-or-name trace in either arm.
+3. Roster row 6 (compiler-sys1.c::MyFunc): BOTH stub-only (pin
+   says "roster 27" - a C-015-family mislabel); DAF renders it
+   (myFuncDaf, CompilerParseC.kt).
+4. Roster row 5 (interp-sym.cpp::_SymFree): BOTH stub-only.
+5. C-014's PI-ruled scheduled renders (BOTH embed, record 43;
+   BOTH mstring::Eval, record 77) NEVER LANDED: the BOTH batch-9
+   close does not discharge them and both remain TODO stubs in
+   the tree, yet the batch-10 close declared the arm
+   study-complete.
+6. The arm journal contains no DAF batch-1/2/3 and no BOTH
+   batch-1-complete/2/3/4 records; the BOTH batch-1 session
+   rendered 10-11 of 31 units with the remainder noted pending.
+   The journal-recorded DAF batches (B4, B5, B7, B8, B9, B10 +
+   the 4-unit supplementary) sum to roughly 186-216 units, not
+   308.
+7. Mechanical no-trace scan (upper bound, front-run false
+   negatives possible per the PRO verification-only convention):
+   DAF ~47, BOTH ~41 roster units with no id-or-name trace
+   anywhere in the arm sources.
+
+**PI rulings (2026-11-27).**
+
+1. A DEDICATED COVERAGE-AUDIT SESSION runs next: a definitive
+   per-unit render ledger for DAF and BOTH against the 308-unit
+   roster (mechanical scan plus per-unit render verification,
+   C-014 methodology), committed as data. The gap rulings (render
+   sessions vs disclosed missing outcome rows per the SAP join)
+   follow that audit.
+2. S1 (the code-check pass) is PAUSED ENTIRELY until the audit
+   is ruled. No per_unit_checks.csv flips from the S1 opener;
+   the opener's completed reviews (DirectRead: BASE
+   graded-deviation candidate - writes a space where the vendor
+   writes NUL, unaccounted; DOC and PRO graded-ok candidates -
+   all branches and vendor quirks verified) are recorded here
+   and re-graded at S1 resume.
+3. The 2026-11-27 PRO completion-audit journal paragraph stated
+   "all four agent arms stand at 308/308" - that line is
+   CORRECTED by this entry: PRO and DOC are verified 308/308;
+   the DAF and BOTH claims are under audit with the concrete
+   counterexamples above. The PRO arm's completion and the
+   translation-phase record for PRO/DOC stand unchanged.
+
+**Effect on the committed schedule.** The check pass was
+post-translation grading work; its pause has no schedule effect.
+The DAF/BOTH question may re-open translation work for those two
+arms; that is ruled after the audit.
+
+**Methodological consequences.** None yet to registered
+instruments; per_unit_checks.csv remains all-todo. If the audit
+confirms gaps and the PI rules missing-outcome-row treatment, the
+SAP's per-unit joins already surface BOTH/DAF nulls as missing
+outcome rows exactly as C-014 established for its pair; a render
+ruling instead would restore the missing rows with render-session
+stamps per C-014's session-ordinal treatment.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
+entry); ARM_WORKING_NOTES.md (journal note, same splice).
+
