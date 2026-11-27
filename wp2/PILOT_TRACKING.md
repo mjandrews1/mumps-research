@@ -805,6 +805,34 @@ re-application). Check columns track the BASE reference translation
 (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 Next protocol step: DAF batch 11 per the committed row order (one
 session per C-011).
+
+DAF supplementary render session (2026-11-27, B9-repair
+precedent: PI-approved deviation, journaled, separate commute):
+the four named-stub roster rows ruled RENDER BEFORE PROCEEDING at
+the 2026-11-26 PI adjudication of the B10 flags are closed -
+compiler-if.c::if_code (CompilerIfCode.kt), compiler-new.c::
+new_code (CompilerNewCode.kt), compiler-copyright-notice.c::
+copyright_notice (CompilerCopyrightNotice.kt),
+compiler-abrtx.c::abrtx (CompilerAbtx.kt). All four B10 raised
+named stubs RELEASED (release notes at the DafInterpStubsT3 stub
+block); the exportflag shared seat consolidated to public
+exportFlagD (main's private exportFlagMD carrier rebound); abrtx
+owns the close/conversion cell the B10 driver header deferred to
+its seat (the .m read-back rides the C.out emit-builder fold);
+the if_code parse_ call binds the compiler TU seat parseCDaf per
+the row-277 PI-ruled rebind precedent. Whole-arm kotlinc gate
+exit 0 at 207 kt files (6 accepted Interpret.kt vendor-lattice
+warnings only); dafny suite 11 specs / 70 verified / 0 errors
+unchanged (all four units EXEMPT); H-015 hygiene clean. Ordinal
+disclosure: units.csv records 40/65/47/14 (grep lines 41/66/48/
+15; the ledger's r41 pin cites the grep line - the off-by-one
+noted, ids not renumbered). The stub asymmetry with DOC/PRO is
+resolved: 308/308 DAF rows now carry real renders. Heuristic log
+rows 324-329. Check columns track the BASE reference translation
+(C-002) and stay todo per the C-001 cycle-10 backfill decision.
+Next protocol step: BOTH batch 8 per the committed row order
+(DAF batch 11 does not exist - the arm is study-complete pending
+the C-001 backfill and grading).
 | 278 | compiler-mumps.c::main | c | complex | todo | todo | translated | todo | todo | todo |
 | 279 | interp-sym.cpp::sym_ | cpp | complex | todo | todo | translated | todo | todo | todo |
 | 280 | libmpscpp.cpp::<misc-8> | cpp | complex | todo | todo | translated | todo | todo | todo |

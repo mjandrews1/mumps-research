@@ -304,27 +304,25 @@ const val SQL_OPEN_D = 206
 // DAF arm; stub-mediated honesty at the main render call sites).
 // ---------------------------------------------------------------------
 
-// int if_code() - owner compiler-if.c::if_code (roster row 41,
-// batch-2 Latin cell; no DAF render to date).
-fun ifCodeDaf(): Int =
-    throw NotImplementedError(
-        "if_code: out-of-scope owner (compiler-if.c::if_code, roster b2)")
+// ifCodeDaf SEAT RELEASED (DAF supplementary render session,
+// 2026-11-27, per the 2026-11-26 PI adjudication of the B10
+// flags): the real body landed at CompilerIfCode.kt (owner
+// compiler-if.c::if_code, roster r41 pin / units.csv record 40;
+// release notes there; the main call sites bind unchanged).
 
-// int new_code() - owner compiler-new.c::new_code (roster row 65,
-// no DAF render to date).
-fun newCodeDaf(): Int =
-    throw NotImplementedError(
-        "new_code: out-of-scope owner (compiler-new.c::new_code, roster b3)")
+// newCodeDaf SEAT RELEASED (same session): the real body landed
+// at CompilerNewCode.kt (owner compiler-new.c::new_code, roster
+// r65 pin / units.csv record 65; release notes there; the main
+// call sites bind unchanged; the shared exportflag seat is
+// consolidated there as exportFlagD).
 
-// int abrtx() - owner compiler-abrtx.c::abrtx (the output-file
-// close/conversion cell; roster family not drawn on this arm).
-fun abrtxDaf(): Int =
-    throw NotImplementedError(
-        "abrtx: out-of-scope owner (compiler-abrtx.c::abrtx, no DAF row)")
+// abrtxDaf SEAT RELEASED (same session): the real body landed at
+// CompilerAbtx.kt (owner compiler-abrtx.c::abrtx, units.csv
+// record 14; the close/conversion cell the B10 driver header
+// deferred to this seat; release notes there).
 
-// void copyright_notice(FILE *) - owner
-// compiler-copyright-notice.c::copyright_notice (roster row 47).
-fun copyrightNoticeDaf(): Unit =
-    throw NotImplementedError(
-        "copyright_notice: out-of-scope owner (compiler-copyright-notice.c::copyright_notice, roster b2)")
+// copyrightNoticeDaf SEAT RELEASED (same session): the real body
+// landed at CompilerCopyrightNotice.kt (owner
+// compiler-copyright-notice.c::copyright_notice, roster r47 pin
+// / units.csv record 47; release notes there).
 

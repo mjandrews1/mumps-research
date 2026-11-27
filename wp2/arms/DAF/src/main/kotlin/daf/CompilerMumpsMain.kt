@@ -101,7 +101,11 @@ private var tryFlgMD = 0
 private var catchFlgMD = 0
 private var emitLabelMD = 0
 private var ernbrMD = 0
-private var exportFlagMD = 0
+// exportflag was a main-TU file-scope carrier here; the
+// supplementary new_code render (2026-11-27, PI adjudication)
+// reads the shared vendor global, so the seat is consolidated to
+// the public exportFlagD in CompilerNewCode.kt; this render's
+// ELSE-X write cell (below) rebinds to it.
 
 // static char *ctable[] - the command-word validation table.
 private val CTABLE_M = arrayOf(
@@ -1295,7 +1299,7 @@ fun mainCDaf(args: Array<String>): Int {
             }
             'e'.code -> { // case ELSE
                 if (at(C.xd, p2pxD + 1).lowercaseChar() == 'x') {
-                    exportFlagMD = 1
+                    exportFlagD = 1
                 }
                 C.emit("\n//--------------\n")
                 C.emit("//       Else\n")
