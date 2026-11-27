@@ -11549,3 +11549,114 @@ the DAF README dafny-command fix (per-file loop, single-program
 form collides on per-file NUL consts). Next protocol step: BOTH
 batch 9 per the committed row order (one session per C-011),
 93 units remaining to arm completion.
+# BOTH B9 close (2026-11-27)
+
+BOTH batch 9 (units 247-277, 31 units) translated 2026-11-27 in
+ONE session per C-011: thirty-one units pushed, whole-arm kotlinc
+gate EXIT=0 at 143 files (116 master baseline + 27 new render
+files + 20 edited masters), 0 errors, 0 warnings, hygiene clean
+(no tabs, ASCII only, no backticks, comment dollars escaped as
+\u0024). Flips matched BY ID STRING per the B7 lesson. Three
+giants this batch: btreeX (275, 502 loc), libmpscpp misc-3 (276,
+600 loc), parse_ (277, 1201 loc).
+
+DOC-ARM COVERAGE FINDING for PI adjudication: DOC's BtreeX.kt
+render is MISSING the STORE insert/split section entirely (the
+DOC arm has no render of that vendor region; f1/split/rootfix,
+the bufblk DBL_STR+2 overlap copy, the memccpy install and the
+mid-block walk). The BOTH render carries the full chain.
+
+Seat releases with notes: the B8-raised mstringFixGblRefZb stub
+(262, MstringFixGblRef.kt lands the String-receiver extension),
+linepad x2 (267, the CompilerEpi linepadZb and WriteCode linepad
+stubs released with call sites rebound; linepad2 moved from the
+Fcninit private seat), perl_pm flipped in place (268, the
+java.util.regex fold of POSIX regcomp, h019 quantization of the
+13-face error ladder to banner + engine message + sigint(100)),
+the 6-arg sql stub (271, released from Btree.kt; SqlRuntime
+gained the open/access fields via RsltCallback.kt; the H-018
+no-JVM-sqlite3-carrier adjudication per the DOC SqlIc precedent:
+SQLITE_NO_CARRIER -1 rides the failure side; the CLOSE
+fall-through quirk kept), strcatz and linepad2 folds (272), and
+the WriteCode zero-arg parse_ TODO stub (277 - its pin said
+roster 248, the DOC-arm roster number; CompilerParseMain.kt
+renders the full goto-web state machine as the ParseCPCtx
+holder, h016, with the five zero-tail static tables kept
+byte-for-byte and the case-18 fallthrough into NOT rendered
+sequentially).
+
+New TODO stubs raised: patrn1, fixstr, MyFunc, ExpandQS,
+ExpandNext, ExpandGet (277; owners compiler-sys1.c::patrn1
+roster 26 b1, compiler-parse.c::fixstr 7 b1,
+compiler-sys1.c::MyFunc 27 b1, compiler-parse.c::ExpandQS 80 b3,
+ExpandNext 11 b1, ExpandGet 16 b1), scanblocks and pb (275,
+owners 50 b2 / 106 b4 per the C-015 renumber), the mstring
+backend operators mstringPlusZb/MinusZb/DivZb/RemZb (276, owner
+libmpscpp misc-4 unit 304 b10) and mstringTimesZb (misc-8 unit
+306 b10), and thecgi.h sym_ stores stay (270, owner roster 307
+b10).
+
+C-014 RIDES (the 2026-11-27 PI ruling): interp-sql.cpp::embed
+(roster 51, 19 loc - the SQL single-quote doubling fixer; the
+no-quote fast path returns the ORIGINAL input, H-008 static-tmp
+fold to the per-call builder; the NULL-in arm quantized away at
+the String seat, journaled) and libmpscpp.cpp::mstring::Eval
+(roster 79, 18 loc - the indirection-operator twin; packs the
+receiver into svPtr.xd, resets xpx, t2=1, pd1len=0, calls the
+one-arg parse_ seat, wraps the pd1[sdlim] slice; the unreachable
+post-throw tail kept as the H-013 ledger). Both release the
+B8 coverage-finding stubs (embed at Btree.kt, mstringEvalZb at
+LibmpscppMisc7.kt). Their events rows ride the B9 session band
+with the gap disclosed in the rationale.
+
+C-015 RIDES (comment-only, compile-identical): every TODO-stub
+owner pin renumbered to the crosswalk global_unit_id
+(wp2/analysis/data/unit_id_crosswalk.csv): parse_ 248->277
+(DOC-arm number), atCopy 241->222, embed 43->51, mstringEvalZb
+77->79, idfSvcZb 45->49, IDF 45->49, Extract2 171->15, gotamatch
+180->17 (rank numbers), globalClass 259->89, sw 287->61, wstem
+164->294, Mltoa 292->295, interp parse_ 303->93, xindex 265->260,
+_horolog 277->247 (both_seq numbers), mps_floor/ceil/trunc
+103/52/51->257/285/284, inout 36->59, readf_ b4->78, BuildGlobal
+b8->230, Merge 211->237, EncodeHTML 26->5, KiLL 59->37,
+TermCorrelate 36->14, DocCorrelate 287->299, Centroid 210->112,
+Count 120->98, Min 69->99 (the 17-loc Max/Min pair splits 68 B3
+/ 99 B4), Dice 158->175, btree 29->4, scanblocks 44->50, pb
+111->106, set_code 97->121, parse_pattern_element 196->113,
+bstring misc 212->22, Multiply 213->53. The add/sub/mult/numcomp
+roster-67 pins relabeled non-roster residue. Scan 75 /
+ScanAlnum 77 / Max 68 verified CORRECT (coincidences, kept).
+Verified-already-rendered faces noted in their pins (xindex 260,
+_horolog 247, Merge 237, BuildGlobal 230, mps_floor 257).
+
+Quantizations and quirks disclosed: Jaccard's B.ref mutation is
+a local fold (ARM-LOCAL DIVERGENCE journaled at the render),
+mpstime set_alarm inert fold returns 0, _label_lookup = -1 and
+_text_function = null seats, cgi QUERY_STRING dup-name append
+with the guarded m+2 hex decode, kill_code label state machine
+per the DOC model with kcOutZb and the Short-carrier .toInt()
+comparisons, btreeX PREVIOUS walk and the MMARK/DBL_STR/
+BLOCK_SPLIT pins, misc-3's vendor reversed-sign string friend
+ladders (globalLeStrM3 compares >=0 for <=, byte-identical) and
+the no-tpx-probe =(global) kept, and parse_'s H-013 dead-local
+ledger plus the sscanf leading-prefix fold (H-012).
+
+Events CSV 759 -> 933 lines (+174 rows, csv-validated 932/932;
+band 2026-11-27T20:30:00Z onward, +30s/row, opened after the
+last B8 row 19:34:30Z with the gap disclosed; the 277 and C-014
+consult sets hardcoded, the rest parsed from the render KDoc
+headers). dafny suite 70 verified 0 errors UNCHANGED (11 spec
+files; all 31 batch-9 units EXEMPT per the DAF B6 T3
+emitter/procedural precedent; gated at close after a fresh
+dafny 4.11.0 rebuild). PILOT B9 flips by ID string (31 rows) +
+the B9 close paragraph. Check columns stay todo per the C-001
+cycle-10 backfill decision.
+
+SESSION-SPAN DISCLOSURE: the Vibe sandbox wiped ~/b4 repeatedly
+this session (the env-reset family, 3+ rebuilds); each rebuild
+rode the knowledge recipe (repo at master b69ebb7, vendor sha
+621deb25, JDK 17.0.21.1, kotlinc 2.1.20 sha a118197) and the
+gate re-ran green from the b9-stage overlays with identical
+counts (143 files EXIT=0 0/0 each time). Next protocol step:
+BOTH batch 10 per the committed row order (one session per
+C-011).
