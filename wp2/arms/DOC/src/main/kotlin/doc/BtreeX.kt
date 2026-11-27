@@ -12,6 +12,19 @@ package doc
 // tag corrected in B9 T3) FLIPS to this render; the Mglobal
 // family call sites bind unchanged.
 //
+// B9 COVERAGE-FINDING REMEDIATION (PI ruling 2026-11-27): the
+// STORE insert/split region (vendor interp-native-btree.cpp
+// 997-1201: the f1 re-entry loop, the simple insert with the
+// high-end overlap copy, the split insert with the bufblk
+// DBL_STR+2 double block, the mid-block key boundary walk,
+// the strxxcpy promoted-key extract, the left/right block
+// installs, the parent-fix goto f1 and the rootfix ladder)
+// was MISSING from this render - the fail fall-through
+// previously routed a novel-key STORE into the XNEXT modify
+// arm below. Rendered in the fail region per the PI ruling;
+// the BOTH-arm BtreeX.kt is the cross-check reference (the
+// same vendor region rendered in the B9 batch).
+//
 // BYTE-DOMAIN FOLD (H-012/H-016): the vendor key[] and bd[]
 // are unsigned char throughout (the block images, BigKey,
 // bufblk are all byte domain); the dispatcher-facing seat
@@ -840,6 +853,240 @@ private fun btreeXCore(gArg: Int, keyB: ByteArray, bdB: ByteArray, svPtr: Msv): 
                 continue@mainloop
 
                 // the unreachable PREVIOUS tail ledger (see above)
+            }
+
+            // ------------------------------------------------------------
+            // STORE section - store new key (the insert/split; the
+            // B9 coverage-finding remediation, PI ruling 2026-11-27)
+            // ------------------------------------------------------------
+
+            if (g == STORE) { // store new key
+
+                var blkaddr1 = 0
+
+                if (restoreFlag) datptr = svPtr.restoredata
+                else if (bdB[0] == 0.toByte()) datptr = 0L // zero length data field
+                else {
+                    val gblDataFile = gblDataRafX()
+                    datptr = gblDataFile.length() // LSEEK(gbldat, (OFF_T)0, SEEK_END)
+                    val datlen = cstrlenX(bdB, 0) + 1
+                    gblDataFile.write(byteArrayOf((datlen and 0xff).toByte(), ((datlen shr 8) and 0xff).toByte())) /* length code */
+                    gblDataFile.write(bdB, 0, datlen) /* data */
+                }
+
+                // f1: (the label re-entry loop - the split's
+                // parent-fix goto f1 folds onto the flag)
+                var f1Again = true
+                while (f1Again) {
+                    f1Again = false
+
+                    freadx(i, MODIFIED) /* marked for write */
+                    blk = aliasOfX(i).gblbf
+
+                    // unsigned char *lsp = block + blkoff; find
+                    // block end (the MMARK walk; the vendor's
+                    // inner while(*(lsp++)) consumes the NUL)
+                    var lsp = blkoff
+                    while (blk[lsp] != MMARK.toByte()) {
+                        while (blk[lsp] != 0.toByte()) lsp++
+                        lsp++
+                        lsp += ADSIZE + 5
+                    }
+
+                    val ls = lsp // occupied length
+
+                    val ks = cstrlenX(keyB, 0) // key to be added length
+
+                    if (ks + ls <= BLOCK_SPLIT) {
+
+                        // ------------------------------------------------
+                        // Simple store insert
+                        // ------------------------------------------------
+
+                        // The next block of code substitutes for memmove
+                        // It copies beginning at the right (high) end of the
+                        // strings to avoid the overlap problem.
+
+                        var length = ls - (blkoff - 4)
+
+                        var to = (blkoff - 4) + ks + ADSIZE + 6 + length
+                        var from = blkoff - 4 + length
+
+                        length++
+                        while (length > 0) {
+                            length--
+                            blk[to] = blk[from]
+                            to--
+                            from--
+                        }
+
+                        to = blkoff - 4
+
+                        // from = (unsigned char *) &blkaddr1; the
+                        // 4-byte child install
+                        leIntSetX(blk, to, blkaddr1)
+                        to += 4
+
+                        // to = (unsigned char *) memccpy(to, key, 0,
+                        // MBLOCK); copies through the NUL, cursor past it
+                        var kx = 0
+                        while (keyB[kx] != 0.toByte()) {
+                            blk[to] = keyB[kx]
+                            to++
+                            kx++
+                        }
+                        blk[to] = 0
+                        to++
+
+                        // from = (unsigned char *) &datptr; the
+                        // ADSIZE data install
+                        leLongSetX(blk, to, datptr)
+                        to += ADSIZE
+
+                        blk[to] = 0
+
+                        return OK_NB
+                    }
+
+                    // ----------------------------------------------------
+                    // split insert section - split required
+                    // insert prior to blkoff-4
+                    // ----------------------------------------------------
+
+                    // static unsigned char bufblk[DBL_STR+2]
+                    val bufblk = ByteArray(DBL_STR + 2)
+
+                    val ii = blkoff - 4
+
+                    System.arraycopy(blk, 0, bufblk, 0, ii)
+
+                    leIntSetX(bufblk, blkoff - 4, blkaddr1) // child
+
+                    // strcpy((char *)&bufblk[blkoff], key)
+                    var kx = 0
+                    while (keyB[kx] != 0.toByte()) {
+                        bufblk[blkoff + kx] = keyB[kx]
+                        kx++
+                    }
+                    bufblk[blkoff + kx] = 0
+
+                    blkoff += ks + 1
+
+                    leLongSetX(bufblk, blkoff, datptr) // data address
+
+                    bufblk[blkoff + ADSIZE] = 0
+
+                    // to = &bufblk[blkoff+ADSIZE+1]; from = &block[ii];
+                    // memcpy(to, from, MBLOCK - ii); (the commented
+                    // while-loop pair kept as the vendor fossil)
+                    var to = blkoff + ADSIZE + 1
+                    System.arraycopy(blk, ii, bufblk, to, MBLOCK - ii)
+                    to += MBLOCK - ii
+                    // memset(to, 0, MBLOCK); zero 2nd half of block -
+                    // same len as 1st half
+                    for (zk in 0 until MBLOCK) bufblk[to + zk] = 0
+
+                    // find a mid-block key boundary
+
+                    var from = 0
+
+                    val mid = MBLOCK / 2
+
+                    while (from < mid) { // find middle key
+                        from += 4
+                        while (bufblk[from] != 0.toByte()) from++
+                        from++ // the vendor while(*(from++)) NUL consume
+                        from += ADSIZE + 1
+                    }
+
+                    blkoff = from
+
+                    // if (!strcmp((const char *)from + 4, key)) - the
+                    // equal-key skip arm (the strxcmpX zero test; the
+                    // rtOut cursor is unused on this arm)
+                    if (strxcmpX(keyB, bufblk, from + 4, rtOut) == 0) {
+                        from += 4
+                        from += cstrlenX(bufblk, from) + ADSIZE + 2
+                    }
+
+                    from += 4
+
+                    val toMark = from
+
+                    // ------------------------------------------------
+                    // extract key & advance to data pointer
+                    // ------------------------------------------------
+
+                    // from = strxxcpy(key, from) + 1 (key mutated to
+                    // the promoted mid key; the parent-fix f1 pass
+                    // re-inserts it)
+                    from = strxxcpy(BPtr(keyB, 0), BPtr(bufblk, from)) + 1
+
+                    datptr = leLongX(bufblk, from) // extract data to be sent up
+
+                    blkoff = from
+
+                    // -------------------------------
+                    // advance past data pointer
+                    // -------------------------------
+
+                    from += ADSIZE + 1
+
+                    freadx(i, MODIFIED) // make memory resident
+                    blk = aliasOfX(i).gblbf
+
+                    System.arraycopy(bufblk, from, blk, 0, MBLOCK) // right block - zeroed?
+
+                    // memset(to, 0, DBL_STR - (to - bufblk))
+                    for (zk in 0 until DBL_STR - toMark) bufblk[toMark + zk] = 0
+
+                    bufblk[toMark] = MMARK.toByte()
+                    bufblk[toMark + 1] = 0
+
+                    blkaddr1 = allocblk(svPtr) // allocate new left block
+                    freadx(blkaddr1, MODIFIED) // make memory resident
+                    // memcpy(block1, bufblk, MBLOCK); left part of block
+                    System.arraycopy(bufblk, 0, aliasOfX(blkaddr1).gblbf, 0, MBLOCK)
+
+                    // fix parent
+
+                    BtreeStatic.trx--
+
+                    if (BtreeStatic.trx < 0) { // rootfix:
+
+                        val m = allocblk(svPtr)
+                        freadx(0, MODIFIED)
+                        leIntSetX(BtreeBlockCache.slot(0).gblbf, 0, m)
+                        freadx(m, MODIFIED)
+                        val rb = aliasOfX(m).gblbf
+
+                        leIntSetX(rb, 0, blkaddr1)
+                        // strcpy((char *)&block[4], key)
+                        var q = 4
+                        kx = 0
+                        while (keyB[kx] != 0.toByte()) {
+                            rb[q] = keyB[kx]
+                            q++
+                            kx++
+                        }
+                        rb[q] = 0
+                        blkoff = 5 + cstrlenX(keyB, 0)
+                        leLongSetX(rb, blkoff, datptr)
+                        rb[blkoff + ADSIZE] = 0
+                        blkoff += ADSIZE + 1
+                        // memcpy(&block[blkoff], &trace[0], 4); the
+                        // OLD ROOT becomes the new root's child
+                        leIntSetX(rb, blkoff, BtreeXState.trace[0])
+                        rb[blkoff + 4] = MMARK.toByte()
+                        rb[blkoff + 5] = 0
+                        // flush(svPtr); - the vendor comment fossil
+                        return OK_NB
+                    }
+
+                    i = BtreeXState.trace[BtreeStatic.trx]
+                    blkoff = BtreeXState.tracep[BtreeStatic.trx] + 4
+                    f1Again = true // goto f1
+                }
             }
 
             // g == XNEXT here (all other ops returned above)

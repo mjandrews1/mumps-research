@@ -1497,3 +1497,6 @@
 "hit","H-018","interp-globalb.cpp::<misc>","2026-11-22T06:27:00Z"
 "reuse","H-014","libmpscpp.cpp::global::DocCorrelate","2026-11-22T06:30:00Z"
 "hit","H-014","libmpscpp.cpp::global::DocCorrelate","2026-11-22T06:30:00Z"
+"reuse","H-014","interp-native-btree.cpp::btreeX","2026-11-27T22:30:00Z"
+"reuse","H-007","interp-native-btree.cpp::btreeX","2026-11-27T22:30:30Z"
+"reuse","H-012","interp-native-btree.cpp::btreeX","2026-11-27T22:31:00Z"
