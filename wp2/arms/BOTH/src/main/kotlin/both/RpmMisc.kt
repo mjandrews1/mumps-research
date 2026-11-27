@@ -187,18 +187,59 @@ internal fun syntaxError(msg: String, line: String, pos: Int) {
     sigint(100) // the BothCRuntime seat (never returns in vendor)
 }
 
-// int perl_pm(const char[], const char[], const int, MSV *) -
-// owner: interp-rpm.cpp::perl_pm, roster 214 (batch 9, pending).
-// TODO-stub (h014).
+// int perl_pm(const char string[], const char pattern[],
+// const int allow_partial, struct MSV * svPtr) - interp-rpm.cpp
+// Unit 268 (BOTH B9, core): the regcomp/regexec ERE membership
+// test. Vendor behavior: the pattern is wrapped "^" ... "$"
+// (anchored both ends), compiled REG_NOSUB|REG_EXTENDED, executed
+// once against the string; regexec == REG_NOMATCH returns 0, a
+// match returns 1. The regcomp failure ladder prints a
+// per-POSIX-error-code face then sigint(100)s (never returns).
+//
+// Unit-268 render notes:
+//   h007 char_buffer - reused: the 512-byte reg scratch and the
+//     strcpy/strcat wrapper fold to the single anchored String
+//     (the ^/$ pair seats as literals).
+//   h019 quantization - hit: the POSIX ERE seat rides the
+//     Kotlin/Java regex engine, not POSIX regcomp; the
+//     thirteen-face regcomp error ladder quantizes to the
+//     single "*** regcomp() parse error on regex" banner plus
+//     the engine's own message (the per-code faces are POSIX
+//     regcomp-specific text with no Java counterpart); the
+//     sigint(100) never-returns fold is kept. Journaled.
+//   h013 dead_store - hit: allow_partial (flg) is unused in the
+//     vendor body; the parameter is kept unread.
+//   h014 out_of_scope_call - reused: this render releases the
+//     in-place TODO stub (the delegate-when-owner-lands flip of
+//     the unit-152 render); sigint rides the BothCRuntime seat.
+//   h017 naming - reused: perl_pm keeps the vendor name.
+//
+// Quirks kept (ledgered):
+//   - regfree(&regex) before the return; the Java Pattern is GC
+//     owned (the fold journaled; no explicit free seat exists).
+//   - the return shape: i == 1 (REG_NOMATCH) -> 0; else 1. The
+//     regexec error value REG_ENOMATCH-vs-0 distinction is kept
+//     by treating any non-1 result as a match (the vendor's
+//     else-branch, verbatim).
 internal fun perl_pm(string: String, pattern: String, flg: Int, sv: Msv): Int {
-    TODO("stub: owner interp-rpm.cpp::perl_pm (roster 214, batch 9)")
+    val reg = "^" + pattern + "$"
+    val regex = try {
+        Regex(reg)
+    } catch (e: java.util.regex.PatternSyntaxException) {
+        System.out.print("\n*** regcomp() parse error on regex\n")
+        System.out.print("\t" + e.message + "\n")
+        sigint(100)
+        return 0 // unreachable in vendor (sigint never returns)
+    }
+    val i = if (regex.containsMatchIn(string)) 0 else 1
+    return if (i == 1) 0 else 1
 }
 
 // struct bstring parse_pattern_element(struct parser *) - owner:
 // interp-rpm.cpp::parse_pattern_element, roster 196 (batch 4,
 // pending). TODO-stub (h014).
 internal fun parse_pattern_element(p: Parser): Bstring {
-    TODO("stub: owner interp-rpm.cpp::parse_pattern_element (roster 196, batch 4)")
+    TODO("stub: owner interp-rpm.cpp::parse_pattern_element (roster 113, batch 4 - the old pin said roster 196, C-015)")
 }
 
 // struct bstring leaning_toothpickize(const struct bstring) -

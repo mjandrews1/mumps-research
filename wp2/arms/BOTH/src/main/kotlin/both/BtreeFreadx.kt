@@ -75,6 +75,24 @@ internal class Buffers {
 internal object BtreeRuntime {
     val bfr = arrayOfNulls<Buffers>(GBLBUF)
     var gblRaf: java.io.RandomAccessFile? = null // gblfd (-1 = null)
+    // unit-273 adds (the BigKey-family file-scope externs,
+    // interp-native-btree.cpp:70-80; unsigned char/int/long
+    // domains per the vendor declarations):
+    val BigKey = ByteArray(STR_MAX) // unsigned char BigKey[STR_MAX]
+    var BigKeyBlock = 0 // unsigned int BigKeyBlock
+    var FoundBlock = 0 // unsigned int FoundBlock
+    var Reinsert = 0 // unsigned int Reinsert
+    var BigKeyParent = 0 // unsigned int BigKeyParent
+    var BigKeyParentOffset = 0 // unsigned int BigKeyParentOffset
+    var BigKeyOffset = 0 // int BigKeyOffset
+    var BigKeyLower = 0 // int BigKeyLower
+    var FoundOffset = 0 // int FoundOffset
+    var BigKeyData = 0L // OFF_T BigKeyData
+    // unit-275 adds (the btreeX open-path seats):
+    // gbldat - the data file descriptor (the gblfd twin;
+    // -1 = null); EDIT-ONLY seat by the unit-275 render
+    var gblDatRaf: java.io.RandomAccessFile? = null
+    var ReadOnly = 0 // the btree.h ReadOnly flag
 }
 
 // the unsigned char **buf out-parameter seat: the block buffer
@@ -146,4 +164,21 @@ internal fun freadx(r: Int, flag: Int): BufAt {
     b.gblbfx = r
     b.gblmod = flag
     return BufAt(b.gblbf, 0)
+}
+
+// -------------------------------------------------------------------------
+// unit-275 btreeX-render stubs (h014; the KILL-arm consults)
+
+// void scanblocks(int, struct MSV *) - owner:
+// interp-native-btree.cpp::scanblocks, roster 44 (batch 4 of
+// this arm's cycle, pending). TODO-stub (h014).
+internal fun scanblocks(i: Int, svPtr: Msv) {
+    TODO("stub: owner interp-native-btree.cpp::scanblocks (roster 50, batch 2 - the old pin said roster 44 batch 4, C-015)")
+}
+
+// void pb(int, unsigned char *) - the DumpBlocks block dumper.
+// Owner: interp-native-btree.cpp::pb, roster 111 (batch 8,
+// pending). TODO-stub (h014).
+internal fun pb(bn: Int, block: ByteArray) {
+    TODO("stub: owner interp-native-btree.cpp::pb (roster 106, batch 4 - the old pin said roster 111 batch 8, C-015)")
 }

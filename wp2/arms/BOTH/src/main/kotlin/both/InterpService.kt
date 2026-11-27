@@ -78,7 +78,7 @@ private fun scanAlnumSvcZb(sv: Msv, ep: String): String {
     TODO("stub: owner libmpscpp.cpp::ScanAlnum (roster 77, batch 3)")
 }
 private fun inputSvcZb(sv: Msv, ep: String, name1: String): String {
-    TODO("stub: owner libmpscpp.cpp::Input (roster 9, batch 1)")
+    TODO("stub: owner libmpscpp.cpp::Input (roster 23, batch 1 - the old pin said roster 9, C-015)")
 }
 private fun cosineSvcZb(sv: Msv, ep: String, a: String, b: String): String {
     TODO("stub: owner libmpscpp.cpp::Cosine (roster 85, batch 3)")
@@ -90,33 +90,33 @@ private fun cosineSvcZb(sv: Msv, ep: String, a: String, b: String): String {
 // Sim1 row is unit 198 (rank 187). The call site below calls
 // sim1FaceZb direct.
 private fun jaccardSvcZb(sv: Msv, ep: String, a: String, b: String): String {
-    TODO("stub: owner libmpscpp.cpp::Jaccard (roster 255, batch 9)")
+    TODO("stub: owner libmpscpp.cpp::Jaccard (roster 269, batch 9 - the old pin said roster 255, C-015; the unit-269 render lands the GlobalRef member face this batch)")
 }
 private fun centroidSvcZb(sv: Msv, ep: String, a: String, b: String): String {
-    TODO("stub: owner libmpscpp.cpp::global::Centroid (roster 210, this batch)")
+    TODO("stub: owner libmpscpp.cpp::global::Centroid (roster 112, batch 4 - the old pin said roster 210, C-015)")
 }
 private fun termCorrelateSvcZb(sv: Msv, ep: String, a: String, b: String): String {
-    TODO("stub: owner libmpscpp.cpp::global::TermCorrelate (roster 36, batch 1)")
+    TODO("stub: owner libmpscpp.cpp::global::TermCorrelate (roster 14, batch 1 - the old pin said roster 36, C-015)")
 }
 private fun docCorrelateSvcZb(
     sv: Msv, ep: String, a: String, b: String, fcn: String, threshold: String
 ): String {
-    TODO("stub: owner libmpscpp.cpp::global::DocCorrelate (roster 287, batch 10)")
+    TODO("stub: owner libmpscpp.cpp::global::DocCorrelate (roster 299, batch 10 - the old pin said roster 287, C-015)")
 }
 private fun idfSvcZb(sv: Msv, ep: String, a: String, b: String): String {
-    TODO("stub: owner libmpscpp.cpp::global::IDF (roster 45, batch 2)")
+    TODO("stub: owner libmpscpp.cpp::global::IDF (roster 49, batch 2 - the old pin said roster 45, a units.csv-row number, C-015)")
 }
 private fun countSvcZb(sv: Msv, ep: String, a: String): String {
-    TODO("stub: owner libmpscpp.cpp::Count (roster 120, batch 4)")
+    TODO("stub: owner libmpscpp.cpp::Count (roster 98, batch 4 - the old pin said roster 120, C-015)")
 }
 private fun maxSvcZb(sv: Msv, ep: String, a: String): String {
     TODO("stub: owner libmpscpp.cpp::Max (roster 68, batch 3)")
 }
 private fun minSvcZb(sv: Msv, ep: String, a: String): String {
-    TODO("stub: owner libmpscpp.cpp::Min (roster 69, batch 3)")
+    TODO("stub: owner libmpscpp.cpp::Min (roster 99, batch 4 - the old pin said roster 69 batch 3, C-015; the 17-loc simple Max/Min pair splits 68 B3 / 99 B4 in the corpus)")
 }
 private fun diceSvcZb(sv: Msv, ep: String, a: String, b: String): String {
-    TODO("stub: owner libmpscpp.cpp::Dice service face (roster 158, batch 6; the B6 render seats the GlobalRef member face)")
+    TODO("stub: owner libmpscpp.cpp::Dice service face (roster 175, batch 6 - the old pin said roster 158, C-015; the B6 render seats the GlobalRef member face)")
 }
 
 // void ServiceInterface(...) - interp-service.cpp roster 186. Vendor

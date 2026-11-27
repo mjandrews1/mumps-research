@@ -303,7 +303,7 @@ internal fun errorMessage(msg: String, lineNumber: Long) {
 // interp-arith.cpp:84. Owner: interp-arith.cpp::Mltoa, roster unit
 // 292, batch 10. TODO-stub (h014).
 internal fun Mltoa(i: Long, p: CharArray) {
-    TODO("stub: owner interp-arith.cpp::Mltoa (roster unit 292, batch 10)")
+    TODO("stub: owner interp-arith.cpp::Mltoa (roster unit 295, batch 10 - the old pin said roster 292, C-015)")
 }
 
 // int xecute(char *) - include/mumpsc/libmpscpp.h:277, overload family
@@ -319,6 +319,17 @@ internal fun xecute(exp: String): Int {
 // not landed in this arm; class_member_carrier miss, T1 recurrence).
 internal fun SymGet(s: String): String {
     TODO("stub: vendor SymGet, libmpscpp.h:179 (not a corpus unit)")
+}
+
+// void ErrorMessage(const char *, long) - interp-sysfunc.cpp:251
+// (sysfunc.h:43). Not a corpus unit (seated real per the
+// non-unit-provenance precedent at the B9 unit-259 render; the
+// sigint termination path rides the unit-190 Sigint.kt seat).
+internal fun ErrorMessage(msg: String, lineNumber: Long) {
+    // printf("\n*** %s in or near line %ld\n", msg, LineNumber);
+    System.out.println()
+    System.out.println("*** " + msg + " in or near line " + lineNumber)
+    sigint(100)
 }
 
 // C fgetc contract at the Java Reader edge (h001: FILE* input ->

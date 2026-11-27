@@ -89,3 +89,31 @@ private fun mdhTreeLevelAddImpl(tree: Long, depth: Int, cols: List<String>) {
 
 // %p seat: C prints a non-null pointer as 0x + lowercase hex.
 private fun ptrHex(p: Long): String = "0x" + java.lang.Long.toHexString(p)
+
+// Unit 258 (BOTH B9, core): libmpscpp.cpp::mdh_tree_level_add
+// (26 LOC, batch_plan ordinal 258; units.csv row 266) - the
+// NINE-COLUMN overload of the units-126-128 family above (the
+// 7th roster appearance of the unit_id string across batches;
+// this batch-9 entry is the distinct col1..col9 face, NOT the
+// batch-8 unit-236 twin). Same coded-argument carriage:
+// z~mdh~tree~level~add + xce + tree + xd0 + depth + xd0 +
+// col1..col8 (xd0 between) + col9 + xcf, then zfcn.
+//
+// Consults: the units-126-128 set above carries the family
+// rulings (h007/h009/h015/h014/h017, the pointer_handle miss);
+// this overload adds no new rule surface, so the family
+// consults ride unchanged (events rows cite the unit-258
+// application of each).
+internal fun mdhTreeLevelAdd(
+    tree: Long,
+    depth: Int,
+    col1: String,
+    col2: String,
+    col3: String,
+    col4: String,
+    col5: String,
+    col6: String,
+    col7: String,
+    col8: String,
+    col9: String,
+) = mdhTreeLevelAddImpl(tree, depth, listOf(col1, col2, col3, col4, col5, col6, col7, col8, col9))

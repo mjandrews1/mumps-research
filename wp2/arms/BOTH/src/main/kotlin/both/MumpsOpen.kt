@@ -19,11 +19,14 @@ package both
 //     "w"/"a"/"r" fopen modes).
 //   h014 out_of_scope_call - reused: parse_ is a NEW no-arg
 //     TODO stub raised here (owner compiler-parse.c::parse_,
-//     roster 248 batch 9 pending - the no-arg compiler
+//     roster 277 batch 9 - RELEASED at the unit-277 render,
+//     CompilerParseMain.kt; the old pin said "roster 248", the
+//     DOC-arm roster number - C-015; the no-arg compiler
 //     OVERLOAD, distinct from the seated parse_(sv: Msv)
 //     roster-303 stub; the WriteCode ledger pin); Extract2 is
 //     a NEW TODO stub raised here (owner compiler-parse.c::
-//     Extract2, the b2/b3 unit, batch 9/10 pending); PARSE_
+//     Extract2, roster 15 batch 1 pending - the old pin said
+//     "roster b2/b3", C-015); PARSE_
 //     ERROR 1 / ARG_LIST_ERROR 2 seat locally (the
 //     compiler-macros.h error block, record 226 ledger).
 //   h015 grammar-collision - reused: ASCII only, no
@@ -45,16 +48,17 @@ package both
 //   - the vendor // goto parse_err / // arg_list_error
 //     comment-only gotos kept as the return comment notes.
 
-// parse_() - the seated WriteCode no-arg TODO stub (roster 248,
-// batch 9 pending) is called direct; NOT re-raised here (the
-// h014 release discipline).
+// parse_() - the no-arg parse_() (owner roster 277) RELEASED at
+// the unit-277 render, CompilerParseMain.kt; called direct, NOT
+// re-raised here (the h014 release discipline).
 
 // char * Extract2(unsigned char *) - owner:
-// compiler-parse.c::Extract2 (the b2/b3 unit, batch 9/10
-// pending; the Extract1/Extract2a twins are rendered - records
-// 219/230). TODO-stub (h014).
+// compiler-parse.c::Extract2 (roster 15, batch 1 pending -
+// the old pin said "roster b2/b3", C-015; the Extract1/
+// Extract2a twins are rendered - records 219/230).
+// TODO-stub (h014).
 internal fun Extract2(s: String): String {
-    TODO("stub: owner compiler-parse.c::Extract2 (roster b2/b3, batch 9/10 pending)")
+    TODO("stub: owner compiler-parse.c::Extract2 (roster 15, batch 1 pending)")
 }
 
 // PARSE_ERROR 1 / ARG_LIST_ERROR 2 - the seated package consts

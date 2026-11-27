@@ -59,17 +59,19 @@ package both
 // global & global::operator()() - libmpscpp.cpp:2746:
 // MakeGlobal(0, myname, "", "") (the bare-name self seat; the
 // roster-202 MakeGlobal family). Placeholder per the sibling
-// invoke seats (layout owner roster 259, pending).
+// invoke seats (layout owner roster 259, pending); carries the
+// receiver and an empty subscript list since the B9 unit-263
+// carrier-state flip.
 internal operator fun GlobalRef.invoke(): GlobalNode {
-    return GlobalNode()
+    return GlobalNode(this, "")
 }
 
 // bool global::Data() - the GlobalNode carrier arm (layout
 // owner globalClass.h::<misc> roster 259 family; the
-// globalDataC engine, roster rows 76/78/79 per the Dice pin).
+// globalDataC engine, the engine row 203 per the globalDataC pin (C-015: the old 76/78/79 were ranks)).
 // TODO-stub (h014).
 internal fun GlobalNode.data(): Boolean {
-    TODO("stub: owner globalClass.h::<misc> global::Data (roster 259 family, batch 3 pending)")
+    TODO("stub: owner globalClass.h::<misc> global::Data (roster 89 family, batch 3 pending - the old pin said roster 259, C-015)")
 }
 
 // void Multiply(string a, string b, string c) - libmpscpp.cpp:2211

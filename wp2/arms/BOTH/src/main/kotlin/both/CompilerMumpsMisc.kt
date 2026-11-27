@@ -4,7 +4,9 @@ package both
 // batch 7, 57 LOC). The compiler-mumps TU residue rendered
 // here: EP (the subroutine entry-point router, :1978) and
 // LevCheck (:1997). The remaining compiler-mumps.c material
-// (main at :1372-scale) is the roster-303/304 batch-10 unit,
+// (main at :1372-scale) is the compiler-mumps.c::main
+// roster-308 batch-10 unit (C-015 renumber; the old pin said
+// "roster-303/304", a both_seq-range label),
 // NOT this residue.
 //
 // Consults (rule base wp2/arms/BOTH/rules_v0.pl):

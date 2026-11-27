@@ -711,19 +711,19 @@ private fun atofZb(s: String): Double = s.toDoubleOrNull() ?: 0.0
 // File-local seat twins: the unit-183 twin seats are file-private
 // in BifsZfcn.kt; per-TU statics seat per the C static semantics.
 private fun mpsFloorZb(bd: CharArray, s: CharArray, soff: Int) {
-    TODO("stub: owner interp-arith.cpp::mps_floor (roster 103, batch 9)")
+    TODO("stub: owner interp-arith.cpp::mps_floor (roster 257, batch 9 - the old pin said roster 103, a units.csv-row number, C-015)")
 }
 private fun mpsCeilZb(bd: CharArray, s: CharArray, soff: Int) {
-    TODO("stub: owner interp-arith.cpp::mps_ceil (roster 52, batch 10)")
+    TODO("stub: owner interp-arith.cpp::mps_ceil (roster 285, batch 10 - the old pin said roster 52, C-015)")
 }
 private fun mpsTruncZb(bd: CharArray, s: CharArray, soff: Int) {
-    TODO("stub: owner interp-arith.cpp::mps_trunc (roster 51, batch 10)")
+    TODO("stub: owner interp-arith.cpp::mps_trunc (roster 284, batch 10 - the old pin said roster 51, C-015)")
 }
 // The arithmetic kin the render reaches (all interp-arith.cpp statics,
 // b9/b10 cells): log2/log10/log/cos/tan/atan/acos/sin/asin/exp/exp2/
 // exp10/sqrt. Not-yet-rendered roster units at this batch; the
-// strmanip family precedent (xindex roster 265 b9 at the match
-// render) applies.
+// strmanip family precedent (xindex roster 260 b9 at the match
+// render, C-015 renumber from the old 265 pin) applies.
 private fun mpsLogZb(bd: CharArray, s: CharArray, soff: Int, kin: Int) {
     TODO("stub: owner interp-arith.cpp::mps_log family (roster b9/b10)")
 }

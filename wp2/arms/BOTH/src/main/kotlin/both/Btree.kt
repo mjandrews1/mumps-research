@@ -102,24 +102,45 @@ package both
 // Seats
 
 // char * embed(char *in) - owner: interp-sql.cpp::embed
-// (roster 43, batch 2; the single-quote doubling fixer).
-// TODO-stub (h014). COVERAGE FINDING: no BOTH render exists
-// on master for this unit (verified this session); the embed1
-// seat is the double-quote libmpscpp twin, distinct.
+// (roster 51, batch 2; the old stub pin said "roster 43", a
+// units.csv-row number - C-015; the single-quote doubling
+// fixer). RENDERED here at the C-014 scheduled ride (the
+// 2026-11-27 PI ruling; the B8 close disclosed it as a
+// coverage finding): the no-quote fast path returns the
+// ORIGINAL input (the vendor returns the input pointer); the
+// static tmp[STR_MAX] buffer becomes the per-call StringBuilder
+// (H-008); the NULL-in arm returns the empty static - the
+// String seat quantizes it away (no null reaches the seat,
+// both call sites pass p1 slices; journaled). The embed1 seat
+// is the double-quote libmpscpp twin, distinct.
 internal fun embed(in_: String): String {
-    TODO("stub: owner interp-sql.cpp::embed (roster 43, batch 2; single-quote fixer - unrendered on master, PI disclosure at close)")
+    var k = 1
+    for (c in in_) {
+        if (c == '\'') {
+            k = 0
+            break
+        }
+    }
+
+    if (k == 1) return in_ // contains no quotes
+
+    val sb = StringBuilder()
+    for (c in in_) {
+        if (c != '\'') {
+            sb.append(c)
+        } else {
+            sb.append('\'')
+            sb.append('\'')
+        }
+    }
+    return sb.toString()
 }
 
 // int sql(int, struct MSV *, char *, char *, char *, const char *)
-// - owner: interp-sql.cpp::sql (the TU engine; the record-227
-// prototype ledger pin). Distinct from the seated libmpscpp
-// sql (Sql.kt:56). TODO-stub (h014).
-internal fun sql(
-    op: Int, svPtr: Msv, DataSourceName: String, Command: CharArray,
-    out: CharArray, dlim: String,
-): Int {
-    TODO("stub: owner interp-sql.cpp::sql (the 6-arg SQLITE engine, record 227 prototype pin)")
-}
+// - owner interp-sql.cpp::sql (the TU engine; the unit-227
+// prototype ledger pin). RELEASED at the unit-271 render
+// (InterpSql.kt, h014 release-at-render); the seat moved there.
+// Distinct from the seated libmpscpp sql (Sql.kt:56).
 
 private const val BT_GKILL = 3 // defines.h:167
 private const val BT_GLOBAL = 23 // defines.h:93

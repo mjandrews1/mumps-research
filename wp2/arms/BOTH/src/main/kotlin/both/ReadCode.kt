@@ -60,7 +60,7 @@ package both
 //   h013 dead_store - reused: the commented linepad stdin line
 //     stays a ledger note.
 //   h014 out_of_scope_call - reused: inout stub (roster 36 b2),
-//     parse_ stub (owner compiler-parse.c::parse_, roster 248
+//     parse_ (owner compiler-parse.c::parse_, roster 277 - RELEASED at the unit-277 render, CompilerParseMain.kt; the old pin said roster 248
 //     b9 - the no-arg overload), set_code stub (owner
 //     compiler-set.c::set_code, roster 97 b4).
 //   h015 wrap - hit: this file.
@@ -269,5 +269,5 @@ private fun pd1strAt(p: CharArray, off: Int): String {
 // compiler-set.c::set_code, roster unit 97 (batch 4, pending).
 // TODO-stub (h014).
 internal fun set_code(op: Int): Int {
-    TODO("stub: owner compiler-set.c::set_code (roster 97, batch 4)")
+    TODO("stub: owner compiler-set.c::set_code (roster 121, batch 4 - the old pin said roster 97, C-015)")
 }

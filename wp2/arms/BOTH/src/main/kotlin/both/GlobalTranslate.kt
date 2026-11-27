@@ -1,61 +1,60 @@
 package both
 
-// Unit 131 (BOTH B5 T1, simple): libmpscpp.cpp::global::Translate (19
-// LOC). Batch_plan ordinal 131: simple, score 9.3.
-//
-// Vendor behavior: retrieve the OWN global value (fail -> GLOBAL_NOT_
-// FOUND + MumpsGlobalException), build the \$translate coded call
-// "\$translate" + xce + value + xd0 + a1 + xcf through mstring Concat,
-// copy the built string into &svPtr->v1d[1] (byte 0 untouched, the
-// coded-string offset convention), invoke fcn(svPtr), then adopt
-// &svPtr->bd[1] as the result mstring.
+// Unit 255 (BOTH B9, simple): libmpscpp.cpp::global::Translate
+// (21 LOC). Batch_plan ordinal 255; units.csv row 269. The
+// global-class member \\u0024translate face (TWO-ARG; the B7
+// mstringTranslate two-arg and the B8 one-arg mstringTranslate1
+// are the distinct mstring faces): retrieve the global at ref,
+// then build the compiled \\u0024translate envelope over the
+// retrieved data and both arguments, run fcn, read bd.
 //
 // BOTH consults (find_rule before render, events logged):
-//   h007 char_buffer - reused: the mstring `m` local is scratch built
-//     by Concat and consumed once (String scan role); gtmp is the
-//     retrieve out-buffer role -> String; v1d/bd are SV state bytes,
-//     carried on the Msv carrier (roster 172) since the layout owner
-//     is not yet translated.
-//   h015 grammar_collision - reused: "\$translate" escaped for the
-//     Kotlin string template; the vendor escapes \xce/\xd0/\xcf render
-//     as decimal char constants (206/208/207).
-//   h014 out_of_scope_call - reused: fcn and Mglobal seats name owners
-//     (roster units 123 / 167); the mstring-class layout owner is
-//     roster 149, the stateVector layout owner roster 172, the
-//     exception machinery owner roster 305.
-//   h017 naming - reused (a1 keeps its vendor name; snake->camel only
-//     for the render name globalTranslate).
-//   MISS class_member_carrier - see BothStubs.kt ledger.
-//   Dafny: exempt (SV-state carriage through stubbed callee; no
-//     decidable core this unit).
+//   h007 char_buffer - reused: char gtmp[STR_MAX] is the
+//     retrieve scratch (CharArray, cStringOf read); the
+//     mstring Concat chain folds onto the String envelope
+//     build (the mstringTranslate1 precedent).
+//   h014 out_of_scope_call - reused: Mglobal RETRIEVE, the
+//     GlobalExceptionCode/MumpsGlobalException fail-throw
+//     idiom, fcn, fnCpyAtZb/fnBdStrAt1Zb, and the file-scope
+//     svPtr singleton all ride their existing arm seats
+//     (BothCRuntime, Fnumber, LibmpscppMisc7).
+//   h017 naming - reused: the member face rides the GlobalRef
+//     receiver as globalTranslate (the reverseG/Qsubscript
+//     global-face precedent); a1/a2/m/f/gtmp keep vendor names.
+//   MISS class_member_carrier - reused: the global-class member
+//     unit renders as a package-level receiver-extension (the
+//     T1 units 129/131/133 precedent; the class layout owner
+//     roster 149 is not yet in this arm).
+//   Dafny: exempt (fcn interpreter side effect).
+//
+// Quirks kept (ledgered):
+//   - the envelope byte ladder \\xce / \\xd0 / \\xd0 / \\xcf
+//     (206/208/208/207) rides the compiled Z-literal seat
+//     verbatim ('\\u00CE', '\\u00D0', '\\u00CF').
+//   - Mglobal writes the retrieved value into gtmp with no
+//     length guard; the CharArray(STR_MAX) scratch keeps the
+//     vendor capacity contract (overflow UB quantized by the
+//     seat, the concatG precedent).
 
-internal fun globalTranslate(ref: String, a1: String): String {
-    val gtmp = mglobalRetrieve(ref) // own value, fail-throw idiom
-
-    val XCE = 206.toChar()
-    val XD0 = 208.toChar()
-    val XCF = 207.toChar()
-
-    // C: m = "\$translate"; m = m.Concat(xce) ... (mstring Concat chain
-    // -> plain String build; the mstring-class layout owner is roster
-    // 149 and lands later in this batch).
-    val m = StringBuilder()
-    m.append("\$translate")
-    m.append(XCE)
-    m.append(gtmp)
-    m.append(XD0)
-    m.append(a1)
-    m.append(XCF)
-
-    // C: strcpy((char *) &svPtr->v1d[1], m.data.c_str());
-    val payload = m.toString().toCharArray()
-    if (payload.size >= STR_MAX) {
-        throw IndexOutOfBoundsException("v1d overflow (STR_MAX=" + STR_MAX + ")")
+internal fun GlobalRef.globalTranslate(a1: String, a2: String): String {
+    // char gtmp[STR_MAX]; int f = Mglobal(RETRIEVE, ref, gtmp, svPtr);
+    val gtmp = CharArray(STR_MAX)
+    val f = Mglobal(RETRIEVE, ref.toCharArray(), gtmp, svPtr)
+    if (f == 0) {
+        GlobalExceptionCode = GLOBAL_NOT_FOUND
+        throw MumpsGlobalException()
     }
-    System.arraycopy(payload, 0, svPtr.v1d, 1, payload.size) // v1d[0] untouched
 
-    fcn(svPtr) // owner: interp-fcn.cpp::fcn (roster 123)
+    // m = "\\u0024translate" .Concat("\\xce") .Concat(gtmp)
+    //     .Concat("\\xd0") .Concat(a1) .Concat("\\xd0") .Concat(a2)
+    //     .Concat("\\xcf")   (h007 fold)
+    val m = "\u0024translate" + '\u00CE' + cStringOf(gtmp) + '\u00D0' +
+        a1 + '\u00D0' + a2 + '\u00CF'
 
-    // C: m = (char *) &svPtr->bd[1]; return m;
-    return cStringOf(svPtr.bd.copyOfRange(1, svPtr.bd.size))
+    // strcpy((char *) &svPtr->v1d[1], m.data.c_str()); fcn(svPtr);
+    fnCpyAtZb(svPtr.v1d, 1, m)
+    fcn(svPtr)
+
+    // m = (char *) &svPtr->bd[1]; return m;
+    return fnBdStrAt1Zb(svPtr.bd)
 }

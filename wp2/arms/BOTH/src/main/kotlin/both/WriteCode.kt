@@ -33,10 +33,12 @@ package both
 // walk; NUL, space or tab closes (the POST_flg block close +
 // return 0). The vendor returns PARSE_ERROR (1,
 // compiler-macros.h:69) whenever parse_() is nonzero (the C
-// parse_ of compiler-parse.c::parse_, roster 248 batch 9 - the
-// stub family below; the interp-side parse_ of roster 303 is a
-// different function, both keep the vendor name through
-// overloads - h017).
+// parse_ of compiler-parse.c::parse_, roster 277 batch 9 -
+// RELEASED at the unit-277 render, CompilerParseMain.kt (the
+// old stub pin said "roster 248", the DOC-arm roster number -
+// the C-015 mislabel family); the interp-side parse_ of
+// roster 303 is a different function, both keep the vendor
+// name through overloads - h017).
 //
 // Quirks kept (ledgered):
 //   - the '!'-vs-'#' i numbering is inverted-looking in the
@@ -61,12 +63,16 @@ package both
 //     sibling compiler units).
 //   h014 out_of_scope_call - reused: atTest stub (owner
 //     compiler-at-test.c::atTest, roster 109 batch 4), atCopy
-//     stub (owner compiler-mumps.c::atCopy, roster 241 batch 8),
-//     inout stub (owner compiler-sys1.c::inout, roster 36 batch
-//     2), linepad stub (the compiler-sys1.c:949 sys1 helper -
-//     not a unit), parse_ stub (owner compiler-parse.c::parse_,
-//     roster 248 batch 9 - the no-arg overload distinct from
-//     the interp-side roster-303 parse_(sv)).
+//     stub (owner compiler-mumps.c::atCopy, roster 222 batch 8 -
+//     the old pin said "roster 241", a grep-line number,
+//     C-015), inout stub (owner compiler-sys1.c::inout,
+//     roster 59 batch 2 - the old pin said "roster 36",
+//     C-015), linepad (the compiler-sys1.c:949 sys1 helper -
+//     not a unit), parse_ (owner compiler-parse.c::parse_,
+//     roster 277 batch 9 - RELEASED at the unit-277 render,
+//     CompilerParseMain.kt; the no-arg overload distinct from
+//     the interp-side roster-303 parse_(sv); the old pin said
+//     "roster 248", the DOC-arm roster number, C-015).
 //   h015 wrap - hit: this file.
 //   h017 naming - hit: write_code keeps its vendor name and the
 //     at_flg/POST_flg/ierr/ierr1 extern names seat through the
@@ -260,17 +266,12 @@ internal fun inout(
     TODO("stub: owner compiler-sys1.c::inout (roster 36, batch 2)")
 }
 
-// void linepad(int sent, char *str) - compiler-sys1.c:949 (the
-// sys1 TU helper; linepad1 :955 / linepad2 :963 siblings - not
-// units). TODO-stub (h014).
-internal fun linepad(sent: Int, str: String) {
-    TODO("stub: vendor linepad, compiler-sys1.c:949 sys1 helper (not a corpus unit)")
-}
 
 // int parse_(void) - compiler-parse.c:203. Owner:
-// compiler-parse.c::parse_, roster unit 248 (batch 9, pending).
-// The no-arg overload of the interp-side parse_(sv) seat (roster
-// 303 - a different vendor function). TODO-stub (h014).
-internal fun parse_(): Int {
-    TODO("stub: owner compiler-parse.c::parse_ (roster 248, batch 9)")
-}
+// compiler-parse.c::parse_, roster unit 277 (batch 9).
+// RELEASED at the unit-277 render: the real body is the
+// ParseCPCtx().run() entry of CompilerParseMain.kt (h014
+// release discipline; the old stub pin said "roster 248", the
+// DOC-arm roster number - C-015). The no-arg overload of the
+// interp-side parse_(sv) seat (roster 303 - a different
+// vendor function).

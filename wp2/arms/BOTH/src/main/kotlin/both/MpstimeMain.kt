@@ -341,7 +341,7 @@ internal fun sym_(
     data: CharArray,
     sv: Msv,
 ): CharArray? {
-    TODO("stub: owner interp-sym.cpp::sym_ (roster 280, batch 10)")
+    TODO("stub: owner interp-sym.cpp::sym_ (roster 307, batch 10 - the old pin said roster 280, C-015)")
 }
 
 // unsigned char * VariableNotFound(long, char *) /
@@ -362,11 +362,11 @@ internal fun variableNotFound1(lineNumber: Long, name: String): CharArray? {
 // operator family). Owner: the interp-arith.cpp residue, roster
 // unit 67 (batch 3, pending). TODO-stubs (h014).
 internal fun add(a: CharArray, b: CharArray, c: CharArray) {
-    TODO("stub: owner interp-arith.cpp::add (roster-67 residue family, batch 3)")
+    TODO("stub: owner interp-arith.cpp::add (residue, non-roster - the old pin said roster-67, C-015)")
 }
 
 internal fun sub(a: CharArray, b: CharArray, c: CharArray) {
-    TODO("stub: owner interp-arith.cpp::sub (roster-67 residue family, batch 3)")
+    TODO("stub: owner interp-arith.cpp::sub (residue, non-roster - the old pin said roster-67, C-015)")
 }
 
 // strcpy at offset: the &gtmp[1] write shape (h020; the stale

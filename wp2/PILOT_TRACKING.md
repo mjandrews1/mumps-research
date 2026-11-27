@@ -783,37 +783,100 @@ Check columns track the BASE reference translation (C-002) and stay
 todo per the C-001 cycle-10 backfill decision. Next protocol step:
 DAF batch 10 per the committed row order (one session per C-011).
 
-| 247 | interp-sym.cpp::_horolog | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 248 | interp-bstring.cpp::bstrcat | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 249 | compiler-write.c::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
-| 250 | interp-sym.cpp::_random | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 251 | libmpscpp.cpp::GlobalOrder | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 252 | interp-arith.cpp::mps_log | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 253 | interp-arith.cpp::mps_cos | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 254 | interp-arith.cpp::mps_tan | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 255 | libmpscpp.cpp::global::Translate | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 256 | interp-arith.cpp::mps_exp2 | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 257 | interp-arith.cpp::mps_floor | cpp | core | todo | todo | translated | todo | todo | todo |
-| 258 | libmpscpp.cpp::mdh_tree_level_add | cpp | core | todo | todo | translated | todo | todo | todo |
-| 259 | include/mumpsc/globalOrder.h::GlobalOrder | c | core | todo | todo | translated | todo | todo | todo |
-| 260 | interp-strmanip.cpp::xindex | cpp | core | todo | todo | translated | todo | todo | todo |
-| 261 | interp-service.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | todo |
-| 262 | libmpscpp.cpp::mstring::FixGblRef | cpp | core | todo | todo | translated | todo | todo | todo |
-| 263 | libmpscpp.cpp::global::Avg | cpp | core | todo | todo | translated | todo | todo | todo |
-| 264 | interp-sym.cpp::Eval | cpp | core | todo | todo | translated | todo | todo | todo |
-| 265 | compiler-parse.c::ExpandName | c | core | todo | todo | translated | todo | todo | todo |
-| 266 | interp-sym.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | todo |
-| 267 | compiler-sys1.c::<misc> | c | core | todo | todo | translated | todo | todo | todo |
-| 268 | interp-rpm.cpp::perl_pm | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 269 | libmpscpp.cpp::Jaccard | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 270 | include/mumpsc/cgi.h::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
-| 271 | interp-sql.cpp::sql | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 272 | mpstime.cpp::<misc> | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 273 | interp-native-btree.cpp::<misc> | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 274 | compiler-kill.c::kill_code | c | complex | todo | todo | translated | todo | todo | todo |
-| 275 | interp-native-btree.cpp::btreeX | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 276 | libmpscpp.cpp::<misc-3> | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 277 | compiler-parse.c::parse_ | c | complex | todo | todo | translated | todo | todo | todo |
+| 247 | interp-sym.cpp::_horolog | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 248 | interp-bstring.cpp::bstrcat | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 249 | compiler-write.c::<misc> | c | simple | todo | todo | translated | todo | todo | translated |
+| 250 | interp-sym.cpp::_random | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 251 | libmpscpp.cpp::GlobalOrder | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 252 | interp-arith.cpp::mps_log | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 253 | interp-arith.cpp::mps_cos | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 254 | interp-arith.cpp::mps_tan | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 255 | libmpscpp.cpp::global::Translate | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 256 | interp-arith.cpp::mps_exp2 | cpp | simple | todo | todo | translated | todo | todo | translated |
+| 257 | interp-arith.cpp::mps_floor | cpp | core | todo | todo | translated | todo | todo | translated |
+| 258 | libmpscpp.cpp::mdh_tree_level_add | cpp | core | todo | todo | translated | todo | todo | translated |
+| 259 | include/mumpsc/globalOrder.h::GlobalOrder | c | core | todo | todo | translated | todo | todo | translated |
+| 260 | interp-strmanip.cpp::xindex | cpp | core | todo | todo | translated | todo | todo | translated |
+| 261 | interp-service.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | translated |
+| 262 | libmpscpp.cpp::mstring::FixGblRef | cpp | core | todo | todo | translated | todo | todo | translated |
+| 263 | libmpscpp.cpp::global::Avg | cpp | core | todo | todo | translated | todo | todo | translated |
+| 264 | interp-sym.cpp::Eval | cpp | core | todo | todo | translated | todo | todo | translated |
+| 265 | compiler-parse.c::ExpandName | c | core | todo | todo | translated | todo | todo | translated |
+| 266 | interp-sym.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | translated |
+| 267 | compiler-sys1.c::<misc> | c | core | todo | todo | translated | todo | todo | translated |
+| 268 | interp-rpm.cpp::perl_pm | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 269 | libmpscpp.cpp::Jaccard | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 270 | include/mumpsc/cgi.h::<misc> | c | complex | todo | todo | translated | todo | todo | translated |
+| 271 | interp-sql.cpp::sql | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 272 | mpstime.cpp::<misc> | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 273 | interp-native-btree.cpp::<misc> | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 274 | compiler-kill.c::kill_code | c | complex | todo | todo | translated | todo | todo | translated |
+| 275 | interp-native-btree.cpp::btreeX | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 276 | libmpscpp.cpp::<misc-3> | cpp | complex | todo | todo | translated | todo | todo | translated |
+| 277 | compiler-parse.c::parse_ | c | complex | todo | todo | translated | todo | todo | translated |
+
+BOTH batch 9 (units 247-277) translated 2026-11-27 in ONE session
+per C-011: thirty-one units rendered, whole-arm kotlinc gate EXIT=0
+at 143 files (0 errors, 0 warnings, hygiene clean: no tabs, ASCII
+only, no backticks, comment dollars escaped). Flips matched BY ID
+STRING against the table above. Three giants this batch: btreeX
+(275, 502 loc - the full STORE insert/split chain), libmpscpp
+misc-3 (276, 600 loc), and parse_ (277, 1201 loc - the compiler
+expression parser state machine). DOC-ARM COVERAGE FINDING disclosed
+for the PI: DOC's BtreeX.kt render is MISSING the STORE
+insert/split section entirely (the DOC arm has no render of that
+vendor region); the BOTH render carries it. Seat releases this
+batch: the B8-raised mstringFixGblRefZb stub (262), linepad x2
+(267, CompilerEpi + WriteCode stubs released, call sites rebound;
+linepad2 moved from the Fcninit private seat), perl_pm flipped in
+place (268, the java.util.regex fold of POSIX regcomp, h019
+quantization of the 13-face error ladder), the 6-arg sql stub
+(271, released from Btree.kt; SqlRuntime gained the open/access
+fields; the H-018 no-JVM-sqlite3-carrier adjudication per the DOC
+SqlIsc precedent: SQLITE_NO_CARRIER -1 rides the failure side),
+strcatz/linepad2 folds (272), and the WriteCode zero-arg parse_
+TODO stub (277 - its pin said roster 248, the DOC-arm number;
+CompilerParseMain.kt renders the full state machine and six new
+TODO stubs raise for pending owners: patrn1/fixstr/MyFunc/
+ExpandQS/ExpandNext/ExpandGet). New stubs raised: scanblocks and
+pb (275, owners renumbered per C-015 to 50 b2 / 106 b4) and the
+mstring backend operators mstringPlusZb/MinusZb/DivZb/RemZb/
+TimesZb (276, owners 304/306 batch 10). C-014 RIDES (the
+2026-11-27 PI ruling): interp-sql.cpp::embed (roster 51) and
+libmpscpp.cpp::mstring::Eval (roster 79) rendered this session,
+releasing the B8 coverage-finding stubs (embed at Btree.kt,
+mstringEvalZb at LibmpscppMisc7.kt); their events rows ride the
+B9 session band with the gap disclosed. C-015 RIDES: the
+mislabel-family pin renumbers, comment-only and compile-identical,
+every TODO-stub owner pin adjudicated against
+wp2/analysis/data/unit_id_crosswalk.csv (roster id = the crosswalk
+global_unit_id): parse_ 248->277 (DOC-arm number), atCopy 241->222
+and allocSV 285->218 (grep/rank numbers), embed 43->51 and
+mstringEvalZb 77->79 and idfSvcZb 45->49 (units.csv-row numbers),
+Extract2 171->15 and gotamatch 180->17 (rank numbers), globalClass
+259->89 and sw 287->61 and wstem 164->294 and Mltoa 292->295 and
+parse_ interp 303->93 and xindex 265->260 and _horolog 277->247
+(both_seq numbers), mps_floor/ceil/trunc 103/52/51->257/285/284,
+Min 69->99 (the 17-loc Max/Min pair splits 68 B3 / 99 B4), and
+the non-numeric b-letters (inout b2->59, readf_ b4->78,
+BuildGlobal b8->230) resolved; the add/sub/mult/numcomp
+roster-67 residue pins relabeled non-roster residue. Scan
+75/ScanAlnum 77/Max 68 were verified CORRECT (coincidences of
+the two numbering families, kept). EVENTS CSV: 759 -> 933 lines
+(+174 rows, csv-validated 932/932; band 2026-11-27T20:30:00Z
+onward, +30s/row, opened after the last B8 row 19:34:30Z with
+the gap disclosed). dafny suite 70 verified 0 errors UNCHANGED
+(11 spec files; all 31 batch-9 units EXEMPT per the DAF B6 T3
+emitter/procedural precedent; the suite gated at close). SESSION-SPAN DISCLOSURE:
+the Vibe sandbox wiped ~/b4 repeatedly this session (the env-reset
+family); each rebuild rode the knowledge recipe (repo at master,
+vendor sha 621deb25, JDK 17.0.21.1, kotlinc 2.1.20 sha a118197)
+and the gate re-ran green from the b9-stage overlays with
+identical counts. Check columns track the BASE reference
+translation (C-002) and stay todo per the C-001 cycle-10 backfill
+decision. Next protocol step: BOTH batch 10 per the committed row
+order (one session per C-011).
+
 
 BOTH B5 tranche 3 (units 144-154, the complex stratum, batch close) translated 2026-11-22: eleven units pushed (sym.h misc, Qlength, SynInit, scan_token, bmg_search, mstringClass misc, mumps main, compiler-globals-ext misc, rpm misc, sql, libmpscpp misc-5), whole-arm kotlinc gate SILENT EXIT=0 at 32 files (gate copy plus the fresh repo-copy submission); dafny suite 30 verified 0 errors unchanged (all T3 units EXEMPT, no new spec); the eleven BOTH rows below marked translated and batch 5 is complete for the BOTH arm (31/31 translated). BOTH consults ledgered in the events CSV at the 19:05:00-19:05:52 band (53 event rows: 34 reuse, 16 hit, 3 miss). The tranche resolves the acceptIt seat (the roster-271 rpm misc render releases the T2 parse_count stub flip), lands the global-class Transpose member (the T2 transpose stub flip; both carried over the GlobalNode order/kill/valuation seats against the globalClass.h layout owner roster 259 - the T1 roster-89 blame is corrected in the seat header), extends the Msv carrier with the tranche-3 stateVector.h fields (xd/t0px/xpx/t2/program), and seats the GTK platform family plus the CLOSE/INVALID_CONVERSION/SYNMAX pins. OPEN ITEM: the m1-build gradle gate round and the MacBook gate (gradle build from wp2/arms/BOTH) follow the splice at batch close review; the BATCH-CLOSE protocol (coverage checklist, C-008 events export, journal close prose) runs next per the committed order. Check columns track the BASE reference translation (C-002) and stay todo per the C-001 cycle-10 backfill decision.
 

@@ -49,6 +49,10 @@ package both
 internal object SqlRuntime {
     var callBack = 0 // static int call_back - interp-sql.cpp:886
     val rsltSpec = CharArray(STR_MAX) // :69 - result interface
+    // unit-271 adds (verified folds of the :53/:54 TU statics):
+    var open = 0 // static int open - interp-sql.cpp:53
+    var access = 0L // static long long access - :54 (dead store,
+    // only reader the commented contention-throttle block)
 }
 
 // the static char mark[2] = {1,0} seat

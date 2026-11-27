@@ -68,21 +68,19 @@ internal fun acceptIt(p: Parser) {
 // struct bstring new_bstring(const char[]) - owner:
 // interp-bstring.cpp::<misc>, roster 212 (pending). TODO-stub.
 internal fun newBstring(s: String): Bstring {
-    TODO("stub: owner interp-bstring.cpp::<misc> (roster 212)")
+    TODO("stub: owner interp-bstring.cpp::<misc> (roster 22 - the old pin said roster 212, a both_seq number, C-015)")
 }
 
 // struct bstring bstrcat(const struct bstring, const struct bstring)
-// - owner: interp-bstring.cpp::bstrcat, roster 5 (batch 9), and the
-// whole family ::<misc> roster 212. TODO-stub.
-internal fun bstrcat(a: Bstring, b: Bstring): Bstring {
-    TODO("stub: owner interp-bstring.cpp::bstrcat (roster 5; family roster 212)")
-}
+// - owner: interp-bstring.cpp::bstrcat, roster 248 (batch 9);
+//   LANDED in this arm: the h014 delegate-when-owner-lands
+//   flip - the real body lives in Bstrcat.kt, this seat removed.
 
 // void bcatchr(struct bstring *, const char) - C mutates through the
 // pointer; the fold returns the appended carrier. Owner:
 // interp-bstring.cpp::<misc>, roster 212 (pending). TODO-stub.
 internal fun bcatchr(b: Bstring, c: Char): Bstring {
-    TODO("stub: owner interp-bstring.cpp::<misc> (roster 212)")
+    TODO("stub: owner interp-bstring.cpp::<misc> (roster 22 - the old pin said roster 212, a both_seq number, C-015)")
 }
 
 internal fun parseCount(p: Parser): Bstring {

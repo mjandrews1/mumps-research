@@ -42,7 +42,7 @@ package both
 // MpstimeMain pins; roster-67, batch 3 pending).
 // TODO-stub (h014).
 internal fun mult(a: CharArray, b: CharArray, c: CharArray) {
-    TODO("stub: owner interp-arith.cpp::mult (roster-67 residue family, batch 3)")
+    TODO("stub: owner interp-arith.cpp::mult (residue, non-roster - the old pin said roster-67, C-015)")
 }
 
 // strcpy at offset: copy the srcOff..NUL run to dstOff.

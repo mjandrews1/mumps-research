@@ -115,16 +115,16 @@ internal fun hitRatioZb(): Double {
 // pending-owner TODO seats (h014)
 
 private fun encodeHtmlC(s: String): String {
-    TODO("stub: owner libmpscpp.cpp::EncodeHTML (roster 26, batch 1)")
+    TODO("stub: owner libmpscpp.cpp::EncodeHTML (roster 5, batch 1 - the old pin said roster 26, C-015)")
 }
 private fun killC(ref: String, sv: Msv) {
-    TODO("stub: owner libmpscpp.cpp::KiLL (roster 59, batch 2)")
+    TODO("stub: owner libmpscpp.cpp::KiLL (roster 37, batch 2 - the old pin said roster 59, C-015)")
 }
 private fun mergeSvZb(a: CharArray, b: CharArray, sv: Msv): Int {
-    TODO("stub: owner interp-sysfunc.cpp::Merge (roster 211, batch 8)")
+    TODO("stub: owner interp-sysfunc.cpp::Merge (roster 237, batch 8 - RELEASED at the unit-237 Merge.kt render; this private face keeps its seat per the per-TU note; the old pin said roster 211, C-015)")
 }
 private fun horologC(t: CharArray) {
-    TODO("stub: owner interp-sym.cpp::_horolog (roster 277, batch 9)")
+    TODO("stub: owner interp-sym.cpp::_horolog (roster 247, batch 9 - RELEASED at the unit-247 Horolog.kt render; this private face keeps its seat per the per-TU note; the old pin said roster 277, C-015)")
 }
 private fun makeLockMisc6Zb(
     a: String, b: String, c: String, lf: Char, d: String?

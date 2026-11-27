@@ -16,7 +16,7 @@ package both
 //     interp-interp.cpp::Interpret, roster 305 (the batch-6 big-
 //     three PI session, pending).
 //   int parse_(struct MSV*) - interp.h:98; owner: interp-parse::
-//     parse_, roster 303, batch 3 pending (the parse_ stub seat).
+//     parse_, roster 93, batch 3 pending (C-015 renumber from the old 303 pin) (the parse_ stub seat).
 //   void prnterr(int, struct MSV*, int) - interp.h:99; non-unit
 //     provenance (the interpreter error-print family).
 //   int BuildGlobal(...) / int BuildLocal(...) - interp.h:100-101;

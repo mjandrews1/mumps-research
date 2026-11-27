@@ -36,13 +36,12 @@ package both
 
 // void GlobalOrder(unsigned char *, unsigned char *,
 //                  unsigned char *, struct MSV *) - owner:
-// libmpscpp.cpp::GlobalOrder (the libmpscpp.h prototype
-// family). TODO-stub (h014; the BuildGlobal dispatch seat).
-internal fun GlobalOrder(
-    tmp0: CharArray, tmp1: CharArray, tmp2: CharArray, sv: Msv,
-) {
-    TODO("stub: owner libmpscpp.cpp::GlobalOrder (libmpscpp.h prototype family, batch 9/10 pending)")
-}
+// include/mumpsc/globalOrder.h::GlobalOrder (unit 259, batch 9;
+// the B8 raise named the libmpscpp.h prototype family). LANDED:
+// the h014 delegate-when-owner-lands flip - the body lives in
+// GlobalOrderH.kt, this seat removed (call sites bind
+// unchanged; the stub's tmp2 was non-null CharArray, the
+// owner face widens it to nullable per the vendor NULL arm).
 
 private val bgTmp = Array(TSTACK) { CharArray(STR_MAX) } // static tmp
 private var bgStk = 0 // static int stk

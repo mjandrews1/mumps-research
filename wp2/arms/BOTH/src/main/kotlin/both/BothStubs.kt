@@ -33,17 +33,23 @@ internal class GlobalRef(val ref: String)
 // The subscripted global-node proxy (vendor: global::operator()
 // result usable as a global). The avg() service member is a TODO seat
 // (owner libmpscpp.cpp::global::Avg, roster 301).
-internal class GlobalNode {
-    fun avg(): Double {
-        TODO("stub: owner libmpscpp.cpp::global::Avg (roster 301)")
-    }
+// The subscripted global-node proxy (vendor: global::operator()
+// result usable as a global; the operator composes the coded
+// reference name(subscript)). The avg() service member releases
+// at the B9 unit-263 close (owner libmpscpp.cpp::global::Avg,
+// units.csv row 261; the h014 delegate-when-owner-lands flip):
+// the node now carries the composed-key contract and avg()
+// delegates to the owner render (GlobalAvg.kt).
+internal class GlobalNode(internal val base: GlobalRef, internal val sub: String) {
+    fun avg(): Double =
+        GlobalRef(base.ref + "(" + sub + ")").globalAvg()
 }
 
 internal operator fun GlobalRef.invoke(sub: String): GlobalNode {
-    // vendor appends the coded subscript when invoked; the concrete
-    // key construction is only exercised by the avg() owner seat, so
-    // it stays with the owner unit when it lands.
-    return GlobalNode()
+    // vendor appends the coded subscript when invoked; the
+    // composed key construction landed with the unit-263 owner
+    // seat (see GlobalNode above).
+    return GlobalNode(this, sub)
 }
 
 // -------------------------------------------------------------------------
@@ -108,7 +114,7 @@ internal fun GlobalNode.transpose(other: GlobalNode) {
 // Multiply, roster unit 213, batch 2. TODO-stub (h014); the caller
 // passes the three file-level wrappers' carriers.
 internal fun GlobalRef.multiply(b: GlobalRef, c: GlobalRef) {
-    TODO("stub: owner libmpscpp.cpp::global::Multiply (roster unit 213, batch 2)")
+    TODO("stub: owner libmpscpp.cpp::global::Multiply (roster unit 53, batch 2 - the old pin said roster 213, a both_seq number, C-015)")
 }
 
 // -------------------------------------------------------------------------
@@ -142,13 +148,13 @@ internal const val SYNMAX = 20000 // libmpscpp.h:385
 // name parse_ kept; h015 note: trailing-underscore identifiers do
 // not collide with Kotlin keywords, no rename needed).
 internal fun parse_(sv: Msv): Int {
-    TODO("stub: owner interp-parse.cpp::parse_ (roster 303, batch 3)")
+    TODO("stub: owner interp-parse.cpp::parse_ (roster 93, batch 3 - the old pin said roster 303, a both_seq number, C-015)")
 }
 
 // int wstem(char *, int) - owner: interp-stem.cpp::wstem, roster
 // 164, batch 10. TODO-stub (h014); the Stem/stem family seats.
 internal fun wstem(buf: CharArray, len: Int): Int {
-    TODO("stub: owner interp-stem.cpp::wstem (roster 164, batch 10)")
+    TODO("stub: owner interp-stem.cpp::wstem (roster 294, batch 10 - the old pin said roster 164, C-015)")
 }
 
 // int pm(const unsigned char *, const unsigned char *, struct MSV *)
@@ -171,14 +177,14 @@ internal class Indirect(var reference: String)
 // Double/Mstring/Char members and the mstring global-comparison
 // arms seat through it.
 internal fun GlobalRef.extractValue(): String {
-    TODO("stub: owner include/mumpsc/globalClass.h::<misc> (roster 259, batch 3)")
+    TODO("stub: owner include/mumpsc/globalClass.h::<misc> (roster 89, batch 3 - the old pin said roster 259, a both_seq number, C-015)")
 }
 
 // global::DocCorrelate(global, string, double) - the string-arm
 // member the misc-5 overloads delegate to; layout owner
 // globalClass.h::<misc> roster 259 (pending). TODO-stub (h014).
 internal fun GlobalRef.docCorrelate(B: GlobalRef, fcn: String, threshold: Double) {
-    TODO("stub: owner globalClass.h::<misc> DocCorrelate string arm (roster 259, batch 3)")
+    TODO("stub: owner globalClass.h::<misc> DocCorrelate string arm (roster 89, batch 3 - C-015 renumber)")
 }
 
 // global-node carrier extensions: the global::Order / global::
@@ -189,38 +195,42 @@ internal fun GlobalRef.docCorrelate(B: GlobalRef, fcn: String, threshold: Double
 // renders its real loop body over them (the T2 transpose stub
 // flips in the unit 154 render - see there).
 internal fun GlobalNode.order(dir: Int): String {
-    TODO("stub: owner globalClass.h::<misc> global::Order (roster 259, batch 3)")
+    TODO("stub: owner globalClass.h::<misc> global::Order (roster 89, batch 3 - C-015 renumber)")
 }
 
 internal fun GlobalNode.kill() {
-    TODO("stub: owner globalClass.h::<misc> global::Kill (roster 259, batch 3)")
+    TODO("stub: owner globalClass.h::<misc> global::Kill (roster 89, batch 3 - C-015 renumber)")
 }
 
 // The valuation/assignment pair: B(bb,aa) = (*this)(aa,bb) reads
 // the right node and stores into the left.
 internal fun GlobalNode.value(): String {
-    TODO("stub: owner globalClass.h::<misc> valuation (roster 259, batch 3)")
+    TODO("stub: owner globalClass.h::<misc> valuation (roster 89, batch 3 - C-015 renumber)")
 }
 
 internal fun GlobalNode.setValue(v: String) {
-    TODO("stub: owner globalClass.h::<misc> assignment (roster 259, batch 3)")
+    TODO("stub: owner globalClass.h::<misc> assignment (roster 89, batch 3 - C-015 renumber)")
 }
 
 // Global-value assignment seat (Ztell global arm writes the
 // caller's global object). Layout owner globalClass.h::<misc>
 // roster 259 (pending). TODO-stub (h014).
 internal fun GlobalRef.assignValue(v: String) {
-    TODO("stub: owner globalClass.h::<misc> global assignment (roster 259, batch 3)")
+    TODO("stub: owner globalClass.h::<misc> global assignment (roster 89, batch 3 - C-015 renumber)")
 }
 
 // Node-invoke seats (further-subscript walk on the carrier):
-// layout owner globalClass.h::<misc> roster 259 (pending).
+// layout owner globalClass.h::<misc> roster 259 (pending). The
+// B9 unit-263 close gives the node carrier state (base, sub);
+// these seats now COMPOSE the subscript list per the vendor
+// operator() chain (s1)(s2) = name(s1,s2), with the final
+// composed-key semantics owned by the pending layout unit.
 internal operator fun GlobalNode.invoke(sub: String): GlobalNode {
-    return GlobalNode()
+    return GlobalNode(this.base, this.sub + "," + sub)
 }
 
 internal operator fun GlobalNode.invoke(sub1: String, sub2: String): GlobalNode {
-    return GlobalNode()
+    return GlobalNode(this.base, this.sub + "," + sub1 + "," + sub2)
 }
 
 // The two-subscript invoke arm the Transpose member uses
@@ -228,7 +238,7 @@ internal operator fun GlobalNode.invoke(sub1: String, sub2: String): GlobalNode 
 internal operator fun GlobalRef.invoke(sub1: String, sub2: String): GlobalNode {
     // vendor appends both coded subscripts; concrete key build
     // stays with the layout owner (roster 259, pending).
-    return GlobalNode()
+    return GlobalNode(this, sub1 + "," + sub2)
 }
 
 // GTK platform seats (mdh_* family, libmpscpp.cpp TU glue): every
@@ -327,7 +337,7 @@ internal fun mdh_spin_button_set_value(s: String, v: Double) {
 // journaled at the unit-158 render). TODO-stub (h014).
 internal fun sw(s: String, t: String, showAlign: Int, showMatrix: Int,
                 gap: Int, mismatch: Int, match: Int): Int {
-    TODO("stub: owner libmpscpp.cpp::sw (roster 287, batch 2)")
+    TODO("stub: owner libmpscpp.cpp::sw (roster 61, batch 2 - the old pin said roster 287, C-015)")
 }
 
 // void _find(unsigned char * out, unsigned char * in,
@@ -360,7 +370,7 @@ internal fun _find(out: CharArray, in_: CharArray, key: CharArray,
 // XNEXT walk (the unit-136/171 renders document the carrier
 // contract: the caller's CharArray is the mutated scratch).
 internal fun btreeC(g: Int, key: CharArray, bd: CharArray, sv: Msv): Int {
-    TODO("stub: owner interp-native-btree.cpp::btree (roster 29, batch 1)")
+    TODO("stub: owner interp-native-btree.cpp::btree (roster 4, batch 1 - the old pin said roster 29, C-015)")
 }
 
 // char * Extract2(char * s) - owner: compiler-parse.c::Extract2,
@@ -370,7 +380,7 @@ internal fun btreeC(g: Int, key: CharArray, bd: CharArray, sv: Msv): Int {
 // CodedComma separator, which the Kotlin seat passes as the
 // CharArray plus the scan index. TODO-stub (h014).
 internal fun extract2C(v1d: CharArray, i: Int): String {
-    TODO("stub: owner compiler-parse.c::Extract2 (roster 171, batch 1)")
+    TODO("stub: owner compiler-parse.c::Extract2 (roster 15, batch 1 - the old pin said roster 171, a rank number, C-015)")
 }
 
 // int globalDataC(String, Msv) - RELEASED at the roster-203

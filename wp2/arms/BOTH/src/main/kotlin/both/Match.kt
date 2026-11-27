@@ -178,7 +178,7 @@ internal fun match(
 // Owner: interp-strmanip.cpp::xindex, roster unit 265 (batch 9,
 // pending). TODO-stub (h014).
 internal fun xindex(patternSet: String, s: CharArray, start: Int): Int {
-    TODO("stub: owner interp-strmanip.cpp::xindex (roster 265, batch 9)")
+    TODO("stub: owner interp-strmanip.cpp::xindex (roster 260, batch 9 - RELEASED at the unit-260 Xindex.kt render; this alternate-signature face keeps its seat per the per-TU note; the old pin said roster 265, a both_seq number, C-015)")
 }
 
 // void substr(unsigned char *, unsigned char *, int, int) - the

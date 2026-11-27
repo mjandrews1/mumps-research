@@ -57,13 +57,9 @@ private fun fiSysoutZb(x: String) {
     fiOutZb(x)
 }
 
-// void linepad2(char *str) - compiler-sys1.c:963; the sys1 TU
-// helper (not a corpus unit). Rendered, not stubbed (the
-// ErrorMessage non-unit precedent).
-private fun linepad2Zb(str: String) {
-    fiOutZb("/*** " + str + " */\n")
-}
-
+// void linepad2(char *str) - compiler-sys1.c:963: moved to the
+// unit-267 CompilerSys1Misc.kt render (BOTH B9); the call
+// site below rebinds to it.
 // void fcninit(char *output_file, long pid) - compiler-fcninit.c
 internal fun fcninit(outputFile: CharArray, pid: Long) {
     val g = CompilerGlobalsExt
@@ -76,7 +72,7 @@ internal fun fcninit(outputFile: CharArray, pid: Long) {
     fiSysoutZb("char * catx; // intermediate concat ptr\n")
 
     fiSysoutZb("char *_ftmp = new char[STR_MAX]; /* intermediate temp */\n")
-    linepad2Zb("Temporary variables")
+    linepad2("Temporary variables")
     val fnName = cStringOf(g.FunctionName)
     if (fnName.isEmpty()) {
         fiOutZb("INCLUDE Main_." + pid + "\n")

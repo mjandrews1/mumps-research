@@ -42,7 +42,7 @@ package both
 // (the member face; the InterpService idfSvcZb seat, roster pin
 // 45, batch 2 pending). TODO-stub (h014).
 internal fun GlobalNode.IDF(x: Double) {
-    TODO("stub: owner libmpscpp.cpp::global::IDF member (idfSvcZb seat, roster 45, batch 2)")
+    TODO("stub: owner libmpscpp.cpp::global::IDF member (idfSvcZb seat, roster 49, batch 2 - the old pin said roster 45, a units.csv-row number, C-015)")
 }
 
 // char * IDF(struct MSV *svptr, char *ep, char *arg1,

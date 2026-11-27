@@ -54,13 +54,6 @@ private fun epiOutZb(s: String): Int {
     return s.length
 }
 
-// void linepad(int sent, char *str) - compiler-sys1.c:949; the
-// sent/i/j/f locals are dead in the vendor body (the single
-// fprintf emission is the only effect). TODO-stub (h014) pending
-// its roster owner.
-private fun linepadZb(sent: Int, str: String) {
-    TODO("stub: owner compiler-sys1.c::linepad (roster 264, batch 9)")
-}
 
 // the mumpsc/errors.h paste: the vendor #include drops these ten
 // fprintf lines verbatim into the emitted catch block (the
@@ -90,13 +83,13 @@ internal fun epi(ExecName: Short, pid: Long) {
     // int i (top) - dead past the reset loops below
     epiOutZb("\n")
     epiOutZb("//" + "=".repeat(81) + "\n")
-    linepadZb(
+    linepad(
         epiOutZb("_epilogue: tmp0[0]=0; tmp1[0]=0;"),
         " Function Epilogue"
     )
     epiOutZb("\tMltoa(getpid(),atmp);\n")
     epiOutZb("\tif (svPtr->LockDone) cleanLocks((char *) atmp);\n")
-    linepadZb(
+    linepad(
         epiOutZb("\tMglobal(CLOSE,tmp0,tmp1,svPtr);"),
         "Close Globals"
     )
@@ -109,7 +102,7 @@ internal fun epi(ExecName: Short, pid: Long) {
 
     epiOutZb("\tcout << \"Uncaught error in or near line \" \n")
     epiOutZb("\t<< svPtr->LineNumber << endl;\n")
-    linepadZb(
+    linepad(
         epiOutZb("\tMglobal(CLOSE,tmp0,tmp1,svPtr);"),
         "Close Globals"
     )
@@ -120,7 +113,7 @@ internal fun epi(ExecName: Short, pid: Long) {
     if (CompilerGlobalsExt.FCN_flg != 0.toShort()) {
         epiOutZb("return \"\";} /* Terminate */\n")
     } else {
-        linepadZb(epiOutZb("return EXIT_SUCCESS; }"), "Terminate")
+        linepad(epiOutZb("return EXIT_SUCCESS; }"), "Terminate")
     }
 
     epiOutZb("//" + "=".repeat(81) + "\n")

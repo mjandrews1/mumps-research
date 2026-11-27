@@ -11,7 +11,7 @@ package both
 //   h014 out_of_scope_call - reused: allocSV stub (owner
 //     interp-sysfunc.cpp::AllocSV, roster 284 - units.csv rank
 //     285, batch 8) called direct (stub-blocked); the interp-
-//     side parse_(sv) stub (roster 303) called direct; keyfixC
+//     side parse_(sv) stub (roster 93, C-015 renumber) called direct; keyfixC
 //     and writeC called direct (BothCRuntime seats); the
 //     svcBindSvZb whole-struct copy widened private->internal at
 //     this render (ONE field universe, TWO consumers - the

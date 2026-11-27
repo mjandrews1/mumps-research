@@ -15,8 +15,9 @@ package both
 // batch 3) and record 77 (libmpscpp.cpp::mstring::Eval, batch
 // 3) have NO render on BOTH master and NO events-CSV rows
 // (verified this session). The Concat(double) body rides this
-// chunk's head (rendered here); mstring::Eval is raised as a
-// TODO stub below.
+// chunk's head (rendered here); mstring::Eval was raised as a
+// TODO stub at B8 and is RENDERED here at the C-014 ride
+// (roster 79).
 //
 // Consults (rule base wp2/arms/BOTH/rules_v0.pl):
 //   h013 dead_store - hit: the Concat(string) arm declares an
@@ -84,17 +85,49 @@ package both
 // Stubs raised (h014)
 
 // mstring mstring::Eval() - owner: libmpscpp.cpp::mstring::Eval
-// (roster 77, batch 3 - COVERAGE FINDING: no render on master,
-// no events rows; PI disclosure at close). TODO-stub.
+// (roster 79, batch 3 - COVERAGE FINDING at the B8 close: no
+// render on master, no events rows; the old stub pin said
+// "roster 77", a units.csv-row number - C-015). RENDERED here
+// at the C-014 scheduled ride (the 2026-11-27 PI ruling): the
+// indirection-operator twin - pack the receiver text into the
+// state-vector xd, reset xpx, set the t2 reentry flag and zero
+// pd1len, call the interp parse_ core (the BothStubs one-arg
+// seat, owner interp-parse.cpp::parse_ roster 303 batch 3 -
+// still pending, h014), and wrap the compiled pd1[sdlim] slice
+// as the return (the offset-1 convention family, the cstringAt
+// idiom at the sdlim lower-bound carrier read).
 internal fun mstringEvalZb(m: String): String {
-    TODO("stub: owner libmpscpp.cpp::mstring::Eval (roster 77, batch 3; unrendered on master, PI disclosure)")
+    // strcpy((char *) &svPtr->xd[0], data.c_str());
+    writeC(svPtr.xd, m)
+    // svPtr->xpx = 0;
+    svPtr.xpx = 0
+    // svPtr->t2 = 1;
+    svPtr.t2 = 1
+    // svPtr->pd1len = 0;
+    svPtr.pd1len = 0
+
+    // if ((svPtr->ierr = parse_(svPtr))) ...
+    svPtr.ierr = parse_(svPtr)
+    if (svPtr.ierr != 0) {
+        GlobalExceptionCode = INTERPRETER_ERROR
+        throw MumpsGlobalException()
+        // vendor unreachable tail (H-013): tmp = "err";
+        // return tmp; - after the throw, kept as this note only.
+    }
+
+    // tmp = (char *) &svPtr->pd1[svPtr->sdlim]; return tmp;
+    var end = svPtr.sdlim
+    while (end < svPtr.pd1.size && svPtr.pd1[end] != 0.toChar()) end++
+    return String(svPtr.pd1, svPtr.sdlim, end - svPtr.sdlim)
 }
 
 // mstring mstring::FixGblRef() - owner: libmpscpp.cpp::mstring::
 // FixGblRef (roster 262, batch 9 pending). TODO-stub.
-internal fun mstringFixGblRefZb(m: String): String {
-    TODO("stub: owner libmpscpp.cpp::mstring::FixGblRef (roster 262, batch 9)")
-}
+// mstring mstring::FixGblRef() - owner roster 262 (batch 9);
+// LANDED in this arm: the h014 delegate-when-owner-lands flip -
+// the real body lives in MstringFixGblRef.kt (the String
+// receiver extension mstringFixGblRef), this stub face
+// removed.
 
 // ---------------------------------------------------------------------------
 // Concat families
@@ -235,7 +268,7 @@ internal fun GlobalRef.qsubscriptG(j: Int): String =
 // int mstring::Qlength()
 internal fun String.mstringQlength(): Int {
     // m = "\u0024qlength("; m = m & (*this).FixGblRef() & ")";
-    val m = "\u0024qlength(" + mstringFixGblRefZb(this) + ")"
+    val m = "\u0024qlength(" + this.mstringFixGblRef() + ")"
     return mstringEvalZb(m).let { atolC(it).toInt() }
 }
 
@@ -253,7 +286,7 @@ internal fun GlobalRef.queryG(): String {
 
 // mstring mstring::Query()
 internal fun String.mstringQuery(): String {
-    val m = "\u0024query(" + mstringFixGblRefZb(this) + ")"
+    val m = "\u0024query(" + this.mstringFixGblRef() + ")"
     return mstringEvalZb(m)
 }
 

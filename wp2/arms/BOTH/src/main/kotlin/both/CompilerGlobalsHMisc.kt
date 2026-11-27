@@ -70,7 +70,7 @@ package both
 // Quirks kept (ledgered):
 //   - the header declares `short int parse_ ();` inside the
 //     local block (the K&R-style declaration quirk; the
-//     parse_ seat is the BothStubs roster-303 stub).
+//     parse_ seat is the BothStubs roster-93 stub (C-015 renumber from the old roster-303 pin)).
 //   - the cod208/207/209/210/206 comment ledger rides the ext
 //     seat verbatim.
 //   - the commented `// long pid=getpid();` line is dead (the

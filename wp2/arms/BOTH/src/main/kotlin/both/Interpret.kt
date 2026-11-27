@@ -52,7 +52,7 @@ private fun getstr2Zb(lun: Int, area: CharArray, sv: Msv): Int {
 // void readf_(unsigned char[], short, MSV*) - the file-load
 // rider (InterpHMisc ledger: compiler-sys1.c readf_ roster b4).
 private fun readf_Zb(zd: CharArray, pd1org: Int, sv: Msv) {
-    TODO("stub: owner compiler-sys1.c::readf_ (roster b4)")
+    TODO("stub: owner compiler-sys1.c::readf_ (roster 78, batch 3 - the old pin said roster b4, C-015)")
 }
 
 // int DirectRead(int, unsigned char*) - the READ * direct-mode
@@ -87,7 +87,7 @@ private fun symFreeZb(i: Int, sv: Msv): Int {
 // numcomp2 only). Returns -1/0/+1 strcmp-style over numeric
 // strings.
 private fun numcompZb(aa: String, bb: String): Int {
-    TODO("stub: owner interp-arith.cpp::numcomp (roster-67 residue)")
+    TODO("stub: owner interp-arith.cpp::numcomp (residue, non-roster - the old pin said roster-67, C-015)")
 }
 
 // void Merge(unsigned char*, unsigned char*, MSV*) - the MERGE
@@ -105,7 +105,7 @@ private fun buildLocalZb(a: Int, b: Int, s1: String?, s2: String?, sv: Msv): Int
 }
 
 private fun buildGlobalZb(a: Int, b: Int, s1: String?, s2: String?, sv: Msv): Int {
-    TODO("stub: owner interp-parse.cpp::BuildGlobal (roster b8)")
+    TODO("stub: owner interp-parse.cpp::BuildGlobal (roster 230, batch 8 - RELEASED at the unit-230 BuildGlobal.kt render; this private face keeps its seat per the per-TU note; the old pin said roster b8, C-015)")
 }
 
 // The loop-state fold: the vendor goto labels become the state

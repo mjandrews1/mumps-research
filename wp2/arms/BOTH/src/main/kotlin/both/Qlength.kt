@@ -40,7 +40,7 @@ package both
 //   h012 unsigned_byte_domain - reused: the >128 compare and the 0x80
 //     masks stay in the Char(0..255) byte domain.
 //   h014 out_of_scope_call - reused: parse_ rides its new TODO stub
-//     (owner interp-parse.cpp::parse_, roster 303, batch 3) and
+//     (owner interp-parse.cpp::parse_, roster 93, batch 3 - C-015 renumber) and
 //     AllocSV rides its new TODO stub (owner interp-sysfunc.cpp::
 //     AllocSV, roster 285, batch 8); keyfix is the
 //     include/mumpsc/keyfix.h static inline (a non-unit): rendered

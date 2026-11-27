@@ -85,7 +85,7 @@ internal fun gotamatch(
     pos: Int,
     action: (String, Int) -> Int,
 ): Int {
-    TODO("stub: owner interp-bmgsubs.c::gotamatch (roster 180, batch 1)")
+    TODO("stub: owner interp-bmgsubs.c::gotamatch (roster 17, batch 1 - the old pin said roster 180, a rank number, C-015)")
 }
 
 internal fun bmg_search(
