@@ -11735,3 +11735,160 @@ spliced (journal append)"; git push; rm BOTH-B10-pushed.md
 (untracked). MacBook gradle gate: cd wp2/arms/BOTH && gradle
 --no-daemon build --console=plain (NO ./gradlew wrapper;
 expect BUILD SUCCESSFUL).
+# DOC BtreeX STORE-section remediation (2026-11-27, PI ruling 1 of 3)
+
+Per the PI adjudication after the BOTH B10 close: DOC's BtreeX.kt
+render (B9 tranche 3, unit 270 / row 250,
+interp-native-btree.cpp::btreeX) was MISSING the STORE
+insert/split vendor region entirely (interp-native-btree.cpp
+997-1201). Two defects, one root: (a) coverage - the region had
+no render, though the file header claimed "the INSERT with
+split"; (b) behavior - the fail fall-through routed a novel-key
+STORE into the XNEXT modify-key arm (the vendor guards that arm
+with g == XNEXT), so a first-time STORE of a new key returned
+the modify-key garbage path instead of inserting.
+
+REMEDiation LANDED: push 1e173f8 on top of afb4032, 2 files
+(BtreeX.kt 906 -> 1153 lines, events CSV 1499 -> 1502). The
+render (DOC idiom, the BOTH-arm BtreeX.kt as cross-check
+reference):
+
+- STORE section at the fail region (after the PREVIOUS arm,
+  before the XNEXT tail): blkaddr1 prime, restoreFlag /
+  zero-length / append-to-data-file datptr prep (the
+  gblDataRafX LSEEK-seek-end + 2-byte LE length-code write,
+  the new-tree arm's own idiom), then the f1 label as the
+  f1Again re-entry loop.
+- f1 body: freadx(i, MODIFIED) + the slot-0 alias rebind; the
+  lsp MMARK block-end walk (the vendor while(*(lsp++)) NUL
+  consume kept); ls/ks; BLOCK_SPLIT decision.
+- Simple insert: the high-end overlap memmove substitute, the
+  blkaddr1 4-byte LE child install (leIntSetX), the memccpy
+  key install through the NUL, the leLongSetX ADSIZE datptr
+  install, trailing 0, OK_NB.
+- Split insert: the bufblk DBL_STR+2 double block; head copy;
+  child/key/datptr installs at blkoff-4/blkoff/blkoff+ks+1;
+  the tail memcpy(blk,ii -> MBLOCK-ii) + MBLOCK zero of the
+  2nd half; the mid-block key boundary walk (from < MBLOCK/2);
+  the equal-key strxcmpX zero-test skip arm; the toMark split
+  point; strxxcpy promoted-key extract (key MUTATED to the mid
+  key, the H-007 idiom per strxxcpy's b.off return); datptr
+  extract; the right-block install through the alias, the
+  toMark zero + MMARK pair; allocblk left-block install; the
+  parent fix (trx--, trace/tracep reload, goto f1 as the
+  f1Again flag); rootfix (new root block, blkaddr1 child, the
+  promoted key at 4, datptr, the OLD ROOT trace[0] child,
+  MMARK tail, OK_NB).
+- The "g == XNEXT here (all other ops returned above)" tail
+  claim is NOW TRUE (previously STORE fell through it).
+
+Gate: whole-arm DOC kotlinc 2.1.20 gate at 288 files, SILENT,
+EXIT=0, hygiene clean (no tabs, ASCII only, no backticks, no
+comment dollars). Events CSV +3 remediation consult rows
+(reuse H-014/H-007/H-012, band 2026-11-27T22:30:00Z-22:31:00Z,
++30s/row, the arm's own quoted/Z format). Post-push blob-SHA
+verification: BtreeX.kt 476b835e, events CSV 2cbf242f - both
+match local sha1("blob <len>\0"+content). No PILOT flip (unit
+270 was already translated; this is a coverage remediation, not
+a roster unit). No dafny action (DOC arm spec set unchanged).
+
+SPLICE (Mark, MacBook): cd ~/Projects/mumps-research && git
+pull (expect HEAD 1e173f8 on top of afb4032); git show
+1e173f8:wp2/arms/ARM_WORKING_NOTES.md > /tmp/journal-base.md;
+cat DOC-B9T3-REMED-pushed.md >> wp2/arms/ARM_WORKING_NOTES.md
+(the working tree carries the B10 splice; do NOT clobber); git
+add wp2/arms/ARM_WORKING_NOTES.md; git commit -m "DOC BtreeX
+STORE remediation spliced (journal append)"; git push; rm
+DOC-B9T3-REMED-pushed.md. MacBook gate: cd wp2/arms/DOC &&
+gradle --no-daemon build --console=plain (expect BUILD
+SUCCESSFUL).
+
+Next per the PI's stated order: item 2, the %lf retrofit of the
+%g-seated operator=(double)/ctor(double) sites (DOC
+LibmpscppMisc8/Avg/Count/Max/CompilerSys1Misc/InterpSym seats
++ the BOTH B9 mstringFromDouble seat); then item 3, the
+misc-9 roster 120 angle-family render.
+# PI adjudication items 2+3 close (2026-11-28)
+
+Per the 2026-11-27 post-B10-close PI adjudication (rulings 2
+and 3; see the DOC BtreeX remediation fragment for ruling 1):
+push b1e677e on top of 1e173f8, 5 files, whole-arm BOTH gate
+172 kt SILENT EXIT=0, hygiene clean, 5/5 landed blob SHAs
+verified against local sha1("blob <len>\0"+content) values
+(LibmpscppMisc9 1eac5277, BothCRuntime 9dd949df,
+LibmpscppMisc8 692bea69, events CSV 85987bbf, PILOT
+711877c1).
+
+RULING 2 (%g vs %lf divergence): PARKED, mis-claims corrected.
+A vendor-source verification CONTRADICTED the B10 flag's
+premise: libmpscpp.cpp 8731 operator=(double) and 8738
+operator=(float) are PERCENT-G (the B9 mstringFromDouble fold
+is spec-correct and stays); only the ctor family is
+percent-lf/percent-f (mstring(double) 8457 %lf, mstring(float)
+8465 %f; the 306 ctor render is correct; the mcvt/cvt free fns
+2691/2721 are %g, both arms spec-correct). The genuine
+ctor-sugar divergence (vendor rslt = b through the %lf ctor,
+e.g. global::Concat(double) 3936: DOC folds via mcvt %g, BOTH
+folds via Kotlin Double.toString) is PARKED by the PI; the DOC
+Java-%g trailing-zero shape divergence (Java keeps them, C99
+strips; cFormatG is the byte-faithful carrier) is FLAGGED
+ONLY, decided at the C-001 cycle-10 backfill. The
+LibmpscppMisc8 header mis-claim ("vendor 8731 sprintf
+percent-lf", "the two vendor sites share a format") is
+CORRECTED in this push, comment-only, no seat changed; the
+PILOT B10 paragraph carries a dated correction note (the
+original flag text kept, not silently rewritten).
+
+RULING 3 (misc-9 angle families, roster 120): RENDERED. The
+ninth libmpscpp residual chunk (342 physical LOC verified by
+the chunker replay; units.csv row 97) lands as
+LibmpscppMisc9.kt: the operator* friend family
+(mstringTimesRev String/GlobalRef, the 9438 const-char fold;
+the 9412 boundary-cut tail ledgered to the misc-8 owner), the
+< and > comparator families x9 each (mstringLt/mstringGt, the
+mstringGe precedent; atolC/strtodC numeric edges, the
+char*/const-char*/string/mstring folds, the global >> extract
+faces), the 9840 operator const char*() carrier identity
+(mstringCStrZb), SymGet x3 (symGetM9 via sym_(11); the
+BothCRuntime SymGet stub RELEASED to a delegate), SymPut x9 +
+__symput (symputM9 via sym_(0); four carrier-shape folds),
+global::Flush() (flushZb, Mglobal FLUSH over the 16-byte ""
+scratch pair), and the builtin-table faces: cosineFaceZb (the
+callee is the parked roster-85 Cosine stub, pinned),
+termCorrelateFaceZb, docCorrelateFaceZb (the released roster-299
+member), jaccardFaceZb, diceFaceZb, stopInitFaceZb,
+stopLookupFaceZb (stopLookupC), synInitFaceZb, centroidFaceZb,
+bmgSearchFaceZb (bmgFullsearch; the malloc strlen(arg2+2)
+quirk ledgered h013), shredFaceZb. sim1FaceZb, ShredQuery and
+the SynLookup stub ledgered covered-elsewhere (the chunk-
+boundary disclosure rides the file header, the B4 misc-5
+adjudication style). TWO NEW named-owner TODO stubs raised
+with crosswalk-true pins: global::TermCorrelate (roster 14,
+batch 1) and global::Centroid (roster 112, batch 4) - both
+join the C-001 backfill population alongside escan 122,
+Cosine 85, pm, _find 6, IDF 49, Count 98 and the B10-raised
+compiler owners.
+
+Events CSV: 1065 -> 1073 (8 consult rows for the roster-120
+render: h007 reuse+hit, h009 reuse, h013 hit, h014 reuse+hit,
+h017 reuse, h019 reuse; band 2026-11-28T01:00:00Z onward,
++30s/row, the gap after the B10 close row 00:35:30
+disclosed). PILOT: no column flip (the batch-4 table predates
+the BOTH arm's column); the adjudication paragraph and a
+ruling-3 tranche-close paragraph appended (the B10 close
+paragraph's "DEFERRED" note superseded by the ruling, the
+original text kept). Dafny EXEMPT per the DAF B6 T3 / B4
+precedent; the spec set is unchanged.
+
+SPLICE (Mark, MacBook): cd ~/Projects/mumps-research && git
+pull (expect HEAD b1e677e on top of 1e173f8); git show
+b1e677e:wp2/arms/ARM_WORKING_NOTES.md > /tmp/journal-base.md;
+cat ADJ23-pushed.md >> wp2/arms/ARM_WORKING_NOTES.md (the
+working tree carries the earlier splices; do NOT clobber);
+git add wp2/arms/ARM_WORKING_NOTES.md; git commit -m "PI
+adjudication items 2+3 spliced (journal append)"; git push;
+rm ADJ23-pushed.md. MacBook gate: cd wp2/arms/BOTH && gradle
+--no-daemon build --console=plain (expect BUILD SUCCESSFUL);
+optionally cd ../DOC && gradle --no-daemon build --console=plain
+for the ruling-1 remediation gate (already gated green
+server-side at 288 kt).
