@@ -173,3 +173,24 @@ For H5 (interaction, difference-of-differences on E3/E6):
 - Confidence level: 95% throughout.
 - Deviations from this SAP discovered during analysis are logged as new
   PROTOCOL_CLARIFICATIONS entries with the analysis not re-run silently.
+
+## Amendment 2: instrument arm coverage and BASE scope (2026-11-27)
+
+Logged as registry entry C-016 in PROTOCOL_CLARIFICATIONS.md.
+
+1. The per-unit check export
+   (`wp2/analysis/data/per_unit_checks.csv`) is extended from two
+   arms (BASE, PRO) to all five arms (BASE, DOC, PRO, DAF, BOTH),
+   308 rows per arm, all starting `todo`. Row/unit identity and the
+   check vocabulary (todo / graded-ok / graded-deviation / deferred)
+   are unchanged from registration. Execution follows
+   `wp2/CHECK_PASS_PLAN.md`.
+2. The registration timing statement "BASE: 308/308 graded (B1 31
+   units; per-unit check columns pending)" is corrected: the BASE
+   arm translated only the B1-B2 rows (through units.csv row 51);
+   BASE rows 52-308 have no BASE render and remain `todo` in the
+   instrument. They are excluded from BASE contrasts and counted in
+   the N excluded line of section 3 reporting.
+3. No contrast, estimand, test statistic, exclusion rule, or
+   multiplicity control registered in this SAP changes.
+

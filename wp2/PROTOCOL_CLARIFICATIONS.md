@@ -822,3 +822,46 @@ discipline (a rank or grep line is not a roster ordinal).
 
 **Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
 entry). No pre-registered instrument is modified.
+
+## C-016 - Per-unit check instrument extended to all five arms; check-pass plan approved (logged 2026-11-27, PI-ruled same day)
+
+**Context.** At SAP registration the committed instrument
+`wp2/analysis/data/per_unit_checks.csv` carried two arms (BASE, PRO;
+616 data rows, all `todo`) because DOC, DAF, and BOTH had not yet
+been translated. All four agent arms completed 308/308 on
+2026-11-25/27 (PRO completion audit + translation-phase close,
+journal 2026-11-27, splice ef9561c). The PI approved the per-unit
+check pass and ruled four scoping decisions on 2026-11-27.
+
+**PI rulings (2026-11-27).**
+
+1. The instrument is extended to all five arms (BASE, DOC, PRO,
+   DAF, BOTH): 308 rows per arm, 1540 data rows. The three new arm
+   blocks start `todo` on all four checks, identical in roster_row
+   and unit_id to the registered rows.
+2. The pass runs as check-type sub-passes (all code-checks first),
+   per `wp2/CHECK_PASS_PLAN.md` sections 2-3.
+3. The pass is agent-executed with PI spot audits (plan section 5;
+   suggested 10 percent blind sample per tranche close).
+4. BASE rows 52-308 remain `todo`: no BASE render exists to check
+   (the BASE arm translated only the B1-B2 rows). This is reported
+   in SAP Amendment 2 rather than silently dropped; the SAP timing
+   statement line "BASE: 308/308 graded" is superseded by the
+   amendment.
+
+**Effect on the committed schedule.** None; the check pass is
+post-translation grading work.
+
+**Methodological consequences.** The instrument extension keeps
+row/unit identity and vocabulary unchanged; the SAP's per-unit
+check exports remain the only analysis inputs. Deferrals (oracle
+coverage gaps) are reported data per C-002 and counted in the SAP's
+N deferrals line. SAP Amendment 2 (appended to
+`wp2/STATISTICAL_ANALYSIS_PLAN.md`) records the timing correction
+and the instrument extension.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
+entry), STATISTICAL_ANALYSIS_PLAN.md (Amendment 2),
+analysis/data/per_unit_checks.csv (three arm blocks appended),
+CHECK_PASS_PLAN.md (new).
+
