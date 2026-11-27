@@ -1,98 +1,98 @@
 roster_row,unit_id,arm,classification,evidence_file,note
 2,libmpscpp.cpp::<misc-1>,BOTH,rendered,LibmpscppMisc3.kt;LibmpscppMisc4.kt;LibmpscppMisc5.kt;LibmpscppMisc6.kt;LibmpscppMisc7.kt;LibmpscppMisc8.kt;LibmpscppMisc9.kt;MstringClassMisc.kt,
-3,interp-parse.cpp::patrn1,BOTH,rendered,CompilerKillCode.kt:at,
+3,interp-parse.cpp::patrn1,BOTH,stub-only,patrn1 stub (CompilerKillCode.kt:at was a name-matcher false positive),C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 4,include/mumpsc/numSetup.h::<misc>,BOTH,no-render,,
-5,interp-sym.cpp::_SymFree,BOTH,rendered,InterpSym.kt:sym_,
+5,interp-sym.cpp::_SymFree,BOTH,stub-only,symFreeZb stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 6,compiler-sys1.c::MyFunc,BOTH,stub-only,CompilerParseMain.kt:MyFunc,
-7,compiler-sys1.c::patrn1,BOTH,rendered,CompilerKillCode.kt:at,
+7,compiler-sys1.c::patrn1,BOTH,stub-only,patrn1 stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 8,interp-sysfunc.cpp::<misc>,BOTH,no-render,InterpSym.kt,
 9,interp-sysfunc.cpp::DirectRead,BOTH,stub-only,Interpret.kt:directReadZb,
 10,libmpscpp.cpp::Input,BOTH,stub-only,InterpService.kt:inputSvcZb,
 11,interp-bstring.cpp::<misc>,BOTH,rendered,RpmMisc.kt,
 12,compiler-localarray.c::LocalArray,BOTH,stub-only,CompilerLocalArrayMiscB5.kt:localArrayZb,
-13,interp-arith.cpp::numcomp,BOTH,rendered,MpstimeMain.kt:numcomp2,
+13,interp-arith.cpp::numcomp,BOTH,stub-only,numcompZb stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 14,interp-interp.cpp::<misc>,BOTH,no-render,,
 15,compiler-abrtx.c::abrtx,BOTH,stub-only,CompilerMain.kt:abrtx,
 16,compiler-parse.c::ExpandGet,BOTH,stub-only,CompilerParseMain.kt:ExpandGet,
-17,interp-bmgsubs.c::gotamatch,BOTH,rendered,CompilerKillCode.kt:at;Match.kt:match,
+17,interp-bmgsubs.c::gotamatch,BOTH,stub-only,gotamatch stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 18,compiler-parse.c::Extract2,BOTH,rendered,Extract.kt:_extract;Extract2a.kt:Extract2a,
-19,libmpscpp.cpp::global::TermCorrelate,BOTH,rendered,CompilerKillCode.kt:at;LibmpscppMisc9.kt:termCorrelateFaceZb,
+19,libmpscpp.cpp::global::TermCorrelate,BOTH,stub-only,termCorrelateSvcZb stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 20,interp-sysfunc.cpp::GlobalName,BOTH,no-render,SymHMisc.kt:1,prototype ledgered only in SymHMisc.kt; owner marked pending
 21,mumps.cpp::<misc>,BOTH,no-render,,
-22,compiler-parse.c::ExpandNext,BOTH,rendered,Btree.kt:next,
+22,compiler-parse.c::ExpandNext,BOTH,stub-only,ExpandNext stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 23,interp-arith.cpp::mps_acos,BOTH,no-render,,
 24,libmpscpp.cpp::mdh_tree_level_add,BOTH,rendered,MdhTreeLevelAdd.kt:mdhTreeLevelAdd;MdhTreeLevelAdd.kt:mdhTreeLevelAdd,
 25,include/mumpsc/libmpsrdbms.h::<misc>,BOTH,no-render,,
 26,compiler-parse.c::fixstr,BOTH,stub-only,CompilerParseMain.kt:fixstr,
-27,interp-sym.cpp::_find,BOTH,rendered,GlobalFind.kt:globalFind;LibmpscppMisc8.kt:mstringFind,
-28,libmpscpp.cpp::EncodeHTML,BOTH,rendered,LibmpscppMisc6.kt:encodeHtmlM,
+27,interp-sym.cpp::_find,BOTH,stub-only,_find stub (BothStubs),C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+28,libmpscpp.cpp::EncodeHTML,BOTH,stub-only,encodeHtmlC stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 29,interp-native-btree.cpp::btree,BOTH,rendered,Btree.kt:btree;BtreeFreadx.kt:btreeLseekZb,
 30,compiler-if.c::<misc>,BOTH,no-render,,
 31,compiler-open.c::<misc>,BOTH,no-render,,
 32,compiler-copyright-notice.c::<misc>,BOTH,no-render,,
 33,libmpscpp.cpp::<misc-2>,BOTH,rendered,LibmpscppMisc3.kt;LibmpscppMisc4.kt;LibmpscppMisc5.kt;LibmpscppMisc6.kt;LibmpscppMisc7.kt;LibmpscppMisc8.kt;LibmpscppMisc9.kt;MstringClassMisc.kt,
-34,libmpscpp.cpp::sw,BOTH,rendered,ScanAlnum.kt:isWsC,
-35,libmpscpp.cpp::global::TreePrint,BOTH,rendered,CompilerMumpsMisc.kt:EP,
-36,compiler-sys1.c::inout,BOTH,rendered,InterpParseInout.kt:inout,
+34,libmpscpp.cpp::sw,BOTH,stub-only,sw stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+35,libmpscpp.cpp::global::TreePrint,BOTH,no-render,TreePrint: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+36,compiler-sys1.c::inout,BOTH,stub-only,WriteCode inout stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 37,interp-parse.cpp::prnterr,BOTH,stub-only,Interpret.kt:prnterrZb,
 38,include/mumpsc/arith.h::<misc>,BOTH,no-render,,
 39,interp-lock.cpp::<misc>,BOTH,no-render,,
 40,include/mumpsc/btree.h::<misc>,BOTH,no-render,,
 41,compiler-if.c::if_code,BOTH,stub-only,CompilerMain.kt:if_code,
-42,libmpscpp.cpp::global::Multiply,BOTH,rendered,BifsZfcn.kt:zzMultiplyZb;Multiply.kt:Multiply,
+42,libmpscpp.cpp::global::Multiply,BOTH,stub-only,GlobalRef.multiply pending,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 43,compiler-globalarray.c::GlobalArray,BOTH,no-render,,
 44,interp-sql.cpp::embed,BOTH,rendered,Btree.kt:embed;Embed1.kt:embed1,
-45,interp-native-btree.cpp::scanblocks,BOTH,rendered,RpmMisc.kt:scan,
+45,interp-native-btree.cpp::scanblocks,BOTH,stub-only,scanblocks stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 46,libmpscpp.cpp::global::IDF,BOTH,rendered,IdfGlobal.kt:IDF;LibmpscppMisc9.kt:centroidFaceZb,
 47,interp-parse.cpp::getstr2,BOTH,stub-only,Interpret.kt:getstr2Zb,
 48,compiler-copyright-notice.c::copyright_notice,BOTH,stub-only,CompilerMain.kt:copyright_notice,
 49,libmpscpp.cpp::Multiply,BOTH,rendered,BifsZfcn.kt:zzMultiplyZb;Multiply.kt:Multiply,
 50,libmpscpp.cpp::prnt,BOTH,stub-only,Interpret.kt:prnterrZb,
-51,libmpscpp.cpp::global::Min,BOTH,rendered,LibmpscppMisc3.kt:mstringMinusZb;LibmpscppMisc3.kt:mstringFromInt,
+51,libmpscpp.cpp::global::Min,BOTH,stub-only,minSvcZb stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 52,libmpscpp.cpp::mdh_tree_level_add,BOTH,rendered,MdhTreeLevelAdd.kt:mdhTreeLevelAdd;MdhTreeLevelAdd.kt:mdhTreeLevelAdd,
 53,libmpscpp.cpp::mstring::Fnumber,BOTH,no-render,,
 54,interp-arith.cpp::mps_exp,BOTH,rendered,MpsExp2.kt:mpsExp2,
 55,interp-arith.cpp::mps_exp10,BOTH,no-render,,
 56,libmpscpp.cpp::GlobalOrder,BOTH,rendered,GlobalOrderH.kt:GlobalOrder;GlobalOrderMstring.kt:GlobalOrder,
 57,libmpscpp.cpp::global::Piece,BOTH,rendered,LibmpscppMisc8.kt:Piece;LibmpscppMisc8.kt:mstringPiece,
-58,libmpscpp.cpp::KiLL,BOTH,rendered,CompilerKillCode.kt:kill_code,
+58,libmpscpp.cpp::KiLL,BOTH,stub-only,killC stub (LibmpscppMisc6.kt:120),C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 59,compiler-abrtx.c::<misc>,BOTH,no-render,,
 60,compiler-doty.c::<misc>,BOTH,no-render,,
-61,libmpscpp.cpp::SQL_Table,BOTH,rendered,InterpSql.kt:sql;Sql.kt:sql,
+61,libmpscpp.cpp::SQL_Table,BOTH,no-render,SQL_Table: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 62,libmpscpp.cpp::global::Find,BOTH,rendered,GlobalFind.kt:globalFind;LibmpscppMisc8.kt:mstringFind,
-63,libmpscpp.cpp::global::Extract,BOTH,rendered,CompilerParseMisc.kt:Extract1;Extract.kt:_extract,
-64,interp-parse.cpp::parse_,BOTH,rendered,CompilerMain.kt:parseErrCm;CompilerParseMain.kt:parse_,
-65,interp-parse.cpp::patrn,BOTH,rendered,CompilerKillCode.kt:at,
+63,libmpscpp.cpp::global::Extract,BOTH,no-render,global::Extract: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+64,interp-parse.cpp::parse_,BOTH,stub-only,parse_ stub (BothStubs),C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+65,interp-parse.cpp::patrn,BOTH,no-render,patrn: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 66,compiler-new.c::new_code,BOTH,stub-only,CompilerMain.kt:new_code,
 67,interp-arith.cpp::<misc>,BOTH,stub-only,Cannon.kt:mult,
 68,include/mumpsc/globalClass.h::<misc>,BOTH,no-render,LibmpscppMisc5.kt,
-69,compiler-sys1.c::patrn,BOTH,rendered,CompilerKillCode.kt:at,
+69,compiler-sys1.c::patrn,BOTH,no-render,patrn: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 70,compiler-sys1.c::errmod_,BOTH,stub-only,CompilerMain.kt:errmod_,
 71,interp-bmgsubs.c::bmg_fsearch,BOTH,no-render,,
-72,libmpscpp.cpp::Cosine,BOTH,rendered,LibmpscppMisc9.kt:cosineFaceZb,
-73,compiler-sys1.c::cannon,BOTH,rendered,Cannon.kt:cannon,
+72,libmpscpp.cpp::Cosine,BOTH,stub-only,Cosine stub (BothStubs),C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+73,compiler-sys1.c::cannon,BOTH,no-render,Cannon.kt renders interp-parse.cpp::cannon twin; compiler-sys1.c::cannon no seat,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 74,interp-zfcns.cpp::GtkTreeAdd,BOTH,stub-only,GtkTreeAdd.kt:GtkTreeAdd,
-75,libmpscpp.cpp::RunMumps,BOTH,rendered,CompilerParseMain.kt:run,
+75,libmpscpp.cpp::RunMumps,BOTH,no-render,RunMumps: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 76,interp-parse.cpp::<misc>,BOTH,no-render,,
 77,compiler-parse.c::ExpandQS,BOTH,stub-only,CompilerParseMain.kt:ExpandQS,
 78,libmpscpp.cpp::mstring::Eval,BOTH,rendered,Eval.kt:Eval;InterpService.kt:svcEvalZb,
-79,compiler-sys1.c::readf_,BOTH,rendered,MpstimeMain.kt:readForLoop,
+79,compiler-sys1.c::readf_,BOTH,stub-only,readf_Zb stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 80,libmpscpp.cpp::ScanAlnum,BOTH,rendered,RpmMisc.kt:scan;ScanAlnum.kt:ScanAlnum,
 81,include/mumpsc/cppsysfunc.h::<misc>,BOTH,no-render,,
 82,libmpscpp.cpp::Scan,BOTH,rendered,BifsZfcn.kt:zzScanZb;CompilerParseMain.kt:scanOperand,
 83,libmpscpp.cpp::Cost,BOTH,no-render,,
-84,interp-arith.cpp::mps_justify,BOTH,rendered,Justify.kt:_justify,
+84,interp-arith.cpp::mps_justify,BOTH,no-render,Justify.kt renders interp-sym.cpp::_justify; mps_justify no seat,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 85,libmpscpp.cpp::global::Fnumber,BOTH,rendered,Fnumber.kt,GlobalRef.Fnumber extension render
-86,interp-arith.cpp::mps_atan,BOTH,rendered,CompilerKillCode.kt:at,
+86,interp-arith.cpp::mps_atan,BOTH,no-render,mps_atan: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 87,libmpscpp.cpp::GlobalData,BOTH,rendered,BothStubs.kt:globalDataC;CompilerKillCode.kt:at,
 88,libmpscpp.cpp::GlobalOrder,BOTH,rendered,GlobalOrderH.kt:GlobalOrder;GlobalOrderMstring.kt:GlobalOrder,
-89,libmpscpp.cpp::Max,BOTH,rendered,GlobalMax.kt:globalMax;ZfcnsZfcn.kt:zindexmaxZb,
+89,libmpscpp.cpp::Max,BOTH,stub-only,maxSvcZb stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 90,interp-arith.cpp::mps_sqrt,BOTH,stub-only,BifsZfcn.kt:mpsSqrtZb,
 91,libmpscpp.cpp::mdh_tree_level_add,BOTH,rendered,MdhTreeLevelAdd.kt:mdhTreeLevelAdd;MdhTreeLevelAdd.kt:mdhTreeLevelAdd,
 92,libmpscpp.cpp::global::Concat,BOTH,rendered,CompilerKillCode.kt:at;LibmpscppMisc4.kt:mstringConcat,
 93,compiler-epi.c::<misc>,BOTH,no-render,,
 94,compiler-read.c::<misc>,BOTH,no-render,,
-95,interp-fcn.cpp::fcn,BOTH,rendered,BifsZfcn.kt:zfcnBifs;CompilerParseMain.kt:fcnNameEnd,
+95,interp-fcn.cpp::fcn,BOTH,stub-only,fcn stub (BothCRuntime); ZfcnsZfcn zfcn is the zfcn unit,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 96,compiler-for.c::for_code,BOTH,stub-only,CompilerMain.kt:for_code,
 97,compiler-set.c::set_code,BOTH,stub-only,ReadCode.kt:set_code,
 98,libmpscpp.cpp::<misc-9>,BOTH,rendered,LibmpscppMisc3.kt;LibmpscppMisc4.kt;LibmpscppMisc5.kt;LibmpscppMisc6.kt;LibmpscppMisc7.kt;LibmpscppMisc8.kt;LibmpscppMisc9.kt;MstringClassMisc.kt,
@@ -100,14 +100,14 @@ roster_row,unit_id,arm,classification,evidence_file,note
 100,include/pcre.h::<misc>,BOTH,no-render,,
 101,compiler-doty.c::doty,BOTH,stub-only,CompilerMain.kt:doty,
 102,compiler-lock.c::lock_code,BOTH,stub-only,CompilerMain.kt:lock_code,
-103,interp-parse.cpp::readf_,BOTH,rendered,MpstimeMain.kt:readForLoop,
+103,interp-parse.cpp::readf_,BOTH,no-render,interp-parse.cpp::readf_: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 104,interp-piece.cpp::<misc>,BOTH,stub-only,Piece.kt:_pieceZb,_pieceZb TODO stub pinned to this unit
-105,interp-rpm.cpp::parse_pattern_element,BOTH,rendered,RpmMisc.kt:parsePattern,
-106,libmpscpp.cpp::global::Centroid,BOTH,rendered,LibmpscppMisc9.kt:centroidFaceZb,
+105,interp-rpm.cpp::parse_pattern_element,BOTH,stub-only,parse_pattern_element stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+106,libmpscpp.cpp::global::Centroid,BOTH,stub-only,centroidSvcZb stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 107,interp-fnumber.cpp::_fnumber,BOTH,no-render,,
 108,interp-bifs.cpp::<misc>,BOTH,no-render,,
-109,compiler-at-test.c::atTest,BOTH,rendered,CompilerKillCode.kt:at,
-110,libmpscpp.cpp::init,BOTH,rendered,BifsZfcn.kt:zstopinitZb;BifsZfcn.kt:zsyninitZb,
+109,compiler-at-test.c::atTest,BOTH,stub-only,atTest stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+110,libmpscpp.cpp::init,BOTH,no-render,libmpscpp.cpp::init: no InitSmithWaterman on this arm,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 111,include/mumpsc/sysfunc.h::<misc>,BOTH,no-render,,
 112,interp-native-btree.cpp::pb,BOTH,stub-only,BtreeFreadx.kt:pb,pb TODO stub; C-015 pin family
 113,interp-sysfunc.cpp::LocalName,BOTH,no-render,,
@@ -117,9 +117,9 @@ roster_row,unit_id,arm,classification,evidence_file,note
 117,server.cpp::<misc>,BOTH,no-render,,
 118,libmpscpp.cpp::Transpose,BOTH,rendered,LibmpscppMisc5.kt:Transpose;LibmpscppMisc5.kt:Transpose,
 119,libmpscpp.cpp::Count,BOTH,rendered,BifsZfcn.kt:zgCountZb;LibmpscppMisc6.kt:countKeyZb,
-120,libmpscpp.cpp::Min,BOTH,rendered,LibmpscppMisc3.kt:mstringMinusZb;LibmpscppMisc3.kt:mstringFromInt,
+120,libmpscpp.cpp::Min,BOTH,stub-only,minSvcZb stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 121,libmpscpp.cpp::mstring::Fnumber,BOTH,no-render,,
-122,interp-stem.cpp::escan,BOTH,rendered,RpmMisc.kt:scan,
+122,interp-stem.cpp::escan,BOTH,stub-only,escan stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 123,compiler-globalarray.c::<misc>,BOTH,no-render,,
 124,compiler-new.c::<misc>,BOTH,no-render,,
 125,libmpscpp.cpp::<misc-5>,BOTH,rendered,LibmpscppMisc3.kt;LibmpscppMisc4.kt;LibmpscppMisc5.kt;LibmpscppMisc6.kt;LibmpscppMisc7.kt;LibmpscppMisc8.kt;LibmpscppMisc9.kt;MstringClassMisc.kt,
@@ -245,7 +245,7 @@ roster_row,unit_id,arm,classification,evidence_file,note
 245,compiler-set.c::<misc>,BOTH,rendered,CompilerSetMisc.kt,
 246,libmpscpp.cpp::mstring::Find,BOTH,rendered,GlobalFind.kt:globalFind;LibmpscppMisc8.kt:mstringFind,
 247,include/mumpsc/builtinTable.h::<misc>,BOTH,rendered,BuiltinTable.kt,data-table render; Unit 246 header
-248,compiler-parse.c::parse_,BOTH,rendered,CompilerMain.kt:parseErrCm;CompilerParseMain.kt:parse_,
+248,compiler-parse.c::parse_,BOTH,stub-only,parse_ stub (CompilerParseMain),C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 249,libmpscpp.cpp::<misc-3>,BOTH,rendered,LibmpscppMisc3.kt;LibmpscppMisc4.kt;LibmpscppMisc5.kt;LibmpscppMisc6.kt;LibmpscppMisc7.kt;LibmpscppMisc8.kt;LibmpscppMisc9.kt;MstringClassMisc.kt,
 250,interp-native-btree.cpp::btreeX,BOTH,rendered,Btree.kt:btree;BtreeX.kt:btreeX,
 251,compiler-kill.c::kill_code,BOTH,rendered,CompilerKillCode.kt:kill_code,
@@ -308,55 +308,55 @@ roster_row,unit_id,arm,classification,evidence_file,note
 308,compiler-at-test.c::<misc>,BOTH,rendered,CompilerAtTestMisc.kt,
 309,libmpscpp.cpp::global::Justify,BOTH,rendered,Justify.kt:_justify;LibmpscppMisc8.kt:mstringJustify,
 2,libmpscpp.cpp::<misc-1>,DAF,rendered,LibmpscppMisc3.kt;LibmpscppMisc4.kt;LibmpscppMisc5.kt;LibmpscppMisc6.kt;LibmpscppMisc7.kt;LibmpscppMisc8.kt;LibmpscppMisc9.kt,
-3,interp-parse.cpp::patrn1,DAF,rendered,DafCRuntimeT2.kt:at,
+3,interp-parse.cpp::patrn1,DAF,stub-only,patrn1Daf stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 4,include/mumpsc/numSetup.h::<misc>,DAF,no-render,,
 5,interp-sym.cpp::_SymFree,DAF,stub-only,Interpret.kt:symFreeDaf,
 6,compiler-sys1.c::MyFunc,DAF,stub-only,CompilerParseC.kt:myFuncDaf,
-7,compiler-sys1.c::patrn1,DAF,rendered,DafCRuntimeT2.kt:at,
+7,compiler-sys1.c::patrn1,DAF,stub-only,patrn1Daf stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 8,interp-sysfunc.cpp::<misc>,DAF,no-render,,
 9,interp-sysfunc.cpp::DirectRead,DAF,stub-only,Interpret.kt:directReadDaf,
 10,libmpscpp.cpp::Input,DAF,stub-only,InterpService.kt:inputSvDaf,
 11,interp-bstring.cpp::<misc>,DAF,stub-only,RpmParserStubsD.kt:bstring ops,bstring helper stubs; owner is this misc unit
 12,compiler-localarray.c::LocalArray,DAF,stub-only,DafInterpStubsT3.kt:localArrayDaf,named-owner stub; residue rendered separately (row 123 seat file)
-13,interp-arith.cpp::numcomp,DAF,rendered,MpstimeMisc.kt:numcomp2D,
+13,interp-arith.cpp::numcomp,DAF,stub-only,numcompDaf stub (numcomp2D is a different fn),C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 14,interp-interp.cpp::<misc>,DAF,no-render,,
 15,compiler-abrtx.c::abrtx,DAF,rendered,CompilerAbtx.kt:abrtxDaf,
 16,compiler-parse.c::ExpandGet,DAF,stub-only,CompilerParseC.kt:expandGetDaf,
-17,interp-bmgsubs.c::gotamatch,DAF,rendered,DafCRuntimeT2.kt:at,
+17,interp-bmgsubs.c::gotamatch,DAF,stub-only,gotamatchD stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 18,compiler-parse.c::Extract2,DAF,rendered,Extract2a.kt:extract2aD,
 19,libmpscpp.cpp::global::TermCorrelate,DAF,rendered,DafCRuntimeT2.kt:at;LibmpscppMisc9.kt:TermCorrelateW,
 20,interp-sysfunc.cpp::GlobalName,DAF,rendered,LibmpscppMisc6.kt:globalNameD,
 21,mumps.cpp::<misc>,DAF,no-render,,
-22,compiler-parse.c::ExpandNext,DAF,rendered,InterpSqlBtree.kt:next,
+22,compiler-parse.c::ExpandNext,DAF,stub-only,expandNextDaf stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 23,interp-arith.cpp::mps_acos,DAF,stub-only,Zfcns.kt:mpsAcosD,
 24,libmpscpp.cpp::mdh_tree_level_add,DAF,rendered,MdhTreeLevelAdd.kt:mdhTreeLevelAddD;MdhTreeLevelAdd.kt:mdhTreeLevelAddD,
 25,include/mumpsc/libmpsrdbms.h::<misc>,DAF,no-render,,
 26,compiler-parse.c::fixstr,DAF,stub-only,CompilerParseC.kt:fixstrDaf,
-27,interp-sym.cpp::_find,DAF,rendered,GlobalFind.kt:globalFindD;GlobalFindB7.kt:globalFindKeyD,
-28,libmpscpp.cpp::EncodeHTML,DAF,rendered,LibmpscppMisc6.kt:mstringEncodeHtmlD,
+27,interp-sym.cpp::_find,DAF,stub-only,findDaf stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+28,libmpscpp.cpp::EncodeHTML,DAF,stub-only,encodeHtmlDaf stub (mstring forwarder is a different fn),C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 29,interp-native-btree.cpp::btree,DAF,rendered,BtreeX.kt:btreeXD;BtreeX.kt:btreeXDDescent,
 30,compiler-if.c::<misc>,DAF,no-render,,
 31,compiler-open.c::<misc>,DAF,no-render,,
 32,compiler-copyright-notice.c::<misc>,DAF,no-render,,
 33,libmpscpp.cpp::<misc-2>,DAF,rendered,LibmpscppMisc3.kt;LibmpscppMisc4.kt;LibmpscppMisc5.kt;LibmpscppMisc6.kt;LibmpscppMisc7.kt;LibmpscppMisc8.kt;LibmpscppMisc9.kt,
-34,libmpscpp.cpp::sw,DAF,rendered,LibmpscppMisc5.kt:startsWithE5D,
+34,libmpscpp.cpp::sw,DAF,stub-only,swD stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 35,libmpscpp.cpp::global::TreePrint,DAF,no-render,,
-36,compiler-sys1.c::inout,DAF,rendered,InterpParseInout.kt:inoutInterpDaf,
-37,interp-parse.cpp::prnterr,DAF,rendered,Fcn.kt:err,
+36,compiler-sys1.c::inout,DAF,stub-only,inoutDaf stub (WriteCode.kt),C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+37,interp-parse.cpp::prnterr,DAF,stub-only,prnterrDaf stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 38,include/mumpsc/arith.h::<misc>,DAF,no-render,,
 39,interp-lock.cpp::<misc>,DAF,no-render,,
 40,include/mumpsc/btree.h::<misc>,DAF,no-render,,
 41,compiler-if.c::if_code,DAF,rendered,CompilerIfCode.kt:ifCodeDaf;CompilerIfCode.kt:strcpyAtIfCode,
-42,libmpscpp.cpp::global::Multiply,DAF,rendered,Multiply.kt:multiplyD,
+42,libmpscpp.cpp::global::Multiply,DAF,stub-only,multiplyW stub (InterpService.kt); global::Multiply member pending,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 43,compiler-globalarray.c::GlobalArray,DAF,stub-only,DafInterpStubsT3.kt:globalArrayDaf,
 44,interp-sql.cpp::embed,DAF,rendered,Embed1.kt:embed1Daf,
 45,interp-native-btree.cpp::scanblocks,DAF,rendered,BtreeX.kt:scanblocksD,
 46,libmpscpp.cpp::global::IDF,DAF,rendered,Idf.kt:idfW,
 47,interp-parse.cpp::getstr2,DAF,stub-only,Interpret.kt:getstr2Daf,
 48,compiler-copyright-notice.c::copyright_notice,DAF,rendered,CompilerCopyrightNotice.kt:copyrightNoticeDaf,
-49,libmpscpp.cpp::Multiply,DAF,rendered,Multiply.kt:multiplyD,
+49,libmpscpp.cpp::Multiply,DAF,stub-only,multiplyW stub (InterpService.kt); char* twin :2252 not drawn per Multiply.kt same-id adjudication,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 50,libmpscpp.cpp::prnt,DAF,stub-only,Interpret.kt:prnterrDaf,
-51,libmpscpp.cpp::global::Min,DAF,rendered,LibmpscppMisc8.kt:mstringFromIntD;Min.kt:Min,
+51,libmpscpp.cpp::global::Min,DAF,stub-only,min member stub; Min.kt renders unit 99 instead,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 52,libmpscpp.cpp::mdh_tree_level_add,DAF,rendered,MdhTreeLevelAdd.kt:mdhTreeLevelAddD;MdhTreeLevelAdd.kt:mdhTreeLevelAddD,
 53,libmpscpp.cpp::mstring::Fnumber,DAF,rendered,GlobalFnumber.kt:globalFnumberD;InterpFnumber.kt:fnumberD,
 54,interp-arith.cpp::mps_exp,DAF,rendered,MpsExp2.kt:mpsExp2D,
@@ -368,14 +368,14 @@ roster_row,unit_id,arm,classification,evidence_file,note
 60,compiler-doty.c::<misc>,DAF,no-render,,
 61,libmpscpp.cpp::SQL_Table,DAF,rendered,LibmpscppMisc6.kt:sqlTableD;LibmpscppMisc6.kt:sqlTableXD,
 62,libmpscpp.cpp::global::Find,DAF,rendered,GlobalFind.kt:globalFindD;GlobalFindB7.kt:globalFindKeyD,
-63,libmpscpp.cpp::global::Extract,DAF,rendered,CompilerExtract.kt:extractD;CompilerParseMisc.kt:extract1Daf,
+63,libmpscpp.cpp::global::Extract,DAF,no-render,"Extract.kt renders interp-sym.cpp::_extract, not global::Extract",C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 64,interp-parse.cpp::parse_,DAF,rendered,CompilerParseC.kt:parseCDaf;ParseCount.kt:parseCountD,
-65,interp-parse.cpp::patrn,DAF,rendered,DafCRuntimeT2.kt:at,
+65,interp-parse.cpp::patrn,DAF,no-render,patrn: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 66,compiler-new.c::new_code,DAF,rendered,CompilerNewCode.kt:newCodeDaf;CompilerNewCode.kt:strcpyAtNewCode,
 67,interp-arith.cpp::<misc>,DAF,no-render,,
 68,include/mumpsc/globalClass.h::<misc>,DAF,no-render,,
-69,compiler-sys1.c::patrn,DAF,rendered,DafCRuntimeT2.kt:at,
-70,compiler-sys1.c::errmod_,DAF,rendered,Fcn.kt:err,
+69,compiler-sys1.c::patrn,DAF,no-render,patrn: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
+70,compiler-sys1.c::errmod_,DAF,no-render,errmod_: no seat found,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 71,interp-bmgsubs.c::bmg_fsearch,DAF,no-render,,
 72,libmpscpp.cpp::Cosine,DAF,rendered,LibmpscppMisc9.kt:CosineW,
 73,compiler-sys1.c::cannon,DAF,rendered,Cannon.kt:cannonD;Cannon.kt:copyFromCannonD,
@@ -391,10 +391,10 @@ roster_row,unit_id,arm,classification,evidence_file,note
 83,libmpscpp.cpp::Cost,DAF,no-render,,
 84,interp-arith.cpp::mps_justify,DAF,stub-only,DafInterpStubsT3.kt:mpsJustifyDaf,
 85,libmpscpp.cpp::global::Fnumber,DAF,rendered,GlobalFnumber.kt:globalFnumberD;InterpFnumber.kt:fnumberD,
-86,interp-arith.cpp::mps_atan,DAF,rendered,DafCRuntimeT2.kt:at,
+86,interp-arith.cpp::mps_atan,DAF,stub-only,mpsAtanD stub,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 87,libmpscpp.cpp::GlobalData,DAF,rendered,DafCRuntimeT2.kt:at;GlobalData.kt:globalDataD,
 88,libmpscpp.cpp::GlobalOrder,DAF,rendered,GlobalOrderH.kt:globalOrderHD;LibmpscppGlobalOrder.kt:GlobalOrderD,
-89,libmpscpp.cpp::Max,DAF,rendered,GlobalMax.kt:globalMaxD,
+89,libmpscpp.cpp::Max,DAF,stub-only,maxW stub (InterpService.kt); GlobalMax renders global::Max row 170,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 90,interp-arith.cpp::mps_sqrt,DAF,stub-only,Zfcns.kt:mpsSqrtD,
 91,libmpscpp.cpp::mdh_tree_level_add,DAF,rendered,MdhTreeLevelAdd.kt:mdhTreeLevelAddD;MdhTreeLevelAdd.kt:mdhTreeLevelAddD,
 92,libmpscpp.cpp::global::Concat,DAF,rendered,DafCRuntimeT2.kt:at;LibmpscppMisc7.kt:concatRetrieveD,
@@ -506,7 +506,7 @@ roster_row,unit_id,arm,classification,evidence_file,note
 198,compiler-parse.c::Extract,DAF,rendered,CompilerExtract.kt:extractD;CompilerParseMisc.kt:extract1Daf,
 199,libmpscpp.cpp::Sim1,DAF,rendered,LibmpscppMisc9.kt:Sim1W;Sim1.kt:sim1Daf,
 200,interp-sql.cpp::rslt_callback,DAF,rendered,RsltCallback.kt:rsltCallbackD,
-201,libmpscpp.cpp::Multiply,DAF,rendered,Multiply.kt:multiplyD,
+201,libmpscpp.cpp::Multiply,DAF,stub-only,MSV dispatcher :10193 not drawn per Multiply.kt same-id adjudication; multiplyW stub kin,C-020 erratum: C-018 name-matcher false positive; claim-based re-verification
 202,interp-fcn.cpp::<misc>,DAF,rendered,InterpFcnMisc.kt,
 203,libmpscpp.cpp::global::MakeGlobal,DAF,rendered,MakeGlobal.kt:makeGlobalD,
 204,interp-sysfunc.cpp::GlobalData,DAF,rendered,DafCRuntimeT2.kt:at;GlobalData.kt:globalDataD,

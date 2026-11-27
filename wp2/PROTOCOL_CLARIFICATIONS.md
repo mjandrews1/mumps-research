@@ -1016,3 +1016,49 @@ in wp2/arms/RENDER-CLOSE-PLAN-2026-11-27.md (committed with this
 fragment). Study machine m1-build runs the gradle gates at each
 render push.
 
+## C-020 (2026-11-27): Erratum to the C-018 DAF/BOTH coverage audit ledger
+
+Classification: audit defect disclosure and ledger amendment
+(supersedes the C-018 classifications for 57 rows; file
+wp2/analysis/data/daf_both_coverage_audit.csv amended in place, v2).
+
+Defect. The C-018 audit's name matcher accepted a fun-body name
+match when the normalized names differed by fewer than 14
+characters. Short function names matched as substrings of unrelated
+longer names in other render files, producing false "rendered"
+classifications. Verified examples: the fun named "at" matched the
+ExpandData seat and the CompilerKillCode render; "next" matched
+ExpandNext; "scan" matched ScanAlnum and escan. DAF row 22
+(ExpandNext) was classified rendered via InterpSqlBtree.kt while
+expandNextDaf is a live NotImplementedError stub.
+
+Re-verification method (claim-based). Every render seat carries a
+KDoc claim ("vendor::name (N LOC") or a stub claim ("owner: uid ...
+TODO"). Re-verification keyed on those claims instead of names:
+extract every claim, match it to the roster by id string, then open
+the flagged declarations and read the fun body (real body vs
+TODO/NotImplementedError/UnsupportedOperation). 130 flagged rows
+were adjudicated this way; 57 demotions resulted, 73 flags were
+cleared as genuinely rendered (including the same-id adjudications
+already on record: Multiply.kt row 141, Min.kt unit 99, Cannon.kt
+interp-parse twin, mpsCeilD, countKeyZb, and the mdh_tree_level_add
+overload family).
+
+Corrected counts (ledger v2):
+- DAF: 248 rendered, 32 stub-only, 28 no-render. Gap 60 (was 40).
+- BOTH: 209 rendered, 51 stub-only, 48 no-render. Gap 99 (was 62).
+
+Consequence. The C-019 Option A render-close plan grows: R1 now 32
+DAF stub rows (4 already complete and gate-passed), R4 grows by 26
+BOTH stub rows, R2/R3/R5/R6/R7 grow by the demoted no-render rows.
+RENDER-CLOSE-PLAN-2026-11-27.md amended accordingly in the same
+commit; the post-close re-audit is renumbered C-021. S1 remains
+paused pending the PI ruling below.
+
+PI ruling. Option A (render sessions close all gaps) was ruled under
+the C-018 counts (40/62). The corrected gap set is 60/99, roughly
+1.55x. The PI reviewed the corrected counts and RE-AFFIRMED Option A
+(ruled in session, 2026-11-27): all gaps close via the render
+sessions R1-R7 as amended; no missing-outcome rows. S1 stays paused
+until the C-021 re-audit confirms 308/308 per arm.
+

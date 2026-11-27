@@ -11972,3 +11972,26 @@ C-018 audit session (2026-11-27, agent, PI-mark): dedicated DAF/BOTH coverage au
 
 C-019 ruling session (2026-11-27, PI Mark, recorded by agent): PI ruled Option A on the C-018 gap disposition - render sessions close all 40 DAF and 62 BOTH gap units; no missing-outcome declarations. PI also adjudicated BOTH row 169 (stateVector.h::<misc>, the minimal Msv carrier in BothCRuntime.kt) as front-run coverage; the audit ledger row was amended to rendered in the same commit, making final counts DAF 268/16/24 and BOTH 246/25/37 (gap 40 and 62). S1 stays paused until the render sessions close and a re-audit confirms both arms 308/308 rendered. Render-close plan committed alongside (RENDER-CLOSE-PLAN-2026-11-27.md). Master at splice time: 0871e86 (C-018).
 
+C-020. Erratum to the C-018 coverage audit. During the first R1
+stub-completion tranches a systematic false-positive pattern emerged
+in the C-018 ledger: the audit name matcher (normalized name match,
+length difference under 14) let short names match as substrings of
+unrelated seats ("at" vs ExpandData, "next" vs ExpandNext, "scan" vs
+ScanAlnum/escan), so rows whose seats are live TODO stubs were
+classified rendered. A claim-based re-verification keyed on the
+KDoc owner/LOC claims rather than names, with dossier adjudication
+of every flagged declaration, demoted 57 rows (DAF 20, BOTH 37) and
+cleared 73 flags as genuinely rendered. Corrected per-arm counts:
+DAF 248 rendered / 32 stub-only / 28 no-render (gap 60); BOTH 209 /
+51 / 48 (gap 99). The ledger file
+wp2/analysis/data/daf_both_coverage_audit.csv is amended in place
+(v2); every demoted row carries the erratum note. RENDER-CLOSE-PLAN
+amended: R1 now 32 DAF stub rows (23/55/84/90 complete and
+compile-gated this session; mps_acos, mps_exp10, mps_justify,
+mps_sqrt folded into Zfcns/ZfcnBifs/Fcn call sites), R4 + 26 BOTH
+stub rows, R2-R7 + demoted no-render rows; post-close re-audit
+renumbered C-021. S1 stays paused. PI re-affirmed Option A over the
+corrected 60/99 gap set (ruled in session, 2026-11-27); R1 proceeds.
+Lesson recorded for the close-out classifier: name matching is not
+evidence; claims plus body reads are.
+
