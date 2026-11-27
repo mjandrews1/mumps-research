@@ -943,3 +943,41 @@ stamps per C-014's session-ordinal treatment.
 **Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
 entry); ARM_WORKING_NOTES.md (journal note, same splice).
 
+# C-018: DEDICATED DAF/BOTH COVERAGE AUDIT RESULTS AND PI RULING REQUEST
+
+Date: 2026-11-27
+Status: audit complete; S1 remains paused pending PI ruling
+Evidence: wp2/analysis/data/daf_both_coverage_audit.csv (616 rows, one per arm-unit, committed in the same commit as this fragment)
+Method: per-unit render ledger vs the 308-unit roster (roster rows = units.csv line numbers). Classifier combined (a) fun-body truth (normalized name match on real bodies vs TODO/NotImplementedError stub seats), (b) flattened-text unit-id claims (ids split across line breaks matched), (c) residue/misc seat-file evidence (dedicated XMisc/XH/XMiscB5 renders whose headers claim the vendor TU residue, including "Unit N ... residue (<misc>, N physical LOC)" forms), and (d) manual reads of every flagged declaration. Stub seats pinned to a unit by their own KDoc owner pin count as stub-only, not rendered. Named-owner ledger mentions (prototype listed as pending, no code) count as no-render.
+
+## PER-ARM RESULTS (308 roster units each)
+
+DAF: 268 rendered, 16 stub-only, 24 no-render. Gap total 40.
+  - DAF stub-only rows (16): 5 _SymFree, 6 MyFunc, 9 DirectRead, 10 Input, 11 interp-bstring.cpp::<misc> (bstring helper stubs), 12 LocalArray, 16 ExpandGet, 23 mps_acos, 26 fixstr, 43 GlobalArray, 47 getstr2, 50 prnt, 55 mps_exp10, 77 ExpandQS, 84 mps_justify, 90 mps_sqrt.
+  - DAF no-render rows (24): 4 numSetup.h::<misc>, 8 interp-sysfunc.cpp::<misc>, 14 interp-interp.cpp::<misc>, 21 mumps.cpp::<misc>, 25 libmpsrdbms.h::<misc>, 30 compiler-if.c::<misc>, 31 compiler-open.c::<misc>, 32 compiler-copyright-notice.c::<misc>, 35 global::TreePrint, 38 arith.h::<misc>, 39 interp-lock.cpp::<misc>, 40 btree.h::<misc>, 59 compiler-abrtx.c::<misc>, 60 compiler-doty.c::<misc>, 67 interp-arith.cpp::<misc>, 68 globalClass.h::<misc>, 71 bmg_fsearch, 75 RunMumps, 76 interp-parse.cpp::<misc>, 81 cppsysfunc.h::<misc>, 83 Cost, 93 compiler-epi.c::<misc>, 94 compiler-read.c::<misc>, 252 interp-native-btree.cpp::<misc>.
+
+BOTH: 245 rendered, 25 stub-only, 37 no-render, 1 front-run. Gap total 63 (62 excluding the front-run row).
+  - BOTH stub-only rows (25): 6 MyFunc, 9 DirectRead, 10 Input, 12 LocalArray, 15 abrtx, 16 ExpandGet, 26 fixstr, 37 prnterr, 41 if_code, 47 getstr2, 48 copyright_notice, 50 prnt, 66 new_code, 67 interp-arith.cpp::<misc> (mult stub), 70 errmod_, 74 interp-zfcns.cpp::GtkTreeAdd, 77 ExpandQS, 90 mps_sqrt, 96 for_code, 97 set_code, 101 doty, 102 lock_code, 104 interp-piece.cpp::<misc> (_pieceZb stub), 112 pb, 225 interp-bifs.cpp::GtkTreeAdd.
+  - BOTH no-render rows (37): 4 numSetup.h::<misc>, 8 interp-sysfunc.cpp::<misc>, 14 interp-interp.cpp::<misc>, 20 GlobalName, 21 mumps.cpp::<misc>, 23 mps_acos, 25 libmpsrdbms.h::<misc>, 30 compiler-if.c::<misc>, 31 compiler-open.c::<misc>, 32 compiler-copyright-notice.c::<misc>, 38 arith.h::<misc>, 39 interp-lock.cpp::<misc>, 40 btree.h::<misc>, 43 GlobalArray, 53 mstring::Fnumber, 55 mps_exp10, 59 compiler-abrtx.c::<misc>, 60 compiler-doty.c::<misc>, 68 globalClass.h::<misc>, 71 bmg_fsearch, 76 interp-parse.cpp::<misc>, 81 cppsysfunc.h::<misc>, 83 Cost, 93 compiler-epi.c::<misc>, 94 compiler-read.c::<misc>, 99 GlobalQuery, 100 pcre.h::<misc>, 107 _fnumber, 108 interp-bifs.cpp::<misc>, 111 sysfunc.h::<misc>, 113 LocalName, 115 mps_asin, 116 rdbms-if.c::<misc>, 117 server.cpp::<misc>, 121 mstring::Fnumber (second seat), 123 compiler-globalarray.c::<misc>, 124 compiler-new.c::<misc>.
+  - BOTH front-run row (1): 169 stateVector.h::<misc>, rendered as the minimal Msv carrier inside BothCRuntime.kt (the carrier note itself says "TODO-stub per h014"); PI to adjudicate whether this counts as front-run coverage or a gap.
+
+Both-arm shared gaps (20 no-render rows identical in both arms): 4, 8, 14, 21, 25, 30, 31, 32, 38, 39, 40, 59, 60, 68, 71, 76, 81, 83, 93, 94. Shared stub rows (10): 6, 9, 10, 12, 16, 26, 47, 50, 77, 90.
+
+## STRUCTURAL FINDINGS
+
+1. Batch-session coverage is asymmetric. The DAF journal records B4, B5, B7, B8, B9, B10 and a 4-unit supplementary close, but no B1/B2/B3/B6 sessions. The BOTH journal records B1 (partial: roughly 10-11 of its 31 units), B5, B6, B7, B8, B9, B10, but no complete B1 close and no B2/B3/B4. The gap rows concentrate exactly in the unrecorded sessions' slices.
+2. Residue renders cited without contiguous id strings were a major source of the earlier undercount. Dedicated Misc/H seat files (for example DAF CompilerGlobalsExtMisc.kt row 128, InterpBmgsubs.kt row 285, LibmpscppLine1149.kt row 291; BOTH BuiltinTable.kt row 247, LibmpscppLine1149.kt row 291, Fnumber.kt rows 85/206, MstringFixGblRef.kt row 263) are real renders and are counted as rendered in this audit.
+3. C-014's scheduled renders (BOTH embed 43, mstring::Eval 77) never landed; row 43 remains a no-render gap in BOTH.
+4. The C-015 pin-relabel family (stubs whose old pins quoted units.csv rows or both_seq numbers) is confirmed present throughout the stub seats but does not affect render truth; stub seats with corrected pins remain stub-only.
+5. DOC and PRO remain 308/308 verified (prior sessions); the coverage gap is confined to DAF and BOTH.
+
+## PI RULING REQUESTED
+
+S1 (code-check pass) remains fully paused. The PI is asked to rule on the disposition of the 40 DAF and 62-63 BOTH gap units:
+
+  Option A (render sessions): schedule dedicated render sessions per C-011 discipline to close the gaps (DAF 40 units, BOTH 62 plus the row-169 adjudication), then resume S1.
+  Option B (missing-outcome-rows): declare the gap units missing outcomes per the SAP join (they leave the per-unit outcome table with no translation-arm observation), record them as such in the SAP, and resume S1 over the rendered set.
+  Option C (hybrid): render a PI-selected subset (for example the shared 20 no-render rows that are identical across both arms, or the stub-only rows that only need body completion), and declare the rest missing outcomes.
+
+The audit takes no position; all three are recorded here so the ruling can cite this registry entry.
+
