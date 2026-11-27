@@ -653,37 +653,94 @@ Check columns track the BASE reference translation (C-002) and stay
 todo per the C-001 cycle-10 backfill decision. Next protocol step:
 DAF batch 9 per the committed row order (one session per C-011).
 
-| 216 | include/mumpsc/builtinTable.h::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
-| 217 | libmpscpp.cpp::mstring::Find | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 218 | compiler-kill.c::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
-| 219 | compiler-lock.c::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
-| 220 | compiler-set.c::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
-| 221 | include/mumpsc/zfcns.h::<misc> | c | simple | todo | todo | translated | todo | todo | todo |
-| 222 | compiler-mumps.c::atCopy | c | simple | todo | todo | translated | todo | todo | todo |
-| 223 | libmpscpp.cpp::IDF | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 224 | libmpscpp.cpp::global::Piece | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 225 | libmpscpp.cpp::GlobalData | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 226 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | todo | todo | translated | todo | todo | todo |
-| 227 | libmpscpp.cpp::global::ReadLine | cpp | core | todo | todo | translated | todo | todo | todo |
-| 228 | compiler-parse.c::ExpandText | c | core | todo | todo | translated | todo | todo | todo |
-| 229 | interp-sym.cpp::ScanParse | cpp | core | todo | todo | translated | todo | todo | todo |
-| 230 | interp-parse.cpp::BuildGlobal | cpp | core | todo | todo | translated | todo | todo | todo |
-| 231 | interp-sym.cpp::BuildLocal | cpp | core | todo | todo | translated | todo | todo | todo |
-| 232 | compiler-parse.c::Extract2a | c | core | todo | todo | translated | todo | todo | todo |
-| 233 | interp-zfcns.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | todo |
-| 234 | compiler-sys1.c::getstr1 | c | core | todo | todo | translated | todo | todo | todo |
-| 235 | interp-sql.cpp::<misc> | cpp | core | todo | todo | translated | todo | todo | todo |
-| 236 | include/mumpsc/compiler-macros.h::<misc> | c | core | todo | todo | translated | todo | todo | todo |
-| 237 | interp-sysfunc.cpp::Merge | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 238 | interp-bifs.cpp::GtkTreeAdd | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 239 | include/mumpsc/builtin.h::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
-| 240 | interp-parse.cpp::cannon | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 241 | compiler-open.c::mumps_open | c | complex | todo | todo | translated | todo | todo | todo |
-| 242 | include/mumpsc/compiler-globals.h::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
-| 243 | compiler-parse.c::<misc> | c | complex | todo | todo | translated | todo | todo | todo |
-| 244 | interp-sysfunc.cpp::AllocSV | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 245 | libmpscpp.cpp::<misc-7> | cpp | complex | todo | todo | translated | todo | todo | todo |
-| 246 | interp-sql.cpp::btree | cpp | complex | todo | todo | translated | todo | todo | todo |
+BOTH batch 8 (units 216-246) translated 2026-11-27 in ONE session
+per C-011: thirty-one units pushed, whole-arm kotlinc gate EXIT=0
+at 116 files (0 errors, 0 warnings, hygiene clean: no tabs, ASCII
+only, no backticks, comment dollars escaped). Rows follow the BOTH
+committed units.csv record order (the table above is DOC's
+committed order, the reverse; flips matched BY ID STRING per the
+B7 lesson). Seat releases this batch: allocSV (218, BothStubs
+raise resolves), atCopy (240, the WriteCode raise resolves),
+parse_ zero-arg duplicate removed at gate (221; the WriteCode:274
+seat was already called direct), memcheck/cvar/Extract1 (243,
+verification fold onto ExtractCompiler.kt:53 and new renders),
+rsltSpec/call_back (227, verification folds onto the SqlRuntime
+object, RsltCallback.kt:50-51), the 220 initializer completion
+(ErrChar, MaxTmp, for_mult, flg and the except literals seated in
+CompilerGlobalsExtMisc), and the 234 CodedOpen/CodedClose hex
+emission splice to Extract2a direct. New TODO stubs raised:
+GlobalNode.IDF (239), mult (222, owner interp-arith roster 67),
+Extract2 (221, owner compiler-parse.c::Extract2, batch 2/3
+pending), LocalOrder (231), GlobalOrder (232), GTK platform edge
+(224, the mdh stub family), embed (216; record 43 COVERAGE
+FINDING: no render and no events rows exist on master for the
+batch-3 unit, embed1 is the distinct double-quote twin), sql
+6-arg (216, the interp-sql.cpp engine face, distinct from the
+libmpscpp 5-string-arg Sql.kt face), mstringEvalZb (217; record
+77 COVERAGE FINDING: no render and no events rows on master),
+mstringFixGblRefZb (217, record 262 batch 9 pending). Verification
+twins confirmed line-for-line with no new code: 235 ReadLine
+(readLineG, LibmpscppMisc6:178), 236 mdh_tree_level_add
+(MdhTreeLevelAdd.kt), 237 GlobalData (GlobalDataMstring.kt,
+header pre-adjudicated), 238 global::Piece(pat,ii,jj) (the
+Piece.kt GlobalRef overload). Quantizations and quirks disclosed:
+getstr1 opnflg==3 raw-fd dance h020 with the dead newline branch
+and area[1000] off-by-one kept, ScanParse paren-depth unclamped,
+Merge >127 backward terminator scan with SOH fallback and the FIX
+macro drops, btree ORDER p1+=12 off-by-one, XNEXT a8-skip typo,
+GKILL tokens=0 shadow, STORE xMaximum typo, dead keybak strcpy
+and dead printf quantized h013, the 14==14 preprocessor ladder,
+misc-7 unsigned/short/float arms folded onto Int/Long/Double
+seats h021 with the vendor literal-d typo kept. MISLABEL FAMILY
+disclosed, NOT renumbered pending PI note: stub pins cite
+complexity ranks or grep lines, not ordinals (allocSV roster 285
+is the rank, true ordinal 218; atCopy roster 241 is a grep line,
+true ordinal 240; idfSvcZb 45 and the InterpService pins Scan 75,
+ScanAlnum 77 are ranks). SESSION-SPAN DISCLOSURE: the sandbox
+wiped three times mid-session; every rebuild restored the gate
+from the knowledge stage (90 baseline files, vendor/kotlinc/JDK
+SHAs re-verified) and re-ran green before rendering resumed; all
+31 units and their consult rows are ONE C-011 session on the
+2026-11-27 continuation band. Events CSV: 130 consult rows append
+(rows 630-759, band opened 2026-11-27T18:30:00Z, +30 s/row; the
+nominal 16:00Z band was consumed by the DAF supplementary
+continuation rows), file 629 -> 759 lines, at push. Check columns
+track the BASE reference translation (C-002) and stay todo per
+the C-001 cycle-10 backfill decision. Next protocol step: BOTH
+batch 9 per the committed row order (one session per C-011), 93
+units remaining to arm completion.
+
+| 216 | include/mumpsc/builtinTable.h::<misc> | c | simple | todo | todo | translated | translated | todo | todo |
+| 217 | libmpscpp.cpp::mstring::Find | cpp | simple | todo | todo | translated | translated | todo | todo |
+| 218 | compiler-kill.c::<misc> | c | simple | todo | todo | translated | translated | todo | todo |
+| 219 | compiler-lock.c::<misc> | c | simple | todo | todo | translated | translated | todo | todo |
+| 220 | compiler-set.c::<misc> | c | simple | todo | todo | translated | translated | todo | todo |
+| 221 | include/mumpsc/zfcns.h::<misc> | c | simple | todo | todo | translated | translated | todo | todo |
+| 222 | compiler-mumps.c::atCopy | c | simple | todo | todo | translated | translated | todo | todo |
+| 223 | libmpscpp.cpp::IDF | cpp | simple | todo | todo | translated | translated | todo | todo |
+| 224 | libmpscpp.cpp::global::Piece | cpp | simple | todo | todo | translated | translated | todo | todo |
+| 225 | libmpscpp.cpp::GlobalData | cpp | simple | todo | todo | translated | translated | todo | todo |
+| 226 | libmpscpp.cpp::mdh_tree_level_add | cpp | simple | todo | todo | translated | translated | todo | todo |
+| 227 | libmpscpp.cpp::global::ReadLine | cpp | core | todo | todo | translated | translated | todo | todo |
+| 228 | compiler-parse.c::ExpandText | c | core | todo | todo | translated | translated | todo | todo |
+| 229 | interp-sym.cpp::ScanParse | cpp | core | todo | todo | translated | translated | todo | todo |
+| 230 | interp-parse.cpp::BuildGlobal | cpp | core | todo | todo | translated | translated | todo | todo |
+| 231 | interp-sym.cpp::BuildLocal | cpp | core | todo | todo | translated | translated | todo | todo |
+| 232 | compiler-parse.c::Extract2a | c | core | todo | todo | translated | translated | todo | todo |
+| 233 | interp-zfcns.cpp::<misc> | cpp | core | todo | todo | translated | translated | todo | todo |
+| 234 | compiler-sys1.c::getstr1 | c | core | todo | todo | translated | translated | todo | todo |
+| 235 | interp-sql.cpp::<misc> | cpp | core | todo | todo | translated | translated | todo | todo |
+| 236 | include/mumpsc/compiler-macros.h::<misc> | c | core | todo | todo | translated | translated | todo | todo |
+| 237 | interp-sysfunc.cpp::Merge | cpp | complex | todo | todo | translated | translated | todo | todo |
+| 238 | interp-bifs.cpp::GtkTreeAdd | cpp | complex | todo | todo | translated | translated | todo | todo |
+| 239 | include/mumpsc/builtin.h::<misc> | c | complex | todo | todo | translated | translated | todo | todo |
+| 240 | interp-parse.cpp::cannon | cpp | complex | todo | todo | translated | translated | todo | todo |
+| 241 | compiler-open.c::mumps_open | c | complex | todo | todo | translated | translated | todo | todo |
+| 242 | include/mumpsc/compiler-globals.h::<misc> | c | complex | todo | todo | translated | translated | todo | todo |
+| 243 | compiler-parse.c::<misc> | c | complex | todo | todo | translated | translated | todo | todo |
+| 244 | interp-sysfunc.cpp::AllocSV | cpp | complex | todo | todo | translated | translated | todo | todo |
+| 245 | libmpscpp.cpp::<misc-7> | cpp | complex | todo | todo | translated | translated | todo | todo |
+| 246 | interp-sql.cpp::btree | cpp | complex | todo | todo | translated | translated | todo | todo |
 
 ## Batch 9 (units 247-277, opened 2026-11-24; DAF runs the batch in ONE session per the C-011 protocol)
 

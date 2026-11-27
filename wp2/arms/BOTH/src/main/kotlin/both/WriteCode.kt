@@ -241,13 +241,9 @@ internal fun atTest(
     TODO("stub: owner compiler-at-test.c::atTest (roster 109, batch 4)")
 }
 
-// void atCopy(int at_flg, unsigned char tmp[]) -
-// compiler-mumps.c:1956. Owner: compiler-mumps.c::atCopy, roster
-// unit 241 (batch 8, pending). The xpx->at_flg slice walk with
-// the quote/backslash doubling; TODO-stub (h014).
-internal fun atCopy(atFlg: Int, tmp: CharArray) {
-    TODO("stub: owner compiler-mumps.c::atCopy (roster 241, batch 8)")
-}
+// void atCopy - released: the batch-8 owner render now lives in
+// AtCopy.kt (unit 240; the roster-241 pin was the grep-line
+// mislabel family, corrected at the owner).
 
 // void inout(unsigned char text[], short cmnd, unsigned char
 // col[]) - compiler-sys1.c:292 (K&R style). Owner:

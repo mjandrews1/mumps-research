@@ -133,11 +133,9 @@ internal fun GlobalRef.multiply(b: GlobalRef, c: GlobalRef) {
 // (unit 146 render seat; TU-dimension pin, no owner unit).
 internal const val SYNMAX = 20000 // libmpscpp.h:385
 
-// struct MSV *AllocSV() - owner: interp-sysfunc.cpp::AllocSV,
-// roster 285, batch 8. TODO-stub (h014); the Qlength push seat.
-internal fun allocSV(): Msv {
-    TODO("stub: owner interp-sysfunc.cpp::AllocSV (roster 285, batch 8)")
-}
+// struct MSV *AllocSV() - released: the batch-8 owner render
+// now lives in AllocSv.kt (unit 218; the roster-285 pin above was
+// the complexity-rank mislabel family, corrected at the owner).
 
 // int parse_(struct MSV *) - owner: interp-parse.cpp::parse_, roster
 // 303, batch 3. TODO-stub (h014); the Qlength parse seat (vendor

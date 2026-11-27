@@ -80,7 +80,7 @@ internal object CompilerGlobalsExt {
     var MAIN_flg: Short = 0 // :51
     val FunctionName = CharArray(256) // :52
     var ArgMax: Short = 0 // :53
-    var ErrChar: Char = 0.toChar() // :54
+    var ErrChar: Char = ' ' // :54 (compiler-globals.h init: char ErrChar=' ')
 
     // struct txt extern pointers (compiler-globals-ext.h:66-67)
     var LabelsStart: Txt? = null
@@ -96,7 +96,7 @@ internal object CompilerGlobalsExt {
     var Out: java.io.Writer? = null // :106 (FILE *Out - h001 edge)
     var Final: java.io.Writer? = null // :106 (FILE *Final)
     var ExitCode: Short = 0 // :107
-    var MaxTmp: Short = 0 // :108
+    var MaxTmp: Short = 2 // :108 (compiler-globals.h:108 init: short MaxTmp = 2)
     var iiitmp: Int = 0 // :109
     var forxmax: Int = 0 // :110
     var forxFLG: Int = 0 // :111
@@ -135,7 +135,7 @@ internal object CompilerGlobalsExt {
     var LockFlag: Short = 0 // :137
     var SubFlag: Short = 0 // :138
     var SymIncrFlg: Short = 0 // :139
-    var for_mult: Short = 0 // :140
+    var for_mult: Short = -1 // :140 (compiler-globals.h init: short for_mult = -1)
     var F_flg: Int = 0 // :141
     var SinglesFlg: Short = 0 // :142
     var MergeFlg: Int = 0 // :143
@@ -169,8 +169,10 @@ internal object CompilerGlobalsExt {
     val vdG = CharArray(1024) // :170 (collision note)
     var pl: Int = 0 // :171
     var p2: String? = null // :172 (char *p2)
-    val except: Array<String?> = arrayOfNulls(24) // :174 (char *except[])
-    var flg: Int = 0 // :176 (int flg)
+    val except: Array<String?> = // :174 (char *except[]; compiler-globals.h:174-178 init)
+        arrayOf<String?>("InputLengthException", "InterpreterException", "") +
+            Array<String?>(21) { null }
+    var flg: Int = 1 // :176 (compiler-globals.h init: int flg=1)
 }
 
 // Prototype owner ledger (compiler-globals-ext.h:80-104, the
