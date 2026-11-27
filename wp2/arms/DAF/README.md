@@ -28,4 +28,11 @@ Operational guide: `wp2/arms/ARM_WORKING_NOTES.md` section 3 (binding).
 cd ~/mumps-research/wp2/arms/DAF
 dafny --version
 gradle --no-daemon build
+for f in spec/*.dfy; do dafny verify --allow-warnings "$f" | tail -1; done
 ```
+
+The dafny suite gates per file: the single-program form
+`dafny verify spec/*.dfy` collides on per-file NUL consts
+(concatenation artifact, NOT a regression); the per-file loop
+above is the arm protocol command (C-013-era lesson, disclosed
+at the DAF supplementary close 2026-11-27).

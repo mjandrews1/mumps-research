@@ -22,8 +22,10 @@ effect on the committed schedule, and the methodological consequences.
 | C-009 | 2026-11-22 | PRO event-log timestamps are a nominal calendar, not wall-clock records | Registered (retrospective, logged as data) |
 | C-010 | 2026-11-24 | Translator gate and push-verification steps are script-driven | Registered (C-010 entry) |
 | C-011 | 2026-11-24 | One-session-per-batch for batches 8-10 | Registered (C-011 entry) |
-| C-012 | 2026-11-24 | DAF CODED-lattice const-name inversion (unit 243 fold-in) | Pending (PI adjudication requested) |
-| C-013 | 2026-11-24 | Batch-8 fresh tail-id divergence across arms (DOC vs DAF) | Pending (PI adjudication requested) |
+| C-012 | 2026-11-24 | DAF CODED-lattice const-name inversion (unit 243 fold-in) | Resolved (PI ruled 2026-11-27: rename to vendor macros) |
+| C-013 | 2026-11-24 | Batch-8 fresh tail-id divergence across arms (DOC vs DAF) | Resolved (PI ruled 2026-11-27: cross-walk checked in) |
+| C-014 | 2026-11-27 | BOTH batch-3 coverage findings (records 43 and 77) | Registered (PI ruled 2026-11-27: renders scheduled) |
+| C-015 | 2026-11-27 | Cosmetic rank/grep-line mislabel family in stub pins | Registered (PI ruled 2026-11-27: renumber on next pushes) |
 
 ---
 
@@ -609,7 +611,7 @@ decision and the per-unit check columns are unaffected.
 entry). No pre-registered instrument is modified.
 
 
-## C-012 - DAF CODED-lattice const-name inversion at the unit-243 fold-in (logged 2026-11-24, pending PI ruling)
+## C-012 - DAF CODED-lattice const-name inversion at the unit-243 fold-in (logged 2026-11-24; PI ruled 2026-11-27)
 
 **Observation.** At the DAF batch-8 unit-243 render
 (compiler-parse.c::<misc>, the parser file-head residue), the
@@ -647,6 +649,12 @@ note, and the journal fragment).**
 next DAF push either way; no gate, batch, or per-unit check value
 changes.
 
+**PI ruling (2026-11-27):** Option 1 — the names must match the
+vendor macros. The rename (CODED_CLOSE_D=207, CODED_COMMA_D=208)
+is a one-file, compile-identical edit plus its in-file release
+note, ridden on the next DAF push (batch 9) and recorded here as
+resolved-named when it lands.
+
 **Methodological consequences.** The unit-level outcome is not
 affected: the code points 207/208 decode identically in every arm.
 What is adjudicated is a code-equivalence bookkeeping question
@@ -656,7 +664,7 @@ code-review discipline records but does not grade against.
 **Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
 entry). No pre-registered instrument is modified.
 
-## C-013 - Batch-8 fresh tail-id divergence across arms (logged 2026-11-24, pending PI ruling)
+## C-013 - Batch-8 fresh tail-id divergence across arms (logged 2026-11-24; PI ruled 2026-11-27)
 
 **Observation.** The batch-8 roster rows are keyed by numeric
 PILOT/table ids derived from each arm's committed batch_plan.md
@@ -698,12 +706,119 @@ modified).**
 changes; the entry binds the analysis phase and the batch-8 close
 books only.
 
+**PI ruling (2026-11-27):** Option 1 — a canonical cross-walk
+table is checked in as analysis tooling at
+`wp2/analysis/data/unit_id_crosswalk.csv` with its reproducible
+builder `wp2/analysis/data/build_unit_crosswalk.py`. The table is
+derived ONLY from the pre-registered instruments
+(`wp1/study-subset/batch_plan.md`, `wp1/study-subset/units.csv`,
+`wp1/order_assignments.json`), one row per roster ENTRY (308
+rows), carrying: the global batch_plan ordinal (the PILOT/DAF
+id), the units.csv data-row ordinal (the "record N" id used in
+the coverage findings), the unit_id, lang, stratum, LOC, score,
+batch, and each arm's position in its committed sequence
+(base/doc/pro/daf/both_seq). Verified against the known anchors:
+record 43 = interp-sql.cpp::embed (B2), record 77 =
+libmpscpp.cpp::mstring::Eval (B3), global 237 =
+interp-sysfunc.cpp::Merge. The join discipline of item 2
+(unit_id + batch, never the bare numeric id) remains binding;
+the cross-walk additionally discloses that 28 unit_id strings
+recur across batches (e.g. libmpscpp.cpp::mdh_tree_level_add in
+seven batches), so the roster key is the ENTRY (unit_id +
+batch), not the name alone.
+
 **Methodological consequences.** Any arm-level batch-8 metric
 that groups by numeric row id would mis-pair units across arms;
 the entry forbids that join and names the correct one. The
 pre-registered per-arm batching (C-001) is untouched: each arm
 still translates each batch exactly once in its committed
 relative order.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
+entry). No pre-registered instrument is modified.
+
+## C-014 - BOTH batch-3 coverage findings: records 43 and 77 (logged 2026-11-27, PI-ruled)
+
+**Observation.** At the BOTH batch-8 close (2026-11-27), two
+batch-3 roster entries were found to have NO renders and NO
+events-CSV rows on the BOTH arm master: record 43
+(interp-sql.cpp::embed, units.csv row 43, global ordinal 51) and
+record 77 (libmpscpp.cpp::mstring::Eval, units.csv row 77, global
+ordinal 79). The batch-8 renders raised named TODO stubs at
+their owners citing both records: embed at Btree.kt (the
+distinct double-quote twin embed1 IS rendered, batch 7), and
+mstringEvalZb at LibmpscppMisc7.kt. DOC, DAF, and PRO carry
+renders for both records per their batch-3 closes; the gap is
+BOTH-side only.
+
+**Clarification (logged as data; disclosed at the BOTH batch-8
+close in the PILOT paragraph and the journal fragment).**
+
+1. The finding is a coverage gap in the BOTH arm's batch-3
+   tranche, not a cross-arm comparability break: the analysis
+   joins per unit per arm, so BOTH-side nulls surface as missing
+   outcome rows for exactly these two entries.
+2. **PI ruling (2026-11-27):** the two renders are SCHEDULED, not
+   discharged by the stubs. Both renders (embed, mstring::Eval)
+   ride the BOTH batch-9 session (the next BOTH session per the
+   committed row order, one session per C-011), with the cycle-10
+   buffer (C-001) as the fallback if batch 9 closes without them.
+   The named stubs raised at the batch-8 close stay in place
+   until the real renders land, then release per the standard
+   seat discipline.
+3. The events CSV rows for both renders ride the batch-9 session
+   band, with the retrospective gap disclosed in the row rationale
+   (the render session is the consult row's session; the units'
+   batch-3 provenance is noted).
+
+**Effect on the committed schedule.** None beyond the two extra
+renders inside the already-scheduled batch-9 session; if deferred
+to cycle 10, the buffer cycle absorbs them by design.
+
+**Methodological consequences.** The BOTH arm's batch-3
+per-batch metrics are unaffected (the units were never claimed
+rendered); when the renders land, they carry batch-9 (or buffer)
+session stamps and the batch-position covariate uses the actual
+session ordinal per C-001. The pair is the first
+within-arm coverage finding of the study and is recorded as data.
+
+**Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
+entry). No pre-registered instrument is modified.
+
+
+## C-015 - Cosmetic rank/grep-line mislabel family in stub pins (logged 2026-11-27, PI-ruled)
+
+**Observation.** BothStubs-family TODO stub rank pins cite
+complexity ranks or vendor grep line numbers instead of roster
+ordinals. Confirmed members: allocSV "roster 285" is the
+complexity rank (true ordinal 218), atCopy "roster 241" is a
+vendor grep line (true ordinal 240), idfSvcZb "roster 45" is a
+rank pin, and the InterpService stub pins (Scan 75, ScanAlnum 77,
+IDF 45) cite ranks. The family was first disclosed at the BOTH
+batch-7 close (sigint 254->190, parse_ 248->247, Extract 171->17,
+multiply 213->41, Mltoa 292->291, fcn 123->94, substr 212->211)
+and extended at the batch-8 close.
+
+**Clarification (logged as data; disclosed at the batch-7 and
+batch-8 closes).**
+
+1. The pins are cosmetic comments in stub TODO lines; no gate,
+   seat, or outcome value depends on them.
+2. **PI ruling (2026-11-27):** the pins are RENUMBERED to true
+   roster ordinals (per the C-013 cross-walk where needed), riding
+   the next push of each owning arm: the BOTH-side pins (allocSV,
+   atCopy, idfSvcZb, the InterpService block) on the BOTH batch-9
+   push; any DAF-side pins on the DAF batch-9 push (which also
+   carries the C-012 rename). Until then the family note stands
+   as the disclosed record.
+3. The renumber is comment-only and compile-identical; each
+   renumbered pin cites this entry in its push note.
+
+**Effect on the committed schedule.** None.
+
+**Methodological consequences.** None for graded outcomes; the
+renumber removes a cross-referencing hazard for the code-review
+discipline (a rank or grep line is not a roster ordinal).
 
 **Files touched by this entry:** PROTOCOL_CLARIFICATIONS.md (this
 entry). No pre-registered instrument is modified.
