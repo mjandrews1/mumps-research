@@ -11660,3 +11660,78 @@ gate re-ran green from the b9-stage overlays with identical
 counts (143 files EXIT=0 0/0 each time). Next protocol step:
 BOTH batch 10 per the committed row order (one session per
 C-011).
+# BOTH B10 close (2026-11-27)
+
+BOTH batch 10 (units 278-308, 31 units, the FINAL roster batch)
+translated 2026-11-27 in ONE session per C-011: thirty-one units
+pushed, whole-arm kotlinc gate EXIT=0 at 171 files (144 master
+baseline + 34 stage overlays incl. CompilerMain.kt), 0 errors,
+0 warnings, hygiene clean (no tabs, ASCII only, no backticks,
+comment dollars escaped as \u0024). Flips matched BY ID STRING;
+the roster 278-308 map into PILOT units_csv_row is REVERSED
+(roster 308 -> row 278). BOTH ARM STUDY-COMPLETE: 308/308 units
+translated.
+
+Three giants this batch: compiler-mumps.c::main (308, 1372 loc,
+rendered as CompilerMain.kt ~80.5 KB, the when-state machine
+fold of the next_line/next_cmnd/pstrtn/do_entry/another_do/
+job_return/cntnue/ctch/gexit/next_goto label lattice with
+prologue emission, plus-define PushbackReader scan, label/
+entry-point processing, command switch, and the error-label
+family as private folds), compiler-sys1.c::sym_ (307), and
+libmpscpp misc-8 (306). Eight NEW TODO stubs raised with
+crosswalk-true pins from main: new_code (91 b3), lock_code
+(116 b4), if_code (54 b2), for_code (122 b4), errmod_ (87 b3),
+doty (117 b4), copyright_notice (47 b2), abrtx (18 b1).
+
+Seat releases with notes: wstem (294) and Mltoa (295) released
+inside the staged BothStubs.kt / BothCRuntime.kt edits; doc
+Correlate (299) released as a LibmpscppMisc5 delegate already
+landed on master (LibmpscppMisc5.kt IDENTICAL to master, NOT in
+the push); extractValue, xecute, stopLookupZb and mstring*Zb
+stubs flipped in place across the batch. Unit 304 ownership
+crosswalk CORRECTION: star(*) handling moved to 306 (misc-8);
+the angle-bracket families remain misc-9 roster 120 deferred.
+Cross-batch divergence flagged for PI: %g vs %lf format-string
+usage differs between the DOC and BOTH render families.
+
+Events CSV: 933 -> 1065 lines (+132 B10 rows, csv-validated
+1064/1064; band start 2026-11-27T23:30:00+0000, +30s/row, gap
+after B9's 21:56:30 row disclosed; consult sets parsed per
+unit, e.g. 308: h001/h004/h007/h009/h011 reuse + h013/h014/
+h017 hit + h019/h020 reuse).
+
+PILOT_TRACKING.md: 31 B10 rows flipped todo -> translated BY ID
+STRING; close paragraph appended after the 308 row disclosing
+the giants, stubs, seat releases, the 304 crosswalk
+correction, the %g/%lf divergence, events 933 -> 1065, dafny
+70/0, the mid-session env-reset rebuild, and BOTH ARM
+STUDY-COMPLETE 308/308.
+
+Dafny gate at close: fresh dafny 4.11.0 rebuild, 11 spec
+files, 70 verified 0 errors (all B10 units EXEMPT per the
+DAF B6 T3 precedent). No dafny/kotlinc action needed from
+Mark (both gated green server-side).
+
+PUSH: one push_files commit 97444ae on top of 77d5444, 36
+files (34 kt at wp2/arms/BOTH/src/main/kotlin/both/ + events
+CSV + PILOT). Pre-push length check: all 36 bytes==chars
+except PILOT 96351 bytes vs 96349 chars (the pre-existing
+em-dash at line 10, not truncation). Post-push blob-SHA
+verification: 6 of 6 spot-checked blobs match local
+sha1("blob <len>\0"+content) values (CompilerMain 7c6a960b,
+BothStubs 7a0a9f9d, BothCRuntime f580401d, InterpSym
+807eac7a, events CSV 4e331bfa, PILOT 6d4f629c). BothCRuntime/
+BothStubs/BifsZfcn/LibmpscppMisc3/MpstimeMain/Piece.kt are
+EDIT files in the push, not new.
+
+SPLICE (Mark, MacBook): cd ~/Projects/mumps-research && git
+pull (expect HEAD 97444ae on top of 77d5444); git show
+97444ae:wp2/arms/ARM_WORKING_NOTES.md > /tmp/journal-base.md;
+cat BOTH-B10-pushed.md >> wp2/arms/ARM_WORKING_NOTES.md (the
+working tree carries the B9 splice, do NOT clobber); git add
+wp2/arms/ARM_WORKING_NOTES.md; git commit -m "BOTH B10 close
+spliced (journal append)"; git push; rm BOTH-B10-pushed.md
+(untracked). MacBook gradle gate: cd wp2/arms/BOTH && gradle
+--no-daemon build --console=plain (NO ./gradlew wrapper;
+expect BUILD SUCCESSFUL).
