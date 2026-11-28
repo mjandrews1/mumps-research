@@ -583,7 +583,7 @@ fun dafFcn(sv: DafMsv) {
             // (MULTI_PRECISION dead code comment-fold; reference build
             // uses the %c%d%c%df BIGFLOAT-free variant)
             val fmt = "%${l}.${k}f"
-            mpsJustifyDaf(fmt, sv.bd, sv.v1d)
+            bdSet(mpsJustifyDaf(fmt, sv.v1d))
             sv.ierr = 0
             return@run
         }

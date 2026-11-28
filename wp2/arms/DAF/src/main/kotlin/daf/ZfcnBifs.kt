@@ -1522,7 +1522,7 @@ fun zfcnBifsDaf(v1d: CharArray, bd: CharArray, svPtr: DafMsv) {
 
             ZLblB.ZACOSINE -> {
                 if (nargs != 1.toShort()) { lab = ZLblB.ERR; continue@machine }
-                mpsAcosD(bd, sliceAtZb(v1d, 1))
+                strcpyS_B(bd, mpsAcosD(toZb(DafCRuntime.cstringAt(v1d, 1))))
                 return
             }
 
@@ -1552,7 +1552,7 @@ fun zfcnBifsDaf(v1d: CharArray, bd: CharArray, svPtr: DafMsv) {
 
             ZLblB.ZEXP10 -> {
                 if (nargs != 1.toShort()) { lab = ZLblB.ERR; continue@machine }
-                mpsExp10D(bd, DafCRuntime.cstringAt(v1d, 1))
+                strcpyS_B(bd, mpsExp10D(toZb(DafCRuntime.cstringAt(v1d, 1))))
                 return
             }
 
@@ -2069,7 +2069,7 @@ fun zfcnBifsDaf(v1d: CharArray, bd: CharArray, svPtr: DafMsv) {
 
             ZLblB.ZROOT -> {
                 if (nargs != 1.toShort()) { lab = ZLblB.ERR; continue@machine }
-                mpsSqrtD(bd, sliceAtZb(v1d, 1))
+                strcpyS_B(bd, mpsSqrtD(sliceAtZb(v1d, 1)))
                 return
             }
 

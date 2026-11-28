@@ -1598,7 +1598,7 @@ fun zfcnDaf(v1d: CharArray, bd: CharArray, svPtr: DafMsv) {
 
             ZLblZ.ZACOSINE -> {
                 if (nargs != 1.toShort()) { lab = ZLblZ.ERR; continue@machine }
-                mpsAcosD(bd, sliceAtZb(v1d, 1))
+                strcpyS_B(bd, mpsAcosD(toZb(DafCRuntime.cstringAt(v1d, 1))))
                 return
             }
 
@@ -1628,7 +1628,7 @@ fun zfcnDaf(v1d: CharArray, bd: CharArray, svPtr: DafMsv) {
 
             ZLblZ.ZEXP10 -> {
                 if (nargs != 1.toShort()) { lab = ZLblZ.ERR; continue@machine }
-                mpsExp10D(bd, DafCRuntime.cstringAt(v1d, 1))
+                strcpyS_B(bd, mpsExp10D(toZb(DafCRuntime.cstringAt(v1d, 1))))
                 return
             }
 
@@ -2155,7 +2155,7 @@ fun zfcnDaf(v1d: CharArray, bd: CharArray, svPtr: DafMsv) {
 
             ZLblZ.ZROOT -> {
                 if (nargs != 1.toShort()) { lab = ZLblZ.ERR; continue@machine }
-                mpsSqrtD(bd, sliceAtZb(v1d, 1))
+                strcpyS_B(bd, mpsSqrtD(sliceAtZb(v1d, 1)))
                 return
             }
 
@@ -2309,12 +2309,15 @@ fun mpsExp2D(bd: CharArray, in_: String): Unit =
     throw NotImplementedError("mps_exp2: out-of-scope owner (interp-arith.cpp::mps_exp2, roster b9)")
 fun mpsExpD(bd: CharArray, in_: String): Unit =
     throw NotImplementedError("mps_exp: out-of-scope owner (interp-arith.cpp::mps_exp, kin row)")
-fun mpsExp10D(bd: CharArray, in_: String): Unit =
-    throw NotImplementedError("mps_exp10: out-of-scope owner (interp-arith.cpp::mps_exp10, kin row)")
-fun mpsSqrtD(bd: CharArray, in_: CharArray): Unit =
-    throw NotImplementedError("mps_sqrt: out-of-scope owner (interp-arith.cpp::mps_sqrt, kin row)")
-fun mpsAcosD(bd: CharArray, in_: CharArray): Unit =
-    throw NotImplementedError("mps_acos: out-of-scope owner (interp-arith.cpp::mps_acos, kin row)")
+// mpsExp10D stub RELEASED (C-019 R1): real body at MpsExp10.kt
+// (roster row 55; the ZEXP10 call site here resolves via the
+// String fold; release note there).
+// mpsSqrtD stub RELEASED (C-019 R1): real body at MpsSqrt.kt
+// (roster row 90; the ZROOT call sites here and in ZfcnBifs.kt
+// resolve via the String fold; release note there).
+// mpsAcosD stub RELEASED (C-019 R1): real body at MpsAcos.kt
+// (roster row 23; the ZACOSINE call site here resolves via the
+// String fold; release note there).
 fun mpsAtanD(bd: CharArray, in_: CharArray): Unit =
     throw NotImplementedError("mps_atan: out-of-scope owner (interp-arith.cpp::mps_atan, kin row)")
 
