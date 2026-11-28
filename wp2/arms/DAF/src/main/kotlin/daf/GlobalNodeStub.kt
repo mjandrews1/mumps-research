@@ -28,9 +28,11 @@ class MpsGlobalNode(val ref: String) {
         throw NotImplementedError(
             "global.Count member: out-of-scope owner (libmpscpp.cpp global class)")
 
-    fun min(): Double =
-        throw NotImplementedError(
-            "global.Min member: out-of-scope owner (libmpscpp.cpp::global::Min, roster batch-2 unit)")
+    // min() RELEASED (R1 stub-completion 2026-11-28, tranche 5):
+    // roster row 51; real body at GlobalMin.kt (globalMinD, the
+    // unit-171 Max sibling walk); the Min.kt unit-99 wrapper call
+    // sites resolve here.
+    fun min(): Double = globalMinD(this)
 
     fun transpose(b: MpsGlobalNode) {
         throw NotImplementedError(
@@ -96,6 +98,23 @@ class MpsGlobalNode(val ref: String) {
     // superseded); the member walks the receiver ref, the sub
     // argument keeps the unit-130 ctor/invoke binding.
     fun avg(sub: String): Double = globalAvgD(this)
+
+    // -- T5 seat additions (R1 stub-completion 2026-11-28, tranche 5) --
+
+    // Max() - the max member: kin owner libmpscpp.cpp::global::Max
+    // (roster row 170) RELEASED earlier at GlobalMax.kt
+    // (globalMaxD); this seat binds the maxW wrapper reach (row
+    // 89). The sv binding DafInterpState.svPtr per the Avg member
+    // rule (the vendor member reads the TU svPtr).
+    fun max(): Double = globalMaxD(this, DafInterpState.svPtr)
+
+    // Multiply(b, c) - the matrix-multiply member (roster row 42):
+    // RELEASED at GlobalMultiply.kt (globalMultiplyD, the
+    // member form of the landed unit-141 walk); the multiplyW
+    // dispatcher (row 49) reaches it as a.Multiply(b,c).
+    fun multiply(b: MpsGlobalNode, c: MpsGlobalNode) {
+        globalMultiplyD(this, b, c)
+    }
 
     fun termCorrelate(b: MpsGlobalNode) {
         throw NotImplementedError(

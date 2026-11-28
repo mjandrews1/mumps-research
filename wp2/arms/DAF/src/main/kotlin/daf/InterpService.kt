@@ -99,19 +99,129 @@ fun scanSvDaf(svPtrX: DafMsv): String =
 // libmpscpp.cpp char* twin (claim fix disclosed in the render
 // KDoc).
 
-// Wrapper rows not drawn on this arm (MMULTIPLY x3-form, MAX);
 // idfW RELEASED at unit 223 (B8): the real body landed at Idf.kt
 // under this same name and signature; the stub is deleted and the
 // dispatcher call site below resolves unchanged (the levCheck
 // delegate precedent).
-fun multiplyW(svptr: DafMsv, ep: CharArray, arg1: CharArray, arg2: CharArray,
-        arg3: CharArray): String =
-    throw NotImplementedError(
-        "Multiply (SV-bound wrapper): out-of-scope owner (libmpscpp.cpp::Multiply x3 wrapper; kin of the landed unit-141/201 bodies; roster row of a later cycle)")
+//
+// multiplyW RELEASED (R1 stub-completion 2026-11-28, tranche 5):
+// the real body below is libmpscpp.cpp::Multiply the MSV
+// dispatcher form (vendor :10193, roster row 49 per the units.csv
+// loc-28 metric; the C-020 audit evidence text had rows 49/201
+// swapped - units.csv and the Multiply.kt ledger agree 49 is the
+// dispatcher, 201 the char* twin). Consults (2026-11-28T00:00:00Z,
+// nominal): BASE-log row 54 hit-reuse (the global a/b/c ctor
+// carriers bypass the caret - the cstringAt(,1) fold of the
+// unit-99 Min wrapper); row 15 hit-reuse (the coded-1 subscript
+// scan); the sigint(100) relay resolves to sigintDaf (the
+// unit-211 seat). Vendor quirks kept verbatim, disclosed: (1) the
+// Arg-2 and Arg-3 top-level tests read arg2[i]/arg3[i] - the
+// ARG-1 break index i, NOT the j/k the scans just found (the
+// vendor typo; a deep arg2 keeps scanning i from the arg1 break,
+// kept); (2) the printf messages carry the vendor newlines; (3)
+// the dispatcher returns the static "" (the call site strmoves
+// it into tmp3); (4) the commented-out
+// a(&arg1[i+1]).Multiply(...) line stays comment-only (the
+// row-46 discipline), the live call is a.Multiply(b,c).
+//
+// maxW RELEASED (R1 stub-completion 2026-11-28, tranche 5): the
+// real body below is libmpscpp.cpp::Max the free SV-bound
+// wrapper (vendor :10167, roster row 89): the unit-99 Min
+// wrapper body with the Max member fold - the coded-1 pair trim,
+// the coded-1 subscript scan, the caret-bypass ctor, the
+// a(""/sub).Max() reach through the node seats, the %g return
+// (DafCRuntime.fmtG, row 26). Consults: the Min.kt unit-99
+// consult set verbatim; the Max member resolves to globalMaxD
+// (the landed unit-171 render) through the new max() node seat.
 
-fun maxW(svptr: DafMsv, ep: CharArray, arg1: CharArray): String =
-    throw NotImplementedError(
-        "Max (SV-bound wrapper): out-of-scope owner (libmpscpp.cpp Max wrapper; kin of the landed GlobalMax node member; roster row of a later cycle)")
+fun multiplyW(svptr: DafMsv, ep: CharArray, arg1: CharArray, arg2: CharArray,
+        arg3: CharArray): String {
+
+    // for (i=0; arg1[i]!=0; i++) if (arg1[i]==1) break;
+    var i = 0
+    while (arg1[i] != NUL_D) {
+        if (arg1[i] == Char(1)) break
+        i++
+    }
+
+    if (arg1[i] == Char(1)) {
+        print("\n*** Arg 1 must be top level global\n")
+        sigintDaf(100)
+    }
+
+    arg1[i] = NUL_D
+    val a = MpsGlobalNode(DafCRuntime.cstringAt(arg1, 1)) // bypass ^
+
+    var j = 0
+    while (arg2[j] != NUL_D) {
+        if (arg2[j] == Char(1)) break
+        j++
+    }
+
+    // if (arg2[i] == 1) - the VENDOR TYPO: tests the arg-1 break
+    // index i, not j; kept verbatim
+    if (arg2[i] == Char(1)) {
+        print("\n*** Arg 2 must be top level global\n")
+        sigintDaf(100)
+    }
+
+    arg2[j] = NUL_D
+    val b = MpsGlobalNode(DafCRuntime.cstringAt(arg2, 1)) // bypass ^
+
+    var k = 0
+    while (arg3[k] != NUL_D) {
+        if (arg3[k] == Char(1)) break
+        k++
+    }
+
+    // if (arg3[i] == 1) - the VENDOR TYPO: tests the arg-1 break
+    // index i, not k; kept verbatim
+    if (arg3[i] == Char(1)) {
+        print("\n*** Arg 3 must be top level global\n")
+        sigintDaf(100)
+    }
+
+    arg3[k] = NUL_D
+    val c = MpsGlobalNode(DafCRuntime.cstringAt(arg3, 1)) // bypass ^
+
+    // a(&arg1[i+1]).Multiply(b(&arg2[j+1]),c(&arg3[k+1])); - the
+    // commented-out vendor line stays comment-only
+    a.multiply(b, c) // a.Multiply(b,c);
+
+    return "" // return (char *) "";
+}
+
+fun maxW(svptr: DafMsv, ep: CharArray, arg1: CharArray): String {
+
+    var i = DafCRuntime.cstring(arg1).length // i = strlen(arg1);
+
+    // if (i>0 && arg1[i-1]==1 && arg1[i-2]==1) arg1[i-2]=0;
+    if (i > 0 && arg1[i - 1] == Char(1) && arg1[i - 2] == Char(1)) {
+        arg1[i - 2] = NUL_D
+    }
+
+    // for (i=0; arg1[i]!=0; i++) if (arg1[i]==1) break;
+    i = 0
+    while (arg1[i] != NUL_D) {
+        if (arg1[i] == Char(1)) break
+        i++
+    }
+
+    val j = arg1[i] // j = arg1[i];
+    arg1[i] = NUL_D
+
+    val a = MpsGlobalNode(DafCRuntime.cstringAt(arg1, 1)) // bypass ^
+
+    // if (!j) x = a("").Max(); else x=a(&arg1[i+1]).Max();
+    val x = if (j == NUL_D) {
+        a("").max()
+    } else {
+        a(DafCRuntime.cstringAt(arg1, i + 1)).max()
+    }
+
+    // sprintf(tmp,"%g",x); return tmp;
+    return DafCRuntime.fmtG(x)
+}
 
 fun serviceInterfaceD(tmp0: CharArray, tmp1: CharArray, tmp4: CharArray?,
         tmp5: CharArray?, tmp3: CharArray, tok: Char, svPtrX: DafMsv) {

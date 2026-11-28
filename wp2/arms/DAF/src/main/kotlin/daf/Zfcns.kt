@@ -54,7 +54,8 @@ package daf
 // and the mps decimal family not drawn by DAF batches
 // (mpsFloorD/mpsCeilD/mpsTruncD roster b9/b10 rows;
 // mpsLogD/mpsCosD/mpsTanD/mpsExp2D b9 rows; mpsExpD/mpsExp10D/
-// mpsSqrtD/mpsAcosD/mpsAtanD of the DOC-rendered kin rows).
+// mpsSqrtD/mpsAcosD/mpsAtanD RELEASED kin rows - MpsExp10.kt/
+// MpsSqrt.kt/MpsAcos.kt/MpsAtan.kt).
 // Gate delegations - sqlDaf (DafInterpStubsT3:160), wstemD
 // (LibmpscppMisc5:187, the batch-10 owner stub stays), symRetDaf
 // (DafInterpStubsT3:115), stopLookupD, sigintDaf, stopInitD,
@@ -2292,7 +2293,8 @@ fun gtkSwitchGetActiveD(t: String?): Boolean =
 // holds these UNRESOLVED until their batches draw them):
 // mps_floor/ceil/trunc (interp-arith.cpp, roster b9/b10 rows),
 // mps_log/cos/tan/exp2 (roster b9 rows), mps_exp/exp10/sqrt/acos/
-// atan (the DOC-rendered kin rows, not in the DAF draw).
+// atan RELEASED (MpsExp10/MpsSqrt/MpsAcos/MpsAtan renders; the
+// mps_exp row stays raised).
 fun mpsFloorD(bd: CharArray, in_: String): Unit =
     throw NotImplementedError("mps_floor: out-of-scope owner (interp-arith.cpp::mps_floor, roster b9)")
 fun mpsCeilD(bd: CharArray, in_: String): Unit =
@@ -2318,8 +2320,10 @@ fun mpsExpD(bd: CharArray, in_: String): Unit =
 // mpsAcosD stub RELEASED (C-019 R1): real body at MpsAcos.kt
 // (roster row 23; the ZACOSINE call site here resolves via the
 // String fold; release note there).
-fun mpsAtanD(bd: CharArray, in_: CharArray): Unit =
-    throw NotImplementedError("mps_atan: out-of-scope owner (interp-arith.cpp::mps_atan, kin row)")
+// mpsAtanD stub RELEASED (R1 stub-completion 2026-11-28, tranche
+// 5): real body at MpsAtan.kt (roster row 86; the ZATAN call
+// sites here and in ZfcnBifs.kt resolve there unchanged through
+// the (bd, in_) write-back carrier; release note there).
 
 // ----------------------------------------------------------------------
 // private carriers of this file (H-017 rule: the private top-level

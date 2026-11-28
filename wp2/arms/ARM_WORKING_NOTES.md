@@ -12097,3 +12097,25 @@ out the 120 s default); the tranche was re-applied server-side
 and re-gated clean; the six released files are md5-identical
 between the server tree and the Mac tree.
 
+2026-11-28 R1 tranche 5 (rows 42/49/51/86/89; 201 closed by
+the existing ride-along). The Multiply three-body family
+closes: the member (42) and the MSV dispatcher (49) render
+this tranche; the char* twin (201) rides multiplyD per the
+carrier-twin precedent ledgered when 141 landed. The C-020
+audit evidence text had 49/201 swapped - units.csv metrics
+and the Multiply.kt ledger are the authority (49 loc 28 =
+dispatcher :10193; 201 loc 26 = char* :2252); KDoc discloses,
+claim-based C-021 audits by id. globalMinD is the line-clone
+of the landed globalMaxD walk (row 103 skeleton; the Sum/Max
+family discipline). mpsAtanD keeps the original Unit
+write-back signature, unlike the MpsSqrt T1 String fold - the
+ZATAN call sites stay untouched. Vendor typos kept verbatim
+and disclosed: the multiplyW Arg-2/Arg-3 top-level tests read
+arg2[i]/arg3[i] - the ARG-1 break index, not the j/k the scans
+found. Smoke: the min/max empty-subtree walk over a bare jar
+hits the uninitialized-backend 100 termination (shared with
+the landed sibling; environment, not the render). All seven
+released/modified files byte-identical between the server
+tree and the Mac tree (wc -c verified; the Mac shell has no
+md5, grep-marker counts matched).
+

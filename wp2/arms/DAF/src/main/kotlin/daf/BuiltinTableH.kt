@@ -7,7 +7,8 @@ package daf
 // verified this session from the pristine tarball; the trailing ""
 // terminator is kept verbatim). The roster names the wrappers of the
 // SV-bound dispatcher family: Cosine/Avg/Count/Max/Min/Multiply/Sum/
-// Transpose/IDF are the wrapper rows (multiplyW/idfW/maxW and the
+// Transpose/IDF are the wrapper rows (the RELEASED multiplyW/
+// idfW/maxW seats - R1 tranche 5 landed multiplyW/maxW - and the
 // landed CosineW/SumW/Count/Min/AvgD/Transpose seats), Scan/
 // ScanAlnum/Input are the scan-seats family (scanSvD/scanAlnumSvD/
 // inputSvD), TermCorrelate/DocCorrelate/Sim1/Dice/Jaccard/Centroid
