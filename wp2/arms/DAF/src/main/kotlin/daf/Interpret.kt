@@ -790,7 +790,11 @@ fun InterpretDaf(parm1: String, svPtr: DafMsv): Int {
                     svPtr.tpx = directReadDaf(svPtr.io, iChI)
                     copyAtSI(svPtr.pd1, svPtr.sdlim, (iChI[0].code).toString())
                 } else {
-                    val gAreaI = CharArray(STR_MAX_DAF) // &pd1[sdlim] scratch (H-012 note)
+                    // &pd1[sdlim] scratch (H-012 note); +1 slot: the
+                    // vendor writes area[STR_MAX] (one past the cap
+                    // index) at the restricted-length exit - the H-
+                    // quantization of the released Getstr2.kt seat
+                    val gAreaI = CharArray(STR_MAX_DAF + 1)
                     svPtr.tpx = getstr2Daf(i.toShort(), gAreaI, svPtr)
                     if (svPtr.tpx >= 0) svPtr.tpx = 1 else svPtr.tpx = 0
                     copyAtI(svPtr.pd1, svPtr.sdlim, gAreaI) // copy-back
@@ -2906,8 +2910,7 @@ fun prnterrDaf(ernbr: Int, svPtr: DafMsv, pd1cur: Int): Unit =
 // (interp-sysfunc.cpp::DirectRead, roster b1 row 9; same name and
 // signature; the call sites above resolve there).
 
-// int getstr2(short, char *, struct MSV *); owner (per the DOC
-// Getstr2.kt render) not drawn by the DAF arm.
-fun getstr2Daf(lun: Short, area: CharArray, svPtr: DafMsv): Int =
-    throw NotImplementedError(
-        "getstr2: out-of-scope owner (interp-sysfunc.cpp::getstr2 kin; not drawn by DAF)")
+// int getstr2(short, char *, struct MSV *); SEAT RELEASED (R1
+// stub-completion 2026-11-27, tranche 4): the real body lands at
+// Getstr2.kt (interp-parse.cpp::getstr2, roster row 47; same
+// name and signature; the call sites above resolve there).

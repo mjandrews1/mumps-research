@@ -71,7 +71,8 @@ package daf
 //                        b1 row 12); the String? return replaces the
 //                        Unit stub (the "atmp" write-back fold); the
 //                        SetCode.kt call sites resolve there
-//   globalArrayDaf     <- compiler-globalarray.c::GlobalArray (b2)
+//   globalArrayDaf     <- compiler-globalarray.c::GlobalArray (b2);
+//                        SEAT RELEASED (R1 tranche 4): GlobalArray.kt
 // Non-roster permanent stubs (interpreter/library TU helpers):
 //   errorMessageDaf    <- interp misc diagnostic (prototyped by the
 //                         sysfunc.h residue unit 107)
@@ -220,12 +221,11 @@ fun extract2Daf(s: String): String =
 // localArrayDaf SEAT RELEASED (R1 stub-completion 2026-11-27,
 // tranche 3): the real body lands at LocalArray.kt with the
 // String? return fold (the caller writes "atmp" back into vd);
-// globalArrayDaf stays raised.
+// globalArrayDaf SEAT RELEASED (R1 stub-completion 2026-11-27,
+// tranche 4): the real body lands at GlobalArray.kt with the
+// same String? fold (the caller writes the tmp handle back
+// into vd); SetCode call sites resolve there.
 class IntCellD(var v: Int)
-
-fun globalArrayDaf(v1d: CharArray, flag: IntCellD, vd: String): Unit =
-    throw NotImplementedError(
-        "GlobalArray: out-of-scope owner (compiler-globalarray.c::GlobalArray, roster b2)")
 
 fun errorMessageDaf(msg: String, line: Int): Unit =
     throw NotImplementedError(

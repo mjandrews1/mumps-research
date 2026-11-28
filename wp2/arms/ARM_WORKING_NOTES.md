@@ -12076,3 +12076,24 @@ Mac tree, and the server copy keeps master state so the gate
 stays honest). R1 progress: 13 of 32 rows complete (23, 55, 84,
 90, 26, 77, 16, 6, 5, 9, 10, 11, 12); 19 rows remain.
 
+2026-11-27 R1 tranche 4 (rows 43/47/50). GlobalArray render:
+the String? handle fold mirrors the LocalArray tranche-3
+precedent; the #G#/#S# relay through the raised extract2Daf
+seat is the established Expand-family pattern. getstr2 render:
+distinct twin of the 234 getstr1 seat (svPtr in_file table
+domain vs the compiler popn/opnfile table); the +1 slot at the
+call-site scratch is the H-quantization for the vendor
+area[STR_MAX] write (the 234 sibling used the carrier-guard
+variant; this seat keeps the exact write). prnt render: first
+DAF seat of the unit (C-018 had misattributed its evidence to
+the prnterrDaf stub - the prnt/prnterr substring pathology;
+claim-based re-verification had already demoted the row, this
+render closes it); smoke note: an inconsistent traceback matrix
+spins in BOTH the vendor loop and the render (no bounds guard
+beyond the 0/EMPTY_CELL tests) - kept verbatim, KDoc discloses.
+Sandbox session note: one environment reset mid-tranche (the
+first smoke jar hung on an inconsistent smoke matrix and timed
+out the 120 s default); the tranche was re-applied server-side
+and re-gated clean; the six released files are md5-identical
+between the server tree and the Mac tree.
+

@@ -27,8 +27,11 @@ package daf
 // Seats: setCodeDaf IS this render (the lock_code delegate seat of
 // unit 116 resolves here); atTestDaf (T2 unit-109 render: the
 // &pd1Last out-param folds onto the C.pd1Last value copy - ledgered
-// value fold); atCopyDaf/parseDaf/localArrayDaf/globalArrayDaf/
-// extract2Daf/extract1Daf/cvarDaf/memcheckDaf (named-owner stubs).
+// value fold); atCopyDaf (named-owner stub); parseDaf/
+// localArrayDaf/globalArrayDaf (R1 released seats, LocalArray.kt/
+// GlobalArray.kt - the String? vd write-back folds above);
+// extract2Daf (raised roster-b1 relay)/extract1Daf/cvarDaf/
+// memcheckDaf.
 // Dafny: EXEMPT (emitter; journal row).
 
 fun setCodeDaf(entryPt: Int): Int {
@@ -121,10 +124,19 @@ fun setCodeDaf(entryPt: Int): Int {
                 }
             }
 
-            // GlobalArray(v1d, &GBL_flg, vd)
+            // GlobalArray(v1d, &GBL_flg, vd): the &GBL_flg write-back
+            // rides the IntCellD carrier (row 30 pointer fold); the
+            // vd "tmp<iiitmp>" write-back rides the String? return
+            // (the sprintf(vd,"tmp%d",iiitmp) fold of the released
+            // seat)
             val gblFlgCell = IntCellD(C.GBL_flg)
-            globalArrayDaf(C.v1d, gblFlgCell, DafCRuntime.cstring(C.vd))
+            val rGA = globalArrayDaf(C.v1d, gblFlgCell)
             C.GBL_flg = gblFlgCell.v
+            if (rGA != null) { // sprintf(vd, "tmp%d", iiitmp) write-back
+                var w = 0
+                while (w < rGA.length) { C.vd[w] = rGA[w]; w++ }
+                C.vd[w] = NUL_D
+            }
 
             if (C.retz == CMD_KILL_D) return 0  // goto kill_return
             if (C.retz == CMD_NEW_D) return 0   // goto new_return
@@ -179,8 +191,13 @@ fun setCodeDaf(entryPt: Int): Int {
                 C.vd[w] = NUL_D
             }
             val gblFlgCell2 = IntCellD(C.GBL_flg)
-            globalArrayDaf(C.v1d, gblFlgCell2, DafCRuntime.cstring(C.vd))
+            val rGA2 = globalArrayDaf(C.v1d, gblFlgCell2)
             C.GBL_flg = gblFlgCell2.v
+            if (rGA2 != null) { // sprintf(vd, "tmp%d", iiitmp) write-back
+                var w = 0
+                while (w < rGA2.length) { C.vd[w] = rGA2[w]; w++ }
+                C.vd[w] = NUL_D
+            }
 
             // if (strcmp(vd,"atmp")==0) sprintf(lhs[0], "tmp%d", MergeTmp)
             if (DafCRuntime.cstring(C.vd) == "atmp") {
