@@ -90,9 +90,14 @@ fun scanSvDaf(svPtrX: DafMsv): String =
     throw NotImplementedError(
         "Scan (SV-bound wrapper): out-of-scope owner (interp-parse.cpp::Scan; roster row of a later cycle)")
 
-fun inputSvDaf(svPtrX: DafMsv, ep: CharSequence, name: CharArray): String =
-    throw NotImplementedError(
-        "Input (SV-bound wrapper): out-of-scope owner (interp-io.cpp::Input; roster row of a later cycle)")
+// fun inputSvDaf (SV-bound wrapper) SEAT RELEASED (R1
+// stub-completion 2026-11-27, tranche 3): the real body lands at
+// Input.kt (libmpscpp.cpp::Input, roster row 10; same name and
+// signature; the dispatcher call site below resolves there). The
+// raised stub mis-claimed interp-io.cpp::Input - no interp-io.cpp
+// exists in the vendor tree; the roster unit is the
+// libmpscpp.cpp char* twin (claim fix disclosed in the render
+// KDoc).
 
 // Wrapper rows not drawn on this arm (MMULTIPLY x3-form, MAX);
 // idfW RELEASED at unit 223 (B8): the real body landed at Idf.kt

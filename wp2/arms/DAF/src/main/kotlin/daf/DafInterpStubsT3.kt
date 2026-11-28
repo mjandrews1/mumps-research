@@ -52,7 +52,12 @@ package daf
 //                        as qlengthDaf in Qlength.kt at B5 T3; stub
 //                        deleted, signature kept)
 //   evalDaf            <- interp-sym.cpp::Eval (b9)
-//   mpsJustifyDaf      <- interp-arith.cpp::mps_justify (b3)
+//   mpsJustifyDaf      <- RELEASED (R1 stub-completion 2026-11-27,
+//                        tranche 1): the real body lands at
+//                        MpsJustify.kt (interp-arith.cpp::
+//                        mps_justify, roster b3 row 84; String
+//                        return replaces the CharArray-out carrier;
+//                        the Fcn.kt call site resolves there)
 //   sqlDaf             <- interp-sql.cpp::sql (b9, op session seat;
 //                        the rdbms-if.c::sql b5 co-owner was RELEASED
 //                        by the unit-153 sqlRdbmsDaf render at B5 T3)
@@ -60,7 +65,12 @@ package daf
 //   extract1Daf        <- RELEASED at unit 243 (B8): compiler-parse.c::
 //                         Extract1 was a residual cell of the <misc>
 //                         chunk; real body at CompilerParseMisc.kt
-//   localArrayDaf      <- compiler-localarray.c::LocalArray (b1)
+//   localArrayDaf      <- RELEASED (R1 stub-completion 2026-11-27):
+//                        the real body lands at LocalArray.kt
+//                        (compiler-localarray.c::LocalArray, roster
+//                        b1 row 12); the String? return replaces the
+//                        Unit stub (the "atmp" write-back fold); the
+//                        SetCode.kt call sites resolve there
 //   globalArrayDaf     <- compiler-globalarray.c::GlobalArray (b2)
 // Non-roster permanent stubs (interpreter/library TU helpers):
 //   errorMessageDaf    <- interp misc diagnostic (prototyped by the
@@ -182,9 +192,11 @@ fun qsubDaf(name: CharArray, res: CharArray, sub: CharArray, sv: DafMsv): Unit =
 // InterpSymEval.kt; release note there; the Fcn/Misc6/Misc7 Eval
 // call sites resolve unchanged).
 
-fun mpsJustifyDaf(fmt: String, res: CharArray, valS: CharArray): Unit =
-    throw NotImplementedError(
-        "mps_justify: out-of-scope owner (interp-arith.cpp::mps_justify, roster b3)")
+// mpsJustifyDaf stub RELEASED (R1 stub-completion 2026-11-27,
+// tranche 1): the real body lands at MpsJustify.kt
+// (interp-arith.cpp::mps_justify, roster b3 row 84) under the
+// same name with the String return carrier; the stub is deleted
+// and the Fcn.kt call site resolves there.
 
 // sqlDaf (String-tail T3 seat) stub RELEASED batch 9 unit 271:
 // real body at InterpSqlSql.kt (roster row 271; both overloads,
@@ -205,11 +217,11 @@ fun extract2Daf(s: String): String =
 // the &flag out-param carrier (row 30 pointer fold): LocalArray/
 // GlobalArray write Set_flg/GBL_flg through the C pointer; the render
 // passes the cell and reads it back after the seat call.
+// localArrayDaf SEAT RELEASED (R1 stub-completion 2026-11-27,
+// tranche 3): the real body lands at LocalArray.kt with the
+// String? return fold (the caller writes "atmp" back into vd);
+// globalArrayDaf stays raised.
 class IntCellD(var v: Int)
-
-fun localArrayDaf(vd: String, flag: IntCellD): Unit =
-    throw NotImplementedError(
-        "LocalArray: out-of-scope owner (compiler-localarray.c::LocalArray, roster b1)")
 
 fun globalArrayDaf(v1d: CharArray, flag: IntCellD, vd: String): Unit =
     throw NotImplementedError(

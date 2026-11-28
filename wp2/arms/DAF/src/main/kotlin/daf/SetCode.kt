@@ -103,10 +103,17 @@ fun setCodeDaf(entryPt: Int): Int {
             copySliceDaf(C.vd, C.v1d, 1) // strcpy(vd, &v1d[1])
 
             // LocalArray(vd, &Set_flg): the &Set_flg write-back rides
-            // the IntCellD carrier (row 30 pointer fold)
+            // the IntCellD carrier (row 30 pointer fold); the vd
+            // "atmp" write-back rides the String? return (the
+            // strcpy(vd,"atmp") fold of the released seat)
             val setFlgCell = IntCellD(C.Set_flg)
-            localArrayDaf(DafCRuntime.cstring(C.vd), setFlgCell)
+            val rLA = localArrayDaf(DafCRuntime.cstring(C.vd), setFlgCell)
             C.Set_flg = setFlgCell.v
+            if (rLA != null) { // strcpy(vd, "atmp") write-back
+                var w = 0
+                while (w < rLA.length) { C.vd[w] = rLA[w]; w++ }
+                C.vd[w] = NUL_D
+            }
 
             if (C.v1d[1] == '^') {
                 if (C.retz == CMD_NEW1_D || C.retz == CMD_NEW_D) {
@@ -164,8 +171,13 @@ fun setCodeDaf(entryPt: Int): Int {
         if (C.MergeFlg != 0) {
             copySliceDaf(C.vd, C.v1d, 1) // strcpy(vd, &v1d[1])
             val setFlgCell2 = IntCellD(C.Set_flg)
-            localArrayDaf(DafCRuntime.cstring(C.vd), setFlgCell2)
+            val rLA2 = localArrayDaf(DafCRuntime.cstring(C.vd), setFlgCell2)
             C.Set_flg = setFlgCell2.v
+            if (rLA2 != null) { // strcpy(vd, "atmp") write-back
+                var w = 0
+                while (w < rLA2.length) { C.vd[w] = rLA2[w]; w++ }
+                C.vd[w] = NUL_D
+            }
             val gblFlgCell2 = IntCellD(C.GBL_flg)
             globalArrayDaf(C.v1d, gblFlgCell2, DafCRuntime.cstring(C.vd))
             C.GBL_flg = gblFlgCell2.v

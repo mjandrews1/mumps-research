@@ -55,20 +55,11 @@ val CHAR_CLASSES_D = arrayOf(
     "[:lower:]", "[:digit:]", "[:punct:]", "[:upper:]"
 )
 
-// struct bstring new_bstring(const char*) - owner interp-bstring.cpp::<misc>
-// (roster unit 22).
-fun newBstringD(s: String): DafBstring =
-    throw NotImplementedError(
-        "new_bstring: out-of-scope owner (interp-bstring.cpp::<misc>, roster unit 22)")
-
-// struct bstring bstrcat(struct bstring, struct bstring) - same owner.
-fun bstrcatD(a: DafBstring, b: DafBstring): DafBstring =
-    throw NotImplementedError(
-        "bstrcat: out-of-scope owner (interp-bstring.cpp::<misc>, roster unit 22)")
-
-// void bcatchr(struct bstring*, char) - same owner.
-fun bcatchrD(a: DafBstring, ch: Char): Unit =
-    throw NotImplementedError(
-        "bcatchr: out-of-scope owner (interp-bstring.cpp::<misc>, roster unit 22)")
+// struct bstring new_bstring(const char*) / bstrcat / bcatchr -
+// SEATS RELEASED (R1 stub-completion 2026-11-27, tranche 3): the
+// real bodies land at BstringOps.kt (interp-bstring.cpp::<misc>,
+// roster unit 22 / ledger row 11; same names and signatures; the
+// LeaningToothpickize.kt and ParseCount.kt call sites resolve
+// there).
 
 

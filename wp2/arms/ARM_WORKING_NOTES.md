@@ -12035,3 +12035,44 @@ Mps files, disjoint from this tranche's CompilerParseC edits, so
 the combined tree carries no interaction. R1 progress: 8 of 32
 rows complete (23, 55, 84, 90, 26, 77, 16, 6); 24 rows remain.
 
+R1 tranche 3 (2026-11-27, C-020 erratum session): five more DAF
+stub-completions rendered, compile-gated clean. Rows 5 (_SymFree,
+SymFree.kt: the real DafSymChains.start[] chain walk, the exec/
+OrigName store-by-ref relay through symRetDaf, the _Sym pop with
+the underflow printf + sigint), 9 (DirectRead, DirectRead.kt: the
+reader-backed single-char READ; H-001 quantizations disclosed -
+fstat folds onto the reader-null test, the console trichotomy
+onto the System.in terminal arm, stty onto the sttyDaf platform
+seat), 10 (Input, Input.kt: the libmpscpp.cpp word-reader; CLAIM
+FIX - the raised stub mis-cited interp-io.cpp::Input, no such TU
+exists; the roster owns the libmpscpp.cpp char* twin), 11 (the
+bstring builders new_bstring/bstrcat/bcatchr, BstringOps.kt: the
+checked_strlen/bstrcat/bcatchr STR_MAX aborts, checked_strlen
+folded), and 12 (LocalArray, LocalArray.kt: the 206/207/208 coded
+expansion emissions verbatim; SIGNATURE FOLD - the Unit stub
+became String? because vendor strcpy(vd,"atmp") writes back and
+the SetCode.kt Merge arm READS vd for "atmp"; both SetCode call
+sites now write the returned value into C.vd, fixing a previously
+dead atmp comparison). Smoke-verified: chain pop and store-by-
+ref, reader-backed DirectRead both chars, Input returning 2 with
+the punct filter (w'o'rld-2 -> world-2, comma dropped, hyphen
+kept), bstring cat/catchr shapes, LocalArray emission byte-exact
+against the vendor fprintf lines (the one-tab strcat and the
+strlen((const char *) variant kept). Input smoke found and fixed
+a real bug: a per-line BufferedReader wrapper swallowed the
+stream and EOFed the reread loop; the seat now wraps the reader
+once. Stubs deleted with release notes in Interpret.kt
+(symFreeDaf, directReadDaf), InterpService.kt (inputSvDaf),
+RpmParserStubsD.kt (newBstringD/bstrcatD/bcatchrD) and
+DafInterpStubsT3.kt (localArrayDaf). Gate: kotlinc 2.1.20 +
+corretto JDK17, whole-arm directory compile, zero errors. NOTE:
+the sandbox was wiped twice more this session; the server gate
+tree is master + tranche 3 (the unpushed tranche-1 Mps files live
+only on the Mac tree; tranche-1 overlaps this tranche solely in
+DafInterpStubsT3.kt, where an intermediate mirror had
+momentarily restored the master mpsJustifyDaf stub - caught
+before commit, the tranche-1 release note is preserved on the
+Mac tree, and the server copy keeps master state so the gate
+stays honest). R1 progress: 13 of 32 rows complete (23, 55, 84,
+90, 26, 77, 16, 6, 5, 9, 10, 11, 12); 19 rows remain.
+

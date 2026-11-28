@@ -2758,12 +2758,10 @@ private fun symSeatI(opcode: Int, name: CharArray, rslt: CharArray,
 // interp-parse.cpp::inout; the raise is deleted with this release
 // note; the three machine call sites above stay verbatim).
 
-// int _SymFree(int, struct MSV *); owner interp-sym.cpp::_SymFree,
-// units.csv roster b1 row 28 (not drawn by the DAF arm; the DOC arm
-// renders it as unit 28).
-fun symFreeDaf(i: Int, svPtr: DafMsv): Int =
-    throw NotImplementedError(
-        "_SymFree: out-of-scope owner (interp-sym.cpp::_SymFree, roster b1 row 28)")
+// int _SymFree(int, struct MSV *); SEAT RELEASED (R1
+// stub-completion 2026-11-27, tranche 3): the real body lands at
+// SymFree.kt (interp-sym.cpp::_SymFree, roster b1 row 5; same
+// name and signature; the two call sites above resolve there).
 
 // int Merge(unsigned char *, unsigned char *, struct MSV *);
 // owner interp-sysfunc.cpp::Merge, units.csv roster b8 row 226
@@ -2903,12 +2901,10 @@ fun prnterrDaf(ernbr: Int, svPtr: DafMsv, pd1cur: Int): Unit =
     throw NotImplementedError(
         "prnterr: out-of-scope owner (interpreter parse-error printer, no corpus unit)")
 
-// int DirectRead(int, char *); owner interp-sysfunc.cpp::DirectRead,
-// units.csv roster b1 row 24 (not drawn by the DAF arm; the DOC arm
-// renders it as unit 24).
-fun directReadDaf(in_: Int, to: CharArray): Int =
-    throw NotImplementedError(
-        "DirectRead: out-of-scope owner (interp-sysfunc.cpp::DirectRead, roster b1 row 24)")
+// int DirectRead(int, char *); SEAT RELEASED (R1 stub-completion
+// 2026-11-27, tranche 3): the real body lands at DirectRead.kt
+// (interp-sysfunc.cpp::DirectRead, roster b1 row 9; same name and
+// signature; the call sites above resolve there).
 
 // int getstr2(short, char *, struct MSV *); owner (per the DOC
 // Getstr2.kt render) not drawn by the DAF arm.
