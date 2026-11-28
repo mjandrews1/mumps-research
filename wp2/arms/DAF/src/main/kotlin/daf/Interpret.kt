@@ -2897,13 +2897,11 @@ private const val CodedComma = 208 // Carriers.kt CodedComma
 
 // ---- raises of this render ----
 
-// void prnterr(int, struct MSV *, int); interpreter parse-error
-// printer (the InterpHMisc unit-14 ledger names it: an interpreter
-// service with no corpus unit; the seat raises at the unit-185
-// session when called - this file).
-fun prnterrDaf(ernbr: Int, svPtr: DafMsv, pd1cur: Int): Unit =
-    throw NotImplementedError(
-        "prnterr: out-of-scope owner (interpreter parse-error printer, no corpus unit)")
+// void prnterr(int, struct MSV *, int); SEAT RELEASED (R1
+// stub-completion 2026-11-28, tranche 6): the real body lands at
+// Prnterr.kt (interp-parse.cpp::prnterr, roster row 37 - the
+// C-020 erratum added it to the R1 close; same name and
+// signature; the fifteen call sites above resolve there).
 
 // int DirectRead(int, char *); SEAT RELEASED (R1 stub-completion
 // 2026-11-27, tranche 3): the real body lands at DirectRead.kt

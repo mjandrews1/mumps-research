@@ -62,9 +62,10 @@ const val UNSPECIFIED_D = 0 // libmpscpp.h:69
 
 // ---- named-owner stub seats (raise; owners ledgered above) ----
 
-fun numcompDaf(aa: String, bb: String): Int =
-    throw NotImplementedError(
-        "numcomp: out-of-scope owner (interp-arith.cpp::numcomp at 980; not a roster cell)")
+// numcompDaf stub RELEASED (R1 stub-completion 2026-11-28,
+// tranche 6): real body at Numcomp.kt (roster row 13; the
+// Interpret.kt FOR call sites, the MpsSqrt negative guard and
+// the MpstimeMain row resolve there).
 
 fun addDaf(a: String, b: String, c: CharArray): Unit =
     throw NotImplementedError(

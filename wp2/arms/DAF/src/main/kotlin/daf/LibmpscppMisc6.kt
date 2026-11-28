@@ -137,12 +137,10 @@ fun hitRatioD(sv: DafMsv): Double {
 
 // ---------------- EncodeHTML mstring cover ---------------------
 
-// mstring EncodeHTML(mstring &str) - the cover of the (char*)
-// body; the body is a corpus row rendered on the DOC arm (DOC
-// unit 5) and not yet drawn on this arm: named stub seat.
-fun encodeHtmlDaf(s: String): String =
-    throw NotImplementedError(
-        "EncodeHTML: out-of-scope owner (libmpscpp.cpp::EncodeHTML(char*); DOC-arm corpus unit 5 kin, not yet drawn on the DAF arm)")
+// mstring EncodeHTML(mstring &str) - the cover; the (char*)
+// body SEAT RELEASED (R1 stub-completion 2026-11-28, tranche 6):
+// real body at EncodeHtml.kt (libmpscpp.cpp::EncodeHTML, roster
+// row 28); mstringEncodeHtmlD below relays there.
 
 fun mstringEncodeHtmlD(data: String): String = encodeHtmlDaf(data)
 

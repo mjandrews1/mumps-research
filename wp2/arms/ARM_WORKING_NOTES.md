@@ -12119,3 +12119,50 @@ released/modified files byte-identical between the server
 tree and the Mac tree (wc -c verified; the Mac shell has no
 md5, grep-marker counts matched).
 
+R1 tranche 6 (C-020 erratum render-close): seven stub-completion rows
+released, all gate-clean (whole-arm kotlinc, 0 errors) and smoke-verified
+server-side before mirroring.
+
+Rows released:
+- Row 22 expandNextDaf(v1d,i0):String? (NEW ExpandNext.kt). ExpandQS/
+  ExpandGet fold. #G# arm emits GlobalOrder plus strlen/-1 guard lines;
+  #S# arm emits LocalNext. Returns null on no match; call site in
+  CompilerParseC.kt now reads the result and putAt-writes it.
+- Row 13 numcompDaf(aa,bb):Int (NEW Numcomp.kt). Float path goes
+  through the RAISED floatstringDaf relay (roster b1) then strtod; else
+  int path via private atollTruncD. numcomp2D is a different function
+  and was NOT touched.
+- Row 27 findDaf(out,inBuf,key,begin) (NEW FindDaf.kt). xindexDaf
+  5-arg InterpStrmanipXindex seat; atoi seat; percent-d out write.
+- Row 28 encodeHtmlDaf(s):String (NEW EncodeHtml.kt). Vendor staging
+  quirks kept VERBATIM and disclosed: a leading special byte yields an
+  empty result and the i=0 arm duplicates the tail (one-byte-off staging
+  in the vendor; smoke confirmed empty result for a leading ?).
+- Row 37 prnterrDaf(i,svPtr,pd1cur) (NEW Prnterr.kt). PS_PRNTERR=32000
+  with pd1.size H-quantization guard; System.err.print verbatim texts;
+  full E1-E37 switch, no case 28, case 12 interpolates svPtr.ErrChar.
+  NOERR sets LineNumber without printing.
+- Rows 3+7 the patrn1 DISTINCT-TWIN pair (NEW Patrn1.kt):
+  patrn1Daf(jpx,ernbr,bp) the compiler-sys1.c form with the m
+  paren-depth counter, cursor out through C.xpx=jpx-1; patrn1SvDaf
+  the interp-parse.cpp svPtr form writing svPtr->xpx and bd[0].
+  Terminator set carried NUL-terminated (a bare toCharArray over-reads,
+  smoke-found). Doubled-quote 210 arm kept via Char(210).
+
+Stubs deleted with release notes: prnterrDaf in Interpret.kt;
+numcompDaf in MpstimeMain.kt; findDaf in GlobalFind.kt; encodeHtmlDaf in
+LibmpscppMisc6.kt; patrn1Daf and expandNextDaf in CompilerParseC.kt
+(call sites updated to the released seats).
+
+Lesson recorded: the vendor patrn1 goto a1281 exits the a1283 quote
+loop INTO the a1281 tail, which APPENDS the closing quote and keeps
+scanning (the quote is not in the terminator set). A Kotlin break@outer
+LEAVES the whole loop instead; an explicit toA1281 fall-through flag
+reproduces the vendor control flow. Smoke before the fix showed
+bd=["ab] xpx=2; after the fix bd=["ab".5U] xpx=6, the 210 arm, the
+paren-depth arm, and ernbr=2 on an unterminated quote all match the
+vendor re-derivation from compiler-sys1.c:743-797.
+
+R1 standing count after this tranche lands: 29 of 32 rows released.
+Remaining: rows 17 (gotamatchD), 34 (swD), 36 (inoutDaf).
+

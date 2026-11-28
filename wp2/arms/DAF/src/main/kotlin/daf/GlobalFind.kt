@@ -25,13 +25,12 @@ package daf
 // Dafny: EXEMPT (stub-relay chain over global-access seats; journal
 // row).
 
-// void _find(unsigned char *out, unsigned char *in,
-//            unsigned char *key, unsigned char *begin) - named-owner
-// stub (owner interp-sym.cpp:1282; the batch-9 roster family; not a
-// batch-6 T1 cell).
-fun findDaf(out: CharArray, inBuf: CharArray, key: CharArray, begin: CharArray): Unit =
-    throw NotImplementedError(
-        "_find: out-of-scope owner (interp-sym.cpp::_find at line 1282; not a batch-6 T1 cell)")
+// void _find(unsigned char *, unsigned char *, unsigned char *,
+//            unsigned char *); SEAT RELEASED (R1 stub-completion
+// 2026-11-28, tranche 6): the real body lands at FindDaf.kt
+// (interp-sym.cpp::_find, roster row 27; same name and
+// signature; the GlobalFind/GlobalFindB7/MstringFind call
+// sites resolve there).
 
 fun globalFindD(n: MpsGlobalNode, key: MpsGlobalNode, st: Int, sv: DafMsv): Int {
 

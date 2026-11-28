@@ -138,13 +138,13 @@ private const val L_FINISH = 13
 
 // ---- raises of this render (named-owner stubs) ----
 
-// int patrn1(int *, int *); owner: the patrn pattern family
-// (compiler-parse prototype roster; no corpus cell rendered in the
-// DAF arm yet). Fold contract: returns ernbr (0 = clean) and the
-// jpx cursor advance is owner-defined until the family lands.
-fun patrn1Daf(jpx: Int, ernbr: Int): Int =
-    throw NotImplementedError(
-        "patrn1: out-of-scope owner (patrn pattern family, no corpus cell rendered)")
+// int patrn1(int *, int *); SEAT RELEASED (R1 stub-completion
+// 2026-11-28, tranche 6): the real body lands at Patrn1.kt
+// (compiler-sys1.c::patrn1, roster row 7 - the compiler TU form
+// with the m paren counter; the interp-parse.cpp svPtr twin is
+// the row-3 seat patrn1SvDaf in the same file). Fold: the bp
+// carrier (bd[1]) joins the signature; the cursor leaves
+// through C.xpx = jpx - 1 inside the seat.
 
 // void fixstr(unsigned char *); SEAT RELEASED (R1 stub-completion
 // 2026-11-27): the real body landed at Fixstr.kt (roster row 26;
@@ -155,9 +155,11 @@ fun patrn1Daf(jpx: Int, ernbr: Int): Int =
 // bodies landed at ExpandQS.kt (row 77) and ExpandGet.kt (row 16)
 // with the ExpandOrder String? fold - the call sites below now do
 // the putAt(bp, 0, r) conditional write.
-fun expandNextDaf(v1d: CharArray, i0: Int, bp: CharArray): Unit =
-    throw NotImplementedError(
-        "ExpandNext: out-of-scope owner (compiler-parse Expand* ladder, no landed seat)")
+// void ExpandNext(unsigned char *, int, unsigned char *);
+// SEAT RELEASED (R1 stub-completion 2026-11-28, tranche 6): the
+// real body lands at ExpandNext.kt (compiler-parse.c::ExpandNext,
+// roster row 22) with the ExpandQS/ExpandGet String? fold - the
+// call site below does the putAt(bp, 0, r) conditional write.
 
 // int MyFunc(char *, int); SEAT RELEASED (R1 stub-completion
 // 2026-11-27): the real body landed at MyFunc.kt (roster row 6;
@@ -525,7 +527,7 @@ fun parseCDaf(C: DafCompilerState, svPtr: DafMsv): Int {
             if (s1p[spx] == NOTPATTERN_P277 || s1p[spx] == PATTERN_P277) {
                 bp[0] = NUL_D    // bd[1] = 0
                 // patrn1 (&jpx, &ernbr) - raised seat
-                ernbr = patrn1Daf(jpx, 0)
+                ernbr = patrn1Daf(jpx, 0, bp) // patrn1 - released seat
                 if (ernbr != 0) return ernbr  // if (ernbr) return (ernbr)
                 label = L_EXEC; continue@walkPC
             }
@@ -1252,7 +1254,8 @@ fun parseCDaf(C: DafCompilerState, svPtr: DafMsv): Int {
                     }
 
                     if (c1 == 'n') { // \u0024next() function
-                        expandNextDaf(C.v1d, ii, bp) // raised seat
+                        val rNEXT = expandNextDaf(C.v1d, ii) // ExpandNext - released seat
+                        if (rNEXT != null) putAt(bp, 0, rNEXT)
                         label = L_FCN_PROC_DONE; break@othPC
                     }
 
